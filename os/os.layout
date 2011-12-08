@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="UACTools.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="4288" topLine="97" />
+	</File>
+	<File name="operational_system/_.h" open="0" top="0" tabpos="5">
+		<Cursor position="101" topLine="0" />
+	</File>
+	<File name="operational_system/bare_operational_system.h" open="0" top="0" tabpos="4">
+		<Cursor position="6258" topLine="285" />
+	</File>
+	<File name="operational_system/ca2.h" open="0" top="0" tabpos="3">
+		<Cursor position="302" topLine="0" />
+	</File>
+	<File name="operational_system/cross/win/base_tsd.h" open="0" top="0" tabpos="0">
+		<Cursor position="6276" topLine="305" />
+	</File>
+	<File name="operational_system/cross/win/win.h" open="0" top="0" tabpos="2">
+		<Cursor position="3421" topLine="157" />
+	</File>
+	<File name="operational_system/cross/win/win_crtdefs.h" open="0" top="0" tabpos="3">
+		<Cursor position="125" topLine="0" />
+	</File>
+	<File name="operational_system/cross/win/win_def.h" open="0" top="0" tabpos="3">
+		<Cursor position="8595" topLine="350" />
+	</File>
+	<File name="operational_system/cross/win/win_errno.h" open="0" top="0" tabpos="4">
+		<Cursor position="13" topLine="0" />
+	</File>
+	<File name="operational_system/cross/win/win_file.h" open="0" top="0" tabpos="1">
+		<Cursor position="164" topLine="0" />
+	</File>
+	<File name="operational_system/cross/win/win_gdi.h" open="0" top="0" tabpos="1">
+		<Cursor position="12881" topLine="478" />
+	</File>
+	<File name="operational_system/cross/win/win_nls.h" open="0" top="0" tabpos="5">
+		<Cursor position="90317" topLine="2583" />
+	</File>
+	<File name="operational_system/cross/win/win_nt.h" open="0" top="0" tabpos="7">
+		<Cursor position="340" topLine="63" />
+	</File>
+	<File name="operational_system/cross/win/win_user.h" open="0" top="0" tabpos="2">
+		<Cursor position="11094" topLine="412" />
+	</File>
+	<File name="operational_system/get_platform.h" open="0" top="0" tabpos="1">
+		<Cursor position="29" topLine="0" />
+	</File>
+	<File name="operational_system/operational_system.h" open="0" top="0" tabpos="1">
+		<Cursor position="4972" topLine="186" />
+	</File>
+	<File name="thread.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="66621" topLine="2226" />
+	</File>
+	<File name="thread.h" open="0" top="0" tabpos="5">
+		<Cursor position="1521" topLine="10" />
+	</File>
+	<File name="win.h" open="0" top="0" tabpos="1">
+		<Cursor position="42" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
