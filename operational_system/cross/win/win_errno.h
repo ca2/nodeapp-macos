@@ -6,7 +6,7 @@
 #define _SECURECRT_ERRCODE_VALUES_DEFINED
 #define EINVAL          22
 #define ERANGE          34
-#define EILSEQ          42
+//#define EILSEQ          42
 #define STRUNCATE       80
 #endif
 #endif
