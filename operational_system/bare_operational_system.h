@@ -324,8 +324,8 @@ void wcslwr(wchar_t * psz);
 void wcsupr(wchar_t * psz);
 
 
-
-
+#ifndef HWND_DEF
+#define HWND_DEF
 typedef class tag_WINDOW
 {
 public:
@@ -338,7 +338,7 @@ public:
 } WINDOW, * LPWINDOW;
 
 typedef LPWINDOW HWND;
-
+#endif
 
 
 #include "cross/win/win.h"
