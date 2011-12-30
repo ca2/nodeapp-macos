@@ -35,7 +35,7 @@ typedef struct win_handle * HANDLE;
 
 
 typedef unsigned int       DWORD;
-typedef int                 BOOL;
+#define BOOL                int
 typedef unsigned char       BYTE;
 typedef unsigned short      WORD;
 typedef float               FLOAT;
