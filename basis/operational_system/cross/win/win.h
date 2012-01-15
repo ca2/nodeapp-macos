@@ -16,6 +16,7 @@ union win_handle_union
 {
     void * m_p;
     FILE * m_pfile;
+   pthread_t m_pthread;
 };
 
 struct win_handle
@@ -24,6 +25,7 @@ struct win_handle
     {
         type_none,
         type_file,
+        type_thread,
     };
     
     enum e_type m_etype;
