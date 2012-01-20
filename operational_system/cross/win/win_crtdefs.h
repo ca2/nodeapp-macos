@@ -1,8 +1,8 @@
 #pragma once
 
 #ifndef _TIME64_T_DEFINED
-//typedef int64_t __time64_t;     /* 64-bit time value */
-#define __time64_t __time_t
+typedef int64_t __time64_t;     /* 64-bit time value */
+//#define __time64_t __time_t
 #define _TIME64_T_DEFINED
 #endif
 

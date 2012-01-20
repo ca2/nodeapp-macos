@@ -21,7 +21,7 @@
 	#define AFX_INLINE inline /*__forceinline*/
 #endif
 
-#include "version_linux.h"
+#include "version_macos.h"
 
 // Include any non-Intel platform specific items
 #ifndef _X86_
@@ -30,7 +30,7 @@
 
 
 #ifdef _ApplicationFrameworkDLL
-	#include "version_dll.h"
+	#include "version_dylib.h"
 #endif
 
 //#undef  AfxDebugBreak
@@ -216,8 +216,11 @@
 
 #include <stddef.h>
 #include <limits.h>
+#ifdef MACOS
+#include <malloc/malloc.h>
+#else
 #include <malloc.h>
-
+#endif
 #undef AfxWndProc
 
 

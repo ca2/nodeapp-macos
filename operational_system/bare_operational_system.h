@@ -75,7 +75,7 @@ typedef union _XEvent XEvent;
 #endif
 
 #ifdef _ApplicationFrameworkDLL
-	#include "version_dll.h"
+	#include "version_dylib.h"
 #endif
 
 inline void AfxDebugBreak() { asm("int 3"); }
