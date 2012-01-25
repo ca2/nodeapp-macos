@@ -1,6 +1,6 @@
 #pragma once
 
-#define LINUX
+#define MACOS
 
 #ifndef _DEBUG
 #define _DEBUG
@@ -11,7 +11,7 @@
 #define _AMD64_
 
 #pragma pointers_to_members( full_generality, virtual_inheritance )
-#include "include/linux_system.h"
+#include "include/macos_system.h"
 #define _ApplicationFrameworkDLL
 
 #include <typeinfo.h>
@@ -28,7 +28,7 @@ typedef std::type_info std_type_info;
 #define _X86_
 
 //#pragma pointers_to_members( full_generality, virtual_inheritance )
-//#include "os/include/linux32_system.h"
+//#include "os/include/macos32_system.h"
 #define _ApplicationFrameworkDLL
 
 #include <typeinfo>
