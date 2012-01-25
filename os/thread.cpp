@@ -2,7 +2,7 @@
 #include <process.h>    // for _beginthreadex and _endthreadex
 #include <ddeml.h>  // for MSGF_DDEMGR
 
-namespace lnx
+namespace macos
 {
    class thread;
 } // namespace lnx
@@ -1112,7 +1112,7 @@ void thread::Delete()
          }
          */
          // send WM_IDLEUPDATECMDUI to all frame windows
-         /* linux AFX_MODULE_THREAD_STATE* pState = _AFX_CMDTARGET_GETSTATE()->m_thread;
+         /* macos AFX_MODULE_THREAD_STATE* pState = _AFX_CMDTARGET_GETSTATE()->m_thread;
          frame_window* pFrameWnd = pState->m_frameList;
          while (pFrameWnd != NULL)
          {
@@ -1796,12 +1796,12 @@ void thread::Delete()
 		}
 
 /**
-* \file		src/lib/pal/src/linux/thread_linux.cpp
-* \brief	Platform independent threads and synchronization objects (linux version)
+* \file		src/lib/pal/src/macos/thread_macos.cpp
+* \brief	Platform independent threads and synchronization objects (macos version)
 * \author	Thomas Nass
 */
 
-#include "internal_linux.hpp"
+#include "internal_macos.hpp"
 
 #include <iostream>
 #include <string>
@@ -2717,7 +2717,7 @@ pMainWnd->SendMessageToDescendants(WM_IDLEUPDATECMDUI,
 (WPARAM)TRUE, 0, TRUE, TRUE);
 }
 // send WM_IDLEUPDATECMDUI to all frame windows
-/* linux AFX_MODULE_THREAD_STATE* pState = _AFX_CMDTARGET_GETSTATE()->m_thread;
+/* macos AFX_MODULE_THREAD_STATE* pState = _AFX_CMDTARGET_GETSTATE()->m_thread;
 frame_window* pFrameWnd = pState->m_frameList;
 while (pFrameWnd != NULL)
 {

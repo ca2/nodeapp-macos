@@ -970,7 +970,7 @@ namespace win
       // finally, run the Windows Help engine
    /* trans   if (!::WinHelp(WIN_WINDOW(pWnd)->get_handle(), pApp->m_pszHelpFilePath, nCmd, dwData))
       {
-         // linux System.simple_message_box(AFX_IDP_FAILED_TO_LAUNCH_HELP);
+         // macos System.simple_message_box(AFX_IDP_FAILED_TO_LAUNCH_HELP);
          System.simple_message_box("Failed to launch help");
       }*/
    }
@@ -998,7 +998,7 @@ namespace win
       // run the HTML Help engine
    /* trans   if (!AfxHtmlHelp(WIN_WINDOW(pWnd)->get_handle(), pApp->m_pszHelpFilePath, nCmd, dwData))
       {
-         // linux System.simple_message_box(AFX_IDP_FAILED_TO_LAUNCH_HELP);
+         // macos System.simple_message_box(AFX_IDP_FAILED_TO_LAUNCH_HELP);
          System.simple_message_box("Failed to launch help");
       }*/
    //}

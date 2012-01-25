@@ -9,8 +9,8 @@
 
 
 /**
-* \file		src/lib/pal/linux/thread_linux.hpp
-* \brief	Platform independent threads and synchronization objects (linux version)
+* \file		src/lib/pal/macos/thread_macos.hpp
+* \brief	Platform independent threads and synchronization objects (macos version)
 * \author	Thomas Nass
 */
 
