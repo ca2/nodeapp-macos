@@ -91,7 +91,7 @@ namespace win
       m_argc = numargs - 1;
 
       int iStart = 1;
-      if(gen::str::ends(gen::international::unicode_to_utf8(m_argv[0]), "ca2app.exe"))
+      if(gen::str::ends(gen::international::unicode_to_utf8(m_argv[0]), "app.exe"))
          iStart++;
 
       bool bTwoDots = false;
