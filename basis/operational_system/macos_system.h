@@ -3,7 +3,7 @@
 
 
 
-#if defined(_M_X64)
+#if defined(__LP64__)
 
     typedef long int INT_PTR, *PINT_PTR;
     typedef unsigned long int UINT_PTR, *PUINT_PTR;
@@ -39,9 +39,9 @@ typedef unsigned int UINT;
 
 
 #if ! defined(lint)
-#define UNREFERENCED_PARAMETER(P)          (P)
-#define DBG_UNREFERENCED_PARAMETER(P)      (P)
-#define DBG_UNREFERENCED_LOCAL_VARIABLE(V) (V)
+#define UNREFERENCED_PARAMETER(P)          
+#define DBG_UNREFERENCED_PARAMETER(P)      
+#define DBG_UNREFERENCED_LOCAL_VARIABLE(V) 
 
 #else // lint
 
