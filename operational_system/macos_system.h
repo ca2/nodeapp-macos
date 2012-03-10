@@ -5,7 +5,7 @@
 
 #if defined(__LP64__)
 
-    typedef long int INT_PTR, *PINT_PTR;
+    typedef long INT_PTR, *PINT_PTR;
     typedef unsigned long int UINT_PTR, *PUINT_PTR;
 
     typedef long long LONG_PTR, *PLONG_PTR;

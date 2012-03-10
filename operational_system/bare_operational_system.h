@@ -294,7 +294,7 @@ void ultoa(unsigned long ul, char * sz, int radix);
 void i64toa(int64_t i, char * sz, int radix);
 void ui64toa(uint64_t i, char * sz, int radix);
 void str_reverse(char * sz);
-void zero_pad(char * sz, int iPad);
+void zero_pad(char * sz, INT_PTR iPad);
 
 void strlwr(char * psz);
 void strupr(char * psz);

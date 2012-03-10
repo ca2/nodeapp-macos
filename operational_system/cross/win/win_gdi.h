@@ -610,3 +610,8 @@ BOOL ReleaseDC(HWND hwnd, HDC hdc);
 
 HDC GetWindowDC(HWND hwnd);
 
+
+HBRUSH CreateSolidBrush(COLORREF color);
+
+
+
