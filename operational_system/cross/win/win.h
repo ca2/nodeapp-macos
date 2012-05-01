@@ -177,6 +177,25 @@ typedef LONG *PLONG;
 
 typedef void *HINSTANCE;
 
+#ifndef GUID_DEFINED
+#define GUID_DEFINED
+#if defined(__midl)
+typedef struct {
+    unsigned long  Data1;
+    unsigned short Data2;
+    unsigned short Data3;
+    byte           Data4[ 8 ];
+} GUID;
+#else
+typedef struct _GUID {
+    uint32_t   Data1;
+    uint16_t   Data2;
+    uint16_t   Data3;
+    uint8_t    Data4[ 8 ];
+} GUID;
+#endif
+#endif
+
 
 //#define APIENTRY
 
