@@ -296,8 +296,8 @@ void ui64toa(uint64_t i, char * sz, int radix);
 void str_reverse(char * sz);
 void zero_pad(char * sz, INT_PTR iPad);
 
-void strlwr(char * psz);
-void strupr(char * psz);
+char * strlwr(char * psz);
+char * strupr(char * psz);
 
 //void wcscat(wchar_t * dest, const wchar_t * cat);
 //void wcscpy(wchar_t * dest, const wchar_t * cat);

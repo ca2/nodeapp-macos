@@ -46,24 +46,21 @@ typedef void * PVOID;
 
 #define _strcmpi strcasecmp
 
-#ifndef _DEBUG
-#define _DEBUG
-#endif
-
 #define PURE = 0
 
 
-#define _X86_
 
 
 #include "macos_system.h"
-#define _ApplicationFrameworkDLL
-#define _AFX_NO_OLE_SUPPORT
 
 
 
-#ifndef _DEBUG
-#define _DEBUG // ca2 is in debug - bugs come and go, always
+#if DEBUG
+
+
+#define _DEBUG
+
+
 #endif
 
 
