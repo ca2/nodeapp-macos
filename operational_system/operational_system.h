@@ -223,6 +223,10 @@
 #endif
 #undef AfxWndProc
 
+#include <types.h>
+#include <time.h>
+
+#define __time_t time_t
 
 #define max(x,y) (((x) > (y)) ? (x) : (y))
 #define min(x,y) (((x) < (y)) ? (x) : (y))
