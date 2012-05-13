@@ -183,7 +183,7 @@ int AFX_CDECL AfxCriticalNewHandler(size_t nSize)
    }
 
 //   TRACE(::radix::trace::category_Memory, 0, "ERROR: Critical primitive::memory allocation from safety pool failed!\n");
-   AfxThrowMemoryException();      // oops
+   throw memory_exception();      // oops
 }
 #endif // !_AFX_PORTABLE
 
