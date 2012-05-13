@@ -241,7 +241,7 @@ CT* handle_map < HT, CT >::from_handle(HANDLE h, CT * (*pfnAllocator) (::ca::app
       {
          pTemp = pfnAllocator(papp, h);
          if (pTemp == NULL)
-            AfxThrowMemoryException();
+            throw memory_exception();
       }
       else
       {
@@ -249,7 +249,7 @@ CT* handle_map < HT, CT >::from_handle(HANDLE h, CT * (*pfnAllocator) (::ca::app
    //      ASSERT((UINT)m_pClass->m_nObjectSize == m_alloc.GetAllocSize());
          pTemp = (CT*)m_alloc.Alloc();
          if (pTemp == NULL)
-            AfxThrowMemoryException();
+            throw memory_exception();
 
          // now construct the object in place
          ASSERT(m_pfnConstructObject != NULL);
