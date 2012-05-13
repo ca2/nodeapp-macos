@@ -763,7 +763,7 @@ namespace win
          AfxEnableMemoryTracking(bEnable);
          if(!m_pszExeName)
          {
-            AfxThrowMemoryException();
+            throw memory_exception();
          }
          if(System.m_pszExeName == NULL)
          {

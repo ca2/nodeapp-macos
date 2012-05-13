@@ -2458,7 +2458,7 @@ ASSERT(pThreadClass->IsDerivedFrom(&typeid(thread)));
 
 thread* pThread = dynamic_cast < thread * > (App(get_app()).alloc(pThreadClass));
 if (pThread == NULL)
-AfxThrowMemoryException();
+throw memory_exception();
 ASSERT_VALID(pThread);
 
 pThread->m_pThreadParams = NULL;

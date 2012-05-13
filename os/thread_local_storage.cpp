@@ -25,7 +25,7 @@ void * PASCAL no_track_object::operator new(size_t nSize)
 {
    void * p = ::LocalAlloc(LPTR, nSize);
    if (p == NULL)
-      AfxThrowMemoryException();
+      throw memory_exception();
    return p;
 }
 #define new DEBUG_NEW
@@ -72,7 +72,7 @@ thread_slot_data::thread_slot_data()
    // init m_tlsIndex to -1 if !bThreadLocal, otherwise TlsAlloc
    m_tlsIndex = TlsAlloc();
    if (m_tlsIndex == (DWORD)-1)
-      AfxThrowMemoryException();
+      throw memory_exception();
 
    InitializeCriticalSection(&m_sect);
 }
@@ -138,7 +138,7 @@ int thread_slot_data::AllocSlot()
             if (m_pSlotData != NULL)
                GlobalLock(GlobalHandle(m_pSlotData));
             LeaveCriticalSection(&m_sect);
-            AfxThrowMemoryException();
+            throw memory_exception();
          }
          slot_data* pSlotData = (slot_data*)GlobalLock(hSlotData);
 
@@ -259,7 +259,7 @@ void thread_slot_data::SetValue(int nSlot, void * pValue)
       if (ppvTemp == NULL)
       {
          LeaveCriticalSection(&m_sect);
-         AfxThrowMemoryException();
+         throw memory_exception();
       }
       pData->pData = ppvTemp;
 

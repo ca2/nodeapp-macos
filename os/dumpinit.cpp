@@ -80,11 +80,11 @@ int __cdecl _AfxCrtReportHook(int nRptType, __in char *szMsg, int* pResult)
 
    ASSERT( pResult != NULL );
    if( pResult == NULL )
-      AfxThrowInvalidArgException();
+      throw invalid_argument_exception();
 
    ASSERT( szMsg != NULL );
    if( szMsg == NULL )
-      AfxThrowInvalidArgException();
+      throw invalid_argument_exception();
 
    // non-NULL m_pFile, so go through afxdump for the message
    *pResult = FALSE;

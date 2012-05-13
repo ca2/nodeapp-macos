@@ -5467,7 +5467,7 @@ CLASS_DECL_VMSWIN void AfxHookWindowCreate(::user::interaction * pWnd)
       pThreadState->m_hHookOldCbtFilter = ::SetWindowsHookEx(WH_CBT,
          win::_AfxCbtFilterHook, NULL, ::GetCurrentThreadId());
       if (pThreadState->m_hHookOldCbtFilter == NULL)
-         AfxThrowMemoryException();
+         throw memory_exception();
    }
    ASSERT(pThreadState->m_hHookOldCbtFilter != NULL);
    ASSERT(pWnd != NULL);
