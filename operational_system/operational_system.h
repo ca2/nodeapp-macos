@@ -120,11 +120,11 @@
 #endif
 
 // for data
-#ifndef AFX_DATA_EXPORT
-	#define AFX_DATA_EXPORT
+#ifndef __DATA_EXPORT
+	#define __DATA_EXPORT
 #endif
-#ifndef AFX_DATA_IMPORT
-	#define AFX_DATA_IMPORT
+#ifndef __DATA_IMPORT
+	#define __DATA_IMPORT
 #endif
 
 // for classes
@@ -161,13 +161,13 @@
 
 // The following macros are used on data declarations/definitions
 //  (they are redefined for extension DLLs and the shared MFC DLL)
-#define AFX_DATADEF
+#define __DATADEF
 #define AFX_API CLASS_DECL_ca
 
 // used when building the "core" MFC80.DLL
-#ifndef AFX_CORE_DATA
-	#define AFX_CORE_DATA CLASS_DECL_ca
-	#define AFX_CORE_DATADEF
+#ifndef __CORE_DATA
+	#define __CORE_DATA CLASS_DECL_ca
+	#define __CORE_DATADEF
 #endif
 
 // used when building extension DLLs
@@ -203,7 +203,7 @@
 
 
 #ifdef _AFX_DEVBUILD
-	#define AFX_IMPL_DATA AFX_DATA_EXPORT
+	#define AFX_IMPL_DATA __DATA_EXPORT
 #else
 	#define AFX_IMPL_DATA CLASS_DECL_ca
 #endif
@@ -223,7 +223,7 @@
 #endif
 #undef AfxWndProc
 
-#include <types.h>
+#include <sys/types.h>
 #include <time.h>
 
 #define __time_t time_t

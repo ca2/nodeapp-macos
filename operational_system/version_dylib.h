@@ -1,8 +1,8 @@
 #pragma once
 
 
-#define AFX_CORE_DATA       CLASS_DECL_ca
-#define AFX_CORE_DATADEF
+#define __CORE_DATA       CLASS_DECL_ca
+#define __CORE_DATADEF
 
 
 #define AFX_OLE_DATA        CLASS_DECL_ca
