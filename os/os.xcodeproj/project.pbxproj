@@ -119,6 +119,7 @@
 		A1CFD967154FB715007447E2 /* window_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8F6154FB715007447E2 /* window_draw.cpp */; };
 		A1CFD968154FB715007447E2 /* window_draw.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8F8154FB715007447E2 /* window_draw.h */; };
 		A1CFD96A154FB864007447E2 /* c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CFD969154FB864007447E2 /* c.dylib */; };
+		CE980AC015667BEF00CD7C45 /* ca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE980ABF15667BEF00CD7C45 /* ca.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -240,6 +241,7 @@
 		A1CFD8F7154FB715007447E2 /* window_draw.cpp.cbTemp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = window_draw.cpp.cbTemp; sourceTree = "<group>"; };
 		A1CFD8F8154FB715007447E2 /* window_draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window_draw.h; sourceTree = "<group>"; };
 		A1CFD969154FB864007447E2 /* c.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = c.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE980ABF15667BEF00CD7C45 /* ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; name = ca.dylib; path = ../../app/appseed/ca/build/Release/ca.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE980AC015667BEF00CD7C45 /* ca.dylib in Frameworks */,
 				A1CFD96A154FB864007447E2 /* c.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +260,7 @@
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				CE980ABF15667BEF00CD7C45 /* ca.dylib */,
 				A1CFD969154FB864007447E2 /* c.dylib */,
 				A1CFD87C154FB715007447E2 /* operational_system */,
 				A1CFD896154FB715007447E2 /* os */,
@@ -640,6 +644,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
+				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
 			};
 			name = Debug;
 		};
@@ -660,6 +666,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
+				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
 			};
 			name = Release;
 		};
@@ -668,6 +676,8 @@
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
+				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
 			};
 			name = Debug;
 		};
@@ -676,6 +686,8 @@
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
+				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
 			};
 			name = Release;
 		};

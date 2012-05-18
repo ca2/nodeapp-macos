@@ -8,8 +8,8 @@
 // See these sources for detailed information regarding the
 // Microsoft Foundation Classes product.
 
-#undef AFX_DATA
-#define AFX_DATA AFX_CORE_DATA
+#undef __DATA
+#define __DATA __CORE_DATA
 
 /////////////////////////////////////////////////////////////////////////////
 // Auxiliary System/Screen metrics
@@ -58,15 +58,15 @@ struct AUX_DATA
 	void UpdateSysMetrics();
 };
 
-extern AFX_DATA AUX_DATA afxData;
+extern __DATA AUX_DATA afxData;
 
 /////////////////////////////////////////////////////////////////////////////
 // _AFX_CTL3D_STATE
 
 #ifndef _AFX_NO_CTL3D_SUPPORT
 
-#undef AFX_DATA
-#define AFX_DATA
+#undef __DATA
+#define __DATA
 
 class _AFX_CTL3D_STATE : public CNoTrackObject
 {
@@ -121,8 +121,8 @@ public:
 	BOOL bWord; // TRUE==match whole word, FALSE==not
 };
 
-#undef AFX_DATA
-#define AFX_DATA AFX_CORE_DATA
+#undef __DATA
+#define __DATA __CORE_DATA
 
 class _AFX_RICHEDIT_STATE : public _AFX_EDIT_STATE
 {
@@ -135,8 +135,8 @@ EXTERN_PROCESS_LOCAL(_AFX_RICHEDIT_STATE, _afxRichEditState)
 
 _AFX_RICHEDIT_STATE* AFX_CDECL AfxGetRichEditState();
 
-#undef AFX_DATA
-#define AFX_DATA
+#undef __DATA
+#define __DATA
 
 ////////////////////////////////////////////////////////////////////////////
 // other global state
@@ -329,18 +329,18 @@ HWND AFXAPI _AfxChildWindowFromPoint(HWND, POINT);
 extern int _afxComCtlVersion;
 DWORD AFXAPI _AfxGetComCtlVersion();
 
-#undef AFX_DATA
-#define AFX_DATA AFX_CORE_DATA
+#undef __DATA
+#define __DATA __CORE_DATA
 
 // UNICODE/MBCS abstractions
 #ifdef _MBCS
-	extern AFX_DATA const BOOL _afxDBCS;
+	extern __DATA const BOOL _afxDBCS;
 #else
 	#define _afxDBCS FALSE
 #endif
 
-#undef AFX_DATA
-#define AFX_DATA
+#undef __DATA
+#define __DATA
 
 // determine number of elements in an array (not bytes)
 #define _countof(array) (sizeof(array)/sizeof(array[0]))
@@ -372,8 +372,8 @@ extern CResourceException _simpleResourceException;
 /////////////////////////////////////////////////////////////////////////////
 // AFX_CRITICAL_SECTION
 
-#undef AFX_DATA
-#define AFX_DATA AFX_CORE_DATA
+#undef __DATA
+#define __DATA __CORE_DATA
 
 // these globals are protected by the same critical section
 #define CRIT_DYNLINKLIST    0
@@ -615,7 +615,7 @@ inline void _AfxByteSwap(double d, BYTE* pb)
 }
 #endif //_AFX_BYTESWAP
 
-#undef AFX_DATA
-#define AFX_DATA
+#undef __DATA
+#define __DATA
 
 /////////////////////////////////////////////////////////////////////////////
