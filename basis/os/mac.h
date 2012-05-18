@@ -2,7 +2,7 @@
 
 #define SECURITY_WIN32
 
-#include "include/ca2.h"
+#include "ca/ca.h"
 #include <shlobj.h>
 #include <Security.h>
 #include <shlobj.h>

@@ -150,7 +150,7 @@ BOOL CLASS_DECL_VMSWIN AfxDiagnosticInit(void)
 #include "sal.h"
 
 
-//AFX_DATADEF BOOL afxTraceEnabled = TRUE;
-//AFX_DATADEF UINT afxTraceFlags = 0;
+//__DATADEF BOOL afxTraceEnabled = TRUE;
+//__DATADEF UINT afxTraceFlags = 0;
 static BOOL _afxDiagnosticInit = AfxDiagnosticInit();
 

@@ -212,11 +212,11 @@
 // The following macros are used to enable export/import
 
 // for data
-#ifndef AFX_DATA_EXPORT
-	#define AFX_DATA_EXPORT __declspec(dllexport)
+#ifndef __DATA_EXPORT
+	#define __DATA_EXPORT __declspec(dllexport)
 #endif
-#ifndef AFX_DATA_IMPORT
-	#define AFX_DATA_IMPORT __declspec(dllimport)
+#ifndef __DATA_IMPORT
+	#define __DATA_IMPORT __declspec(dllimport)
 #endif
 
 // for classes
@@ -253,13 +253,13 @@
 
 // The following macros are used on data declarations/definitions
 //  (they are redefined for extension DLLs and the shared MFC DLL)
-#define AFX_DATADEF
+#define __DATADEF
 #define AFX_API CLASS_DECL_ca
 
 // used when building the "core" MFC80.DLL
-#ifndef AFX_CORE_DATA
-	#define AFX_CORE_DATA CLASS_DECL_ca
-	#define AFX_CORE_DATADEF
+#ifndef __CORE_DATA
+	#define __CORE_DATA CLASS_DECL_ca
+	#define __CORE_DATADEF
 #endif
 
 // used when building the MFC/OLE support MFCO80.DLL
@@ -319,7 +319,7 @@
 #pragma inline_depth(16)
 
 #ifdef _AFX_DEVBUILD
-	#define AFX_IMPL_DATA AFX_DATA_EXPORT
+	#define AFX_IMPL_DATA __DATA_EXPORT
 #else
 	#define AFX_IMPL_DATA CLASS_DECL_ca 
 #endif
