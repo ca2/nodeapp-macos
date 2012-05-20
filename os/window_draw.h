@@ -132,7 +132,7 @@ namespace win
       void get_wnda(user::LPWndArray & wndpa);
       void get_wnda(user::HWNDArray & hwnda);
       
-      static UINT AFX_CDECL ThreadProcRedraw(LPVOID lpv);
+      static UINT c_cdecl ThreadProcRedraw(LPVOID lpv);
 
       virtual UINT RedrawProc();
 

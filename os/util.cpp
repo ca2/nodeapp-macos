@@ -153,7 +153,7 @@ void CLASS_DECL_VMSWIN AfxGlobalFree(HGLOBAL hGlobal)
 
 #define MIN_MALLOC_OVERHEAD 4   // LocalAlloc or other overhead
 
-int AFX_CDECL AfxCriticalNewHandler(size_t nSize)
+int c_cdecl AfxCriticalNewHandler(size_t nSize)
    // nSize is already rounded
 {
    // called during critical primitive::memory allocation
