@@ -43,7 +43,7 @@ CLASS_DECL_VMSWIN BOOL AfxInitialize(BOOL bDLL, DWORD dwVersion)
 //#pragma init_seg(lib)
 
 #ifndef _ApplicationFrameworkDLL
-void AFX_CDECL _AfxTermAppState()
+void c_cdecl _AfxTermAppState()
 {
    // terminate local data and critical sections
    AfxTermLocalData(NULL, TRUE);

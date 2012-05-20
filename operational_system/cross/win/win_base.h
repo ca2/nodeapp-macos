@@ -226,6 +226,7 @@ FormatMessage(
 
 
 
+
 LPSTR
 WINAPI
 GetCommandLineA(
@@ -263,3 +264,24 @@ OutputDebugStringW(
 #endif // !UNICODE
 
 
+
+
+
+DWORD
+WINAPI
+GetTempPathA(
+    DWORD nBufferLength,
+    LPSTR lpBuffer
+    );
+
+DWORD
+WINAPI
+GetTempPathW(
+    DWORD nBufferLength,
+    LPWSTR lpBuffer
+    );
+#ifdef UNICODE
+#define GetTempPath  GetTempPathW
+#else
+#define GetTempPath  GetTempPathA
+#endif // !UNICODE

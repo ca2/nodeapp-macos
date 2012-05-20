@@ -133,7 +133,7 @@ public:
 
 EXTERN_PROCESS_LOCAL(_AFX_RICHEDIT_STATE, _afxRichEditState)
 
-_AFX_RICHEDIT_STATE* AFX_CDECL AfxGetRichEditState();
+_AFX_RICHEDIT_STATE* c_cdecl AfxGetRichEditState();
 
 #undef __DATA
 #define __DATA
@@ -346,7 +346,7 @@ DWORD AFXAPI _AfxGetComCtlVersion();
 #define _countof(array) (sizeof(array)/sizeof(array[0]))
 
 #ifndef _AFX_PORTABLE
-int AFX_CDECL AfxCriticalNewHandler(size_t nSize);
+int c_cdecl AfxCriticalNewHandler(size_t nSize);
 #endif
 
 void AFXAPI AfxGlobalFree(HGLOBAL hGlobal);
@@ -423,7 +423,7 @@ BOOL AFXAPI AfxComparePath(LPCTSTR lpszPath1, LPCTSTR lpszPath2);
 
 UINT AFXAPI AfxGetFileTitle(LPCTSTR lpszPathName, LPTSTR lpszTitle, UINT nMax);
 UINT AFXAPI AfxGetFileName(LPCTSTR lpszPathName, LPTSTR lpszTitle, UINT nMax);
-void AFX_CDECL AfxTimeToFileTime(const CTime& time, LPFILETIME pFileTime);
+void c_cdecl AfxTimeToFileTime(const CTime& time, LPFILETIME pFileTime);
 void AFXAPI AfxGetRoot(LPCTSTR lpszPath, CString& strRoot);
 
 #ifndef _AFX_NO_OLE_SUPPORT

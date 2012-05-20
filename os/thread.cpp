@@ -11,8 +11,8 @@ BOOL CLASS_DECL_VMSWIN AfxInternalPumpMessage();
 LRESULT CLASS_DECL_VMSWIN AfxInternalProcessWndProcException(base_exception*, const MSG* pMsg);
 BOOL AfxInternalPreTranslateMessage(MSG* pMsg);
 BOOL AfxInternalIsIdleMessage(MSG* pMsg);
-AFX_STATIC void CLASS_DECL_VMSWIN _AfxPreInitDialog(::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld);
-AFX_STATIC void CLASS_DECL_VMSWIN _AfxPostInitDialog(::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld);
+__STATIC void CLASS_DECL_VMSWIN _AfxPreInitDialog(::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld);
+__STATIC void CLASS_DECL_VMSWIN _AfxPostInitDialog(::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld);
 
 namespace ca
 {
@@ -1249,13 +1249,13 @@ void thread::Delete()
       return AfxInternalProcessWndProcException(e, pobj);
    }
 
-   AFX_STATIC inline BOOL IsEnterKey(gen::signal_object * pobj)
+   __STATIC inline BOOL IsEnterKey(gen::signal_object * pobj)
    {
       SCAST_PTR(user::lnx::message::base, pbase, pobj);
       return pbase->m_uiMessage == WM_KEYDOWN && pbase->m_wparam == VK_RETURN;
    }
 
-   AFX_STATIC inline BOOL IsButtonUp(gen::signal_object * pobj)
+   __STATIC inline BOOL IsButtonUp(gen::signal_object * pobj)
    {
       SCAST_PTR(user::lnx::message::base, pbase, pobj);
       return pbase->m_uiMessage == WM_LBUTTONUP;
@@ -2869,7 +2869,7 @@ LRESULT CALLBACK _AfxMsgFilterHook(int code, WPARAM wParam, LPARAM lParam)
    return lresult;
 }
 
-AFX_STATIC BOOL CLASS_DECL_VMSWIN IsHelpKey(LPMSG lpMsg)
+__STATIC BOOL CLASS_DECL_VMSWIN IsHelpKey(LPMSG lpMsg)
 // return TRUE only for non-repeat F1 keydowns.
 {
    return lpMsg->message == WM_KEYDOWN &&
@@ -2880,9 +2880,9 @@ AFX_STATIC BOOL CLASS_DECL_VMSWIN IsHelpKey(LPMSG lpMsg)
       GetKeyState(VK_MENU) >= 0;
 }
 
-AFX_STATIC inline BOOL IsEnterKey(LPMSG lpMsg)
+__STATIC inline BOOL IsEnterKey(LPMSG lpMsg)
 { return lpMsg->message == WM_KEYDOWN && lpMsg->wParam == VK_RETURN; }
 
-AFX_STATIC inline BOOL IsButtonUp(LPMSG lpMsg)
+__STATIC inline BOOL IsButtonUp(LPMSG lpMsg)
 { return lpMsg->message == WM_LBUTTONUP; }
 

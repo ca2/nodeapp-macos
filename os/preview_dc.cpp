@@ -6,7 +6,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // Helper functions
 
-AFX_STATIC long CLASS_DECL_VMSWIN _AfxMultMultDivDiv(
+__STATIC long CLASS_DECL_VMSWIN _AfxMultMultDivDiv(
    int factor, int num1, int num2,
    int den1, int den2)
 {
@@ -476,7 +476,7 @@ size preview_dc::ScaleWindowExt(int xNum, int xDenom, int yNum, int yDenom)
 
 // private helpers for TextOut functions
 
-AFX_STATIC int CLASS_DECL_VMSWIN _AfxComputeNextTab(int x, UINT nTabStops, LPINT lpnTabStops, int nTabOrigin, int nTabWidth)
+__STATIC int CLASS_DECL_VMSWIN _AfxComputeNextTab(int x, UINT nTabStops, LPINT lpnTabStops, int nTabOrigin, int nTabWidth)
 {
    ENSURE(nTabWidth!=0);
    x -= nTabOrigin;        // normalize position to tab origin

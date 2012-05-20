@@ -78,7 +78,7 @@ typedef union _XEvent XEvent;
 	#include "version_dylib.h"
 #endif
 
-inline void AfxDebugBreak() { asm("int 3"); }
+inline void __debug_break() { __asm("int $3"); }
 
 
 
@@ -147,9 +147,9 @@ inline void AfxDebugBreak() { asm("int 3"); }
 	#define AFXOLEAPI __stdcall
 #endif
 
-// AFX_CDECL is used for rare functions taking variable arguments
-#ifndef AFX_CDECL
-	#define AFX_CDECL __cdecl
+// c_cdecl is used for rare functions taking variable arguments
+#ifndef c_cdecl
+	#define c_cdecl __cdecl
 #endif
 
 // AFX_EXPORT is used for functions which need to be exported
@@ -157,9 +157,9 @@ inline void AfxDebugBreak() { asm("int 3"); }
 	#define AFX_EXPORT EXPORT
 #endif
 
-#ifndef AFX_STATIC
-	#define AFX_STATIC extern
-	#define AFX_STATIC_DATA extern __declspec(selectany)
+#ifndef __STATIC
+	#define __STATIC extern
+	#define __STATIC_DATA extern __declspec(selectany)
 #endif
 
 // The following macros are used to enable export/import
@@ -279,7 +279,7 @@ inline void AfxDebugBreak() { asm("int 3"); }
 
 
 // str
-void strncpy(char * dest, const char * cat, int iLen);
+//void strncpy(char * dest, const char * cat, int iLen);
 
 const char * stristr(const char * src, const char * find);
 char to_lower(int ch);

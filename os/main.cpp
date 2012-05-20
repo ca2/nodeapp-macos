@@ -18,7 +18,7 @@ void __cdecl _null_se_translator(unsigned int uiCode, EXCEPTION_POINTERS * ppoin
 //::ca::application *     win_application_create(::ca::application * pappSystem, const char * pszId);
 ::ca::application *     win_instantiate_application(::ca::application * pappSystem, const char * pszId);
 //int                     win_application_procedure(::ca::application * pappSystem)
-//UINT AFX_CDECL          win_application_thread_proc(LPVOID);
+//UINT c_cdecl          win_application_thread_proc(LPVOID);
 /////////////////////////////////////////////////////////////////////////////
 // Standard WinMain implementation
 //  Can be replaced as long as 'AfxWinInit' is called first

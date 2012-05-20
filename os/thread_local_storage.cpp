@@ -449,7 +449,7 @@ void CLASS_DECL_VMSWIN AfxTermLocalData(HINSTANCE hInst, BOOL bAll)
 // It is basically a reference count of the number of processes that
 // have attached to the ca2 API DLL.
 
-AFX_STATIC_DATA long _afxTlsRef = 0;
+__STATIC_DATA long _afxTlsRef = 0;
 
 void CLASS_DECL_VMSWIN AfxTlsAddRef()
 {

@@ -25,9 +25,9 @@
 #ifdef _AFX_NO_DEBUG_CRT
 extern "C" void _BPT();
 #pragma intrinsic(_BPT)
-#define AfxDebugBreak() _BPT()
+#define __debug_break() _BPT()
 #else
-#define AfxDebugBreak() _CrtDbgBreak()
+#define __debug_break() _CrtDbgBreak()
 #endif
 #endif  //_ALPHA_
 

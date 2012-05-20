@@ -355,7 +355,7 @@ namespace win
       return 0;
    }
 
-   UINT AFX_CDECL window_draw::ThreadProcRedraw(LPVOID lpv)
+   UINT c_cdecl window_draw::ThreadProcRedraw(LPVOID lpv)
    {
       window_draw * pdraw = (window_draw *) lpv;
       return pdraw->RedrawProc();

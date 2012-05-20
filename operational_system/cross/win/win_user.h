@@ -1268,19 +1268,6 @@ typedef struct tag_MSG
 
 
 
-/*
- * Struct pointed to by WM_GETMINMAXINFO lParam
- */
-typedef struct tagMINMAXINFO {
-    POINT ptReserved;
-    POINT ptMaxSize;
-    POINT ptMaxPosition;
-    POINT ptMinTrackSize;
-    POINT ptMaxTrackSize;
-} MINMAXINFO, *PMINMAXINFO, *LPMINMAXINFO;
-
-
-
 HDC BeginPaint(HWND hwnd, PAINTSTRUCT * ps);
 
 BOOL EndPaint(HWND hwnd, PAINTSTRUCT * ps);

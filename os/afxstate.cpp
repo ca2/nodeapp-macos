@@ -181,7 +181,7 @@ AFX_ACTCTX_API_PTR_DEFINE(ReleaseActCtx, void, (HANDLE));
 AFX_ACTCTX_API_PTR_DEFINE(ActivateActCtx, BOOL, (HANDLE, ULONG_PTR*));
 AFX_ACTCTX_API_PTR_DEFINE(DeactivateActCtx, BOOL, (DWORD, ULONG_PTR));
 
-AFX_STATIC void CLASS_DECL_VMSWIN _AfxInitContextAPI()
+__STATIC void CLASS_DECL_VMSWIN _AfxInitContextAPI()
 {
    static HMODULE hKernel = NULL;
    if (hKernel == NULL)

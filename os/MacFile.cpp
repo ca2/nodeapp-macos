@@ -4,7 +4,7 @@
 #include "WindowsShell.h"
 
 
-AFX_STATIC inline BOOL IsDirSep(WCHAR ch)
+__STATIC inline BOOL IsDirSep(WCHAR ch)
 {
    return (ch == '\\' || ch == '/');
 }
