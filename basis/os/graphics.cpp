@@ -752,9 +752,9 @@ namespace win
 
 
 
-   AFX_STATIC_DATA HBRUSH _afxHalftoneBrush = 0;
+   __STATIC_DATA HBRUSH _afxHalftoneBrush = 0;
 
-   void AFX_CDECL AfxWingdixTerm()
+   void c_cdecl AfxWingdixTerm()
    {
       AfxDeleteObject((HGDIOBJ*)&_afxHalftoneBrush);
    }

@@ -6,14 +6,14 @@
 #include "sal.h"
 
 
-AFX_STATIC void CLASS_DECL_VMSWIN _AfxPreInitDialog(
+__STATIC void CLASS_DECL_VMSWIN _AfxPreInitDialog(
    ::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld);
-AFX_STATIC void CLASS_DECL_VMSWIN _AfxPostInitDialog(
+__STATIC void CLASS_DECL_VMSWIN _AfxPostInitDialog(
    ::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld);
 LRESULT CALLBACK
 _AfxActivationWndProc(HWND hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
 
-AFX_STATIC_DATA const char _afxOldWndProc[] = "AfxOldWndProc423";
+__STATIC_DATA const char _afxOldWndProc[] = "AfxOldWndProc423";
 
 const char _afxWndControlBar[] = AFX_WNDCONTROLBAR;
 const char _afxWndMDIFrame[] = AFX_WNDMDIFRAME;
@@ -114,7 +114,7 @@ namespace win
 
    // Change a window's style
 
-   AFX_STATIC BOOL CLASS_DECL_VMSWIN _AfxModifyStyle(HWND hWnd, int nStyleOffset,
+   __STATIC BOOL CLASS_DECL_VMSWIN _AfxModifyStyle(HWND hWnd, int nStyleOffset,
       DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
       ASSERT(hWnd != NULL);
@@ -5415,7 +5415,7 @@ WNDPROC CLASS_DECL_VMSWIN AfxGetAfxWndProc()
    /////////////////////////////////////////////////////////////////////////////
    // Special helpers for certain windows messages
 
-   AFX_STATIC void CLASS_DECL_VMSWIN _AfxPreInitDialog(
+   __STATIC void CLASS_DECL_VMSWIN _AfxPreInitDialog(
       ::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld)
    {
       ASSERT(lpRectOld != NULL);
@@ -5425,7 +5425,7 @@ WNDPROC CLASS_DECL_VMSWIN AfxGetAfxWndProc()
       *pdwStyleOld = WIN_WINDOW(pWnd)->GetStyle();
    }
 
-   AFX_STATIC void CLASS_DECL_VMSWIN _AfxPostInitDialog(
+   __STATIC void CLASS_DECL_VMSWIN _AfxPostInitDialog(
       ::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld)
    {
       // must be hidden to start with
@@ -5550,7 +5550,7 @@ CLASS_DECL_VMSWIN const char * AfxRegisterWndClass(UINT nClassStyle,
 }
 
 
-   AFX_STATIC void CLASS_DECL_VMSWIN
+   __STATIC void CLASS_DECL_VMSWIN
 _AfxHandleActivate(::ca::window * pWnd, WPARAM nState, ::ca::window * pWndOther)
 {
    ASSERT(pWnd != NULL);
@@ -5579,7 +5579,7 @@ _AfxHandleActivate(::ca::window * pWnd, WPARAM nState, ::ca::window * pWndOther)
    }
 }
 
-AFX_STATIC BOOL CLASS_DECL_VMSWIN
+__STATIC BOOL CLASS_DECL_VMSWIN
 _AfxHandleSetCursor(::ca::window * pWnd, UINT nHitTest, UINT nMsg)
 {
    if (nHitTest == HTERROR &&
@@ -5606,7 +5606,7 @@ _AfxHandleSetCursor(::ca::window * pWnd, UINT nHitTest, UINT nMsg)
 /////////////////////////////////////////////////////////////////////////////
 // Standard init called by WinMain
 
-AFX_STATIC BOOL CLASS_DECL_VMSWIN _AfxRegisterWithIcon(WNDCLASS* pWndCls,
+__STATIC BOOL CLASS_DECL_VMSWIN _AfxRegisterWithIcon(WNDCLASS* pWndCls,
    const char * lpszClassName, UINT nIDIcon)
 {
    pWndCls->lpszClassName = lpszClassName;
