@@ -39,46 +39,46 @@ public:
    UINT m_hFile;
    operator HFILE() const;
 
-   virtual DWORD_PTR GetPosition() const;
-   BOOL GetStatus(ex1::file_status & rStatus) const;
+   virtual dword_ptr GetPosition() const;
+   WINBOOL GetStatus(ex1::file_status & rStatus) const;
    virtual string GetFileName() const;
    virtual string GetFileTitle() const;
    virtual string GetFilePath() const;
    virtual void SetFilePath(const char * lpszNewName);
 
 // Operations
-   virtual BOOL open(const char * lpszFileName, UINT nOpenFlags,
+   virtual WINBOOL open(const char * lpszFileName, UINT nOpenFlags,
       ex1::file_exception_sp * pError = NULL);
 
 /*
    static void PASCAL Rename(const char * lpszOldName,
             const char * lpszNewName);
    static void PASCAL remov(const char * lpszFileName);*/
-   virtual BOOL PASCAL GetStatus(const char * lpszFileName,
+   virtual WINBOOL PASCAL GetStatus(const char * lpszFileName,
             ::ex1::file_status& rStatus);
    /*static void PASCAL SetStatus(const char * lpszFileName,
             const ::ex1::file_status& status);
 */
 
-   DWORD_PTR seek_to_end();
+   dword_ptr seek_to_end();
    void seek_to_begin();
 
    // backward compatible ReadHuge and WriteHuge
-   DWORD_PTR ReadHuge(void * lpBuffer, DWORD_PTR dwCount);
-   void WriteHuge(const void * lpBuffer, DWORD_PTR dwCount);
+   dword_ptr ReadHuge(void * lpBuffer, dword_ptr dwCount);
+   void WriteHuge(const void * lpBuffer, dword_ptr dwCount);
 
 // Overridables
    virtual ex1::file * Duplicate() const;
 
-   virtual INT_PTR seek(INT_PTR lOff, UINT nFrom);
-   virtual void SetLength(DWORD_PTR dwNewLen);
-   virtual DWORD_PTR get_length() const;
+   virtual int_ptr seek(int_ptr lOff, UINT nFrom);
+   virtual void SetLength(dword_ptr dwNewLen);
+   virtual dword_ptr get_length() const;
 
-   virtual DWORD_PTR read(void * lpBuf, DWORD_PTR nCount);
-   virtual void write(const void * lpBuf, DWORD_PTR nCount);
+   virtual dword_ptr read(void * lpBuf, dword_ptr nCount);
+   virtual void write(const void * lpBuf, dword_ptr nCount);
 
-   virtual void LockRange(DWORD_PTR dwPos, DWORD_PTR dwCount);
-   virtual void UnlockRange(DWORD_PTR dwPos, DWORD_PTR dwCount);
+   virtual void LockRange(dword_ptr dwPos, dword_ptr dwCount);
+   virtual void UnlockRange(dword_ptr dwPos, dword_ptr dwCount);
 
    virtual void Abort();
    virtual void Flush();
@@ -93,11 +93,11 @@ public:
    virtual void dump(dump_context & dumpcontext) const;
 #endif
    enum BufferCommand { bufferRead, bufferWrite, bufferCommit, bufferCheck };
-   virtual DWORD_PTR GetBufferPtr(UINT nCommand, DWORD_PTR nCount = 0,
+   virtual dword_ptr GetBufferPtr(UINT nCommand, dword_ptr nCount = 0,
       void ** ppBufStart = NULL, void ** ppBufMax = NULL);
 
 protected:
-   BOOL m_bCloseOnDelete;
+   WINBOOL m_bCloseOnDelete;
    string m_strFileName;
 };
 
@@ -154,7 +154,7 @@ public:
 #ifdef _DEBUG
    virtual void dump(dump_context&) const;
 #endif
-   virtual BOOL GetErrorMessage(string & str, PUINT pnHelpContext = NULL);
+   virtual WINBOOL GetErrorMessage(string & str, PUINT pnHelpContext = NULL);
 };
 
 inline WinFileException::WinFileException(::ca::application * papp, int cause, LONG lOsError,
@@ -169,11 +169,11 @@ inline WinFileException::~WinFileException()
 // ex1::filesp
 inline WinFile::operator HFILE() const
    { return m_hFile; }
-inline DWORD_PTR WinFile::ReadHuge(void * lpBuffer, DWORD_PTR dwCount)
-   { return (DWORD_PTR) read(lpBuffer, (UINT)dwCount); }
-inline void WinFile::WriteHuge(const void * lpBuffer, DWORD_PTR dwCount)
+inline dword_ptr WinFile::ReadHuge(void * lpBuffer, dword_ptr dwCount)
+   { return (dword_ptr) read(lpBuffer, (UINT)dwCount); }
+inline void WinFile::WriteHuge(const void * lpBuffer, dword_ptr dwCount)
    { write(lpBuffer, (UINT)dwCount); }
-inline DWORD_PTR WinFile::seek_to_end()
+inline dword_ptr WinFile::seek_to_end()
    { return seek(0, WinFile::end); }
 inline void WinFile::seek_to_begin()
    { seek(0, WinFile::begin); }

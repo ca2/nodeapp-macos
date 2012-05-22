@@ -21,17 +21,17 @@ namespace win
    {
       return dynamic_cast < brush * > (::win::graphics_object::from_handle(papp, hBrush));
    }
-    BOOL brush::CreateSolidBrush(COLORREF crColor)
+    WINBOOL brush::CreateSolidBrush(COLORREF crColor)
       { return Attach(::CreateSolidBrush(crColor)); }
-    BOOL brush::CreateHatchBrush(int nIndex, COLORREF crColor)
+    WINBOOL brush::CreateHatchBrush(int nIndex, COLORREF crColor)
       { return Attach(::CreateHatchBrush(nIndex, crColor)); }
-    BOOL brush::CreateBrushIndirect(const LOGBRUSH* lpLogBrush)
+    WINBOOL brush::CreateBrushIndirect(const LOGBRUSH* lpLogBrush)
       { return Attach(::CreateBrushIndirect(lpLogBrush)); }
-    BOOL brush::CreatePatternBrush(::ca::bitmap* pBitmap)
+    WINBOOL brush::CreatePatternBrush(::ca::bitmap* pBitmap)
       { return Attach(::CreatePatternBrush((HBITMAP)pBitmap->get_os_data())); }
-    BOOL brush::CreateDIBPatternBrush(const void * lpPackedDIB, UINT nUsage)
+    WINBOOL brush::CreateDIBPatternBrush(const void * lpPackedDIB, UINT nUsage)
       { return Attach(::CreateDIBPatternBrushPt(lpPackedDIB, nUsage)); }
-    BOOL brush::CreateSysColorBrush(int nIndex)
+    WINBOOL brush::CreateSysColorBrush(int nIndex)
       { return Attach(::GetSysColorBrush(nIndex)); }
     int brush::GetLogBrush(LOGBRUSH* pLogBrush)
       { ASSERT(get_os_data() != NULL);
@@ -60,12 +60,12 @@ namespace win
             AfxThrowResourceException();
       }
 
-      BOOL brush::CreateDIBPatternBrush(HGLOBAL hPackedDIB, UINT nUsage)
+      WINBOOL brush::CreateDIBPatternBrush(HGLOBAL hPackedDIB, UINT nUsage)
       {
          ASSERT(hPackedDIB != NULL);
          const void * lpPackedDIB = ::GlobalLock(hPackedDIB);
          ASSERT(lpPackedDIB != NULL);
-         BOOL bResult = Attach(::CreateDIBPatternBrushPt(lpPackedDIB, nUsage));
+         WINBOOL bResult = Attach(::CreateDIBPatternBrushPt(lpPackedDIB, nUsage));
          ::GlobalUnlock(hPackedDIB);
          return bResult;
       }
@@ -89,7 +89,7 @@ namespace win
          VERIFY(GetObject(sizeof(lb), &lb));
          dumpcontext << "lb.lbStyle = " << lb.lbStyle;
          dumpcontext << "\nlb.lbHatch = " << lb.lbHatch;
-         dumpcontext << "\nlb.lbColor = " << (void *)(DWORD_PTR)lb.lbColor;
+         dumpcontext << "\nlb.lbColor = " << (void *)(dword_ptr)lb.lbColor;
 
          dumpcontext << "\n";
       }

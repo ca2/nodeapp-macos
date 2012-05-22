@@ -98,8 +98,8 @@ namespace win
       for (int i = iStart; i < m_argc; i++)
       {
          const wchar_t * pszParam = m_argv[i];
-         BOOL bFlag = bTwoDots;
-         BOOL bLast = ((i + 1) == m_argc);
+         WINBOOL bFlag = bTwoDots;
+         WINBOOL bLast = ((i + 1) == m_argc);
          if(bFlag)
          {
          }
@@ -196,7 +196,7 @@ namespace win
          {
             //((CVmsGenApp *) &System)->UnregisterShellFileTypes();
             //xxx         System.UnregisterShellFileTypes();
-            //xxx         BOOL bUnregistered = ((CVmsGenApp *) &System)->Unregister();
+            //xxx         WINBOOL bUnregistered = ((CVmsGenApp *) &System)->Unregister();
 
             // if you specify /EMBEDDED, we won't make an success/failure box
             // this use of /EMBEDDED is not related to OLE
@@ -244,7 +244,7 @@ namespace win
       m_atomSystemTopic = ::GlobalAddAtomW(L"system");
    }
 
-   BOOL application::_001OnDDECommand(const char * lpcsz)
+   WINBOOL application::_001OnDDECommand(const char * lpcsz)
    {
       UNREFERENCED_PARAMETER(lpcsz);
       return FALSE;
@@ -360,7 +360,7 @@ namespace win
       return true;
    }
 
-   BOOL application::DeferRegisterClass(LONG fToRegister, const char ** ppszClass)
+   WINBOOL application::DeferRegisterClass(LONG fToRegister, const char ** ppszClass)
    {
       return AfxEndDeferRegisterClass(fToRegister, ppszClass);
    }
@@ -371,7 +371,7 @@ namespace win
       WIN_THREAD(::ca::smart_pointer < ::ca::thread >::m_p)->LockTempMaps();
    }
 
-   BOOL application::UnlockTempMaps(BOOL bDeleteTemp)
+   WINBOOL application::UnlockTempMaps(WINBOOL bDeleteTemp)
    {
       return WIN_THREAD(::ca::smart_pointer < ::ca::thread >::m_p)->UnlockTempMaps(bDeleteTemp);
    }
@@ -479,7 +479,7 @@ namespace win
       return ::win::thread::get_os_data();
    }
 
-   INT_PTR application::get_os_int()
+   int_ptr application::get_os_int()
    {
       return ::win::thread::get_os_int();
    }
@@ -491,7 +491,7 @@ namespace win
       return ::win::thread::Begin(nPriority, nStackSize, dwCreateFlags, lpSecurityAttrs);
    }
 
-   BOOL application::CreateThread(DWORD dwCreateFlags, UINT nStackSize,
+   WINBOOL application::CreateThread(DWORD dwCreateFlags, UINT nStackSize,
                                   LPSECURITY_ATTRIBUTES lpSecurityAttrs)
    {
       return ::win::thread::CreateThread(dwCreateFlags, nStackSize, lpSecurityAttrs);
@@ -503,7 +503,7 @@ namespace win
    {
       return ::win::thread::GetThreadPriority();
    }
-   BOOL application::SetThreadPriority(int nPriority)
+   WINBOOL application::SetThreadPriority(int nPriority)
    {
       return ::win::thread::SetThreadPriority(nPriority);
    }
@@ -517,7 +517,7 @@ namespace win
    {
       return ::win::thread::ResumeThread();
    }
-   BOOL application::PostThreadMessage(UINT message, WPARAM wParam, LPARAM lParam)
+   WINBOOL application::PostThreadMessage(UINT message, WPARAM wParam, LPARAM lParam)
    {
       return ::win::thread::PostThreadMessage(message, wParam, lParam);
    }
@@ -555,19 +555,19 @@ namespace win
    {
       return ::win::thread::run();
    }
-   BOOL application::pre_translate_message(gen::signal_object * pobj)
+   WINBOOL application::pre_translate_message(gen::signal_object * pobj)
    {
       return ::win::thread::pre_translate_message(pMsg);
    }
-   BOOL application::pump_message()    // low level message pump
+   WINBOOL application::pump_message()    // low level message pump
    {
       return ::win::thread::pump_message();
    }
-   BOOL application::on_idle(LONG lCount) // return TRUE if more idle processing
+   WINBOOL application::on_idle(LONG lCount) // return TRUE if more idle processing
    {
       return ::win::thread::on_idle(lCount);
    }
-   BOOL application::is_idle_message(MSG* pMsg)  // checks for special messages
+   WINBOOL application::is_idle_message(MSG* pMsg)  // checks for special messages
    {
       return ::win::thread::is_idle_message(pMsg);
    }
@@ -636,7 +636,7 @@ namespace win
 
 
    // Advanced: handling messages sent to message filter hook
-   BOOL application::ProcessMessageFilter(int code, LPMSG lpMsg)
+   WINBOOL application::ProcessMessageFilter(int code, LPMSG lpMsg)
    {
       return  ::win::thread::ProcessMessageFilter(code, lpMsg);
    }
@@ -671,7 +671,7 @@ namespace win
    }
    // 'delete this' only if m_bAutoDelete == TRUE
 
-   BOOL application::DispatchThreadMessageEx(MSG* msg)  // helper
+   WINBOOL application::DispatchThreadMessageEx(MSG* msg)  // helper
    {
       return ::win::thread::DispatchThreadMessageEx(msg);
    }*/
@@ -758,7 +758,7 @@ namespace win
 
       if (m_pszExeName == NULL)
       {
-         BOOL bEnable = AfxEnableMemoryTracking(FALSE);
+         WINBOOL bEnable = AfxEnableMemoryTracking(FALSE);
          m_pszExeName = _tcsdup(strExeName); // save non-localized name
          AfxEnableMemoryTracking(bEnable);
          if(!m_pszExeName)

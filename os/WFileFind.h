@@ -15,30 +15,30 @@ public:
    virtual string GetFileURL() const;
    virtual string GetRoot() const;
 
-   virtual BOOL GetLastWriteTime(FILETIME* pTimeStamp) const;
-   virtual BOOL GetLastAccessTime(FILETIME* pTimeStamp) const;
-   virtual BOOL GetCreationTime(FILETIME* pTimeStamp) const;
-   virtual BOOL GetLastWriteTime(class time& refTime) const;
-   virtual BOOL GetLastAccessTime(class time& refTime) const;
-   virtual BOOL GetCreationTime(class time& refTime) const;
+   virtual WINBOOL GetLastWriteTime(FILETIME* pTimeStamp) const;
+   virtual WINBOOL GetLastAccessTime(FILETIME* pTimeStamp) const;
+   virtual WINBOOL GetCreationTime(FILETIME* pTimeStamp) const;
+   virtual WINBOOL GetLastWriteTime(class time& refTime) const;
+   virtual WINBOOL GetLastAccessTime(class time& refTime) const;
+   virtual WINBOOL GetCreationTime(class time& refTime) const;
 
-   virtual BOOL MatchesMask(DWORD dwMask) const;
+   virtual WINBOOL MatchesMask(DWORD dwMask) const;
 
-   virtual BOOL IsDots() const;
+   virtual WINBOOL IsDots() const;
    // these aren't virtual because they all use MatchesMask(), which is
-   BOOL IsReadOnly() const;
-   BOOL IsDirectory() const;
-   BOOL IsCompressed() const;
-   BOOL IsSystem() const;
-   BOOL IsHidden() const;
-   BOOL IsTemporary() const;
-   BOOL IsNormal() const;
-   BOOL IsArchived() const;
+   WINBOOL IsReadOnly() const;
+   WINBOOL IsDirectory() const;
+   WINBOOL IsCompressed() const;
+   WINBOOL IsSystem() const;
+   WINBOOL IsHidden() const;
+   WINBOOL IsTemporary() const;
+   WINBOOL IsNormal() const;
+   WINBOOL IsArchived() const;
 
 // Operations
    void close();
-   virtual BOOL FindFile(const char * pstrName = NULL, DWORD dwUnused = 0);
-   virtual BOOL FindNextFile();
+   virtual WINBOOL FindFile(const char * pstrName = NULL, DWORD dwUnused = 0);
+   virtual WINBOOL FindNextFile();
 
 protected:
    virtual void CloseContext();
@@ -48,7 +48,7 @@ protected:
    WIN32_FIND_DATAW * m_pFoundInfo;
    WIN32_FIND_DATAW * m_pNextInfo;
    HANDLE m_hContext;
-   BOOL m_bGotLast;
+   WINBOOL m_bGotLast;
    string m_strRoot;
    char m_chDirSeparator;     // not '\\' for Internet classes
 
@@ -61,19 +61,19 @@ protected:
 };
 
 // FileFind
-inline BOOL FileFind::IsReadOnly() const
+inline WINBOOL FileFind::IsReadOnly() const
    { return MatchesMask(FILE_ATTRIBUTE_READONLY); }
-inline BOOL FileFind::IsDirectory() const
+inline WINBOOL FileFind::IsDirectory() const
    { return MatchesMask(FILE_ATTRIBUTE_DIRECTORY); }
-inline BOOL FileFind::IsCompressed() const
+inline WINBOOL FileFind::IsCompressed() const
    { return MatchesMask(FILE_ATTRIBUTE_COMPRESSED); }
-inline BOOL FileFind::IsSystem() const
+inline WINBOOL FileFind::IsSystem() const
    { return MatchesMask(FILE_ATTRIBUTE_SYSTEM); }
-inline BOOL FileFind::IsHidden() const
+inline WINBOOL FileFind::IsHidden() const
    { return MatchesMask(FILE_ATTRIBUTE_HIDDEN); }
-inline BOOL FileFind::IsTemporary() const
+inline WINBOOL FileFind::IsTemporary() const
    { return MatchesMask(FILE_ATTRIBUTE_TEMPORARY); }
-inline BOOL FileFind::IsNormal() const
+inline WINBOOL FileFind::IsNormal() const
    { return MatchesMask(FILE_ATTRIBUTE_NORMAL); }
-inline BOOL FileFind::IsArchived() const
+inline WINBOOL FileFind::IsArchived() const
    { return MatchesMask(FILE_ATTRIBUTE_ARCHIVE); }

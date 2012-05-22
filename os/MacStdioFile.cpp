@@ -22,7 +22,7 @@ WinStdioFile::~WinStdioFile()
       close();
 }
 
-BOOL WinStdioFile::open(const char * lpszFileName, UINT nOpenFlags,
+WINBOOL WinStdioFile::open(const char * lpszFileName, UINT nOpenFlags,
    ex1::file_exception_sp* pException)
 {
    ASSERT(pException == NULL || fx_is_valid_address(pException, sizeof(ex1::file_exception_sp)));
@@ -99,7 +99,7 @@ BOOL WinStdioFile::open(const char * lpszFileName, UINT nOpenFlags,
    return TRUE;
 }
 
-DWORD_PTR WinStdioFile::read(void * lpBuf, DWORD_PTR nCount)
+dword_ptr WinStdioFile::read(void * lpBuf, dword_ptr nCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -121,7 +121,7 @@ DWORD_PTR WinStdioFile::read(void * lpBuf, DWORD_PTR nCount)
    return nRead;
 }
 
-void WinStdioFile::write(const void * lpBuf, DWORD_PTR nCount)
+void WinStdioFile::write(const void * lpBuf, dword_ptr nCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -221,7 +221,7 @@ UINT WinStdioFile::read_string(string & rString)
    return lpszResult;
 }*/
 
-INT_PTR WinStdioFile::seek(INT_PTR lOff, UINT nFrom)
+int_ptr WinStdioFile::seek(int_ptr lOff, UINT nFrom)
 {
    ASSERT_VALID(this);
    ASSERT(nFrom == begin || nFrom == end || nFrom == current);
@@ -235,7 +235,7 @@ INT_PTR WinStdioFile::seek(INT_PTR lOff, UINT nFrom)
    return pos;
 }
 
-DWORD_PTR WinStdioFile::GetPosition() const
+dword_ptr WinStdioFile::GetPosition() const
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -295,7 +295,7 @@ ex1::file * WinStdioFile::Duplicate() const
    return NULL;
 }
 
-void WinStdioFile::LockRange(DWORD_PTR /* dwPos */, DWORD_PTR /* dwCount */)
+void WinStdioFile::LockRange(dword_ptr /* dwPos */, dword_ptr /* dwCount */)
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -303,7 +303,7 @@ void WinStdioFile::LockRange(DWORD_PTR /* dwPos */, DWORD_PTR /* dwCount */)
    AfxThrowNotSupportedException();
 }
 
-void WinStdioFile::UnlockRange(DWORD_PTR /* dwPos */, DWORD_PTR /* dwCount */)
+void WinStdioFile::UnlockRange(dword_ptr /* dwPos */, dword_ptr /* dwCount */)
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -323,7 +323,7 @@ void WinStdioFile::dump(dump_context & dumpcontext) const
 
 
 
-DWORD_PTR WinStdioFile::get_length() const
+dword_ptr WinStdioFile::get_length() const
 {
    ASSERT_VALID(this);
 

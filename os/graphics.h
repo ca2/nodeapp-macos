@@ -24,7 +24,7 @@ namespace win
 
       static ::ca::graphics * PASCAL from_handle(HDC hDC);
       static void PASCAL DeleteTempMap();
-      BOOL Attach(HDC hDC);   // Attach/Detach affects only the Output DC
+      WINBOOL Attach(HDC hDC);   // Attach/Detach affects only the Output DC
       HDC Detach();
 
       virtual void SetAttribDC(HDC hDC);  // Set the Attribute DC
@@ -32,7 +32,7 @@ namespace win
       virtual void ReleaseAttribDC();     // Release the Attribute DC
       virtual void ReleaseOutputDC();     // Release the Output DC
 
-      BOOL IsPrinting() const;            // TRUE if being used for printing
+      WINBOOL IsPrinting() const;            // TRUE if being used for printing
 
       ::ca::pen* GetCurrentPen() const;
       ::ca::brush* GetCurrentBrush() const;
@@ -45,21 +45,21 @@ namespace win
       DWORD SetLayout(DWORD dwLayout);
 
    // Constructors
-      BOOL CreateDC(const char * lpszDriverName, const char * lpszDeviceName,
+      WINBOOL CreateDC(const char * lpszDriverName, const char * lpszDeviceName,
          const char * lpszOutput, const void * lpInitData);
-      BOOL CreateIC(const char * lpszDriverName, const char * lpszDeviceName,
+      WINBOOL CreateIC(const char * lpszDriverName, const char * lpszDeviceName,
          const char * lpszOutput, const void * lpInitData);
-      BOOL CreateCompatibleDC(::ca::graphics * pgraphics);
+      WINBOOL CreateCompatibleDC(::ca::graphics * pgraphics);
 
-      BOOL DeleteDC();
+      WINBOOL DeleteDC();
 
    // Device-Context Functions
       virtual int SaveDC();
-      virtual BOOL RestoreDC(int nSavedDC);
+      virtual WINBOOL RestoreDC(int nSavedDC);
       int GetDeviceCaps(int nIndex) const;
       UINT SetBoundsRect(LPCRECT lpRectBounds, UINT flags);
       UINT GetBoundsRect(LPRECT lpRectBounds, UINT flags);
-      BOOL ResetDC(const DEVMODE* lpDevMode);
+      WINBOOL ResetDC(const DEVMODE* lpDevMode);
 
    // Drawing-Tool Functions
       point GetBrushOrg() const;
@@ -81,7 +81,7 @@ namespace win
 
    // color and color Palette Functions
       COLORREF GetNearestColor(COLORREF crColor) const;
-      ::ca::palette* SelectPalette(::ca::palette* pPalette, BOOL bForceBackground);
+      ::ca::palette* SelectPalette(::ca::palette* pPalette, WINBOOL bForceBackground);
       UINT RealizePalette();
       void UpdateColors();
 
@@ -100,8 +100,8 @@ namespace win
       int SetStretchBltMode(int nStretchMode);
       virtual COLORREF SetTextColor(COLORREF crColor);
 
-      BOOL GetColorAdjustment(LPCOLORADJUSTMENT lpColorAdjust) const;
-      BOOL SetColorAdjustment(const COLORADJUSTMENT* lpColorAdjust);
+      WINBOOL GetColorAdjustment(LPCOLORADJUSTMENT lpColorAdjust) const;
+      WINBOOL SetColorAdjustment(const COLORADJUSTMENT* lpColorAdjust);
 
    #if (_WIN32_WINNT >= 0x0500)
 
@@ -118,9 +118,9 @@ namespace win
       int GetGraphicsMode() const;
 
       // World transform
-      BOOL SetWorldTransform(const XFORM* pXform);
-      BOOL ModifyWorldTransform(const XFORM* pXform,DWORD iMode);
-      BOOL GetWorldTransform(XFORM* pXform) const;
+      WINBOOL SetWorldTransform(const XFORM* pXform);
+      WINBOOL ModifyWorldTransform(const XFORM* pXform,DWORD iMode);
+      WINBOOL GetWorldTransform(XFORM* pXform) const;
 
       // Mapping Functions
       virtual int GetMapMode() const;
@@ -164,16 +164,16 @@ namespace win
       void HIMETRICtoLP(LPSIZE lpSize) const;
 
    // Region Functions
-      BOOL FillRgn(::ca::rgn* pRgn, ::ca::brush* pBrush);
-      BOOL FrameRgn(::ca::rgn* pRgn, ::ca::brush* pBrush, int nWidth, int nHeight);
-      BOOL InvertRgn(::ca::rgn* pRgn);
-      BOOL PaintRgn(::ca::rgn* pRgn);
+      WINBOOL FillRgn(::ca::rgn* pRgn, ::ca::brush* pBrush);
+      WINBOOL FrameRgn(::ca::rgn* pRgn, ::ca::brush* pBrush, int nWidth, int nHeight);
+      WINBOOL InvertRgn(::ca::rgn* pRgn);
+      WINBOOL PaintRgn(::ca::rgn* pRgn);
 
    // Clipping Functions
       virtual int GetClipBox(LPRECT lpRect) const;
-      virtual BOOL PtVisible(int x, int y) const;
-            BOOL PtVisible(POINT point) const;
-      virtual BOOL RectVisible(LPCRECT lpRect) const;
+      virtual WINBOOL PtVisible(int x, int y) const;
+            WINBOOL PtVisible(POINT point) const;
+      virtual WINBOOL RectVisible(LPCRECT lpRect) const;
             int SelectClipRgn(::ca::rgn* pRgn);
             int ExcludeClipRect(int x1, int y1, int x2, int y2);
             int ExcludeClipRect(LPCRECT lpRect);
@@ -188,88 +188,88 @@ namespace win
       point GetCurrentPosition() const;
       point MoveTo(int x, int y);
       point MoveTo(POINT point);
-      BOOL LineTo(int x, int y);
-      BOOL LineTo(POINT point);
-      BOOL Arc(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
-      BOOL Arc(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
-      BOOL Polyline(const POINT* lpPoints, int nCount);
+      WINBOOL LineTo(int x, int y);
+      WINBOOL LineTo(POINT point);
+      WINBOOL Arc(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
+      WINBOOL Arc(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
+      WINBOOL Polyline(const POINT* lpPoints, int nCount);
 
-      BOOL AngleArc(int x, int y, int nRadius, float fStartAngle, float fSweepAngle);
-      BOOL ArcTo(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
-      BOOL ArcTo(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
+      WINBOOL AngleArc(int x, int y, int nRadius, float fStartAngle, float fSweepAngle);
+      WINBOOL ArcTo(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
+      WINBOOL ArcTo(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
       int GetArcDirection() const;
       int SetArcDirection(int nArcDirection);
 
-      BOOL PolyDraw(const POINT* lpPoints, const BYTE* lpTypes, int nCount);
-      BOOL PolylineTo(const POINT* lpPoints, int nCount);
-      BOOL PolyPolyline(const POINT* lpPoints,
+      WINBOOL PolyDraw(const POINT* lpPoints, const BYTE* lpTypes, int nCount);
+      WINBOOL PolylineTo(const POINT* lpPoints, int nCount);
+      WINBOOL PolyPolyline(const POINT* lpPoints,
          const DWORD* lpPolyPoints, int nCount);
 
-      BOOL PolyBezier(const POINT* lpPoints, int nCount);
-      BOOL PolyBezierTo(const POINT* lpPoints, int nCount);
+      WINBOOL PolyBezier(const POINT* lpPoints, int nCount);
+      WINBOOL PolyBezierTo(const POINT* lpPoints, int nCount);
 
    // Simple Drawing Functions
       void FillRect(LPCRECT lpRect, ::ca::brush* pBrush);
       void FrameRect(LPCRECT lpRect, ::ca::brush* pBrush);
       void InvertRect(LPCRECT lpRect);
-      BOOL DrawIcon(int x, int y, ::visual::icon * picon);
-      BOOL DrawIcon(POINT point, ::visual::icon * picon);
-      BOOL DrawIcon(int x, int y, ::visual::icon * picon, int cx, int cy, UINT istepIfAniCur, HBRUSH hbrFlickerFreeDraw, UINT diFlags);
-      BOOL DrawState(point pt, size size, HBITMAP hBitmap, UINT nFlags,
+      WINBOOL DrawIcon(int x, int y, ::visual::icon * picon);
+      WINBOOL DrawIcon(POINT point, ::visual::icon * picon);
+      WINBOOL DrawIcon(int x, int y, ::visual::icon * picon, int cx, int cy, UINT istepIfAniCur, HBRUSH hbrFlickerFreeDraw, UINT diFlags);
+      WINBOOL DrawState(point pt, size size, HBITMAP hBitmap, UINT nFlags,
          HBRUSH hBrush = NULL);
-      BOOL DrawState(point pt, size size, ::ca::bitmap* pBitmap, UINT nFlags,
+      WINBOOL DrawState(point pt, size size, ::ca::bitmap* pBitmap, UINT nFlags,
          ::ca::brush* pBrush = NULL);
-      BOOL DrawState(point pt, size size, HICON hIcon, UINT nFlags,
+      WINBOOL DrawState(point pt, size size, HICON hIcon, UINT nFlags,
          HBRUSH hBrush = NULL);
-      BOOL DrawState(point pt, size size, HICON hIcon, UINT nFlags,
+      WINBOOL DrawState(point pt, size size, HICON hIcon, UINT nFlags,
          ::ca::brush* pBrush = NULL);
-      BOOL DrawState(point pt, size size, const char * lpszText, UINT nFlags,
-         BOOL bPrefixText = TRUE, int nTextLen = 0, HBRUSH hBrush = NULL);
-      BOOL DrawState(point pt, size size, const char * lpszText, UINT nFlags,
-         BOOL bPrefixText = TRUE, int nTextLen = 0, ::ca::brush* pBrush = NULL);
-      BOOL DrawState(point pt, size size, DRAWSTATEPROC lpDrawProc,
+      WINBOOL DrawState(point pt, size size, const char * lpszText, UINT nFlags,
+         WINBOOL bPrefixText = TRUE, int nTextLen = 0, HBRUSH hBrush = NULL);
+      WINBOOL DrawState(point pt, size size, const char * lpszText, UINT nFlags,
+         WINBOOL bPrefixText = TRUE, int nTextLen = 0, ::ca::brush* pBrush = NULL);
+      WINBOOL DrawState(point pt, size size, DRAWSTATEPROC lpDrawProc,
          LPARAM lData, UINT nFlags, HBRUSH hBrush = NULL);
-      BOOL DrawState(point pt, size size, DRAWSTATEPROC lpDrawProc,
+      WINBOOL DrawState(point pt, size size, DRAWSTATEPROC lpDrawProc,
          LPARAM lData, UINT nFlags, ::ca::brush* pBrush = NULL);
 
    // Ellipse and Polygon Functions
-      BOOL Chord(int x1, int y1, int x2, int y2, int x3, int y3,
+      WINBOOL Chord(int x1, int y1, int x2, int y2, int x3, int y3,
          int x4, int y4);
-      BOOL Chord(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
+      WINBOOL Chord(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
       void DrawFocusRect(LPCRECT lpRect);
-      BOOL Ellipse(int x1, int y1, int x2, int y2);
-      BOOL Ellipse(LPCRECT lpRect);
-      BOOL Pie(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
-      BOOL Pie(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
-      BOOL Polygon(const POINT* lpPoints, int nCount);   
-      BOOL PolyPolygon(const POINT* lpPoints, const INT* lpPolyCounts, int nCount);
-      BOOL Rectangle(int x1, int y1, int x2, int y2);
-      BOOL Rectangle(LPCRECT lpRect);
-      BOOL RoundRect(int x1, int y1, int x2, int y2, int x3, int y3);
-      BOOL RoundRect(LPCRECT lpRect, POINT point);
+      WINBOOL Ellipse(int x1, int y1, int x2, int y2);
+      WINBOOL Ellipse(LPCRECT lpRect);
+      WINBOOL Pie(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
+      WINBOOL Pie(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
+      WINBOOL Polygon(const POINT* lpPoints, int nCount);   
+      WINBOOL PolyPolygon(const POINT* lpPoints, const INT* lpPolyCounts, int nCount);
+      WINBOOL Rectangle(int x1, int y1, int x2, int y2);
+      WINBOOL Rectangle(LPCRECT lpRect);
+      WINBOOL RoundRect(int x1, int y1, int x2, int y2, int x3, int y3);
+      WINBOOL RoundRect(LPCRECT lpRect, POINT point);
 
    // Bitmap Functions
-      BOOL PatBlt(int x, int y, int nWidth, int nHeight, DWORD dwRop);
-      BOOL BitBlt(int x, int y, int nWidth, int nHeight, ::ca::graphics * pgraphicsSrc,
+      WINBOOL PatBlt(int x, int y, int nWidth, int nHeight, DWORD dwRop);
+      WINBOOL BitBlt(int x, int y, int nWidth, int nHeight, ::ca::graphics * pgraphicsSrc,
          int xSrc, int ySrc, DWORD dwRop);
-      BOOL StretchBlt(int x, int y, int nWidth, int nHeight, ::ca::graphics * pgraphicsSrc,
+      WINBOOL StretchBlt(int x, int y, int nWidth, int nHeight, ::ca::graphics * pgraphicsSrc,
          int xSrc, int ySrc, int nSrcWidth, int nSrcHeight, DWORD dwRop);
       COLORREF GetPixel(int x, int y) const;
       COLORREF GetPixel(POINT point) const;
       COLORREF SetPixel(int x, int y, COLORREF crColor);
       COLORREF SetPixel(POINT point, COLORREF crColor);
-      BOOL FloodFill(int x, int y, COLORREF crColor);
-      BOOL ExtFloodFill(int x, int y, COLORREF crColor, UINT nFillType);
-      BOOL MaskBlt(int x, int y, int nWidth, int nHeight, ::ca::graphics * pgraphicsSrc,
+      WINBOOL FloodFill(int x, int y, COLORREF crColor);
+      WINBOOL ExtFloodFill(int x, int y, COLORREF crColor, UINT nFillType);
+      WINBOOL MaskBlt(int x, int y, int nWidth, int nHeight, ::ca::graphics * pgraphicsSrc,
          int xSrc, int ySrc, ::ca::bitmap& maskBitmap, int xMask, int yMask,
          DWORD dwRop);
-      BOOL PlgBlt(LPPOINT lpPoint, ::ca::graphics * pgraphicsSrc, int xSrc, int ySrc,
+      WINBOOL PlgBlt(LPPOINT lpPoint, ::ca::graphics * pgraphicsSrc, int xSrc, int ySrc,
          int nWidth, int nHeight, ::ca::bitmap& maskBitmap, int xMask, int yMask);
-      BOOL SetPixelV(int x, int y, COLORREF crColor);
-      BOOL SetPixelV(POINT point, COLORREF crColor);
-      BOOL GradientFill(TRIVERTEX* pVertices, ULONG nVertices, 
+      WINBOOL SetPixelV(int x, int y, COLORREF crColor);
+      WINBOOL SetPixelV(POINT point, COLORREF crColor);
+      WINBOOL GradientFill(TRIVERTEX* pVertices, ULONG nVertices, 
         void * pMesh, ULONG nMeshElements, DWORD dwMode);
-      BOOL TransparentBlt(int xDest, int yDest, int nDestWidth, int nDestHeight,
+      WINBOOL TransparentBlt(int xDest, int yDest, int nDestWidth, int nDestHeight,
         ::ca::graphics * pgraphicsSrc, int xSrc, int ySrc, int nSrcWidth, int nSrcHeight, 
         UINT clrTransparent);
       bool alpha_blend(int xDest, int yDest, int nDestWidth, int nDestHeight,
@@ -277,11 +277,11 @@ namespace win
         BLENDFUNCTION blend);
 
    // Text Functions
-      virtual BOOL TextOut(int x, int y, const char * lpszString, int nCount);
-            BOOL TextOut(int x, int y, const string & str);
-      virtual BOOL ExtTextOut(int x, int y, UINT nOptions, LPCRECT lpRect,
+      virtual WINBOOL TextOut(int x, int y, const char * lpszString, int nCount);
+            WINBOOL TextOut(int x, int y, const string & str);
+      virtual WINBOOL ExtTextOut(int x, int y, UINT nOptions, LPCRECT lpRect,
                const char * lpszString, UINT nCount, LPINT lpDxWidths);
-            BOOL ExtTextOut(int x, int y, UINT nOptions, LPCRECT lpRect,
+            WINBOOL ExtTextOut(int x, int y, UINT nOptions, LPCRECT lpRect,
                const string & str, LPINT lpDxWidths);
       virtual size TabbedTextOut(int x, int y, const char * lpszString, int nCount,
                int nTabPositions, LPINT lpnTabStopPositions, int nTabOrigin);
@@ -322,8 +322,8 @@ namespace win
          int nTabPositions, LPINT lpnTabStopPositions) const;
       size GetOutputTabbedTextExtent(const string & str,
          int nTabPositions, LPINT lpnTabStopPositions) const;
-      virtual BOOL GrayString(::ca::brush* pBrush,
-         BOOL (CALLBACK* lpfnOutput)(HDC, LPARAM, int), LPARAM lpData,
+      virtual WINBOOL GrayString(::ca::brush* pBrush,
+         WINBOOL (CALLBACK* lpfnOutput)(HDC, LPARAM, int), LPARAM lpData,
             int nCount, int x, int y, int nWidth, int nHeight);
       UINT GetTextAlign() const;
       UINT SetTextAlign(UINT nFlags);
@@ -331,10 +331,10 @@ namespace win
       int GetTextFace(string & rString) const;
    #pragma push_macro("GetTextMetrics")
    #undef GetTextMetrics
-      BOOL _AFX_FUNCNAME(GetTextMetrics)(LPTEXTMETRIC lpMetrics) const;
-      BOOL GetTextMetrics(LPTEXTMETRIC lpMetrics) const;
+      WINBOOL _AFX_FUNCNAME(GetTextMetrics)(LPTEXTMETRIC lpMetrics) const;
+      WINBOOL GetTextMetrics(LPTEXTMETRIC lpMetrics) const;
    #pragma pop_macro("GetTextMetrics")
-      BOOL GetOutputTextMetrics(LPTEXTMETRIC lpMetrics) const;
+      WINBOOL GetOutputTextMetrics(LPTEXTMETRIC lpMetrics) const;
       int SetTextJustification(int nBreakExtra, int nBreakCount);
       int GetTextCharacterExtra() const;
       int SetTextCharacterExtra(int nCharExtra);
@@ -344,45 +344,45 @@ namespace win
 
    #if (_WIN32_WINNT >= 0x0500)
 
-      BOOL GetTextExtentExPointI(LPWORD pgiIn, int cgi, int nMaxExtent, LPINT lpnFit, LPINT alpDx, __out_opt LPSIZE lpSize) const;
-      BOOL GetTextExtentPointI(LPWORD pgiIn, int cgi, __out_opt LPSIZE lpSize) const;
+      WINBOOL GetTextExtentExPointI(LPWORD pgiIn, int cgi, int nMaxExtent, LPINT lpnFit, LPINT alpDx, __out_opt LPSIZE lpSize) const;
+      WINBOOL GetTextExtentPointI(LPWORD pgiIn, int cgi, __out_opt LPSIZE lpSize) const;
 
    #endif
 
 
 
    // Advanced Drawing
-      BOOL DrawEdge(LPRECT lpRect, UINT nEdge, UINT nFlags);
-      BOOL DrawFrameControl(LPRECT lpRect, UINT nType, UINT nState);
+      WINBOOL DrawEdge(LPRECT lpRect, UINT nEdge, UINT nFlags);
+      WINBOOL DrawFrameControl(LPRECT lpRect, UINT nType, UINT nState);
 
    // Scrolling Functions
-      BOOL ScrollDC(int dx, int dy, LPCRECT lpRectScroll, LPCRECT lpRectClip,
+      WINBOOL ScrollDC(int dx, int dy, LPCRECT lpRectScroll, LPCRECT lpRectClip,
          ::ca::rgn* pRgnUpdate, LPRECT lpRectUpdate);
 
    // font Functions
-      BOOL GetCharWidth(UINT nFirstChar, UINT nLastChar, LPINT lpBuffer) const;
-      BOOL GetOutputCharWidth(UINT nFirstChar, UINT nLastChar, LPINT lpBuffer) const;
+      WINBOOL GetCharWidth(UINT nFirstChar, UINT nLastChar, LPINT lpBuffer) const;
+      WINBOOL GetOutputCharWidth(UINT nFirstChar, UINT nLastChar, LPINT lpBuffer) const;
       DWORD SetMapperFlags(DWORD dwFlag);
       size GetAspectRatioFilter() const;
 
-      BOOL GetCharABCWidths(UINT nFirstChar, UINT nLastChar, LPABC lpabc) const;
+      WINBOOL GetCharABCWidths(UINT nFirstChar, UINT nLastChar, LPABC lpabc) const;
       DWORD GetFontData(DWORD dwTable, DWORD dwOffset, LPVOID lpData, DWORD cbData) const;
       int GetKerningPairs(int nPairs, LPKERNINGPAIR lpkrnpair) const;
       UINT GetOutlineTextMetrics(UINT cbData, LPOUTLINETEXTMETRIC lpotm) const;
       DWORD GetGlyphOutline(UINT nChar, UINT nFormat, LPGLYPHMETRICS lpgm,
          DWORD cbBuffer, LPVOID lpBuffer, const MAT2* lpmat2) const;
 
-      BOOL GetCharABCWidths(UINT nFirstChar, UINT nLastChar,
+      WINBOOL GetCharABCWidths(UINT nFirstChar, UINT nLastChar,
          LPABCFLOAT lpABCF) const;
-      BOOL GetCharWidth(UINT nFirstChar, UINT nLastChar,
+      WINBOOL GetCharWidth(UINT nFirstChar, UINT nLastChar,
          float* lpFloatBuffer) const;
 
       DWORD GetFontLanguageInfo() const;
 
    #if (_WIN32_WINNT >= 0x0500)
 
-      BOOL GetCharABCWidthsI(UINT giFirst, UINT cgi, LPWORD pgi, LPABC lpabc) const;
-      BOOL GetCharWidthI(UINT giFirst, UINT cgi, LPWORD pgi, LPINT lpBuffer) const;
+      WINBOOL GetCharABCWidthsI(UINT giFirst, UINT cgi, LPWORD pgi, LPABC lpabc) const;
+      WINBOOL GetCharWidthI(UINT giFirst, UINT cgi, LPWORD pgi, LPINT lpBuffer) const;
 
    #endif
 
@@ -398,30 +398,30 @@ namespace win
       int StartDoc(LPDOCINFO lpDocInfo);
       int StartPage();
       int EndPage();
-      int SetAbortProc(BOOL (CALLBACK* lpfn)(HDC, int));
+      int SetAbortProc(WINBOOL (CALLBACK* lpfn)(HDC, int));
       int AbortDoc();
       int EndDoc();
 
    // MetaFile Functions
-      BOOL PlayMetaFile(HMETAFILE hMF);
-      BOOL PlayMetaFile(HENHMETAFILE hEnhMetaFile, LPCRECT lpBounds);
-      BOOL AddMetaFileComment(UINT nDataSize, const BYTE* pCommentData);
+      WINBOOL PlayMetaFile(HMETAFILE hMF);
+      WINBOOL PlayMetaFile(HENHMETAFILE hEnhMetaFile, LPCRECT lpBounds);
+      WINBOOL AddMetaFileComment(UINT nDataSize, const BYTE* pCommentData);
          // can be used for enhanced metafiles only
 
    // Path Functions
-      BOOL AbortPath();
-      BOOL BeginPath();
-      BOOL CloseFigure();
-      BOOL EndPath();
-      BOOL FillPath();
-      BOOL FlattenPath();
-      BOOL StrokeAndFillPath();
-      BOOL StrokePath();
-      BOOL WidenPath();
+      WINBOOL AbortPath();
+      WINBOOL BeginPath();
+      WINBOOL CloseFigure();
+      WINBOOL EndPath();
+      WINBOOL FillPath();
+      WINBOOL FlattenPath();
+      WINBOOL StrokeAndFillPath();
+      WINBOOL StrokePath();
+      WINBOOL WidenPath();
       float GetMiterLimit() const;
-      BOOL SetMiterLimit(float fMiterLimit);
+      WINBOOL SetMiterLimit(float fMiterLimit);
       int GetPath(LPPOINT lpPoints, LPBYTE lpTypes, int nCount) const;
-      BOOL SelectClipPath(int nMode);
+      WINBOOL SelectClipPath(int nMode);
 
    // Misc Helper Functions
       static ::ca::brush* PASCAL GetHalftoneBrush(::ca::application * papp);
@@ -443,7 +443,7 @@ namespace win
    #endif
 
       // advanced use and implementation
-      BOOL m_bPrinting;
+      WINBOOL m_bPrinting;
       HGDIOBJ SelectObject(HGDIOBJ);      // do not use for regions
 
    protected:

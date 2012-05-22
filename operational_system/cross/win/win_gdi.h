@@ -176,6 +176,26 @@ typedef struct tagRGBQUAD {
 typedef RGBQUAD FAR* LPRGBQUAD;
 
 
+
+
+
+typedef struct tagPALETTEENTRY {
+   BYTE        peRed;
+   BYTE        peGreen;
+   BYTE        peBlue;
+   BYTE        peFlags;
+} PALETTEENTRY, *PPALETTEENTRY, FAR *LPPALETTEENTRY;
+
+/* Logical Palette */
+typedef struct tagLOGPALETTE {
+   WORD                palVersion;
+   WORD                palNumEntries;
+   PALETTEENTRY        palPalEntry[1];
+} LOGPALETTE, *PLOGPALETTE, NEAR *NPLOGPALETTE, FAR *LPLOGPALETTE;
+
+
+
+
 /* Logical Font */
 #define LF_FACESIZE         32
 
@@ -308,7 +328,7 @@ public:
     DWORD       elpWidth;
     UINT        elpBrushStyle;
     COLORREF    elpColor;
-    ULONG_PTR   elpHatch;
+    ulong_ptr   elpHatch;
     DWORD       elpNumEntries;
     DWORD       elpStyleEntry[1];
 };
@@ -366,7 +386,7 @@ class tagLOGBRUSH :
 public:
 	UINT        lbStyle;
 	COLORREF    lbColor;
-	ULONG_PTR   lbHatch;
+	ulong_ptr   lbHatch;
 };
 
 typedef tagLOGBRUSH  LOGBRUSH, *PLOGBRUSH, NEAR *NPLOGBRUSH, FAR *LPLOGBRUSH;
@@ -595,18 +615,18 @@ typedef LPLOGRGN HRGN;
 HBITMAP CreateCompatibleBitmap(HDC hdc, int cx, int cy);
 
 
-BOOL BitBlt(HDC hdcDest, int nXDest, int nYDest, int nWidth, int nHeight, HDC hdcSrc, int nXSrc, int nYSrc, DWORD dwRop);
+WINBOOL BitBlt(HDC hdcDest, int nXDest, int nYDest, int nWidth, int nHeight, HDC hdcSrc, int nXSrc, int nYSrc, DWORD dwRop);
 
 
-BOOL SetViewportOrgEx(HDC hdc, int X, int Y, LPPOINT lpPoint);
+WINBOOL SetViewportOrgEx(HDC hdc, int X, int Y, LPPOINT lpPoint);
 
-BOOL GetClientRect(HWND hwnd, LPRECT lprect);
+WINBOOL GetClientRect(HWND hwnd, LPRECT lprect);
 
-BOOL GetWindowRect(HWND hwnd, LPRECT lprect);
+WINBOOL GetWindowRect(HWND hwnd, LPRECT lprect);
 
 int FillRect(HDC hDC, const RECT *lprc, HBRUSH hbr);
 
-BOOL ReleaseDC(HWND hwnd, HDC hdc);
+WINBOOL ReleaseDC(HWND hwnd, HDC hdc);
 
 HDC GetWindowDC(HWND hwnd);
 

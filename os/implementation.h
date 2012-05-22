@@ -2,12 +2,12 @@
 
 #define AfxDeferRegisterClass(fClass) AfxEndDeferRegisterClass(fClass)
 
-CLASS_DECL_VMSWIN BOOL AfxEndDeferRegisterClass(LONG fToRegister, const char ** ppszClass);
+CLASS_DECL_VMSWIN WINBOOL AfxEndDeferRegisterClass(LONG fToRegister, const char ** ppszClass);
 
 
 // Temporary ::collection::map management (locks temp ::collection::map on current thread)
 //CLASS_DECL_VMSWIN void AfxLockTempMaps(::radix::application * papp);
-//CLASS_DECL_VMSWIN BOOL AfxUnlockTempMaps(::radix::application * papp, BOOL bDeleteTemps = TRUE);
+//CLASS_DECL_VMSWIN WINBOOL AfxUnlockTempMaps(::radix::application * papp, WINBOOL bDeleteTemps = TRUE);
 
 
 
@@ -23,13 +23,13 @@ extern CLASS_DECL_VMSWIN const char _afxWndOleControl[];
 // Special helpers
 
 CLASS_DECL_VMSWIN void AfxCancelModes(HWND hWndRcvr);
-CLASS_DECL_VMSWIN BOOL AfxHelpEnabled();  // determine if ID_HELP handler exists
-CLASS_DECL_VMSWIN BOOL AfxCustomLogFont(UINT nIDS, LOGFONT* pLogFont);
-CLASS_DECL_VMSWIN BOOL AfxGetPropSheetFont(string & strFace, WORD& wSize, BOOL bWizard);
+CLASS_DECL_VMSWIN WINBOOL AfxHelpEnabled();  // determine if ID_HELP handler exists
+CLASS_DECL_VMSWIN WINBOOL AfxCustomLogFont(UINT nIDS, LOGFONT* pLogFont);
+CLASS_DECL_VMSWIN WINBOOL AfxGetPropSheetFont(string & strFace, WORD& wSize, WINBOOL bWizard);
 
-CLASS_DECL_VMSWIN BOOL _AfxIsComboBoxControl(HWND hWnd, UINT nStyle);
-CLASS_DECL_VMSWIN BOOL _AfxCheckCenterDialog(const char * lpszResource);
-CLASS_DECL_VMSWIN BOOL _AfxCompareClassName(HWND hWnd, const char * lpszClassName);
+CLASS_DECL_VMSWIN WINBOOL _AfxIsComboBoxControl(HWND hWnd, UINT nStyle);
+CLASS_DECL_VMSWIN WINBOOL _AfxCheckCenterDialog(const char * lpszResource);
+CLASS_DECL_VMSWIN WINBOOL _AfxCompareClassName(HWND hWnd, const char * lpszClassName);
 CLASS_DECL_VMSWIN HWND _AfxChildWindowFromPoint(HWND, POINT);
 
 // for determining version of COMCTL32.DLL

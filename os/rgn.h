@@ -14,16 +14,16 @@ namespace win
       rgn(::ca::application * papp);
       virtual ~rgn();
 
-      BOOL CreateRectRgn(int x1, int y1, int x2, int y2);
-      BOOL CreateRectRgnIndirect(LPCRECT lpRect);
-      BOOL CreateEllipticRgn(int x1, int y1, int x2, int y2);
-      BOOL CreateEllipticRgnIndirect(LPCRECT lpRect);
-      BOOL CreatePolygonRgn(LPPOINT lpPoints, int nCount, int nMode);
-      BOOL CreatePolyPolygonRgn(LPPOINT lpPoints, LPINT lpPolyCounts,
+      WINBOOL CreateRectRgn(int x1, int y1, int x2, int y2);
+      WINBOOL CreateRectRgnIndirect(LPCRECT lpRect);
+      WINBOOL CreateEllipticRgn(int x1, int y1, int x2, int y2);
+      WINBOOL CreateEllipticRgnIndirect(LPCRECT lpRect);
+      WINBOOL CreatePolygonRgn(LPPOINT lpPoints, int nCount, int nMode);
+      WINBOOL CreatePolyPolygonRgn(LPPOINT lpPoints, LPINT lpPolyCounts,
             int nCount, int nPolyFillMode);
-      BOOL CreateRoundRectRgn(int x1, int y1, int x2, int y2, int x3, int y3);
-      BOOL CreateFromPath(::ca::graphics * pgraphics);
-      BOOL CreateFromData(const XFORM* lpXForm, int nCount,
+      WINBOOL CreateRoundRectRgn(int x1, int y1, int x2, int y2, int x3, int y3);
+      WINBOOL CreateFromPath(::ca::graphics * pgraphics);
+      WINBOOL CreateFromData(const XFORM* lpXForm, int nCount,
          const RGNDATA* pRgnData);
 
    // Operations
@@ -31,13 +31,13 @@ namespace win
       void SetRectRgn(LPCRECT lpRect);
       int CombineRgn(const ::ca::rgn* pRgn1, const ::ca::rgn* pRgn2, int nCombineMode);
       int CopyRgn(const ::ca::rgn* pRgnSrc);
-      BOOL EqualRgn(const ::ca::rgn* pRgn) const;
+      WINBOOL EqualRgn(const ::ca::rgn* pRgn) const;
       int OffsetRgn(int x, int y);
       int OffsetRgn(POINT point);
       int GetRgnBox(LPRECT lpRect) const;
-      BOOL PtInRegion(int x, int y) const;
-      BOOL PtInRegion(POINT point) const;
-      BOOL RectInRegion(LPCRECT lpRect) const;
+      WINBOOL PtInRegion(int x, int y) const;
+      WINBOOL PtInRegion(POINT point) const;
+      WINBOOL RectInRegion(LPCRECT lpRect) const;
       int GetRegionData(LPRGNDATA lpRgnData, int nCount) const;
 
    };

@@ -16,9 +16,9 @@ namespace win
    {
       return dynamic_cast < font * > (::win::graphics_object::from_handle(papp, hFont)); 
    }
-   BOOL font::CreateFontIndirect(const LOGFONT* lpLogFont)
+   WINBOOL font::CreateFontIndirect(const LOGFONT* lpLogFont)
    { return Attach(::CreateFontIndirect(lpLogFont)); }
-   BOOL font::CreateFont(int nHeight, int nWidth, int nEscapement,
+   WINBOOL font::CreateFont(int nHeight, int nWidth, int nEscapement,
       int nOrientation, int nWeight, BYTE bItalic, BYTE bUnderline,
       BYTE cStrikeOut, BYTE nCharSet, BYTE nOutPrecision,
       BYTE nClipPrecision, BYTE nQuality, BYTE nPitchAndFamily,
@@ -88,7 +88,7 @@ namespace win
    // out-of-line ::ca::brush, font, etc. helpers
 
    // nPointSize is actually scaled 10x
-   BOOL font::CreatePointFont(int nPointSize, const char * lpszFaceName, ::ca::graphics * pgraphics)
+   WINBOOL font::CreatePointFont(int nPointSize, const char * lpszFaceName, ::ca::graphics * pgraphics)
    {
       ASSERT(AfxIsValidString(lpszFaceName));
 
@@ -102,7 +102,7 @@ namespace win
    }
 
    // pLogFont->nHeight is interpreted as PointSize * 10
-   BOOL font::CreatePointFontIndirect(const LOGFONT* lpLogFont, ::ca::graphics * pgraphics)
+   WINBOOL font::CreatePointFontIndirect(const LOGFONT* lpLogFont, ::ca::graphics * pgraphics)
    {
       ASSERT(fx_is_valid_address(lpLogFont, sizeof(LOGFONT), FALSE));
       HDC hDC;

@@ -20,12 +20,12 @@ namespace win
 
       static graphics_object* PASCAL from_handle(::ca::application * papp, HGDIOBJ hObject);
       static void PASCAL DeleteTempMap();
-      BOOL Attach(HGDIOBJ hObject);
+      WINBOOL Attach(HGDIOBJ hObject);
       HGDIOBJ Detach();
 
    // Constructors
       ::ca::graphics_object(); // must create a derived class object
-      BOOL delete_object();
+      WINBOOL delete_object();
 
    // Operations
    #pragma push_macro("GetObject")
@@ -34,10 +34,10 @@ namespace win
       int GetObject(int nCount, LPVOID lpObject) const;
    #pragma pop_macro("GetObject")
       UINT GetObjectType() const;
-      BOOL CreateStockObject(int nIndex);
-      BOOL UnrealizeObject();
-      BOOL operator==(const ::ca::graphics_object& obj) const;
-      BOOL operator!=(const ::ca::graphics_object& obj) const;
+      WINBOOL CreateStockObject(int nIndex);
+      WINBOOL UnrealizeObject();
+      WINBOOL operator==(const ::ca::graphics_object& obj) const;
+      WINBOOL operator!=(const ::ca::graphics_object& obj) const;
 
    // Implementation
    public:

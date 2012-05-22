@@ -5,18 +5,18 @@
 
 #if defined(__LP64__)
 
-    typedef long INT_PTR, *PINT_PTR;
-    typedef unsigned long int UINT_PTR, *PUINT_PTR;
+    typedef long int_ptr, *pint_ptr;
+    typedef unsigned long int uint_ptr, *puint_ptr;
 
-    typedef long long LONG_PTR, *PLONG_PTR;
-    typedef unsigned long long ULONG_PTR, *PULONG_PTR;
+    typedef long long long_ptr, *plong_ptr;
+    typedef unsigned long long ulong_ptr, *pulong_ptr;
 
 #else
-    typedef int INT_PTR, *PINT_PTR;
-    typedef unsigned int UINT_PTR, *PUINT_PTR;
+    typedef int int_ptr, *pint_ptr;
+    typedef unsigned int uint_ptr, *puint_ptr;
 
-    typedef long LONG_PTR, *PLONG_PTR;
-    typedef unsigned int ULONG_PTR, *PULONG_PTR;
+    typedef long long_ptr, *plong_ptr;
+    typedef unsigned int ulong_ptr, *pulong_ptr;
 #endif
 
 
@@ -24,8 +24,8 @@
 //typedef void * HDC;
 typedef unsigned char BYTE;
 typedef unsigned int UINT;
-//typedef INT_PTR WPARAM;
-//typedef INT_PTR LPARAM;
+//typedef int_ptr WPARAM;
+//typedef int_ptr LPARAM;
 
 
 

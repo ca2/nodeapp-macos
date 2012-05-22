@@ -82,10 +82,10 @@ namespace win
       void transparent_color(color color);
       
 
-      BOOL create(class size size);
-      BOOL create(int iWidth, int iHeight);
-      BOOL create(::ca::graphics * pdc);
-      BOOL Destroy();
+      WINBOOL create(class size size);
+      WINBOOL create(int iWidth, int iHeight);
+      WINBOOL create(::ca::graphics * pdc);
+      WINBOOL Destroy();
 
 
       void DivideRGB(int iDivide);

@@ -1,6 +1,6 @@
 #pragma once
 
-BOOL AfxInternalPreTranslateMessage(MSG* pMsg);
+WINBOOL AfxInternalPreTranslateMessage(MSG* pMsg);
 
 namespace ca
 {
@@ -71,10 +71,10 @@ namespace win
       UINT                                m_dwFinishTimeout;
 
       virtual void * get_os_data();
-      virtual INT_PTR get_os_int();
+      virtual int_ptr get_os_int();
 
       void set_os_data(void * pvoidOsData);
-      void set_os_int(INT_PTR iData);
+      void set_os_int(int_ptr iData);
 
       virtual void set_p(::radix::thread * p);
 
@@ -85,7 +85,7 @@ namespace win
       virtual bool Begin(int nPriority = THREAD_PRIORITY_NORMAL, UINT nStackSize = 0,
          DWORD dwCreateFlags = 0, LPSECURITY_ATTRIBUTES lpSecurityAttrs = NULL);
 
-      BOOL CreateThread(DWORD dwCreateFlags = 0, UINT nStackSize = 0,
+      WINBOOL CreateThread(DWORD dwCreateFlags = 0, UINT nStackSize = 0,
          LPSECURITY_ATTRIBUTES lpSecurityAttrs = NULL);
 
 
@@ -100,8 +100,8 @@ namespace win
       virtual void remove(::user::interaction * pui);
       virtual int get_ui_count();
       virtual ::user::interaction * get_ui(int iIndex);
-      virtual void set_timer(::user::interaction * pui, UINT_PTR nIDEvent, UINT nEllapse);
-      virtual void unset_timer(::user::interaction * pui, UINT_PTR nIDEvent);
+      virtual void set_timer(::user::interaction * pui, uint_ptr nIDEvent, UINT nEllapse);
+      virtual void unset_timer(::user::interaction * pui, uint_ptr nIDEvent);
       virtual void set_auto_delete(bool bAutoDelete = true);
       virtual void set_run(bool bRun = true);
       virtual CEvent & get_finish_event();
@@ -115,12 +115,12 @@ namespace win
       virtual void on_delete(::ca::ca * poc);
 
       int GetThreadPriority();
-      BOOL SetThreadPriority(int nPriority);
+      WINBOOL SetThreadPriority(int nPriority);
 
    // Operations
       DWORD SuspendThread();
       DWORD ResumeThread();
-      BOOL PostThreadMessage(UINT message, WPARAM wParam, LPARAM lParam);
+      WINBOOL PostThreadMessage(UINT message, WPARAM wParam, LPARAM lParam);
       bool post_message(::user::interaction * pguie, UINT message, WPARAM wParam, LPARAM lParam);
 
       virtual bool PreInitInstance();
@@ -138,10 +138,10 @@ namespace win
       // running and idle processing
       virtual int run();
       virtual void pre_translate_message(gen::signal_object * pobj);
-      virtual BOOL pump_message();     // low level message pump
-      virtual BOOL on_idle(LONG lCount); // return TRUE if more idle processing
-      virtual BOOL is_idle_message(gen::signal_object * pobj);  // checks for special messages
-      virtual BOOL is_idle_message(LPMSG lpmsg);  // checks for special messages
+      virtual WINBOOL pump_message();     // low level message pump
+      virtual WINBOOL on_idle(LONG lCount); // return TRUE if more idle processing
+      virtual WINBOOL is_idle_message(gen::signal_object * pobj);  // checks for special messages
+      virtual WINBOOL is_idle_message(LPMSG lpmsg);  // checks for special messages
       virtual void message_handler(gen::signal_object * pobj);
 
       // thread termination
@@ -176,7 +176,7 @@ namespace win
 
 
       virtual void LockTempMaps();
-      virtual BOOL UnlockTempMaps(BOOL bDeleteTemp);
+      virtual WINBOOL UnlockTempMaps(WINBOOL bDeleteTemp);
 
       operator pthread_t() const;
    };

@@ -10,6 +10,7 @@
 
 
 
+
 #ifndef _XSERVER64
 #ifndef _XTYPEDEF_XID
 #define _XTYPEDEF_XID
@@ -262,7 +263,7 @@ inline void __debug_break() { __asm("int $3"); }
 #define NO_ANSIUNI_ONLY
 #define _MFC_OVERRIDES_NEW
 
-#define MAX_DWORD_PTR ((DWORD_PTR)(-1))
+#define MAX_DWORD_PTR ((dword_ptr)(-1))
 
 #define TRUE 1
 #define FALSE 0
@@ -294,7 +295,7 @@ void ultoa(unsigned long ul, char * sz, int radix);
 void i64toa(int64_t i, char * sz, int radix);
 void ui64toa(uint64_t i, char * sz, int radix);
 void str_reverse(char * sz);
-void zero_pad(char * sz, INT_PTR iPad);
+void zero_pad(char * sz, int_ptr iPad);
 
 char * strlwr(char * psz);
 char * strupr(char * psz);

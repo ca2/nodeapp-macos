@@ -1123,28 +1123,28 @@ typedef enum _NORM_FORM {
 
 #ifdef STRICT
 
-typedef BOOL (CALLBACK* LANGUAGEGROUP_ENUMPROCA)(LGRPID, LPSTR, LPSTR, DWORD, LONG_PTR);
-//xxx macos typedef BOOL (CALLBACK* LANGGROUPLOCALE_ENUMPROCA)(LGRPID, LCID, LPSTR, LONG_PTR);
-typedef BOOL (CALLBACK* UILANGUAGE_ENUMPROCA)(LPSTR, LONG_PTR);
-typedef BOOL (CALLBACK* LOCALE_ENUMPROCA)(LPSTR);
-typedef BOOL (CALLBACK* CODEPAGE_ENUMPROCA)(LPSTR);
-typedef BOOL (CALLBACK* DATEFMT_ENUMPROCA)(LPSTR);
-typedef BOOL (CALLBACK* DATEFMT_ENUMPROCEXA)(LPSTR, CALID);
-typedef BOOL (CALLBACK* TIMEFMT_ENUMPROCA)(LPSTR);
-typedef BOOL (CALLBACK* CALINFO_ENUMPROCA)(LPSTR);
-typedef BOOL (CALLBACK* CALINFO_ENUMPROCEXA)(LPSTR, CALID);
+typedef WINBOOL (CALLBACK* LANGUAGEGROUP_ENUMPROCA)(LGRPID, LPSTR, LPSTR, DWORD, long_ptr);
+//xxx macos typedef WINBOOL (CALLBACK* LANGGROUPLOCALE_ENUMPROCA)(LGRPID, LCID, LPSTR, long_ptr);
+typedef WINBOOL (CALLBACK* UILANGUAGE_ENUMPROCA)(LPSTR, long_ptr);
+typedef WINBOOL (CALLBACK* LOCALE_ENUMPROCA)(LPSTR);
+typedef WINBOOL (CALLBACK* CODEPAGE_ENUMPROCA)(LPSTR);
+typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCA)(LPSTR);
+typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCEXA)(LPSTR, CALID);
+typedef WINBOOL (CALLBACK* TIMEFMT_ENUMPROCA)(LPSTR);
+typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCA)(LPSTR);
+typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCEXA)(LPSTR, CALID);
 
-typedef BOOL (CALLBACK* LANGUAGEGROUP_ENUMPROCW)(LGRPID, LPWSTR, LPWSTR, DWORD, LONG_PTR);
-//xxx macos typedef BOOL (CALLBACK* LANGGROUPLOCALE_ENUMPROCW)(LGRPID, LCID, LPWSTR, LONG_PTR);
-typedef BOOL (CALLBACK* UILANGUAGE_ENUMPROCW)(LPWSTR, LONG_PTR);
-typedef BOOL (CALLBACK* LOCALE_ENUMPROCW)(LPWSTR);
-typedef BOOL (CALLBACK* CODEPAGE_ENUMPROCW)(LPWSTR);
-typedef BOOL (CALLBACK* DATEFMT_ENUMPROCW)(LPWSTR);
-typedef BOOL (CALLBACK* DATEFMT_ENUMPROCEXW)(LPWSTR, CALID);
-typedef BOOL (CALLBACK* TIMEFMT_ENUMPROCW)(LPWSTR);
-typedef BOOL (CALLBACK* CALINFO_ENUMPROCW)(LPWSTR);
-typedef BOOL (CALLBACK* CALINFO_ENUMPROCEXW)(LPWSTR, CALID);
-typedef BOOL (CALLBACK* GEO_ENUMPROC)(GEOID);
+typedef WINBOOL (CALLBACK* LANGUAGEGROUP_ENUMPROCW)(LGRPID, LPWSTR, LPWSTR, DWORD, long_ptr);
+//xxx macos typedef WINBOOL (CALLBACK* LANGGROUPLOCALE_ENUMPROCW)(LGRPID, LCID, LPWSTR, long_ptr);
+typedef WINBOOL (CALLBACK* UILANGUAGE_ENUMPROCW)(LPWSTR, long_ptr);
+typedef WINBOOL (CALLBACK* LOCALE_ENUMPROCW)(LPWSTR);
+typedef WINBOOL (CALLBACK* CODEPAGE_ENUMPROCW)(LPWSTR);
+typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCW)(LPWSTR);
+typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCEXW)(LPWSTR, CALID);
+typedef WINBOOL (CALLBACK* TIMEFMT_ENUMPROCW)(LPWSTR);
+typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCW)(LPWSTR);
+typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCEXW)(LPWSTR, CALID);
+typedef WINBOOL (CALLBACK* GEO_ENUMPROC)(GEOID);
 
 #else // !STRICT
 
@@ -1246,31 +1246,31 @@ typedef struct _FILEMUIINFO {
 //
 // Gets the culture name (LPWSTR), NULL if not initialized
 #define FILEMUIINFO_GET_CULTURE(pInfo)          \
-    ((LPWSTR)((pInfo->dwLanguageNameOffset>0)?(ULONG_PTR)pInfo+pInfo->dwLanguageNameOffset:NULL))
+    ((LPWSTR)((pInfo->dwLanguageNameOffset>0)?(ulong_ptr)pInfo+pInfo->dwLanguageNameOffset:NULL))
 //
 // Gets the main module types array (DWORD[]), NULL if not initialized
 #define FILEMUIINFO_GET_MAIN_TYPEIDS(pInfo)       \
-    ((DWORD*)((pInfo->dwTypeIDMainOffset>0)?(ULONG_PTR)pInfo+pInfo->dwTypeIDMainOffset:NULL))
+    ((DWORD*)((pInfo->dwTypeIDMainOffset>0)?(ulong_ptr)pInfo+pInfo->dwTypeIDMainOffset:NULL))
 //
 // Gets the main module type array element iType (DWORD), the array is not initialized or index is out of bounds
 #define FILEMUIINFO_GET_MAIN_TYPEID(pInfo,iType)  \
-    (((iType<pInfo->dwTypeIDMainSize)&&(pInfo->dwTypeIDMainOffset>0))?*((DWORD*)((ULONG_PTR)pInfo+pInfo->dwTypeIDMainOffset)+iType):0)
+    (((iType<pInfo->dwTypeIDMainSize)&&(pInfo->dwTypeIDMainOffset>0))?*((DWORD*)((ulong_ptr)pInfo+pInfo->dwTypeIDMainOffset)+iType):0)
 //
 // Gets the main module names multistring array (LPWSTR), NULL if not initialized
 #define FILEMUIINFO_GET_MAIN_TYPENAMES(pInfo)       \
-    ((LPWSTR)((pInfo->dwTypeNameMainOffset>0)?(ULONG_PTR)pInfo+pInfo->dwTypeNameMainOffset:NULL))
+    ((LPWSTR)((pInfo->dwTypeNameMainOffset>0)?(ulong_ptr)pInfo+pInfo->dwTypeNameMainOffset:NULL))
 //
 // Gets the mui module types array (DWORD[]), NULL if not initialized
 #define FILEMUIINFO_GET_MUI_TYPEIDS(pInfo)        \
-    ((DWORD*)((pInfo->dwTypeIDMUIOffset>0)?(ULONG_PTR)pInfo+pInfo->dwTypeIDMUIOffset:NULL))
+    ((DWORD*)((pInfo->dwTypeIDMUIOffset>0)?(ulong_ptr)pInfo+pInfo->dwTypeIDMUIOffset:NULL))
 //
 // Gets the mui module type array element iType (DWORD), the array is not initialized or index is out of bounds
 #define FILEMUIINFO_GET_MUI_TYPEID(pInfo,iType)   \
-    (((iType<pInfo->dwTypeIDMUISize)&&(pInfo->dwTypeIDMUIOffset>0))?*((DWORD*)((ULONG_PTR)pInfo+pInfo->dwTypeIDMUIOffset)+iType):0)
+    (((iType<pInfo->dwTypeIDMUISize)&&(pInfo->dwTypeIDMUIOffset>0))?*((DWORD*)((ulong_ptr)pInfo+pInfo->dwTypeIDMUIOffset)+iType):0)
 //
 // Gets the mui module names multistring array (LPWSTR), NULL if not initialized
 #define FILEMUIINFO_GET_MUI_TYPENAMES(pInfo)        \
-    ((LPWSTR)((pInfo->dwTypeNameMUIOffset>0)?(ULONG_PTR)pInfo+pInfo->dwTypeNameMUIOffset:NULL))
+    ((LPWSTR)((pInfo->dwTypeNameMUIOffset>0)?(ulong_ptr)pInfo+pInfo->dwTypeNameMUIOffset:NULL))
 // ------------------------------------------------------------------------
 
 
@@ -1287,7 +1287,7 @@ typedef struct _FILEMUIINFO {
 //
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 IsValidCodePage(
     UINT  CodePage);
@@ -1303,21 +1303,21 @@ WINAPI
 GetOEMCP(void);
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetCPInfo(
     UINT       CodePage,
     LPCPINFO  lpCPInfo);
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetCPInfoExA(
     UINT          CodePage,
     DWORD         dwFlags,
     LPCPINFOEXA  lpCPInfoEx);
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetCPInfoExW(
     UINT          CodePage,
@@ -1330,13 +1330,13 @@ GetCPInfoExW(
 #endif // !UNICODE
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 IsDBCSLeadByte(
     BYTE  TestChar);
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 IsDBCSLeadByteEx(
     UINT  CodePage,
@@ -1456,7 +1456,7 @@ FindStringOrdinal(
                        int cchSource,
     LPCWSTR lpStringValue,
                        int cchValue,
-                       BOOL bIgnoreCase);
+                       WINBOOL bIgnoreCase);
 
 #endif //(WINVER >= _WIN32_WINNT_WIN7)
 
@@ -1513,14 +1513,14 @@ GetLocaleInfoW(
 #endif // !UNICODE
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 SetLocaleInfoA(
     LCID     Locale,
     LCTYPE   LCType,
     LPCSTR  lpLCData);
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 SetLocaleInfoW(
     LCID     Locale,
@@ -1562,7 +1562,7 @@ GetCalendarInfoW(
 #endif // !UNICODE
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 SetCalendarInfoA(
     LCID     Locale,
@@ -1570,7 +1570,7 @@ SetCalendarInfoA(
     CALTYPE  CalType,
     LPCSTR  lpCalData);
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 SetCalendarInfoW(
     LCID     Locale,
@@ -1733,7 +1733,7 @@ GetCurrencyFormatW(
 
 // For Windows Vista and above EnumCalendarInfoExEx is preferred
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumCalendarInfoA(
     CALINFO_ENUMPROCA lpCalInfoEnumProc,
@@ -1742,7 +1742,7 @@ EnumCalendarInfoA(
     CALTYPE           CalType);
 // For Windows Vista and above EnumCalendarInfoExEx is preferred
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumCalendarInfoW(
     CALINFO_ENUMPROCW lpCalInfoEnumProc,
@@ -1758,7 +1758,7 @@ EnumCalendarInfoW(
 #if(WINVER >= 0x0500)
 // For Windows Vista and above EnumCalendarInfoExEx is preferred
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumCalendarInfoExA(
     CALINFO_ENUMPROCEXA lpCalInfoEnumProcEx,
@@ -1767,7 +1767,7 @@ EnumCalendarInfoExA(
     CALTYPE             CalType);
 // For Windows Vista and above EnumCalendarInfoExEx is preferred
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumCalendarInfoExW(
     CALINFO_ENUMPROCEXW lpCalInfoEnumProcEx,
@@ -1783,7 +1783,7 @@ EnumCalendarInfoExW(
 
 // For Windows Vista and above EnumTimeFormatsEx is preferred
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumTimeFormatsA(
     TIMEFMT_ENUMPROCA lpTimeFmtEnumProc,
@@ -1791,7 +1791,7 @@ EnumTimeFormatsA(
     DWORD             dwFlags);
 // For Windows Vista and above EnumTimeFormatsEx is preferred
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumTimeFormatsW(
     TIMEFMT_ENUMPROCW lpTimeFmtEnumProc,
@@ -1805,7 +1805,7 @@ EnumTimeFormatsW(
 
 // For Windows Vista and above EnumDateFormatsExEx is preferred
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumDateFormatsA(
     DATEFMT_ENUMPROCA lpDateFmtEnumProc,
@@ -1813,7 +1813,7 @@ EnumDateFormatsA(
     DWORD             dwFlags);
 // For Windows Vista and above EnumDateFormatsExEx is preferred
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumDateFormatsW(
     DATEFMT_ENUMPROCW lpDateFmtEnumProc,
@@ -1828,7 +1828,7 @@ EnumDateFormatsW(
 #if(WINVER >= 0x0500)
 // For Windows Vista and above EnumDateFormatsExEx is preferred
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumDateFormatsExA(
     DATEFMT_ENUMPROCEXA lpDateFmtEnumProcEx,
@@ -1836,7 +1836,7 @@ EnumDateFormatsExA(
     DWORD               dwFlags);
 // For Windows Vista and above EnumDateFormatsExEx is preferred
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumDateFormatsExW(
     DATEFMT_ENUMPROCEXW lpDateFmtEnumProcEx,
@@ -1851,7 +1851,7 @@ EnumDateFormatsExW(
 
 #if(WINVER >= 0x0500)
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 IsValidLanguageGroup(
     LGRPID  LanguageGroup,
@@ -1860,7 +1860,7 @@ IsValidLanguageGroup(
 
 // For Windows Vista and above GetNLSVersionEx is preferred
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetNLSVersion(
        NLS_FUNCTION     Function,
@@ -1868,7 +1868,7 @@ GetNLSVersion(
     LPNLSVERSIONINFO lpVersionInformation);
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 IsNLSDefinedString(
     NLS_FUNCTION     Function,
@@ -1879,7 +1879,7 @@ IsNLSDefinedString(
 
 // For Windows Vista and above IsValidLocaleName is preferred
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 IsValidLocale(
     LCID   Locale,
@@ -1910,7 +1910,7 @@ GetGeoInfoW(
 #endif // !UNICODE
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumSystemGeoID(
     GEOCLASS        GeoClass,
@@ -1924,7 +1924,7 @@ GetUserGeoID(
     GEOCLASS    GeoClass);
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 SetUserGeoID(
     GEOID       GeoId);
@@ -1941,7 +1941,7 @@ WINAPI
 GetThreadLocale(void);
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 SetThreadLocale(
     LCID  Locale
@@ -1995,7 +1995,7 @@ WINAPI
 GetThreadUILanguage(void);
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetProcessPreferredUILanguages(
     DWORD dwFlags,
@@ -2006,7 +2006,7 @@ GetProcessPreferredUILanguages(
 
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 SetProcessPreferredUILanguages(
            DWORD dwFlags,
@@ -2016,7 +2016,7 @@ SetProcessPreferredUILanguages(
 
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetUserPreferredUILanguages (
     DWORD dwFlags,
@@ -2027,7 +2027,7 @@ GetUserPreferredUILanguages (
 
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetSystemPreferredUILanguages (
     DWORD dwFlags,
@@ -2038,7 +2038,7 @@ GetSystemPreferredUILanguages (
 
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetThreadPreferredUILanguages(
     DWORD dwFlags,
@@ -2049,7 +2049,7 @@ GetThreadPreferredUILanguages(
 
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 SetThreadPreferredUILanguages(
            DWORD dwFlags,
@@ -2059,7 +2059,7 @@ SetThreadPreferredUILanguages(
 
 WINBASEAPI
 __success(return==1)
-BOOL
+WINBOOL
 WINAPI
 GetFileMUIInfo(
                         DWORD           dwFlags,
@@ -2068,7 +2068,7 @@ GetFileMUIInfo(
                 DWORD*          pcbFileMUIInfo);
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetFileMUIPath(
     DWORD      dwFlags,
@@ -2082,7 +2082,7 @@ GetFileMUIPath(
 
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetUILanguageInfo(
     DWORD dwFlags,
@@ -2094,7 +2094,7 @@ GetUILanguageInfo(
 
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 NotifyUILanguageChange(
            DWORD dwFlags,
@@ -2111,7 +2111,7 @@ NotifyUILanguageChange(
 //
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetStringTypeExA(
                     LCID       Locale,
@@ -2120,7 +2120,7 @@ GetStringTypeExA(
                     int        cchSrc,
     LPWORD     lpCharType);
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetStringTypeExW(
                     LCID       Locale,
@@ -2146,7 +2146,7 @@ GetStringTypeExW(
 //        GetStringTypeEx (above) should be used instead.
 //
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetStringTypeA(
     LCID     Locale,
@@ -2156,7 +2156,7 @@ GetStringTypeA(
     LPWORD  lpCharType);
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetStringTypeW(
     DWORD    dwInfoType,
@@ -2191,19 +2191,19 @@ FoldStringW(
 
 #if(WINVER >= 0x0500)
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumSystemLanguageGroupsA(
     LANGUAGEGROUP_ENUMPROCA lpLanguageGroupEnumProc,
     DWORD                   dwFlags,
-    LONG_PTR                lParam);
+    long_ptr                lParam);
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumSystemLanguageGroupsW(
     LANGUAGEGROUP_ENUMPROCW lpLanguageGroupEnumProc,
     DWORD                   dwFlags,
-    LONG_PTR                lParam);
+    long_ptr                lParam);
 #ifdef UNICODE
 #define EnumSystemLanguageGroups  EnumSystemLanguageGroupsW
 #else
@@ -2211,21 +2211,21 @@ EnumSystemLanguageGroupsW(
 #endif // !UNICODE
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumLanguageGroupLocalesA(
     LANGGROUPLOCALE_ENUMPROCA lpLangGroupLocaleEnumProc,
     LGRPID                    LanguageGroup,
     DWORD                     dwFlags,
-    LONG_PTR                  lParam);
+    long_ptr                  lParam);
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumLanguageGroupLocalesW(
     LANGGROUPLOCALE_ENUMPROCW lpLangGroupLocaleEnumProc,
     LGRPID                    LanguageGroup,
     DWORD                     dwFlags,
-    LONG_PTR                  lParam);
+    long_ptr                  lParam);
 #ifdef UNICODE
 #define EnumLanguageGroupLocales  EnumLanguageGroupLocalesW
 #else
@@ -2233,19 +2233,19 @@ EnumLanguageGroupLocalesW(
 #endif // !UNICODE
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumUILanguagesA(
     UILANGUAGE_ENUMPROCA lpUILanguageEnumProc,
     DWORD                dwFlags,
-    LONG_PTR             lParam);
+    long_ptr             lParam);
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumUILanguagesW(
     UILANGUAGE_ENUMPROCW lpUILanguageEnumProc,
     DWORD                dwFlags,
-    LONG_PTR             lParam);
+    long_ptr             lParam);
 #ifdef UNICODE
 #define EnumUILanguages  EnumUILanguagesW
 #else
@@ -2254,13 +2254,13 @@ EnumUILanguagesW(
 #endif /* WINVER >= 0x0500 */
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumSystemLocalesA(
     LOCALE_ENUMPROCA lpLocaleEnumProc,
     DWORD            dwFlags);
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumSystemLocalesW(
     LOCALE_ENUMPROCW lpLocaleEnumProc,
@@ -2272,13 +2272,13 @@ EnumSystemLocalesW(
 #endif // !UNICODE
 
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumSystemCodePagesA(
     CODEPAGE_ENUMPROCA lpCodePageEnumProc,
     DWORD              dwFlags);
 //xxx macos WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumSystemCodePagesW(
     CODEPAGE_ENUMPROCW lpCodePageEnumProc,
@@ -2304,7 +2304,7 @@ WINAPI NormalizeString(                          NORM_FORM NormForm,
                                                  int       cwDstLength );
 
 WINNORMALIZEAPI
-BOOL
+WINBOOL
 WINAPI IsNormalizedString(                   NORM_FORM NormForm,
                            __in_ecount(cwLength)  LPCWSTR   lpString,
                                              int       cwLength );
@@ -2337,7 +2337,7 @@ WINAPI IdnToUnicode(                        	 DWORD   dwFlags,
                                             	 int     cchUnicodeChar);
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI VerifyScripts(
        DWORD   dwFlags,            // optional behavior flags
        LPCWSTR lpLocaleScripts,    // Locale list of scripts string
@@ -2468,7 +2468,7 @@ GetSystemDefaultLocaleName(
 );
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 GetNLSVersionEx(
        NLS_FUNCTION function,
@@ -2531,20 +2531,20 @@ CompareStringOrdinal(
     int     cchCount1,
     LPCWSTR lpString2,
     int     cchCount2,
-    BOOL    bIgnoreCase
+    WINBOOL    bIgnoreCase
 );
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 IsValidLocaleName(
     LPCWSTR lpLocaleName
 );
 
-typedef BOOL (CALLBACK* CALINFO_ENUMPROCEXEX)(LPWSTR, CALID, LPWSTR, LPARAM);
+typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCEXEX)(LPWSTR, CALID, LPWSTR, LPARAM);
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumCalendarInfoExEx(
     CALINFO_ENUMPROCEXEX pCalInfoEnumProcExEx,
@@ -2555,10 +2555,10 @@ EnumCalendarInfoExEx(
     LPARAM lParam
 );
 
-typedef BOOL (CALLBACK* DATEFMT_ENUMPROCEXEX)(LPWSTR, CALID, LPARAM);
+typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCEXEX)(LPWSTR, CALID, LPARAM);
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumDateFormatsExEx(
     DATEFMT_ENUMPROCEXEX lpDateFmtEnumProcExEx,
@@ -2567,10 +2567,10 @@ EnumDateFormatsExEx(
     LPARAM lParam
 );
 
-typedef BOOL (CALLBACK* TIMEFMT_ENUMPROCEX)(LPWSTR, LPARAM);
+typedef WINBOOL (CALLBACK* TIMEFMT_ENUMPROCEX)(LPWSTR, LPARAM);
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumTimeFormatsEx(
     TIMEFMT_ENUMPROCEX lpTimeFmtEnumProcEx,
@@ -2579,10 +2579,10 @@ EnumTimeFormatsEx(
     LPARAM lParam
 );
 
-typedef BOOL (CALLBACK* LOCALE_ENUMPROCEX)(LPWSTR, DWORD, LPARAM);
+typedef WINBOOL (CALLBACK* LOCALE_ENUMPROCEX)(LPWSTR, DWORD, LPARAM);
 
 WINBASEAPI
-BOOL
+WINBOOL
 WINAPI
 EnumSystemLocalesEx(
     LOCALE_ENUMPROCEX lpLocaleEnumProcEx,

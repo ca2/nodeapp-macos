@@ -37,7 +37,7 @@ namespace win
       virtual ~application();
       
       virtual HINSTANCE GetHinstance();
-      BOOL _001OnDDECommand(const char * lpcsz);
+      WINBOOL _001OnDDECommand(const char * lpcsz);
       virtual void _001EnableShellOpen();
       virtual ::document * _001OpenDocumentFile(var varFile);
       virtual void _001OnFileNew();
@@ -70,9 +70,9 @@ namespace win
       virtual bool Ex2OnAppInstall();
       virtual bool Ex2OnAppUninstall();
 
-      virtual BOOL DeferRegisterClass(LONG fToRegister, const char ** ppszClass);
+      virtual WINBOOL DeferRegisterClass(LONG fToRegister, const char ** ppszClass);
       virtual void LockTempMaps();
-      virtual BOOL UnlockTempMaps(BOOL bDeleteTemps = TRUE);
+      virtual WINBOOL UnlockTempMaps(WINBOOL bDeleteTemps = TRUE);
       virtual void TermThread(HINSTANCE hInstTerm);
       virtual const char * RegisterWndClass(UINT nClassStyle, HCURSOR hCursor = 0, HBRUSH hbrBackground = 0, HICON hIcon = 0);
 
@@ -127,20 +127,20 @@ namespace win
       virtual bool Begin(int nPriority = THREAD_PRIORITY_NORMAL, UINT nStackSize = 0,
          DWORD dwCreateFlags = 0, LPSECURITY_ATTRIBUTES lpSecurityAttrs = NULL);
 
-      BOOL CreateThread(DWORD dwCreateFlags = 0, UINT nStackSize = 0,
+      WINBOOL CreateThread(DWORD dwCreateFlags = 0, UINT nStackSize = 0,
          LPSECURITY_ATTRIBUTES lpSecurityAttrs = NULL);
 
       virtual void * get_os_data();
-      virtual INT_PTR get_os_int();
+      virtual int_ptr get_os_int();
 
 
       int GetThreadPriority();
-      BOOL SetThreadPriority(int nPriority);
+      WINBOOL SetThreadPriority(int nPriority);
 
    // Operations
       DWORD SuspendThread();
       DWORD ResumeThread();
-      BOOL PostThreadMessage(UINT message, WPARAM wParam, LPARAM lParam);
+      WINBOOL PostThreadMessage(UINT message, WPARAM wParam, LPARAM lParam);
       bool post_message(::user::interaction * pguie, UINT message, WPARAM wParam, LPARAM lParam);
 
       virtual bool PreInitInstance();
@@ -158,9 +158,9 @@ namespace win
       // running and idle processing
       virtual int run();
       virtual void pre_translate_message(gen::signal_object * pobj);
-      virtual BOOL pump_message();     // low level message pump
-      virtual BOOL on_idle(LONG lCount); // return TRUE if more idle processing
-      virtual BOOL is_idle_message(MSG* pMsg);  // checks for special messages
+      virtual WINBOOL pump_message();     // low level message pump
+      virtual WINBOOL on_idle(LONG lCount); // return TRUE if more idle processing
+      virtual WINBOOL is_idle_message(MSG* pMsg);  // checks for special messages
 
       // thread termination
       virtual int exit_instance(); // default will 'delete this'
@@ -169,7 +169,7 @@ namespace win
       virtual LRESULT ProcessWndProcException(base_exception* e, const MSG* pMsg);
 
       // Advanced: handling messages sent to message filter hook
-      virtual BOOL ProcessMessageFilter(int code, LPMSG lpMsg);
+      virtual WINBOOL ProcessMessageFilter(int code, LPMSG lpMsg);
 
       // Advanced: virtual access to GetMainWnd()
       virtual ::user::interaction* GetMainWnd();
@@ -184,7 +184,7 @@ namespace win
 
 
 
-      BOOL DispatchThreadMessageEx(MSG* msg);  // helper*/
+      WINBOOL DispatchThreadMessageEx(MSG* msg);  // helper*/
 
       ::ca::graphics * graphics_from_os_data(void * pdata);
 

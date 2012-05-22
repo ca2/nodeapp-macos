@@ -241,7 +241,7 @@
 		A1CFD8F7154FB715007447E2 /* window_draw.cpp.cbTemp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = window_draw.cpp.cbTemp; sourceTree = "<group>"; };
 		A1CFD8F8154FB715007447E2 /* window_draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window_draw.h; sourceTree = "<group>"; };
 		A1CFD969154FB864007447E2 /* c.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = c.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE980ABF15667BEF00CD7C45 /* ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; name = ca.dylib; path = ../../app/appseed/ca/build/Release/ca.dylib; sourceTree = "<group>"; };
+		CE980ABF15667BEF00CD7C45 /* ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = ca.dylib; path = ../../app/appseed/ca/build/Release/ca.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -632,7 +632,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
+					_DEBUG,
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;

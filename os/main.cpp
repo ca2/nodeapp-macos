@@ -68,7 +68,7 @@ int CLASS_DECL_VMSWIN AfxWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, L
    set_heap_mutex(NULL);
 
 
-   BOOL bElevated = FALSE;
+   WINBOOL bElevated = FALSE;
    if(VistaTools::IsVista() && SUCCEEDED(VistaTools::IsElevated(&bElevated)) && bElevated)
    {
       ::ExitProcess(nReturnCode);

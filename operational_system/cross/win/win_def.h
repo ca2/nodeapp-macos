@@ -126,13 +126,13 @@ typedef char *PSZ;
 #endif
 
 typedef unsigned int       DWORD;
-typedef int                 BOOL;
+typedef int                 WINBOOL;
 typedef unsigned char       BYTE;
 typedef unsigned short      WORD;
 typedef float               FLOAT;
 typedef FLOAT               *PFLOAT;
-typedef BOOL near           *PBOOL;
-typedef BOOL far            *LPBOOL;
+typedef WINBOOL near           *PBOOL;
+typedef WINBOOL far            *LPBOOL;
 typedef BYTE near           *PBYTE;
 typedef BYTE far            *LPBYTE;
 typedef int near            *PINT;
@@ -156,9 +156,9 @@ typedef unsigned int        *PUINT;
 // xxx #include <specstrings.h>
 
 /* Types use for passing & returning polymorphic values */
-typedef UINT_PTR            WPARAM;
-typedef LONG_PTR            LPARAM;
-typedef LONG_PTR            LRESULT;
+typedef uint_ptr            WPARAM;
+typedef long_ptr            LPARAM;
+typedef long_ptr            LRESULT;
 
 #ifndef NOMINMAX
 
@@ -172,12 +172,12 @@ typedef LONG_PTR            LRESULT;
 
 #endif  /* NOMINMAX */
 
-#define MAKEWORD(a, b)      ((WORD)(((BYTE)(((DWORD_PTR)(a)) & 0xff)) | ((WORD)((BYTE)(((DWORD_PTR)(b)) & 0xff))) << 8))
-#define MAKELONG(a, b)      ((LONG)(((WORD)(((DWORD_PTR)(a)) & 0xffff)) | ((DWORD)((WORD)(((DWORD_PTR)(b)) & 0xffff))) << 16))
-#define LOWORD(l)           ((WORD)(((DWORD_PTR)(l)) & 0xffff))
-#define HIWORD(l)           ((WORD)((((DWORD_PTR)(l)) >> 16) & 0xffff))
-#define LOBYTE(w)           ((BYTE)(((DWORD_PTR)(w)) & 0xff))
-#define HIBYTE(w)           ((BYTE)((((DWORD_PTR)(w)) >> 8) & 0xff))
+#define MAKEWORD(a, b)      ((WORD)(((BYTE)(((dword_ptr)(a)) & 0xff)) | ((WORD)((BYTE)(((dword_ptr)(b)) & 0xff))) << 8))
+#define MAKELONG(a, b)      ((LONG)(((WORD)(((dword_ptr)(a)) & 0xffff)) | ((DWORD)((WORD)(((dword_ptr)(b)) & 0xffff))) << 16))
+#define LOWORD(l)           ((WORD)(((dword_ptr)(l)) & 0xffff))
+#define HIWORD(l)           ((WORD)((((dword_ptr)(l)) >> 16) & 0xffff))
+#define LOBYTE(w)           ((BYTE)(((dword_ptr)(w)) & 0xff))
+#define HIBYTE(w)           ((BYTE)((((dword_ptr)(w)) >> 8) & 0xff))
 
 
 #ifndef WIN_INTERNAL
@@ -199,9 +199,9 @@ typedef HANDLE              LOCALHANDLE;*/
 #ifndef _MANAGED
 #ifndef _MAC
 #ifdef _WIN64
-typedef INT_PTR (FAR WINAPI *FARPROC)();
-typedef INT_PTR (NEAR WINAPI *NEARPROC)();
-typedef INT_PTR (WINAPI *PROC)();
+typedef int_ptr (FAR WINAPI *FARPROC)();
+typedef int_ptr (NEAR WINAPI *NEARPROC)();
+typedef int_ptr (WINAPI *PROC)();
 #else
 typedef int (FAR WINAPI *FARPROC)();
 typedef int (NEAR WINAPI *NEARPROC)();
@@ -213,9 +213,9 @@ typedef int (CALLBACK *NEARPROC)();
 typedef int (CALLBACK *PROC)();
 #endif
 #else
-typedef INT_PTR (WINAPI *FARPROC)(void);
-typedef INT_PTR (WINAPI *NEARPROC)(void);
-typedef INT_PTR (WINAPI *PROC)(void);
+typedef int_ptr (WINAPI *FARPROC)(void);
+typedef int_ptr (WINAPI *NEARPROC)(void);
+typedef int_ptr (WINAPI *PROC)(void);
 #endif
 
 

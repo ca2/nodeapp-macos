@@ -15,14 +15,14 @@ namespace win
 
       virtual void font::construct(const ::ca::font & fontParam);
 
-      virtual BOOL CreateFontIndirect(const LOGFONT* lpLogFont);
-      virtual BOOL CreateFont(int nHeight, int nWidth, int nEscapement,
+      virtual WINBOOL CreateFontIndirect(const LOGFONT* lpLogFont);
+      virtual WINBOOL CreateFont(int nHeight, int nWidth, int nEscapement,
             int nOrientation, int nWeight, BYTE bItalic, BYTE bUnderline,
             BYTE cStrikeOut, BYTE nCharSet, BYTE nOutPrecision,
             BYTE nClipPrecision, BYTE nQuality, BYTE nPitchAndFamily,
             const char * lpszFacename);
-      virtual BOOL CreatePointFont(int nPointSize, const char * lpszFaceName, ::ca::graphics * pgraphics = NULL);
-      virtual BOOL CreatePointFontIndirect(const LOGFONT* lpLogFont, ::ca::graphics * pgraphics = NULL);
+      virtual WINBOOL CreatePointFont(int nPointSize, const char * lpszFaceName, ::ca::graphics * pgraphics = NULL);
+      virtual WINBOOL CreatePointFontIndirect(const LOGFONT* lpLogFont, ::ca::graphics * pgraphics = NULL);
 
    // Attributes
       operator HFONT() const;

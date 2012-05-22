@@ -13,7 +13,7 @@ namespace win
       return ::LoadLibraryW(gen::international::utf8_to_unicode(lpsz));
    }
 
-   BOOL CLASS_DECL_VMSWIN SHGetSpecialFolderPath(HWND hwnd, string &str, int csidl, BOOL fCreate)
+   WINBOOL CLASS_DECL_VMSWIN SHGetSpecialFolderPath(HWND hwnd, string &str, int csidl, WINBOOL fCreate)
    {
       return ::SHGetSpecialFolderPathW(hwnd, wstringtou(str, MAX_PATH * 8), csidl, fCreate);
    }
@@ -23,7 +23,7 @@ namespace win
       return ::GetFileAttributesW(gen::international::utf8_to_unicode(lpFileName));
    }
 
-   BOOL CreateDirectory(const char * lpPathName, LPSECURITY_ATTRIBUTES lpSecurityAttributes)
+   WINBOOL CreateDirectory(const char * lpPathName, LPSECURITY_ATTRIBUTES lpSecurityAttributes)
    {
       return ::CreateDirectoryW(gen::international::utf8_to_unicode(lpPathName), lpSecurityAttributes);
    }
@@ -63,7 +63,7 @@ namespace win
       return ::ExtractIconW(hInst, gen::international::utf8_to_unicode(lpszExeFileName), nIconIndex);
    }
 
-   BOOL  DeleteFile(const char * lpFileName)
+   WINBOOL  DeleteFile(const char * lpFileName)
    {
       return ::DeleteFileW(gen::international::utf8_to_unicode(lpFileName));
    }

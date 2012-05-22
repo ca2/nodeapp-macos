@@ -21,7 +21,7 @@ _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 /////////////////////////////////////////////////////////////////////////////
 // initialize cast state such that it points to this module's core state
 
-CLASS_DECL_VMSWIN BOOL AfxInitialize(BOOL bDLL, DWORD dwVersion)
+CLASS_DECL_VMSWIN WINBOOL AfxInitialize(WINBOOL bDLL, DWORD dwVersion)
 {
    AFX_MODULE_STATE* pModuleState = AfxGetModuleState();
    pModuleState->m_bDLL = (BYTE)bDLL;
