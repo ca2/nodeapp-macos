@@ -26,7 +26,7 @@ string get_error_message(DWORD dwError);
 /////////////////////////////////////////////////////////////////////////////
 // explicit initialization for general purpose classes
 
-CLASS_DECL_VMSWIN BOOL AfxInitialize(BOOL bDLL = FALSE, DWORD dwVersion = _MFC_VER);
+CLASS_DECL_VMSWIN WINBOOL AfxInitialize(WINBOOL bDLL = FALSE, DWORD dwVersion = _MFC_VER);
 
 /////////////////////////////////////////////////////////////////////////////
 // stop on a specific primitive::memory request
@@ -35,10 +35,10 @@ CLASS_DECL_VMSWIN BOOL AfxInitialize(BOOL bDLL = FALSE, DWORD dwVersion = _MFC_V
 CLASS_DECL_VMSWIN void AfxSetAllocStop(LONG lRequestNumber);
 
 // Return TRUE if primitive::memory is sane or print out what is wrong
-CLASS_DECL_VMSWIN BOOL AfxCheckMemory();
+CLASS_DECL_VMSWIN WINBOOL AfxCheckMemory();
 
 // Return TRUE if valid primitive::memory block of nBytes
-CLASS_DECL_VMSWIN BOOL AfxIsMemoryBlock(const void * p, UINT nBytes,
+CLASS_DECL_VMSWIN WINBOOL AfxIsMemoryBlock(const void * p, UINT nBytes,
    LONG* plRequestNumber = NULL);
 
 // helper routines for non-C++ EH implementations
@@ -54,7 +54,7 @@ CLASS_DECL_VMSWIN void AfxTryCleanup();
 
 // window creation hooking
 CLASS_DECL_VMSWIN void AfxHookWindowCreate(::user::interaction * pWnd);
-CLASS_DECL_VMSWIN BOOL AfxUnhookWindowCreate();
+CLASS_DECL_VMSWIN WINBOOL AfxUnhookWindowCreate();
 CLASS_DECL_VMSWIN void AfxResetMsgCache();
 
 // for backward compatibility to previous versions
@@ -116,8 +116,8 @@ CLASS_DECL_VMSWIN WNDPROC AfxGetAfxWndProc();
 CLASS_DECL_VMSWIN void _AfxTraceMsg(const char * lpszPrefix, gen::signal_object * pobj);
 CLASS_DECL_VMSWIN void _AfxTraceMsg(const char * lpszPrefix, LPMSG lpmsg);
 
-CLASS_DECL_VMSWIN BOOL __cdecl AfxIsIdleMessage(gen::signal_object * pobj);
-CLASS_DECL_VMSWIN BOOL __cdecl AfxIsIdleMessage(MSG* pMsg);
+CLASS_DECL_VMSWIN WINBOOL __cdecl AfxIsIdleMessage(gen::signal_object * pobj);
+CLASS_DECL_VMSWIN WINBOOL __cdecl AfxIsIdleMessage(MSG* pMsg);
 
 
 CLASS_DECL_VMSWIN void AfxProcessWndProcException(base_exception*, gen::signal_object * pobj);

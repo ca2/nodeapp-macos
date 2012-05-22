@@ -207,9 +207,9 @@ namespace win
 
 
 
-   BOOL port_forward::IsAnyThreadRunning() const
+   WINBOOL port_forward::IsAnyThreadRunning() const
    {
-	   BOOL bRet = FALSE;
+	   WINBOOL bRet = FALSE;
 	   bRet |= ( m_pPortMappingThread != NULL );
 	   bRet |= ( m_pDeviceInfoThread != NULL );
 	   bRet |= ( m_pAddMappingThread != NULL );
@@ -340,7 +340,7 @@ namespace win
    //        GetPortMappingVector() function to get a copy of the current contents of
    //        std::vector< port_forward::port_map > m_MappingContainer
 
-   BOOL port_forward::GetMappingsUsingThread( HWND hWnd )
+   WINBOOL port_forward::GetMappingsUsingThread( HWND hWnd )
    {
 	   // returns TRUE if thread was started successfully
 	
@@ -379,7 +379,7 @@ namespace win
    //      LPARAM signifies if the thread was or was not successful (S_OK or E_FAIL). 
 
 
-   BOOL port_forward::EditMappingUsingThread( port_forward::port_map& oldMapping, port_forward::port_map& newMapping, HWND hWnd )
+   WINBOOL port_forward::EditMappingUsingThread( port_forward::port_map& oldMapping, port_forward::port_map& newMapping, HWND hWnd )
    {
 	   // returns TRUE if thread was started successfully
 	
@@ -421,7 +421,7 @@ namespace win
    //  WPARAM == port_forward::EnumAddMappingDone when the thread is finished, where
    //      LPARAM signifies if the thread was or was not successful (S_OK or E_FAIL). 
 
-   BOOL port_forward::AddMappingUsingThread( port_forward::port_map& newMapping, HWND hWnd )
+   WINBOOL port_forward::AddMappingUsingThread( port_forward::port_map& newMapping, HWND hWnd )
    {
 	   // returns TRUE if thread was started successfully
 	
@@ -462,7 +462,7 @@ namespace win
    //  WPARAM == port_forward::EnumDeleteMappingDone when the thread is finished, where
    //      LPARAM signifies if the thread was or was not successful (S_OK or E_FAIL). 
 
-   BOOL port_forward::DeleteMappingUsingThread( port_forward::port_map& oldMapping, HWND hWnd )
+   WINBOOL port_forward::DeleteMappingUsingThread( port_forward::port_map& oldMapping, HWND hWnd )
    {
 	   // returns TRUE if thread was started successfully
 	
@@ -504,7 +504,7 @@ namespace win
    //      GetDeviceInformationContainer() function to retrieve a copy of the current contents of 
    //      port_forward::DeviceInformationContainer m_DeviceInfo
 
-   BOOL port_forward::GetDeviceInformationUsingThread( HWND hWnd )
+   WINBOOL port_forward::GetDeviceInformationUsingThread( HWND hWnd )
    {	
 	   // returns TRUE if thread was started successfully
 	
@@ -535,7 +535,7 @@ namespace win
    {	
 	   SetThreadName( -1, "PortRtrv" );  // helps in debugging to see a thread's name
 
-	   BOOL bContinue = TRUE;
+	   WINBOOL bContinue = TRUE;
 	
 	   port_forward* pThis = (port_forward*)pVoid;
 	
@@ -672,7 +672,7 @@ namespace win
    {
 	   SetThreadName( -1, "DevInfo" );  // helps in debugging to see a thread's name
 	
-	   BOOL bContinue = TRUE;
+	   WINBOOL bContinue = TRUE;
 
 	   port_forward* pThis = (port_forward*)pVoid;
 
@@ -806,7 +806,7 @@ namespace win
    {	
 	   SetThreadName( -1, "EditMap" );  // helps in debugging to see a thread's name
 	
-	   BOOL bContinue = TRUE;
+	   WINBOOL bContinue = TRUE;
 
 	   port_forward* pThis = (port_forward*)pVoid;
 
@@ -928,7 +928,7 @@ namespace win
    {	
 	   SetThreadName( -1, "DelMap" );  // helps in debugging to see a thread's name
 
-	   BOOL bContinue = TRUE;
+	   WINBOOL bContinue = TRUE;
 	
 	   port_forward* pThis = (port_forward*)pVoid;
 	
@@ -1019,7 +1019,7 @@ namespace win
 	   port_map& newMapping = pThis->m_scratchpadAddedMapping;
 	
 	
-	   BOOL bContinue = TRUE;
+	   WINBOOL bContinue = TRUE;
 	   WPARAM wp = EnumAddMappingInterval;
 	   LPARAM lp = 0;
 	
@@ -1333,7 +1333,7 @@ namespace win
 	
 	   if ( hWnd!=NULL )
       {
-		   BOOL b = ::PostMessage( hWnd, UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION, wp, (LPARAM)(lp += addend) );
+		   WINBOOL b = ::PostMessage( hWnd, UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION, wp, (LPARAM)(lp += addend) );
          if(!b)
          {
             DWORD dw = ::GetLastError();
@@ -1731,7 +1731,7 @@ namespace win
 	
 	   __try
 	   {
-		   RaiseException( 0x406D1388, 0, sizeof(info)/sizeof(DWORD), (ULONG_PTR*)&info );
+		   RaiseException( 0x406D1388, 0, sizeof(info)/sizeof(DWORD), (ulong_ptr*)&info );
 	   }
 	   __except(EXCEPTION_CONTINUE_EXECUTION)
 	   {

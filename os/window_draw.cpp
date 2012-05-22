@@ -199,7 +199,7 @@ namespace win
 
       rect rectNewUpdate;
 
-      for(INT_PTR i = hwndtreea.get_size() - 1; i >= 0; i--)
+      for(int_ptr i = hwndtreea.get_size() - 1; i >= 0; i--)
       {
          user::HwndTree & hwndtreeChild = hwndtreea[i];
          HWND hwndChild = hwndtreeChild.m_hwnd;
@@ -255,7 +255,7 @@ namespace win
       }
       else
       {
-         ::user::window_interface * ptwi = System.window_map().get((INT_PTR) hwndParam);
+         ::user::window_interface * ptwi = System.window_map().get((int_ptr) hwndParam);
          ::user::interaction * pguie = dynamic_cast < ::user::interaction * > (ptwi);
          rect rectWindow;
          ::GetWindowRect(hwndParam, rectWindow);
@@ -284,7 +284,7 @@ namespace win
          }
          else
          {
-            BOOL bWin4 = FALSE;
+            WINBOOL bWin4 = FALSE;
          //_AfxFillPSOnStack();
             ::DefWindowProc(
                hwndParam,
@@ -571,7 +571,7 @@ namespace win
 
             ::ca::dib_sp dib(get_app());
             dib->create(rectWindow.width(), rectWindow.height());
-            DWORD_PTR dwptrResult = 0;
+            dword_ptr dwptrResult = 0;
             ::SendMessageTimeout(
                hwnda[i],
                WM_PRINTCLIENT,
@@ -628,8 +628,8 @@ namespace win
             if(hwndOrder == NULL ||
                !::IsWindow(hwndOrder))
                break;
-            BOOL bVisible = ::IsWindowVisible(hwndOrder);
-            BOOL bIconic = ::IsIconic(hwndOrder);
+            WINBOOL bVisible = ::IsWindowVisible(hwndOrder);
+            WINBOOL bIconic = ::IsIconic(hwndOrder);
             if(!bVisible
             || bIconic
             || wndaApp.contains(hwndOrder))
@@ -672,7 +672,7 @@ namespace win
             HWND hwndTopic = wndaApp[j];
 
             ::ca::window * pwnd = NULL;
-            //::ca::window * pwnd = dynamic_cast < ::ca::window * > (System.window_map().get((INT_PTR) hwndTopic));
+            //::ca::window * pwnd = dynamic_cast < ::ca::window * > (System.window_map().get((int_ptr) hwndTopic));
             //if(pwnd == NULL)
             //{
             for(int l = 0; l < wndpa.get_count(); l++)
@@ -915,7 +915,7 @@ namespace win
 
       HWND hwnd = hwndtree.m_hwnd;
 
-      ::user::window_interface * ptwi = System.window_map().get((INT_PTR) hwnd);
+      ::user::window_interface * ptwi = System.window_map().get((int_ptr) hwnd);
 
       if(!::IsWindowVisible(hwnd))
       {
@@ -1064,7 +1064,7 @@ namespace win
 
 
 
-      ::user::window_interface * pwndi = System.window_map().get((INT_PTR) hwnd);
+      ::user::window_interface * pwndi = System.window_map().get((int_ptr) hwnd);
 
       if(pwndi == NULL)
       {

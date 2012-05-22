@@ -4,7 +4,7 @@
 #include "WindowsShell.h"
 
 
-__STATIC inline BOOL IsDirSep(WCHAR ch)
+__STATIC inline WINBOOL IsDirSep(WCHAR ch)
 {
    return (ch == '\\' || ch == '/');
 }
@@ -61,7 +61,7 @@ ex1::file * WinFile::Duplicate() const
    return pFile;
 }
 
-BOOL WinFile::open(const char * lpszFileName, UINT nOpenFlags, ex1::file_exception_sp* pException)
+WINBOOL WinFile::open(const char * lpszFileName, UINT nOpenFlags, ex1::file_exception_sp* pException)
 {
    if (m_hFile != (UINT)hFileNull)
       close();
@@ -93,7 +93,7 @@ BOOL WinFile::open(const char * lpszFileName, UINT nOpenFlags, ex1::file_excepti
       return FALSE;
    }
 
-   ASSERT(sizeof(HANDLE) == sizeof(UINT_PTR));
+   ASSERT(sizeof(HANDLE) == sizeof(uint_ptr));
    ASSERT(shareCompat == 0);
 
    // ::collection::map read/write mode
@@ -183,7 +183,7 @@ BOOL WinFile::open(const char * lpszFileName, UINT nOpenFlags, ex1::file_excepti
    return TRUE;
 }
 
-DWORD_PTR WinFile::read(void * lpBuf, DWORD_PTR nCount)
+dword_ptr WinFile::read(void * lpBuf, dword_ptr nCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -201,7 +201,7 @@ DWORD_PTR WinFile::read(void * lpBuf, DWORD_PTR nCount)
    return (UINT)dwRead;
 }
 
-void WinFile::write(const void * lpBuf, DWORD_PTR nCount)
+void WinFile::write(const void * lpBuf, dword_ptr nCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -221,7 +221,7 @@ void WinFile::write(const void * lpBuf, DWORD_PTR nCount)
       vfxThrowFileException(get_app(), ::ex1::file_exception::diskFull, -1, m_strFileName);
 }
 
-INT_PTR WinFile::seek(INT_PTR lOff, UINT nFrom)
+int_ptr WinFile::seek(int_ptr lOff, UINT nFrom)
 {
    
    if(m_hFile == (UINT)hFileNull)
@@ -239,7 +239,7 @@ INT_PTR WinFile::seek(INT_PTR lOff, UINT nFrom)
    return dwNew;
 }
 
-DWORD_PTR WinFile::GetPosition() const
+dword_ptr WinFile::GetPosition() const
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -267,7 +267,7 @@ void WinFile::close()
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
 
-   BOOL bError = FALSE;
+   WINBOOL bError = FALSE;
    if (m_hFile != (UINT)hFileNull)
       bError = !::CloseHandle((HANDLE)m_hFile);
 
@@ -291,7 +291,7 @@ void WinFile::Abort()
    m_strFileName.Empty();
 }
 
-void WinFile::LockRange(DWORD_PTR dwPos, DWORD_PTR dwCount)
+void WinFile::LockRange(dword_ptr dwPos, dword_ptr dwCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -300,7 +300,7 @@ void WinFile::LockRange(DWORD_PTR dwPos, DWORD_PTR dwCount)
       WinFileException::ThrowOsError(get_app(), (LONG)::GetLastError());
 }
 
-void WinFile::UnlockRange(DWORD_PTR dwPos, DWORD_PTR dwCount)
+void WinFile::UnlockRange(dword_ptr dwPos, dword_ptr dwCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -309,7 +309,7 @@ void WinFile::UnlockRange(DWORD_PTR dwPos, DWORD_PTR dwCount)
       WinFileException::ThrowOsError(get_app(), (LONG)::GetLastError());
 }
 
-void WinFile::SetLength(DWORD_PTR dwNewLen)
+void WinFile::SetLength(dword_ptr dwNewLen)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -320,23 +320,23 @@ void WinFile::SetLength(DWORD_PTR dwNewLen)
       WinFileException::ThrowOsError(get_app(), (LONG)::GetLastError());
 }
 
-DWORD_PTR WinFile::get_length() const
+dword_ptr WinFile::get_length() const
 {
    ASSERT_VALID(this);
 
-   DWORD_PTR dwLen, dwCur;
+   dword_ptr dwLen, dwCur;
 
    // seek is a non const operation
    WinFile* pFile = (WinFile*)this;
    dwCur = pFile->seek(0L, current);
    dwLen = pFile->seek_to_end();
-   VERIFY(dwCur == (DWORD_PTR)pFile->seek(dwCur, begin));
+   VERIFY(dwCur == (dword_ptr)pFile->seek(dwCur, begin));
 
    return dwLen;
 }
 
 // WinFile does not support direct buffering (CMemFile does)
-DWORD_PTR WinFile::GetBufferPtr(UINT nCommand, DWORD_PTR /*nCount*/,
+dword_ptr WinFile::GetBufferPtr(UINT nCommand, dword_ptr /*nCount*/,
    void ** /*ppBufStart*/, void ** /*ppBufMax*/)
 {
    ASSERT(nCommand == bufferCheck);
@@ -370,10 +370,10 @@ string CLASS_DECL_VMSWIN vfxStringFromCLSID(REFCLSID rclsid)
    return szCLSID;
 }
 
-BOOL CLASS_DECL_VMSWIN vfxGetInProcServer(const char * lpszCLSID, string & str)
+WINBOOL CLASS_DECL_VMSWIN vfxGetInProcServer(const char * lpszCLSID, string & str)
 {
    HKEY hKey = NULL;
-   BOOL b = FALSE;
+   WINBOOL b = FALSE;
    if (RegOpenKey(HKEY_CLASSES_ROOT, "CLSID", &hKey) == ERROR_SUCCESS)
    {
       HKEY hKeyCLSID = NULL;
@@ -401,7 +401,7 @@ BOOL CLASS_DECL_VMSWIN vfxGetInProcServer(const char * lpszCLSID, string & str)
 //#endif  //!_AFX_NO_OLE_SUPPORT
 
 
-BOOL CLASS_DECL_VMSWIN vfxResolveShortcut(::ca::window * pWnd, const wchar_t * lpszFileIn,
+WINBOOL CLASS_DECL_VMSWIN vfxResolveShortcut(::ca::window * pWnd, const wchar_t * lpszFileIn,
    wchar_t * lpszFileOut, int cchPath)
 {
    UNREFERENCED_PARAMETER(pWnd);
@@ -428,7 +428,7 @@ BOOL CLASS_DECL_VMSWIN vfxResolveShortcut(::ca::window * pWnd, const wchar_t * l
    else                                     // Windows Me/98/95
        dwBuild =  0;
 
-   BOOL bNativeUnicode;
+   WINBOOL bNativeUnicode;
    if (dwVersion < 0x80000000)              // Windows NT
        bNativeUnicode = TRUE;
    else if (dwWindowsMajorVersion < 4)      // Win32s
@@ -528,7 +528,7 @@ BOOL CLASS_DECL_VMSWIN vfxResolveShortcut(::ca::window * pWnd, const wchar_t * l
 }
 
 // turn a file, relative path or other into an absolute path
-BOOL CLASS_DECL_VMSWIN vfxFullPath(wchar_t * lpszPathOut, const wchar_t * lpszFileIn)
+WINBOOL CLASS_DECL_VMSWIN vfxFullPath(wchar_t * lpszPathOut, const wchar_t * lpszFileIn)
    // lpszPathOut = buffer of _MAX_PATH
    // lpszFileIn = file, relative path or absolute path
    // (both in ANSI character set)
@@ -620,7 +620,7 @@ BOOL CLASS_DECL_VMSWIN vfxFullPath(wchar_t * lpszPathOut, const wchar_t * lpszFi
    strRoot.ReleaseBuffer();
 }*/
 
-/*BOOL CLASS_DECL_VMSWIN AfxComparePath(const char * lpszPath1, const char * lpszPath2)
+/*WINBOOL CLASS_DECL_VMSWIN AfxComparePath(const char * lpszPath1, const char * lpszPath2)
 {
    // use case insensitive compare as a starter
    if (lstrcmpi(lpszPath1, lpszPath2) != 0)
@@ -785,7 +785,7 @@ void CLASS_DECL_VMSWIN vfxGetRoot(const wchar_t * lpszPath, string& strRoot)
 }
 
 
-/*BOOL CLASS_DECL_VMSWIN vfxFullPath(char * lpszPathOut, const char * lpszFileIn)
+/*WINBOOL CLASS_DECL_VMSWIN vfxFullPath(char * lpszPathOut, const char * lpszFileIn)
    // lpszPathOut = buffer of _MAX_PATH
    // lpszFileIn = file, relative path or absolute path
    // (both in ANSI character set)
@@ -1016,7 +1016,7 @@ void PASCAL WinFileException::ThrowErrno(::ca::application * papp, int nErrno, c
       vfxThrowFileException(papp, WinFileException::ErrnoToException(nErrno), _doserrno, lpszFileName);
 }
 
-BOOL WinFileException::GetErrorMessage(string & str, PUINT pnHelpContext)
+WINBOOL WinFileException::GetErrorMessage(string & str, PUINT pnHelpContext)
 {
    
    if (pnHelpContext != NULL)
@@ -1272,7 +1272,7 @@ int PASCAL WinFileException::OsErrorToException(LONG lOsErr)
 /////////////////////////////////////////////////////////////////////////////
 // WinFile Status implementation
 
-BOOL WinFile::GetStatus(::ex1::file_status& rStatus) const
+WINBOOL WinFile::GetStatus(::ex1::file_status& rStatus) const
 {
    ASSERT_VALID(this);
 
@@ -1326,7 +1326,7 @@ BOOL WinFile::GetStatus(::ex1::file_status& rStatus) const
 }
 
 
-BOOL PASCAL WinFile::GetStatus(const char * lpszFileName, ::ex1::file_status& rStatus)
+WINBOOL PASCAL WinFile::GetStatus(const char * lpszFileName, ::ex1::file_status& rStatus)
 {
    // attempt to fully qualify path first
    wstring wstrFullName;
@@ -1391,7 +1391,7 @@ UINT CLASS_DECL_VMSWIN vfxGetFileTitle(const wchar_t * lpszPathName, wchar_t * l
 }
 
 
-BOOL vfxComparePath(const wchar_t * lpszPath1, const wchar_t * lpszPath2)
+WINBOOL vfxComparePath(const wchar_t * lpszPath1, const wchar_t * lpszPath2)
 {
    // use case insensitive compare as a starter
    if (lstrcmpiW(lpszPath1, lpszPath2) != 0)

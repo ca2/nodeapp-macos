@@ -32,7 +32,7 @@ public:
    void FreeSlot(int nSlot);   
    void SetValue(int nSlot, void * pValue);
    // delete all values in process/thread
-   void DeleteValues(HINSTANCE hInst, BOOL bAll = FALSE);
+   void DeleteValues(HINSTANCE hInst, WINBOOL bAll = FALSE);
    // assign instance handle to just constructed slots
    void AssignInstance(HINSTANCE hInst);
 
@@ -163,7 +163,7 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 
 void CLASS_DECL_VMSWIN AfxInitLocalData(HINSTANCE hInstInit);
-void CLASS_DECL_VMSWIN AfxTermLocalData(HINSTANCE hInstTerm, BOOL bAll = FALSE);
+void CLASS_DECL_VMSWIN AfxTermLocalData(HINSTANCE hInstTerm, WINBOOL bAll = FALSE);
 void CLASS_DECL_VMSWIN AfxTlsAddRef();
 void CLASS_DECL_VMSWIN AfxTlsRelease();
 

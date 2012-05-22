@@ -207,10 +207,10 @@ static void TraceDDE(const char * lpszPrefix, const MSG* pMsg)
    ENSURE_ARG(pMsg != NULL);
    if (pMsg->message == WM_DDE_EXECUTE)
    {
-      UINT_PTR nDummy;
+      uint_ptr nDummy;
       HGLOBAL hCommands;
       if (!UnpackDDElParam(WM_DDE_EXECUTE, pMsg->lParam,
-         &nDummy, (UINT_PTR*)&hCommands))
+         &nDummy, (uint_ptr*)&hCommands))
       {
 //         ::OutputDebugString(::radix::trace::category_AppMsg, 0, "Warning: Unable to unpack WM_DDE_EXECUTE lParam %08lX.\n",
   //          pMsg->lParam);
@@ -225,11 +225,11 @@ static void TraceDDE(const char * lpszPrefix, const MSG* pMsg)
    }
    else if (pMsg->message == WM_DDE_ADVISE)
    {
-      UINT_PTR nItem;
+      uint_ptr nItem;
       ATOM aItem;
       HGLOBAL hAdvise;
       if (!UnpackDDElParam(WM_DDE_ADVISE, pMsg->lParam,
-         (UINT_PTR*)&hAdvise, &nItem))
+         (uint_ptr*)&hAdvise, &nItem))
       {
 //         ::OutputDebugString(::radix::trace::category_AppMsg, 0, "Warning: Unable to unpack WM_DDE_ADVISE lParam %08lX.\n",
 //            pMsg->lParam);

@@ -3,7 +3,7 @@
 
 
 // interesting function
-/*BOOL CLASS_DECL_VMSWIN AfxCustomLogFont(UINT nIDS, LOGFONT* pLogFont)
+/*WINBOOL CLASS_DECL_VMSWIN AfxCustomLogFont(UINT nIDS, LOGFONT* pLogFont)
 {
    ENSURE_ARG(pLogFont != NULL);
    ASSERT(nIDS != 0);
@@ -25,7 +25,7 @@
    return TRUE;
 }*/
 
-BOOL CLASS_DECL_VMSWIN _AfxIsComboBoxControl(HWND hWnd, UINT nStyle)
+WINBOOL CLASS_DECL_VMSWIN _AfxIsComboBoxControl(HWND hWnd, UINT nStyle)
 {
    if (hWnd == NULL)
       return FALSE;
@@ -39,7 +39,7 @@ BOOL CLASS_DECL_VMSWIN _AfxIsComboBoxControl(HWND hWnd, UINT nStyle)
    return ::AfxInvariantStrICmp(szCompare, "combobox") == 0;
 }
 
-BOOL CLASS_DECL_VMSWIN _AfxCompareClassName(HWND hWnd, const char * lpszClassName)
+WINBOOL CLASS_DECL_VMSWIN _AfxCompareClassName(HWND hWnd, const char * lpszClassName)
 {
    ASSERT(::IsWindow(hWnd));
    char szTemp[32];
@@ -172,7 +172,7 @@ int c_cdecl AfxCriticalNewHandler(size_t nSize)
       }
       else
       {
-         BOOL bEnable = AfxEnableMemoryTracking(FALSE);
+         WINBOOL bEnable = AfxEnableMemoryTracking(FALSE);
          _expand(pThreadState->m_pSafetyPoolBuffer,
             nOldBufferSize - (nSize + MIN_MALLOC_OVERHEAD));
          AfxEnableMemoryTracking(bEnable);

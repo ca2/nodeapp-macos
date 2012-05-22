@@ -3,17 +3,17 @@
 
 //#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
-typedef VOID (CALLBACK* TIMERPROC)(HWND, UINT, UINT_PTR, DWORD);
-typedef BOOL (CALLBACK* GRAYSTRINGPROC)(HDC, LPARAM, int);
-typedef BOOL (CALLBACK* WNDENUMPROC)(HWND, LPARAM);
+typedef VOID (CALLBACK* TIMERPROC)(HWND, UINT, uint_ptr, DWORD);
+typedef WINBOOL (CALLBACK* GRAYSTRINGPROC)(HDC, LPARAM, int);
+typedef WINBOOL (CALLBACK* WNDENUMPROC)(HWND, LPARAM);
 typedef LRESULT (CALLBACK* HOOKPROC)(int code, WPARAM wParam, LPARAM lParam);
-typedef VOID (CALLBACK* SENDASYNCPROC)(HWND, UINT, ULONG_PTR, LRESULT);
+typedef VOID (CALLBACK* SENDASYNCPROC)(HWND, UINT, ulong_ptr, LRESULT);
 
-typedef BOOL (CALLBACK* PROPENUMPROCA)(HWND, LPCSTR, HANDLE);
-typedef BOOL (CALLBACK* PROPENUMPROCW)(HWND, LPCWSTR, HANDLE);
+typedef WINBOOL (CALLBACK* PROPENUMPROCA)(HWND, LPCSTR, HANDLE);
+typedef WINBOOL (CALLBACK* PROPENUMPROCW)(HWND, LPCWSTR, HANDLE);
 
-typedef BOOL (CALLBACK* PROPENUMPROCEXA)(HWND, LPSTR, HANDLE, ULONG_PTR);
-typedef BOOL (CALLBACK* PROPENUMPROCEXW)(HWND, LPWSTR, HANDLE, ULONG_PTR);
+typedef WINBOOL (CALLBACK* PROPENUMPROCEXA)(HWND, LPSTR, HANDLE, ulong_ptr);
+typedef WINBOOL (CALLBACK* PROPENUMPROCEXW)(HWND, LPWSTR, HANDLE, ulong_ptr);
 
 typedef int (CALLBACK* EDITWORDBREAKPROCA)(LPSTR lpch, int ichCurrent, int cch, int code);
 typedef int (CALLBACK* EDITWORDBREAKPROCW)(LPWSTR lpch, int ichCurrent, int cch, int code);
@@ -195,7 +195,7 @@ typedef struct tagMINMAXINFO {
  * lParam of WM_COPYDATA message points to...
  */
 typedef struct tagCOPYDATASTRUCT {
-    ULONG_PTR dwData;
+    ulong_ptr dwData;
     DWORD cbData;
     PVOID lpData;
 } COPYDATASTRUCT, *PCOPYDATASTRUCT;
@@ -830,13 +830,13 @@ RegisterWindowMessageW(
 #endif /* _WIN32_WINNT >= 0x0500 */
 
 
-BOOL
+WINBOOL
 WINAPI
 EnableWindow(
     HWND hWnd,
-    BOOL bEnable);
+    WINBOOL bEnable);
 
-BOOL
+WINBOOL
 WINAPI
 IsWindowEnabled(
     HWND hWnd);
@@ -864,7 +864,7 @@ SetParent(
     HWND hWndNewParent);
 
 
-BOOL
+WINBOOL
 WINAPI
 EnumChildWindows(
     HWND hWndParent,
@@ -1194,10 +1194,10 @@ typedef LPACCEL HACCEL;
 
 typedef struct tagPAINTSTRUCT {
     HDC         hdc;
-    BOOL        fErase;
+    WINBOOL        fErase;
     RECT        rcPaint;
-    BOOL        fRestore;
-    BOOL        fIncUpdate;
+    WINBOOL        fRestore;
+    WINBOOL        fIncUpdate;
     BYTE        rgbReserved[32];
 } PAINTSTRUCT, *PPAINTSTRUCT, *NPPAINTSTRUCT, *LPPAINTSTRUCT;
 
@@ -1270,16 +1270,16 @@ typedef struct tag_MSG
 
 HDC BeginPaint(HWND hwnd, PAINTSTRUCT * ps);
 
-BOOL EndPaint(HWND hwnd, PAINTSTRUCT * ps);
+WINBOOL EndPaint(HWND hwnd, PAINTSTRUCT * ps);
 
-BOOL GetCursorPos(LPPOINT lpptCursor);
+WINBOOL GetCursorPos(LPPOINT lpptCursor);
 
-BOOL SetWindowPos(HWND hWnd, HWND hWndInsertAfter, int X, int Y, int cx, int cy, UINT uFlags);
+WINBOOL SetWindowPos(HWND hWnd, HWND hWndInsertAfter, int X, int Y, int cx, int cy, UINT uFlags);
 
 
-BOOL IsWindowVisible(HWND hWnd);
+WINBOOL IsWindowVisible(HWND hWnd);
 
-BOOL IsIconic(HWND hWnd);
+WINBOOL IsIconic(HWND hWnd);
 
 
 
@@ -1290,7 +1290,7 @@ BOOL IsIconic(HWND hWnd);
 
 
 
-BOOL RedrawWindow(HWND hWnd, CONST RECT *lprcUpdate, HRGN hrgnUpdate, UINT flags);
+WINBOOL RedrawWindow(HWND hWnd, CONST RECT *lprcUpdate, HRGN hrgnUpdate, UINT flags);
 
 
 /*

@@ -85,16 +85,16 @@ namespace win
 	   virtual HRESULT ListenForUpnpChanges(::ca4::port_forward_change_callbacks *pCallbacks = NULL);  // NULL==default object; if you provide your own pointer to a port_forward_change_callbacks-derived object it is deleted for you automatically
 	   virtual HRESULT StopListeningForUpnpChanges( );  // Stops listenting for UPnP change events on the router and deletes any port_forward_change_callbacks-derived objects
 	
-	   virtual BOOL GetDeviceInformationUsingThread( HWND hWnd );  // starts a thread that will get IGD (router) device information; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
-	   virtual BOOL GetMappingsUsingThread( HWND hWnd );  // starts a thread that will get all mappings; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
-	   virtual BOOL EditMappingUsingThread( port_map& oldMapping, port_map& newMapping, HWND hWnd );  // starts a thread that will edit one specific mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
-	   virtual BOOL AddMappingUsingThread( port_map& newMapping, HWND hWnd );  // starts a thread that will add one new mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
-	   virtual BOOL DeleteMappingUsingThread( port_map& oldMapping, HWND hWnd );  // starts a thread that will delete one specific mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL GetDeviceInformationUsingThread( HWND hWnd );  // starts a thread that will get IGD (router) device information; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL GetMappingsUsingThread( HWND hWnd );  // starts a thread that will get all mappings; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL EditMappingUsingThread( port_map& oldMapping, port_map& newMapping, HWND hWnd );  // starts a thread that will edit one specific mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL AddMappingUsingThread( port_map& newMapping, HWND hWnd );  // starts a thread that will add one new mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL DeleteMappingUsingThread( port_map& oldMapping, HWND hWnd );  // starts a thread that will delete one specific mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
 	
 	   virtual array_ptr_alloc < port_map > get_port_map() const;  // gets a copy of currently-known port mappings
 	   virtual array_ptr_alloc < device >  get_igd() const;  // gets a copy of currently-know device information
 	
-	   virtual BOOL IsAnyThreadRunning() const;  // returns TRUE if there is any thread currently running
+	   virtual WINBOOL IsAnyThreadRunning() const;  // returns TRUE if there is any thread currently running
 	
 	
    protected:
@@ -126,7 +126,7 @@ namespace win
 	   INATEventManager*						m_piEventManager;
 	   ::ca4::port_forward_change_callbacks*			m_pChangeCallbackFunctions;
 	
-	   BOOL m_bListeningForUpnpChanges;
+	   WINBOOL m_bListeningForUpnpChanges;
 	
 	   ::ca::thread_sp m_pPortMappingThread;
 	   ::ca::thread_sp m_pDeviceInfoThread;

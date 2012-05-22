@@ -15,7 +15,7 @@
 #pragma component(browser, off, references, "ASSERT")
 #pragma component(browser, off, references, "AfxAssertFailedLine")
 #pragma component(browser, off, references, "__debug_break")
-#pragma component(browser, off, references, "BOOL")
+#pragma component(browser, off, references, "WINBOOL")
 #pragma component(browser, off, references, "BYTE")
 #pragma component(browser, off, references, "DECLSPEC_IMPORT")
 #pragma component(browser, off, references, "DWORD")

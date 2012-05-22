@@ -114,7 +114,7 @@ namespace win
 
    // Change a window's style
 
-   __STATIC BOOL CLASS_DECL_VMSWIN _AfxModifyStyle(HWND hWnd, int nStyleOffset,
+   __STATIC WINBOOL CLASS_DECL_VMSWIN _AfxModifyStyle(HWND hWnd, int nStyleOffset,
       DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
       ASSERT(hWnd != NULL);
@@ -132,13 +132,13 @@ namespace win
       return TRUE;
    }
 
-   BOOL PASCAL
+   WINBOOL PASCAL
    window::ModifyStyle(HWND hWnd, DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
       return _AfxModifyStyle(hWnd, GWL_STYLE, dwRemove, dwAdd, nFlags);
    }
 
-   BOOL PASCAL
+   WINBOOL PASCAL
    window::ModifyStyleEx(HWND hWnd, DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
       return _AfxModifyStyle(hWnd, GWL_EXSTYLE, dwRemove, dwAdd, nFlags);
@@ -188,7 +188,7 @@ namespace win
       return pWnd;
    }
 
-   BOOL window::Attach(HWND hWndNew)
+   WINBOOL window::Attach(HWND hWndNew)
    {
       ASSERT(get_handle() == NULL);     // only attach once, detach on destroy
       ASSERT(FromHandlePermanent(hWndNew) == NULL);
@@ -232,7 +232,7 @@ namespace win
    /////////////////////////////////////////////////////////////////////////////
    // window creation
 
-   BOOL window::CreateEx(DWORD dwExStyle, const char * lpszClassName,
+   WINBOOL window::CreateEx(DWORD dwExStyle, const char * lpszClassName,
          const char * lpszWindowName, DWORD dwStyle,
          const RECT& rect, ::user::interaction* pParentWnd, id id,
          LPVOID lpParam /* = NULL */)
@@ -242,7 +242,7 @@ namespace win
          pParentWnd->get_safe_handle(), id, lpParam);
    }
 
-   BOOL window::CreateEx(DWORD dwExStyle, const char * lpszClassName,
+   WINBOOL window::CreateEx(DWORD dwExStyle, const char * lpszClassName,
       const char * lpszWindowName, DWORD dwStyle,
       int x, int y, int nWidth, int nHeight,
       HWND hWndParent, id id, LPVOID lpParam)
@@ -344,7 +344,7 @@ namespace win
    }
 
    // for child windows
-   BOOL window::PreCreateWindow(CREATESTRUCT& cs)
+   WINBOOL window::PreCreateWindow(CREATESTRUCT& cs)
    {
       if (cs.lpszClass == NULL)
       {
@@ -357,7 +357,7 @@ namespace win
       return TRUE;
    }
 
-   BOOL window::create(const char * lpszClassName,
+   WINBOOL window::create(const char * lpszClassName,
       const char * lpszWindowName, DWORD dwStyle,
       const RECT& rect,
       ::user::interaction* pParentWnd, id id,
@@ -398,7 +398,7 @@ namespace win
 
       if(m_papp != NULL && m_papp->m_psystem != NULL && Sys(m_papp).m_pwindowmap != NULL)
       {
-         Sys(m_papp).m_pwindowmap->m_map.remove_key((INT_PTR) get_handle());
+         Sys(m_papp).m_pwindowmap->m_map.remove_key((int_ptr) get_handle());
       }
 
       CSingleLock sl(m_pthread == NULL ? NULL : &m_pthread->m_mutex, TRUE);
@@ -527,7 +527,7 @@ namespace win
       {
          WNDPROC pfnSuper = *GetSuperWndProcAddr();
          if (pfnSuper != NULL)
-            SetWindowLongPtr(get_handle(), GWLP_WNDPROC, reinterpret_cast<INT_PTR>(pfnSuper));
+            SetWindowLongPtr(get_handle(), GWLP_WNDPROC, reinterpret_cast<int_ptr>(pfnSuper));
       }
       Detach();
       ASSERT(get_handle() == NULL);
@@ -650,7 +650,7 @@ namespace win
       dumpcontext << "\nrect = " << rect;
       dumpcontext << "\nparent ::ca::window * = " << (void *)((::ca::window *) this)->GetParent();
 
-      dumpcontext << "\nstyle = " << (void *)(DWORD_PTR)::GetWindowLong(get_handle(), GWL_STYLE);
+      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
       if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
          dumpcontext << "\nid = " << _AfxGetDlgCtrlID(get_handle());
 
@@ -658,12 +658,12 @@ namespace win
    }
    #endif
 
-   BOOL window::DestroyWindow()
+   WINBOOL window::DestroyWindow()
    {
       ::ca::window * pWnd;
       hwnd_map * pMap;
       HWND hWndOrig;
-      BOOL bResult;
+      WINBOOL bResult;
 
       if ((get_handle() == NULL) )
          return FALSE;
@@ -775,14 +775,14 @@ namespace win
       return (int)rString.get_length();
    }
 
-   BOOL window::GetWindowPlacement(WINDOWPLACEMENT* lpwndpl)
+   WINBOOL window::GetWindowPlacement(WINDOWPLACEMENT* lpwndpl)
    {
       ASSERT(::IsWindow(get_handle()));
       lpwndpl->length = sizeof(WINDOWPLACEMENT);
       return ::GetWindowPlacement(get_handle(), lpwndpl);
    }
 
-   BOOL window::SetWindowPlacement(const WINDOWPLACEMENT* lpwndpl)
+   WINBOOL window::SetWindowPlacement(const WINDOWPLACEMENT* lpwndpl)
    {
       ASSERT(::IsWindow(get_handle()));
       ((WINDOWPLACEMENT*)lpwndpl)->length = sizeof(WINDOWPLACEMENT);
@@ -825,7 +825,7 @@ namespace win
       Default();
    }
 
-   BOOL window::_EnableToolTips(BOOL bEnable, UINT nFlag)
+   WINBOOL window::_EnableToolTips(WINBOOL bEnable, UINT nFlag)
    {
       UNREFERENCED_PARAMETER(bEnable);
       UNREFERENCED_PARAMETER(nFlag);
@@ -850,7 +850,7 @@ namespace win
       Default();
    }
 
-   BOOL window::GetWindowInfo(PWINDOWINFO pwi) const
+   WINBOOL window::GetWindowInfo(PWINDOWINFO pwi) const
    {
       ASSERT(::IsWindow((HWND)get_os_data()));
       return ::GetWindowInfo((HWND)get_os_data(), pwi);
@@ -861,27 +861,27 @@ namespace win
 
 
 
-    BOOL window::GetScrollBarInfo(LONG idObject, PSCROLLBARINFO psbi) const
+    WINBOOL window::GetScrollBarInfo(LONG idObject, PSCROLLBARINFO psbi) const
    {
       ASSERT(::IsWindow((HWND)get_os_data()));
       ASSERT(psbi != NULL);
       return ::GetScrollBarInfo((HWND)get_os_data(), idObject, psbi);
    }
 
-    BOOL window::GetTitleBarInfo(PTITLEBARINFO pti) const
+    WINBOOL window::GetTitleBarInfo(PTITLEBARINFO pti) const
    {
       ASSERT(::IsWindow((HWND)get_os_data()));
       ASSERT(pti != NULL);
       return ::GetTitleBarInfo((HWND)get_os_data(), pti);
    }
 
-    BOOL window::AnimateWindow(DWORD dwTime, DWORD dwFlags)
+    WINBOOL window::AnimateWindow(DWORD dwTime, DWORD dwFlags)
    {
       ASSERT(::IsWindow((HWND)get_os_data()));
       return ::AnimateWindow((HWND)get_os_data(), dwTime, dwFlags);
    }
 
-    BOOL window::FlashWindowEx(DWORD dwFlags, UINT  uCount, DWORD dwTimeout)
+    WINBOOL window::FlashWindowEx(DWORD dwFlags, UINT  uCount, DWORD dwTimeout)
    {
       ASSERT(::IsWindow((HWND)get_os_data()));
       FLASHWINFO fwi;
@@ -896,13 +896,13 @@ namespace win
 
 
 
-    BOOL window::SetLayeredWindowAttributes(COLORREF crKey, BYTE bAlpha, DWORD dwFlags)
+    WINBOOL window::SetLayeredWindowAttributes(COLORREF crKey, BYTE bAlpha, DWORD dwFlags)
    {
       ASSERT(::IsWindow((HWND)get_os_data()));
       return ::SetLayeredWindowAttributes((HWND)get_os_data(), crKey, bAlpha, dwFlags);
    }
 
-    BOOL window::UpdateLayeredWindow(::ca::graphics * pDCDst, POINT *pptDst, SIZE *psize,
+    WINBOOL window::UpdateLayeredWindow(::ca::graphics * pDCDst, POINT *pptDst, SIZE *psize,
       ::ca::graphics * pDCSrc, POINT *pptSrc, COLORREF crKey, BLENDFUNCTION *pblend, DWORD dwFlags)
    {
       ASSERT(::IsWindow((HWND)get_os_data()));
@@ -911,13 +911,13 @@ namespace win
    }
 
 
-    BOOL window::GetLayeredWindowAttributes(COLORREF *pcrKey, BYTE *pbAlpha, DWORD *pdwFlags) const
+    WINBOOL window::GetLayeredWindowAttributes(COLORREF *pcrKey, BYTE *pbAlpha, DWORD *pdwFlags) const
    {
       ASSERT(::IsWindow((HWND)get_os_data()));
       return ::GetLayeredWindowAttributes((HWND)get_os_data(), pcrKey, pbAlpha, pdwFlags);
    }
 
-    BOOL window::PrintWindow(::ca::graphics * pgraphics, UINT nFlags) const
+    WINBOOL window::PrintWindow(::ca::graphics * pgraphics, UINT nFlags) const
    {
       ASSERT(::IsWindow((HWND)get_os_data()));
       return ::PrintWindow((HWND)get_os_data(), (HDC)(dynamic_cast<::win::graphics * >(pgraphics))->get_os_data(), nFlags);
@@ -947,7 +947,7 @@ namespace win
    /////////////////////////////////////////////////////////////////////////////
    // window extensions for help support
 
-   void window::WinHelp(DWORD_PTR dwData, UINT nCmd)
+   void window::WinHelp(dword_ptr dwData, UINT nCmd)
    {
       UNREFERENCED_PARAMETER(dwData);
       UNREFERENCED_PARAMETER(nCmd);
@@ -975,7 +975,7 @@ namespace win
       }*/
    }
 
-   //void window::HtmlHelp(DWORD_PTR dwData, UINT nCmd)
+   //void window::HtmlHelp(dword_ptr dwData, UINT nCmd)
    //{
      // throw not_implemented_exception();
       /*
@@ -1036,7 +1036,7 @@ namespace win
    }
    #endif
 
-   /*HWND WINAPI AfxHtmlHelp(HWND hWnd, const char * szHelpFilePath, UINT nCmd, DWORD_PTR dwData)
+   /*HWND WINAPI AfxHtmlHelp(HWND hWnd, const char * szHelpFilePath, UINT nCmd, dword_ptr dwData)
    {
    // for dll builds we just delay load it
    #ifndef _ApplicationFrameworkDLL
@@ -1072,7 +1072,7 @@ namespace win
    #endif
    }*/
 
-   void window::WinHelpInternal(DWORD_PTR dwData, UINT nCmd)
+   void window::WinHelpInternal(dword_ptr dwData, UINT nCmd)
    {
       UNREFERENCED_PARAMETER(dwData);
       UNREFERENCED_PARAMETER(nCmd);
@@ -1103,7 +1103,7 @@ namespace win
       if(command_target_interface::_001OnCmdMsg(pcmdmsg))
          return TRUE;
 
-//      BOOL b;
+//      WINBOOL b;
 
       //if(_iguimessageDispatchCommandMessage(pcommand, b))
         // return b;
@@ -1391,7 +1391,7 @@ namespace win
    }
 
    /*
-   BOOL window::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
+   WINBOOL window::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
    {
       LRESULT lResult = 0;
       union MessageMapFunctions mmf;
@@ -1430,12 +1430,12 @@ namespace win
       }
 
       // special case for windows that contain windowless ActiveX controls
-      BOOL bHandled;
+      WINBOOL bHandled;
 
       bHandled = FALSE;
 
       const AFX_MSGMAP* pMessageMap; pMessageMap = GetMessageMap();
-      UINT iHash; iHash = (LOWORD((DWORD_PTR)pMessageMap) ^ message) & (iHashMax-1);
+      UINT iHash; iHash = (LOWORD((dword_ptr)pMessageMap) ^ message) & (iHashMax-1);
       winMsgLock.Lock(CRIT_WINMSGCACHE);
       AFX_MSG_CACHE* pMsgCache; pMsgCache = &_afxMsgCache[iHash];
       const AFX_MSGMAP_ENTRY* lpEntry;
@@ -1522,7 +1522,7 @@ namespace win
          break;
 
       case AfxSig_b_b_v:
-         lResult = (this->*mmf.pfn_b_b)(static_cast<BOOL>(wParam));
+         lResult = (this->*mmf.pfn_b_b)(static_cast<WINBOOL>(wParam));
          break;
 
       case AfxSig_b_u_v:
@@ -1633,7 +1633,7 @@ namespace win
 
 
       case AfxSig_v_b_h:
-          (this->*mmf.pfn_v_b_h)(static_cast<BOOL>(wParam),
+          (this->*mmf.pfn_v_b_h)(static_cast<WINBOOL>(wParam),
             reinterpret_cast<HANDLE>(lParam));
          break;
 
@@ -1764,7 +1764,7 @@ namespace win
          break;
 
       case AfxSig_v_b_NCCALCSIZEPARAMS:
-         (this->*mmf.pfn_v_b_NCCALCSIZEPARAMS)(static_cast<BOOL>(wParam),
+         (this->*mmf.pfn_v_b_NCCALCSIZEPARAMS)(static_cast<WINBOOL>(wParam),
             reinterpret_cast<NCCALCSIZE_PARAMS*>(lParam));
          break;
 
@@ -1819,7 +1819,7 @@ namespace win
    /////////////////////////////////////////////////////////////////////////////
    // window command handling
 
-   BOOL window::OnCommand(WPARAM wParam, LPARAM lParam)
+   WINBOOL window::OnCommand(WPARAM wParam, LPARAM lParam)
       // return TRUE if command invocation was attempted
    {
       UNREFERENCED_PARAMETER(wParam);
@@ -1876,14 +1876,14 @@ namespace win
       return FALSE;
    }
 
-   BOOL window::OnNotify(WPARAM, LPARAM lParam, LRESULT* pResult)
+   WINBOOL window::OnNotify(WPARAM, LPARAM lParam, LRESULT* pResult)
    {
       ASSERT(pResult != NULL);
       NMHDR* pNMHDR = (NMHDR*)lParam;
       HWND hWndCtrl = pNMHDR->hwndFrom;
 
       // get the child ID from the window itself
-//      UINT_PTR nID = _AfxGetDlgCtrlID(hWndCtrl);
+//      uint_ptr nID = _AfxGetDlgCtrlID(hWndCtrl);
 //      int nCode = pNMHDR->code;
 
       ASSERT(hWndCtrl != NULL);
@@ -1988,7 +1988,7 @@ namespace win
       return ::win::window::from_handle(hWndParent);
    }
 
-   BOOL window::IsTopParentActive()
+   WINBOOL window::IsTopParentActive()
    {
       ASSERT(get_handle() != NULL);
       ASSERT_VALID(this);
@@ -2095,7 +2095,7 @@ namespace win
    }
 
    void PASCAL window::SendMessageToDescendants(HWND hWnd, UINT message,
-      WPARAM wParam, LPARAM lParam, BOOL bDeep, BOOL bOnlyPerm)
+      WPARAM wParam, LPARAM lParam, WINBOOL bDeep, WINBOOL bOnlyPerm)
    {
       // walk through HWNDs to avoid creating temporary window objects
       // unless we need to call this function recursively
@@ -2151,7 +2151,7 @@ namespace win
       return NULL;        // no special scrollers supported
    }
 
-   int window::SetScrollPos(int nBar, int nPos, BOOL bRedraw)
+   int window::SetScrollPos(int nBar, int nPos, WINBOOL bRedraw)
    {
          return ::SetScrollPos(get_handle(), nBar, nPos, bRedraw);
    }
@@ -2161,7 +2161,7 @@ namespace win
          return ::GetScrollPos(get_handle(), nBar);
    }
 
-   void window::SetScrollRange(int nBar, int nMinPos, int nMaxPos, BOOL bRedraw)
+   void window::SetScrollRange(int nBar, int nMinPos, int nMaxPos, WINBOOL bRedraw)
    {
          ::SetScrollRange(get_handle(), nBar, nMinPos, nMaxPos, bRedraw);
    }
@@ -2174,13 +2174,13 @@ namespace win
    // Turn on/off non-control scrollbars
    //   for WS_?SCROLL scrollbars - show/hide them
    //   for control scrollbar - enable/disable them
-   void window::EnableScrollBarCtrl(int nBar, BOOL bEnable)
+   void window::EnableScrollBarCtrl(int nBar, WINBOOL bEnable)
    {
          // WS_?SCROLL scrollbar - show or hide
          ShowScrollBar(nBar, bEnable);
    }
 
-   BOOL window::SetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, BOOL bRedraw)
+   WINBOOL window::SetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, WINBOOL bRedraw)
    {
       ASSERT(lpScrollInfo != NULL);
 
@@ -2190,7 +2190,7 @@ namespace win
       return TRUE;
    }
 
-   BOOL window::GetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, UINT nMask)
+   WINBOOL window::GetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, UINT nMask)
    {
       UNREFERENCED_PARAMETER(nMask);
       ASSERT(lpScrollInfo != NULL);
@@ -2250,7 +2250,7 @@ namespace win
 
    /*
    void window::RepositionBars(const char * pszPrefix, const char * pszIdLeftOver,
-      UINT nFlags, LPRECT lpRectParam, LPCRECT lpRectClient, BOOL bStretch)
+      UINT nFlags, LPRECT lpRectParam, LPCRECT lpRectClient, WINBOOL bStretch)
    {
       ASSERT(nFlags == 0 || (nFlags & ~reposNoPosLeftOver) == reposQuery ||
             (nFlags & ~reposNoPosLeftOver) == reposExtra);
@@ -2371,7 +2371,7 @@ namespace win
    */
 
    void window::RepositionBars(UINT nIDFirst, UINT nIDLast, UINT nIdLeftOver,
-         UINT nFlags, LPRECT lpRectParam, LPCRECT lpRectClient, BOOL bStretch)
+         UINT nFlags, LPRECT lpRectParam, LPCRECT lpRectClient, WINBOOL bStretch)
    {
       UNREFERENCED_PARAMETER(nIDFirst);
       UNREFERENCED_PARAMETER(nIDLast);
@@ -2505,7 +2505,7 @@ namespace win
    /////////////////////////////////////////////////////////////////////////////
    // Special keyboard/system command processing
 
-   BOOL window::HandleFloatingSysCommand(UINT nID, LPARAM lParam)
+   WINBOOL window::HandleFloatingSysCommand(UINT nID, LPARAM lParam)
    {
       ::user::interaction* pParent = GetTopLevelParent();
       switch (nID & 0xfff0)
@@ -2577,14 +2577,14 @@ namespace win
       // no special processing
    }
 
-   BOOL window::SendChildNotifyLastMsg(LRESULT* pResult)
+   WINBOOL window::SendChildNotifyLastMsg(LRESULT* pResult)
    {
       _AFX_THREAD_STATE* pThreadState = _afxThreadState.get_data();
       return OnChildNotify(pThreadState->m_lastSentMsg.message,
          pThreadState->m_lastSentMsg.wParam, pThreadState->m_lastSentMsg.lParam, pResult);
    }
 
-   BOOL PASCAL window::ReflectLastMsg(HWND hWndChild, LRESULT* pResult)
+   WINBOOL PASCAL window::ReflectLastMsg(HWND hWndChild, LRESULT* pResult)
    {
       // get the ::collection::map, and if no ::collection::map, then this message does not need reflection
       hwnd_map * pMap = afxMapHWND();
@@ -2604,13 +2604,13 @@ namespace win
       return WIN_WINDOW(pWnd)->SendChildNotifyLastMsg(pResult);
    }
 
-   BOOL window::OnChildNotify(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
+   WINBOOL window::OnChildNotify(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
    {
 
       return ReflectChildNotify(uMsg, wParam, lParam, pResult);
    }
 
-   BOOL window::ReflectChildNotify(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
+   WINBOOL window::ReflectChildNotify(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
    {
       UNREFERENCED_PARAMETER(wParam);
       // Note: reflected messages are send directly to window::OnWndMsg
@@ -2671,7 +2671,7 @@ namespace win
             ASSERT(ctl.nCtlType <= CTLCOLOR_STATIC);
 
             // reflect the message through the message ::collection::map as OCM_CTLCOLOR
-            BOOL bResult = window::OnWndMsg(WM_REFLECT_BASE+WM_CTLCOLOR, 0, (LPARAM)&ctl, pResult);
+            WINBOOL bResult = window::OnWndMsg(WM_REFLECT_BASE+WM_CTLCOLOR, 0, (LPARAM)&ctl, pResult);
             if ((HBRUSH)*pResult == NULL)
                bResult = FALSE;
             return bResult;*/
@@ -2696,7 +2696,7 @@ namespace win
 
    void window::OnSetFocus(::ca::window *)
    {
-      BOOL bHandled;
+      WINBOOL bHandled;
 
       bHandled = FALSE;
       if( !bHandled )
@@ -2733,7 +2733,7 @@ namespace win
       Default();*/
    }
 
-   BOOL _afxGotScrollLines;
+   WINBOOL _afxGotScrollLines;
 
    void window::OnSettingChange(UINT uFlags, const char * lpszSection)
    {
@@ -2764,7 +2764,7 @@ namespace win
       }*/
    }
 
-   BOOL window::OnHelpInfo(HELPINFO* /*pHelpInfo*/)
+   WINBOOL window::OnHelpInfo(HELPINFO* /*pHelpInfo*/)
    {
       if (!(GetStyle() & WS_CHILD))
       {
@@ -2832,7 +2832,7 @@ namespace win
       Default();
    }
 
-   BOOL CALLBACK window::GetAppsEnumWindowsProc(
+   WINBOOL CALLBACK window::GetAppsEnumWindowsProc(
        HWND hwnd,
        LPARAM lParam)
    {
@@ -3221,7 +3221,7 @@ namespace win
    //  return value of FALSE means caller must call DefWindowProc's default
    //  TRUE means that 'hbrGray' will be used and the appropriate text
    //    ('clrText') and background colors are set.
-   BOOL PASCAL window::GrayCtlColor(HDC hDC, HWND hWnd, UINT nCtlColor,
+   WINBOOL PASCAL window::GrayCtlColor(HDC hDC, HWND hWnd, UINT nCtlColor,
       HBRUSH hbrGray, COLORREF clrText)
    {
       if (hDC == NULL)
@@ -3259,7 +3259,7 @@ namespace win
    /////////////////////////////////////////////////////////////////////////////
    // 'dialog data' support
 
-   /*BOOL window::UpdateData(BOOL bSaveAndValidate)
+   /*WINBOOL window::UpdateData(WINBOOL bSaveAndValidate)
    {
       ASSERT(::IsWindow(get_handle())); // calling UpdateData before DoModal?
 
@@ -3271,7 +3271,7 @@ namespace win
       ASSERT(hWndOldLockout != get_handle());   // must not recurse
       pThreadState->m_hLockoutNotifyWindow = get_handle();
 
-      BOOL bOK = FALSE;       // assume failure
+      WINBOOL bOK = FALSE;       // assume failure
       try
       {
          DoDataExchange(&dx);
@@ -3393,7 +3393,7 @@ namespace win
          SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);
    }
 
-   BOOL window::CheckAutoCenter()
+   WINBOOL window::CheckAutoCenter()
    {
       return TRUE;
    }
@@ -3401,7 +3401,7 @@ namespace win
    /////////////////////////////////////////////////////////////////////////////
    // Dialog initialization support
 
-   BOOL window::ExecuteDlgInit(const char * lpszResourceName)
+   WINBOOL window::ExecuteDlgInit(const char * lpszResourceName)
    {
       // find resource handle
       LPVOID lpResource = NULL;
@@ -3423,7 +3423,7 @@ namespace win
       }
 
       // execute it
-      BOOL bResult = ExecuteDlgInit(lpResource);
+      WINBOOL bResult = ExecuteDlgInit(lpResource);
 
       // cleanup
       if (lpResource != NULL && hResource != NULL)
@@ -3434,9 +3434,9 @@ namespace win
       return bResult;
    }
 
-   BOOL window::ExecuteDlgInit(LPVOID lpResource)
+   WINBOOL window::ExecuteDlgInit(LPVOID lpResource)
    {
-      BOOL bSuccess = TRUE;
+      WINBOOL bSuccess = TRUE;
       if (lpResource != NULL)
       {
          UNALIGNED WORD* lpnRes = (WORD*)lpResource;
@@ -3504,7 +3504,7 @@ namespace win
       return bSuccess;
    }
 
-   void window::UpdateDialogControls(command_target* pTarget, BOOL bDisableIfNoHndler)
+   void window::UpdateDialogControls(command_target* pTarget, WINBOOL bDisableIfNoHndler)
    {
       UNREFERENCED_PARAMETER(pTarget);
       UNREFERENCED_PARAMETER(bDisableIfNoHndler);
@@ -3535,7 +3535,7 @@ namespace win
             continue;
 
          // determine whether to disable when no handler exists
-         BOOL bDisableTemp = bDisableIfNoHndler;
+         WINBOOL bDisableTemp = bDisableIfNoHndler;
          if (bDisableTemp)
          {
             if ((wndTemp.SendMessage(WM_GETDLGCODE) & DLGC_BUTTON) == 0)
@@ -3566,9 +3566,9 @@ namespace win
    int window::RunModalLoop(DWORD dwFlags)
    {
       // for tracking the idle time state
-      BOOL bIdle = TRUE;
+      WINBOOL bIdle = TRUE;
       LONG lIdleCount = 0;
-      BOOL bShowIdle = (dwFlags & MLF_SHOWONIDLE) && !(GetStyle() & WS_VISIBLE);
+      WINBOOL bShowIdle = (dwFlags & MLF_SHOWONIDLE) && !(GetStyle() & WS_VISIBLE);
       HWND hWndParent = ::GetParent(get_handle());
       m_iModal = m_iModalCount;
       int iLevel = m_iModal;
@@ -3684,7 +3684,7 @@ ExitModal:
       return m_nModalResult;
    }
 
-   BOOL window::ContinueModal(int iLevel)
+   WINBOOL window::ContinueModal(int iLevel)
    {
       return iLevel < m_iModalCount;
    }
@@ -3741,14 +3741,14 @@ ExitModal:
    /////////////////////////////////////////////////////////////////////////////
    // frame_window (here for library granularity)
 
-   BOOL window::IsFrameWnd()
+   WINBOOL window::IsFrameWnd()
    {
       return FALSE;
    }
    /////////////////////////////////////////////////////////////////////////////
    // Extra window support for dynamic subclassing of controls
 
-   BOOL window::SubclassWindow(HWND hWnd)
+   WINBOOL window::SubclassWindow(HWND hWnd)
    {
       if (!Attach(hWnd))
          return FALSE;
@@ -3761,7 +3761,7 @@ ExitModal:
       // now hook into the AFX WndProc
       WNDPROC* lplpfn = GetSuperWndProcAddr();
       WNDPROC oldWndProc = (WNDPROC)::SetWindowLongPtr(hWnd, GWLP_WNDPROC,
-         (INT_PTR)AfxGetAfxWndProc());
+         (int_ptr)AfxGetAfxWndProc());
       ASSERT(oldWndProc != AfxGetAfxWndProc());
 
       if (*lplpfn == NULL)
@@ -3771,11 +3771,11 @@ ExitModal:
       {
          TRACE(::radix::trace::category_AppMsg, 0, "Error: Trying to use SubclassWindow with incorrect window\n");
          TRACE(::radix::trace::category_AppMsg, 0, "\tderived class.\n");
-         TRACE(::radix::trace::category_AppMsg, 0, "\thWnd = $%08X (nIDC=$%08X) is not a %hs.\n", (UINT)(UINT_PTR)hWnd,
+         TRACE(::radix::trace::category_AppMsg, 0, "\thWnd = $%08X (nIDC=$%08X) is not a %hs.\n", (UINT)(uint_ptr)hWnd,
             _AfxGetDlgCtrlID(hWnd), typeid(*this).name());
          ASSERT(FALSE);
          // undo the subclassing if continuing after assert
-        ::SetWindowLongPtr(hWnd, GWLP_WNDPROC, (INT_PTR)oldWndProc);
+        ::SetWindowLongPtr(hWnd, GWLP_WNDPROC, (int_ptr)oldWndProc);
       }
    #endif
       ::user::win::message::size size(get_app());
@@ -3783,7 +3783,7 @@ ExitModal:
       return TRUE;
    }
 
-   BOOL window::SubclassDlgItem(UINT nID, ::ca::window * pParent)
+   WINBOOL window::SubclassDlgItem(UINT nID, ::ca::window * pParent)
    {
       ASSERT(pParent != NULL);
       ASSERT(::IsWindow(WIN_WINDOW(pParent)->get_handle()));
@@ -3803,7 +3803,7 @@ ExitModal:
 
       // set WNDPROC back to original value
       WNDPROC* lplpfn = GetSuperWndProcAddr();
-      SetWindowLongPtr(get_handle(), GWLP_WNDPROC, (INT_PTR)*lplpfn);
+      SetWindowLongPtr(get_handle(), GWLP_WNDPROC, (int_ptr)*lplpfn);
       *lplpfn = NULL;
 
       // and Detach the HWND from the window object
@@ -3819,7 +3819,7 @@ ExitModal:
 
 
 
-   BOOL window::IsChild(::user::interaction * pWnd)
+   WINBOOL window::IsChild(::user::interaction * pWnd)
    {
       ASSERT(::IsWindow(get_handle()));
       if(WIN_WINDOW(pWnd)->_get_handle() == NULL)
@@ -3832,7 +3832,7 @@ ExitModal:
       }
    }
 
-   BOOL window::IsWindow()
+   WINBOOL window::IsWindow()
    {
       return ::IsWindow(get_handle());
    }
@@ -3925,7 +3925,7 @@ ExitModal:
 
    }
 
-   void window::MoveWindow(int x, int y, int nWidth, int nHeight, BOOL bRepaint)
+   void window::MoveWindow(int x, int y, int nWidth, int nHeight, WINBOOL bRepaint)
    {
       ASSERT(::IsWindow(get_handle()));
       SetWindowPos(NULL, x, y, nWidth, nHeight, bRepaint ? SWP_SHOWWINDOW : 0);
@@ -4091,7 +4091,7 @@ ExitModal:
       ::ShowWindow(get_handle(), SW_RESTORE);
    }
 
-   BOOL window::ShowWindow(int nCmdShow)
+   WINBOOL window::ShowWindow(int nCmdShow)
    {
       if(!::IsWindow(get_handle()))
          return false;
@@ -4231,12 +4231,12 @@ ExitModal:
    // window
    /* window::operator HWND() const
       { return this == NULL ? NULL : get_handle(); }*/
-   BOOL window::operator==(const ::ca::window& wnd) const
+   WINBOOL window::operator==(const ::ca::window& wnd) const
    {
       return ((HWND) WIN_WINDOW(const_cast < ::ca::window * > (&wnd))->get_handle()) == get_handle();
    }
 
-   BOOL window::operator!=(const ::ca::window& wnd) const
+   WINBOOL window::operator!=(const ::ca::window& wnd) const
    {
       return ((HWND) WIN_WINDOW(const_cast < ::ca::window * > (&wnd))->get_handle()) != get_handle();
    }
@@ -4253,13 +4253,13 @@ ExitModal:
       return (DWORD)::GetWindowLong(get_handle(), GWL_EXSTYLE);
    }
 
-   BOOL window::ModifyStyle(DWORD dwRemove, DWORD dwAdd, UINT nFlags)
+   WINBOOL window::ModifyStyle(DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
       ASSERT(::IsWindow(get_handle()));
       return ModifyStyle(get_handle(), dwRemove, dwAdd, nFlags);
    }
 
-   BOOL window::ModifyStyleEx(DWORD dwRemove, DWORD dwAdd, UINT nFlags)
+   WINBOOL window::ModifyStyleEx(DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
       ASSERT(::IsWindow(get_handle()));
       return ModifyStyleEx(get_handle(), dwRemove, dwAdd, nFlags);
@@ -4284,13 +4284,13 @@ ExitModal:
    }
 
 #pragma pop_macro("SendMessage")
-   BOOL window::PostMessage(UINT message, WPARAM wParam, LPARAM lParam)
+   WINBOOL window::PostMessage(UINT message, WPARAM wParam, LPARAM lParam)
    {
       ASSERT(::IsWindow(get_handle()));
       return ::PostMessage(get_handle(), message, wParam, lParam);
    }
 
-   BOOL window::DragDetect(POINT pt) const
+   WINBOOL window::DragDetect(POINT pt) const
    {
       ASSERT(::IsWindow(get_handle()));
       return ::DragDetect(get_handle(), pt);
@@ -4313,7 +4313,7 @@ ExitModal:
       return ::GetWindowTextLength(get_handle());
    }
 
-   void window::SetFont(::ca::font* pfont, BOOL bRedraw)
+   void window::SetFont(::ca::font* pfont, WINBOOL bRedraw)
    {
       UNREFERENCED_PARAMETER(bRedraw);
       ASSERT(::IsWindow(get_handle())); m_pfont = new ::ca::font(*pfont);
@@ -4325,7 +4325,7 @@ ExitModal:
       return m_pfont;
    }
 
-   void window::DragAcceptFiles(BOOL bAccept)
+   void window::DragAcceptFiles(WINBOOL bAccept)
    {
       ASSERT(::IsWindow(get_handle()));
       ::DragAcceptFiles(get_handle(), bAccept);
@@ -4345,7 +4345,7 @@ ExitModal:
        return pWnd;
    }
 
-   void window::MoveWindow(LPCRECT lpRect, BOOL bRepaint)
+   void window::MoveWindow(LPCRECT lpRect, WINBOOL bRepaint)
    {
       MoveWindow(lpRect->left, lpRect->top, lpRect->right - lpRect->left, lpRect->bottom - lpRect->top, bRepaint);
    }
@@ -4355,7 +4355,7 @@ ExitModal:
       ASSERT(::IsWindow(get_handle())); return ::ArrangeIconicWindows(get_handle());
    }
 
-   int window::SetWindowRgn(HRGN hRgn, BOOL bRedraw)
+   int window::SetWindowRgn(HRGN hRgn, WINBOOL bRedraw)
    {
       ASSERT(::IsWindow(get_handle())); return ::SetWindowRgn(get_handle(), hRgn, bRedraw);
    }
@@ -4417,37 +4417,37 @@ ExitModal:
       ::UpdateWindow(get_handle());
    }
 
-   void window::SetRedraw(BOOL bRedraw)
+   void window::SetRedraw(WINBOOL bRedraw)
    {
       ASSERT(::IsWindow(get_handle()));
       ::SendMessage(get_handle(), WM_SETREDRAW, bRedraw, 0);
    }
 
-   BOOL window::GetUpdateRect(LPRECT lpRect, BOOL bErase)
+   WINBOOL window::GetUpdateRect(LPRECT lpRect, WINBOOL bErase)
    {
       ASSERT(::IsWindow(get_handle()));
       return ::GetUpdateRect(get_handle(), lpRect, bErase);
    }
 
-   int window::GetUpdateRgn(::ca::rgn* pRgn, BOOL bErase)
+   int window::GetUpdateRgn(::ca::rgn* pRgn, WINBOOL bErase)
    {
       ASSERT(::IsWindow(get_handle()));
       return ::GetUpdateRgn(get_handle(), (HRGN)pRgn->get_os_data(), bErase);
    }
 
-   void window::Invalidate(BOOL bErase)
+   void window::Invalidate(WINBOOL bErase)
    {
       ASSERT(::IsWindow(get_handle()));
       ::InvalidateRect(get_handle(), NULL, bErase);
    }
 
-   void window::InvalidateRect(LPCRECT lpRect, BOOL bErase)
+   void window::InvalidateRect(LPCRECT lpRect, WINBOOL bErase)
    {
       ASSERT(::IsWindow(get_handle()));
       ::InvalidateRect(get_handle(), lpRect, bErase);
    }
 
-   void window::InvalidateRgn(::ca::rgn* pRgn, BOOL bErase)
+   void window::InvalidateRgn(::ca::rgn* pRgn, WINBOOL bErase)
    {
       ASSERT(::IsWindow(get_handle()));
       ::InvalidateRgn(get_handle(), (HRGN)pRgn->get_os_data(), bErase);
@@ -4458,7 +4458,7 @@ ExitModal:
     void window::ValidateRgn(::ca::rgn* pRgn)
       { ASSERT(::IsWindow(get_handle())); ::ValidateRgn(get_handle(), (HRGN)pRgn->get_os_data()); }
 
-   BOOL window::IsWindowVisible()
+   WINBOOL window::IsWindowVisible()
    {
 
       if(!::IsWindow(get_handle()))
@@ -4483,10 +4483,10 @@ ExitModal:
    }
 
 
-    void window::ShowOwnedPopups(BOOL bShow)
+    void window::ShowOwnedPopups(WINBOOL bShow)
       { ASSERT(::IsWindow(get_handle())); ::ShowOwnedPopups(get_handle(), bShow); }
 
-   void window::SendMessageToDescendants(UINT message, WPARAM wParam, LPARAM lParam, BOOL bDeep, BOOL bOnlyPerm)
+   void window::SendMessageToDescendants(UINT message, WPARAM wParam, LPARAM lParam, WINBOOL bDeep, WINBOOL bOnlyPerm)
    {
       ASSERT(::IsWindow(get_handle()));
       //window::SendMessageToDescendants(get_handle(), message, wParam, lParam, bDeep, bOnlyPerm);
@@ -4534,7 +4534,7 @@ ExitModal:
 
     ::ca::graphics * window::GetDCEx(::ca::rgn* prgnClip, DWORD flags)
       { ASSERT(::IsWindow(get_handle())); return ::win::graphics::from_handle(::GetDCEx(get_handle(), (HRGN)prgnClip->get_os_data(), flags)); }
-    BOOL window::LockWindowUpdate()
+    WINBOOL window::LockWindowUpdate()
       { ASSERT(::IsWindow(get_handle())); return ::LockWindowUpdate(get_handle()); }
 
     void window::UnlockWindowUpdate()
@@ -4542,7 +4542,7 @@ ExitModal:
        ASSERT(::IsWindow(get_handle())); ::LockWindowUpdate(NULL);
     }
 
-    BOOL window::RedrawWindow(LPCRECT lpRectUpdate, ::ca::rgn* prgnUpdate, UINT flags)
+    WINBOOL window::RedrawWindow(LPCRECT lpRectUpdate, ::ca::rgn* prgnUpdate, UINT flags)
     {
        if(System.get_twf() == NULL)
           return FALSE;
@@ -4552,22 +4552,22 @@ ExitModal:
        return ::RedrawWindow(get_handle(), lpRectUpdate, prgnUpdate == NULL ? NULL : (HRGN)prgnUpdate->get_os_data(), flags);
     }
 
-    BOOL window::EnableScrollBar(int nSBFlags, UINT nArrowFlags)
-      { ASSERT(::IsWindow(get_handle())); return (BOOL)::EnableScrollBar(get_handle(), nSBFlags, nArrowFlags); }
-    BOOL window::DrawAnimatedRects(int idAni, CONST RECT *lprcFrom, CONST RECT *lprcTo)
-      { ASSERT(::IsWindow(get_handle())); return (BOOL)::DrawAnimatedRects(get_handle(), idAni, lprcFrom, lprcTo); }
-    BOOL window::DrawCaption(::ca::graphics * pgraphics, LPCRECT lprc, UINT uFlags)
-      { ASSERT(::IsWindow(get_handle())); return (BOOL)::DrawCaption(get_handle(), (HDC)(dynamic_cast<::win::graphics * >(pgraphics))->get_os_data(), lprc, uFlags); }
+    WINBOOL window::EnableScrollBar(int nSBFlags, UINT nArrowFlags)
+      { ASSERT(::IsWindow(get_handle())); return (WINBOOL)::EnableScrollBar(get_handle(), nSBFlags, nArrowFlags); }
+    WINBOOL window::DrawAnimatedRects(int idAni, CONST RECT *lprcFrom, CONST RECT *lprcTo)
+      { ASSERT(::IsWindow(get_handle())); return (WINBOOL)::DrawAnimatedRects(get_handle(), idAni, lprcFrom, lprcTo); }
+    WINBOOL window::DrawCaption(::ca::graphics * pgraphics, LPCRECT lprc, UINT uFlags)
+      { ASSERT(::IsWindow(get_handle())); return (WINBOOL)::DrawCaption(get_handle(), (HDC)(dynamic_cast<::win::graphics * >(pgraphics))->get_os_data(), lprc, uFlags); }
 
-    UINT_PTR window::SetTimer(UINT_PTR nIDEvent, UINT nElapse,
-         void (CALLBACK* lpfnTimer)(HWND, UINT, UINT_PTR, DWORD))
+    uint_ptr window::SetTimer(uint_ptr nIDEvent, UINT nElapse,
+         void (CALLBACK* lpfnTimer)(HWND, UINT, uint_ptr, DWORD))
       { ASSERT(::IsWindow(get_handle())); return ::SetTimer(get_handle(), nIDEvent, nElapse,
          lpfnTimer); }
-    BOOL window::KillTimer(UINT_PTR nIDEvent)
+    WINBOOL window::KillTimer(uint_ptr nIDEvent)
       { ASSERT(::IsWindow(get_handle())); return ::KillTimer(get_handle(), nIDEvent); }
-    BOOL window::IsWindowEnabled()
+    WINBOOL window::IsWindowEnabled()
       { ASSERT(::IsWindow(get_handle())); return ::IsWindowEnabled(get_handle()); }
-    BOOL window::EnableWindow(BOOL bEnable)
+    WINBOOL window::EnableWindow(WINBOOL bEnable)
       { ASSERT(::IsWindow(get_handle())); return ::EnableWindow(get_handle(), bEnable); }
     ::user::interaction * window::GetActiveWindow()
       { return ::win::window::from_handle(::GetActiveWindow()); }
@@ -4615,25 +4615,25 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
          __in int nIDStaticPath, __in UINT nFileType)
       { ASSERT(::IsWindow(get_handle())); return ::DlgDirListComboBox(get_handle(), lpPathSpec,
             nIDComboBox, nIDStaticPath, nFileType); }
-    BOOL window::DlgDirSelect(LPTSTR lpString, int nSize, int nIDListBox)
+    WINBOOL window::DlgDirSelect(LPTSTR lpString, int nSize, int nIDListBox)
       { ASSERT(::IsWindow(get_handle())); return ::DlgDirSelectEx(get_handle(), lpString, nSize, nIDListBox); }
-    BOOL window::DlgDirSelectComboBox(LPTSTR lpString, int nSize, int nIDComboBox)
+    WINBOOL window::DlgDirSelectComboBox(LPTSTR lpString, int nSize, int nIDComboBox)
       { ASSERT(::IsWindow(get_handle())); return ::DlgDirSelectComboBoxEx(get_handle(), lpString, nSize, nIDComboBox);}
     void window::GetDlgItem(id id, HWND* phWnd) const
       { ASSERT(::IsWindow(get_handle())); ASSERT(phWnd != NULL); *phWnd = ::GetDlgItem(get_handle(), id); }
-    UINT window::GetDlgItemInt(int nID, BOOL* lpTrans,
-         BOOL bSigned) const
+    UINT window::GetDlgItemInt(int nID, WINBOOL* lpTrans,
+         WINBOOL bSigned) const
       { ASSERT(::IsWindow(get_handle())); return ::GetDlgItemInt(get_handle(), nID, lpTrans, bSigned);}
     int window::GetDlgItemText(__in int nID, __out_ecount_part_z(nMaxCount, return + 1) LPTSTR lpStr, __in int nMaxCount) const
       { ASSERT(::IsWindow(get_handle())); return ::GetDlgItemText(get_handle(), nID, lpStr, nMaxCount);}
 
-    ::ca::window * window::GetNextDlgGroupItem(::ca::window * pWndCtl, BOOL bPrevious) const
+    ::ca::window * window::GetNextDlgGroupItem(::ca::window * pWndCtl, WINBOOL bPrevious) const
     {
        ASSERT(::IsWindow(get_handle()));
        return ::win::window::from_handle(::GetNextDlgGroupItem(get_handle(), (HWND) pWndCtl->get_os_data(), bPrevious));
     }
 
-    ::ca::window * window::GetNextDlgTabItem(::ca::window * pWndCtl, BOOL bPrevious) const
+    ::ca::window * window::GetNextDlgTabItem(::ca::window * pWndCtl, WINBOOL bPrevious) const
     {
        ASSERT(::IsWindow(get_handle()));
        return ::win::window::from_handle(::GetNextDlgTabItem(get_handle(), (HWND) pWndCtl->get_os_data(), bPrevious));
@@ -4643,7 +4643,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { ASSERT(::IsWindow(get_handle())); return ::IsDlgButtonChecked(get_handle(), nIDButton); }
     LPARAM window::SendDlgItemMessage(int nID, UINT message, WPARAM wParam, LPARAM lParam)
       { ASSERT(::IsWindow(get_handle())); return ::SendDlgItemMessage(get_handle(), nID, message, wParam, lParam); }
-    void window::SetDlgItemInt(int nID, UINT nValue, BOOL bSigned)
+    void window::SetDlgItemInt(int nID, UINT nValue, WINBOOL bSigned)
       { ASSERT(::IsWindow(get_handle())); ::SetDlgItemInt(get_handle(), nID, nValue, bSigned); }
     void window::SetDlgItemText(int nID, const char * lpszString)
       { ASSERT(::IsWindow(get_handle())); ::SetDlgItemText(get_handle(), nID, lpszString); }
@@ -4653,7 +4653,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { ASSERT(::IsWindow(get_handle())); return ::ScrollWindowEx(get_handle(), dx, dy, lpRectScroll, lpRectClip,
             (HRGN)prgnUpdate->get_os_data(), lpRectUpdate, flags); }
 
-    void window::ShowScrollBar(UINT nBar, BOOL bShow)
+    void window::ShowScrollBar(UINT nBar, WINBOOL bShow)
       { ASSERT(::IsWindow(get_handle())); ::ShowScrollBar(get_handle(), nBar, bShow); }
     ::ca::window * window::ChildWindowFromPoint(POINT point)
       { ASSERT(::IsWindow(get_handle())); return ::win::window::from_handle(::ChildWindowFromPoint(get_handle(), point)); }
@@ -4686,13 +4686,13 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
     int window::MessageBox(const char * lpszText, const char * lpszCaption, UINT nType)
       { return _AFX_FUNCNAME(MessageBox)(lpszText, lpszCaption, nType); }
    #pragma pop_macro("MessageBox")
-    BOOL window::FlashWindow(BOOL bInvert)
+    WINBOOL window::FlashWindow(WINBOOL bInvert)
       { ASSERT(::IsWindow(get_handle())); return ::FlashWindow(get_handle(), bInvert); }
-    BOOL window::ChangeClipboardChain(HWND hWndNext)
+    WINBOOL window::ChangeClipboardChain(HWND hWndNext)
       { ASSERT(::IsWindow(get_handle())); return ::ChangeClipboardChain(get_handle(), hWndNext); }
     HWND window::SetClipboardViewer()
       { ASSERT(::IsWindow(get_handle())); return ::SetClipboardViewer(get_handle()); }
-    BOOL window::OpenClipboard()
+    WINBOOL window::OpenClipboard()
       { ASSERT(::IsWindow(get_handle())); return ::OpenClipboard(get_handle()); }
     ::ca::window * PASCAL window::GetOpenClipboardWindow()
       { return ::win::window::from_handle(::GetOpenClipboardWindow()); }
@@ -4714,33 +4714,33 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { ::HideCaret(get_handle()); }
     void window::ShowCaret()
       { ::ShowCaret(get_handle()); }
-    BOOL window::SetForegroundWindow()
+    WINBOOL window::SetForegroundWindow()
       { return ::SetForegroundWindow(get_handle()); }
     ::ca::window * PASCAL window::GetForegroundWindow()
       { return ::win::window::from_handle(::GetForegroundWindow()); }
 
-    BOOL window::SendNotifyMessage(UINT message, WPARAM wParam, LPARAM lParam)
+    WINBOOL window::SendNotifyMessage(UINT message, WPARAM wParam, LPARAM lParam)
       { return ::SendNotifyMessage(get_handle(), message, wParam, lParam); }
 
    // Win4
-    HICON window::SetIcon(HICON hIcon, BOOL bBigIcon)
+    HICON window::SetIcon(HICON hIcon, WINBOOL bBigIcon)
       { return (HICON)SendMessage(WM_SETICON, bBigIcon, (LPARAM)hIcon); }
-    HICON window::GetIcon(BOOL bBigIcon) const
+    HICON window::GetIcon(WINBOOL bBigIcon) const
       { ASSERT(::IsWindow(get_handle())); return (HICON)const_cast < window * > (this)->SendMessage(WM_GETICON, bBigIcon, 0); }
     void window::Print(::ca::graphics * pgraphics, DWORD dwFlags) const
       { ASSERT(::IsWindow(get_handle())); const_cast < window * > (this)->SendMessage(WM_PRINT, (WPARAM)(dynamic_cast<::win::graphics * >(pgraphics))->get_os_data(), dwFlags); }
     void window::PrintClient(::ca::graphics * pgraphics, DWORD dwFlags) const
       { ASSERT(::IsWindow(get_handle())); const_cast < window * > (this)->SendMessage(WM_PRINTCLIENT, (WPARAM)(dynamic_cast<::win::graphics * >(pgraphics))->get_os_data(), dwFlags); }
-    BOOL window::SetWindowContextHelpId(DWORD dwContextHelpId)
+    WINBOOL window::SetWindowContextHelpId(DWORD dwContextHelpId)
       { ASSERT(::IsWindow(get_handle())); return ::SetWindowContextHelpId(get_handle(), dwContextHelpId); }
     DWORD window::GetWindowContextHelpId() const
       { ASSERT(::IsWindow(get_handle())); return ::GetWindowContextHelpId(get_handle()); }
 
 
    // Default message ::collection::map implementations
-    void window::OnActivateApp(BOOL, DWORD)
+    void window::OnActivateApp(WINBOOL, DWORD)
       { Default(); }
-    void window::OnActivate(UINT, ::ca::window *, BOOL)
+    void window::OnActivate(UINT, ::ca::window *, WINBOOL)
       { Default(); }
     void window::OnCancelMode()
       { Default(); }
@@ -4752,12 +4752,12 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { Default(); }
     int window::OnCopyData(::ca::window *, COPYDATASTRUCT*)
       { return (int)Default(); }
-    void window::OnEnable(BOOL)
+    void window::OnEnable(WINBOOL)
       { Default(); }
-    void window::OnEndSession(BOOL)
+    void window::OnEndSession(WINBOOL)
       { Default(); }
-    BOOL window::OnEraseBkgnd(::ca::graphics *)
-      { return (BOOL)Default(); }
+    WINBOOL window::OnEraseBkgnd(::ca::graphics *)
+      { return (WINBOOL)Default(); }
     void window::OnGetMinMaxInfo(MINMAXINFO*)
       { Default(); }
     void window::OnIconEraseBkgnd(::ca::graphics *)
@@ -4772,12 +4772,12 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { Default(); }
     HCURSOR window::OnQueryDragIcon()
       { return (HCURSOR)Default(); }
-    BOOL window::OnQueryEndSession()
-      { return (BOOL)Default(); }
-    BOOL window::OnQueryNewPalette()
-      { return (BOOL)Default(); }
-    BOOL window::OnQueryOpen()
-      { return (BOOL)Default(); }
+    WINBOOL window::OnQueryEndSession()
+      { return (WINBOOL)Default(); }
+    WINBOOL window::OnQueryNewPalette()
+      { return (WINBOOL)Default(); }
+    WINBOOL window::OnQueryOpen()
+      { return (WINBOOL)Default(); }
     void window::_001OnSetCursor(gen::signal_object * pobj)
     {
        SCAST_PTR(::user::win::message::base, pbase, pobj);
@@ -4788,9 +4788,9 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
        }
        pbase->set_lresult(1);
        pbase->m_bRet = true;
-       //(BOOL)Default();
+       //(WINBOOL)Default();
     }
-    void window::OnShowWindow(BOOL, UINT)
+    void window::OnShowWindow(WINBOOL, UINT)
       { Default(); }
     void window::OnSize(UINT, int, int)
       { Default(); }
@@ -4804,12 +4804,12 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { Default(); }
     void window::OnPaletteIsChanging(::ca::window *)
       { Default(); }
-    BOOL window::OnNcActivate(BOOL)
-      { return (BOOL)Default(); }
-    void window::OnNcCalcSize(BOOL, NCCALCSIZE_PARAMS*)
+    WINBOOL window::OnNcActivate(WINBOOL)
+      { return (WINBOOL)Default(); }
+    void window::OnNcCalcSize(WINBOOL, NCCALCSIZE_PARAMS*)
       { Default(); }
-    BOOL window::OnNcCreate(LPCREATESTRUCT)
-      { return (BOOL)Default(); }
+    WINBOOL window::OnNcCreate(LPCREATESTRUCT)
+      { return (WINBOOL)Default(); }
     LRESULT window::OnNcHitTest(point)
       { return Default(); }
     void window::OnNcLButtonDblClk(UINT, point)
@@ -4878,8 +4878,8 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { return (int)Default(); }
     void window::OnMouseMove(UINT, point)
       { Default(); }
-    BOOL window::OnMouseWheel(UINT, short, point)
-      { return (BOOL)Default(); }
+    WINBOOL window::OnMouseWheel(UINT, short, point)
+      { return (WINBOOL)Default(); }
     LRESULT window::OnRegisteredMouseWheel(WPARAM, LPARAM)
       { return Default(); }
     void window::OnRButtonDblClk(UINT, point)
@@ -4888,11 +4888,11 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { Default(); }
     void window::OnRButtonUp(UINT, point)
       { Default(); }
-    void window::OnTimer(UINT_PTR)
+    void window::OnTimer(uint_ptr)
       { Default(); }
     void window::OnInitMenu(::userbase::menu*)
       { Default(); }
-    void window::OnInitMenuPopup(::userbase::menu*, UINT, BOOL)
+    void window::OnInitMenuPopup(::userbase::menu*, UINT, WINBOOL)
       { Default(); }
     void window::OnAskCbFormatName(__in UINT nMaxCount, __out_ecount_z(nMaxCount) LPTSTR pszName)
    {
@@ -4924,11 +4924,11 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { Default(); }
     UINT window::OnGetDlgCode()
       { return (UINT)Default(); }
-    void window::OnMDIActivate(BOOL, ::ca::window *, ::ca::window *)
+    void window::OnMDIActivate(WINBOOL, ::ca::window *, ::ca::window *)
       { Default(); }
-    void window::OnEnterMenuLoop(BOOL)
+    void window::OnEnterMenuLoop(WINBOOL)
       { Default(); }
-    void window::OnExitMenuLoop(BOOL)
+    void window::OnExitMenuLoop(WINBOOL)
       { Default(); }
    // Win4 support
     void window::OnStyleChanged(int, LPSTYLESTRUCT)
@@ -4941,8 +4941,8 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { Default(); }
     void window::OnCaptureChanged(::ca::window *)
       { Default(); }
-    BOOL window::OnDeviceChange(UINT, DWORD_PTR)
-      { return (BOOL)Default(); }
+    WINBOOL window::OnDeviceChange(UINT, dword_ptr)
+      { return (WINBOOL)Default(); }
     void window::OnWinIniChange(const char *)
       { Default(); }
     void window::OnChangeUIState(UINT, UINT)
@@ -4965,9 +4965,9 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
    // frame_window
 /*    void frame_window::DelayUpdateFrameTitle()
       { m_nIdleFlags |= idleTitle; }
-    void frame_window::DelayRecalcLayout(BOOL bNotify)
+    void frame_window::DelayRecalcLayout(WINBOOL bNotify)
       { m_nIdleFlags |= (idleLayout | (bNotify ? idleNotify : 0)); };
-    BOOL frame_window::InModalState() const
+    WINBOOL frame_window::InModalState() const
       { return m_cModalStack != 0; }
     void frame_window::set_title(const char * lpszTitle)
       { m_strTitle = lpszTitle; }
@@ -5018,15 +5018,15 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { ASSERT(this != NULL); return m_strPathName; }
     document_template * document::get_document_template() const
       { ASSERT(this != NULL); return m_pdocumentemplate; }
-    BOOL document::is_modified()
+    WINBOOL document::is_modified()
       { ASSERT(this != NULL); return m_bModified; }
-    void document::set_modified_flag(BOOL bModified)
+    void document::set_modified_flag(WINBOOL bModified)
       { ASSERT(this != NULL); m_bModified = bModified; }
 
    // thread
     thread::operator HANDLE() const
       { return this == NULL ? NULL : m_hThread; }
-    BOOL thread::SetThreadPriority(int nPriority)
+    WINBOOL thread::SetThreadPriority(int nPriority)
       { ASSERT(m_hThread != NULL); return ::SetThreadPriority(m_hThread, nPriority); }
     int thread::GetThreadPriority()
       { ASSERT(m_hThread != NULL); return ::GetThreadPriority(m_hThread); }
@@ -5034,7 +5034,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { ASSERT(m_hThread != NULL); return ::ResumeThread(m_hThread); }
     DWORD thread::SuspendThread()
       { ASSERT(m_hThread != NULL); return ::SuspendThread(m_hThread); }
-    BOOL thread::PostThreadMessage(UINT message, WPARAM wParam, LPARAM lParam)
+    WINBOOL thread::PostThreadMessage(UINT message, WPARAM wParam, LPARAM lParam)
       { ASSERT(m_hThread != NULL); return ::PostThreadMessage(m_nThreadID, message, wParam, lParam); }*/
 
 
@@ -5044,7 +5044,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
 
     void window::CloseWindow()
       { ASSERT(::IsWindow(get_handle())); ::CloseWindow(get_handle()); }
-    BOOL window::OpenIcon()
+    WINBOOL window::OpenIcon()
       { ASSERT(::IsWindow(get_handle())); return ::OpenIcon(get_handle()); }
 
    ////////////////////////////////////////////////////////////////////////////
@@ -5166,7 +5166,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
    }
 
 
-   /*CDataExchange::CDataExchange(::ca::window * pDlgWnd, BOOL bSaveAndValidate)
+   /*CDataExchange::CDataExchange(::ca::window * pDlgWnd, WINBOOL bSaveAndValidate)
    {
       ASSERT_VALID(pDlgWnd);
       m_bSaveAndValidate = bSaveAndValidate;
@@ -5192,7 +5192,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       ASSERT(lpcs != NULL);
 
       ::user::interaction * pWndInit = pThreadState->m_pWndInit;
-      BOOL bContextIsDLL = afxContextIsDLL;
+      WINBOOL bContextIsDLL = afxContextIsDLL;
       if (pWndInit != NULL || (!(lpcs->style & WS_CHILD) && !bContextIsDLL))
       {
          // Note: special check to avoid subclassing the IME window
@@ -5205,7 +5205,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
             // get class name of the window that is being created
             const char * pszClassName;
             char szClassName[_countof("ime")+1];
-            if (DWORD_PTR(lpcs->lpszClass) > 0xffff)
+            if (dword_ptr(lpcs->lpszClass) > 0xffff)
             {
                pszClassName = lpcs->lpszClass;
             }
@@ -5246,7 +5246,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
             // subclass the window with standard AfxWndProc
             WNDPROC afxWndProc = AfxGetAfxWndProc();
             oldWndProc = (WNDPROC)SetWindowLongPtr(hWnd, GWLP_WNDPROC,
-               (DWORD_PTR)afxWndProc);
+               (dword_ptr)afxWndProc);
             ASSERT(oldWndProc != NULL);
             if (oldWndProc != afxWndProc)
                *pOldWndProc = oldWndProc;
@@ -5295,7 +5295,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
                   if ((WNDPROC)GetProp(hWnd, _afxOldWndProc) == oldWndProc)
                   {
                      GlobalAddAtom(_afxOldWndProc);
-                     SetWindowLongPtr(hWnd, GWLP_WNDPROC, (DWORD_PTR)_AfxActivationWndProc);
+                     SetWindowLongPtr(hWnd, GWLP_WNDPROC, (dword_ptr)_AfxActivationWndProc);
                      ASSERT(oldWndProc != NULL);
                   }
                }
@@ -5328,7 +5328,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
 
    void window::_001BaseWndInterfaceMap()
    {
-      System.window_map().set((INT_PTR)get_handle(), this);
+      System.window_map().set((int_ptr)get_handle(), this);
    }
 
 
@@ -5342,7 +5342,7 @@ CTestCmdUI::CTestCmdUI(::ca::application * papp) :
    m_bEnabled = TRUE;  // assume it is enabled
 }
 
-void CTestCmdUI::Enable(BOOL bOn)
+void CTestCmdUI::Enable(WINBOOL bOn)
 {
    m_bEnabled = bOn;
    m_bEnableChanged = TRUE;
@@ -5353,7 +5353,7 @@ void CTestCmdUI::SetCheck(int)
    // do nothing -- just want to know about calls to Enable
 }
 
-void CTestCmdUI::SetRadio(BOOL)
+void CTestCmdUI::SetRadio(WINBOOL)
 {
    // do nothing -- just want to know about calls to Enable
 }
@@ -5367,7 +5367,7 @@ void CTestCmdUI::SetText(const char *)
 /////////////////////////////////////////////////////////////////////////////
 // Map from HWND to ::ca::window *
 
-hwnd_map* PASCAL afxMapHWND(BOOL bCreate)
+hwnd_map* PASCAL afxMapHWND(WINBOOL bCreate)
 {
    try
    {
@@ -5477,7 +5477,7 @@ CLASS_DECL_VMSWIN void AfxHookWindowCreate(::user::interaction * pWnd)
    pThreadState->m_pWndInit = pWnd;
 }
 
-CLASS_DECL_VMSWIN BOOL AfxUnhookWindowCreate()
+CLASS_DECL_VMSWIN WINBOOL AfxUnhookWindowCreate()
 {
    _AFX_THREAD_STATE* pThreadState = _afxThreadState.get_data();
 #ifndef _ApplicationFrameworkDLL
@@ -5579,7 +5579,7 @@ _AfxHandleActivate(::ca::window * pWnd, WPARAM nState, ::ca::window * pWndOther)
    }
 }
 
-__STATIC BOOL CLASS_DECL_VMSWIN
+__STATIC WINBOOL CLASS_DECL_VMSWIN
 _AfxHandleSetCursor(::ca::window * pWnd, UINT nHitTest, UINT nMsg)
 {
    if (nHitTest == HTERROR &&
@@ -5606,7 +5606,7 @@ _AfxHandleSetCursor(::ca::window * pWnd, UINT nHitTest, UINT nMsg)
 /////////////////////////////////////////////////////////////////////////////
 // Standard init called by WinMain
 
-__STATIC BOOL CLASS_DECL_VMSWIN _AfxRegisterWithIcon(WNDCLASS* pWndCls,
+__STATIC WINBOOL CLASS_DECL_VMSWIN _AfxRegisterWithIcon(WNDCLASS* pWndCls,
    const char * lpszClassName, UINT nIDIcon)
 {
    pWndCls->lpszClassName = lpszClassName;
@@ -5621,7 +5621,7 @@ __STATIC BOOL CLASS_DECL_VMSWIN _AfxRegisterWithIcon(WNDCLASS* pWndCls,
 }
 
 
-BOOL CLASS_DECL_VMSWIN AfxEndDeferRegisterClass(LONG fToRegisterParam, const char ** ppszClass)
+WINBOOL CLASS_DECL_VMSWIN AfxEndDeferRegisterClass(LONG fToRegisterParam, const char ** ppszClass)
 {
    // mask off all classes that are already registered
    AFX_MODULE_STATE* pModuleState = AfxGetModuleState();
@@ -5769,7 +5769,7 @@ _AfxActivationWndProc(HWND hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
    LRESULT lResult = 0;
    try
    {
-      BOOL bCallDefault = TRUE;
+      WINBOOL bCallDefault = TRUE;
       switch (nMsg)
       {
       case WM_INITDIALOG:
@@ -5795,7 +5795,7 @@ _AfxActivationWndProc(HWND hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
          break;
 
       case WM_NCDESTROY:
-         SetWindowLongPtr(hWnd, GWLP_WNDPROC, reinterpret_cast<INT_PTR>(oldWndProc));
+         SetWindowLongPtr(hWnd, GWLP_WNDPROC, reinterpret_cast<int_ptr>(oldWndProc));
          RemoveProp(hWnd, _afxOldWndProc);
          GlobalDeleteAtom(GlobalFindAtom(_afxOldWndProc));
          break;
@@ -5831,7 +5831,7 @@ _AfxActivationWndProc(HWND hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
 // Additional helpers for WNDCLASS init
 
 // like RegisterClass, except will automatically call UnregisterClass
-BOOL CLASS_DECL_VMSWIN AfxRegisterClass(WNDCLASS* lpWndClass)
+WINBOOL CLASS_DECL_VMSWIN AfxRegisterClass(WNDCLASS* lpWndClass)
 {
    WNDCLASS wndcls;
    if (GetClassInfo(lpWndClass->hInstance, lpWndClass->lpszClassName,
@@ -5848,7 +5848,7 @@ BOOL CLASS_DECL_VMSWIN AfxRegisterClass(WNDCLASS* lpWndClass)
       return FALSE;
    }
 
-   BOOL bRet = TRUE;
+   WINBOOL bRet = TRUE;
 
    if (afxContextIsDLL)
    {

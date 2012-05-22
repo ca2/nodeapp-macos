@@ -18,13 +18,13 @@ namespace win
 
       virtual ~brush();
 
-      BOOL CreateSolidBrush(COLORREF crColor);
-      BOOL CreateHatchBrush(int nIndex, COLORREF crColor);
-      BOOL CreateBrushIndirect(const LOGBRUSH* lpLogBrush);
-      BOOL CreatePatternBrush(::ca::bitmap* pBitmap);
-      BOOL CreateDIBPatternBrush(HGLOBAL hPackedDIB, UINT nUsage);
-      BOOL CreateDIBPatternBrush(const void * lpPackedDIB, UINT nUsage);
-      BOOL CreateSysColorBrush(int nIndex);
+      WINBOOL CreateSolidBrush(COLORREF crColor);
+      WINBOOL CreateHatchBrush(int nIndex, COLORREF crColor);
+      WINBOOL CreateBrushIndirect(const LOGBRUSH* lpLogBrush);
+      WINBOOL CreatePatternBrush(::ca::bitmap* pBitmap);
+      WINBOOL CreateDIBPatternBrush(HGLOBAL hPackedDIB, UINT nUsage);
+      WINBOOL CreateDIBPatternBrush(const void * lpPackedDIB, UINT nUsage);
+      WINBOOL CreateSysColorBrush(int nIndex);
 
       // Attributes
       operator HBRUSH() const;

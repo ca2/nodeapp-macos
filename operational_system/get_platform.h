@@ -22,7 +22,21 @@
 #define THROWS // gnucc null throw statement means that the function can throw any exception
 
 
-#define _DEBUG // ca2 is in debug - bugs come and go, always
+#ifdef _DEBUG
+#define DEBUG
+#endif // _DEBUG
+
+
+#ifdef DEBUG
+
+#define RELEASENOTHROW
+
+#else
+
+#define RELEASENOTHROW throw()
+
+#endif
+
 
 
 
@@ -38,9 +52,19 @@
 
 
 typedef uint8_t byte;
-typedef uint32_t DWORD_PTR;
 
- #define __int3264   int32_t
+#ifdef _LP64
+
+typedef uint64_t dword_ptr;
+#define int3264   int64_t
+
+#else
+
+typedef uint32_t dword_ptr;
+#define int3264   int32_t
+
+#endif
+
 
 typedef void * PVOID;
 
@@ -54,18 +78,7 @@ typedef void * PVOID;
 #include "macos_system.h"
 
 
-
-#if DEBUG
-
-
-#define _DEBUG
-
-
-#endif
-
-
 #define __stdcall
-
 
 
 #define if_then(p, q)  ((!(p))||(!(q)))

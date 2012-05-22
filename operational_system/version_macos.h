@@ -5,7 +5,21 @@
 #define STRICT 1
 #endif
 
+#ifdef DEBUG
+#undef DEBUG
+#define DEBUG 1
+#else
+#define DEBUG 0
+#endif
+
 #include <Carbon/Carbon.h>
+
+#if DEBUG
+#undef DEBUG
+#define DEBUG
+#else
+#undef DEBUG
+#endif
 
 #include <stdlib.h>
 #include <stdio.h>

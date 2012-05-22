@@ -294,7 +294,7 @@ void thread_slot_data::DeleteValues(thread_data* pData, HINSTANCE hInst)
    ASSERT(pData != NULL);
 
    // free each element in the table
-   BOOL bDelete = TRUE;
+   WINBOOL bDelete = TRUE;
    for (int i = 1; i < pData->nCount; i++)
    {
       if (hInst == NULL || m_pSlotData[i].hInst == hInst)
@@ -324,7 +324,7 @@ void thread_slot_data::DeleteValues(thread_data* pData, HINSTANCE hInst)
    }
 }
 
-void thread_slot_data::DeleteValues(HINSTANCE hInst, BOOL bAll)
+void thread_slot_data::DeleteValues(HINSTANCE hInst, WINBOOL bAll)
 {
    EnterCriticalSection(&m_sect);
    if (!bAll)
@@ -438,7 +438,7 @@ void CLASS_DECL_VMSWIN AfxInitLocalData(HINSTANCE hInst)
       _afxThreadData->AssignInstance(hInst);
 }
 
-void CLASS_DECL_VMSWIN AfxTermLocalData(HINSTANCE hInst, BOOL bAll)
+void CLASS_DECL_VMSWIN AfxTermLocalData(HINSTANCE hInst, WINBOOL bAll)
 {
    if (_afxThreadData != NULL)
       _afxThreadData->DeleteValues(hInst, bAll);
