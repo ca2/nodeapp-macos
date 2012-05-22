@@ -11,8 +11,8 @@ namespace win
       static palette* PASCAL from_handle(::ca::application * papp, HPALETTE hPalette);
 
       palette(::ca::application * papp);
-      BOOL CreatePalette(LPLOGPALETTE lpLogPalette);
-      BOOL CreateHalftonePalette(::ca::graphics * pgraphics);
+      WINBOOL CreatePalette(LPLOGPALETTE lpLogPalette);
+      WINBOOL CreateHalftonePalette(::ca::graphics * pgraphics);
 
    // Attributes
       operator HPALETTE() const;
@@ -26,7 +26,7 @@ namespace win
       void AnimatePalette(UINT nStartIndex, UINT nNumEntries,
             LPPALETTEENTRY lpPaletteColors);
       UINT GetNearestPaletteIndex(COLORREF crColor) const;
-      BOOL ResizePalette(UINT nNumEntries);
+      WINBOOL ResizePalette(UINT nNumEntries);
 
    // Implementation
       virtual ~palette();

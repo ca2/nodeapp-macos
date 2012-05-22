@@ -277,7 +277,7 @@ bool WindowsShell::Initialize()
    else                                     // Windows Me/98/95
        dwBuild =  0;
 
-   BOOL bNativeUnicode;
+   WINBOOL bNativeUnicode;
    if (dwVersion < 0x80000000)              // Windows NT
        bNativeUnicode = TRUE;
    else if (dwWindowsMajorVersion < 4)      // Win32s
@@ -328,7 +328,7 @@ bool WindowsShell::Initialize()
    return true;
 }
 
-BOOL WindowsShell::_SHGetPathFromIDList(LPCITEMIDLIST pidl, wchar_t * pszPath)
+WINBOOL WindowsShell::_SHGetPathFromIDList(LPCITEMIDLIST pidl, wchar_t * pszPath)
 {
    CHAR pszPathA[MAX_PATH * 2];
    if(!::SHGetPathFromIDListA(pidl, pszPathA))
@@ -336,7 +336,7 @@ BOOL WindowsShell::_SHGetPathFromIDList(LPCITEMIDLIST pidl, wchar_t * pszPath)
    return gen::international::ACPToUnicode(pszPath, MAX_PATH * 2, pszPathA) ? TRUE : FALSE;
 }
 
-BOOL WindowsShell::_MoveFile(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName)
+WINBOOL WindowsShell::_MoveFile(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName)
 {
    string str1, str2;
    gen::international::UnicodeToACP(str1, lpExistingFileName);
@@ -367,10 +367,10 @@ HANDLE WindowsShell::_FindFirstFile(const wchar_t * lpcsz, WIN32_FIND_DATAW * lp
    return handle;
 }
 
-BOOL WindowsShell::_FindNextFile(HANDLE handle, WIN32_FIND_DATAW * lpdata)
+WINBOOL WindowsShell::_FindNextFile(HANDLE handle, WIN32_FIND_DATAW * lpdata)
 {
    WIN32_FIND_DATAA data;
-   BOOL b = ::FindNextFileA(handle, &data);
+   WINBOOL b = ::FindNextFileA(handle, &data);
    if(b == FALSE)
       return FALSE;
 
@@ -456,7 +456,7 @@ DWORD WINAPI WindowsShell::_GetFullPathName(
    return dw;
 }
 
-BOOL WINAPI WindowsShell::_GetVolumeInformation(
+WINBOOL WINAPI WindowsShell::_GetVolumeInformation(
       const wchar_t * lpRootPathName,           // root directory
       wchar_t * lpVolumeNameBuffer,        // volume name buffer
       DWORD nVolumeNameSize,            // length of name buffer
@@ -470,7 +470,7 @@ BOOL WINAPI WindowsShell::_GetVolumeInformation(
    string strVolumeNameBuffer;
    string strFileSystemNameBuffer;
    gen::international::UnicodeToACP(strRootPathName, lpRootPathName);
-   BOOL b = ::GetVolumeInformation(
+   WINBOOL b = ::GetVolumeInformation(
       strRootPathName,
       strVolumeNameBuffer.GetBuffer(nVolumeNameSize),
       nVolumeNameSize,
@@ -493,7 +493,7 @@ BOOL WINAPI WindowsShell::_GetVolumeInformation(
    return b;
 }
 
-DWORD_PTR WindowsShell::_SHGetFileInfo(      
+dword_ptr WindowsShell::_SHGetFileInfo(      
    const wchar_t * pszPath,
    DWORD dwFileAttributes,
    SHFILEINFOW *psfi,
@@ -521,7 +521,7 @@ DWORD_PTR WindowsShell::_SHGetFileInfo(
 }
 
 
-BOOL WindowsShell::_GetStringTypeEx(      
+WINBOOL WindowsShell::_GetStringTypeEx(      
    LCID uiCodePage,
    DWORD dwInfoType,
    const wchar_t * lpSrcStr,
@@ -627,7 +627,7 @@ DWORD WindowsShell::_GetModuleFileName(
    return dw;
 }
 
-BOOL WindowsShell::_GetClassInfo(
+WINBOOL WindowsShell::_GetClassInfo(
     HINSTANCE hInstance ,
     const wchar_t * lpClassName,
     LPWNDCLASSW lpWndClass)

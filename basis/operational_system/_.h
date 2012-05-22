@@ -4,18 +4,18 @@
 #include "get_platform.h"
 
 
-
-
-
-
 /**
 * \file		src/lib/pal/macos/thread_macos.hpp
 * \brief	Platform independent threads and synchronization objects (macos version)
 * \author	Thomas Nass
 */
 
+
 #include <pthread.h>
+
+
 #include <sys/resource.h>
+
 
 namespace ca
 {

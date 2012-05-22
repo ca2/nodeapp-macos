@@ -36,7 +36,7 @@ class _AFX_WIN_STATE : public no_track_object
 {
 public:
    // printing abort
-   BOOL m_bUserAbort;
+   WINBOOL m_bUserAbort;
 };
 
 EXTERN_PROCESS_LOCAL(_AFX_WIN_STATE, _afxWinState)
@@ -63,9 +63,9 @@ public:
    CTypeLibCache() : m_cRef(0), m_lcid((LCID)-1), m_ptlib(NULL), m_ptinfo(NULL) {}
    void Lock();
    void Unlock();
-   BOOL Lookup(LCID lcid, LPTYPELIB* pptlib);
+   WINBOOL Lookup(LCID lcid, LPTYPELIB* pptlib);
    void Cache(LCID lcid, LPTYPELIB ptlib);
-   BOOL LookupTypeInfo(LCID lcid, REFGUID guid, LPTYPEINFO* pptinfo);
+   WINBOOL LookupTypeInfo(LCID lcid, REFGUID guid, LPTYPEINFO* pptinfo);
    void CacheTypeInfo(LCID lcid, REFGUID guid, LPTYPEINFO ptinfo);
    const GUID* m_pTypeLibID;
 
@@ -145,9 +145,9 @@ public:
    // common controls thread state
    CToolTipCtrl* m_pToolTip;
    ::ca::window * m_pLastHit;       // last ::ca::window to own tooltip
-   INT_PTR m_nLastHit;         // last hittest code
+   int_ptr m_nLastHit;         // last hittest code
    TOOLINFO* m_pLastInfo;    // last TOOLINFO structure
-   INT_PTR m_nLastStatus;      // last flyby status message
+   int_ptr m_nLastStatus;      // last flyby status message
    ::userbase::control_bar* m_pLastStatus; // last flyby status control bar
 };
 
@@ -188,10 +188,10 @@ class CLASS_DECL_VMSWIN AFX_MODULE_STATE : public no_track_object
 {
 public:
 #ifdef _ApplicationFrameworkDLL
-   AFX_MODULE_STATE(BOOL bDLL, WNDPROC pfnAfxWndProc, DWORD dwVersion,
-      BOOL bSystem = FALSE);
+   AFX_MODULE_STATE(WINBOOL bDLL, WNDPROC pfnAfxWndProc, DWORD dwVersion,
+      WINBOOL bSystem = FALSE);
 #else
-   explicit AFX_MODULE_STATE(BOOL bDLL);
+   explicit AFX_MODULE_STATE(WINBOOL bDLL);
 #endif
    ~AFX_MODULE_STATE();
 
@@ -212,7 +212,7 @@ public:
 
    // number of locked OLE objects
    long m_nObjectCount;
-   BOOL m_bUserCtrl;
+   WINBOOL m_bUserCtrl;
 
    // AfxRegisterClass and System.RegisterWndClass data
 
@@ -258,7 +258,7 @@ public:
    //Fusion: declare pointer to base_array of pointers to isolation aware dll wrappers (ex: comctl32).
    CDllIsolationWrapperBase** m_pDllIsolationWrappers;
    //Defaults to TRUE. When FALSE - ca2 API will not activate context in AFX_MAINTAIN_STATE2 (used by AFX_MANAGE_STATE).
-   BOOL   m_bSetAmbientActCtx;
+   WINBOOL   m_bSetAmbientActCtx;
    //Handle of the module context.
    HANDLE   m_hActCtx;
    void CreateActivationContext();
@@ -269,8 +269,8 @@ public:
 CLASS_DECL_VMSWIN AFX_MODULE_STATE* AfxSetModuleState(AFX_MODULE_STATE* pNewState);
 #endif
 CLASS_DECL_VMSWIN AFX_MODULE_STATE* AfxGetModuleState();
-CLASS_DECL_VMSWIN BOOL AfxIsModuleDll();
-CLASS_DECL_VMSWIN BOOL AfxInitCurrentStateApp();
+CLASS_DECL_VMSWIN WINBOOL AfxIsModuleDll();
+CLASS_DECL_VMSWIN WINBOOL AfxInitCurrentStateApp();
 CLASS_DECL_VMSWIN AFX_MODULE_STATE* AfxGetStaticModuleState();
 CLASS_DECL_VMSWIN HINSTANCE AfxGetInstanceHandleHelper();
 
@@ -308,8 +308,8 @@ protected:
    _AFX_THREAD_STATE* m_pThreadState;
 #endif
 
-   ULONG_PTR m_ulActCtxCookie;
-   BOOL m_bValidActCtxCookie;
+   ulong_ptr m_ulActCtxCookie;
+   WINBOOL m_bValidActCtxCookie;
 };
 #define AFX_MANAGE_STATE(p) _AfxInitManaged(); AFX_MAINTAIN_STATE2 _ctlState(p);
 
@@ -366,18 +366,18 @@ public:
    HMENU m_hTrackingMenu;
    char m_szTempClassName[_AFX_TEMP_CLASS_NAME_SIZE];    // see System.RegisterWndClass
    HWND m_hLockoutNotifyWindow;    // see ::ca::window::OnCommand
-   BOOL m_bInMsgFilter;
+   WINBOOL m_bInMsgFilter;
 
    // other framework modal data
    CPushRoutingView* m_pPushRoutingView;
 
    // ca2 API/DB thread-local data
-   BOOL m_bWaitForDataSource;
+   WINBOOL m_bWaitForDataSource;
 
    // OLE control thread-local data
    ::ca::window * m_pWndPark;       // "parking space" ::ca::window
    long m_nCtrlRef;        // reference count on parking ::ca::window
-   BOOL m_bNeedTerm;       // TRUE if OleUninitialize needs to be called
+   WINBOOL m_bNeedTerm;       // TRUE if OleUninitialize needs to be called
 };
 
 EXTERN_THREAD_LOCAL(_AFX_THREAD_STATE, _afxThreadState)

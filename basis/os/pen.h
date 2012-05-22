@@ -17,10 +17,10 @@ namespace win
       virtual void construct(int nPenStyle, int nWidth, COLORREF crColor);
       virtual void construct(int nPenStyle, int nWidth, const LOGBRUSH* pLogBrush,
          int nStyleCount = 0, const DWORD* lpStyle = NULL);
-      BOOL CreatePen(int nPenStyle, int nWidth, COLORREF crColor);
-      BOOL CreatePen(int nPenStyle, int nWidth, const LOGBRUSH* pLogBrush,
+      WINBOOL CreatePen(int nPenStyle, int nWidth, COLORREF crColor);
+      WINBOOL CreatePen(int nPenStyle, int nWidth, const LOGBRUSH* pLogBrush,
          int nStyleCount = 0, const DWORD* lpStyle = NULL);
-      BOOL CreatePenIndirect(LPLOGPEN lpLogPen);
+      WINBOOL CreatePenIndirect(LPLOGPEN lpLogPen);
 
    // Attributes
       operator HPEN() const;

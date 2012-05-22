@@ -85,12 +85,12 @@ namespace win
       Destroy ();
    }
 
-   BOOL dib::create(class size size)
+   WINBOOL dib::create(class size size)
    {
       return create(size.cx, size.cy);
    }
 
-   BOOL dib::create(int width, int height)
+   WINBOOL dib::create(int width, int height)
    {
       if(m_spbitmap.is_set()
       && m_spbitmap->get_os_data() != NULL 
@@ -157,7 +157,7 @@ namespace win
       }
    }
 
-   BOOL dib::create(::ca::graphics * pdc)
+   WINBOOL dib::create(::ca::graphics * pdc)
    {
       ::ca::bitmap * pbitmap = (dynamic_cast<::win::graphics * >(pdc))->GetCurrentBitmap();
       if(pbitmap == NULL)
@@ -172,7 +172,7 @@ namespace win
       return TRUE;
    }
 
-   BOOL dib::Destroy ()
+   WINBOOL dib::Destroy ()
    {
       if(m_spbitmap.m_p != NULL && m_spbitmap->get_os_data() != NULL)
          m_spbitmap->delete_object();

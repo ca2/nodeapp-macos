@@ -12,13 +12,13 @@ public:
    static WindowsShell theWindowsShell;
 
    static bool Initialize();
-   static BOOL WINAPI _SHGetPathFromIDList(LPCITEMIDLIST pidl, wchar_t * pszPath);
+   static WINBOOL WINAPI _SHGetPathFromIDList(LPCITEMIDLIST pidl, wchar_t * pszPath);
    static HANDLE WINAPI _FindFirstFile(const wchar_t * lpcsz, WIN32_FIND_DATAW * lpdata);
-   static BOOL WINAPI _FindNextFile(HANDLE handle, WIN32_FIND_DATAW * lpdata);
-   static BOOL WINAPI _MoveFile(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName);
+   static WINBOOL WINAPI _FindNextFile(HANDLE handle, WIN32_FIND_DATAW * lpdata);
+   static WINBOOL WINAPI _MoveFile(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName);
    static DWORD WINAPI _GetFullPathName(const wchar_t * lpFileName, DWORD nBufferLength, wchar_t * lpBuffer, wchar_t ** lpFilePart);
    static WCHAR * __cdecl __fullpath(WCHAR *UserBuf, const WCHAR *path, size_t maxlen);
-   static BOOL WINAPI _GetVolumeInformation(
+   static WINBOOL WINAPI _GetVolumeInformation(
       const wchar_t * lpRootPathName,           // root directory
       wchar_t * lpVolumeNameBuffer,        // volume name buffer
       DWORD nVolumeNameSize,            // length of name buffer
@@ -27,13 +27,13 @@ public:
       LPDWORD lpFileSystemFlags,        // file system options
       wchar_t * lpFileSystemNameBuffer,    // file system name buffer
       DWORD nFileSystemNameSize);         // length of file system name buffer
-   static DWORD_PTR __stdcall _SHGetFileInfo(      
+   static dword_ptr __stdcall _SHGetFileInfo(      
       const wchar_t * pszPath,
       DWORD dwFileAttributes,
       SHFILEINFOW *psfi,
       UINT cbFileInfo,
       UINT uFlags);
-   static BOOL __stdcall _GetStringTypeEx(      
+   static WINBOOL __stdcall _GetStringTypeEx(      
       LCID Locale,
       DWORD dwInfoType,
       const wchar_t * lpSrcStr,
@@ -61,7 +61,7 @@ public:
        wchar_t * lpFilename,
        DWORD nSize
        );
-   static BOOL WINAPI _GetClassInfo(
+   static WINBOOL WINAPI _GetClassInfo(
        HINSTANCE hInstance ,
        const wchar_t * lpClassName,
        LPWNDCLASSW lpWndClass);
@@ -86,13 +86,13 @@ public:
 
 
 
-   BOOL (WINAPI * m_pfnSHGetPathFromIDList)(LPCITEMIDLIST pidl, wchar_t * pszPath);
+   WINBOOL (WINAPI * m_pfnSHGetPathFromIDList)(LPCITEMIDLIST pidl, wchar_t * pszPath);
    HANDLE (WINAPI * m_pfnFindFirstFile)(const wchar_t * lpcsz, WIN32_FIND_DATAW * lpdata);
-   BOOL (WINAPI * m_pfnFindNextFile)(HANDLE handle, WIN32_FIND_DATAW * lpdata);
-   BOOL (WINAPI * m_pfnMoveFile)(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName);
+   WINBOOL (WINAPI * m_pfnFindNextFile)(HANDLE handle, WIN32_FIND_DATAW * lpdata);
+   WINBOOL (WINAPI * m_pfnMoveFile)(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName);
    WCHAR * (__cdecl * m_pfn_fullpath)(WCHAR *UserBuf, const WCHAR *path, size_t maxlen);
    DWORD (WINAPI * m_pfnGetFullPathName)(const wchar_t * lpFileName, DWORD nBufferLength, wchar_t * lpBuffer, wchar_t ** lpFilePart);
-   BOOL (WINAPI * m_pfnGetVolumeInformation)(
+   WINBOOL (WINAPI * m_pfnGetVolumeInformation)(
       const wchar_t * lpRootPathName,           // root directory
       wchar_t * lpVolumeNameBuffer,        // volume name buffer
       DWORD nVolumeNameSize,            // length of name buffer
@@ -102,13 +102,13 @@ public:
       wchar_t * lpFileSystemNameBuffer,    // file system name buffer
       DWORD nFileSystemNameSize);         // length of file system name buffer
 
-   DWORD_PTR (__stdcall * m_pfnSHGetFileInfo)(      
+   dword_ptr (__stdcall * m_pfnSHGetFileInfo)(      
       const wchar_t * pszPath,
       DWORD dwFileAttributes,
       SHFILEINFOW *psfi,
       UINT cbFileInfo,
       UINT uFlags);
-   BOOL (__stdcall * m_pfnGetStringTypeEx)(      
+   WINBOOL (__stdcall * m_pfnGetStringTypeEx)(      
       LCID Locale,
       DWORD dwInfoType,
       const wchar_t * lpSrcStr,
@@ -138,7 +138,7 @@ public:
        DWORD nSize
        );
 
-   BOOL (WINAPI * m_pfnGetClassInfo)(
+   WINBOOL (WINAPI * m_pfnGetClassInfo)(
        HINSTANCE hInstance ,
        const wchar_t * lpClassName,
        LPWNDCLASSW lpWndClass);
@@ -167,14 +167,14 @@ public:
 
 
 
-   static BOOL SHGetPathFromIDList(LPCITEMIDLIST pidl, string & str);
-   static BOOL SHGetPathFromIDList(LPCITEMIDLIST pidl, wchar_t * pszPath);
+   static WINBOOL SHGetPathFromIDList(LPCITEMIDLIST pidl, string & str);
+   static WINBOOL SHGetPathFromIDList(LPCITEMIDLIST pidl, wchar_t * pszPath);
    static HANDLE FindFirstFile(const wchar_t * lpcsz, WIN32_FIND_DATAW * lpdata);
-   static BOOL WINAPI FindNextFile(HANDLE handle, WIN32_FIND_DATAW * lpdata);
-   static BOOL MoveFile(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName);
+   static WINBOOL WINAPI FindNextFile(HANDLE handle, WIN32_FIND_DATAW * lpdata);
+   static WINBOOL MoveFile(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName);
    static WCHAR * __cdecl _fullpath(WCHAR *UserBuf, const WCHAR *path, size_t maxlen);
    static DWORD GetFullPathName(const wchar_t * lpFileName, DWORD nBufferLength, wchar_t * lpBuffer, wchar_t ** lpFilePart);
-   static BOOL GetVolumeInformation(
+   static WINBOOL GetVolumeInformation(
       const wchar_t * lpRootPathName,           // root directory
       wchar_t * lpVolumeNameBuffer,        // volume name buffer
       DWORD nVolumeNameSize,            // length of name buffer
@@ -191,7 +191,7 @@ public:
       UINT cbFileInfo,
       UINT uFlags);
 
-   static BOOL  GetStringTypeEx(      
+   static WINBOOL  GetStringTypeEx(      
       LCID Locale,
       DWORD dwInfoType,
       const char * lpSrcStr,
@@ -223,7 +223,7 @@ public:
        DWORD nSize
        );
 
-   static BOOL WINAPI GetClassInfo(
+   static WINBOOL WINAPI GetClassInfo(
        HINSTANCE hInstance ,
        const wchar_t * lpClassName,
        LPWNDCLASSW lpWndClass);
@@ -261,11 +261,11 @@ public:
       UINT uUnique,
       string & str);
    
-   static BOOL MoveFile(const char * lpExistingFileName, const char * lpNewFileName);
+   static WINBOOL MoveFile(const char * lpExistingFileName, const char * lpNewFileName);
 
 };
 
-inline BOOL WindowsShell::SHGetPathFromIDList(LPCITEMIDLIST pidl, string & str)
+inline WINBOOL WindowsShell::SHGetPathFromIDList(LPCITEMIDLIST pidl, string & str)
 {
    wchar_t * pwszPath = (wchar_t *) malloc(sizeof(wchar_t) * MAX_PATH * 4);
    if(!(*theWindowsShell.m_pfnSHGetPathFromIDList)(pidl, pwszPath))
@@ -279,7 +279,7 @@ inline BOOL WindowsShell::SHGetPathFromIDList(LPCITEMIDLIST pidl, string & str)
 }
 
 
-inline BOOL WindowsShell::SHGetPathFromIDList(LPCITEMIDLIST pidl, wchar_t * pszPath)
+inline WINBOOL WindowsShell::SHGetPathFromIDList(LPCITEMIDLIST pidl, wchar_t * pszPath)
 {
    return (*theWindowsShell.m_pfnSHGetPathFromIDList)(pidl, pszPath);
 }
@@ -289,7 +289,7 @@ inline HANDLE WindowsShell::FindFirstFile(const wchar_t * lpcsz, WIN32_FIND_DATA
    return (*theWindowsShell.m_pfnFindFirstFile)(lpcsz, lpdata);
 }
 
-inline BOOL WindowsShell::FindNextFile(HANDLE handle, WIN32_FIND_DATAW * lpdata)
+inline WINBOOL WindowsShell::FindNextFile(HANDLE handle, WIN32_FIND_DATAW * lpdata)
 {
    return (*theWindowsShell.m_pfnFindNextFile)(handle, lpdata);
 }
@@ -305,12 +305,12 @@ inline DWORD WindowsShell::GetFullPathName(const wchar_t * lpFileName, DWORD nBu
 }
 
 
-inline BOOL WindowsShell::MoveFile(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName)
+inline WINBOOL WindowsShell::MoveFile(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName)
 {
    return (*theWindowsShell.m_pfnMoveFile)(lpExistingFileName, lpNewFileName);
 }
 
-inline BOOL WindowsShell::GetVolumeInformation(
+inline WINBOOL WindowsShell::GetVolumeInformation(
       const wchar_t * lpRootPathName,           // root directory
       wchar_t * lpVolumeNameBuffer,        // volume name buffer
       DWORD nVolumeNameSize,            // length of name buffer
@@ -399,7 +399,7 @@ inline DWORD WindowsShell::GetModuleFileName(
       nSize);
 }
 
-inline BOOL WindowsShell::GetClassInfo(
+inline WINBOOL WindowsShell::GetClassInfo(
    HINSTANCE hInstance ,
    const wchar_t * lpClassName,
    LPWNDCLASSW lpWndClass)
@@ -471,7 +471,7 @@ inline UINT WindowsShell::GetTempFileName(const char * lpPathName, const char * 
    return uiResult;
 }
 
-inline BOOL WindowsShell::MoveFile(const char * lpExistingFileName, const char * lpNewFileName)
+inline WINBOOL WindowsShell::MoveFile(const char * lpExistingFileName, const char * lpNewFileName)
 {
    return MoveFile(gen::international::utf8_to_unicode(lpExistingFileName), gen::international::utf8_to_unicode(lpNewFileName));
 }

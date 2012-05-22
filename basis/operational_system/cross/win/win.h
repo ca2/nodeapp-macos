@@ -37,13 +37,13 @@ typedef struct win_handle * HANDLE;
 
 
 typedef unsigned int       DWORD;
-typedef int                 BOOL;
+typedef int                 WINBOOL;
 typedef unsigned char       BYTE;
 typedef unsigned short      WORD;
 typedef float               FLOAT;
 typedef FLOAT               *PFLOAT;
-typedef BOOL near           *PBOOL;
-typedef BOOL far            *LPBOOL;
+typedef WINBOOL near           *PBOOL;
+typedef WINBOOL far            *LPBOOL;
 typedef BYTE near           *PBYTE;
 typedef BYTE far            *LPBYTE;
 typedef int near            *PINT;
@@ -206,7 +206,7 @@ typedef struct _GUID {
 #define FAR
 
 #define DECLSPEC_NO_RETURN
-void RaiseException(DWORD dwExceptionCode, DWORD dwExceptionFlags, DWORD nNumberOfArguments, const ULONG_PTR *lpArguments);
+void RaiseException(DWORD dwExceptionCode, DWORD dwExceptionFlags, DWORD nNumberOfArguments, const ulong_ptr *lpArguments);
 typedef int errno_t;
 
 DWORD GetLastError();

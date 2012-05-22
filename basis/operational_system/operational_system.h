@@ -1,6 +1,17 @@
 #pragma once
 
 
+#include <typeinfo>
+
+
+typedef ::std::type_info std_type_info;
+
+
+#define max(x,y) (((x) > (y)) ? (x) : (y))
+#define min(x,y) (((x) < (y)) ? (x) : (y))
+
+
+
 // _AFXEXT implies _ApplicationFrameworkDLL
 #if defined(_AFXEXT) && !defined(_ApplicationFrameworkDLL)
 	#define _ApplicationFrameworkDLL
@@ -228,8 +239,6 @@
 
 #define __time_t time_t
 
-#define max(x,y) (((x) > (y)) ? (x) : (y))
-#define min(x,y) (((x) < (y)) ? (x) : (y))
 
 
 //#define AFXAPI

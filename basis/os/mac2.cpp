@@ -20,9 +20,9 @@
       return pThread != NULL ? pThread->GetMainWnd() : NULL; 
  }
 
- CLASS_DECL_VMSWIN BOOL AfxGetAmbientActCtx()
+ CLASS_DECL_VMSWIN WINBOOL AfxGetAmbientActCtx()
    {    return afxAmbientActCtx; }
- CLASS_DECL_VMSWIN void AfxSetAmbientActCtx(BOOL bSet)
+ CLASS_DECL_VMSWIN void AfxSetAmbientActCtx(WINBOOL bSet)
    {  afxAmbientActCtx = bSet; }
 
 
@@ -46,7 +46,7 @@
 
 /*   if (m_bValidActCtxCookie)
    {
-      BOOL bRet;
+      WINBOOL bRet;
       bRet = AfxDeactivateActCtx(0, m_ulActCtxCookie);
       ASSERT(bRet == TRUE);
    }*/
