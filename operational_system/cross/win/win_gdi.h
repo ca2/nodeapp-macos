@@ -310,6 +310,74 @@ typedef LPFONT HFONT;
 #define FW_BLACK            FW_HEAVY
 
 
+
+
+
+
+
+
+typedef struct tagTEXTMETRICA
+{
+   LONG        tmHeight;
+   LONG        tmAscent;
+   LONG        tmDescent;
+   LONG        tmInternalLeading;
+   LONG        tmExternalLeading;
+   LONG        tmAveCharWidth;
+   LONG        tmMaxCharWidth;
+   LONG        tmWeight;
+   LONG        tmOverhang;
+   LONG        tmDigitizedAspectX;
+   LONG        tmDigitizedAspectY;
+   BYTE        tmFirstChar;
+   BYTE        tmLastChar;
+   BYTE        tmDefaultChar;
+   BYTE        tmBreakChar;
+   BYTE        tmItalic;
+   BYTE        tmUnderlined;
+   BYTE        tmStruckOut;
+   BYTE        tmPitchAndFamily;
+   BYTE        tmCharSet;
+} TEXTMETRICA, *PTEXTMETRICA, NEAR *NPTEXTMETRICA, FAR *LPTEXTMETRICA;
+typedef struct tagTEXTMETRICW
+{
+   LONG        tmHeight;
+   LONG        tmAscent;
+   LONG        tmDescent;
+   LONG        tmInternalLeading;
+   LONG        tmExternalLeading;
+   LONG        tmAveCharWidth;
+   LONG        tmMaxCharWidth;
+   LONG        tmWeight;
+   LONG        tmOverhang;
+   LONG        tmDigitizedAspectX;
+   LONG        tmDigitizedAspectY;
+   WCHAR       tmFirstChar;
+   WCHAR       tmLastChar;
+   WCHAR       tmDefaultChar;
+   WCHAR       tmBreakChar;
+   BYTE        tmItalic;
+   BYTE        tmUnderlined;
+   BYTE        tmStruckOut;
+   BYTE        tmPitchAndFamily;
+   BYTE        tmCharSet;
+} TEXTMETRICW, *PTEXTMETRICW, NEAR *NPTEXTMETRICW, FAR *LPTEXTMETRICW;
+#ifdef UNICODE
+typedef TEXTMETRICW TEXTMETRIC;
+typedef PTEXTMETRICW PTEXTMETRIC;
+typedef NPTEXTMETRICW NPTEXTMETRIC;
+typedef LPTEXTMETRICW LPTEXTMETRIC;
+#else
+typedef TEXTMETRICA TEXTMETRIC;
+typedef PTEXTMETRICA PTEXTMETRIC;
+typedef NPTEXTMETRICA NPTEXTMETRIC;
+typedef LPTEXTMETRICA LPTEXTMETRIC;
+#endif // UNICODE
+
+
+
+
+
 /* Logical Pen */
 typedef struct tagLOGPEN
   {
