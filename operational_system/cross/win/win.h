@@ -233,3 +233,11 @@ DWORD GetLastError();
 
 
 
+
+
+#define _T(psz) psz
+
+
+#define c_cdecl __cdecl
+
+//#define c_decl __cdecl
