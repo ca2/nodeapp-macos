@@ -9,6 +9,8 @@
 
 #define _POSIX_SOURCE 200809L
 #define _POSIX_C_SOURCE 200809L
+#define _DARWIN_C_SOURCE
+
 
 
 #define DECL_C
