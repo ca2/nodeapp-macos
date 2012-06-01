@@ -8,6 +8,7 @@
 #include <unistd.h>
 
 
+#define _strdup strdup
 
 
 
