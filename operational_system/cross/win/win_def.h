@@ -322,4 +322,4 @@ typedef struct _FILETIME {
 }
 #endif
 
-typedef void * HGLOBAL;
+//typedef void * HGLOBAL;
