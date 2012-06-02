@@ -9,7 +9,7 @@
 
 
 #define _strdup strdup
-
+#define _stricmp stricmp
 
 
 #ifndef _XSERVER64
