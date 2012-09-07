@@ -2,6 +2,8 @@
 
 
 
+#define IGNORE              0       // Ignore signal
+#define INFINITE            0xFFFFFFFF  // Infinite timeout
 
 
 
