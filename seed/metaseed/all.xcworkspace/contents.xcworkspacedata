@@ -10,4 +10,7 @@
    <FileRef
       location = "group:../../os/os.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../../appseed/openssl/openssl.xcodeproj">
+   </FileRef>
 </Workspace>
