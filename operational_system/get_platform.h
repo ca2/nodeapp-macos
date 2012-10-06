@@ -83,7 +83,6 @@ typedef void * PVOID;
 #define __stdcall
 
 
-#define if_then(p, q)  ((!(p))||((q)))
 
 
 #include "bare_operational_system.h"        // Target version control
