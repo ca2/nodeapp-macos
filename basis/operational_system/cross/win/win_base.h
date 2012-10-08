@@ -1,6 +1,7 @@
 #pragma once
 
 
+#define CREATE_SUSPENDED 0x00000004
 
 #define IGNORE              0       // Ignore signal
 #define INFINITE            0xFFFFFFFF  // Infinite timeout

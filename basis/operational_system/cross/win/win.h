@@ -1,8 +1,22 @@
 #pragma once
 
 
+#define WINE_NO_UNICODE_MACROS
+#define WINE_UNICODE_NATIVE
+#define _WCTYPE_T_DEFINED
+
+
+#ifdef WINE_NO_UNICODE_MACROS
+# define DECL_WINELIB_TYPE_AW(type)  /* nothing */
+#else
+# define DECL_WINELIB_TYPE_AW(type)  typedef WINELIB_NAME_AW(type) type;
+#endif
+
+
+
 #include "base_tsd.h"
 #include "win_def.h"
+#include "win_crt.h"
 
 
 #define MAX_PATH          260
@@ -12,28 +26,15 @@
 #define CONST const
 
 
-union win_handle_union
-{
-    void * m_p;
-    FILE * m_pfile;
-   pthread_t m_pthread;
-};
 
-struct win_handle
+struct tagHandle
 {
-   enum e_type
-    {
-        type_none,
-        type_file,
-        type_thread,
-    };
-    
-    enum e_type m_etype;
-    win_handle_union m_data;
+
+   void * m_p;
 
 };
 
-typedef struct win_handle * HANDLE;
+//typedef struct tagHandle * HANDLE;
 
 
 typedef unsigned int       DWORD;
@@ -93,7 +94,7 @@ typedef int INT;
 //
 
 #ifndef _MAC
-typedef wchar_t WCHAR;    // wc,   16-bit UNICODE character
+//typedef wchar_t WCHAR;    // wc,   16-bit UNICODE character
 #else
 // some Macintosh compilers don't define wchar_t in a convenient location, or define it as a char
 typedef unsigned short WCHAR;    // wc,   16-bit UNICODE character
@@ -166,7 +167,6 @@ typedef PZZSTR PZZTSTR, PUZZTSTR;
 typedef PCZZSTR PCZZTSTR, PCUZZTSTR;
 typedef PNZCH PNZTCH, PUNZTCH;
 typedef PCNZCH PCNZTCH, PCUNZTCH;
-#define __TEXT(quote) quote         // r_winnt
 
 #define TEXT(quote) __TEXT(quote)   // r_winnt
 
@@ -175,7 +175,7 @@ typedef SHORT *PSHORT;
 typedef LONG *PLONG;
 
 
-typedef void *HINSTANCE;
+//typedef void *HINSTANCE;
 
 #ifndef GUID_DEFINED
 #define GUID_DEFINED
@@ -209,7 +209,16 @@ typedef struct _GUID {
 void RaiseException(DWORD dwExceptionCode, DWORD dwExceptionFlags, DWORD nNumberOfArguments, const ulong_ptr *lpArguments);
 typedef int errno_t;
 
-DWORD GetLastError();
+
+#ifdef __cplusplus
+  #define MY_EXTERN_C extern "C"
+#else
+  #define MY_EXTERN_C extern
+#endif
+
+
+MY_EXTERN_C DWORD GetLastError();
+MY_EXTERN_C DWORD SetLastError(DWORD dw);
 
 
 #define MAKELPARAM(x, y)            ((x & 0xffff) |((y & 0xffff) << 16))
@@ -229,6 +238,8 @@ DWORD GetLastError();
 
 #include "win_file.h"
 
+#include "win_mmeapi.h"
+#include "win_mmsystem.h"
 
 
 
@@ -241,3 +252,7 @@ DWORD GetLastError();
 #define c_cdecl __cdecl
 
 //#define c_decl __cdecl
+
+
+
+#include "ntstatus.h"
