@@ -39,9 +39,9 @@ typedef unsigned int UINT;
 
 
 #if ! defined(lint)
-#define UNREFERENCED_PARAMETER(P)          
-#define DBG_UNREFERENCED_PARAMETER(P)      
-#define DBG_UNREFERENCED_LOCAL_VARIABLE(V) 
+//#define UNREFERENCED_PARAMETER(P)
+//#define DBG_UNREFERENCED_PARAMETER(P)
+//#define DBG_UNREFERENCED_LOCAL_VARIABLE(V)
 
 #else // lint
 

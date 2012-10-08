@@ -160,17 +160,6 @@ typedef uint_ptr            WPARAM;
 typedef long_ptr            LPARAM;
 typedef long_ptr            LRESULT;
 
-#ifndef NOMINMAX
-
-#ifndef max
-#define max(a,b)            (((a) > (b)) ? (a) : (b))
-#endif
-
-#ifndef min
-#define min(a,b)            (((a) < (b)) ? (a) : (b))
-#endif
-
-#endif  /* NOMINMAX */
 
 #define MAKEWORD(a, b)      ((WORD)(((BYTE)(((dword_ptr)(a)) & 0xff)) | ((WORD)((BYTE)(((dword_ptr)(b)) & 0xff))) << 8))
 #define MAKELONG(a, b)      ((LONG)(((WORD)(((dword_ptr)(a)) & 0xffff)) | ((DWORD)((WORD)(((dword_ptr)(b)) & 0xffff))) << 16))
@@ -218,6 +207,74 @@ typedef int_ptr (WINAPI *NEARPROC)(void);
 typedef int_ptr (WINAPI *PROC)(void);
 #endif
 
+/*#if !defined(_MAC) || !defined(GDI_INTERNAL)
+#ifdef STRICT
+typedef void NEAR* HGDIOBJ;
+#else
+DECLARE_HANDLE(HGDIOBJ);
+#endif
+#endif*/
+
+/*DECLARE_HANDLE(HKEY);
+typedef HKEY *PHKEY;
+
+#if !defined(_MAC) || !defined(WIN_INTERNAL)
+DECLARE_HANDLE(HACCEL);
+#endif
+#if !defined(_MAC) || !defined(GDI_INTERNAL)
+DECLARE_HANDLE(HBITMAP);
+DECLARE_HANDLE(HBRUSH);
+#endif
+#if(WINVER >= 0x0400)
+DECLARE_HANDLE(HCOLORSPACE);
+#endif /* WINVER >= 0x0400 */
+/*#if !defined(_MAC) || !defined(GDI_INTERNAL)
+DECLARE_HANDLE(HDC);
+#endif
+DECLARE_HANDLE(HGLRC);          // OpenGL
+DECLARE_HANDLE(HDESK);
+DECLARE_HANDLE(HENHMETAFILE);
+#if !defined(_MAC) || !defined(GDI_INTERNAL)
+DECLARE_HANDLE(HFONT);
+#endif
+DECLARE_HANDLE(HICON);
+#if !defined(_MAC) || !defined(WIN_INTERNAL)
+DECLARE_HANDLE(HMENU);
+#endif
+DECLARE_HANDLE(HMETAFILE);*/
+DECLARE_HANDLE(HINSTANCE);
+typedef HINSTANCE HMODULE;      /* HMODULEs can be used in place of HINSTANCEs */
+/*#if !defined(_MAC) || !defined(GDI_INTERNAL)
+DECLARE_HANDLE(HPALETTE);
+DECLARE_HANDLE(HPEN);
+#endif
+DECLARE_HANDLE(HRGN);
+DECLARE_HANDLE(HRSRC);
+DECLARE_HANDLE(HSPRITE);
+DECLARE_HANDLE(HLSURF);
+DECLARE_HANDLE(HSTR);
+DECLARE_HANDLE(HTASK);
+DECLARE_HANDLE(HWINSTA);
+DECLARE_HANDLE(HKL);
+
+#if(WINVER >= 0x0400)
+DECLARE_HANDLE(HWINEVENTHOOK);
+#endif /* WINVER >= 0x0400 */
+
+/*#if(WINVER >= 0x0500)
+#ifndef _MAC
+DECLARE_HANDLE(HMONITOR);
+#endif
+DECLARE_HANDLE(HUMPD);
+#endif /* WINVER >= 0x0500 */
+
+/*#ifndef _MAC
+typedef int HFILE;
+typedef HICON HCURSOR;      /* HICONs & HCURSORs are polymorphic */
+//#else
+//typedef short HFILE;
+//DECLARE_HANDLE(HCURSOR);    /* HICONs & HCURSORs are not polymorphic */
+//#endif
 
 typedef DWORD   COLORREF;
 typedef DWORD   *LPCOLORREF;
@@ -246,20 +303,20 @@ typedef const RECTL FAR* LPCRECTL;
 
 typedef struct tagPOINT
 {
-    int  x;
-    int  y;
+    LONG  x;
+    LONG  y;
 } POINT, *PPOINT, NEAR *NPPOINT, FAR *LPPOINT;
 
 typedef struct _POINTL      /* ptl  */
 {
-    int  x;
-    int  y;
+    LONG  x;
+    LONG  y;
 } POINTL, *PPOINTL;
 
 typedef struct tagSIZE
 {
-    int        cx;
-    int        cy;
+    LONG        cx;
+    LONG        cy;
 } SIZE, *PSIZE, *LPSIZE;
 
 typedef SIZE               SIZEL;

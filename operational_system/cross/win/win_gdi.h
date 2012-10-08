@@ -2,39 +2,23 @@
 
 
 
+struct gdi_object;
 
 
+struct gdi_enhanced_meta_file;
 
 
-class CLASS_DECL_c device_context;
-
-class CLASS_DECL_c gdi_object
-{
-public:
-    
-    
-    enum e_type
-    {
-        type_undefined,
-        type_pen,
-        type_brush,
-        type_bitmap,
-        type_font,
-    };
-    
-    e_type      m_etype;
-    
-    gdi_object(e_type etype = type_undefined) :
-    m_etype(etype)
-    {
-    }
-     
-};
+typedef struct gdi_enhanced_meta_file * HENHMETAFILE;
 
 
+struct tagEXTLOGPEN;
 
-typedef device_context * HDC;
-typedef gdi_object * HGDIOBJ;
+
+struct tagLOGBRUSH;
+
+
+struct tagLOGRGN;
+
 
 
 /* Ternary raster operations */
@@ -58,6 +42,8 @@ typedef gdi_object * HGDIOBJ;
 #define NOMIRRORBITMAP               (DWORD)0x80000000 /* Do not Mirror the bitmap in this call */
 #define CAPTUREBLT                   (DWORD)0x40000000 /* Include layered windows */
 #endif /* WINVER >= 0x0500 */
+
+
 
 /* Logcolorspace lcsType values */
 
@@ -91,7 +77,6 @@ typedef LONG    LCSGAMUTMATCH;
 #define GetYValue(cmyk)      ((BYTE)((cmyk)>> 8))
 #define GetMValue(cmyk)      ((BYTE)((cmyk)>>16))
 #define GetCValue(cmyk)      ((BYTE)((cmyk)>>24))
-
 
 #define CMYK(c,m,y,k)       ((COLORREF)((((BYTE)(k)|((WORD)((BYTE)(y))<<8))|(((DWORD)(BYTE)(m))<<16))|(((DWORD)(BYTE)(c))<<24)))
 
@@ -138,7 +123,7 @@ typedef struct tagRGBTRIPLE {
         BYTE    rgbtGreen;
         BYTE    rgbtRed;
 } RGBTRIPLE, *PRGBTRIPLE, NEAR *NPRGBTRIPLE, FAR *LPRGBTRIPLE;
-//#include <poppack.h>
+//#include "poppack.h"
 
 
 /* ICM Color Definitions */
@@ -177,32 +162,27 @@ typedef RGBQUAD FAR* LPRGBQUAD;
 
 
 
-
-
 typedef struct tagPALETTEENTRY {
-   BYTE        peRed;
-   BYTE        peGreen;
-   BYTE        peBlue;
-   BYTE        peFlags;
+    BYTE        peRed;
+    BYTE        peGreen;
+    BYTE        peBlue;
+    BYTE        peFlags;
 } PALETTEENTRY, *PPALETTEENTRY, FAR *LPPALETTEENTRY;
 
 /* Logical Palette */
 typedef struct tagLOGPALETTE {
-   WORD                palVersion;
-   WORD                palNumEntries;
-   PALETTEENTRY        palPalEntry[1];
+    WORD                palVersion;
+    WORD                palNumEntries;
+    PALETTEENTRY        palPalEntry[1];
 } LOGPALETTE, *PLOGPALETTE, NEAR *NPLOGPALETTE, FAR *LPLOGPALETTE;
-
-
 
 
 /* Logical Font */
 #define LF_FACESIZE         32
 
-class  tagLOGFONTA :
-   public gdi_object
+
+struct  tagLOGFONTA
 {
-   public:
     LONG      lfHeight;
     LONG      lfWidth;
     LONG      lfEscapement;
@@ -219,12 +199,9 @@ class  tagLOGFONTA :
     char      lfFaceName[LF_FACESIZE];
 };
 
-typedef tagLOGFONTA LOGFONTA, *PLOGFONTA, NEAR *NPLOGFONTA, FAR *LPLOGFONTA;
 
-class tagLOGFONTW :
-   public gdi_object
+struct tagLOGFONTW
 {
-   public:
     LONG      lfHeight;
     LONG      lfWidth;
     LONG      lfEscapement;
@@ -239,10 +216,25 @@ class tagLOGFONTW :
     BYTE      lfQuality;
     BYTE      lfPitchAndFamily;
     wchar_t   lfFaceName[LF_FACESIZE];
-} ;
+};
 
-typedef tagLOGFONTW LOGFONTW, *PLOGFONTW, NEAR *NPLOGFONTW, FAR *LPLOGFONTW;
 
+typedef struct tagLOGFONTA LOGFONTA, *PLOGFONTA, NEAR *NPLOGFONTA, FAR *LPLOGFONTA;
+
+
+typedef struct tagLOGFONTW LOGFONTW, *PLOGFONTW, NEAR *NPLOGFONTW, FAR *LPLOGFONTW;
+
+
+struct tagFONTA;
+
+
+struct tagFONTW;
+
+
+typedef struct tagFONTA FONTA, * PFONTA, NEAR * NPFONTA, FAR * LPFONTA;
+
+
+typedef struct tagFONTW FONTW, * PFONTW, NEAR * NPFONTW, FAR * LPFONTW;
 
 
 #ifdef UNICODE
@@ -250,25 +242,27 @@ typedef LOGFONTW LOGFONT;
 typedef PLOGFONTW PLOGFONT;
 typedef NPLOGFONTW NPLOGFONT;
 typedef LPLOGFONTW LPLOGFONT;
+typedef FONTW FONT;
+typedef PFONTW PFONT;
+typedef NPFONTW NPFONT;
+typedef LPFONTW LPFONT;
 #else
 typedef LOGFONTA LOGFONT;
 typedef PLOGFONTA PLOGFONT;
 typedef NPLOGFONTA NPLOGFONT;
 typedef LPLOGFONTA LPLOGFONT;
+typedef FONTA FONT;
+typedef PFONTA PFONT;
+typedef NPFONTA NPFONT;
+typedef LPFONTA LPFONT;
 #endif // UNICODE
 
 
 
-struct tagFONT :
-   public gdi_object
-{
-   CTFontRef m_fontref; 
-};
-
-
-typedef tagFONT FONT, FAR * LPFONT;
-
 typedef LPFONT HFONT;
+
+
+
 
 #define ANSI_CHARSET            0
 #define DEFAULT_CHARSET         1
@@ -311,56 +305,51 @@ typedef LPFONT HFONT;
 
 
 
-
-
-
-
-
 typedef struct tagTEXTMETRICA
 {
-   LONG        tmHeight;
-   LONG        tmAscent;
-   LONG        tmDescent;
-   LONG        tmInternalLeading;
-   LONG        tmExternalLeading;
-   LONG        tmAveCharWidth;
-   LONG        tmMaxCharWidth;
-   LONG        tmWeight;
-   LONG        tmOverhang;
-   LONG        tmDigitizedAspectX;
-   LONG        tmDigitizedAspectY;
-   BYTE        tmFirstChar;
-   BYTE        tmLastChar;
-   BYTE        tmDefaultChar;
-   BYTE        tmBreakChar;
-   BYTE        tmItalic;
-   BYTE        tmUnderlined;
-   BYTE        tmStruckOut;
-   BYTE        tmPitchAndFamily;
-   BYTE        tmCharSet;
+    LONG        tmHeight;
+    LONG        tmAscent;
+    LONG        tmDescent;
+    LONG        tmInternalLeading;
+    LONG        tmExternalLeading;
+    LONG        tmAveCharWidth;
+    LONG        tmMaxCharWidth;
+    LONG        tmWeight;
+    LONG        tmOverhang;
+    LONG        tmDigitizedAspectX;
+    LONG        tmDigitizedAspectY;
+    BYTE        tmFirstChar;
+    BYTE        tmLastChar;
+    BYTE        tmDefaultChar;
+    BYTE        tmBreakChar;
+    BYTE        tmItalic;
+    BYTE        tmUnderlined;
+    BYTE        tmStruckOut;
+    BYTE        tmPitchAndFamily;
+    BYTE        tmCharSet;
 } TEXTMETRICA, *PTEXTMETRICA, NEAR *NPTEXTMETRICA, FAR *LPTEXTMETRICA;
 typedef struct tagTEXTMETRICW
 {
-   LONG        tmHeight;
-   LONG        tmAscent;
-   LONG        tmDescent;
-   LONG        tmInternalLeading;
-   LONG        tmExternalLeading;
-   LONG        tmAveCharWidth;
-   LONG        tmMaxCharWidth;
-   LONG        tmWeight;
-   LONG        tmOverhang;
-   LONG        tmDigitizedAspectX;
-   LONG        tmDigitizedAspectY;
-   WCHAR       tmFirstChar;
-   WCHAR       tmLastChar;
-   WCHAR       tmDefaultChar;
-   WCHAR       tmBreakChar;
-   BYTE        tmItalic;
-   BYTE        tmUnderlined;
-   BYTE        tmStruckOut;
-   BYTE        tmPitchAndFamily;
-   BYTE        tmCharSet;
+    LONG        tmHeight;
+    LONG        tmAscent;
+    LONG        tmDescent;
+    LONG        tmInternalLeading;
+    LONG        tmExternalLeading;
+    LONG        tmAveCharWidth;
+    LONG        tmMaxCharWidth;
+    LONG        tmWeight;
+    LONG        tmOverhang;
+    LONG        tmDigitizedAspectX;
+    LONG        tmDigitizedAspectY;
+    WCHAR       tmFirstChar;
+    WCHAR       tmLastChar;
+    WCHAR       tmDefaultChar;
+    WCHAR       tmBreakChar;
+    BYTE        tmItalic;
+    BYTE        tmUnderlined;
+    BYTE        tmStruckOut;
+    BYTE        tmPitchAndFamily;
+    BYTE        tmCharSet;
 } TEXTMETRICW, *PTEXTMETRICW, NEAR *NPTEXTMETRICW, FAR *LPTEXTMETRICW;
 #ifdef UNICODE
 typedef TEXTMETRICW TEXTMETRIC;
@@ -376,6 +365,36 @@ typedef LPTEXTMETRICA LPTEXTMETRIC;
 
 
 
+/* Pel Array */
+typedef struct tagPELARRAY
+  {
+    LONG        paXCount;
+    LONG        paYCount;
+    LONG        paXExt;
+    LONG        paYExt;
+    BYTE        paRGBs;
+  } PELARRAY, *PPELARRAY, NEAR *NPPELARRAY, FAR *LPPELARRAY;
+
+/* Logical Brush (or Pattern) */
+typedef struct tagLOGBRUSH
+{
+    UINT        lbStyle;
+    COLORREF    lbColor;
+    ulong_ptr   lbHatch;
+} LOGBRUSH, *PLOGBRUSH, NEAR *NPLOGBRUSH, FAR *LPLOGBRUSH;
+
+typedef struct tagLOGBRUSH32
+{
+    UINT        lbStyle;
+    COLORREF    lbColor;
+    ULONG       lbHatch;
+} LOGBRUSH32, *PLOGBRUSH32, NEAR *NPLOGBRUSH32, FAR *LPLOGBRUSH32;
+
+
+typedef LOGBRUSH            PATTERN;
+typedef PATTERN             *PPATTERN;
+typedef PATTERN NEAR        *NPPATTERN;
+typedef PATTERN FAR         *LPPATTERN;
 
 
 /* Logical Pen */
@@ -388,20 +407,9 @@ typedef struct tagLOGPEN
 
 
 
-class tagEXTLOGPEN :
-   public gdi_object
-{
-public:
-    DWORD       elpPenStyle;
-    DWORD       elpWidth;
-    UINT        elpBrushStyle;
-    COLORREF    elpColor;
-    ulong_ptr   elpHatch;
-    DWORD       elpNumEntries;
-    DWORD       elpStyleEntry[1];
-};
+struct tagEXTLOGPEN;
 
-typedef tagEXTLOGPEN  EXTLOGPEN, *PEXTLOGPEN, NEAR *NPEXTLOGPEN, FAR *LPEXTLOGPEN;
+typedef struct tagEXTLOGPEN  EXTLOGPEN, *PEXTLOGPEN, NEAR *NPEXTLOGPEN, FAR *LPEXTLOGPEN;
 
 typedef LPEXTLOGPEN HPEN;
 
@@ -439,7 +447,6 @@ typedef LPEXTLOGPEN HPEN;
 #define GetRValue(rgb)      (LOBYTE(rgb))
 #define GetGValue(rgb)      (LOBYTE(((WORD)(rgb)) >> 8))
 #define GetBValue(rgb)      (LOBYTE((rgb)>>16))
-#define GetAValue(argb)     (LOBYTE((argb)>>24))
 
 /* Background Modes */
 #define TRANSPARENT         1
@@ -448,18 +455,11 @@ typedef LPEXTLOGPEN HPEN;
 
 
 
-class tagLOGBRUSH :
-   public gdi_object
-{
-public:
-	UINT        lbStyle;
-	COLORREF    lbColor;
-	ulong_ptr   lbHatch;
-};
+struct tagEXTLOGBRUSH;
 
-typedef tagLOGBRUSH  LOGBRUSH, *PLOGBRUSH, NEAR *NPLOGBRUSH, FAR *LPLOGBRUSH;
+typedef struct tagEXTLOGBRUSH  EXTLOGBRUSH, *PEXTLOGBRUSH, NEAR *NPEXTLOGBRUSH, FAR *LPEXTLOGBRUSH;
 
-typedef LPLOGBRUSH HBRUSH;
+typedef LPEXTLOGBRUSH HBRUSH;
 
 
 /* Stock Logical Objects */
@@ -523,6 +523,12 @@ typedef struct tagBITMAPINFOHEADER{
         DWORD      biClrImportant;
 } BITMAPINFOHEADER, FAR *LPBITMAPINFOHEADER, *PBITMAPINFOHEADER;
 
+typedef struct tagBITMAPINFO {
+  BITMAPINFOHEADER bmiHeader;
+  RGBQUAD          bmiColors[1];
+} BITMAPINFO, *PBITMAPINFO;
+
+
 #if(WINVER >= 0x0400)
 typedef struct {
         DWORD        bV4Size;
@@ -576,6 +582,29 @@ typedef struct {
         DWORD        bV5Reserved;
 } BITMAPV5HEADER, FAR *LPBITMAPV5HEADER, *PBITMAPV5HEADER;
 
+
+
+typedef struct tagBITMAPINFOHEADER{
+  DWORD biSize;
+  LONG  biWidth;
+  LONG  biHeight;
+  WORD  biPlanes;
+  WORD  biBitCount;
+  DWORD biCompression;
+  DWORD biSizeImage;
+  LONG  biXPelsPerMeter;
+  LONG  biYPelsPerMeter;
+  DWORD biClrUsed;
+  DWORD biClrImportant;
+} BITMAPINFOHEADER, *PBITMAPINFOHEADER;
+
+typedef struct tagBITMAPINFO {
+  BITMAPINFOHEADER bmiHeader;
+  RGBQUAD          bmiColors[1];
+} BITMAPINFO, *PBITMAPINFO;
+
+
+
 // Values for bV5CSType
 #define PROFILE_LINKED          'LINK'
 #define PROFILE_EMBEDDED        'MBED'
@@ -592,16 +621,10 @@ typedef struct {
 #endif
 
 
-typedef class tagBITMAPINFO :
-   public gdi_object
-{
-public:
-
-    BITMAPINFOHEADER    bmiHeader;
-    RGBQUAD             bmiColors[1];
+struct tagBITMAPINFO;
 
 
-} BITMAPINFO, FAR *LPBITMAPINFO, *PBITMAPINFO;
+typedef struct tagBITMAPINFO  BITMAPINFO, FAR *LPBITMAPINFO, *PBITMAPINFO;
 
 
 typedef LPBITMAPINFO HBITMAP;
@@ -667,15 +690,11 @@ typedef struct _BLENDFUNCTION
 
 
 
-class tagLOGRGN :
-   public gdi_object
-{
-public:
-	UINT        m_uiSize;
-	byte *      m_puchData;
-};
+struct tagLOGRGN;
 
-typedef tagLOGRGN  LOGRGN, *PLOGRGN, NEAR *NPLOGRGN, FAR *LPLOGRGN;
+
+typedef struct tagLOGRGN  LOGRGN, *PLOGRGN, NEAR *NPLOGRGN, FAR *LPLOGRGN;
+
 
 typedef LPLOGRGN HRGN;
 
@@ -687,6 +706,8 @@ WINBOOL BitBlt(HDC hdcDest, int nXDest, int nYDest, int nWidth, int nHeight, HDC
 
 
 WINBOOL SetViewportOrgEx(HDC hdc, int X, int Y, LPPOINT lpPoint);
+
+
 
 WINBOOL GetClientRect(HWND hwnd, LPRECT lprect);
 
@@ -700,6 +721,51 @@ HDC GetWindowDC(HWND hwnd);
 
 
 HBRUSH CreateSolidBrush(COLORREF color);
+
+
+/* Enhanced Metafile structures */
+typedef struct tagENHMETARECORD
+{
+    DWORD   iType;              // Record type EMR_XXX
+    DWORD   nSize;              // Record size in bytes
+    DWORD   dParm[1];           // Parameters
+} ENHMETARECORD, *PENHMETARECORD, *LPENHMETARECORD;
+
+typedef struct tagENHMETAHEADER
+{
+    DWORD   iType;              // Record typeEMR_HEADER
+    DWORD   nSize;              // Record size in bytes.  This may be greater
+                                // than the sizeof(ENHMETAHEADER).
+    RECTL   rclBounds;          // Inclusive-inclusive bounds in device units
+    RECTL   rclFrame;           // Inclusive-inclusive Picture Frame of metafile in .01 mm units
+    DWORD   dSignature;         // Signature.  Must be ENHMETA_SIGNATURE.
+    DWORD   nVersion;           // Version number
+    DWORD   nBytes;             // Size of the metafile in bytes
+    DWORD   nRecords;           // Number of records in the metafile
+    WORD    nHandles;           // Number of handles in the handle table
+                                // Handle index zero is reserved.
+    WORD    sReserved;          // Reserved.  Must be zero.
+    DWORD   nDescription;       // Number of chars in the unicode description string
+                                // This is 0 if there is no description string
+    DWORD   offDescription;     // Offset to the metafile description record.
+                                // This is 0 if there is no description string
+    DWORD   nPalEntries;        // Number of entries in the metafile palette.
+    SIZEL   szlDevice;          // Size of the reference device in pels
+    SIZEL   szlMillimeters;     // Size of the reference device in millimeters
+#if(WINVER >= 0x0400)
+    DWORD   cbPixelFormat;      // Size of PIXELFORMATDESCRIPTOR information
+                                // This is 0 if no pixel format is set
+    DWORD   offPixelFormat;     // Offset to PIXELFORMATDESCRIPTOR
+                                // This is 0 if no pixel format is set
+    DWORD   bOpenGL;            // TRUE if OpenGL commands are present in
+                                // the metafile, otherwise FALSE
+#endif /* WINVER >= 0x0400 */
+#if(WINVER >= 0x0500)
+    SIZEL   szlMicrometers;     // Size of the reference device in micrometers
+#endif /* WINVER >= 0x0500 */
+
+} ENHMETAHEADER, *PENHMETAHEADER, *LPENHMETAHEADER;
+
 
 
 
