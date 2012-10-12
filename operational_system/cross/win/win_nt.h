@@ -461,8 +461,8 @@ typedef LONG            HRESULT;
 
 /* Handle type */
 
-typedef void *HANDLE;
-typedef HANDLE *PHANDLE, *LPHANDLE;
+//typedef void *HANDLE;
+//typedef HANDLE *PHANDLE, *LPHANDLE;
 
 #ifdef STRICT
 #define DECLARE_HANDLE(a) typedef struct a##__ { int unused; } *a

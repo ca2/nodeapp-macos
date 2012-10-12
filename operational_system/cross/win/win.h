@@ -1,6 +1,37 @@
 #pragma once
 
 
+struct win_handle
+{
+   
+   enum e_type
+   {
+      type_file,
+      type_thread,
+   };
+   
+   e_type m_etype;
+   union
+   {
+      struct
+      {
+         FILE * m_pfile;
+      } m_file;
+      struct
+      {
+         pthread_t m_thread;
+      } m_thread;
+   };
+   
+   
+   
+};
+
+typedef struct win_handle * HANDLE;
+typedef HANDLE *PHANDLE, *LPHANDLE;
+
+
+
 #define WINE_NO_UNICODE_MACROS
 #define WINE_UNICODE_NATIVE
 #define _WCTYPE_T_DEFINED
@@ -27,14 +58,6 @@
 
 
 
-struct tagHandle
-{
-
-   void * m_p;
-
-};
-
-//typedef struct tagHandle * HANDLE;
 
 
 typedef unsigned int       DWORD;
