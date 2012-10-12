@@ -16,5 +16,16 @@
          landmarkName = "send_spaboot_install_post(int a, int b)"
          landmarkType = "7">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/c/macos/c_os_file_watcher.cpp"
+         timestampString = "371758576.344858"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "57"
+         endingLineNumber = "57">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

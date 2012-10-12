@@ -11,8 +11,8 @@ typedef ::std::type_info std_type_info;
 #define min(x,y) (((x) < (y)) ? (x) : (y))
 
 
-#define __max(x,y) (((x) > (y)) ? (x) : (y))
-#define __min(x,y) (((x) < (y)) ? (x) : (y))
+//#define __max(x,y) (((x) > (y)) ? (x) : (y))
+//#define __min(x,y) (((x) < (y)) ? (x) : (y))
 
 
 // _AFXEXT implies _ApplicationFrameworkDLL
