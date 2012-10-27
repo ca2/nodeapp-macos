@@ -27,5 +27,18 @@
          startingLineNumber = "57"
          endingLineNumber = "57">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/c/macos/c_os_simple_graphics.mm"
+         timestampString = "373071402.570671"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "767"
+         endingLineNumber = "767"
+         landmarkName = "os_simple_graphics::fill_polygon(POINT * p, int iCount, ::ca::e_fill_mode)"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
