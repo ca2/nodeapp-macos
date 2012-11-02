@@ -40,5 +40,18 @@
          landmarkName = "os_simple_graphics::fill_polygon(POINT * p, int iCount, ::ca::e_fill_mode)"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/radix/radix_application.cpp"
+         timestampString = "373571777.379884"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "881"
+         endingLineNumber = "881"
+         landmarkName = "application::dump(dump_context &amp; dumpcontext)"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
