@@ -13,8 +13,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "2360"
          endingLineNumber = "2360"
-         landmarkName = "send_spaboot_install_post(int a, int b)"
-         landmarkType = "7">
+         landmarkName = "installer::spa_exec(const char * psz)"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
