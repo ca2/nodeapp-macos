@@ -85,11 +85,11 @@ namespace win
 	   virtual HRESULT ListenForUpnpChanges(::ca4::port_forward_change_callbacks *pCallbacks = NULL);  // NULL==default object; if you provide your own pointer to a port_forward_change_callbacks-derived object it is deleted for you automatically
 	   virtual HRESULT StopListeningForUpnpChanges( );  // Stops listenting for UPnP change events on the router and deletes any port_forward_change_callbacks-derived objects
 	
-	   virtual WINBOOL GetDeviceInformationUsingThread( HWND hWnd );  // starts a thread that will get IGD (router) device information; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
-	   virtual WINBOOL GetMappingsUsingThread( HWND hWnd );  // starts a thread that will get all mappings; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
-	   virtual WINBOOL EditMappingUsingThread( port_map& oldMapping, port_map& newMapping, HWND hWnd );  // starts a thread that will edit one specific mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
-	   virtual WINBOOL AddMappingUsingThread( port_map& newMapping, HWND hWnd );  // starts a thread that will add one new mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
-	   virtual WINBOOL DeleteMappingUsingThread( port_map& oldMapping, HWND hWnd );  // starts a thread that will delete one specific mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL GetDeviceInformationUsingThread( oswindow hWnd );  // starts a thread that will get IGD (router) device information; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL GetMappingsUsingThread( oswindow hWnd );  // starts a thread that will get all mappings; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL EditMappingUsingThread( port_map& oldMapping, port_map& newMapping, oswindow hWnd );  // starts a thread that will edit one specific mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL AddMappingUsingThread( port_map& newMapping, oswindow hWnd );  // starts a thread that will add one new mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
+	   virtual WINBOOL DeleteMappingUsingThread( port_map& oldMapping, oswindow hWnd );  // starts a thread that will delete one specific mapping; the thread posts a UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION message to hWnd when it's done
 	
 	   virtual array_ptr_alloc < port_map > get_port_map() const;  // gets a copy of currently-known port mappings
 	   virtual array_ptr_alloc < device >  get_igd() const;  // gets a copy of currently-know device information
@@ -103,7 +103,7 @@ namespace win
 	
 	   void InitializeMembersToNull();
 	   void DeinitializeCom();
-	   HRESULT PopulateDeviceInfoContainer( IUPnPDevice* piDevice, device & deviceInfo, HWND hWnd=NULL );
+	   HRESULT PopulateDeviceInfoContainer( IUPnPDevice* piDevice, device & deviceInfo, oswindow hWnd=NULL );
 	   HRESULT GetNextMapping( IEnumVARIANT* piEnumerator, port_map & mappingContainer );
 	   HRESULT SetChangeEventCallbackPointer(::ca4::port_forward_change_callbacks *pCallbacks);
 	
@@ -152,11 +152,11 @@ namespace win
 	   port_map m_scratchpadAddedMapping;
 	   port_map m_scratchpadDeletedMapping;
 	
-	   HWND m_hWndForPortMappingThread;
-	   HWND m_hWndForDeviceInfoThread;
-	   HWND m_hWndForAddMappingThread;
-	   HWND m_hWndForEditMappingThread;
-	   HWND m_hWndForDeleteMappingThread;
+	   oswindow m_hWndForPortMappingThread;
+	   oswindow m_hWndForDeviceInfoThread;
+	   oswindow m_hWndForAddMappingThread;
+	   oswindow m_hWndForEditMappingThread;
+	   oswindow m_hWndForDeleteMappingThread;
 	
 	
    };

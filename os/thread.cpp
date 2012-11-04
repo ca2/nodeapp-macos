@@ -81,7 +81,7 @@ UINT APIENTRY _AfxThreadEntry(void * pParam)
       // thread inherits cast's main ::ca::window if not already set
       //if (papp != NULL && GetMainWnd() == NULL)
       {
-         // just attach the HWND
+         // just attach the oswindow
          // trans         threadWnd.Attach(pApp->GetMainWnd()->get_handle());
          //GetMainWnd() = pApp->GetMainWnd();
       }

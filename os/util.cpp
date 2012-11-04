@@ -25,7 +25,7 @@
    return TRUE;
 }*/
 
-WINBOOL CLASS_DECL_VMSWIN _AfxIsComboBoxControl(HWND hWnd, UINT nStyle)
+WINBOOL CLASS_DECL_VMSWIN _AfxIsComboBoxControl(oswindow hWnd, UINT nStyle)
 {
    if (hWnd == NULL)
       return FALSE;
@@ -39,7 +39,7 @@ WINBOOL CLASS_DECL_VMSWIN _AfxIsComboBoxControl(HWND hWnd, UINT nStyle)
    return ::AfxInvariantStrICmp(szCompare, "combobox") == 0;
 }
 
-WINBOOL CLASS_DECL_VMSWIN _AfxCompareClassName(HWND hWnd, const char * lpszClassName)
+WINBOOL CLASS_DECL_VMSWIN _AfxCompareClassName(oswindow hWnd, const char * lpszClassName)
 {
    ASSERT(::IsWindow(hWnd));
    char szTemp[32];
@@ -47,13 +47,13 @@ WINBOOL CLASS_DECL_VMSWIN _AfxCompareClassName(HWND hWnd, const char * lpszClass
    return ::AfxInvariantStrICmp(szTemp, lpszClassName) == 0;
 }
 
-HWND CLASS_DECL_VMSWIN _AfxChildWindowFromPoint(HWND hWnd, POINT pt)
+oswindow CLASS_DECL_VMSWIN _AfxChildWindowFromPoint(oswindow hWnd, POINT pt)
 {
    ASSERT(hWnd != NULL);
 
    // check child windows
    ::ClientToScreen(hWnd, &pt);
-   HWND hWndChild = ::GetWindow(hWnd, GW_CHILD);
+   oswindow hWndChild = ::GetWindow(hWnd, GW_CHILD);
    for (; hWndChild != NULL; hWndChild = ::GetWindow(hWndChild, GW_HWNDNEXT))
    {
       if (_AfxGetDlgCtrlID(hWndChild) != (WORD)0 &&
@@ -98,11 +98,11 @@ void CLASS_DECL_VMSWIN AfxDeleteObject(HGDIOBJ* pObject)
    }
 }
 /*
-void CLASS_DECL_VMSWIN AfxCancelModes(HWND hWndRcvr)
+void CLASS_DECL_VMSWIN AfxCancelModes(oswindow hWndRcvr)
 {
    // if we receive a message destined for a ::ca::window, cancel any combobox
    //  popups that could be in toolbars or dialog bars
-   HWND hWndCancel = ::GetFocus();
+   oswindow hWndCancel = ::GetFocus();
    if (hWndCancel == NULL)
       return;     // nothing to cancel
 

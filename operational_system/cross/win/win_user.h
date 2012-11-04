@@ -3,17 +3,17 @@
 
 //#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
-typedef VOID (CALLBACK* TIMERPROC)(HWND, UINT, uint_ptr, DWORD);
+typedef VOID (CALLBACK* TIMERPROC)(oswindow, UINT, uint_ptr, DWORD);
 typedef WINBOOL (CALLBACK* GRAYSTRINGPROC)(HDC, LPARAM, int);
-typedef WINBOOL (CALLBACK* WNDENUMPROC)(HWND, LPARAM);
+typedef WINBOOL (CALLBACK* WNDENUMPROC)(oswindow, LPARAM);
 typedef LRESULT (CALLBACK* HOOKPROC)(int code, WPARAM wParam, LPARAM lParam);
-typedef VOID (CALLBACK* SENDASYNCPROC)(HWND, UINT, ulong_ptr, LRESULT);
+typedef VOID (CALLBACK* SENDASYNCPROC)(oswindow, UINT, ulong_ptr, LRESULT);
 
-typedef WINBOOL (CALLBACK* PROPENUMPROCA)(HWND, LPCSTR, HANDLE);
-typedef WINBOOL (CALLBACK* PROPENUMPROCW)(HWND, LPCWSTR, HANDLE);
+typedef WINBOOL (CALLBACK* PROPENUMPROCA)(oswindow, LPCSTR, HANDLE);
+typedef WINBOOL (CALLBACK* PROPENUMPROCW)(oswindow, LPCWSTR, HANDLE);
 
-typedef WINBOOL (CALLBACK* PROPENUMPROCEXA)(HWND, LPSTR, HANDLE, ulong_ptr);
-typedef WINBOOL (CALLBACK* PROPENUMPROCEXW)(HWND, LPWSTR, HANDLE, ulong_ptr);
+typedef WINBOOL (CALLBACK* PROPENUMPROCEXA)(oswindow, LPSTR, HANDLE, ulong_ptr);
+typedef WINBOOL (CALLBACK* PROPENUMPROCEXW)(oswindow, LPWSTR, HANDLE, ulong_ptr);
 
 typedef int (CALLBACK* EDITWORDBREAKPROCA)(LPSTR lpch, int ichCurrent, int cch, int code);
 typedef int (CALLBACK* EDITWORDBREAKPROCW)(LPWSTR lpch, int ichCurrent, int cch, int code);
@@ -205,7 +205,7 @@ typedef struct tagMDINEXTMENU
 {
     HMENU   hmenuIn;
     HMENU   hmenuNext;
-    HWND    hwndNext;
+    oswindow    hwndNext;
 } MDINEXTMENU, * PMDINEXTMENU, FAR * LPMDINEXTMENU;
 #endif /* WINVER >= 0x0400 */
 
@@ -833,13 +833,13 @@ RegisterWindowMessageW(
 WINBOOL
 WINAPI
 EnableWindow(
-    HWND hWnd,
+    oswindow hWnd,
     WINBOOL bEnable);
 
 WINBOOL
 WINAPI
 IsWindowEnabled(
-    HWND hWnd);
+    oswindow hWnd);
 
 
 
@@ -906,41 +906,41 @@ typedef struct tagDRAWTEXTPARAMS
 
 
 
-HWND
+oswindow
 WINAPI
 GetDesktopWindow(
     VOID);
 
 
 
-HWND
+oswindow
 WINAPI
 GetParent(
-    HWND hWnd);
+    oswindow hWnd);
 
 
-HWND
+oswindow
 WINAPI
 SetParent(
-    HWND hWndChild,
-    HWND hWndNewParent);
+    oswindow hWndChild,
+    oswindow hWndNewParent);
 
 
 WINBOOL
 WINAPI
 EnumChildWindows(
-    HWND hWndParent,
+    oswindow hWndParent,
     WNDENUMPROC lpEnumFunc,
     LPARAM lParam);
 
 
-HWND
+oswindow
 WINAPI
 FindWindowA(
     LPCSTR lpClassName,
     LPCSTR lpWindowName);
 
-HWND
+oswindow
 WINAPI
 FindWindowW(
     LPCWSTR lpClassName,
@@ -975,8 +975,8 @@ FindWindowW(
  * WM_WINDOWPOSCHANGING/CHANGED struct pointed to by lParam
  */
 typedef struct tagWINDOWPOS {
-    HWND    hwnd;
-    HWND    hwndInsertAfter;
+    oswindow    hwnd;
+    oswindow    hwndInsertAfter;
     int     x;
     int     y;
     int     cx;
@@ -1051,10 +1051,10 @@ typedef struct tagNCCALCSIZE_PARAMS {
 
 
 
-HWND
+oswindow
 WINAPI
 GetLastActivePopup(
-    HWND hWnd);
+    oswindow hWnd);
 
 /*
  * GetWindow() Constants
@@ -1073,10 +1073,10 @@ GetLastActivePopup(
 #endif
 
 
-HWND
+oswindow
 WINAPI
 GetWindow(
-    HWND hWnd,
+    oswindow hWnd,
     UINT uCmd);
 
 
@@ -1154,7 +1154,7 @@ GetWindow(
 int
 WINAPI
 MessageBoxA(
-    HWND hWnd,
+    oswindow hWnd,
     LPCSTR lpText,
     LPCSTR lpCaption,
     UINT uType);
@@ -1163,7 +1163,7 @@ MessageBoxA(
 int
 WINAPI
 MessageBoxW(
-    HWND hWnd,
+    oswindow hWnd,
     LPCWSTR lpText,
     LPCWSTR lpCaption,
     UINT uType);
@@ -1267,7 +1267,7 @@ typedef struct tagCREATESTRUCTA {
     LPVOID      lpCreateParams;
     HINSTANCE   hInstance;
     HMENU       hMenu;
-    HWND        hwndParent;
+    oswindow        hwndParent;
     int         cy;
     int         cx;
     int         y;
@@ -1281,7 +1281,7 @@ typedef struct tagCREATESTRUCTW {
     LPVOID      lpCreateParams;
     HINSTANCE   hInstance;
     HMENU       hMenu;
-    HWND        hwndParent;
+    oswindow        hwndParent;
     int         cy;
     int         cx;
     int         y;
@@ -1330,18 +1330,18 @@ typedef struct tag_MSG
 
 
 
-HDC BeginPaint(HWND hwnd, PAINTSTRUCT * ps);
+HDC BeginPaint(oswindow hwnd, PAINTSTRUCT * ps);
 
-WINBOOL EndPaint(HWND hwnd, PAINTSTRUCT * ps);
+WINBOOL EndPaint(oswindow hwnd, PAINTSTRUCT * ps);
 
 WINBOOL GetCursorPos(LPPOINT lpptCursor);
 
-WINBOOL SetWindowPos(HWND hWnd, HWND hWndInsertAfter, int X, int Y, int cx, int cy, UINT uFlags);
+WINBOOL SetWindowPos(oswindow hWnd, oswindow hWndInsertAfter, int X, int Y, int cx, int cy, UINT uFlags);
 
 
-WINBOOL IsWindowVisible(HWND hWnd);
+WINBOOL IsWindowVisible(oswindow hWnd);
 
-WINBOOL IsIconic(HWND hWnd);
+WINBOOL IsIconic(oswindow hWnd);
 
 
 
@@ -1352,7 +1352,7 @@ WINBOOL IsIconic(HWND hWnd);
 
 
 
-WINBOOL RedrawWindow(HWND hWnd, CONST RECT *lprcUpdate, HRGN hrgnUpdate, UINT flags);
+WINBOOL RedrawWindow(oswindow hWnd, CONST RECT *lprcUpdate, HRGN hrgnUpdate, UINT flags);
 
 
 /*
@@ -1389,14 +1389,14 @@ WINBOOL RedrawWindow(HWND hWnd, CONST RECT *lprcUpdate, HRGN hrgnUpdate, UINT fl
 LONG
 WINAPI
 GetWindowLongA(
-    HWND hWnd,
+    oswindow hWnd,
     int nIndex);
 
 
 LONG
 WINAPI
 GetWindowLongW(
-    HWND hWnd,
+    oswindow hWnd,
     int nIndex);
 #ifdef UNICODE
 #define GetWindowLong  GetWindowLongW

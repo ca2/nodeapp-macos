@@ -22,7 +22,14 @@ namespace ca // Thommy Gustavinho Cecynzinho Lundgrenzinho
       
    };
    
-} // namespace
+} // namespace ca
+
+namespace user
+{
+   
+   class interaction;
+   
+}
 
 class oswindow_dataptra;
 
@@ -41,7 +48,8 @@ public:
    {
    public:
       
-      nswindow    m_nswindow;
+      nswindow                m_nswindow;
+      ::user::interaction *   m_pui;
       
    };
    
@@ -67,6 +75,7 @@ public:
    oswindow();
    oswindow(const ::ca::null & null);
    oswindow(nswindow window);
+   oswindow(const void * p);
    oswindow(const oswindow & oswindow);
    oswindow(const LPARAM & lparam);
    oswindow(const WPARAM & wparam);
@@ -115,6 +124,10 @@ public:
    {
       return m_pdata == NULL ? NULL : m_pdata->m_nswindow;
    }
+   
+   void set_user_interaction(::user::interaction * pui);
+   ::user::interaction * get_user_interaction();
+   ::user::interaction * get_user_interaction() const;
    
    
 };

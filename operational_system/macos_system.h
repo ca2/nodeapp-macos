@@ -2,6 +2,17 @@
 
 
 
+#ifdef __MM
+
+
+#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+
+
+#endif
+
+
+
 
 #if defined(__LP64__)
 

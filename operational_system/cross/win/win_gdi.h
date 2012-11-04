@@ -709,15 +709,15 @@ WINBOOL SetViewportOrgEx(HDC hdc, int X, int Y, LPPOINT lpPoint);
 
 
 
-WINBOOL GetClientRect(HWND hwnd, LPRECT lprect);
+WINBOOL GetClientRect(oswindow hwnd, LPRECT lprect);
 
-WINBOOL GetWindowRect(HWND hwnd, LPRECT lprect);
+WINBOOL GetWindowRect(oswindow hwnd, LPRECT lprect);
 
 int FillRect(HDC hDC, const RECT *lprc, HBRUSH hbr);
 
-WINBOOL ReleaseDC(HWND hwnd, HDC hdc);
+WINBOOL ReleaseDC(oswindow hwnd, HDC hdc);
 
-HDC GetWindowDC(HWND hwnd);
+HDC GetWindowDC(oswindow hwnd);
 
 
 HBRUSH CreateSolidBrush(COLORREF color);

@@ -11,7 +11,7 @@ namespace win
          return;
       CSingleLock sl(&pMap->m_mutex, TRUE);
 
-      raw_array < HWND > hwndaRemove;
+      raw_array < oswindow > hwndaRemove;
       raw_array < ::win::window * > wndptraRemove;
 
       POSITION pos = pMap->m_temporaryMap.get_start_position();
@@ -21,9 +21,9 @@ namespace win
          ::win::window * pTemp;
          pMap->m_temporaryMap.get_next_assoc(pos, h, pTemp);
 
-         if(!::IsWindow((HWND) h))
+         if(!::IsWindow((oswindow) h))
          {
-            hwndaRemove.add((HWND) h);
+            hwndaRemove.add((oswindow) h);
             wndptraRemove.add(pTemp);
          }
 
