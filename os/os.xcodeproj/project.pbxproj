@@ -123,6 +123,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07401ECC164632BB00F5D0F3 /* oswindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oswindow.h; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CFD87D154FB715007447E2 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		A1CFD87E154FB715007447E2 /* bare_operational_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bare_operational_system.h; sourceTree = "<group>"; };
@@ -291,6 +292,7 @@
 				A1CFD893154FB715007447E2 /* version_cpu.h */,
 				A1CFD894154FB715007447E2 /* version_dylib.h */,
 				A1CFD895154FB715007447E2 /* version_macos.h */,
+				07401ECC164632BB00F5D0F3 /* oswindow.h */,
 			);
 			name = operational_system;
 			path = ../operational_system;
