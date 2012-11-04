@@ -20,6 +20,12 @@
 #endif
 
 
+/* Types use for passing & returning polymorphic values */
+typedef uint_ptr            WPARAM;
+typedef long_ptr            LPARAM;
+typedef long_ptr            LRESULT;
+
+
 //typedef void * HANDLE;
 //typedef void * HDC;
 typedef unsigned char BYTE;
@@ -34,6 +40,8 @@ typedef unsigned int UINT;
 
 // dbg alloc MS VC CRT
 #define _NORMAL_BLOCK  1
+
+#include "oswindow.h"
 
 
 
