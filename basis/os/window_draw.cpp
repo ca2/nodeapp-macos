@@ -36,7 +36,7 @@ namespace win
       m_dwLastUpdate = false;
    }
 
-   extern void _001DeferPaintLayeredWindowBackground(HWND hwnd, ::ca::graphics * pdc);
+   extern void _001DeferPaintLayeredWindowBackground(oswindow hwnd, ::ca::graphics * pdc);
    window_draw::~window_draw()
    {
 
@@ -50,7 +50,7 @@ namespace win
    }
 
    /*
-   void window_draw::OnPaint(HWND hwnd, CPaintDC & spgraphics)
+   void window_draw::OnPaint(oswindow hwnd, CPaintDC & spgraphics)
    {
       UNREFERENCED_PARAMETER(hwnd);
       UNREFERENCED_PARAMETER(spgraphics);
@@ -92,7 +92,7 @@ namespace win
 
    void window_draw::synch_redraw()
    {
-      if(!m_bProDevianMode && ::IsWindow((HWND) m_spwindowMessage->get_os_data()))
+      if(!m_bProDevianMode && ::IsWindow((oswindow) m_spwindowMessage->get_os_data()))
       {
          m_spwindowMessage->SendMessage(WM_USER + 1984 + 1977);
       }
@@ -202,7 +202,7 @@ namespace win
       for(int_ptr i = hwndtreea.get_size() - 1; i >= 0; i--)
       {
          user::HwndTree & hwndtreeChild = hwndtreea[i];
-         HWND hwndChild = hwndtreeChild.m_hwnd;
+         oswindow hwndChild = hwndtreeChild.m_hwnd;
          ::GetWindowRect(hwndChild, rectChild);
          if(rectNewUpdate.intersect(rectChild, rectUpdate))
          {
@@ -225,7 +225,7 @@ namespace win
 
 //      DWORD dwTimeIn = GetTickCount();
 
-      HWND hwndParam = hwndtree.m_hwnd;
+      oswindow hwndParam = hwndtree.m_hwnd;
 
       if(hwndParam == NULL)
       {
@@ -622,7 +622,7 @@ namespace win
       rect rectIntersect;
       ::ca::rgn_sp rgnUpdate(get_app());
       rgnUpdate->CreateRectRgnIndirect(rectUpdate);
-      HWND hwndOrder = ::GetWindow(::GetDesktopWindow(), GW_CHILD);
+      oswindow hwndOrder = ::GetWindow(::GetDesktopWindow(), GW_CHILD);
       for(;;)
       {
             if(hwndOrder == NULL ||
@@ -669,7 +669,7 @@ namespace win
          }
          for(int j = wndaApp.get_upper_bound(); j >= 0; j--)
          {
-            HWND hwndTopic = wndaApp[j];
+            oswindow hwndTopic = wndaApp[j];
 
             ::ca::window * pwnd = NULL;
             //::ca::window * pwnd = dynamic_cast < ::ca::window * > (System.window_map().get((int_ptr) hwndTopic));
@@ -852,7 +852,7 @@ namespace win
                   hwndtreea.remove_at(i + 1);
                }
                /*hwndtreea.remove_at(i + 1);
-               HWND hwnd = hwndtreea[i].m_hwnd;
+               oswindow hwnd = hwndtreea[i].m_hwnd;
                rect rect;
                ::GetClientRect(hwnd, rect);
                ::ClientToScreen(hwnd, &rect.top_left());
@@ -882,7 +882,7 @@ namespace win
       for(int i = iIndex; i < hwndtreea.get_size();)
       {
          user::HwndTree & hwndtree = hwndtreea[i];
-         HWND hwnd = hwndtree.m_hwnd;
+         oswindow hwnd = hwndtree.m_hwnd;
          rect rect;
          ::GetClientRect(hwnd, rect);
          ::ClientToScreen(hwnd, &rect.top_left());
@@ -913,7 +913,7 @@ namespace win
 
       hwndtree.m_dwUser = 0;
 
-      HWND hwnd = hwndtree.m_hwnd;
+      oswindow hwnd = hwndtree.m_hwnd;
 
       ::user::window_interface * ptwi = System.window_map().get((int_ptr) hwnd);
 
@@ -992,7 +992,7 @@ namespace win
 
 
    bool window_draw::TwfGetTopWindow(
-      HWND hwnd,
+      oswindow hwnd,
       user::HWNDArray & hwnda,
       base_array < HRGN, HRGN > & hrgna,
       user::HwndTree::Array & hwndtreea,
@@ -1016,13 +1016,13 @@ namespace win
    }
 
    bool window_draw::TwfGetTopWindow(
-      HWND hwndParam,
+      oswindow hwndParam,
       user::HWNDArray & hwnda,
       base_array < HRGN, HRGN > & hrgna,
       user::HwndTree & hwndtree,
       HRGN hrgn)
    {
-      HWND hwnd = hwndtree.m_hwnd;
+      oswindow hwnd = hwndtree.m_hwnd;
 
 
       if(!::IsWindowVisible(hwnd))
@@ -1118,7 +1118,7 @@ namespace win
 
    // lpcrect must be in screen coordinates
    void window_draw::TwfGetTopWindow(
-      HWND hwnd,
+      oswindow hwnd,
       user::HWNDArray & hwnda,
       base_array < HRGN, HRGN > & hrgna,
       user::HwndTree::Array & hwndtreea,
@@ -1135,7 +1135,7 @@ namespace win
    }
 
    void window_draw::TwfGetTopWindowOptimizeOpaque(
-      HWND hwndOpaque,
+      oswindow hwndOpaque,
       user::HWNDArray & hwnda,
       base_array < HRGN, HRGN > & hrgna)
    {
@@ -1150,7 +1150,7 @@ namespace win
       point ptOffset;
       for(int i = 0; i < hrgna.get_size(); )
       {
-         HWND hwnd = hwnda[i];
+         oswindow hwnd = hwnda[i];
          HRGN hrgn = hrgna[i];
          ptOffset.x = 0;
          ptOffset.y = 0;
@@ -1208,7 +1208,7 @@ namespace win
       ASSERT(FALSE);
       /*for(int i = 0; i  < hwnda.get_size(); i++)
       {
-         HWND hwnd = hwnda[i];
+         oswindow hwnd = hwnda[i];
          ScreenOutput(
             pbuffer,
             hwnd,
@@ -1246,7 +1246,7 @@ namespace win
          }
       }
 
-      HWND hwndParam = (HWND) pwnd->_get_handle();
+      oswindow hwndParam = (oswindow) pwnd->_get_handle();
 
       //////////////////////////////////
       //

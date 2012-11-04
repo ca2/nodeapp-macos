@@ -343,7 +343,7 @@ AFX_MODULE_THREAD_STATE::~AFX_MODULE_THREAD_STATE()
 /////////////////////////////////////////////////////////////////////////////
 // AFX_MODULE_STATE for base application
 
-LRESULT CALLBACK AfxWndProcBase(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK AfxWndProcBase(oswindow, UINT, WPARAM, LPARAM);
 
 class _AFX_BASE_MODULE_STATE : public AFX_MODULE_STATE
 {
@@ -362,7 +362,7 @@ PROCESS_LOCAL(_AFX_BASE_MODULE_STATE, _afxBaseModuleState)
 
 #undef AfxWndProc
 LRESULT CALLBACK
-AfxWndProcBase(HWND hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
+AfxWndProcBase(oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
 {
    return AfxWndProc(hWnd, nMsg, wParam, lParam);
 }
