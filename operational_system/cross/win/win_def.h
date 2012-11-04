@@ -170,7 +170,7 @@ typedef long_ptr            LRESULT;
 
 
 #ifndef WIN_INTERNAL
-//DECLARE_HANDLE            (HWND);
+//DECLARE_HANDLE            (oswindow);
 //DECLARE_HANDLE            (HHOOK);
 #ifdef WINABLE
 //DECLARE_HANDLE            (HEVENT);

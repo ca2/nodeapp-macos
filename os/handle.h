@@ -17,10 +17,10 @@
 //      necessary for the definition of WindowsThread.
 //
 //  Most Windows objects are represented with a HANDLE, including
-//      the most important ones, HWND, HDC, HPEN, HFONT etc.
+//      the most important ones, oswindow, HDC, HPEN, HFONT etc.
 //  We want C++ objects to wrap these handle based objects whenever we can.
 //  Since Windows objects can be created outside of C++ (eg: calling
-//      ::CreateWindow will return an HWND with no C++ wrapper) we must
+//      ::CreateWindow will return an oswindow with no C++ wrapper) we must
 //      support a reasonably uniform mapping from permanent handles
 //      (i.e. the ones allocated in C++) and temporary handles (i.e.
 //      the ones allocated in C, but passed through a C++ interface.
@@ -77,7 +77,7 @@ public:
    inline H2 set_handle2(H2 h) { return static_cast < H2 > (m_handlea[1] = static_cast < HANDLE > (h)); }
 };
 
-   typedef handle1 < HWND > hwnd_handle;
+   typedef handle1 < oswindow > hwnd_handle;
    typedef handle1 < HMENU > hmenu_handle;
    typedef handle2 < HDC, HDC > hdc_handle;
    typedef handle1 < HGDIOBJ > hgdiobj_handle;
