@@ -79,5 +79,18 @@
          landmarkName = "spa_login_crypt(const char * psz, const char * pszRsa)"
          landmarkType = "7">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/geoip/geoip_update.cpp"
+         timestampString = "374370999.932677"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "227"
+         endingLineNumber = "227"
+         landmarkName = "GeoIP_update_database (::ca::application * papp, char * license_key, int verbose, void (*f)( char * ))"
+         landmarkType = "7">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
