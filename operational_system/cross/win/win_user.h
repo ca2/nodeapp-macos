@@ -1323,10 +1323,11 @@ typedef WINDOWPLACEMENT *PWINDOWPLACEMENT, *LPWINDOWPLACEMENT;
 
 typedef struct tag_MSG
 {
-   UINT     message;
-   WPARAM   wparam;
-   LPARAM   lparam;
-} MSG, * LPMSG;
+   oswindow    hwnd;
+   UINT        message;
+   WPARAM      wParam;
+   LPARAM      lParam;
+} MESSAGE, * LPMESSAGE;
 
 
 
