@@ -1,31 +1,9 @@
 #pragma once
 
 
-struct win_handle
-{
-   
-   enum e_type
-   {
-      type_file,
-      type_thread,
-   };
-   
-   e_type m_etype;
-   union
-   {
-      struct
-      {
-         FILE * m_pfile;
-      } m_file;
-      struct
-      {
-         pthread_t m_thread;
-      } m_thread;
-   };
-   
-   
-   
-};
+
+struct win_handle;
+
 
 typedef struct win_handle * HANDLE;
 typedef HANDLE *PHANDLE, *LPHANDLE;
