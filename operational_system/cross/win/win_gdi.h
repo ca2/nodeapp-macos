@@ -705,7 +705,7 @@ HBITMAP CreateCompatibleBitmap(HDC hdc, int cx, int cy);
 WINBOOL BitBlt(HDC hdcDest, int nXDest, int nYDest, int nWidth, int nHeight, HDC hdcSrc, int nXSrc, int nYSrc, DWORD dwRop);
 
 
-WINBOOL SetViewportOrgEx(HDC hdc, int X, int Y, LPPOINT lpPoint);
+//WINBOOL SetViewportOrgEx(HDC hdc, int X, int Y, LPPOINT lpPoint);
 
 
 
