@@ -308,7 +308,7 @@ char * strupr(char * psz);
 
 //void wcscat(wchar_t * dest, const wchar_t * cat);
 //void wcscpy(wchar_t * dest, const wchar_t * cat);
-void wcsncpy(wchar_t * dest, const wchar_t * cat, int iLen);
+//void wcsncpy(wchar_t * dest, const wchar_t * cat, int iLen);
 //int  wcslen(const wchar_t * cat);
 //const wchar_t * wcsdup(const wchar_t * src);
 const wchar_t * wcsdup(const wchar_t * src, int iLen);

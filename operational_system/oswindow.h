@@ -26,10 +26,14 @@ namespace ca // Thommy Gustavinho Cecynzinho Lundgrenzinho
 
 namespace user
 {
-   
-   class interaction;
-   
-}
+    
+    
+    class interaction_base;
+    class interaction;
+    
+    
+} // namespace user
+
 
 class oswindow_dataptra;
 
@@ -49,7 +53,7 @@ public:
    public:
       
       nswindow                m_nswindow;
-      ::user::interaction *   m_pui;
+      ::user::interaction_base *    m_pui;
       
    };
    
@@ -125,9 +129,11 @@ public:
       return m_pdata == NULL ? NULL : m_pdata->m_nswindow;
    }
    
-   void set_user_interaction(::user::interaction * pui);
-   ::user::interaction * get_user_interaction();
-   ::user::interaction * get_user_interaction() const;
+    void set_user_interaction(::user::interaction_base * pui);
+    ::user::interaction_base * get_user_interaction_base();
+    ::user::interaction_base * get_user_interaction_base() const;
+    ::user::interaction * get_user_interaction();
+    ::user::interaction * get_user_interaction() const;
    
    
 };
