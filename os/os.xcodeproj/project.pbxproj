@@ -678,6 +678,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = framework.h;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
 				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
@@ -689,6 +691,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = framework.h;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
 				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
