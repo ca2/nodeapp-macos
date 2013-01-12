@@ -27,7 +27,7 @@ public:
       LPDWORD lpFileSystemFlags,        // file system options
       wchar_t * lpFileSystemNameBuffer,    // file system name buffer
       DWORD nFileSystemNameSize);         // length of file system name buffer
-   static dword_ptr __stdcall _SHGetFileInfo(      
+   static uint_ptr __stdcall _SHGetFileInfo(      
       const wchar_t * pszPath,
       DWORD dwFileAttributes,
       SHFILEINFOW *psfi,
@@ -102,7 +102,7 @@ public:
       wchar_t * lpFileSystemNameBuffer,    // file system name buffer
       DWORD nFileSystemNameSize);         // length of file system name buffer
 
-   dword_ptr (__stdcall * m_pfnSHGetFileInfo)(      
+   uint_ptr (__stdcall * m_pfnSHGetFileInfo)(      
       const wchar_t * pszPath,
       DWORD dwFileAttributes,
       SHFILEINFOW *psfi,
