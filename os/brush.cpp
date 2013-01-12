@@ -89,7 +89,7 @@ namespace win
          VERIFY(GetObject(sizeof(lb), &lb));
          dumpcontext << "lb.lbStyle = " << lb.lbStyle;
          dumpcontext << "\nlb.lbHatch = " << lb.lbHatch;
-         dumpcontext << "\nlb.lbColor = " << (void *)(dword_ptr)lb.lbColor;
+         dumpcontext << "\nlb.lbColor = " << (void *)(uint_ptr)lb.lbColor;
 
          dumpcontext << "\n";
       }
