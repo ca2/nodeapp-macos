@@ -571,7 +571,7 @@ namespace win
 
             ::ca::dib_sp dib(get_app());
             dib->create(rectWindow.width(), rectWindow.height());
-            dword_ptr dwptrResult = 0;
+            uint_ptr dwptrResult = 0;
             ::SendMessageTimeout(
                hwnda[i],
                WM_PRINTCLIENT,
