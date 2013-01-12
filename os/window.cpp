@@ -650,7 +650,7 @@ namespace win
       dumpcontext << "\nrect = " << rect;
       dumpcontext << "\nparent ::ca::window * = " << (void *)((::ca::window *) this)->GetParent();
 
-      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
+      dumpcontext << "\nstyle = " << (void *)(uint_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
       if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
          dumpcontext << "\nid = " << _AfxGetDlgCtrlID(get_handle());
 
@@ -947,7 +947,7 @@ namespace win
    /////////////////////////////////////////////////////////////////////////////
    // window extensions for help support
 
-   void window::WinHelp(dword_ptr dwData, UINT nCmd)
+   void window::WinHelp(uint_ptr dwData, UINT nCmd)
    {
       UNREFERENCED_PARAMETER(dwData);
       UNREFERENCED_PARAMETER(nCmd);
@@ -975,7 +975,7 @@ namespace win
       }*/
    }
 
-   //void window::HtmlHelp(dword_ptr dwData, UINT nCmd)
+   //void window::HtmlHelp(uint_ptr dwData, UINT nCmd)
    //{
      // throw not_implemented_exception();
       /*
@@ -1036,7 +1036,7 @@ namespace win
    }
    #endif
 
-   /*oswindow WINAPI AfxHtmlHelp(oswindow hWnd, const char * szHelpFilePath, UINT nCmd, dword_ptr dwData)
+   /*oswindow WINAPI AfxHtmlHelp(oswindow hWnd, const char * szHelpFilePath, UINT nCmd, uint_ptr dwData)
    {
    // for dll builds we just delay load it
    #ifndef _ApplicationFrameworkDLL
@@ -1072,7 +1072,7 @@ namespace win
    #endif
    }*/
 
-   void window::WinHelpInternal(dword_ptr dwData, UINT nCmd)
+   void window::WinHelpInternal(uint_ptr dwData, UINT nCmd)
    {
       UNREFERENCED_PARAMETER(dwData);
       UNREFERENCED_PARAMETER(nCmd);
@@ -1435,7 +1435,7 @@ namespace win
       bHandled = FALSE;
 
       const AFX_MSGMAP* pMessageMap; pMessageMap = GetMessageMap();
-      UINT iHash; iHash = (LOWORD((dword_ptr)pMessageMap) ^ message) & (iHashMax-1);
+      UINT iHash; iHash = (LOWORD((uint_ptr)pMessageMap) ^ message) & (iHashMax-1);
       winMsgLock.Lock(CRIT_WINMSGCACHE);
       AFX_MSG_CACHE* pMsgCache; pMsgCache = &_afxMsgCache[iHash];
       const AFX_MSGMAP_ENTRY* lpEntry;
@@ -4941,7 +4941,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
       { Default(); }
     void window::OnCaptureChanged(::ca::window *)
       { Default(); }
-    WINBOOL window::OnDeviceChange(UINT, dword_ptr)
+    WINBOOL window::OnDeviceChange(UINT, uint_ptr)
       { return (WINBOOL)Default(); }
     void window::OnWinIniChange(const char *)
       { Default(); }
@@ -5205,7 +5205,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
             // get class name of the window that is being created
             const char * pszClassName;
             char szClassName[_countof("ime")+1];
-            if (dword_ptr(lpcs->lpszClass) > 0xffff)
+            if (uint_ptr(lpcs->lpszClass) > 0xffff)
             {
                pszClassName = lpcs->lpszClass;
             }
@@ -5246,7 +5246,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
             // subclass the window with standard AfxWndProc
             WNDPROC afxWndProc = AfxGetAfxWndProc();
             oldWndProc = (WNDPROC)SetWindowLongPtr(hWnd, GWLP_WNDPROC,
-               (dword_ptr)afxWndProc);
+               (uint_ptr)afxWndProc);
             ASSERT(oldWndProc != NULL);
             if (oldWndProc != afxWndProc)
                *pOldWndProc = oldWndProc;
@@ -5295,7 +5295,7 @@ int window::GetCheckedRadioButton(int nIDFirstButton, int nIDLastButton)
                   if ((WNDPROC)GetProp(hWnd, _afxOldWndProc) == oldWndProc)
                   {
                      GlobalAddAtom(_afxOldWndProc);
-                     SetWindowLongPtr(hWnd, GWLP_WNDPROC, (dword_ptr)_AfxActivationWndProc);
+                     SetWindowLongPtr(hWnd, GWLP_WNDPROC, (uint_ptr)_AfxActivationWndProc);
                      ASSERT(oldWndProc != NULL);
                   }
                }
