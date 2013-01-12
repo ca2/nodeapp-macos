@@ -178,8 +178,8 @@ AFX_MODULE_STATE::AFX_MODULE_STATE(WINBOOL bDLL)
 
 AFX_ACTCTX_API_PTR_DEFINE(CreateActCtxW, HANDLE, (PCACTCTXW));
 AFX_ACTCTX_API_PTR_DEFINE(ReleaseActCtx, void, (HANDLE));
-AFX_ACTCTX_API_PTR_DEFINE(ActivateActCtx, WINBOOL, (HANDLE, ulong_ptr*));
-AFX_ACTCTX_API_PTR_DEFINE(DeactivateActCtx, WINBOOL, (DWORD, ulong_ptr));
+AFX_ACTCTX_API_PTR_DEFINE(ActivateActCtx, WINBOOL, (HANDLE, uint_ptr*));
+AFX_ACTCTX_API_PTR_DEFINE(DeactivateActCtx, WINBOOL, (DWORD, uint_ptr));
 
 __STATIC void CLASS_DECL_VMSWIN _AfxInitContextAPI()
 {
@@ -217,13 +217,13 @@ void CLASS_DECL_VMSWIN AfxReleaseActCtx(HANDLE hActCtx)
    }
 }
 
-CLASS_DECL_VMSWIN WINBOOL AfxActivateActCtx(HANDLE hActCtx, ulong_ptr *lpCookie) 
+CLASS_DECL_VMSWIN WINBOOL AfxActivateActCtx(HANDLE hActCtx, uint_ptr *lpCookie) 
 {   
    WINBOOL rc = pfnActivateActCtx != 0 ? pfnActivateActCtx(hActCtx, lpCookie) : FALSE;   
    return rc;
 }
 
-CLASS_DECL_VMSWIN WINBOOL AfxDeactivateActCtx(DWORD dwFlags, ulong_ptr ulCookie)
+CLASS_DECL_VMSWIN WINBOOL AfxDeactivateActCtx(DWORD dwFlags, uint_ptr ulCookie)
 {   
    WINBOOL rc = pfnDeactivateActCtx != 0 ? pfnDeactivateActCtx(dwFlags, ulCookie) : FALSE;
    return rc;
