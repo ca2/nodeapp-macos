@@ -380,7 +380,7 @@ typedef struct tagLOGBRUSH
 {
     UINT        lbStyle;
     COLORREF    lbColor;
-    ulong_ptr   lbHatch;
+    uint_ptr   lbHatch;
 } LOGBRUSH, *PLOGBRUSH, NEAR *NPLOGBRUSH, FAR *LPLOGBRUSH;
 
 typedef struct tagLOGBRUSH32
