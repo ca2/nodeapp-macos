@@ -493,7 +493,7 @@ WINBOOL WINAPI WindowsShell::_GetVolumeInformation(
    return b;
 }
 
-dword_ptr WindowsShell::_SHGetFileInfo(      
+uint_ptr WindowsShell::_SHGetFileInfo(      
    const wchar_t * pszPath,
    DWORD dwFileAttributes,
    SHFILEINFOW *psfi,
