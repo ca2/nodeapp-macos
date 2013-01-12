@@ -207,7 +207,7 @@ typedef struct _GUID {
 #define FAR
 
 #define DECLSPEC_NO_RETURN
-void RaiseException(DWORD dwExceptionCode, DWORD dwExceptionFlags, DWORD nNumberOfArguments, const ulong_ptr *lpArguments);
+void RaiseException(DWORD dwExceptionCode, DWORD dwExceptionFlags, DWORD nNumberOfArguments, const uint_ptr *lpArguments);
 typedef int errno_t;
 
 
