@@ -157,16 +157,16 @@ typedef unsigned int        *PUINT;
 
 /* Types use for passing & returning polymorphic values */
 typedef uint_ptr            WPARAM;
-typedef long_ptr            LPARAM;
-typedef long_ptr            LRESULT;
+typedef int_ptr            LPARAM;
+typedef int_ptr            LRESULT;
 
 
-#define MAKEWORD(a, b)      ((WORD)(((BYTE)(((dword_ptr)(a)) & 0xff)) | ((WORD)((BYTE)(((dword_ptr)(b)) & 0xff))) << 8))
-#define MAKELONG(a, b)      ((LONG)(((WORD)(((dword_ptr)(a)) & 0xffff)) | ((DWORD)((WORD)(((dword_ptr)(b)) & 0xffff))) << 16))
-#define LOWORD(l)           ((WORD)(((dword_ptr)(l)) & 0xffff))
-#define HIWORD(l)           ((WORD)((((dword_ptr)(l)) >> 16) & 0xffff))
-#define LOBYTE(w)           ((BYTE)(((dword_ptr)(w)) & 0xff))
-#define HIBYTE(w)           ((BYTE)((((dword_ptr)(w)) >> 8) & 0xff))
+#define MAKEWORD(a, b)      ((WORD)(((BYTE)(((uint_ptr)(a)) & 0xff)) | ((WORD)((BYTE)(((uint_ptr)(b)) & 0xff))) << 8))
+#define MAKELONG(a, b)      ((LONG)(((WORD)(((uint_ptr)(a)) & 0xffff)) | ((DWORD)((WORD)(((uint_ptr)(b)) & 0xffff))) << 16))
+#define LOWORD(l)           ((WORD)(((uint_ptr)(l)) & 0xffff))
+#define HIWORD(l)           ((WORD)((((uint_ptr)(l)) >> 16) & 0xffff))
+#define LOBYTE(w)           ((BYTE)(((uint_ptr)(w)) & 0xff))
+#define HIBYTE(w)           ((BYTE)((((uint_ptr)(w)) >> 8) & 0xff))
 
 
 #ifndef WIN_INTERNAL
