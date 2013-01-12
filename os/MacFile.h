@@ -39,7 +39,7 @@ public:
    UINT m_hFile;
    operator HFILE() const;
 
-   virtual dword_ptr GetPosition() const;
+   virtual uint_ptr GetPosition() const;
    WINBOOL GetStatus(ex1::file_status & rStatus) const;
    virtual string GetFileName() const;
    virtual string GetFileTitle() const;
@@ -60,25 +60,25 @@ public:
             const ::ex1::file_status& status);
 */
 
-   dword_ptr seek_to_end();
+   uint_ptr seek_to_end();
    void seek_to_begin();
 
    // backward compatible ReadHuge and WriteHuge
-   dword_ptr ReadHuge(void * lpBuffer, dword_ptr dwCount);
-   void WriteHuge(const void * lpBuffer, dword_ptr dwCount);
+   uint_ptr ReadHuge(void * lpBuffer, uint_ptr dwCount);
+   void WriteHuge(const void * lpBuffer, uint_ptr dwCount);
 
 // Overridables
    virtual ex1::file * Duplicate() const;
 
    virtual int_ptr seek(int_ptr lOff, UINT nFrom);
-   virtual void SetLength(dword_ptr dwNewLen);
-   virtual dword_ptr get_length() const;
+   virtual void SetLength(uint_ptr dwNewLen);
+   virtual uint_ptr get_length() const;
 
-   virtual dword_ptr read(void * lpBuf, dword_ptr nCount);
-   virtual void write(const void * lpBuf, dword_ptr nCount);
+   virtual uint_ptr read(void * lpBuf, uint_ptr nCount);
+   virtual void write(const void * lpBuf, uint_ptr nCount);
 
-   virtual void LockRange(dword_ptr dwPos, dword_ptr dwCount);
-   virtual void UnlockRange(dword_ptr dwPos, dword_ptr dwCount);
+   virtual void LockRange(uint_ptr dwPos, uint_ptr dwCount);
+   virtual void UnlockRange(uint_ptr dwPos, uint_ptr dwCount);
 
    virtual void Abort();
    virtual void Flush();
@@ -93,7 +93,7 @@ public:
    virtual void dump(dump_context & dumpcontext) const;
 #endif
    enum BufferCommand { bufferRead, bufferWrite, bufferCommit, bufferCheck };
-   virtual dword_ptr GetBufferPtr(UINT nCommand, dword_ptr nCount = 0,
+   virtual uint_ptr GetBufferPtr(UINT nCommand, uint_ptr nCount = 0,
       void ** ppBufStart = NULL, void ** ppBufMax = NULL);
 
 protected:
@@ -169,11 +169,11 @@ inline WinFileException::~WinFileException()
 // ex1::filesp
 inline WinFile::operator HFILE() const
    { return m_hFile; }
-inline dword_ptr WinFile::ReadHuge(void * lpBuffer, dword_ptr dwCount)
-   { return (dword_ptr) read(lpBuffer, (UINT)dwCount); }
-inline void WinFile::WriteHuge(const void * lpBuffer, dword_ptr dwCount)
+inline uint_ptr WinFile::ReadHuge(void * lpBuffer, uint_ptr dwCount)
+   { return (uint_ptr) read(lpBuffer, (UINT)dwCount); }
+inline void WinFile::WriteHuge(const void * lpBuffer, uint_ptr dwCount)
    { write(lpBuffer, (UINT)dwCount); }
-inline dword_ptr WinFile::seek_to_end()
+inline uint_ptr WinFile::seek_to_end()
    { return seek(0, WinFile::end); }
 inline void WinFile::seek_to_begin()
    { seek(0, WinFile::begin); }
