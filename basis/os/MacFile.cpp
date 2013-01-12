@@ -183,7 +183,7 @@ WINBOOL WinFile::open(const char * lpszFileName, UINT nOpenFlags, ex1::file_exce
    return TRUE;
 }
 
-dword_ptr WinFile::read(void * lpBuf, dword_ptr nCount)
+uint_ptr WinFile::read(void * lpBuf, uint_ptr nCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -201,7 +201,7 @@ dword_ptr WinFile::read(void * lpBuf, dword_ptr nCount)
    return (UINT)dwRead;
 }
 
-void WinFile::write(const void * lpBuf, dword_ptr nCount)
+void WinFile::write(const void * lpBuf, uint_ptr nCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -239,7 +239,7 @@ int_ptr WinFile::seek(int_ptr lOff, UINT nFrom)
    return dwNew;
 }
 
-dword_ptr WinFile::GetPosition() const
+uint_ptr WinFile::GetPosition() const
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -291,7 +291,7 @@ void WinFile::Abort()
    m_strFileName.Empty();
 }
 
-void WinFile::LockRange(dword_ptr dwPos, dword_ptr dwCount)
+void WinFile::LockRange(uint_ptr dwPos, uint_ptr dwCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -300,7 +300,7 @@ void WinFile::LockRange(dword_ptr dwPos, dword_ptr dwCount)
       WinFileException::ThrowOsError(get_app(), (LONG)::GetLastError());
 }
 
-void WinFile::UnlockRange(dword_ptr dwPos, dword_ptr dwCount)
+void WinFile::UnlockRange(uint_ptr dwPos, uint_ptr dwCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -309,7 +309,7 @@ void WinFile::UnlockRange(dword_ptr dwPos, dword_ptr dwCount)
       WinFileException::ThrowOsError(get_app(), (LONG)::GetLastError());
 }
 
-void WinFile::SetLength(dword_ptr dwNewLen)
+void WinFile::SetLength(uint_ptr dwNewLen)
 {
    ASSERT_VALID(this);
    ASSERT(m_hFile != (UINT)hFileNull);
@@ -320,23 +320,23 @@ void WinFile::SetLength(dword_ptr dwNewLen)
       WinFileException::ThrowOsError(get_app(), (LONG)::GetLastError());
 }
 
-dword_ptr WinFile::get_length() const
+uint_ptr WinFile::get_length() const
 {
    ASSERT_VALID(this);
 
-   dword_ptr dwLen, dwCur;
+   uint_ptr dwLen, dwCur;
 
    // seek is a non const operation
    WinFile* pFile = (WinFile*)this;
    dwCur = pFile->seek(0L, current);
    dwLen = pFile->seek_to_end();
-   VERIFY(dwCur == (dword_ptr)pFile->seek(dwCur, begin));
+   VERIFY(dwCur == (uint_ptr)pFile->seek(dwCur, begin));
 
    return dwLen;
 }
 
 // WinFile does not support direct buffering (CMemFile does)
-dword_ptr WinFile::GetBufferPtr(UINT nCommand, dword_ptr /*nCount*/,
+uint_ptr WinFile::GetBufferPtr(UINT nCommand, uint_ptr /*nCount*/,
    void ** /*ppBufStart*/, void ** /*ppBufMax*/)
 {
    ASSERT(nCommand == bufferCheck);
