@@ -41,8 +41,8 @@
 //
 
 typedef struct _OVERLAPPED {
-    ulong_ptr Internal;
-    ulong_ptr InternalHigh;
+    uint_ptr Internal;
+    uint_ptr InternalHigh;
     union {
         struct {
             DWORD Offset;
@@ -55,9 +55,9 @@ typedef struct _OVERLAPPED {
 } OVERLAPPED, *LPOVERLAPPED;
 
 typedef struct _OVERLAPPED_ENTRY {
-    ulong_ptr lpCompletionKey;
+    uint_ptr lpCompletionKey;
     LPOVERLAPPED lpOverlapped;
-    ulong_ptr Internal;
+    uint_ptr Internal;
     DWORD dwNumberOfBytesTransferred;
 } OVERLAPPED_ENTRY, *LPOVERLAPPED_ENTRY;
 
