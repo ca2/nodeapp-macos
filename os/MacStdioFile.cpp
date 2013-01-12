@@ -99,7 +99,7 @@ WINBOOL WinStdioFile::open(const char * lpszFileName, UINT nOpenFlags,
    return TRUE;
 }
 
-dword_ptr WinStdioFile::read(void * lpBuf, dword_ptr nCount)
+uint_ptr WinStdioFile::read(void * lpBuf, uint_ptr nCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -121,7 +121,7 @@ dword_ptr WinStdioFile::read(void * lpBuf, dword_ptr nCount)
    return nRead;
 }
 
-void WinStdioFile::write(const void * lpBuf, dword_ptr nCount)
+void WinStdioFile::write(const void * lpBuf, uint_ptr nCount)
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -235,7 +235,7 @@ int_ptr WinStdioFile::seek(int_ptr lOff, UINT nFrom)
    return pos;
 }
 
-dword_ptr WinStdioFile::GetPosition() const
+uint_ptr WinStdioFile::GetPosition() const
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -295,7 +295,7 @@ ex1::file * WinStdioFile::Duplicate() const
    return NULL;
 }
 
-void WinStdioFile::LockRange(dword_ptr /* dwPos */, dword_ptr /* dwCount */)
+void WinStdioFile::LockRange(uint_ptr /* dwPos */, uint_ptr /* dwCount */)
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -303,7 +303,7 @@ void WinStdioFile::LockRange(dword_ptr /* dwPos */, dword_ptr /* dwCount */)
    AfxThrowNotSupportedException();
 }
 
-void WinStdioFile::UnlockRange(dword_ptr /* dwPos */, dword_ptr /* dwCount */)
+void WinStdioFile::UnlockRange(uint_ptr /* dwPos */, uint_ptr /* dwCount */)
 {
    ASSERT_VALID(this);
    ASSERT(m_pStream != NULL);
@@ -323,7 +323,7 @@ void WinStdioFile::dump(dump_context & dumpcontext) const
 
 
 
-dword_ptr WinStdioFile::get_length() const
+uint_ptr WinStdioFile::get_length() const
 {
    ASSERT_VALID(this);
 
