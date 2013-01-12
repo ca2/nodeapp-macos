@@ -308,7 +308,7 @@ protected:
    _AFX_THREAD_STATE* m_pThreadState;
 #endif
 
-   ulong_ptr m_ulActCtxCookie;
+   uint_ptr m_ulActCtxCookie;
    WINBOOL m_bValidActCtxCookie;
 };
 #define AFX_MANAGE_STATE(p) _AfxInitManaged(); AFX_MAINTAIN_STATE2 _ctlState(p);
