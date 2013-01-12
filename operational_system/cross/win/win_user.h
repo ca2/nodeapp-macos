@@ -7,13 +7,13 @@ typedef VOID (CALLBACK* TIMERPROC)(oswindow, UINT, uint_ptr, DWORD);
 typedef WINBOOL (CALLBACK* GRAYSTRINGPROC)(HDC, LPARAM, int);
 typedef WINBOOL (CALLBACK* WNDENUMPROC)(oswindow, LPARAM);
 typedef LRESULT (CALLBACK* HOOKPROC)(int code, WPARAM wParam, LPARAM lParam);
-typedef VOID (CALLBACK* SENDASYNCPROC)(oswindow, UINT, ulong_ptr, LRESULT);
+typedef VOID (CALLBACK* SENDASYNCPROC)(oswindow, UINT, uint_ptr, LRESULT);
 
 typedef WINBOOL (CALLBACK* PROPENUMPROCA)(oswindow, LPCSTR, HANDLE);
 typedef WINBOOL (CALLBACK* PROPENUMPROCW)(oswindow, LPCWSTR, HANDLE);
 
-typedef WINBOOL (CALLBACK* PROPENUMPROCEXA)(oswindow, LPSTR, HANDLE, ulong_ptr);
-typedef WINBOOL (CALLBACK* PROPENUMPROCEXW)(oswindow, LPWSTR, HANDLE, ulong_ptr);
+typedef WINBOOL (CALLBACK* PROPENUMPROCEXA)(oswindow, LPSTR, HANDLE, uint_ptr);
+typedef WINBOOL (CALLBACK* PROPENUMPROCEXW)(oswindow, LPWSTR, HANDLE, uint_ptr);
 
 typedef int (CALLBACK* EDITWORDBREAKPROCA)(LPSTR lpch, int ichCurrent, int cch, int code);
 typedef int (CALLBACK* EDITWORDBREAKPROCW)(LPWSTR lpch, int ichCurrent, int cch, int code);
