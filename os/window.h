@@ -427,9 +427,9 @@ namespace win
       afx_msg void OnHelpIndex();     // ID_HELP_INDEX
       afx_msg void OnHelpFinder();    // ID_HELP_FINDER, ID_DEFAULT_HELP
       afx_msg void OnHelpUsing();     // ID_HELP_USING
-      virtual void WinHelp(dword_ptr dwData, UINT nCmd = HELP_CONTEXT);
-      //virtual void HtmlHelp(dword_ptr dwData, UINT nCmd = 0x000F);
-      virtual void WinHelpInternal(dword_ptr dwData, UINT nCmd = HELP_CONTEXT);
+      virtual void WinHelp(uint_ptr dwData, UINT nCmd = HELP_CONTEXT);
+      //virtual void HtmlHelp(uint_ptr dwData, UINT nCmd = 0x000F);
+      virtual void WinHelpInternal(uint_ptr dwData, UINT nCmd = HELP_CONTEXT);
 
    // layout and other functions
    /*   void RepositionBars(const char * pszPrefix, const char * pszIdLeftOver,
@@ -594,7 +594,7 @@ namespace win
       afx_msg void OnSizing(UINT nSide, LPRECT lpRect);
       afx_msg void OnMoving(UINT nSide, LPRECT lpRect);
       afx_msg void OnCaptureChanged(::ca::window * pWnd);
-      afx_msg WINBOOL OnDeviceChange(UINT nEventType, dword_ptr dwData);
+      afx_msg WINBOOL OnDeviceChange(UINT nEventType, uint_ptr dwData);
 
    // Overridables and other helpers (for implementation of derived classes)
       // for deriving from a standard control
