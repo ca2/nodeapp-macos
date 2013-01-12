@@ -13,28 +13,28 @@
 
 
 
-
+/*
 #if defined(__LP64__)
 
     typedef long int_ptr, *pint_ptr;
     typedef unsigned long int uint_ptr, *puint_ptr;
 
-    typedef long long long_ptr, *plong_ptr;
-    typedef unsigned long long ulong_ptr, *pulong_ptr;
+    typedef long long int_ptr, *plong_ptr;
+    typedef unsigned long long uint_ptr, *pulong_ptr;
 
 #else
     typedef int int_ptr, *pint_ptr;
     typedef unsigned int uint_ptr, *puint_ptr;
 
-    typedef long long_ptr, *plong_ptr;
-    typedef unsigned int ulong_ptr, *pulong_ptr;
+    typedef long int_ptr, *plong_ptr;
+    typedef unsigned int uint_ptr, *pulong_ptr;
 #endif
-
+*/
 
 /* Types use for passing & returning polymorphic values */
 typedef uint_ptr            WPARAM;
-typedef long_ptr            LPARAM;
-typedef long_ptr            LRESULT;
+typedef int_ptr            LPARAM;
+typedef int_ptr            LRESULT;
 
 
 //typedef void * HANDLE;
