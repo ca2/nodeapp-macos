@@ -284,7 +284,7 @@ inline void __debug_break() { __asm("int $3"); }
 #define NO_ANSIUNI_ONLY
 #define _MFC_OVERRIDES_NEW
 
-#define MAX_DWORD_PTR ((dword_ptr)(-1))
+#define MAX_DWORD_PTR ((uint_ptr)(-1))
 
 #define TRUE 1
 #define FALSE 0
