@@ -815,7 +815,7 @@ namespace lnx
 #ifdef _WIN32
 //   m_thread = ::CreateThread(NULL, 0, StartThread, this, 0, &m_dwThreadId);
    // create the thread (it may or may not start to run)
-   m_hThread = (HANDLE)(ulong_ptr)_beginthreadex(lpSecurityAttrs, nStackSize,
+   m_hThread = (HANDLE)(uint_ptr)_beginthreadex(lpSecurityAttrs, nStackSize,
       &_AfxThreadEntry, &startup, dwCreateFlags | CREATE_SUSPENDED, (UINT*)&m_nThreadID);
 #else
    pthread_attr_t attr;
@@ -1574,7 +1574,7 @@ void thread::Delete()
 
    void thread::set_os_int(int_ptr iData)
    {
-      m_nThreadID = (dword_ptr) iData;
+      m_nThreadID = (uint_ptr) iData;
    }
 
    void thread::message_window_message_handler(gen::signal_object * pobj)
@@ -2554,7 +2554,7 @@ return FALSE;
 #ifdef _WIN32
 //   m_thread = ::CreateThread(NULL, 0, StartThread, this, 0, &m_dwThreadId);
 // create the thread (it may or may not start to run)
-m_hThread = (HANDLE)(ulong_ptr)_beginthreadex(lpSecurityAttrs, nStackSize,
+m_hThread = (HANDLE)(uint_ptr)_beginthreadex(lpSecurityAttrs, nStackSize,
 &_AfxThreadEntry, &startup, dwCreateFlags | CREATE_SUSPENDED, (UINT*)&m_nThreadID);
 #else
 pthread_attr_t attr;
