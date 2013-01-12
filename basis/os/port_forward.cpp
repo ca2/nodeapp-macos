@@ -1731,7 +1731,7 @@ namespace win
 	
 	   __try
 	   {
-		   RaiseException( 0x406D1388, 0, sizeof(info)/sizeof(DWORD), (ulong_ptr*)&info );
+		   RaiseException( 0x406D1388, 0, sizeof(info)/sizeof(DWORD), (uint_ptr*)&info );
 	   }
 	   __except(EXCEPTION_CONTINUE_EXECUTION)
 	   {
