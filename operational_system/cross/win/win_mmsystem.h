@@ -40,10 +40,10 @@ typedef struct midihdr_tag {
     LPSTR       lpData;               /* pointer to locked data block */
     DWORD       dwBufferLength;       /* length of data in data block */
     DWORD       dwBytesRecorded;      /* used for input only */
-    dword_ptr   dwUser;               /* for client's use */
+    uint_ptr   dwUser;               /* for client's use */
     DWORD       dwFlags;              /* assorted flags (see defines) */
     struct midihdr_tag far *lpNext;   /* reserved for driver */
-    dword_ptr   reserved;             /* reserved for driver */
+    uint_ptr   reserved;             /* reserved for driver */
 #if (WINVER >= 0x0400)
     DWORD       dwOffset;             /* Callback offset into buffer */
     dword_ptr   dwReserved[8];        /* Reserved for MMSYSTEM */
@@ -228,7 +228,7 @@ typedef struct tagMIXERLINEA {
     DWORD       dwSource;               /* zero based source index (if source) */
     DWORD       dwLineID;               /* unique line id for mixer device */
     DWORD       fdwLine;                /* state/information about line */
-    dword_ptr   dwUser;                 /* driver specific information */
+    uint_ptr   dwUser;                 /* driver specific information */
     DWORD       dwComponentType;        /* component type line connects to */
     DWORD       cChannels;              /* number of channels line supports */
     DWORD       cConnections;           /* number of connections [possible] */
@@ -250,7 +250,7 @@ typedef struct tagMIXERLINEW {
     DWORD       dwSource;               /* zero based source index (if source) */
     DWORD       dwLineID;               /* unique line id for mixer device */
     DWORD       fdwLine;                /* state/information about line */
-    dword_ptr   dwUser;                 /* driver specific information */
+    uint_ptr   dwUser;                 /* driver specific information */
     DWORD       dwComponentType;        /* component type line connects to */
     DWORD       cChannels;              /* number of channels line supports */
     DWORD       cConnections;           /* number of connections [possible] */
