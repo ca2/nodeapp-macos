@@ -30,19 +30,19 @@ public:
 #ifdef _DEBUG
    void dump(dump_context & dumpcontext) const;
 #endif
-   virtual dword_ptr GetPosition() const;
+   virtual uint_ptr GetPosition() const;
    virtual WINBOOL open(const char * lpszFileName, UINT nOpenFlags,
       ex1::file_exception_sp * pError = NULL);
-   virtual dword_ptr read(void * lpBuf, dword_ptr nCount);
-   virtual void write(const void * lpBuf, dword_ptr nCount);
+   virtual uint_ptr read(void * lpBuf, uint_ptr nCount);
+   virtual void write(const void * lpBuf, uint_ptr nCount);
    virtual int_ptr seek(int_ptr lOff, UINT nFrom);
    virtual void Abort();
    virtual void Flush();
    virtual void close();
-   virtual dword_ptr get_length() const;
+   virtual uint_ptr get_length() const;
 
    // Unsupported APIs
    virtual ex1::file * Duplicate() const;
-   virtual void LockRange(dword_ptr dwPos, dword_ptr dwCount);
-   virtual void UnlockRange(dword_ptr dwPos, dword_ptr dwCount);
+   virtual void LockRange(uint_ptr dwPos, uint_ptr dwCount);
+   virtual void UnlockRange(uint_ptr dwPos, uint_ptr dwCount);
 };
