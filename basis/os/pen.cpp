@@ -73,7 +73,7 @@ namespace win
       VERIFY(GetObject(sizeof(lp), &lp));
       dumpcontext << "lgpn.lopnStyle = " << lp.lopnStyle;
       dumpcontext << "\nlgpn.lopnWidth.x (width) = " << lp.lopnWidth.x;
-      dumpcontext << "\nlgpn.lopnColor = " << (void *)(dword_ptr)lp.lopnColor;
+      dumpcontext << "\nlgpn.lopnColor = " << (void *)(uint_ptr)lp.lopnColor;
 
       dumpcontext << "\n";
    }
