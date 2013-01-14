@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include <math.h>
 
-namespace win
+namespace mac
 {
 
    //   Creator : El Barto (ef00@luc.ac.be)
@@ -46,7 +46,7 @@ namespace win
    }
 
 
-   CLASS_DECL_VMSWIN void dib::s_initialize()
+   CLASS_DECL_VMSMAC void dib::s_initialize()
    {
       double dCos;
       double dSin;
@@ -159,7 +159,7 @@ namespace win
 
    WINBOOL dib::create(::ca::graphics * pdc)
    {
-      ::ca::bitmap * pbitmap = (dynamic_cast<::win::graphics * >(pdc))->GetCurrentBitmap();
+      ::ca::bitmap * pbitmap = (dynamic_cast<::mac::graphics * >(pdc))->GetCurrentBitmap();
       if(pbitmap == NULL)
          return FALSE;
       BITMAP bm;
@@ -193,7 +193,7 @@ namespace win
    bool dib::to(::ca::graphics * pgraphics, point pt, class size size, point ptSrc)
    {
       return SetDIBitsToDevice(
-         (dynamic_cast<::win::graphics * >(pgraphics))->get_handle1(), 
+         (dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1(), 
          pt.x, pt.y, 
          size.cx, size.cy, 
          ptSrc.x, ptSrc.y, ptSrc.y, m_size.cy - ptSrc.y, 
