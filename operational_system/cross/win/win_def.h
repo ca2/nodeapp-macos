@@ -227,8 +227,8 @@ DECLARE_HANDLE(HBRUSH);
 #endif
 #if(WINVER >= 0x0400)
 DECLARE_HANDLE(HCOLORSPACE);
-#endif /* WINVER >= 0x0400 */
-/*#if !defined(_MAC) || !defined(GDI_INTERNAL)
+#endif  WINVER >= 0x0400 
+ #if !defined(_MAC) || !defined(GDI_INTERNAL)
 DECLARE_HANDLE(HDC);
 #endif
 DECLARE_HANDLE(HGLRC);          // OpenGL
@@ -259,21 +259,21 @@ DECLARE_HANDLE(HKL);
 
 #if(WINVER >= 0x0400)
 DECLARE_HANDLE(HWINEVENTHOOK);
-#endif /* WINVER >= 0x0400 */
+#endif  WINVER >= 0x0400 */
 
 /*#if(WINVER >= 0x0500)
 #ifndef _MAC
 DECLARE_HANDLE(HMONITOR);
 #endif
 DECLARE_HANDLE(HUMPD);
-#endif /* WINVER >= 0x0500 */
+#endif  WINVER >= 0x0500 */
 
 /*#ifndef _MAC
 typedef int HFILE;
-typedef HICON HCURSOR;      /* HICONs & HCURSORs are polymorphic */
+typedef HICON HCURSOR;       HICONs & HCURSORs are polymorphic 
 //#else
 //typedef short HFILE;
-//DECLARE_HANDLE(HCURSOR);    /* HICONs & HCURSORs are not polymorphic */
+//DECLARE_HANDLE(HCURSOR);     HICONs & HCURSORs are not polymorphic */
 //#endif
 
 typedef DWORD   COLORREF;
