@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
 
    // graphics
@@ -16,7 +16,7 @@ namespace win
 
    ::ca::window * graphics::GetWindow() const
    { 
-      ASSERT(get_handle1() != NULL); return ::win::window::from_handle(::WindowFromDC(get_handle1())); 
+      ASSERT(get_handle1() != NULL); return ::mac::window::from_handle(::WindowFromDC(get_handle1())); 
    }
    
    WINBOOL graphics::IsPrinting() const
@@ -43,7 +43,7 @@ namespace win
       }
       else
       {
-         return Attach(::CreateCompatibleDC((HDC)(dynamic_cast<::win::graphics * >(pgraphics))->get_handle1())); 
+         return Attach(::CreateCompatibleDC((HDC)(dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1())); 
       }
    }
 
@@ -598,15 +598,15 @@ namespace win
    WINBOOL graphics::GetColorAdjustment(LPCOLORADJUSTMENT lpColorAdjust) const
    { ASSERT(get_handle2() != NULL); return ::GetColorAdjustment(get_handle2(), lpColorAdjust); }
    ::ca::pen* graphics::GetCurrentPen() const
-   { ASSERT(get_handle2() != NULL); return ::win::pen::from_handle(get_app(), (HPEN)::GetCurrentObject(get_handle2(), OBJ_PEN)); }
+   { ASSERT(get_handle2() != NULL); return ::mac::pen::from_handle(get_app(), (HPEN)::GetCurrentObject(get_handle2(), OBJ_PEN)); }
    ::ca::brush* graphics::GetCurrentBrush() const
-   { ASSERT(get_handle2() != NULL); return ::win::brush::from_handle(get_app(), (HBRUSH)::GetCurrentObject(get_handle2(), OBJ_BRUSH)); }
+   { ASSERT(get_handle2() != NULL); return ::mac::brush::from_handle(get_app(), (HBRUSH)::GetCurrentObject(get_handle2(), OBJ_BRUSH)); }
    ::ca::palette* graphics::GetCurrentPalette() const
-   { ASSERT(get_handle2() != NULL); return ::win::palette::from_handle(get_app(), (HPALETTE)::GetCurrentObject(get_handle2(), OBJ_PAL)); }
+   { ASSERT(get_handle2() != NULL); return ::mac::palette::from_handle(get_app(), (HPALETTE)::GetCurrentObject(get_handle2(), OBJ_PAL)); }
    ::ca::font* graphics::GetCurrentFont() const
-   { ASSERT(get_handle2() != NULL); return ::win::font::from_handle(get_app(), (HFONT)::GetCurrentObject(get_handle2(), OBJ_FONT)); }
+   { ASSERT(get_handle2() != NULL); return ::mac::font::from_handle(get_app(), (HFONT)::GetCurrentObject(get_handle2(), OBJ_FONT)); }
    ::ca::bitmap* graphics::GetCurrentBitmap() const
-   { ASSERT(get_handle2() != NULL); return ::win::bitmap::from_handle(get_app(), (HBITMAP)::GetCurrentObject(get_handle2(), OBJ_BITMAP)); }
+   { ASSERT(get_handle2() != NULL); return ::mac::bitmap::from_handle(get_app(), (HBITMAP)::GetCurrentObject(get_handle2(), OBJ_BITMAP)); }
    WINBOOL graphics::PolyBezier(const POINT* lpPoints, int nCount)
    { ASSERT(get_handle1() != NULL); return ::PolyBezier(get_handle1(), lpPoints, nCount); }
 
@@ -873,7 +873,7 @@ namespace win
          _afxWingdixTerm = (char)!atexit(&AfxWingdixTerm);
       AfxUnlockGlobals(CRIT_HALFTONEBRUSH);
 
-      return ::win::brush::from_handle(papp, _afxHalftoneBrush);
+      return ::mac::brush::from_handle(papp, _afxHalftoneBrush);
    }
 
    void graphics::DrawDragRect(LPCRECT lpRect, SIZE size,
@@ -1025,12 +1025,12 @@ namespace win
 #endif //_DEBUG
 
 
-   ::ca::graphics * PASCAL ::win::graphics::from_handle(HDC hDC)
+   ::ca::graphics * PASCAL ::mac::graphics::from_handle(HDC hDC)
    {
       hdc_map* pMap = afxMapHDC(TRUE); //create ::collection::map if not exist
       ASSERT(pMap != NULL);
       ::ca::graphics * pgraphics = (::ca::graphics *)pMap->from_handle(hDC);
-      ASSERT(pgraphics == NULL || (dynamic_cast<::win::graphics * >(pgraphics))->get_handle1() == hDC);
+      ASSERT(pgraphics == NULL || (dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1() == hDC);
       return pgraphics;
    }
 
@@ -1153,7 +1153,7 @@ namespace win
 
    ::ca::graphics_object* PASCAL graphics::SelectGdiObject(::ca::application * papp, HDC hDC, HGDIOBJ h)
    {
-      return ::win::graphics_object::from_handle(papp, ::SelectObject(hDC, h));
+      return ::mac::graphics_object::from_handle(papp, ::SelectObject(hDC, h));
    }
 
    ::ca::graphics_object* graphics::SelectStockObject(int nIndex)
@@ -1165,7 +1165,7 @@ namespace win
          hOldObj = ::SelectObject(get_handle1(), hObject);
       if(get_handle2() != NULL)
          hOldObj = ::SelectObject(get_handle2(), hObject);
-      return ::win::graphics_object::from_handle(get_app(), hOldObj);
+      return ::mac::graphics_object::from_handle(get_app(), hOldObj);
    }
 
    ::ca::pen* graphics::SelectObject(::ca::pen* pPen)
@@ -1177,7 +1177,7 @@ namespace win
          hOldObj = ::SelectObject(get_handle1(), pPen->get_os_data());
       if(get_handle2() != NULL)
          hOldObj = ::SelectObject(get_handle2(), pPen->get_os_data());
-      return dynamic_cast < pen * > (::win::graphics_object::from_handle(get_app(), hOldObj));
+      return dynamic_cast < pen * > (::mac::graphics_object::from_handle(get_app(), hOldObj));
    }
 
    ::ca::brush* graphics::SelectObject(::ca::brush* pBrush)
@@ -1189,7 +1189,7 @@ namespace win
          hOldObj = ::SelectObject(get_handle1(), pBrush->get_os_data());
       if(get_handle2() != NULL)
          hOldObj = ::SelectObject(get_handle2(), pBrush->get_os_data());
-      return dynamic_cast < ::ca::brush * > (::win::graphics_object::from_handle(get_app(), hOldObj));
+      return dynamic_cast < ::ca::brush * > (::mac::graphics_object::from_handle(get_app(), hOldObj));
    }
 
    ::ca::font* graphics::SelectObject(::ca::font* pFont)
@@ -1201,7 +1201,7 @@ namespace win
          hOldObj = ::SelectObject(get_handle1(), pFont->get_os_data());
       if(get_handle2() != NULL)
          hOldObj = ::SelectObject(get_handle2(), pFont->get_os_data());
-      return dynamic_cast < ::ca::font * > (::win::graphics_object::from_handle(get_app(), hOldObj));
+      return dynamic_cast < ::ca::font * > (::mac::graphics_object::from_handle(get_app(), hOldObj));
    }
 
    int graphics::SelectObject(::ca::rgn* pRgn)
@@ -1216,7 +1216,7 @@ namespace win
 
    ::ca::palette* graphics::SelectPalette(::ca::palette* pPalette, WINBOOL bForceBackground)
    {
-      return dynamic_cast < ::ca::palette * > (::win::graphics_object::from_handle(get_app(), ::SelectPalette(get_handle1(), (HPALETTE)pPalette->get_os_data(), bForceBackground)));
+      return dynamic_cast < ::ca::palette * > (::mac::graphics_object::from_handle(get_app(), ::SelectPalette(get_handle1(), (HPALETTE)pPalette->get_os_data(), bForceBackground)));
    }
 
    COLORREF graphics::SetBkColor(COLORREF crColor)
@@ -1731,49 +1731,49 @@ namespace win
       {
          // these records have effects different for each graphics derived class
       case META_SETMAPMODE:
-         (dynamic_cast<::win::graphics * >(pgraphics))->SetMapMode((int)(short)pMetaRec->rdParm[0]);
+         (dynamic_cast<::mac::graphics * >(pgraphics))->SetMapMode((int)(short)pMetaRec->rdParm[0]);
          break;
       case META_SETWINDOWEXT:
-         (dynamic_cast<::win::graphics * >(pgraphics))->SetWindowExt(
+         (dynamic_cast<::mac::graphics * >(pgraphics))->SetWindowExt(
             (int)(short)pMetaRec->rdParm[1], (int)(short)pMetaRec->rdParm[0]);
          break;
       case META_SETWINDOWORG:
-         (dynamic_cast<::win::graphics * >(pgraphics))->SetWindowOrg(
+         (dynamic_cast<::mac::graphics * >(pgraphics))->SetWindowOrg(
             (int)(short)pMetaRec->rdParm[1], (int)(short)pMetaRec->rdParm[0]);
          break;
       case META_SETVIEWPORTEXT:
-         (dynamic_cast<::win::graphics * >(pgraphics))->SetViewportExt(
+         (dynamic_cast<::mac::graphics * >(pgraphics))->SetViewportExt(
             (int)(short)pMetaRec->rdParm[1], (int)(short)pMetaRec->rdParm[0]);
          break;
       case META_SETVIEWPORTORG:
-         (dynamic_cast<::win::graphics * >(pgraphics))->SetViewportOrg(
+         (dynamic_cast<::mac::graphics * >(pgraphics))->SetViewportOrg(
             (int)(short)pMetaRec->rdParm[1], (int)(short)pMetaRec->rdParm[0]);
          break;
       case META_SCALEWINDOWEXT:
-         (dynamic_cast<::win::graphics * >(pgraphics))->ScaleWindowExt(
+         (dynamic_cast<::mac::graphics * >(pgraphics))->ScaleWindowExt(
             (int)(short)pMetaRec->rdParm[3], (int)(short)pMetaRec->rdParm[2],
             (int)(short)pMetaRec->rdParm[1], (int)(short)pMetaRec->rdParm[0]);
          break;
       case META_SCALEVIEWPORTEXT:
-         (dynamic_cast<::win::graphics * >(pgraphics))->ScaleViewportExt(
+         (dynamic_cast<::mac::graphics * >(pgraphics))->ScaleViewportExt(
             (int)(short)pMetaRec->rdParm[3], (int)(short)pMetaRec->rdParm[2],
             (int)(short)pMetaRec->rdParm[1], (int)(short)pMetaRec->rdParm[0]);
          break;
       case META_OFFSETVIEWPORTORG:
-         (dynamic_cast<::win::graphics * >(pgraphics))->OffsetViewportOrg(
+         (dynamic_cast<::mac::graphics * >(pgraphics))->OffsetViewportOrg(
             (int)(short)pMetaRec->rdParm[1], (int)(short)pMetaRec->rdParm[0]);
          break;
       case META_SAVEDC:
-         (dynamic_cast<::win::graphics * >(pgraphics))->SaveDC();
+         (dynamic_cast<::mac::graphics * >(pgraphics))->SaveDC();
          break;
       case META_RESTOREDC:
-         (dynamic_cast<::win::graphics * >(pgraphics))->RestoreDC((int)(short)pMetaRec->rdParm[0]);
+         (dynamic_cast<::mac::graphics * >(pgraphics))->RestoreDC((int)(short)pMetaRec->rdParm[0]);
          break;
       case META_SETBKCOLOR:
-         (dynamic_cast<::win::graphics * >(pgraphics))->SetBkColor(*(UNALIGNED COLORREF*)&pMetaRec->rdParm[0]);
+         (dynamic_cast<::mac::graphics * >(pgraphics))->SetBkColor(*(UNALIGNED COLORREF*)&pMetaRec->rdParm[0]);
          break;
       case META_SETTEXTCOLOR:
-         (dynamic_cast<::win::graphics * >(pgraphics))->SetTextColor(*(UNALIGNED COLORREF*)&pMetaRec->rdParm[0]);
+         (dynamic_cast<::mac::graphics * >(pgraphics))->SetTextColor(*(UNALIGNED COLORREF*)&pMetaRec->rdParm[0]);
          break;
 
          // need to watch out for SelectObject(HFONT), for custom font mapping
@@ -1785,26 +1785,26 @@ namespace win
             {
                // object type is unknown, determine if it is a font
                HFONT hStockFont = (HFONT)::GetStockObject(SYSTEM_FONT);
-               HFONT hFontOld = (HFONT)::SelectObject((dynamic_cast<::win::graphics * >(pgraphics))->get_handle1(), hStockFont);
-               HGDIOBJ hObjOld = ::SelectObject((dynamic_cast<::win::graphics * >(pgraphics))->get_handle1(), hObject);
+               HFONT hFontOld = (HFONT)::SelectObject((dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1(), hStockFont);
+               HGDIOBJ hObjOld = ::SelectObject((dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1(), hObject);
                if (hObjOld == hStockFont)
                {
                   // got the stock object back, so must be selecting a font
-                  (dynamic_cast<::win::graphics * >(pgraphics))->SelectObject(::win::font::from_handle(pgraphics->get_app(), (HFONT)hObject));
+                  (dynamic_cast<::mac::graphics * >(pgraphics))->SelectObject(::mac::font::from_handle(pgraphics->get_app(), (HFONT)hObject));
                   break;  // don't play the default record
                }
                else
                {
                   // didn't get the stock object back, so restore everything
-                  ::SelectObject((dynamic_cast<::win::graphics * >(pgraphics))->get_handle1(), hFontOld);
-                  ::SelectObject((dynamic_cast<::win::graphics * >(pgraphics))->get_handle1(), hObjOld);
+                  ::SelectObject((dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1(), hFontOld);
+                  ::SelectObject((dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1(), hObjOld);
                }
                // and fall through to PlayMetaFileRecord...
             }
             else if (nObjType == OBJ_FONT)
             {
                // play back as graphics::SelectObject(::ca::font*)
-               (dynamic_cast<::win::graphics * >(pgraphics))->SelectObject(::win::font::from_handle(pgraphics->get_app(), (HFONT)hObject));
+               (dynamic_cast<::mac::graphics * >(pgraphics))->SelectObject(::mac::font::from_handle(pgraphics->get_app(), (HFONT)hObject));
                break;  // don't play the default record
             }
          }
@@ -2079,19 +2079,19 @@ namespace win
 
 
    // resource failure
-   void CLASS_DECL_VMSWIN AfxThrowResourceException()
+   void CLASS_DECL_VMSMAC AfxThrowResourceException()
    {
       throw resource_exception();
    }
 
    // ::fontopus::user alert
-   void CLASS_DECL_VMSWIN AfxThrowUserException()
+   void CLASS_DECL_VMSMAC AfxThrowUserException()
    {
       throw user_exception();
    }
 
    /////////////////////////////////////////////////////////////////////////////
-} // namespace win
+} // namespace mac
 
 
 
