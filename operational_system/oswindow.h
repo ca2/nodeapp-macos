@@ -136,4 +136,14 @@ public:
     ::user::interaction * get_user_interaction() const;
    
    
+   
+   oswindow get_parent();
+   oswindow set_parent(oswindow oswindowNewParent);
+   
 };
+
+inline oswindow GetParent(::oswindow oswindow)
+{
+   return oswindow.get_parent();
+}
+
