@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
 
    rgn::rgn(::ca::application * papp) :
@@ -14,7 +14,7 @@ namespace win
    }
    rgn* PASCAL rgn::from_handle(::ca::application * papp, HRGN hRgn)
    { 
-      return dynamic_cast < rgn * > (::win::graphics_object::from_handle(papp, hRgn));
+      return dynamic_cast < rgn * > (::mac::graphics_object::from_handle(papp, hRgn));
    }
    WINBOOL rgn::CreateRectRgn(int x1, int y1, int x2, int y2)
    { return Attach(::CreateRectRgn(x1, y1, x2, y2)); }
@@ -31,7 +31,7 @@ namespace win
    WINBOOL rgn::CreateRoundRectRgn(int x1, int y1, int x2, int y2, int x3, int y3)
    { return Attach(::CreateRoundRectRgn(x1, y1, x2, y2, x3, y3)); }
    WINBOOL rgn::CreateFromPath(::ca::graphics * pgraphics)
-   { ASSERT(pgraphics != NULL); return Attach(::PathToRegion((dynamic_cast<::win::graphics * >(pgraphics))->get_handle1())); }
+   { ASSERT(pgraphics != NULL); return Attach(::PathToRegion((dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1())); }
    WINBOOL rgn::CreateFromData(const XFORM* lpXForm, int nCount, const RGNDATA* pRgnData)
    { return Attach(::ExtCreateRegion(lpXForm, nCount, pRgnData)); }
    int rgn::GetRegionData(LPRGNDATA lpRgnData, int nDataSize) const
@@ -64,4 +64,4 @@ namespace win
    WINBOOL rgn::RectInRegion(LPCRECT lpRect) const
    { ASSERT(get_os_data() != NULL); return ::RectInRegion((HRGN)get_os_data(), lpRect); }
 
-} // namespace win
+} // namespace mac
