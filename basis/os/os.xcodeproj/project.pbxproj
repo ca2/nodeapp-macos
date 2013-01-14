@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1B496416A494A600875A94 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496316A494A600875A94 /* framework.h */; };
+		9A1B496716A4A10100875A94 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B496616A4A10100875A94 /* framework.cpp */; };
+		9A1B496916A4A32500875A94 /* mac1.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496816A4A32500875A94 /* mac1.h */; };
 		A1CFD8F9154FB715007447E2 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87D154FB715007447E2 /* _.h */; };
 		A1CFD8FA154FB715007447E2 /* bare_operational_system.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87E154FB715007447E2 /* bare_operational_system.h */; };
 		A1CFD8FB154FB715007447E2 /* ca2.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87F154FB715007447E2 /* ca2.h */; };
@@ -108,8 +111,6 @@
 		A1CFD95C154FB715007447E2 /* thread_local_storage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8EB154FB715007447E2 /* thread_local_storage.cpp */; };
 		A1CFD95D154FB715007447E2 /* thread_slots.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8EC154FB715007447E2 /* thread_slots.h */; };
 		A1CFD95E154FB715007447E2 /* trace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8ED154FB715007447E2 /* trace.cpp */; };
-		A1CFD95F154FB715007447E2 /* UACTools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8EE154FB715007447E2 /* UACTools.cpp */; };
-		A1CFD960154FB715007447E2 /* UACTools.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8EF154FB715007447E2 /* UACTools.h */; };
 		A1CFD961154FB715007447E2 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8F0154FB715007447E2 /* util.cpp */; };
 		A1CFD962154FB715007447E2 /* WFileFind.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8F1154FB715007447E2 /* WFileFind.cpp */; };
 		A1CFD963154FB715007447E2 /* WFileFind.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8F2154FB715007447E2 /* WFileFind.h */; };
@@ -124,6 +125,9 @@
 
 /* Begin PBXFileReference section */
 		07401ECC164632BB00F5D0F3 /* oswindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oswindow.h; sourceTree = "<group>"; };
+		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
+		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		9A1B496816A4A32500875A94 /* mac1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac1.h; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CFD87D154FB715007447E2 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		A1CFD87E154FB715007447E2 /* bare_operational_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bare_operational_system.h; sourceTree = "<group>"; };
@@ -165,7 +169,6 @@
 		A1CFD8A5154FB715007447E2 /* dib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dib.cpp; sourceTree = "<group>"; };
 		A1CFD8A6154FB715007447E2 /* dib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dib.h; sourceTree = "<group>"; };
 		A1CFD8A7154FB715007447E2 /* dir.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dir.cpp; sourceTree = "<group>"; };
-		A1CFD8A8154FB715007447E2 /* dir.cpp.cbTemp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dir.cpp.cbTemp; sourceTree = "<group>"; };
 		A1CFD8A9154FB715007447E2 /* dir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dir.h; sourceTree = "<group>"; };
 		A1CFD8AA154FB715007447E2 /* draw_dib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw_dib.cpp; sourceTree = "<group>"; };
 		A1CFD8AB154FB715007447E2 /* draw_dib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw_dib.h; sourceTree = "<group>"; };
@@ -208,9 +211,6 @@
 		A1CFD8D3154FB715007447E2 /* MacosShell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MacosShell.cpp; sourceTree = "<group>"; };
 		A1CFD8D4154FB715007447E2 /* MacosShell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacosShell.h; sourceTree = "<group>"; };
 		A1CFD8D5154FB715007447E2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A1CFD8D6154FB715007447E2 /* os.cbp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = os.cbp; sourceTree = "<group>"; };
-		A1CFD8D7154FB715007447E2 /* os.layout */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = os.layout; sourceTree = "<group>"; };
-		A1CFD8D8154FB715007447E2 /* os.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = os.xcodeproj; sourceTree = "<group>"; };
 		A1CFD8DB154FB715007447E2 /* osi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = osi.cpp; sourceTree = "<group>"; };
 		A1CFD8DC154FB715007447E2 /* osi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = osi.h; sourceTree = "<group>"; };
 		A1CFD8DD154FB715007447E2 /* palette.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = palette.cpp; sourceTree = "<group>"; };
@@ -230,8 +230,6 @@
 		A1CFD8EB154FB715007447E2 /* thread_local_storage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread_local_storage.cpp; sourceTree = "<group>"; };
 		A1CFD8EC154FB715007447E2 /* thread_slots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread_slots.h; sourceTree = "<group>"; };
 		A1CFD8ED154FB715007447E2 /* trace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = trace.cpp; sourceTree = "<group>"; };
-		A1CFD8EE154FB715007447E2 /* UACTools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UACTools.cpp; sourceTree = "<group>"; };
-		A1CFD8EF154FB715007447E2 /* UACTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACTools.h; sourceTree = "<group>"; };
 		A1CFD8F0154FB715007447E2 /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
 		A1CFD8F1154FB715007447E2 /* WFileFind.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WFileFind.cpp; sourceTree = "<group>"; };
 		A1CFD8F2154FB715007447E2 /* WFileFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFileFind.h; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 		A1CFD8F4154FB715007447E2 /* window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
 		A1CFD8F5154FB715007447E2 /* window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
 		A1CFD8F6154FB715007447E2 /* window_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window_draw.cpp; sourceTree = "<group>"; };
-		A1CFD8F7154FB715007447E2 /* window_draw.cpp.cbTemp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = window_draw.cpp.cbTemp; sourceTree = "<group>"; };
 		A1CFD8F8154FB715007447E2 /* window_draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window_draw.h; sourceTree = "<group>"; };
 		A1CFD969154FB864007447E2 /* c.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = c.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE980ABF15667BEF00CD7C45 /* ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = ca.dylib; path = ../../app/appseed/ca/build/Release/ca.dylib; sourceTree = "<group>"; };
@@ -328,6 +325,8 @@
 		A1CFD896154FB715007447E2 /* os */ = {
 			isa = PBXGroup;
 			children = (
+				9A1B496816A4A32500875A94 /* mac1.h */,
+				9A1B496316A494A600875A94 /* framework.h */,
 				A1CFD897154FB715007447E2 /* afxabort.cpp */,
 				A1CFD898154FB715007447E2 /* AfxImpl.H */,
 				A1CFD899154FB715007447E2 /* afxmem.cpp */,
@@ -345,7 +344,6 @@
 				A1CFD8A5154FB715007447E2 /* dib.cpp */,
 				A1CFD8A6154FB715007447E2 /* dib.h */,
 				A1CFD8A7154FB715007447E2 /* dir.cpp */,
-				A1CFD8A8154FB715007447E2 /* dir.cpp.cbTemp */,
 				A1CFD8A9154FB715007447E2 /* dir.h */,
 				A1CFD8AA154FB715007447E2 /* draw_dib.cpp */,
 				A1CFD8AB154FB715007447E2 /* draw_dib.h */,
@@ -387,9 +385,6 @@
 				A1CFD8D3154FB715007447E2 /* MacosShell.cpp */,
 				A1CFD8D4154FB715007447E2 /* MacosShell.h */,
 				A1CFD8D5154FB715007447E2 /* main.cpp */,
-				A1CFD8D6154FB715007447E2 /* os.cbp */,
-				A1CFD8D7154FB715007447E2 /* os.layout */,
-				A1CFD8D8154FB715007447E2 /* os.xcodeproj */,
 				A1CFD8DB154FB715007447E2 /* osi.cpp */,
 				A1CFD8DC154FB715007447E2 /* osi.h */,
 				A1CFD8DD154FB715007447E2 /* palette.cpp */,
@@ -409,8 +404,6 @@
 				A1CFD8EB154FB715007447E2 /* thread_local_storage.cpp */,
 				A1CFD8EC154FB715007447E2 /* thread_slots.h */,
 				A1CFD8ED154FB715007447E2 /* trace.cpp */,
-				A1CFD8EE154FB715007447E2 /* UACTools.cpp */,
-				A1CFD8EF154FB715007447E2 /* UACTools.h */,
 				A1CFD8F0154FB715007447E2 /* util.cpp */,
 				A1CFD8F1154FB715007447E2 /* WFileFind.cpp */,
 				A1CFD8F2154FB715007447E2 /* WFileFind.h */,
@@ -418,8 +411,8 @@
 				A1CFD8F4154FB715007447E2 /* window.cpp */,
 				A1CFD8F5154FB715007447E2 /* window.h */,
 				A1CFD8F6154FB715007447E2 /* window_draw.cpp */,
-				A1CFD8F7154FB715007447E2 /* window_draw.cpp.cbTemp */,
 				A1CFD8F8154FB715007447E2 /* window_draw.h */,
+				9A1B496616A4A10100875A94 /* framework.cpp */,
 			);
 			name = os;
 			sourceTree = "<group>";
@@ -431,11 +424,6 @@
 				A1CFD8BF154FB715007447E2 /* LocalMemory.h */,
 			);
 			path = Kerr;
-			sourceTree = "<group>";
-		};
-		A1CFD8D9154FB715007447E2 /* Products */ = {
-			isa = PBXGroup;
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,10 +490,11 @@
 				A1CFD959154FB715007447E2 /* StdAfx.h in Headers */,
 				A1CFD95B154FB715007447E2 /* thread.h in Headers */,
 				A1CFD95D154FB715007447E2 /* thread_slots.h in Headers */,
-				A1CFD960154FB715007447E2 /* UACTools.h in Headers */,
 				A1CFD963154FB715007447E2 /* WFileFind.h in Headers */,
 				A1CFD966154FB715007447E2 /* window.h in Headers */,
 				A1CFD968154FB715007447E2 /* window_draw.h in Headers */,
+				9A1B496416A494A600875A94 /* framework.h in Headers */,
+				9A1B496916A4A32500875A94 /* mac1.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,12 +537,6 @@
 			mainGroup = A1CFD76D154F5EA7007447E2;
 			productRefGroup = A1CFD779154F5EAA007447E2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = A1CFD8D9154FB715007447E2 /* Products */;
-					ProjectRef = A1CFD8D8154FB715007447E2 /* os.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				A1CFD777154F5EAA007447E2 /* os */,
@@ -610,12 +593,12 @@
 				A1CFD95A154FB715007447E2 /* thread.cpp in Sources */,
 				A1CFD95C154FB715007447E2 /* thread_local_storage.cpp in Sources */,
 				A1CFD95E154FB715007447E2 /* trace.cpp in Sources */,
-				A1CFD95F154FB715007447E2 /* UACTools.cpp in Sources */,
 				A1CFD961154FB715007447E2 /* util.cpp in Sources */,
 				A1CFD962154FB715007447E2 /* WFileFind.cpp in Sources */,
 				A1CFD964154FB715007447E2 /* win1.cpp in Sources */,
 				A1CFD965154FB715007447E2 /* window.cpp in Sources */,
 				A1CFD967154FB715007447E2 /* window_draw.cpp in Sources */,
+				9A1B496716A4A10100875A94 /* framework.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,11 +626,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../nodeapp/appseed/openssl/include";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
-				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/ca $(WorkspaceDir)/../../../app/appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				WorkspaceDir = "$(SRCROOT)/../seed/metaseed";
 			};
 			name = Debug;
 		};
@@ -666,10 +650,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../nodeapp/appseed/openssl/include";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
-				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/ca $(WorkspaceDir)/../../../app/appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				WorkspaceDir = "$(SRCROOT)/../seed/metaseed";
 			};
 			name = Release;
 		};
@@ -681,8 +666,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = framework.h;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
-				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
 			};
 			name = Debug;
 		};
@@ -694,8 +677,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = framework.h;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../appseed/ca $(WorkspaceDir)/../../appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../..";
-				WorkspaceDir = "$(SRCROOT)/../../app/seed/macseed";
 			};
 			name = Release;
 		};
