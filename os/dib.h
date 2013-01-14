@@ -1,6 +1,6 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
    //////////////////////////////////////////////////////////////////////
@@ -9,7 +9,7 @@ namespace win
    //   Date : 09-04-98
    //////////////////////////////////////////////////////////////////////
 
-   class CLASS_DECL_VMSWIN dib :
+   class CLASS_DECL_VMSMAC dib :
       virtual public ::ca::dib
    {
    public:
@@ -147,4 +147,4 @@ namespace win
       double pi();
    };
 
-} // namespace win
+} // namespace mac
