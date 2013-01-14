@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
 
    folder_watch::folder_watch(::ca::application * papp) :
@@ -89,4 +89,4 @@ namespace win
    }
 
 
-} // namespace win
+} // namespace mac
