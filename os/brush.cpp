@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
 
    brush::brush(::ca::application * papp) :
@@ -19,7 +19,7 @@ namespace win
    }
     brush* PASCAL brush::from_handle(::ca::application * papp, HBRUSH hBrush)
    {
-      return dynamic_cast < brush * > (::win::graphics_object::from_handle(papp, hBrush));
+      return dynamic_cast < brush * > (::mac::graphics_object::from_handle(papp, hBrush));
    }
     WINBOOL brush::CreateSolidBrush(COLORREF crColor)
       { return Attach(::CreateSolidBrush(crColor)); }
@@ -102,4 +102,4 @@ namespace win
 
 
 
-} // namespace win
+} // namespace mac
