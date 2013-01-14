@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
 
    pen::pen(::ca::application * papp) :
@@ -16,7 +16,7 @@ namespace win
    }
    pen* PASCAL pen::from_handle(::ca::application * papp, HPEN hPen)
    { 
-      return dynamic_cast < pen* > (::win::graphics_object::from_handle(papp, hPen));
+      return dynamic_cast < pen* > (::mac::graphics_object::from_handle(papp, hPen));
    }
    WINBOOL pen::CreatePen(int nPenStyle, int nWidth, COLORREF crColor)
    { return Attach(::CreatePen(nPenStyle, nWidth, crColor)); }
@@ -106,4 +106,4 @@ namespace win
 
 
 
-} // namespace win
+} // namespace mac
