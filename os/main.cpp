@@ -7,7 +7,7 @@ CLASS_DECL_ca int ca2_main();
 
 //CLASS_DECL_ca fixed_alloc_array * new_wstring_manager();
 
-void CLASS_DECL_VMSWIN __cdecl _ca2_purecall(void)
+void CLASS_DECL_VMSMAC __cdecl _ca2_purecall(void)
 {
     throw simple_exception();
 }
@@ -23,7 +23,7 @@ void __cdecl _null_se_translator(unsigned int uiCode, EXCEPTION_POINTERS * ppoin
 // Standard WinMain implementation
 //  Can be replaced as long as 'AfxWinInit' is called first
 
-int CLASS_DECL_VMSWIN AfxWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
+int CLASS_DECL_VMSMAC AfxWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
    _set_purecall_handler(_ca2_purecall);
 
@@ -38,7 +38,7 @@ int CLASS_DECL_VMSWIN AfxWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, L
 
    int nReturnCode = 0;
 
-   ::win::main_init_data * pinitmaindata  = new ::win::main_init_data;
+   ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
 
    pinitmaindata->m_hInstance             = hInstance;
    pinitmaindata->m_hPrevInstance         = hPrevInstance;
