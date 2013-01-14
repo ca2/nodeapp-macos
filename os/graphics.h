@@ -1,9 +1,9 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN graphics : 
+   class CLASS_DECL_VMSMAC graphics : 
       virtual public ::ca::graphics,
       virtual public hdc_handle
    {
@@ -451,4 +451,4 @@ namespace win
       static ::ca::graphics_object* PASCAL SelectGdiObject(::ca::application * papp, HDC hDC, HGDIOBJ h);
    };
 
-} // namespace win
+} // namespace mac
