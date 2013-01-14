@@ -37041,7 +37041,7 @@ typedef __success(return >= 0) long HRESULT;
 //
 // MessageText:
 //
-// This is an error mask to convert TPM hardware errors to win errors.
+// This is an error mask to convert TPM hardware errors to mac errors.
 //
 #define TPM_E_ERROR_MASK                 _HRESULT_TYPEDEF_(0x80280000L)
 
