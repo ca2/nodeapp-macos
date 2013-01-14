@@ -151,7 +151,7 @@ bool WinResource::ReadResource(
 //} //namespace gen
 
 
-HINSTANCE CLASS_DECL_VMSWIN vfxFindResourceHandle(const char * lpszName, const char * lpszType)
+HINSTANCE CLASS_DECL_VMSMAC vfxFindResourceHandle(const char * lpszName, const char * lpszType)
 {
    ASSERT(lpszName != NULL);
    ASSERT(lpszType != NULL);
@@ -211,10 +211,10 @@ HINSTANCE CLASS_DECL_VMSWIN vfxFindResourceHandle(const char * lpszName, const c
    AfxUnlockGlobals(CRIT_DYNLINKLIST);
 
    // if failed to find resource, return application resource
-   return CaSys(::win::get_thread()).m_hInstance;
+   return CaSys(::mac::get_thread()).m_hInstance;
 }
 
-/*HINSTANCE CLASS_DECL_VMSWIN vfxFindResourceHandle(const char * lpszName, const char * lpszType)
+/*HINSTANCE CLASS_DECL_VMSMAC vfxFindResourceHandle(const char * lpszName, const char * lpszType)
 {
    ASSERT(lpszName != NULL);
    ASSERT(lpszType != NULL);
