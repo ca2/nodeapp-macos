@@ -2,7 +2,7 @@
 
 extern thread_slot_data* _afxThreadData;
 
-namespace win
+namespace mac
 {
 
    application::application(::ca::application * papp) :
@@ -471,105 +471,105 @@ namespace win
 
    /*void application::construct(AFX_THREADPROC pfnThreadProc, LPVOID pParam)
    {
-      ::win::thread::construct(pfnThreadProc, pParam);
+      ::mac::thread::construct(pfnThreadProc, pParam);
    }
 
    void * application::get_os_data()
    {
-      return ::win::thread::get_os_data();
+      return ::mac::thread::get_os_data();
    }
 
    int_ptr application::get_os_int()
    {
-      return ::win::thread::get_os_int();
+      return ::mac::thread::get_os_int();
    }
 
 
    bool application::Begin(int nPriority, UINT nStackSize,
                            DWORD dwCreateFlags, LPSECURITY_ATTRIBUTES lpSecurityAttrs)
    {
-      return ::win::thread::Begin(nPriority, nStackSize, dwCreateFlags, lpSecurityAttrs);
+      return ::mac::thread::Begin(nPriority, nStackSize, dwCreateFlags, lpSecurityAttrs);
    }
 
    WINBOOL application::CreateThread(DWORD dwCreateFlags, UINT nStackSize,
                                   LPSECURITY_ATTRIBUTES lpSecurityAttrs)
    {
-      return ::win::thread::CreateThread(dwCreateFlags, nStackSize, lpSecurityAttrs);
+      return ::mac::thread::CreateThread(dwCreateFlags, nStackSize, lpSecurityAttrs);
    }
 
 
 
    int application::GetThreadPriority()
    {
-      return ::win::thread::GetThreadPriority();
+      return ::mac::thread::GetThreadPriority();
    }
    WINBOOL application::SetThreadPriority(int nPriority)
    {
-      return ::win::thread::SetThreadPriority(nPriority);
+      return ::mac::thread::SetThreadPriority(nPriority);
    }
 
    // Operations
    DWORD application::SuspendThread()
    {
-      return ::win::thread::SuspendThread();
+      return ::mac::thread::SuspendThread();
    }
    DWORD application::ResumeThread()
    {
-      return ::win::thread::ResumeThread();
+      return ::mac::thread::ResumeThread();
    }
    WINBOOL application::PostThreadMessage(UINT message, WPARAM wParam, LPARAM lParam)
    {
-      return ::win::thread::PostThreadMessage(message, wParam, lParam);
+      return ::mac::thread::PostThreadMessage(message, wParam, lParam);
    }
    bool application::post_message(::user::interaction * pguie, UINT message, WPARAM wParam, LPARAM lParam)
    {
-      return ::win::thread::post_message(pguie, message, wParam, lParam);
+      return ::mac::thread::post_message(pguie, message, wParam, lParam);
    }
 
    bool application::PreInitInstance()
    {
-      return ::win::thread::PreInitInstance();
+      return ::mac::thread::PreInitInstance();
    }
 
    // called when occurs an se_exception exception in run
    // return true to call run again
    bool application::on_run_exception(::ca::exception & e)
    {
-      return ::win::thread::on_run_exception(e);
+      return ::mac::thread::on_run_exception(e);
    }
 
    // Overridables
    // thread initialization
    bool application::initialize_instance()
    {
-      return ::win::thread::initialize_instance();
+      return ::mac::thread::initialize_instance();
    }
 
-   ::user::win::message::e_prototype application::GetMessagePrototype(UINT uiMessage, UINT uiCode)
+   ::user::mac::message::e_prototype application::GetMessagePrototype(UINT uiMessage, UINT uiCode)
    {
-      return ::win::thread::GetMessagePrototype(uiMessage, uiCode);
+      return ::mac::thread::GetMessagePrototype(uiMessage, uiCode);
    }
 
    // running and idle processing
    int application::run()
    {
-      return ::win::thread::run();
+      return ::mac::thread::run();
    }
    WINBOOL application::pre_translate_message(gen::signal_object * pobj)
    {
-      return ::win::thread::pre_translate_message(pMsg);
+      return ::mac::thread::pre_translate_message(pMsg);
    }
    WINBOOL application::pump_message()    // low level message pump
    {
-      return ::win::thread::pump_message();
+      return ::mac::thread::pump_message();
    }
    WINBOOL application::on_idle(LONG lCount) // return TRUE if more idle processing
    {
-      return ::win::thread::on_idle(lCount);
+      return ::mac::thread::on_idle(lCount);
    }
    WINBOOL application::is_idle_message(MSG* pMsg)  // checks for special messages
    {
-      return ::win::thread::is_idle_message(pMsg);
+      return ::mac::thread::is_idle_message(pMsg);
    }
 */
    bool application::process_initialize()
@@ -631,64 +631,64 @@ namespace win
    // Advanced: exception handling
    LRESULT application::ProcessWndProcException(base_exception* e, const MSG* pMsg)
    {
-      return   ::win::thread::ProcessWndProcException(e, pMsg);
+      return   ::mac::thread::ProcessWndProcException(e, pMsg);
    }
 
 
    // Advanced: handling messages sent to message filter hook
    WINBOOL application::ProcessMessageFilter(int code, LPMSG lpMsg)
    {
-      return  ::win::thread::ProcessMessageFilter(code, lpMsg);
+      return  ::mac::thread::ProcessMessageFilter(code, lpMsg);
    }
 
 
    // Advanced: access to GetMainWnd()
    ::user::interaction* application::GetMainWnd()
    {
-      return ::win::thread::GetMainWnd();
+      return ::mac::thread::GetMainWnd();
    }
 
 
    #ifdef _DEBUG
    void application::assert_valid() const
    {
-      ::win::thread::assert_valid();
+      ::mac::thread::assert_valid();
    }
 
    void application::dump(dump_context & dumpcontext) const
    {
-      ::win::thread::dump(dumpcontext);
+      ::mac::thread::dump(dumpcontext);
    }
 
    #endif
    void application::CommonConstruct()
    {
-      ::win::thread::CommonConstruct();
+      ::mac::thread::CommonConstruct();
    }
    void application::Delete()
    {
-      ::win::thread::Delete();
+      ::mac::thread::Delete();
    }
    // 'delete this' only if m_bAutoDelete == TRUE
 
    WINBOOL application::DispatchThreadMessageEx(MSG* msg)  // helper
    {
-      return ::win::thread::DispatchThreadMessageEx(msg);
+      return ::mac::thread::DispatchThreadMessageEx(msg);
    }*/
 
    ::ca::graphics * application::graphics_from_os_data(void * pdata)
    {
-      return ::win::graphics::from_handle((HDC) pdata);
+      return ::mac::graphics::from_handle((HDC) pdata);
    }
 
    ::ca::window * application::window_from_os_data(void * pdata)
    {
-      return ::win::window::from_handle((oswindow) pdata);
+      return ::mac::window::from_handle((oswindow) pdata);
    }
 
    ::ca::window * application::window_from_os_data_permanent(void * pdata)
    {
-      ::ca::window * pwnd = ::win::window::FromHandlePermanent((oswindow) pdata);
+      ::ca::window * pwnd = ::mac::window::FromHandlePermanent((oswindow) pdata);
       if(pwnd != NULL)
          return pwnd;
       user::LPWndArray wndptra = System.frames();
@@ -802,7 +802,7 @@ namespace win
          AFX_MODULE_THREAD_STATE* pThreadState = pModuleState->m_thread;
          ENSURE(pThreadState);
 //         ASSERT(System.GetThread() == NULL);
-         pThreadState->m_pCurrentWinThread = dynamic_cast < class ::win::thread * > (::ca::thread_sp::m_p);
+         pThreadState->m_pCurrentWinThread = dynamic_cast < class ::mac::thread * > (::ca::thread_sp::m_p);
   //       ASSERT(System.GetThread() == this);
 
          // initialize application state
@@ -812,10 +812,10 @@ namespace win
       }
 
 
-//      dynamic_cast < ::win::thread * > ((smart_pointer < ::ex2::application >::m_p->::ca::thread_sp::m_p))->m_hThread = AfxGetThread()->m_hThread;
-  //    dynamic_cast < ::win::thread * > ((smart_pointer < ::ex2::application >::m_p->::ca::thread_sp::m_p))->m_nThreadID = AfxGetThread()->m_nThreadID;
-      dynamic_cast < class ::win::thread * > (::ca::thread_sp::m_p)->m_hThread      =  ::GetCurrentThread();
-      dynamic_cast < class ::win::thread * > (::ca::thread_sp::m_p)->m_nThreadID    =  ::GetCurrentThreadId();
+//      dynamic_cast < ::mac::thread * > ((smart_pointer < ::ex2::application >::m_p->::ca::thread_sp::m_p))->m_hThread = AfxGetThread()->m_hThread;
+  //    dynamic_cast < ::mac::thread * > ((smart_pointer < ::ex2::application >::m_p->::ca::thread_sp::m_p))->m_nThreadID = AfxGetThread()->m_nThreadID;
+      dynamic_cast < class ::mac::thread * > (::ca::thread_sp::m_p)->m_hThread      =  ::GetCurrentThread();
+      dynamic_cast < class ::mac::thread * > (::ca::thread_sp::m_p)->m_nThreadID    =  ::GetCurrentThreadId();
 
 
    }
@@ -929,4 +929,4 @@ namespace win
 
    }
 
-} // namespace win
+} // namespace mac
