@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
 
    factory_exchange::factory_exchange(::ca::application * papp) :
@@ -29,18 +29,18 @@ namespace win
       System.factory().cloneable_small < draw_dib             >  (typeid(::ca::draw_dib          ));
       System.factory().creatable < osi                  >  (typeid(::ca::osi               ), 1);
       System.factory().creatable < port_forward         >  (typeid(::ca4::port_forward            ), 1);
-      ::win::dib::s_initialize();
+      ::mac::dib::s_initialize();
    }
 
    factory_exchange::~factory_exchange()
    {
    }
 
-} // namespace win
+} // namespace mac
 
 
 
 void ca2_factory_exchange(::ca::application * papp)
 {
-   win::factory_exchange factoryexchange(papp);
+   mac::factory_exchange factoryexchange(papp);
 }
