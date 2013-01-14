@@ -14,7 +14,7 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 
    if (dwReason == DLL_PROCESS_ATTACH)
    {
-      ::OutputDebugString("::ca2:: win.dll :: initializing!\n");
+      ::OutputDebugString("::ca2:: mac.dll :: initializing!\n");
       
       // Extension DLL one-time initialization
       if (!AfxInitExtensionModule(VmswinDLL, hInstance))
@@ -35,12 +35,12 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
       new CDynLinkLibrary(VmswinDLL);
 
       ::icube::g_lpfn_instantiate_application = &::win_instantiate_application;
-      ::ca::g_pfn_get_thread = &::win::get_thread;
+      ::ca::g_pfn_get_thread = &::mac::get_thread;
 
    }
    else if (dwReason == DLL_PROCESS_DETACH)
    {
-      ::OutputDebugString("::ca2:: win.dll :: terminating!\n");
+      ::OutputDebugString("::ca2:: mac.dll :: terminating!\n");
       // Terminate the library before destructors are called
       AfxTermExtensionModule(VmswinDLL);
    }
