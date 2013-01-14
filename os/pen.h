@@ -1,13 +1,13 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
    /////////////////////////////////////////////////////////////////////////////
    // ::ca::graphics_object subclasses (drawing tools)
 
-   class CLASS_DECL_VMSWIN pen : 
-      virtual public ::win::graphics_object,
+   class CLASS_DECL_VMSMAC pen : 
+      virtual public ::mac::graphics_object,
       virtual public ::ca::pen
    {
    public:
@@ -35,4 +35,4 @@ namespace win
    #endif
    };
 
-} // namespace win
+} // namespace mac
