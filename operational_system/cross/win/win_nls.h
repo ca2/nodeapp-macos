@@ -618,13 +618,13 @@ extern "C" {
 #define LOCALE_INEGSYMPRECEDES        0x00000056   // mon sym precedes neg amt (derived from INEGCURR)
 #define LOCALE_INEGSEPBYSPACE         0x00000057   // mon sym sep by space from neg amt (derived from INEGCURR)
    
-#if(WINVER >= 0x0400)
+//#if(WINVER >= 0x0400)
 #define LOCALE_FONTSIGNATURE          0x00000058   // font signature
 #define LOCALE_SISO639LANGNAME        0x00000059   // ISO abbreviated language name, eg "en"
 #define LOCALE_SISO3166CTRYNAME       0x0000005A   // ISO abbreviated country name, eg "US"
-#endif /* WINVER >= 0x0400 */
+//#endif /* WINVER >= 0x0400 */
    
-#if(WINVER >= 0x0500)
+//#if(WINVER >= 0x0500)
 #define LOCALE_IDEFAULTEBCDICCODEPAGE 0x00001012   // default ebcdic code page (use of Unicode is recommended instead)
 #define LOCALE_IPAPERSIZE             0x0000100A   // 1 = letter, 5 = legal, 8 = a3, 9 = a4
 #define LOCALE_SENGCURRNAME           0x00001007   // english name of currency, eg "Euro"
@@ -633,9 +633,9 @@ extern "C" {
 #define LOCALE_SSORTNAME              0x00001013   // sort name, usually "", eg "Dictionary" in UI Language
 #define LOCALE_IDIGITSUBSTITUTION     0x00001014   // 0 = context, 1 = none, 2 = national
    
-#endif /* WINVER >= 0x0500 */
+//#endif /* WINVER >= 0x0500 */
    
-#if (WINVER >= 0x0600)
+//#if (WINVER >= 0x0600)
 #define LOCALE_SNAME                  0x0000005c   // locale name (ie: en-us)
 #define LOCALE_SDURATION              0x0000005d   // time duration format, eg "hh:mm:ss"
 #define LOCALE_SKEYBOARDSTOINSTALL    0x0000005e   // Used internally, see GetKeyboardLayoutName() function
@@ -654,9 +654,9 @@ extern "C" {
 #define LOCALE_SSCRIPTS               0x0000006c   // Typical scripts in the locale: ; delimited script codes, eg "Latn;"
 #define LOCALE_SPARENT                0x0000006d   // Fallback name for resources, eg "en" for "en-US"
 #define LOCALE_SCONSOLEFALLBACKNAME   0x0000006e   // Fallback name for within the console for Unicode Only locales, eg "en" for bn-IN
-#endif //(WINVER >= 0x0600)
+//#endif //(WINVER >= 0x0600)
    
-#if (WINVER >= _WIN32_WINNT_WIN7)
+//#if (WINVER >= _WIN32_WINNT_WIN7)
 #define LOCALE_IREADINGLAYOUT         0x00000070   // Returns one of the following 4 reading layout values:
    // 0 - Left to right (eg en-US)
    // 1 - Right to left (eg arabic locales)
@@ -671,7 +671,7 @@ extern "C" {
 #define LOCALE_SSHORTTIME             0x00000079   // Returns the preferred short time format (ie: no seconds, just h:mm)
 #define LOCALE_SOPENTYPELANGUAGETAG   0x0000007a   // Open type language tag, eg: "latn" or "dflt"
 #define LOCALE_SSORTLOCALE            0x0000007b   // Name of locale to use for sorting/collation/casing behavior.
-#endif //(WINVER >= _WIN32_WINNT_WIN7)
+//#endif //(WINVER >= _WIN32_WINNT_WIN7)
    
    //
    //  Time Flags for GetTimeFormat.
@@ -681,6 +681,8 @@ extern "C" {
 #define TIME_NOTIMEMARKER         0x00000004  // do not use time marker
 #define TIME_FORCE24HOURFORMAT    0x00000008  // always use 24 hour format
    
+   
+#define LOCALE_IDEFAULTUNIXCODEPAGE   0x1030 /* Wine extension */ // win_nls.h   
    
    //
    //  Date Flags for GetDateFormat.
