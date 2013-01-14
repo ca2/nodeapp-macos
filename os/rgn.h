@@ -1,10 +1,10 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
    class rgn :
-      virtual public ::win::graphics_object,
+      virtual public ::mac::graphics_object,
       virtual public ::ca::rgn
    {
    public:
@@ -42,4 +42,4 @@ namespace win
 
    };
 
-} // namespace win
+} // namespace mac
