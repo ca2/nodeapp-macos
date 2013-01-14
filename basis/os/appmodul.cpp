@@ -7,7 +7,7 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // export WinMain to force linkage to this module
-extern int CLASS_DECL_VMSWIN AfxWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+extern int CLASS_DECL_VMSMAC AfxWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
    __in LPTSTR lpCmdLine, int nCmdShow);
 
 extern "C" int WINAPI
@@ -21,7 +21,7 @@ _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 /////////////////////////////////////////////////////////////////////////////
 // initialize cast state such that it points to this module's core state
 
-CLASS_DECL_VMSWIN WINBOOL AfxInitialize(WINBOOL bDLL, DWORD dwVersion)
+CLASS_DECL_VMSMAC WINBOOL AfxInitialize(WINBOOL bDLL, DWORD dwVersion)
 {
    AFX_MODULE_STATE* pModuleState = AfxGetModuleState();
    pModuleState->m_bDLL = (BYTE)bDLL;
