@@ -1,12 +1,12 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
    /////////////////////////////////////////////////////////////////////////////
    // graphics_object abstract class for ::ca::graphics_sp SelectObject
 
-   class CLASS_DECL_VMSWIN graphics_object :
+   class CLASS_DECL_VMSMAC graphics_object :
       virtual public ::ca::graphics_object,
       virtual public hgdiobj_handle
    {
