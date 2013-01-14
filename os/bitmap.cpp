@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
    bitmap::bitmap(::ca::application * papp) :
       ca(papp)
@@ -13,7 +13,7 @@ namespace win
    }
    bitmap* PASCAL bitmap::from_handle(::ca::application * papp, HBITMAP hBitmap)
    { 
-      return dynamic_cast < bitmap * > (::win::graphics_object::from_handle(papp, hBitmap)); 
+      return dynamic_cast < bitmap * > (::mac::graphics_object::from_handle(papp, hBitmap)); 
    }
    bitmap::~bitmap()
    { }
@@ -54,9 +54,9 @@ namespace win
    WINBOOL bitmap::LoadOEMBitmap(UINT nIDBitmap)
    { return Attach(::LoadBitmap(NULL, MAKEINTRESOURCE(nIDBitmap))); }
    WINBOOL bitmap::CreateCompatibleBitmap(::ca::graphics * pgraphics, int nWidth, int nHeight)
-   { return Attach(::CreateCompatibleBitmap((dynamic_cast<::win::graphics * >(pgraphics))->get_handle1(), nWidth, nHeight)); }
+   { return Attach(::CreateCompatibleBitmap((dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1(), nWidth, nHeight)); }
    WINBOOL bitmap::CreateDiscardableBitmap(::ca::graphics * pgraphics, int nWidth, int nHeight)
-   { return Attach(::CreateDiscardableBitmap((dynamic_cast<::win::graphics * >(pgraphics))->get_handle1(), nWidth, nHeight)); }
+   { return Attach(::CreateDiscardableBitmap((dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1(), nWidth, nHeight)); }
    int bitmap::GetBitmap(BITMAP* pBitMap)
    { ASSERT(get_handle() != NULL);
    return ::GetObject(get_handle(), sizeof(BITMAP), pBitMap); }
@@ -93,4 +93,4 @@ namespace win
 #endif
 
 
-} // namespace win
+} // namespace mac
