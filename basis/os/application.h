@@ -5,10 +5,10 @@ namespace gen
    class command_line;
 }
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN main_init_data
+   class CLASS_DECL_VMSMAC main_init_data
    {
    public:
       HINSTANCE   m_hInstance;
@@ -17,7 +17,7 @@ namespace win
       int         m_nCmdShow;
    };
 
-   class CLASS_DECL_VMSWIN application :
+   class CLASS_DECL_VMSMAC application :
       virtual public ::ex2::application
    {
    public:
@@ -153,7 +153,7 @@ namespace win
       // thread initialization
       virtual bool initialize_instance();
 
-      virtual ::user::win::message::e_prototype GetMessagePrototype(UINT uiMessage, UINT uiCode); 
+      virtual ::user::mac::message::e_prototype GetMessagePrototype(UINT uiMessage, UINT uiCode); 
 
       // running and idle processing
       virtual int run();
@@ -202,4 +202,4 @@ namespace win
       virtual unsigned long application::get_thread_id();
    };
 
-} // namespace win
+} // namespace mac
