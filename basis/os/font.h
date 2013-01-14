@@ -1,10 +1,10 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN font : 
-      virtual public ::win::graphics_object,
+   class CLASS_DECL_VMSMAC font : 
+      virtual public ::mac::graphics_object,
       virtual public ::ca::font
    {
    public:
@@ -35,4 +35,4 @@ namespace win
       #endif
    };
 
-} // namespace win
+} // namespace mac
