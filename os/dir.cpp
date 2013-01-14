@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
    dir::dir(::ca::application * papp) :
       ca(papp),
@@ -790,4 +790,4 @@ namespace win
       return false;
    }
 
-} // namespace win
+} // namespace mac
