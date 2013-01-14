@@ -68,8 +68,10 @@
 #include "cryptlib.h"
 #include <openssl/bio.h>
 
+#ifndef __APPLE__
 #include <iodef.h>		/* VMS IO$_ definitions */
 #include <starlet.h>
+#endif
 
 typedef unsigned short io_channel;
 /*************************************************************************/
