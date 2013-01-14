@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
    font::font(::ca::application * papp) :
    ca(papp)
@@ -14,7 +14,7 @@ namespace win
    }
    font* PASCAL font::from_handle(::ca::application * papp, HFONT hFont)
    {
-      return dynamic_cast < font * > (::win::graphics_object::from_handle(papp, hFont)); 
+      return dynamic_cast < font * > (::mac::graphics_object::from_handle(papp, hFont)); 
    }
    WINBOOL font::CreateFontIndirect(const LOGFONT* lpLogFont)
    { return Attach(::CreateFontIndirect(lpLogFont)); }
@@ -36,7 +36,7 @@ namespace win
 
    void font::construct(const ::ca::font & fontParam)
       {
-         class font & font = const_cast < ::win::font & > (dynamic_cast < const ::win::font & > (fontParam));
+         class font & font = const_cast < ::mac::font & > (dynamic_cast < const ::mac::font & > (fontParam));
          if(get_handle() != NULL)
             delete_object();
          if(font.get_handle() != NULL)
@@ -109,8 +109,8 @@ namespace win
       if (pgraphics != NULL)
       {
          ASSERT_VALID(pgraphics);
-         ASSERT((dynamic_cast<::win::graphics * >(pgraphics))->get_handle2() != NULL);
-         hDC = (dynamic_cast<::win::graphics * >(pgraphics))->get_handle2();
+         ASSERT((dynamic_cast<::mac::graphics * >(pgraphics))->get_handle2() != NULL);
+         hDC = (dynamic_cast<::mac::graphics * >(pgraphics))->get_handle2();
       }
       else
          hDC = ::GetDC(NULL);
@@ -132,4 +132,4 @@ namespace win
       return CreateFontIndirect(&logFont);
    }
 
-} // namespace win
+} // namespace mac
