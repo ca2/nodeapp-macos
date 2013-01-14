@@ -2,7 +2,7 @@
 
 #include <vfw.h>
 
-namespace win
+namespace mac
 {
 
    //////////////////////////////////////////////////////////////////////
@@ -13,7 +13,7 @@ namespace win
    //
    //////////////////////////////////////////////////////////////////////
 
-   class CLASS_DECL_VMSWIN draw_dib :
+   class CLASS_DECL_VMSMAC draw_dib :
       virtual public ::ca::draw_dib
    {
    public:
@@ -59,4 +59,4 @@ namespace win
 
    };
 
-} // namespace win
+} // namespace mac
