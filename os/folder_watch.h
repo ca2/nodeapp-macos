@@ -1,9 +1,9 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN folder_watch :
+   class CLASS_DECL_VMSMAC folder_watch :
       virtual public ::ex2::folder_watch,
       virtual public ::radix::thread
    {
@@ -20,4 +20,4 @@ namespace win
    };
 
 
-} // namespace win
+} // namespace mac
