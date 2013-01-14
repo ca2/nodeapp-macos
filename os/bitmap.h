@@ -1,10 +1,10 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN bitmap : 
-      virtual public ::win::graphics_object,
+   class CLASS_DECL_VMSMAC bitmap : 
+      virtual public ::mac::graphics_object,
       virtual public ::ca::bitmap
    {
    public:
@@ -45,4 +45,4 @@ namespace win
    #endif
    };
 
-} // namespace win
+} // namespace mac
