@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 
 
-namespace win
+namespace mac
 {
 
    void PASCAL window::DeleteTempMap()
@@ -12,13 +12,13 @@ namespace win
       CSingleLock sl(&pMap->m_mutex, TRUE);
 
       raw_array < oswindow > hwndaRemove;
-      raw_array < ::win::window * > wndptraRemove;
+      raw_array < ::mac::window * > wndptraRemove;
 
       POSITION pos = pMap->m_temporaryMap.get_start_position();
       while (pos != NULL)
       {
          HANDLE h; // just used for asserts
-         ::win::window * pTemp;
+         ::mac::window * pTemp;
          pMap->m_temporaryMap.get_next_assoc(pos, h, pTemp);
 
          if(!::IsWindow((oswindow) h))
@@ -57,4 +57,4 @@ namespace win
       pMap->delete_temp();
    }
 
-} // namespace win
+} // namespace mac
