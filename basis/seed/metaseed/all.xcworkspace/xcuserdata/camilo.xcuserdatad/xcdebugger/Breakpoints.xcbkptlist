@@ -8,7 +8,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "0"
-         filePath = "/cecyn1/app/appseed/c/macos/c_os_cross_win_user.mm"
+         filePath = "../../../../cecyn1/app/appseed/c/macos/c_os_cross_win_user.mm"
          timestampString = "346245254.327781"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
@@ -22,7 +22,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "0"
-         filePath = "/cecyn1/app/appseed/c/macos/c_os_cross_user.mm"
+         filePath = "../../../../cecyn1/app/appseed/c/macos/c_os_cross_user.mm"
          timestampString = "346988002.403771"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
@@ -34,7 +34,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "0"
-         filePath = "/cecyn1/app/appseed/ca/primitive/simple_string.h"
+         filePath = "../../../../cecyn1/app/appseed/ca/primitive/simple_string.h"
          timestampString = "348707444.071667"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
@@ -46,12 +46,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "0"
-         filePath = "/cecyn1/app/appseed/ca/template/checked.h"
+         filePath = "../../../../cecyn1/app/appseed/ca/template/checked.h"
          timestampString = "349447247.629534"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "544"
          endingLineNumber = "544">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/thirdparty/appseed/FreeImage/Source/LibRawLite/libraw/internal/dcraw_common.cpp"
+         timestampString = "379763796.759196"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "4009"
+         endingLineNumber = "4009"
+         landmarkName = "vng_interpolate()"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/thirdparty/appseed/FreeImage/Source/LibRawLite/libraw/internal/dcraw_common.cpp"
+         timestampString = "379763798.157063"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "4010"
+         endingLineNumber = "4010"
+         landmarkName = "vng_interpolate()"
+         landmarkType = "7">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
