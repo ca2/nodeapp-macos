@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
 
    palette::palette(::ca::application * papp) :
@@ -15,13 +15,13 @@ namespace win
    }
    palette* PASCAL palette::from_handle(::ca::application * papp, HPALETTE hPalette)
    { 
-      return dynamic_cast < palette * > (::win::graphics_object::from_handle(papp, hPalette)); 
+      return dynamic_cast < palette * > (::mac::graphics_object::from_handle(papp, hPalette)); 
    }
    WINBOOL palette::CreatePalette(LPLOGPALETTE lpLogPalette)
    { return Attach(::CreatePalette(lpLogPalette)); }
    WINBOOL palette::CreateHalftonePalette(::ca::graphics * pgraphics)
-   { ASSERT(pgraphics != NULL && (dynamic_cast<::win::graphics * >(pgraphics))->get_handle1() != NULL); return Attach(
-   ::CreateHalftonePalette((dynamic_cast<::win::graphics * >(pgraphics))->get_handle1())); }
+   { ASSERT(pgraphics != NULL && (dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1() != NULL); return Attach(
+   ::CreateHalftonePalette((dynamic_cast<::mac::graphics * >(pgraphics))->get_handle1())); }
    UINT palette::GetPaletteEntries(UINT nStartIndex, UINT nNumEntries,
       LPPALETTEENTRY lpPaletteColors) const
    { ASSERT(get_os_data() != NULL); return ::GetPaletteEntries((HPALETTE)get_os_data(), nStartIndex,
@@ -42,4 +42,4 @@ namespace win
    { ASSERT(get_os_data() != NULL); WORD nEntries;
    ::GetObject(get_os_data(), sizeof(WORD), &nEntries); return (int)nEntries; }
 
-} // namespace win
+} // namespace mac
