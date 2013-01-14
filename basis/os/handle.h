@@ -12,7 +12,7 @@
 // CHandleMap
 //
 //  Note: Do not access the members of this class directly.
-//      Use ::win::window::from_handle, ::win::graphics::from_handle, etc.
+//      Use ::mac::window::from_handle, ::mac::graphics::from_handle, etc.
 //      The actual definition is only included because it is
 //      necessary for the definition of WindowsThread.
 //
@@ -39,7 +39,7 @@
 
 #pragma once
 
-namespace win
+namespace mac
 {
 
    class window;
@@ -83,7 +83,7 @@ public:
    typedef handle1 < HGDIOBJ > hgdiobj_handle;
    typedef handle1 < HIMAGELIST > himagelist_handle;
 
-} // namespace win
+} // namespace mac
 
 
 #include "radix/fixed_alloc.h"
@@ -154,20 +154,20 @@ public:
    friend class ::radix::thread;
 };
 
-class CLASS_DECL_VMSWIN hwnd_map :
-   public handle_map < ::win::hwnd_handle, ::win::window >
+class CLASS_DECL_VMSMAC hwnd_map :
+   public handle_map < ::mac::hwnd_handle, ::mac::window >
 {
 public:
 };
 
-class CLASS_DECL_VMSWIN hdc_map :
-   public handle_map < ::win::hdc_handle, ::win::graphics >
+class CLASS_DECL_VMSMAC hdc_map :
+   public handle_map < ::mac::hdc_handle, ::mac::graphics >
 {
 public:
 };
 
 class hgdiobj_map : 
-   public handle_map < ::win::hgdiobj_handle, ::win::graphics_object >
+   public handle_map < ::mac::hgdiobj_handle, ::mac::graphics_object >
 {
 public:
 };
@@ -409,8 +409,8 @@ inline CT* handle_map <HT, CT>::lookup_temporary(HANDLE h)
 }
 
 
-CLASS_DECL_VMSWIN hwnd_map * PASCAL afxMapHWND(WINBOOL bCreate = FALSE);
-CLASS_DECL_VMSWIN himagelist_map * PASCAL afxMapHIMAGELIST(WINBOOL bCreate = FALSE);
-CLASS_DECL_VMSWIN hdc_map * PASCAL afxMapHDC(WINBOOL bCreate = FALSE);
-CLASS_DECL_VMSWIN hgdiobj_map * PASCAL afxMapHGDIOBJ(WINBOOL bCreate = FALSE);
-CLASS_DECL_VMSWIN hmenu_map * PASCAL afx_map_HMENU(WINBOOL bCreate = FALSE);
+CLASS_DECL_VMSMAC hwnd_map * PASCAL afxMapHWND(WINBOOL bCreate = FALSE);
+CLASS_DECL_VMSMAC himagelist_map * PASCAL afxMapHIMAGELIST(WINBOOL bCreate = FALSE);
+CLASS_DECL_VMSMAC hdc_map * PASCAL afxMapHDC(WINBOOL bCreate = FALSE);
+CLASS_DECL_VMSMAC hgdiobj_map * PASCAL afxMapHGDIOBJ(WINBOOL bCreate = FALSE);
+CLASS_DECL_VMSMAC hmenu_map * PASCAL afx_map_HMENU(WINBOOL bCreate = FALSE);
