@@ -6,7 +6,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // Helper functions
 
-__STATIC long CLASS_DECL_VMSWIN _AfxMultMultDivDiv(
+__STATIC long CLASS_DECL_VMSMAC _AfxMultMultDivDiv(
    int factor, int num1, int num2,
    int den1, int den2)
 {
@@ -255,7 +255,7 @@ void preview_dc::MirrorAttributes()
    case DEFAULT_GUI_FONT:
       // Handle the stock fonts correctly
       {
-         ::ca::graphics_object* pObject = ::win::graphics_object::from_handle(
+         ::ca::graphics_object* pObject = ::mac::graphics_object::from_handle(
                      ::SelectObject(get_handle2(), hObj));
 
          // Don't re-mirror screen font if this is the same font.
@@ -273,7 +273,7 @@ void preview_dc::MirrorAttributes()
    default:
       if (get_os_data() != NULL)
          ::SelectObject(get_os_data(), hObj);
-      return ::win::graphics_object::from_handle(::SelectObject(get_handle2(), hObj));
+      return ::mac::graphics_object::from_handle(::SelectObject(get_handle2(), hObj));
    }
 }
 
@@ -375,7 +375,7 @@ void preview_dc::MirrorFont()
    ASSERT(get_handle2() != NULL);
    ASSERT_VALID(pFont);
 
-   ::ca::font* pOldFont = (::ca::font*) ::win::graphics_object::from_handle(
+   ::ca::font* pOldFont = (::ca::font*) ::mac::graphics_object::from_handle(
             ::SelectObject(get_handle2(), pFont->get_handle()));
 
    // If same as already selected, don't re-mirror screen font
@@ -476,7 +476,7 @@ size preview_dc::ScaleWindowExt(int xNum, int xDenom, int yNum, int yDenom)
 
 // private helpers for TextOut functions
 
-__STATIC int CLASS_DECL_VMSWIN _AfxComputeNextTab(int x, UINT nTabStops, LPINT lpnTabStops, int nTabOrigin, int nTabWidth)
+__STATIC int CLASS_DECL_VMSMAC _AfxComputeNextTab(int x, UINT nTabStops, LPINT lpnTabStops, int nTabOrigin, int nTabWidth)
 {
    ENSURE(nTabWidth!=0);
    x -= nTabOrigin;        // normalize position to tab origin
@@ -987,7 +987,7 @@ void preview_dc::PrinterDPtoScreenDP(LPPOINT lpPoint) const
 ////////////////////////////////////////////////////////////////////////////
 // AfxCreateDC
 
-HDC CLASS_DECL_VMSWIN AfxCreateDC(HGLOBAL hDevNames, HGLOBAL hDevMode)
+HDC CLASS_DECL_VMSMAC AfxCreateDC(HGLOBAL hDevNames, HGLOBAL hDevMode)
 {
    if (hDevNames == NULL)
       return NULL;
