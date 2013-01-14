@@ -1,9 +1,9 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN factory_exchange :
+   class CLASS_DECL_VMSMAC factory_exchange :
       virtual public ::radix::object
    {
    public:
@@ -11,4 +11,4 @@ namespace win
       virtual ~factory_exchange();
    };
 
-} // namespace win
+} // namespace mac
