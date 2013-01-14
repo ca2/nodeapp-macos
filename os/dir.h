@@ -1,15 +1,15 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN dir :
+   class CLASS_DECL_VMSMAC dir :
       virtual public ::ca::dir::system
    {
    public:
 
       dir(::ca::application * papp);
-      class CLASS_DECL_VMSWIN path :
+      class CLASS_DECL_VMSMAC path :
          virtual public ::ca::dir::system::path
       {
       public:
@@ -79,4 +79,4 @@ namespace win
       string         m_strNetSeedFolder;
    };
 
-} // namespace win
+} // namespace mac
