@@ -5,7 +5,7 @@
 #include <Wtsapi32.h>
 #include <Psapi.h>
 
-namespace win
+namespace mac
 {
    osi::osi(::ca::application * papp) :
       ca(papp)
@@ -211,4 +211,4 @@ namespace win
       return strPath;
    }
 
-} // namespace win
+} // namespace mac
