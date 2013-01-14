@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
 
    //////////////////////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ namespace win
       int dxDst, int dyDst, UINT wFlags)
    {
       return ::DrawDibDraw( m_hdrawdib, (HDC)pdc->get_os_data(), xDst, yDst, dxDst, dyDst, 
-         &((dynamic_cast < ::win::dib * > (dib))->m_info.bmiHeader), dib->get_data(), 0, 0, dib->width(),
+         &((dynamic_cast < ::mac::dib * > (dib))->m_info.bmiHeader), dib->get_data(), 0, 0, dib->width(),
          dib->height(), wFlags );
    }
 
@@ -88,7 +88,7 @@ namespace win
          (HDC)pdc->get_os_data(), 
          xDst, yDst, dxDst, dyDst, 
          xSrc, ySrc, dxSrc, dySrc, 
-         pdib->get_data(), &(dynamic_cast < ::win::dib * > (pdib))->m_info, 
+         pdib->get_data(), &(dynamic_cast < ::mac::dib * > (pdib))->m_info, 
          DIB_RGB_COLORS,
          SRCCOPY);
    }
@@ -106,7 +106,7 @@ namespace win
 
    ::ca::palette * draw_dib::get_palette ()
    {
-      return ::win::palette::from_handle(get_app(), DrawDibGetPalette ( m_hdrawdib ));
+      return ::mac::palette::from_handle(get_app(), DrawDibGetPalette ( m_hdrawdib ));
    }
 
    WINBOOL draw_dib::set_palette (  ::ca::palette * ppal)
@@ -140,4 +140,4 @@ namespace win
       return DrawDibTime ( m_hdrawdib, lpddtime );
    }
 
-} // namespace win
+} // namespace mac
