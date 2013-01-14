@@ -1,9 +1,9 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN osi :
+   class CLASS_DECL_VMSMAC osi :
       public ::ca::osi
    {
    public:
@@ -20,4 +20,4 @@ namespace win
       virtual string get_process_path(DWORD dwPid);
    };
 
-} // namespace win
+} // namespace mac
