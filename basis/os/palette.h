@@ -1,10 +1,10 @@
 #pragma once
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN palette : 
-      virtual public ::win::graphics_object,
+   class CLASS_DECL_VMSMAC palette : 
+      virtual public ::mac::graphics_object,
       virtual public ::ca::palette
    {
    public:
@@ -32,4 +32,4 @@ namespace win
       virtual ~palette();
    };
 
-} // namespace win
+} // namespace mac
