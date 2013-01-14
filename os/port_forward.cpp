@@ -3,7 +3,7 @@
 //const UINT UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION = ::RegisterWindowMessageA("UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION-{7C29C80A_5712_40e8_A124_A82E4B2795A7}");  
 #define UWM_PORT_FORWARD_ENGINE_THREAD_NOTIFICATION (WM_APP + 123) 
 
-namespace win
+namespace mac
 {
 
    // forward declaration of global function which is included at the end of this file
@@ -1739,5 +1739,5 @@ namespace win
    }
 
 
-} // namespace win
+} // namespace mac
 
