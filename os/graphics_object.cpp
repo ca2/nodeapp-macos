@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 
-namespace win
+namespace mac
 {
 
    graphics_object::operator HGDIOBJ() const
@@ -69,7 +69,7 @@ namespace win
    {
       hgdiobj_map* pMap = afxMapHGDIOBJ(TRUE); //create ::collection::map if not exist
       ASSERT(pMap != NULL);
-      graphics_object* pObject = (::win::graphics_object*)pMap->from_handle(h, &graphics_object_allocator, papp);
+      graphics_object* pObject = (::mac::graphics_object*)pMap->from_handle(h, &graphics_object_allocator, papp);
       ASSERT(pObject == NULL || pObject->get_os_data() == h);
       return pObject;
    }
@@ -143,7 +143,7 @@ namespace win
    return get_os_data();
    }*/
 
-} // namespace win
+} // namespace mac
 
 hgdiobj_map * PASCAL afxMapHGDIOBJ(WINBOOL bCreate)
 {
