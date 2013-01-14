@@ -15,7 +15,7 @@
 
 /////////////////////////////////////////////////////////////////////////////
 
-/*WINBOOL CLASS_DECL_VMSWIN AfxWinInit(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+/*WINBOOL CLASS_DECL_VMSMAC AfxWinInit(HINSTANCE hInstance, HINSTANCE hPrevInstance,
    __in LPTSTR lpCmdLine, int nCmdShow)
 {
 }*/
@@ -29,7 +29,7 @@
 #endif
 
 
-UINT CLASS_DECL_VMSWIN AfxGetFileName(const char * lpszPathName, __out_ecount_opt(nMax) LPTSTR lpszTitle, UINT nMax)
+UINT CLASS_DECL_VMSMAC AfxGetFileName(const char * lpszPathName, __out_ecount_opt(nMax) LPTSTR lpszTitle, UINT nMax)
 {
    ASSERT(lpszTitle == NULL ||
       fx_is_valid_address(lpszTitle, nMax));
