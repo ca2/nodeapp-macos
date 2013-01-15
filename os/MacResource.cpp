@@ -151,7 +151,7 @@ bool WinResource::ReadResource(
 //} //namespace gen
 
 
-HINSTANCE CLASS_DECL_VMSMAC vfxFindResourceHandle(const char * lpszName, const char * lpszType)
+HINSTANCE CLASS_DECL_mac vfxFindResourceHandle(const char * lpszName, const char * lpszType)
 {
    ASSERT(lpszName != NULL);
    ASSERT(lpszType != NULL);
@@ -214,7 +214,7 @@ HINSTANCE CLASS_DECL_VMSMAC vfxFindResourceHandle(const char * lpszName, const c
    return CaSys(::mac::get_thread()).m_hInstance;
 }
 
-/*HINSTANCE CLASS_DECL_VMSMAC vfxFindResourceHandle(const char * lpszName, const char * lpszType)
+/*HINSTANCE CLASS_DECL_mac vfxFindResourceHandle(const char * lpszName, const char * lpszType)
 {
    ASSERT(lpszName != NULL);
    ASSERT(lpszType != NULL);
