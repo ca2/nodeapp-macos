@@ -5,10 +5,10 @@ namespace user
    class ::user::window_interface;
 } // namespace user
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN window_draw : 
+   class CLASS_DECL_VMSMAC window_draw : 
       virtual public ::ca::window_draw,
       virtual public ::ca::message_window_simple_callback
    {
@@ -145,4 +145,4 @@ namespace win
 
    };
 
-} // namespace win
+} // namespace mac
