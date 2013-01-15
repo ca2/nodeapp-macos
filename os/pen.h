@@ -6,7 +6,7 @@ namespace mac
    /////////////////////////////////////////////////////////////////////////////
    // ::ca::graphics_object subclasses (drawing tools)
 
-   class CLASS_DECL_VMSMAC pen : 
+   class CLASS_DECL_mac pen : 
       virtual public ::mac::graphics_object,
       virtual public ::ca::pen
    {
