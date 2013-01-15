@@ -1,140 +1,118 @@
 #pragma once
 
+
 namespace mac
 {
+   
+   
    class thread;
-
-   class mac
+   
+   class MAC
    {
-      int function();
+      int32_t function();
    };
-
-   CLASS_DECL_VMSMAC HINSTANCE   LoadLibrary(const char * lpsz);
-   CLASS_DECL_VMSMAC WINBOOL        SHGetSpecialFolderPath(oswindow hwnd, string &str, int csidl, WINBOOL fCreate);
-   CLASS_DECL_VMSMAC DWORD       GetFileAttributes(const char * lpFileName);
-   CLASS_DECL_VMSMAC WINBOOL        CreateDirectory(const char * lpPathName, LPSECURITY_ATTRIBUTES lpSecurityAttributes);
-   CLASS_DECL_VMSMAC DWORD       GetCurrentDirectory(string & str);
-   CLASS_DECL_VMSMAC DWORD       GetTempPath(string & str);
-//   CLASS_DECL_VMSMAC LONG        RegQueryValue(HKEY hkey, const char * lpszSubKey, string & str);
-   CLASS_DECL_VMSMAC HICON       ExtractIcon(HINSTANCE hInst, const char * lpszExeFileName, UINT nIconIndex);
-   CLASS_DECL_VMSMAC WINBOOL        DeleteFile(const char * lpFileName);
-   CLASS_DECL_VMSMAC int         GetMenuStringW(HMENU hMenu, UINT uIDItem, string & str, UINT flags);
-   CLASS_DECL_VMSMAC void        TimeToFileTime(::ca::application * papp, const class time& time, LPFILETIME pFileTime);
-
+   
+   
+   
 } // namespace mac
 
 
 
 // Placed on frame for EXCEPTION linkage, or base_exception cleanup
-struct CLASS_DECL_VMSMAC AFX_EXCEPTION_LINK
+struct CLASS_DECL_mac __exception_link
 {
-   AFX_EXCEPTION_LINK* m_pLinkPrev;    // previous top, next in handler chain
+   __exception_link* m_pLinkPrev;    // previous top, next in handler chain
    base_exception* m_pException;   // current exception (NULL in try block)
-
-   AFX_EXCEPTION_LINK();       // for initialization and linking
-   ~AFX_EXCEPTION_LINK()       // for cleanup and unlinking
-      { AfxTryCleanup(); };
+   
+   __exception_link();       // for initialization and linking
+   ~__exception_link()       // for cleanup and unlinking
+   {
+      //__try_cleanup();
+   };
 };
 
 // Exception global state - never access directly
-struct CLASS_DECL_VMSMAC AFX_EXCEPTION_CONTEXT
+struct CLASS_DECL_mac __EXCEPTION_CONTEXT
 {
-   AFX_EXCEPTION_LINK* m_pLinkTop;
-
-   // Note: most of the exception context is now in the AFX_EXCEPTION_LINK
+   __exception_link* m_pLinkTop;
+   
+   // Note: most of the exception context is now in the __exception_link
 };
 
 #ifndef _PNH_DEFINED
-typedef int (__cdecl * _PNH)( size_t );
+typedef int32_t (__cdecl * _PNH)( size_t );
 #define _PNH_DEFINED
 #endif
 
-_PNH CLASS_DECL_VMSMAC AfxGetNewHandler();
-_PNH CLASS_DECL_VMSMAC AfxSetNewHandler(_PNH pfnNewHandler);
-CLASS_DECL_ca int AFX_CDECL AfxNewHandler(size_t nSize);
+_PNH CLASS_DECL_mac __get_new_handler();
+_PNH CLASS_DECL_mac __set_new_handler(_PNH pfnNewHandler);
+CLASS_DECL_ca int32_t c_cdecl __new_handler(size_t nSize);
 
-void CLASS_DECL_VMSMAC AfxAbort();
+void CLASS_DECL_mac __abort();
 
 
 // helpers for registering your own WNDCLASSes
-CLASS_DECL_VMSMAC const char * AfxRegisterWndClass(UINT nClassStyle,
-   HCURSOR hCursor = 0, HBRUSH hbrBackground = 0, HICON hIcon = 0);
+CLASS_DECL_mac const char * __register_window_class(UINT nClassStyle, HCURSOR hCursor = 0, HBRUSH hbrBackground = 0, HICON hIcon = 0);
 
-CLASS_DECL_VMSMAC WINBOOL AfxRegisterClass(WNDCLASS* lpWndClass);
+// xxx CLASS_DECL_mac bool __register_class(WNDCLASS* lpWndClass);
 
-// helper to initialize rich edit 1.0 control
-CLASS_DECL_VMSMAC WINBOOL AfxInitRichEdit();
-// helper to initialize rich edit 2.0 control
-CLASS_DECL_VMSMAC WINBOOL AfxInitRichEdit2();
 
-CLASS_DECL_VMSMAC LRESULT CALLBACK AfxWndProc(oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
-CLASS_DECL_VMSMAC WNDPROC AfxGetAfxWndProc();
-#define AfxWndProc (*AfxGetAfxWndProc())
+CLASS_DECL_mac LRESULT CALLBACK __window_procedure(oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
+// xxx CLASS_DECL_mac WNDPROC __get_window_procedure();
+// xxx #define __window_procedure (*__get_window_procedure())
 
-typedef void (AFX_MSG_CALL ::ca::window::*AFX_PMSGW)(void);
-   // like 'AFX_PMSG' but for ::ca::window derived classes only
+typedef void (__MSG_CALL ::ca::window::*__PMSGW)();
+// like '__PMSG' but for ::ca::window derived classes only
 
-typedef void (AFX_MSG_CALL ::radix::thread::*AFX_PMSGT)(void);
-   // like 'AFX_PMSG' but for thread-derived classes only
+typedef void (__MSG_CALL ::radix::thread::*__PMSGT)();
+// like '__PMSG' but for thread-derived classes only
 
 
 
 
-CLASS_DECL_VMSMAC LONG AfxDelRegTreeHelper(HKEY hParentKey, const string & strKeyName);
+// xxx CLASS_DECL_mac LONG delete_registry_tree_helper(HKEY hParentKey, const string & strKeyName);
 
 
 // Advanced initialization: for overriding default diagnostics
-CLASS_DECL_VMSMAC WINBOOL AfxDiagnosticInit(void);
+//CLASS_DECL_mac bool __diagnostic_init();
 
 
-CLASS_DECL_VMSMAC ::mac::thread * AfxGetThread();
-CLASS_DECL_VMSMAC void AfxSetThread(::radix::thread * pthread);
-CLASS_DECL_VMSMAC MSG* AfxGetCurrentMessage();
+CLASS_DECL_mac ::mac::thread * __get_thread();
+CLASS_DECL_mac void __set_thread(::radix::thread * pthread);
+CLASS_DECL_mac MESSAGE * __get_current_message();
 
-CLASS_DECL_VMSMAC void AfxEndThread(::radix::application * papp, UINT nExitCode, WINBOOL bDelete = TRUE);
+CLASS_DECL_mac void __end_thread(::radix::application * papp, UINT nExitCode, bool bDelete = TRUE);
 
-CLASS_DECL_VMSMAC void AfxInitThread();
-CLASS_DECL_VMSMAC void AfxTermThread(::radix::application * papp, HINSTANCE hInstTerm = NULL);
+CLASS_DECL_mac void __init_thread();
+CLASS_DECL_mac void __term_thread(::radix::application * papp, HINSTANCE hInstTerm = NULL);
 
 /////////////////////////////////////////////////////////////////////////////
 // Global functions for access to the one and only application
 
-#define afxCurrentWinApp    AfxGetModuleState()->m_pCurrentWinApp
-#define afxCurrentInstanceHandle    AfxGetModuleState()->m_hCurrentInstanceHandle
-#define afxCurrentResourceHandle    AfxGetModuleState()->m_hCurrentResourceHandle
-#define afxCurrentAppName   AfxGetModuleState()->m_lpszCurrentAppName
-#define afxContextIsDLL     AfxGetModuleState()->m_bDLL
-#define afxRegisteredClasses    AfxGetModuleState()->m_fRegisteredClasses
-#define afxAmbientActCtx    AfxGetModuleState()->m_bSetAmbientActCtx
+#define afxCurrentWinApp    __get_module_state()->m_pCurrentWinApp
+#define afxCurrentInstanceHandle    __get_module_state()->m_hCurrentInstanceHandle
+#define afxCurrentResourceHandle    __get_module_state()->m_hCurrentResourceHandle
+#define afxCurrentAppName   __get_module_state()->m_lpszCurrentAppName
+#define afxContextIsDLL     __get_module_state()->m_bDLL
+#define afxRegisteredClasses    __get_module_state()->m_fRegisteredClasses
+#define afxAmbientActCtx    __get_module_state()->m_bSetAmbientActCtx
 
-#ifndef _AFX_NO_OCC_SUPPORT
-#define afxOccManager   AfxGetModuleState()->m_pOccManager
-#endif
-
-//Fusion: Access macros for WinSxS dynamic wrappers.
-#ifndef _AFX_NO_AFXCMN_SUPPORT
-#define _AFX_COMCTL32_ISOLATION_WRAPPER_INDEX 0
-#define afxComCtlWrapper static_cast<CComCtlWrapper*>(AfxGetModuleState()->m_pDllIsolationWrappers[_AFX_COMCTL32_ISOLATION_WRAPPER_INDEX])
-#endif
-
-#define _AFX_COMMDLG_ISOLATION_WRAPPER_INDEX 1
-#define afxCommDlgWrapper static_cast<CCommDlgWrapper*>(AfxGetModuleState()->m_pDllIsolationWrappers[_AFX_COMMDLG_ISOLATION_WRAPPER_INDEX])
 
 // Advanced initialization: for overriding default WinMain
-//CLASS_DECL_VMSMAC WINBOOL AfxWinInit(__in HINSTANCE hInstance, __in HINSTANCE hPrevInstance,
-  // __in_z LPTSTR lpCmdLine, __in int nCmdShow);
-CLASS_DECL_VMSMAC void AfxWinTerm();
+//CLASS_DECL_mac bool gen::WinInit(__in HINSTANCE hInstance, __in HINSTANCE hPrevInstance,
+// __in_z LPTSTR lpCmdLine, __in int32_t nCmdShow);
+CLASS_DECL_mac void __mac_term();
 
-CLASS_DECL_VMSMAC ::radix::application* AfxGetApp();
-CLASS_DECL_VMSMAC ::user::interaction* AfxGetMainWnd();
-//CLASS_DECL_VMSMAC HINSTANCE CLASS_DECL_VMSMAC System.m_hInstance;
-CLASS_DECL_VMSMAC HINSTANCE AfxGetResourceHandle();
-CLASS_DECL_VMSMAC void AfxSetResourceHandle(HINSTANCE hInstResource);
-CLASS_DECL_VMSMAC const char * AfxGetAppName();
+CLASS_DECL_mac ::radix::application* __get_app();
+CLASS_DECL_mac ::user::interaction* __get_main_window();
+//CLASS_DECL_mac HINSTANCE CLASS_DECL_mac System.m_hInstance;
+CLASS_DECL_mac HINSTANCE __get_resource_handle();
+CLASS_DECL_mac void __set_resource_handle(HINSTANCE hInstResource);
+CLASS_DECL_mac const char * __get_app_name();
 
-CLASS_DECL_VMSMAC HINSTANCE AfxGetResourceHandle();
-CLASS_DECL_VMSMAC HINSTANCE AfxFindStringResourceHandle(UINT nID);
+CLASS_DECL_mac HINSTANCE __get_resource_handle();
+CLASS_DECL_mac HINSTANCE __find_string_resource_handle(UINT nID);
 
-CLASS_DECL_VMSMAC void AfxDeleteObject(HGDIOBJ* pObject);
+CLASS_DECL_mac void __delete_object(HGDIOBJ* pObject);
 
-void CLASS_DECL_VMSMAC AfxGlobalFree(HGLOBAL hGlobal);
+void CLASS_DECL_mac __global_free(HGLOBAL hGlobal);
