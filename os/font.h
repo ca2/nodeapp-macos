@@ -3,7 +3,7 @@
 namespace mac
 {
 
-   class CLASS_DECL_VMSMAC font : 
+   class CLASS_DECL_mac font : 
       virtual public ::mac::graphics_object,
       virtual public ::ca::font
    {
@@ -13,7 +13,7 @@ namespace mac
       font(::ca::application * papp);
       virtual ~font();
 
-      virtual void font::construct(const ::ca::font & fontParam);
+      virtual void construct(const ::ca::font & fontParam);
 
       virtual WINBOOL CreateFontIndirect(const LOGFONT* lpLogFont);
       virtual WINBOOL CreateFont(int nHeight, int nWidth, int nEscapement,
