@@ -192,7 +192,7 @@ namespace mac
    {
       UNREFERENCED_PARAMETER(bGdiLocked);
       UNREFERENCED_PARAMETER(bExcludeParamWnd);
-      CSingleLock sl(&m_mutexRender, TRUE);
+      single_lock sl(&m_mutexRender, TRUE);
       rect rectUpdate(*lpcrectUpdate);
 
       rect rectChild;
@@ -220,7 +220,7 @@ namespace mac
       bool           bExcludeParamWnd)
    {
       UNREFERENCED_PARAMETER(bGdiLocked);
-      CSingleLock sl(&m_mutexRender, TRUE);
+      single_lock sl(&m_mutexRender, TRUE);
       rect rectUpdate(*lpcrectUpdate);
 
 //      DWORD dwTimeIn = GetTickCount();
@@ -368,7 +368,7 @@ namespace mac
    {
       if(m_bRender)
          return false;
-      CSingleLock sl(&m_mutexRender, FALSE);
+      single_lock sl(&m_mutexRender, FALSE);
       if(!sl.Lock(0))
          return false;
       keeper<bool> keepRender(&m_bRender, true, false, true);
@@ -442,7 +442,7 @@ namespace mac
          //return VMSR_E_FAIL;
       }
 
-   /*   CSingleLock slRendering(&m_mutexRendering, FALSE);
+   /*   single_lock slRendering(&m_mutexRendering, FALSE);
       if(!slRendering.Lock(0))
       {
    //xxx      AddUpdateRect(rectClip, true);
@@ -451,7 +451,7 @@ namespace mac
 
      */
       semaphore * psemaphore = TwfGetBufferSemaphore();
-      CSingleLock slSemaphoreBuffer(psemaphore, FALSE);
+      single_lock slSemaphoreBuffer(psemaphore, FALSE);
       if(!slSemaphoreBuffer.Lock(0))
       {
    //xxx      AddUpdateRect(rectClip, true);
@@ -779,7 +779,7 @@ namespace mac
    {
       if(m_bRender)
          return false;
-      CSingleLock sl(&m_mutexRender, FALSE);
+      single_lock sl(&m_mutexRender, FALSE);
       if(!sl.Lock(0))
          return false;
       keeper<bool> keepRender(&m_bRender, true, false, true);
