@@ -78,7 +78,7 @@ namespace gen
 } //namespace gen
 
 
-HINSTANCE CLASS_DECL_VMSMAC vfxFindResourceHandle(const char * lpszName, const char * lpszType)
+HINSTANCE CLASS_DECL_mac vfxFindResourceHandle(const char * lpszName, const char * lpszType)
 {
    ASSERT(lpszName != NULL);
    ASSERT(lpszType != NULL);
@@ -140,7 +140,7 @@ HINSTANCE CLASS_DECL_VMSMAC vfxFindResourceHandle(const char * lpszName, const c
    return System.m_hInstance;
 }
 
-HINSTANCE CLASS_DECL_VMSMAC vfxFindResourceHandle(const wchar_t * lpszName, const wchar_t * lpszType)
+HINSTANCE CLASS_DECL_mac vfxFindResourceHandle(const wchar_t * lpszName, const wchar_t * lpszType)
 {
    ASSERT(lpszName != NULL);
    ASSERT(lpszType != NULL);
