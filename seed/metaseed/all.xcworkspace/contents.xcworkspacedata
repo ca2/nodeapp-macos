@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../app/appseed/optca/optca.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/thirdparty/appseed/freetype/freetype.xcodeproj">
    </FileRef>
    <FileRef
