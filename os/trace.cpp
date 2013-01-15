@@ -274,7 +274,7 @@ void _AfxTraceMsg(const char * lpszPrefix, gen::signal_object * pobj)
 {
    ENSURE_ARG(AfxIsValidString(lpszPrefix));
    ENSURE_ARG(pobj != NULL);
-   SCAST_PTR(user::win::message::base, pbase, pobj);
+   SCAST_PTR(user::mac::message::base, pbase, pobj);
 
    if (pbase->m_uiMessage == WM_MOUSEMOVE || pbase->m_uiMessage == WM_NCMOUSEMOVE ||
       pbase->m_uiMessage == WM_NCHITTEST || pbase->m_uiMessage == WM_SETCURSOR ||
