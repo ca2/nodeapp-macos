@@ -38,7 +38,6 @@
 		A1CFD912154FB715007447E2 /* afxmem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD899154FB715007447E2 /* afxmem.cpp */; };
 		A1CFD913154FB715007447E2 /* afxstate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD89A154FB715007447E2 /* afxstate.cpp */; };
 		A1CFD914154FB715007447E2 /* appcore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD89B154FB715007447E2 /* appcore.cpp */; };
-		A1CFD915154FB715007447E2 /* appinit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD89C154FB715007447E2 /* appinit.cpp */; };
 		A1CFD916154FB715007447E2 /* application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD89D154FB715007447E2 /* application.cpp */; };
 		A1CFD917154FB715007447E2 /* application.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD89E154FB715007447E2 /* application.h */; };
 		A1CFD918154FB715007447E2 /* appmodul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD89F154FB715007447E2 /* appmodul.cpp */; };
@@ -57,8 +56,6 @@
 		A1CFD925154FB715007447E2 /* except.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8AD154FB715007447E2 /* except.cpp */; };
 		A1CFD926154FB715007447E2 /* factory_exchange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8AE154FB715007447E2 /* factory_exchange.cpp */; };
 		A1CFD927154FB715007447E2 /* factory_exchange.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8AF154FB715007447E2 /* factory_exchange.h */; };
-		A1CFD928154FB715007447E2 /* folder_watch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8B0154FB715007447E2 /* folder_watch.cpp */; };
-		A1CFD929154FB715007447E2 /* folder_watch.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8B1154FB715007447E2 /* folder_watch.h */; };
 		A1CFD92A154FB715007447E2 /* font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8B2154FB715007447E2 /* font.cpp */; };
 		A1CFD92B154FB715007447E2 /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8B3154FB715007447E2 /* font.h */; };
 		A1CFD92C154FB715007447E2 /* gen_1.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8B4154FB715007447E2 /* gen_1.h */; };
@@ -67,12 +64,10 @@
 		A1CFD92F154FB715007447E2 /* graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8B7154FB715007447E2 /* graphics.h */; };
 		A1CFD930154FB715007447E2 /* graphics_object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8B8154FB715007447E2 /* graphics_object.cpp */; };
 		A1CFD931154FB715007447E2 /* graphics_object.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8B9154FB715007447E2 /* graphics_object.h */; };
-		A1CFD932154FB715007447E2 /* handle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8BA154FB715007447E2 /* handle.cpp */; };
 		A1CFD933154FB715007447E2 /* handle.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8BB154FB715007447E2 /* handle.h */; };
 		A1CFD934154FB715007447E2 /* implementation.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8BC154FB715007447E2 /* implementation.h */; };
 		A1CFD935154FB715007447E2 /* kerr.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8BE154FB715007447E2 /* kerr.h */; };
 		A1CFD936154FB715007447E2 /* LocalMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8BF154FB715007447E2 /* LocalMemory.h */; };
-		A1CFD937154FB715007447E2 /* mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8C0154FB715007447E2 /* mac.cpp */; };
 		A1CFD938154FB715007447E2 /* mac.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8C1154FB715007447E2 /* mac.h */; };
 		A1CFD939154FB715007447E2 /* mac1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8C2154FB715007447E2 /* mac1.cpp */; };
 		A1CFD93B154FB715007447E2 /* mac2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8C4154FB715007447E2 /* mac2.cpp */; };
@@ -89,8 +84,8 @@
 		A1CFD946154FB715007447E2 /* MacResource.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8D0154FB715007447E2 /* MacResource.h */; };
 		A1CFD947154FB715007447E2 /* MacStdioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8D1154FB715007447E2 /* MacStdioFile.cpp */; };
 		A1CFD948154FB715007447E2 /* MacStdioFile.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8D2154FB715007447E2 /* MacStdioFile.h */; };
-		A1CFD949154FB715007447E2 /* MacosShell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8D3154FB715007447E2 /* MacosShell.cpp */; };
-		A1CFD94A154FB715007447E2 /* MacosShell.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8D4154FB715007447E2 /* MacosShell.h */; };
+		A1CFD949154FB715007447E2 /* MacShell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8D3154FB715007447E2 /* MacShell.cpp */; };
+		A1CFD94A154FB715007447E2 /* MacShell.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8D4154FB715007447E2 /* MacShell.h */; };
 		A1CFD94B154FB715007447E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8D5154FB715007447E2 /* main.cpp */; };
 		A1CFD94C154FB715007447E2 /* osi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8DB154FB715007447E2 /* osi.cpp */; };
 		A1CFD94D154FB715007447E2 /* osi.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8DC154FB715007447E2 /* osi.h */; };
@@ -128,6 +123,7 @@
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9A1B496816A4A32500875A94 /* mac1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac1.h; sourceTree = "<group>"; };
+		9ABBC6DB16A568FC009CA32E /* mac_graphics_path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mac_graphics_path.h; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libos.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CFD87D154FB715007447E2 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		A1CFD87E154FB715007447E2 /* bare_operational_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bare_operational_system.h; sourceTree = "<group>"; };
@@ -157,7 +153,6 @@
 		A1CFD899154FB715007447E2 /* afxmem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = afxmem.cpp; sourceTree = "<group>"; };
 		A1CFD89A154FB715007447E2 /* afxstate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = afxstate.cpp; sourceTree = "<group>"; };
 		A1CFD89B154FB715007447E2 /* appcore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = appcore.cpp; sourceTree = "<group>"; };
-		A1CFD89C154FB715007447E2 /* appinit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = appinit.cpp; sourceTree = "<group>"; };
 		A1CFD89D154FB715007447E2 /* application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = application.cpp; sourceTree = "<group>"; };
 		A1CFD89E154FB715007447E2 /* application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = application.h; sourceTree = "<group>"; };
 		A1CFD89F154FB715007447E2 /* appmodul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = appmodul.cpp; sourceTree = "<group>"; };
@@ -176,8 +171,6 @@
 		A1CFD8AD154FB715007447E2 /* except.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = except.cpp; sourceTree = "<group>"; };
 		A1CFD8AE154FB715007447E2 /* factory_exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = factory_exchange.cpp; sourceTree = "<group>"; };
 		A1CFD8AF154FB715007447E2 /* factory_exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = factory_exchange.h; sourceTree = "<group>"; };
-		A1CFD8B0154FB715007447E2 /* folder_watch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = folder_watch.cpp; sourceTree = "<group>"; };
-		A1CFD8B1154FB715007447E2 /* folder_watch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = folder_watch.h; sourceTree = "<group>"; };
 		A1CFD8B2154FB715007447E2 /* font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = font.cpp; sourceTree = "<group>"; };
 		A1CFD8B3154FB715007447E2 /* font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font.h; sourceTree = "<group>"; };
 		A1CFD8B4154FB715007447E2 /* gen_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gen_1.h; sourceTree = "<group>"; };
@@ -186,12 +179,10 @@
 		A1CFD8B7154FB715007447E2 /* graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphics.h; sourceTree = "<group>"; };
 		A1CFD8B8154FB715007447E2 /* graphics_object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = graphics_object.cpp; sourceTree = "<group>"; };
 		A1CFD8B9154FB715007447E2 /* graphics_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphics_object.h; sourceTree = "<group>"; };
-		A1CFD8BA154FB715007447E2 /* handle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = handle.cpp; sourceTree = "<group>"; };
 		A1CFD8BB154FB715007447E2 /* handle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handle.h; sourceTree = "<group>"; };
 		A1CFD8BC154FB715007447E2 /* implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = implementation.h; sourceTree = "<group>"; };
 		A1CFD8BE154FB715007447E2 /* kerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kerr.h; sourceTree = "<group>"; };
 		A1CFD8BF154FB715007447E2 /* LocalMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalMemory.h; sourceTree = "<group>"; };
-		A1CFD8C0154FB715007447E2 /* mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac.cpp; sourceTree = "<group>"; };
 		A1CFD8C1154FB715007447E2 /* mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac.h; sourceTree = "<group>"; };
 		A1CFD8C2154FB715007447E2 /* mac1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac1.cpp; sourceTree = "<group>"; };
 		A1CFD8C4154FB715007447E2 /* mac2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac2.cpp; sourceTree = "<group>"; };
@@ -208,8 +199,8 @@
 		A1CFD8D0154FB715007447E2 /* MacResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacResource.h; sourceTree = "<group>"; };
 		A1CFD8D1154FB715007447E2 /* MacStdioFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MacStdioFile.cpp; sourceTree = "<group>"; };
 		A1CFD8D2154FB715007447E2 /* MacStdioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacStdioFile.h; sourceTree = "<group>"; };
-		A1CFD8D3154FB715007447E2 /* MacosShell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MacosShell.cpp; sourceTree = "<group>"; };
-		A1CFD8D4154FB715007447E2 /* MacosShell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacosShell.h; sourceTree = "<group>"; };
+		A1CFD8D3154FB715007447E2 /* MacShell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MacShell.cpp; sourceTree = "<group>"; };
+		A1CFD8D4154FB715007447E2 /* MacShell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacShell.h; sourceTree = "<group>"; };
 		A1CFD8D5154FB715007447E2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A1CFD8DB154FB715007447E2 /* osi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = osi.cpp; sourceTree = "<group>"; };
 		A1CFD8DC154FB715007447E2 /* osi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = osi.h; sourceTree = "<group>"; };
@@ -332,7 +323,6 @@
 				A1CFD899154FB715007447E2 /* afxmem.cpp */,
 				A1CFD89A154FB715007447E2 /* afxstate.cpp */,
 				A1CFD89B154FB715007447E2 /* appcore.cpp */,
-				A1CFD89C154FB715007447E2 /* appinit.cpp */,
 				A1CFD89D154FB715007447E2 /* application.cpp */,
 				A1CFD89E154FB715007447E2 /* application.h */,
 				A1CFD89F154FB715007447E2 /* appmodul.cpp */,
@@ -351,8 +341,6 @@
 				A1CFD8AD154FB715007447E2 /* except.cpp */,
 				A1CFD8AE154FB715007447E2 /* factory_exchange.cpp */,
 				A1CFD8AF154FB715007447E2 /* factory_exchange.h */,
-				A1CFD8B0154FB715007447E2 /* folder_watch.cpp */,
-				A1CFD8B1154FB715007447E2 /* folder_watch.h */,
 				A1CFD8B2154FB715007447E2 /* font.cpp */,
 				A1CFD8B3154FB715007447E2 /* font.h */,
 				A1CFD8B4154FB715007447E2 /* gen_1.h */,
@@ -361,11 +349,9 @@
 				A1CFD8B7154FB715007447E2 /* graphics.h */,
 				A1CFD8B8154FB715007447E2 /* graphics_object.cpp */,
 				A1CFD8B9154FB715007447E2 /* graphics_object.h */,
-				A1CFD8BA154FB715007447E2 /* handle.cpp */,
 				A1CFD8BB154FB715007447E2 /* handle.h */,
 				A1CFD8BC154FB715007447E2 /* implementation.h */,
 				A1CFD8BD154FB715007447E2 /* Kerr */,
-				A1CFD8C0154FB715007447E2 /* mac.cpp */,
 				A1CFD8C1154FB715007447E2 /* mac.h */,
 				A1CFD8C2154FB715007447E2 /* mac1.cpp */,
 				A1CFD8C4154FB715007447E2 /* mac2.cpp */,
@@ -382,8 +368,8 @@
 				A1CFD8D0154FB715007447E2 /* MacResource.h */,
 				A1CFD8D1154FB715007447E2 /* MacStdioFile.cpp */,
 				A1CFD8D2154FB715007447E2 /* MacStdioFile.h */,
-				A1CFD8D3154FB715007447E2 /* MacosShell.cpp */,
-				A1CFD8D4154FB715007447E2 /* MacosShell.h */,
+				A1CFD8D3154FB715007447E2 /* MacShell.cpp */,
+				A1CFD8D4154FB715007447E2 /* MacShell.h */,
 				A1CFD8D5154FB715007447E2 /* main.cpp */,
 				A1CFD8DB154FB715007447E2 /* osi.cpp */,
 				A1CFD8DC154FB715007447E2 /* osi.h */,
@@ -413,6 +399,7 @@
 				A1CFD8F6154FB715007447E2 /* window_draw.cpp */,
 				A1CFD8F8154FB715007447E2 /* window_draw.h */,
 				9A1B496616A4A10100875A94 /* framework.cpp */,
+				9ABBC6DB16A568FC009CA32E /* mac_graphics_path.h */,
 			);
 			name = os;
 			sourceTree = "<group>";
@@ -464,7 +451,6 @@
 				A1CFD921154FB715007447E2 /* dir.h in Headers */,
 				A1CFD923154FB715007447E2 /* draw_dib.h in Headers */,
 				A1CFD927154FB715007447E2 /* factory_exchange.h in Headers */,
-				A1CFD929154FB715007447E2 /* folder_watch.h in Headers */,
 				A1CFD92B154FB715007447E2 /* font.h in Headers */,
 				A1CFD92C154FB715007447E2 /* gen_1.h in Headers */,
 				A1CFD92F154FB715007447E2 /* graphics.h in Headers */,
@@ -480,7 +466,7 @@
 				A1CFD944154FB715007447E2 /* MacFileSystem.h in Headers */,
 				A1CFD946154FB715007447E2 /* MacResource.h in Headers */,
 				A1CFD948154FB715007447E2 /* MacStdioFile.h in Headers */,
-				A1CFD94A154FB715007447E2 /* MacosShell.h in Headers */,
+				A1CFD94A154FB715007447E2 /* MacShell.h in Headers */,
 				A1CFD94D154FB715007447E2 /* osi.h in Headers */,
 				A1CFD94F154FB715007447E2 /* palette.h in Headers */,
 				A1CFD951154FB715007447E2 /* pen.h in Headers */,
@@ -553,7 +539,6 @@
 				A1CFD912154FB715007447E2 /* afxmem.cpp in Sources */,
 				A1CFD913154FB715007447E2 /* afxstate.cpp in Sources */,
 				A1CFD914154FB715007447E2 /* appcore.cpp in Sources */,
-				A1CFD915154FB715007447E2 /* appinit.cpp in Sources */,
 				A1CFD916154FB715007447E2 /* application.cpp in Sources */,
 				A1CFD918154FB715007447E2 /* appmodul.cpp in Sources */,
 				A1CFD919154FB715007447E2 /* appterm.cpp in Sources */,
@@ -565,13 +550,10 @@
 				A1CFD924154FB715007447E2 /* dumpinit.cpp in Sources */,
 				A1CFD925154FB715007447E2 /* except.cpp in Sources */,
 				A1CFD926154FB715007447E2 /* factory_exchange.cpp in Sources */,
-				A1CFD928154FB715007447E2 /* folder_watch.cpp in Sources */,
 				A1CFD92A154FB715007447E2 /* font.cpp in Sources */,
 				A1CFD92D154FB715007447E2 /* genResource.cpp in Sources */,
 				A1CFD92E154FB715007447E2 /* graphics.cpp in Sources */,
 				A1CFD930154FB715007447E2 /* graphics_object.cpp in Sources */,
-				A1CFD932154FB715007447E2 /* handle.cpp in Sources */,
-				A1CFD937154FB715007447E2 /* mac.cpp in Sources */,
 				A1CFD939154FB715007447E2 /* mac1.cpp in Sources */,
 				A1CFD93B154FB715007447E2 /* mac2.cpp in Sources */,
 				A1CFD93C154FB715007447E2 /* mac_error.cpp in Sources */,
@@ -581,7 +563,7 @@
 				A1CFD943154FB715007447E2 /* MacFileSystem.cpp in Sources */,
 				A1CFD945154FB715007447E2 /* MacResource.cpp in Sources */,
 				A1CFD947154FB715007447E2 /* MacStdioFile.cpp in Sources */,
-				A1CFD949154FB715007447E2 /* MacosShell.cpp in Sources */,
+				A1CFD949154FB715007447E2 /* MacShell.cpp in Sources */,
 				A1CFD94B154FB715007447E2 /* main.cpp in Sources */,
 				A1CFD94C154FB715007447E2 /* osi.cpp in Sources */,
 				A1CFD94E154FB715007447E2 /* palette.cpp in Sources */,
