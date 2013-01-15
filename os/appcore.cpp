@@ -1,3 +1,3 @@
 #include "StdAfx.h"
 
-PROCESS_LOCAL(_AFX_WIN_STATE, _afxWinState)
+PROCESS_LOCAL(___MAC_STATE, gen_MacState)
