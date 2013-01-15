@@ -1,35 +1,20 @@
-#include "StdAfx.h"
-#include "sal.h"
-
-#ifdef _ApplicationFrameworkDLL
-//#include <mfcassem.h>
-#endif
+#include "framework.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // export WinMain to force linkage to this module
-extern int CLASS_DECL_VMSMAC AfxWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-   __in LPTSTR lpCmdLine, int nCmdShow);
+extern int32_t CLASS_DECL_mac __win_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int32_t nCmdShow);
 
-extern "C" int WINAPI
-_tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-   __in LPTSTR lpCmdLine, int nCmdShow)
-{
-   // call shared/exported WinMain
-   return AfxWinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
-}
 
 /////////////////////////////////////////////////////////////////////////////
 // initialize cast state such that it points to this module's core state
 
-CLASS_DECL_VMSMAC WINBOOL AfxInitialize(WINBOOL bDLL, DWORD dwVersion)
+CLASS_DECL_mac bool __initialize(bool bDLL, DWORD dwVersion)
 {
-   AFX_MODULE_STATE* pModuleState = AfxGetModuleState();
+   __MODULE_STATE* pModuleState = __get_module_state();
    pModuleState->m_bDLL = (BYTE)bDLL;
-   ASSERT(dwVersion <= _MFC_VER);
-   UNUSED(dwVersion);  // not used in release build
-#ifdef _ApplicationFrameworkDLL
+   // xxx   ASSERT(dwVersion <= _MFC_VER);
+   // xxx   UNUSED(dwVersion);  // not used in release build
    pModuleState->m_dwVersion = dwVersion;
-#endif
 #ifdef _MBCS
    // set correct multi-byte code-page for Win32 apps
    if (!bDLL)
@@ -42,22 +27,6 @@ CLASS_DECL_VMSMAC WINBOOL AfxInitialize(WINBOOL bDLL, DWORD dwVersion)
 //#pragma warning(disable: 4074)
 //#pragma init_seg(lib)
 
-#ifndef _ApplicationFrameworkDLL
-void c_cdecl _AfxTermAppState()
-{
-   // terminate local data and critical sections
-   AfxTermLocalData(NULL, TRUE);
-   AfxCriticalTerm();
 
-   // release the reference to thread local storage data
-   AfxTlsRelease();
-}
-#endif
-
-#ifndef _ApplicationFrameworkDLL
-char _afxInitAppState = (char)(AfxInitialize(FALSE, _MFC_VER), atexit(&_AfxTermAppState));
-#else
-char _afxInitAppState = (char)(AfxInitialize(FALSE, _MFC_VER));
-#endif
-
-/////////////////////////////////////////////////////////////////////////////
+//char gen_InitAppState = (char)(__initialize(FALSE, _MFC_VER));
+char gen_InitAppState = (char)(__initialize(FALSE, 1));
