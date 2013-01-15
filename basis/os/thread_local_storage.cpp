@@ -432,13 +432,13 @@ process_local_object::~process_local_object()
 /////////////////////////////////////////////////////////////////////////////
 // Init/Term for thread/process local data
 
-void CLASS_DECL_VMSMAC AfxInitLocalData(HINSTANCE hInst)
+void CLASS_DECL_mac AfxInitLocalData(HINSTANCE hInst)
 {
    if (_afxThreadData != NULL)
       _afxThreadData->AssignInstance(hInst);
 }
 
-void CLASS_DECL_VMSMAC AfxTermLocalData(HINSTANCE hInst, WINBOOL bAll)
+void CLASS_DECL_mac AfxTermLocalData(HINSTANCE hInst, WINBOOL bAll)
 {
    if (_afxThreadData != NULL)
       _afxThreadData->DeleteValues(hInst, bAll);
@@ -451,12 +451,12 @@ void CLASS_DECL_VMSMAC AfxTermLocalData(HINSTANCE hInst, WINBOOL bAll)
 
 __STATIC_DATA long _afxTlsRef = 0;
 
-void CLASS_DECL_VMSMAC AfxTlsAddRef()
+void CLASS_DECL_mac AfxTlsAddRef()
 {
    ++_afxTlsRef;
 }
 
-void CLASS_DECL_VMSMAC AfxTlsRelease()
+void CLASS_DECL_mac AfxTlsRelease()
 {
    if (_afxTlsRef == 0 || --_afxTlsRef == 0)
    {
