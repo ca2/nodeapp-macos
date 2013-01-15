@@ -3,38 +3,42 @@
 namespace mac
 {
 
-   class CLASS_DECL_VMSMAC brush : 
+   class CLASS_DECL_mac brush : 
       virtual public ::mac::graphics_object,
       virtual public ::ca::brush
    {
    public:
-      static brush* PASCAL from_handle(::ca::application * papp, HBRUSH hBrush);
-
-      // Constructors
+      
+      
+      int32_t                  m_iStyle;
+      COLORREF             m_cr;
+      int32_t                  m_iStock;
+      
+      
+      //xxx      Gdiplus::Brush * m_pbrush;
+      
+      
       brush(::ca::application * papp);
-      virtual void construct(COLORREF crColor);                // CreateSolidBrush
-      virtual void construct(int nIndex, COLORREF crColor);    // CreateHatchBrush
-      virtual void construct(::ca::bitmap * pbitmap);                // CreatePatternBrush
-
+      //virtual void construct(COLORREF crColor);                // CreateSolidBrush
+      //virtual void construct(int32_t nIndex, COLORREF crColor);    // CreateHatchBrush
+      //virtual void construct(::ca::bitmap * pbitmap);                // CreatePatternBrush
       virtual ~brush();
-
-      WINBOOL CreateSolidBrush(COLORREF crColor);
-      WINBOOL CreateHatchBrush(int nIndex, COLORREF crColor);
-      WINBOOL CreateBrushIndirect(const LOGBRUSH* lpLogBrush);
-      WINBOOL CreatePatternBrush(::ca::bitmap* pBitmap);
-      WINBOOL CreateDIBPatternBrush(HGLOBAL hPackedDIB, UINT nUsage);
-      WINBOOL CreateDIBPatternBrush(const void * lpPackedDIB, UINT nUsage);
-      WINBOOL CreateSysColorBrush(int nIndex);
-
-      // Attributes
-      operator HBRUSH() const;
-      int GetLogBrush(LOGBRUSH* pLogBrush);
-
-      // Implementation
-   public:
-#ifdef _DEBUG
+      
+      
+      virtual void * get_os_data() const;
+      
+      
+      //bool CreateSolidBrush(COLORREF crColor);
+      //bool CreateHatchBrush(int32_t nIndex, COLORREF crColor);
+      //bool CreatePatternBrush(::ca::bitmap* pBitmap);
+      //bool CreateDIBPatternBrush(HGLOBAL hPackedDIB, UINT nUsage);
+      //bool CreateDIBPatternBrush(const void * lpPackedDIB, UINT nUsage);
+      //bool CreateSysColorBrush(int32_t nIndex);
+      
+      
       virtual void dump(dump_context & dumpcontext) const;
-#endif
+      
+
    };
 
 
