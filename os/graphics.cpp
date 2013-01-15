@@ -2079,13 +2079,13 @@ namespace mac
 
 
    // resource failure
-   void CLASS_DECL_VMSMAC AfxThrowResourceException()
+   void CLASS_DECL_mac AfxThrowResourceException()
    {
       throw resource_exception();
    }
 
    // ::fontopus::user alert
-   void CLASS_DECL_VMSMAC AfxThrowUserException()
+   void CLASS_DECL_mac AfxThrowUserException()
    {
       throw user_exception();
    }
