@@ -3,7 +3,7 @@
 namespace mac
 {
 
-   class CLASS_DECL_VMSMAC factory_exchange :
+   class CLASS_DECL_mac factory_exchange :
       virtual public ::radix::object
    {
    public:
