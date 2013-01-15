@@ -16,10 +16,10 @@ namespace ca
 
 } // namespace ca
 
-namespace win
+namespace mac
 {
 
-   class CLASS_DECL_VMSWIN thread :
+   class CLASS_DECL_VMSMAC thread :
       virtual public ::radix::thread,
       virtual public ::ca::message_window_simple_callback
    {
@@ -133,7 +133,7 @@ namespace win
       // thread initialization
       virtual bool initialize_instance();
 
-      virtual ::user::win::message::e_prototype thread::GetMessagePrototype(UINT uiMessage, UINT uiCode);
+      virtual ::user::mac::message::e_prototype thread::GetMessagePrototype(UINT uiMessage, UINT uiCode);
 
       // running and idle processing
       virtual int run();
@@ -181,9 +181,9 @@ namespace win
       operator pthread_t() const;
    };
 
-   CLASS_DECL_VMSWIN ::ca::thread * get_thread();
+   CLASS_DECL_VMSMAC ::ca::thread * get_thread();
 
-} // namespace win
+} // namespace mac
 
 
 
