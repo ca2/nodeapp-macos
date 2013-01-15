@@ -13,7 +13,7 @@ namespace mac
    //
    //////////////////////////////////////////////////////////////////////
 
-   class CLASS_DECL_VMSMAC draw_dib :
+   class CLASS_DECL_mac draw_dib :
       virtual public ::ca::draw_dib
    {
    public:
