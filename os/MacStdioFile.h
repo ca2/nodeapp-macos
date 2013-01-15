@@ -1,48 +1,55 @@
 #pragma once
 
-#include "WinFile.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // STDIO file implementation
 
-class WinStdioFile : 
-   virtual public WinFile,
-   virtual public ex1::text_file
+
+namespace mac
 {
-public:
-   WinStdioFile(::ca::application * papp);
+   
+   
+   class stdio_file :
+   virtual public ::mac::file,
+   virtual public ex1::text_file
+   {
+   public:
+      
+      
+      FILE* m_pStream;    // stdio FILE
+      // m_hFile from base class is _fileno(m_pStream)
+      
+      
+      
+      stdio_file(::ca::application * papp);
+      virtual ~stdio_file();
+      
+      virtual void write_string(const char * lpsz);
+      virtual char * read_string(char * lpsz, UINT nMax);
+      virtual UINT read_string(string & rString);
+      
+      
+      void dump(dump_context & dumpcontext) const;
+      virtual file_position get_position() const;
+      virtual bool open(const char * lpszFileName, UINT nOpenFlags);
+      virtual ::primitive::memory_size read(void * lpBuf, ::primitive::memory_size nCount);
+      virtual void write(const void * lpBuf, ::primitive::memory_size nCount);
+      virtual file_position seek(file_offset lOff, ::ex1::e_seek nFrom);
+      virtual void Abort();
+      virtual void Flush();
+      virtual void close();
+      virtual file_size get_length() const;
+      
+      // Unsupported APIs
+      virtual ex1::file * Duplicate() const;
+      virtual void LockRange(file_position dwPos, file_size dwCount);
+      virtual void UnlockRange(file_position dwPos, file_size dwCount);
+      
+      
+   };
+   
+   
+   
+} // namespace mac
 
-// Attributes
-   FILE* m_pStream;    // stdio FILE
-                  // m_hFile from base class is _fileno(m_pStream)
 
-// Operations
-   // reading and writing strings
-   virtual void write_string(const char * lpsz);
-   virtual char * read_string(char * lpsz, UINT nMax);
-//   virtual void write_string(const char * lpsz);
-//   virtual wchar_t * read_string(wchar_t * lpsz, UINT nMax);
-   virtual UINT read_string(string & rString);
-
-// ementation
-public:
-   virtual ~WinStdioFile();
-#ifdef _DEBUG
-   void dump(dump_context & dumpcontext) const;
-#endif
-   virtual uint_ptr GetPosition() const;
-   virtual WINBOOL open(const char * lpszFileName, UINT nOpenFlags,
-      ex1::file_exception_sp * pError = NULL);
-   virtual uint_ptr read(void * lpBuf, uint_ptr nCount);
-   virtual void write(const void * lpBuf, uint_ptr nCount);
-   virtual int_ptr seek(int_ptr lOff, UINT nFrom);
-   virtual void Abort();
-   virtual void Flush();
-   virtual void close();
-   virtual uint_ptr get_length() const;
-
-   // Unsupported APIs
-   virtual ex1::file * Duplicate() const;
-   virtual void LockRange(uint_ptr dwPos, uint_ptr dwCount);
-   virtual void UnlockRange(uint_ptr dwPos, uint_ptr dwCount);
-};
