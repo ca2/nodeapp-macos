@@ -4,7 +4,7 @@
 namespace mac
 {
    
-   class CLASS_DECL_lnx path :
+   class CLASS_DECL_mac path :
    virtual public ::ca::path
    {
    public:
@@ -12,7 +12,7 @@ namespace mac
       virtual bool  is_equal(const char * lpszFilPathA, const char * lpszFilPathB);
    };
    
-   class CLASS_DECL_lnx dir :
+   class CLASS_DECL_mac dir :
    virtual public ::ca::dir::system
    {
    public:
