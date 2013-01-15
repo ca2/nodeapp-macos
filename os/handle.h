@@ -78,22 +78,23 @@ public:
 };
 
    typedef handle1 < oswindow > hwnd_handle;
-   typedef handle1 < HMENU > hmenu_handle;
-   typedef handle2 < HDC, HDC > hdc_handle;
-   typedef handle1 < HGDIOBJ > hgdiobj_handle;
-   typedef handle1 < HIMAGELIST > himagelist_handle;
+ // typedef handle1 < HMENU > hmenu_handle;
+ //  typedef handle2 < HDC, HDC > hdc_handle;
+  // typedef handle1 < HGDIOBJ > hgdiobj_handle;
+//   typedef handle1 < HIMAGELIST > himagelist_handle;
 
 } // namespace mac
 
 
-#include "radix/fixed_alloc.h"
 
 template<class TYPE>
 struct ConstructDestruct
 {
    static void PASCAL Construct(::radix::object* pObject)
    { 
-      new (pObject) TYPE; 
+#undef new
+      new (pObject) TYPE;
+#define new DEBUG_NEW
    }
    static void PASCAL Destruct(::radix::object* pObject)
    {
@@ -112,6 +113,9 @@ struct ConstructDestruct
       p->~TYPE();
    }
 };
+ 
+ 
+
 
 class WindowsThread;       // forward reference for friend declaration
 
@@ -154,13 +158,13 @@ public:
    friend class ::radix::thread;
 };
 
-class CLASS_DECL_VMSMAC hwnd_map :
+class CLASS_DECL_mac hwnd_map :
    public handle_map < ::mac::hwnd_handle, ::mac::window >
 {
 public:
 };
 
-class CLASS_DECL_VMSMAC hdc_map :
+/*class CLASS_DECL_mac hdc_map :
    public handle_map < ::mac::hdc_handle, ::mac::graphics >
 {
 public:
@@ -170,7 +174,7 @@ class hgdiobj_map :
    public handle_map < ::mac::hgdiobj_handle, ::mac::graphics_object >
 {
 public:
-};
+};*/
 
 
 
@@ -201,7 +205,7 @@ template < class HT, class CT >
 CT* handle_map < HT, CT >::from_handle(HANDLE h, CT * (*pfnAllocator) (::ca::application *, HANDLE), ::ca::application * papp)
 {
    
-   CSingleLock sl(&m_mutex, TRUE);
+   single_lock sl(&m_mutex, TRUE);
 
 //   ASSERT(m_pClass != NULL);
    ASSERT(HT::s_iHandleCount == 1 || HT::s_iHandleCount == 2);
@@ -229,9 +233,9 @@ CT* handle_map < HT, CT >::from_handle(HANDLE h, CT * (*pfnAllocator) (::ca::app
    // C++ object to wrap it.  We don't want the ::fontopus::user to see this primitive::memory
    // allocation, so we turn tracing off.
 
-   WINBOOL bEnable = AfxEnableMemoryTracking(FALSE);
+   WINBOOL bEnable = __enable_memory_tracking(FALSE);
 #ifndef _AFX_PORTABLE
-   _PNH pnhOldHandler = AfxSetNewHandler(&AfxCriticalNewHandler);
+//   _PNH pnhOldHandler = __set_new_handler(&AfxCriticalNewHandler);
 #endif
 
    CT* pTemp = NULL;
@@ -241,7 +245,7 @@ CT* handle_map < HT, CT >::from_handle(HANDLE h, CT * (*pfnAllocator) (::ca::app
       {
          pTemp = pfnAllocator(papp, h);
          if (pTemp == NULL)
-            throw memory_exception();
+            throw memory_exception(::ca::get_thread_app());
       }
       else
       {
@@ -249,7 +253,7 @@ CT* handle_map < HT, CT >::from_handle(HANDLE h, CT * (*pfnAllocator) (::ca::app
    //      ASSERT((UINT)m_pClass->m_nObjectSize == m_alloc.GetAllocSize());
          pTemp = (CT*)m_alloc.Alloc();
          if (pTemp == NULL)
-            throw memory_exception();
+            throw memory_exception(::ca::get_thread_app());
 
          // now construct the object in place
          ASSERT(m_pfnConstructObject != NULL);
@@ -262,17 +266,17 @@ CT* handle_map < HT, CT >::from_handle(HANDLE h, CT * (*pfnAllocator) (::ca::app
    catch(base_exception * pe)
    {
 #ifndef _AFX_PORTABLE
-      AfxSetNewHandler(pnhOldHandler);
+//      __set_new_handler(pnhOldHandler);
 #endif
-      AfxEnableMemoryTracking(bEnable);
+      __enable_memory_tracking(bEnable);
       ::ca::rethrow(pe);
    }
    
 
 #ifndef _AFX_PORTABLE
-   AfxSetNewHandler(pnhOldHandler);
+//   __set_new_handler(pnhOldHandler);
 #endif
-   AfxEnableMemoryTracking(bEnable);
+   __enable_memory_tracking(bEnable);
 
    // now set the handle in the object
    HANDLE* ph = pTemp->m_handlea;  // after ::radix::object
@@ -288,11 +292,11 @@ template < class HT, class CT >
 void handle_map < HT, CT >::set_permanent(HANDLE h, CT * permOb)
 {
    
-   CSingleLock sl(&m_mutex, TRUE);
+   single_lock sl(&m_mutex, TRUE);
 
-   WINBOOL bEnable = AfxEnableMemoryTracking(FALSE);
+   WINBOOL bEnable = __enable_memory_tracking(FALSE);
    m_permanentMap[(LPVOID)h] = permOb;
-   AfxEnableMemoryTracking(bEnable);
+   __enable_memory_tracking(bEnable);
 
 }
 #endif //_DEBUG
@@ -302,7 +306,7 @@ template < class HT, class CT >
 void handle_map < HT, CT > ::remove_handle(HANDLE h)
 {
    
-   CSingleLock sl(&m_mutex, TRUE);
+   single_lock sl(&m_mutex, TRUE);
 
    // make sure the handle entry is consistent before deleting
    CT* pTemp = lookup_temporary(h);
@@ -333,9 +337,9 @@ template < class HT, class CT >
 void handle_map < HT, CT >::delete_temp()
 {
    
-   CSingleLock sl(&m_mutex, TRUE);
+   single_lock sl(&m_mutex, TRUE);
 
-   if (gen::is_null(this))
+   if (::ca::is_null(this))
       return;
 
    POSITION pos = m_temporaryMap.get_start_position();
@@ -384,7 +388,7 @@ template < class HT, class CT >
 inline CT* handle_map <HT, CT>::lookup_permanent(HANDLE h)
 { 
 
-   CSingleLock sl(&m_mutex, TRUE);
+   single_lock sl(&m_mutex, TRUE);
 
    CT * pt = m_permanentMap.get(h, (CT*) NULL);
    if(pt != NULL && pt->get_os_data() == h)
@@ -398,7 +402,7 @@ template < class HT, class CT >
 inline CT* handle_map <HT, CT>::lookup_temporary(HANDLE h)
 {
 
-   CSingleLock sl(&m_mutex, TRUE);
+   single_lock sl(&m_mutex, TRUE);
 
    CT * pt = m_temporaryMap.get(h, (CT*) NULL); 
    if(pt != NULL && pt->get_os_data() == h)
@@ -409,8 +413,8 @@ inline CT* handle_map <HT, CT>::lookup_temporary(HANDLE h)
 }
 
 
-CLASS_DECL_VMSMAC hwnd_map * PASCAL afxMapHWND(WINBOOL bCreate = FALSE);
-CLASS_DECL_VMSMAC himagelist_map * PASCAL afxMapHIMAGELIST(WINBOOL bCreate = FALSE);
-CLASS_DECL_VMSMAC hdc_map * PASCAL afxMapHDC(WINBOOL bCreate = FALSE);
-CLASS_DECL_VMSMAC hgdiobj_map * PASCAL afxMapHGDIOBJ(WINBOOL bCreate = FALSE);
-CLASS_DECL_VMSMAC hmenu_map * PASCAL afx_map_HMENU(WINBOOL bCreate = FALSE);
+CLASS_DECL_mac hwnd_map * PASCAL afxMapHWND(WINBOOL bCreate = FALSE);
+CLASS_DECL_mac himagelist_map * PASCAL afxMapHIMAGELIST(WINBOOL bCreate = FALSE);
+//CLASS_DECL_mac hdc_map * PASCAL afxMapHDC(WINBOOL bCreate = FALSE);
+//CLASS_DECL_mac hgdiobj_map * PASCAL afxMapHGDIOBJ(WINBOOL bCreate = FALSE);
+CLASS_DECL_mac hmenu_map * PASCAL afx_map_HMENU(WINBOOL bCreate = FALSE);
