@@ -1,14 +1,14 @@
 #pragma once
 
-namespace win
+namespace mac
 {
    
-   CLASS_DECL_VMSWIN LRESULT CALLBACK _AfxSendMsgHook(int, WPARAM, LPARAM);
-   //CLASS_DECL_VMSWIN void _AfxStandardSubclass(oswindow);
-   CLASS_DECL_VMSWIN LRESULT CALLBACK _AfxCbtFilterHook(int, WPARAM, LPARAM);
-   CLASS_DECL_VMSWIN LRESULT AfxCallWndProc(::user::interaction * pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
+   CLASS_DECL_VMSMAC LRESULT CALLBACK _AfxSendMsgHook(int, WPARAM, LPARAM);
+   //CLASS_DECL_VMSMAC void _AfxStandardSubclass(oswindow);
+   CLASS_DECL_VMSMAC LRESULT CALLBACK _AfxCbtFilterHook(int, WPARAM, LPARAM);
+   CLASS_DECL_VMSMAC LRESULT AfxCallWndProc(::user::interaction * pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
 
-   class CLASS_DECL_VMSWIN window : 
+   class CLASS_DECL_VMSMAC window : 
       virtual public ::ca::window,
       virtual public hwnd_handle
    {
@@ -34,7 +34,7 @@ namespace win
 
       static const MSG* PASCAL GetCurrentMessage();
 
-      virtual void _001InstallMessageHandling(::user::win::message::dispatch * pinterface);
+      virtual void _001InstallMessageHandling(::user::mac::message::dispatch * pinterface);
 
       WINBOOL operator==(const ::ca::window& wnd) const;
       WINBOOL operator!=(const ::ca::window& wnd) const;
@@ -675,10 +675,10 @@ namespace win
 
 
       // implementation of message dispatch/hooking
-      CLASS_DECL_VMSWIN friend LRESULT CALLBACK _AfxSendMsgHook(int, WPARAM, LPARAM);
-      //CLASS_DECL_VMSWIN friend void _AfxStandardSubclass(oswindow);
-      CLASS_DECL_VMSWIN friend LRESULT CALLBACK _AfxCbtFilterHook(int, WPARAM, LPARAM);
-      CLASS_DECL_VMSWIN friend LRESULT AfxCallWndProc(::user::interaction * pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
+      CLASS_DECL_VMSMAC friend LRESULT CALLBACK _AfxSendMsgHook(int, WPARAM, LPARAM);
+      //CLASS_DECL_VMSMAC friend void _AfxStandardSubclass(oswindow);
+      CLASS_DECL_VMSMAC friend LRESULT CALLBACK _AfxCbtFilterHook(int, WPARAM, LPARAM);
+      CLASS_DECL_VMSMAC friend LRESULT AfxCallWndProc(::user::interaction * pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
 
       // standard message implementation
       afx_msg LRESULT OnNTCtlColor(WPARAM wParam, LPARAM lParam);
@@ -702,4 +702,4 @@ namespace win
 
    };
 
-} // namespace win
+} // namespace mac
