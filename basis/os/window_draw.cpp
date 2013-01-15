@@ -21,7 +21,7 @@ public:
 
 };
 
-namespace win
+namespace mac
 {
 
    window_draw::window_draw(::ca::application * papp) :
@@ -59,7 +59,7 @@ namespace win
 
    void window_draw::message_window_message_handler(gen::signal_object * pobj)
    {
-      SCAST_PTR(user::win::message::base, pbase, pobj);
+      SCAST_PTR(user::mac::message::base, pbase, pobj);
       if(pbase->m_uiMessage == (WM_USER + 1984 + 1977))
       {
          _synch_redraw();
@@ -263,7 +263,7 @@ namespace win
          //::ClientToScreen(hwndParam, &rectWindow.top_left());
          //::ClientToScreen(hwndParam, &rectWindow.bottom_right());
 
-         (dynamic_cast<::win::graphics * >(pdc))->SetViewportOrg(rectWindow.left, rectWindow.top);
+         (dynamic_cast<::mac::graphics * >(pdc))->SetViewportOrg(rectWindow.left, rectWindow.top);
 
 
          if(ptwi != NULL)
@@ -289,7 +289,7 @@ namespace win
             ::DefWindowProc(
                hwndParam,
                (bWin4 ? WM_PRINT : WM_PAINT),
-               (WPARAM)((dynamic_cast<::win::graphics * >(pdc))->get_os_data()),
+               (WPARAM)((dynamic_cast<::mac::graphics * >(pdc))->get_os_data()),
                (LPARAM)(bWin4 ? PRF_CHILDREN | PRF_CLIENT : 0));
             //::RedrawWindow(hwndParam, NULL, rgnClient, RDW_INVALIDATE | RDW_UPDATENOW | RDW_NOCHILDREN);
          }
@@ -486,7 +486,7 @@ namespace win
       if(m_pbuffer->GetBuffer()->get_os_data() == NULL)
          return true;
 
-      ::ca::graphics * pdc = (dynamic_cast<::win::graphics * >(m_pbuffer->GetBuffer()));
+      ::ca::graphics * pdc = (dynamic_cast<::mac::graphics * >(m_pbuffer->GetBuffer()));
       m_twrenderclienttool.SetDC(pdc);
       m_twrenderclienttool.GetClipRgn().CopyRgn(&rgnClip);
 
@@ -575,7 +575,7 @@ namespace win
             ::SendMessageTimeout(
                hwnda[i],
                WM_PRINTCLIENT,
-               (WPARAM) (HDC) *dynamic_cast < ::win::graphics *> (dib->get_graphics()),
+               (WPARAM) (HDC) *dynamic_cast < ::mac::graphics *> (dib->get_graphics()),
                0,
                0,
                184,
@@ -586,13 +586,13 @@ namespace win
             if(pwnd == NULL)
             {
                ::UpdateLayeredWindowX(hwnda[i], NULL, NULL, NULL,
-                  *dynamic_cast < ::win::graphics *> (dib->get_graphics()),
+                  *dynamic_cast < ::mac::graphics *> (dib->get_graphics()),
                   &ptDc, 0, NULL, ULW_OPAQUE);
             }
             else
             {
                ::UpdateLayeredWindowX(hwnda[i], NULL, &pt, &sz,
-                  *dynamic_cast < ::win::graphics *> (dib->get_graphics()),
+                  *dynamic_cast < ::mac::graphics *> (dib->get_graphics()),
                   &ptDc, 0, NULL, ULW_OPAQUE);
             }
 
@@ -1038,7 +1038,7 @@ namespace win
       ::GetWindowRect(hwnd, rectWindow);
 
 
-   //   ::ca::window * pwnd = ::win::window::from_handle(hwnd);
+   //   ::ca::window * pwnd = ::mac::window::from_handle(hwnd);
 
       if(!TwfGetTopWindow(
             hwndParam,
@@ -1404,7 +1404,7 @@ namespace win
          sz.cy = (LONG) min(rectWindow.bottom - pt.y, System.m_monitorinfoa[0].rcMonitor.bottom - pt.y);
 
          ::UpdateLayeredWindow(hwndParam, hdcScreen, &pt, &sz,
-            (HDC)(dynamic_cast<::win::graphics * >(m_pbuffer->GetBuffer()))->get_os_data(),
+            (HDC)(dynamic_cast<::mac::graphics * >(m_pbuffer->GetBuffer()))->get_os_data(),
             &pt, 0, &blendPixelFunction, ULW_OPAQUE);
 
          /*
@@ -1424,7 +1424,7 @@ namespace win
          (int) rectOutputClient.top,
          (int) rectOutputClient.width(),
          (int) rectOutputClient.height(),
-         (HDC)(dynamic_cast<::win::graphics * >(m_pbuffer->GetBuffer()))->get_os_data(),
+         (HDC)(dynamic_cast<::mac::graphics * >(m_pbuffer->GetBuffer()))->get_os_data(),
          (int) rectWindow.left,
          (int) rectWindow.top,
          SRCCOPY);
@@ -1467,4 +1467,4 @@ namespace win
 
 
 
-} // namespace win
+} // namespace mac
