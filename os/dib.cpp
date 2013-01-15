@@ -46,7 +46,7 @@ namespace mac
    }
 
 
-   CLASS_DECL_VMSMAC void dib::s_initialize()
+   CLASS_DECL_mac void dib::s_initialize()
    {
       double dCos;
       double dSin;
