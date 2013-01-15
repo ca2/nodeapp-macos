@@ -135,7 +135,7 @@ _AFX_DEBUG_STATE::~_AFX_DEBUG_STATE()
 
 PROCESS_LOCAL(_AFX_DEBUG_STATE, afxDebugState)
 
-WINBOOL CLASS_DECL_VMSMAC AfxDiagnosticInit(void)
+WINBOOL CLASS_DECL_mac AfxDiagnosticInit(void)
 {
    // just get the debug state to cause initialization
    _AFX_DEBUG_STATE* pState = afxDebugState.get_data();
