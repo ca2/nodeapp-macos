@@ -9,7 +9,7 @@
 // AFX_MODULE_STATE push/pop implementation
 
 #ifdef _ApplicationFrameworkDLL
-CLASS_DECL_VMSMAC AFX_MODULE_STATE * AfxSetModuleState(AFX_MODULE_STATE* pNewState)
+CLASS_DECL_mac AFX_MODULE_STATE * AfxSetModuleState(AFX_MODULE_STATE* pNewState)
 {
    _AFX_THREAD_STATE* pState = _afxThreadState;
    ASSERT(pState);
@@ -98,7 +98,7 @@ _AFX_THREAD_STATE::~_AFX_THREAD_STATE()
 
 }
 
-CLASS_DECL_VMSMAC _AFX_THREAD_STATE * AfxGetThreadState()
+CLASS_DECL_mac _AFX_THREAD_STATE * AfxGetThreadState()
 {
    _AFX_THREAD_STATE *pState =_afxThreadState.get_data();
    ENSURE(pState != NULL); 
@@ -134,13 +134,13 @@ AFX_MODULE_STATE::AFX_MODULE_STATE(WINBOOL bDLL)
    {
       //Preallocate the registered classes string, but CRT primitive::memory leak report is
       //called before the string frees primitive::memory, so need to disable tracking.
-      //bEnable = AfxEnableMemoryTracking(FALSE);
+      //bEnable = __enable_memory_tracking(FALSE);
       //m_pstrUnregisterList->Preallocate(4096);
-      //AfxEnableMemoryTracking(bEnable);   
+      //__enable_memory_tracking(bEnable);   
    }      
    catch(memory_exception * pe)
    {
-      AfxEnableMemoryTracking(bEnable);   
+      __enable_memory_tracking(bEnable);   
       pe->Delete();
    }
    
@@ -155,10 +155,10 @@ AFX_MODULE_STATE::AFX_MODULE_STATE(WINBOOL bDLL)
 #endif
    
 
-   bEnable = AfxEnableMemoryTracking(FALSE);      
+   bEnable = __enable_memory_tracking(FALSE);      
    //Fusion: allocate dll wrappers base_array.
    m_pDllIsolationWrappers = NULL;
-   AfxEnableMemoryTracking(bEnable);
+   __enable_memory_tracking(bEnable);
    m_bSetAmbientActCtx = TRUE;
    m_hActCtx = NULL;
 }
@@ -181,7 +181,7 @@ AFX_ACTCTX_API_PTR_DEFINE(ReleaseActCtx, void, (HANDLE));
 AFX_ACTCTX_API_PTR_DEFINE(ActivateActCtx, WINBOOL, (HANDLE, uint_ptr*));
 AFX_ACTCTX_API_PTR_DEFINE(DeactivateActCtx, WINBOOL, (DWORD, uint_ptr));
 
-__STATIC void CLASS_DECL_VMSMAC _AfxInitContextAPI()
+__STATIC void CLASS_DECL_mac _AfxInitContextAPI()
 {
    static HMODULE hKernel = NULL;
    if (hKernel == NULL)
@@ -196,20 +196,20 @@ __STATIC void CLASS_DECL_VMSMAC _AfxInitContextAPI()
 }
 
 #if (_WIN32_WINNT >= 0x0500) || (_WIN32_FUSION >= 0x0100)
-HANDLE CLASS_DECL_VMSMAC AfxCreateActCtxW(PCACTCTXW pActCtx)
+HANDLE CLASS_DECL_mac AfxCreateActCtxW(PCACTCTXW pActCtx)
 {   
    HANDLE hCtx = pfnCreateActCtxW != 0 ? pfnCreateActCtxW(pActCtx) : INVALID_HANDLE_VALUE;
    return hCtx;
 }
 #else
-HANDLE CLASS_DECL_VMSMAC AfxCreateActCtxW(void *pActCtx)
+HANDLE CLASS_DECL_mac AfxCreateActCtxW(void *pActCtx)
 {   
    HANDLE hCtx = pfnCreateActCtxW != 0 ? pfnCreateActCtxW(pActCtx) : INVALID_HANDLE_VALUE;
    return hCtx;
 }
 #endif
 
-void CLASS_DECL_VMSMAC AfxReleaseActCtx(HANDLE hActCtx)
+void CLASS_DECL_mac AfxReleaseActCtx(HANDLE hActCtx)
 {   
    if (pfnReleaseActCtx != 0)
    {
@@ -217,13 +217,13 @@ void CLASS_DECL_VMSMAC AfxReleaseActCtx(HANDLE hActCtx)
    }
 }
 
-CLASS_DECL_VMSMAC WINBOOL AfxActivateActCtx(HANDLE hActCtx, uint_ptr *lpCookie) 
+CLASS_DECL_mac WINBOOL AfxActivateActCtx(HANDLE hActCtx, uint_ptr *lpCookie) 
 {   
    WINBOOL rc = pfnActivateActCtx != 0 ? pfnActivateActCtx(hActCtx, lpCookie) : FALSE;   
    return rc;
 }
 
-CLASS_DECL_VMSMAC WINBOOL AfxDeactivateActCtx(DWORD dwFlags, uint_ptr ulCookie)
+CLASS_DECL_mac WINBOOL AfxDeactivateActCtx(DWORD dwFlags, uint_ptr ulCookie)
 {   
    WINBOOL rc = pfnDeactivateActCtx != 0 ? pfnDeactivateActCtx(dwFlags, ulCookie) : FALSE;
    return rc;
@@ -372,12 +372,12 @@ AfxWndProcBase(oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
 /////////////////////////////////////////////////////////////////////////////
 // helper functions for module state
 
-CLASS_DECL_VMSMAC AFX_MODULE_STATE * AfxGetAppModuleState()
+CLASS_DECL_mac AFX_MODULE_STATE * AfxGetAppModuleState()
 {
    return _afxBaseModuleState.get_data();
 }
 
-CLASS_DECL_VMSMAC AFX_MODULE_STATE * AfxGetModuleState()
+CLASS_DECL_mac AFX_MODULE_STATE * AfxGetModuleState()
 {
    _AFX_THREAD_STATE* pState = _afxThreadState;
    ENSURE(pState);
@@ -396,17 +396,17 @@ CLASS_DECL_VMSMAC AFX_MODULE_STATE * AfxGetModuleState()
    return pResult;
 }
 
-HINSTANCE CLASS_DECL_VMSMAC AfxGetInstanceHandleHelper()
+HINSTANCE CLASS_DECL_mac AfxGetInstanceHandleHelper()
 {
    return AfxGetModuleState()->m_hCurrentInstanceHandle;
 }
 
-WINBOOL CLASS_DECL_VMSMAC AfxIsModuleDll()
+WINBOOL CLASS_DECL_mac AfxIsModuleDll()
 {
    return AfxGetModuleState()->m_bDLL;
 }
 
-WINBOOL CLASS_DECL_VMSMAC AfxInitCurrentStateApp()
+WINBOOL CLASS_DECL_mac AfxInitCurrentStateApp()
 {
    ::radix::application* pApp = AfxGetModuleState()->m_pCurrentWinApp;
    if (pApp != NULL && !pApp->initialize_instance())
@@ -425,7 +425,7 @@ WINBOOL CLASS_DECL_VMSMAC AfxInitCurrentStateApp()
    return TRUE;
 }
 
-CLASS_DECL_VMSMAC AFX_MODULE_THREAD_STATE * AfxGetModuleThreadState()
+CLASS_DECL_mac AFX_MODULE_THREAD_STATE * AfxGetModuleThreadState()
 {
    AFX_MODULE_THREAD_STATE* pResult=AfxGetModuleState()->m_thread.get_data();
    ENSURE(pResult != NULL);
