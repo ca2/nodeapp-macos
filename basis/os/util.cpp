@@ -3,7 +3,7 @@
 
 
 // interesting function
-/*WINBOOL CLASS_DECL_VMSMAC AfxCustomLogFont(UINT nIDS, LOGFONT* pLogFont)
+/*WINBOOL CLASS_DECL_mac AfxCustomLogFont(UINT nIDS, LOGFONT* pLogFont)
 {
    ENSURE_ARG(pLogFont != NULL);
    ASSERT(nIDS != 0);
@@ -25,7 +25,7 @@
    return TRUE;
 }*/
 
-WINBOOL CLASS_DECL_VMSMAC _AfxIsComboBoxControl(oswindow hWnd, UINT nStyle)
+WINBOOL CLASS_DECL_mac _AfxIsComboBoxControl(oswindow hWnd, UINT nStyle)
 {
    if (hWnd == NULL)
       return FALSE;
@@ -39,7 +39,7 @@ WINBOOL CLASS_DECL_VMSMAC _AfxIsComboBoxControl(oswindow hWnd, UINT nStyle)
    return ::AfxInvariantStrICmp(szCompare, "combobox") == 0;
 }
 
-WINBOOL CLASS_DECL_VMSMAC _AfxCompareClassName(oswindow hWnd, const char * lpszClassName)
+WINBOOL CLASS_DECL_mac _AfxCompareClassName(oswindow hWnd, const char * lpszClassName)
 {
    ASSERT(::IsWindow(hWnd));
    char szTemp[32];
@@ -47,7 +47,7 @@ WINBOOL CLASS_DECL_VMSMAC _AfxCompareClassName(oswindow hWnd, const char * lpszC
    return ::AfxInvariantStrICmp(szTemp, lpszClassName) == 0;
 }
 
-oswindow CLASS_DECL_VMSMAC _AfxChildWindowFromPoint(oswindow hWnd, POINT pt)
+oswindow CLASS_DECL_mac _AfxChildWindowFromPoint(oswindow hWnd, POINT pt)
 {
    ASSERT(hWnd != NULL);
 
@@ -70,7 +70,7 @@ oswindow CLASS_DECL_VMSMAC _AfxChildWindowFromPoint(oswindow hWnd, POINT pt)
    return NULL;    // not found
 }
 
-void CLASS_DECL_VMSMAC AfxSetWindowText(::user::interaction * hWndCtrl, const char * lpszNew)
+void CLASS_DECL_mac AfxSetWindowText(::user::interaction * hWndCtrl, const char * lpszNew)
 {
    hWndCtrl->SetWindowText(lpszNew);
    /*ENSURE(hWndCtrl);
@@ -88,7 +88,7 @@ void CLASS_DECL_VMSMAC AfxSetWindowText(::user::interaction * hWndCtrl, const ch
    }*/
 }
 
-void CLASS_DECL_VMSMAC AfxDeleteObject(HGDIOBJ* pObject)
+void CLASS_DECL_mac AfxDeleteObject(HGDIOBJ* pObject)
 {
    ENSURE_ARG(pObject != NULL);   
    if (*pObject != NULL)
@@ -98,7 +98,7 @@ void CLASS_DECL_VMSMAC AfxDeleteObject(HGDIOBJ* pObject)
    }
 }
 /*
-void CLASS_DECL_VMSMAC AfxCancelModes(oswindow hWndRcvr)
+void CLASS_DECL_mac AfxCancelModes(oswindow hWndRcvr)
 {
    // if we receive a message destined for a ::ca::window, cancel any combobox
    //  popups that could be in toolbars or dialog bars
@@ -131,7 +131,7 @@ void CLASS_DECL_VMSMAC AfxCancelModes(oswindow hWndRcvr)
    ::SendMessage(hWndCancel, CB_SHOWDROPDOWN, FALSE, 0L);
 }*/
 
-void CLASS_DECL_VMSMAC AfxGlobalFree(HGLOBAL hGlobal)
+void CLASS_DECL_mac AfxGlobalFree(HGLOBAL hGlobal)
 {
    if (hGlobal == NULL)
       return;
@@ -172,10 +172,10 @@ int c_cdecl AfxCriticalNewHandler(size_t nSize)
       }
       else
       {
-         WINBOOL bEnable = AfxEnableMemoryTracking(FALSE);
+         WINBOOL bEnable = __enable_memory_tracking(FALSE);
          _expand(pThreadState->m_pSafetyPoolBuffer,
             nOldBufferSize - (nSize + MIN_MALLOC_OVERHEAD));
-         AfxEnableMemoryTracking(bEnable);
+         __enable_memory_tracking(bEnable);
 //         TRACE(::radix::trace::category_Memory, 0, "Warning: Shrinking safety pool from %d to %d to satisfy request of %d bytes.\n",
   //           nOldBufferSize, _msize(pThreadState->m_pSafetyPoolBuffer), nSize);
       }
