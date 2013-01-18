@@ -1,54 +1,91 @@
-#include "StdAfx.h"
+#include "framework.h"
 
 // Global helper functions
- CLASS_DECL_mac ::radix::application * AfxGetApp()
+CLASS_DECL_mac ::radix::application * __get_app()
 { return dynamic_cast < ::radix::application * > (afxCurrentWinApp); }
 
- CLASS_DECL_mac HINSTANCE AfxGetInstanceHandle()
-   { ASSERT(afxCurrentInstanceHandle != NULL);
-      return afxCurrentInstanceHandle; }
- CLASS_DECL_mac HINSTANCE AfxGetResourceHandle()
-   { ASSERT(afxCurrentResourceHandle != NULL);
-      return afxCurrentResourceHandle; }
- CLASS_DECL_mac void AfxSetResourceHandle(HINSTANCE hInstResource)
-   { ASSERT(hInstResource != NULL); afxCurrentResourceHandle = hInstResource; }
- CLASS_DECL_mac const char * AfxGetAppName()
-   { ASSERT(afxCurrentAppName != NULL); return afxCurrentAppName; }
- CLASS_DECL_mac ::user::interaction * AfxGetMainWnd()
+CLASS_DECL_mac HINSTANCE __get_instance_handle()
+{ ASSERT(afxCurrentInstanceHandle != NULL);
+   return afxCurrentInstanceHandle; }
+CLASS_DECL_mac HINSTANCE __get_resource_handle()
+{ ASSERT(afxCurrentResourceHandle != NULL);
+   return afxCurrentResourceHandle; }
+CLASS_DECL_mac void __set_resource_handle(HINSTANCE hInstResource)
+{ ASSERT(hInstResource != NULL); afxCurrentResourceHandle = hInstResource; }
+CLASS_DECL_mac const char * __get_app_name()
+{ ASSERT(afxCurrentAppName != NULL); return afxCurrentAppName; }
+CLASS_DECL_mac ::user::interaction * __get_main_window()
 {
-      ::radix::thread* pThread = dynamic_cast < ::radix::thread * > (::mac::get_thread());
-      return pThread != NULL ? pThread->GetMainWnd() : NULL; 
- }
+   ::radix::thread* pThread = dynamic_cast < ::radix::thread * > (::mac::get_thread());
+   return pThread != NULL ? pThread->GetMainWnd() : NULL;
+}
 
- CLASS_DECL_mac WINBOOL AfxGetAmbientActCtx()
-   {    return afxAmbientActCtx; }
- CLASS_DECL_mac void AfxSetAmbientActCtx(WINBOOL bSet)
-   {  afxAmbientActCtx = bSet; }
+CLASS_DECL_mac bool __gen_get_ambient_act_ctx()
+{    return afxAmbientActCtx; }
+CLASS_DECL_mac void __set_ambient_act_ctx(bool bSet)
+{  afxAmbientActCtx = bSet; }
 
 
 
-#ifdef _ApplicationFrameworkDLL
-// AFX_MAINTAIN_STATE functions
- AFX_MAINTAIN_STATE::AFX_MAINTAIN_STATE(AFX_MODULE_STATE* pNewState)
-   {  m_pPrevModuleState = AfxSetModuleState(pNewState); }
-#endif
+// __MAINTAIN_STATE functions
+__MAINTAIN_STATE::__MAINTAIN_STATE(__MODULE_STATE* pNewState) throw()
+{  m_pPrevModuleState = __set_module_state(pNewState); }
 
-// AFX_MAINTAIN_STATE2 functions
- AFX_MAINTAIN_STATE2::~AFX_MAINTAIN_STATE2()
+// __MAINTAIN_STATE2 functions
+__MAINTAIN_STATE2::~__MAINTAIN_STATE2()
 {
-#ifdef _ApplicationFrameworkDLL
    // Not a good place to report errors here, so just be safe
    if(m_pThreadState)
    {
       m_pThreadState->m_pModuleState = m_pPrevModuleState;
    }
-#endif
-
-/*   if (m_bValidActCtxCookie)
-   {
-      WINBOOL bRet;
-      bRet = AfxDeactivateActCtx(0, m_ulActCtxCookie);
-      ASSERT(bRet == TRUE);
-   }*/
+   
+   /*   if (m_bValidActCtxCookie)
+    {
+    bool bRet;
+    bRet = __deactivate_act_ctx(0, m_ulActCtxCookie);
+    ASSERT(bRet == TRUE);
+    }*/
 }
 
+
+
+
+
+// __is_valid_atom() returns TRUE if the passed parameter is
+// a valid local or global atom.
+
+/*bool __is_valid_atom(ATOM nAtom)
+ {
+ return true;
+ 
+ char sBuffer[256];
+ if (GetAtomName(nAtom, sBuffer, _countof(sBuffer)))
+ {
+ return TRUE;
+ }
+ DWORD dwError = GetLastError();
+ if (dwError == ERROR_INSUFFICIENT_BUFFER || dwError == ERROR_MORE_DATA)
+ {
+ return TRUE;
+ }
+ if (GlobalGetAtomName(nAtom, sBuffer, _countof(sBuffer)))
+ {
+ return TRUE;
+ }
+ dwError = GetLastError();
+ if (dwError == ERROR_INSUFFICIENT_BUFFER || dwError == ERROR_MORE_DATA)
+ {
+ return TRUE;
+ }
+ return FALSE;
+ }
+ 
+ // __is_valid_address() returns TRUE if the passed parameter is
+ // a valid representation of a local or a global atom within a const char *.
+ 
+ bool __is_valid_atom(const char * psz)
+ {
+ return HIWORD(psz) == 0L && __is_valid_atom(ATOM(LOWORD(psz)));
+ }
+ */
