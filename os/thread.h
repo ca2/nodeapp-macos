@@ -1,29 +1,43 @@
 #pragma once
 
-WINBOOL AfxInternalPreTranslateMessage(MESSAGE * pMsg);
+
+WINBOOL AfxInternalPreTranslateMessage(MESSAGE* pMsg);
+
 
 namespace ca
 {
-   struct  thread_startup
-   {
-      ::ca::thread *          m_pthread;    // thread for new thread
-      HANDLE hEvent;          // event triggered after success/non-success
-      HANDLE hEvent2;         // event triggered after thread is resumed
 
+   
+   struct thread_startup
+   {
+      
+      
+      ::ca::thread *          m_pthread;    // thread for new thread
+      simple_event hEvent;          // event triggered after success/non-success
+      simple_event hEvent2;         // event triggered after thread is resumed
+      
+      
       thread_startup();
       ~thread_startup();
+      
+      
    };
-
+   
+   
 } // namespace ca
+
 
 namespace mac
 {
 
+   
    class CLASS_DECL_mac thread :
       virtual public ::radix::thread,
       virtual public ::ca::message_window_simple_callback
    {
    public:
+      
+      
       /// thread ID, used to ensure that the thread that calls one of the WaitForEvents
 		/// methods is really the thread represented by the Thread class
 		//pthread_t			thread_;
@@ -100,9 +114,9 @@ namespace mac
       virtual void set_p(::radix::thread * p);
       
       
-      virtual bool Begin(::ca::e_thread_priority epriority = get_thread_priority_normal(), UINT nStackSize = 0, DWORD dwCreateFlags = 0, LPSECURITY_ATTRIBUTES lpSecurityAttrs = NULL);
+      virtual bool begin(::ca::e_thread_priority epriority = get_thread_priority_normal(), uint_ptr nStackSize = 0, uint32_t dwCreateFlags = 0, LPSECURITY_ATTRIBUTES lpSecurityAttrs = NULL);
       
-      virtual bool create_thread(::ca::e_thread_priority epriority = get_thread_priority_normal(), DWORD dwCreateFlagsParam = 0, UINT nStackSize = 0, LPSECURITY_ATTRIBUTES lpSecurityAttrs = NULL);
+      virtual bool create_thread(::ca::e_thread_priority epriority = get_thread_priority_normal(), uint32_t dwCreateFlagsParam = 0, uint_ptr nStackSize = 0, LPSECURITY_ATTRIBUTES lpSecurityAttrs = NULL);
       
       virtual ::user::interaction * SetMainWnd(::user::interaction * pui);
       
@@ -185,11 +199,14 @@ namespace mac
       virtual WINBOOL UnlockTempMaps(WINBOOL bDeleteTemp);
       
       operator pthread_t() const;
-
+      
+      
    };
-
+   
+   
    CLASS_DECL_mac ::ca::thread * get_thread();
-
+   
+   
 } // namespace mac
 
 
