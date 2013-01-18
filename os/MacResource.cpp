@@ -81,9 +81,9 @@ bool WinResource::ReadResource(
    gen::memory_file file(get_app());
    if(!ReadResource(file, nID, lpcszType))
       return false;
-   file.AllocateAddUp(1);
-   ((char * )file.GetAllocation())[file.get_length() -1 ] = '\0';
-   str = ((char * )file.GetAllocation());
+//   file.AllocateAddUp(1);
+  // ((char * )file.GetAllocation())[file.get_length() -1 ] = '\0';
+   //str = ((char * )file.GetAllocation());
    return true;
 }  
 
