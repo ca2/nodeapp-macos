@@ -11,7 +11,7 @@ namespace mac
       
       m_iStock = -1;
       
-      m_iStyle = FillSolid;
+      m_etype = type_solid;
       
       m_cr = 0;
       
@@ -131,7 +131,7 @@ namespace mac
             
             ((brush *) this)->m_iStock = -1;
             
-            ((brush *) this)->m_iStyle = FillSolid;
+            ((brush *) this)->m_etype = type_solid;
             
          }
          else if(m_etype == type_linear_gradient_point_color)
@@ -149,7 +149,7 @@ namespace mac
             
             ((brush *) this)->m_iStock = -1;
             
-            ((brush *) this)->m_iStyle = FillSolid;
+            ((brush *) this)->m_etype = type_solid;
             
          }
       }
