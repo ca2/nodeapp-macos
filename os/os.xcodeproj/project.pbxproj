@@ -50,8 +50,6 @@
 		A1CFD91F154FB715007447E2 /* dib.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8A6154FB715007447E2 /* dib.h */; };
 		A1CFD920154FB715007447E2 /* dir.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8A7154FB715007447E2 /* dir.cpp */; };
 		A1CFD921154FB715007447E2 /* dir.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8A9154FB715007447E2 /* dir.h */; };
-		A1CFD922154FB715007447E2 /* draw_dib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8AA154FB715007447E2 /* draw_dib.cpp */; };
-		A1CFD923154FB715007447E2 /* draw_dib.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8AB154FB715007447E2 /* draw_dib.h */; };
 		A1CFD924154FB715007447E2 /* dumpinit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8AC154FB715007447E2 /* dumpinit.cpp */; };
 		A1CFD925154FB715007447E2 /* except.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8AD154FB715007447E2 /* except.cpp */; };
 		A1CFD926154FB715007447E2 /* factory_exchange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8AE154FB715007447E2 /* factory_exchange.cpp */; };
@@ -165,8 +163,6 @@
 		A1CFD8A6154FB715007447E2 /* dib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dib.h; sourceTree = "<group>"; };
 		A1CFD8A7154FB715007447E2 /* dir.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dir.cpp; sourceTree = "<group>"; };
 		A1CFD8A9154FB715007447E2 /* dir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dir.h; sourceTree = "<group>"; };
-		A1CFD8AA154FB715007447E2 /* draw_dib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw_dib.cpp; sourceTree = "<group>"; };
-		A1CFD8AB154FB715007447E2 /* draw_dib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw_dib.h; sourceTree = "<group>"; };
 		A1CFD8AC154FB715007447E2 /* dumpinit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dumpinit.cpp; sourceTree = "<group>"; };
 		A1CFD8AD154FB715007447E2 /* except.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = except.cpp; sourceTree = "<group>"; };
 		A1CFD8AE154FB715007447E2 /* factory_exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = factory_exchange.cpp; sourceTree = "<group>"; };
@@ -335,8 +331,6 @@
 				A1CFD8A6154FB715007447E2 /* dib.h */,
 				A1CFD8A7154FB715007447E2 /* dir.cpp */,
 				A1CFD8A9154FB715007447E2 /* dir.h */,
-				A1CFD8AA154FB715007447E2 /* draw_dib.cpp */,
-				A1CFD8AB154FB715007447E2 /* draw_dib.h */,
 				A1CFD8AC154FB715007447E2 /* dumpinit.cpp */,
 				A1CFD8AD154FB715007447E2 /* except.cpp */,
 				A1CFD8AE154FB715007447E2 /* factory_exchange.cpp */,
@@ -449,7 +443,6 @@
 				A1CFD91D154FB715007447E2 /* brush.h in Headers */,
 				A1CFD91F154FB715007447E2 /* dib.h in Headers */,
 				A1CFD921154FB715007447E2 /* dir.h in Headers */,
-				A1CFD923154FB715007447E2 /* draw_dib.h in Headers */,
 				A1CFD927154FB715007447E2 /* factory_exchange.h in Headers */,
 				A1CFD92B154FB715007447E2 /* font.h in Headers */,
 				A1CFD92C154FB715007447E2 /* gen_1.h in Headers */,
@@ -546,7 +539,6 @@
 				A1CFD91C154FB715007447E2 /* brush.cpp in Sources */,
 				A1CFD91E154FB715007447E2 /* dib.cpp in Sources */,
 				A1CFD920154FB715007447E2 /* dir.cpp in Sources */,
-				A1CFD922154FB715007447E2 /* draw_dib.cpp in Sources */,
 				A1CFD924154FB715007447E2 /* dumpinit.cpp in Sources */,
 				A1CFD925154FB715007447E2 /* except.cpp in Sources */,
 				A1CFD926154FB715007447E2 /* factory_exchange.cpp in Sources */,
