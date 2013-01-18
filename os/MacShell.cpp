@@ -400,11 +400,11 @@ namespace mac{
     
     
     if ( !path || !*path )  /* no work to do */
-   /*          return( _wgetcwd( UserBuf, maxlen ) );
+             return( _wgetcwd( UserBuf, maxlen ) );
     
     /* allocate buffer if necessary */
    
-   /*    if ( !UserBuf )
+      if ( !UserBuf )
     if ( !(buf = (WCHAR *) malloc(_MAX_PATH * sizeof(WCHAR))) ) {
     //                errno = ENOMEM;
     return( NULL );
