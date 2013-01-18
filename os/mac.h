@@ -1,23 +1,26 @@
 #pragma once
 
 
-#define SECURITY_MAC32
+#define SECURITY_WIN32
 
 
-#include "app/appseed/ca/ca.h"
+#include "ca.h"
 
 
+#ifdef LINUX
 #define CLASS_DECL_mac
+#endif
 
 
 string get_error_message(DWORD dwError);
 
-::ca::application *     win_instantiate_application(::ca::application * pappSystem, const char * pszId);
+::ca::application *     mac_instantiate_application(::ca::application * pappSystem, const char * pszId);
 
 /////////////////////////////////////////////////////////////////////////////
 // explicit initialization for general purpose classes
 
-CLASS_DECL_mac WINBOOL AfxInitialize(WINBOOL bDLL = FALSE, DWORD dwVersion = _MFC_VER);
+//CLASS_DECL_mac WINBOOL AfxInitialize(WINBOOL bDLL = FALSE, DWORD dwVersion = _MFC_VER);
+CLASS_DECL_mac WINBOOL AfxInitialize(WINBOOL bDLL = FALSE, DWORD dwVersion = 0);
 
 /////////////////////////////////////////////////////////////////////////////
 // stop on a specific primitive::memory request
@@ -26,11 +29,11 @@ CLASS_DECL_mac WINBOOL AfxInitialize(WINBOOL bDLL = FALSE, DWORD dwVersion = _MF
 CLASS_DECL_mac void AfxSetAllocStop(LONG lRequestNumber);
 
 // Return TRUE if primitive::memory is sane or print out what is wrong
-CLASS_DECL_mac WINBOOL AfxCheckMemory();
+CLASS_DECL_mac bool __check_memory();
 
 // Return TRUE if valid primitive::memory block of nBytes
 CLASS_DECL_mac WINBOOL AfxIsMemoryBlock(const void * p, UINT nBytes,
-   LONG* plRequestNumber = NULL);
+                                        LONG* plRequestNumber = NULL);
 
 // helper routines for non-C++ EH implementations
 // for THROW_LAST auto-delete backward compatiblity
@@ -54,30 +57,34 @@ CLASS_DECL_mac void AfxResetMsgCache();
 
 #include "mac1.h"
 #include "implementation.h"
-#include "state.h"
-#include "handle.h"
-#include "dir.h"
-#include "factory_exchange.h"
-//#include "UACTools.h"
-#include "window_draw.h"
-#include "graphics_object.h"
+#include "mac_state.h"
+// xxx #include "handle.h"
+// xxx #include "mac_file_find.h"
+#include "mac_dir.h"
+// xxx #include "mac_folder_watch.h"
+#include "mac_factory_exchange.h"
+#include "mac_window_draw.h"
 #include "mac_graphics_path.h"
-#include "bitmap.h"
-#include "dib.h"
-#include "palette.h"
-#include "pen.h"
-#include "font.h"
-#include "brush.h"
-#include "rgn.h"
-#include "graphics.h"
-//#include "draw_dib.h"
-#include "thread.h"
-#include "window.h"
-#include "osi.h"
-#include "port_forward.h"
+#include "mac_graphics.h"
+#include "mac_graphics_object.h"
+#include "mac_bitmap.h"
+#include "mac_dib.h"
+#include "mac_palette.h"
+#include "mac_pen.h"
+#include "mac_font.h"
+#include "mac_brush.h"
+#include "mac_region.h"
+//xxx #include "draw_dib.h"
+#include "mac_thread.h"
+#include "mac_window.h"
+#include "mac_os.h"
+#include "mac_port_forward.h"
+#include "mac_copydesk.h"
+#include "mac_crypt.h"
+#include "mac_ip_enum.h"
 
 #define NULL_REF(class) (*((class *) NULL))
-//CLASS_DECL_mac WNDPROC AfxGetAfxWndProc();
+// xxx CLASS_DECL_mac WNDPROC AfxGetAfxWndProc();
 #define AfxWndProc (*AfxGetAfxWndProc())
 
 #define MAC_THREAD(pthread) (dynamic_cast < ::mac::thread * > (dynamic_cast < ::ca::thread * >(pthread)))
@@ -88,31 +95,39 @@ CLASS_DECL_mac void AfxResetMsgCache();
 #define SP_HDC(pgraphics) ((HDC)*(dynamic_cast < ::mac::graphics * > ((::ca::graphics *)(pgraphics))))
 #define MAC_DIB(pdib) (dynamic_cast < ::mac::dib * > (dynamic_cast < ::ca::dib * >(pdib)))
 
+#include "mac_shell.h"
 
-#pragma comment(lib, "kernel32.lib")
-#pragma comment(lib, "user32.lib")
-#pragma comment(lib, "advapi32.lib")
-#pragma comment(lib, "ole32.lib")
-#pragma comment(lib, "shell32.lib")
-#pragma comment(lib, "oleaut32.lib")
-#pragma comment(lib, "uuid.lib")
-#pragma comment(lib, "shlwapi.lib")
-#pragma comment(lib, "vfw32.lib") 
-#pragma comment(lib, "opengl32.lib") 
-#pragma comment(lib, "Wtsapi32.lib") 
-#pragma comment(lib, "Secur32.lib") 
-#pragma comment(lib, "Msimg32.lib") 
-#pragma comment(lib, "Psapi.lib") 
+CLASS_DECL_mac void __trace_message(const char * lpszPrefix, gen::signal_object * pobj);
+CLASS_DECL_mac void __trace_message(const char * lpszPrefix, LPMESSAGE lpmsg);
 
-CLASS_DECL_mac void _AfxTraceMsg(const char * lpszPrefix, gen::signal_object * pobj);
-CLASS_DECL_mac void _AfxTraceMsg(const char * lpszPrefix, MESSAGE * lpmsg);
-
-CLASS_DECL_mac WINBOOL __cdecl AfxIsIdleMessage(gen::signal_object * pobj);
-CLASS_DECL_mac WINBOOL __cdecl AfxIsIdleMessage(MESSAGE * pMsg);
+CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(gen::signal_object * pobj);
+CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg);
 
 
 CLASS_DECL_mac void AfxProcessWndProcException(base_exception*, gen::signal_object * pobj);
-CLASS_DECL_mac void __cdecl AfxPreTranslateMessage(gen::signal_object * pobj);
+CLASS_DECL_mac void __cdecl __pre_translate_message(gen::signal_object * pobj);
 
 
-#include "application.h"
+#include "mac_application.h"
+
+
+
+WINBOOL PeekMessage(
+                    LPMESSAGE lpMsg,
+                    oswindow hWnd,
+                    UINT wMsgFilterMin,
+                    UINT wMsgFilterMax,
+                    UINT wRemoveMsg);
+
+WINBOOL GetMessage(
+                   LPMESSAGE lpMsg,
+                   oswindow hWnd,
+                   UINT wMsgFilterMin,
+                   UINT wMsgFilterMax);
+
+
+
+int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[]);
+
+
+CLASS_DECL_mac void vfxThrowFileException(::ca::application * papp, int32_t cause, LONG lOsError, const char * lpszFileName = NULL);
