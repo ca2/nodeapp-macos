@@ -19,7 +19,7 @@ __STATIC inline bool IsDirSep(WCHAR ch)
 }
 
 
-namespace lnx
+namespace mac
 {
    
    
@@ -180,7 +180,7 @@ namespace lnx
              {*/
             
             
-            vfxThrowFileException(get_app(), ::lnx::file_exception::OsErrorToException(dwLastError), dwLastError, m_strFileName);
+            vfxThrowFileException(get_app(), ::mac::file_exception::OsErrorToException(dwLastError), dwLastError, m_strFileName);
             
             //}
             
@@ -218,7 +218,7 @@ namespace lnx
             
             
             DWORD dwLastError = ::GetLastError();
-            vfxThrowFileException(get_app(), ::lnx::file_exception::OsErrorToException(dwLastError), dwLastError, m_strFileName);
+            vfxThrowFileException(get_app(), ::mac::file_exception::OsErrorToException(dwLastError), dwLastError, m_strFileName);
             
             
             //}
@@ -2746,7 +2746,7 @@ namespace lnx
    
    
    
-} // namespace win
+} // namespace mac
 
 
 
