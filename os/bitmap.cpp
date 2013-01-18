@@ -9,14 +9,14 @@ namespace mac
    ca(papp)
    {
       
-      m_psurface = NULL;
+//      m_psurface = NULL;
       
    }
    
    bitmap::~bitmap()
    {
       
-      if(m_psurface != NULL)
+//    if(m_psurface != NULL)
       {
          
          destroy();
@@ -35,39 +35,39 @@ namespace mac
          
       }
       
-      if(m_psurface != NULL)
+//      if(m_psurface != NULL)
       {
          
          destroy();
          
       }
       
-      int32_t iStride = cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, cx);
+  //    int32_t iStride = cairo_format_stride_for_width(CAIRO_FORMAT_ARGB32, cx);
       
-      m_mem.allocate(iStride * cy);
+    //  m_mem.allocate(iStride * cy);
       
-      if(cx * 4 != iStride)
+      //if(cx * 4 != iStride)
       {
          
-         int32_t iW = cx * 4;
+//         int32_t iW = cx * 4;
          
          for(int32_t i = 0; i < cy; i++)
          {
             
-            memcpy(&((byte *) m_mem.get_data())[iStride * i], &((byte *) pdata)[iW * i], iW);
+        //    memcpy(&((byte *) m_mem.get_data())[iStride * i], &((byte *) pdata)[iW * i], iW);
             
          }
          
       }
-      else
+//      else
       {
-         memcpy(m_mem.get_data(), pdata, iStride * cy);
+        // memcpy(m_mem.get_data(), pdata, iStride * cy);
       }
       
       
-      m_psurface = cairo_image_surface_create_for_data((unsigned char *) m_mem.get_data(), CAIRO_FORMAT_ARGB32, cx, cy, iStride);
+//      m_psurface = cairo_image_surface_create_for_data((unsigned char *) m_mem.get_data(), CAIRO_FORMAT_ARGB32, cx.., cy, iStride);
       
-      if(m_psurface == NULL)
+    //  if(m_psurface == NULL)
       {
          
          return false;
@@ -169,9 +169,8 @@ namespace mac
    
    size bitmap::GetBitmapDimension() const
    {
-      
-      if(m_psurface == NULL)
-         return ::size(0, 0);
+//      if(m_psurface == NULL)
+  //       return ::size(0, 0);
       
       return m_size;
       
@@ -276,11 +275,12 @@ namespace mac
    void * bitmap::get_os_data() const
    {
       
-      return (void *) m_psurface;
+//      return (void *) m_psurface;
+      return NULL;
       
    }
    
-   void get_surface_size (cairo_surface_t * psurface, LONG * plongWidth, LONG * plongHeight)
+/*   void get_surface_size (cairo_surface_t * psurface, LONG * plongWidth, LONG * plongHeight)
 	{
       
       if(plongWidth != NULL)
@@ -298,13 +298,13 @@ namespace mac
       }
       
       
-	}
+	}*/
    
    
    bool bitmap::Attach(void * psurface)
    {
       
-      if(m_psurface != 0)
+/*      if(m_psurface != 0)
       {
          
          destroy();
@@ -316,7 +316,7 @@ namespace mac
       m_psurface = (cairo_surface_t *) psurface;
       
       get_surface_size((cairo_surface_t *) psurface, &m_size.cx, &m_size.cy);
-      
+*/
       return true;
       
    }
@@ -324,10 +324,12 @@ namespace mac
    void bitmap::destroy()
    {
       
-      if(m_psurface == NULL)
+/*      if(m_psurface == NULL)
          return;
       
       cairo_surface_destroy(m_psurface);
+  */
+      
       
    }
    
