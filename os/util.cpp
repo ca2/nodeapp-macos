@@ -1,5 +1,4 @@
 #include "StdAfx.h"
-#include <malloc.h>
 
 
 // interesting function
