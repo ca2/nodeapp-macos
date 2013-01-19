@@ -1,8 +1,10 @@
-#include "StdAfx.h"
+#include "framework.h"
+
 
 namespace mac
 {
 
+   
    factory_exchange::factory_exchange(::ca::application * papp) :
       ca(papp)
    {
@@ -12,7 +14,7 @@ namespace mac
       System.factory().cloneable_large < file_set             >  (typeid(::ex2::file_set         ));
       System.factory().cloneable < file_system                >  (typeid(::ca::file::system      ), 1);
 //    System.factory().cloneable_small < file_exception       >  (typeid(::ex1::file_exception   ));
-      System.factory().cloneable <    WinResource             >  (typeid(::ex1::resource         ), 1);
+//    System.factory().cloneable <    WinResource             >  (typeid(::ex1::resource         ), 1);
       System.factory().cloneable < application                >  (typeid(::ex2::application      ), 1);
       System.factory().cloneable < dir                        >  (typeid(::ca::dir::system       ), 1);
 //    System.factory().cloneable_small < folder_watch         >  (typeid(::ex2::folder_watch     ));
