@@ -24,7 +24,7 @@ void __cdecl _null_se_translator(uint32_t uiCode, EXCEPTION_POINTERS * ppointers
 // Standard WinMain implementation
 //  Can be replaced as long as 'gen::WinInit' is called first
 
-int32_t CLASS_DECL_mac __lnx_main(int32_t argc, char * argv[])
+int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
 {
    
    //   UNREFERENCED_PARAMETER(lpCmdLine);
@@ -50,14 +50,14 @@ int32_t CLASS_DECL_mac __lnx_main(int32_t argc, char * argv[])
    int32_t nReturnCode = 0;
    
    
-   ::lnx::main_init_data * pinitmaindata  = new ::lnx::main_init_data;
+   ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
    
    
    pinitmaindata->m_hInstance             = NULL;
    pinitmaindata->m_hPrevInstance         = NULL;
    for(int32_t i = 0; i < argc; i++)
    {
-      pinitmaindata->m_vssCommandLine     += argv[i];
+      pinitmaindata->m_strCommandLine     += argv[i];
    }
    pinitmaindata->m_nCmdShow              = SW_SHOW;
    
@@ -79,7 +79,7 @@ int32_t CLASS_DECL_mac __lnx_main(int32_t argc, char * argv[])
    
    try
    {
-      __lnx_term();
+      __mac_term();
    }
    catch(...)
    {
@@ -168,11 +168,11 @@ int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, co
       
       int32_t nReturnCode = 0;
       
-      ::lnx::main_init_data * pinitmaindata  = new ::lnx::main_init_data;
+      ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
       
       pinitmaindata->m_hInstance             = hInstance;
       pinitmaindata->m_hPrevInstance         = hPrevInstance;
-      pinitmaindata->m_vssCommandLine        = lpCmdLine;
+      pinitmaindata->m_strCommandLine        = lpCmdLine;
       pinitmaindata->m_nCmdShow              = nCmdShow;
       
       
@@ -182,7 +182,7 @@ int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, co
       nReturnCode = psystem->main();
       
       
-      __lnx_term();
+      __mac_term();
       
       
       try
