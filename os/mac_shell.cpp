@@ -399,14 +399,14 @@ namespace mac{
     unsigned long count;
     
     
-    if ( !path || !*path )  /* no work to do */
-             return( _wgetcwd( UserBuf, maxlen ) );
+    if ( !path || !*path )  // no work to do
+//             return( _wgetcwd( UserBuf, maxlen ) );
     
-    /* allocate buffer if necessary */
+// allocate buffer if necessary
    
-      if ( !UserBuf )
-    if ( !(buf = (WCHAR *) malloc(_MAX_PATH * sizeof(WCHAR))) ) {
-    //                errno = ENOMEM;
+  //    if ( !UserBuf )
+    //if ( !(buf = (WCHAR *) malloc(_MAX_PATH * sizeof(WCHAR))) ) {
+                    errno = ENOMEM;
     return( NULL );
     }
     else
@@ -657,7 +657,7 @@ namespace mac{
     lpWndClass->hCursor = wndclass.hCursor;
     lpWndClass->hbrBackground = wndclass.hbrBackground;
     
-    /*   if(((DWORD) wndclass) >> 16 == 0)
+  if(((DWORD) wndclass) >> 16 == 0)
     {
     lpszClassName = (const char *) lpClassName;
     }
