@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../appseed/app/app.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/optca/optca.xcodeproj">
    </FileRef>
    <FileRef
@@ -18,6 +21,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/ca/ca.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/ca2/ca2.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../os/os.xcodeproj">
