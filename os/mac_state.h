@@ -12,7 +12,7 @@ namespace mac
 //#include "template.h"
 
 #ifndef __AFXTLS_H__
-#include "thread_slots.h"
+#include "mac_thread_slots.h"
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
