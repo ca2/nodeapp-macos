@@ -1,20 +1,22 @@
 #pragma once
 
+
 namespace mac
 {
    
-   CLASS_DECL_mac LRESULT CALLBACK _AfxSendMsgHook(int, WPARAM, LPARAM);
-   //CLASS_DECL_mac void _AfxStandardSubclass(oswindow);
-   CLASS_DECL_mac LRESULT CALLBACK _AfxCbtFilterHook(int, WPARAM, LPARAM);
-   CLASS_DECL_mac LRESULT AfxCallWndProc(::user::interaction * pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
-
-   class CLASS_DECL_mac window : 
-      virtual public ::ca::window,
-      virtual public hwnd_handle
+   
+   CLASS_DECL_mac LRESULT CALLBACK __send_message_hook(int32_t, WPARAM, LPARAM);
+   //CLASS_DECL_lnx void _gen::StandardSubclass(oswindow);
+   CLASS_DECL_mac LRESULT CALLBACK __cbt_filter_hook(int32_t, WPARAM, LPARAM);
+   CLASS_DECL_mac LRESULT __call_window_procedure(::user::interaction * pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
+   
+   
+   class CLASS_DECL_mac window :
+   virtual public ::ca::window
    {
    public:
-
-
+      
+      
       pha(::user::interaction)      m_guieptraMouseHover;
       ::ca::window_callback *       m_pcallback;
       string                        m_strWindowText;
@@ -694,7 +696,11 @@ namespace mac
       void _001OnTriggerMouseInside();
       
       
-
    };
-
+   
+   
 } // namespace mac
+
+
+
+
