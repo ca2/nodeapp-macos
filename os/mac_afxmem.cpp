@@ -27,7 +27,8 @@ _PNH CLASS_DECL_mac __set_new_handler(_PNH pfnNewHandler)
 bool CLASS_DECL_mac __check_memory()
 // check all of primitive::memory (look for primitive::memory tromps)
 {
-   return _CrtCheckMemory() != FALSE;
+//   return _CrtCheckMemory() != FALSE;
+   return false;
 }
 #endif
 /*
