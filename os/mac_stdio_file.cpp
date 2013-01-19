@@ -35,7 +35,7 @@ namespace mac
       }
       
       m_pStream = NULL;
-      //if (!::mac::file::open(lpszFileName, (nOpenFlags & ~::ex1::file::type_text)))
+      //if (!::lnx::file::open(lpszFileName, (nOpenFlags & ~::ex1::file::type_text)))
       // return FALSE;
       
       //   ASSERT(m_hFile != hFileNull);
@@ -58,8 +58,8 @@ namespace mac
          szMode[nMode++] = 'r';
       
       // add '+' if necessary (when read/write modes mismatched)
-      if (szMode[0] == 'r' && (nOpenFlags & mode_read_write) ||
-          szMode[0] != 'r' && !(nOpenFlags & mode_write))
+      if ((szMode[0] == 'r' && (nOpenFlags & mode_read_write)) ||
+          (szMode[0] != 'r' && !(nOpenFlags & mode_write)))
       {
          // current szMode mismatched, need to add '+' to fix
          szMode[nMode++] = '+';
@@ -103,7 +103,7 @@ namespace mac
       return TRUE;
    }
    
-   DWORD_PTR stdio_file::read(void * lpBuf, DWORD_PTR nCount)
+   uint_ptr stdio_file::read(void * lpBuf, uint_ptr nCount)
    {
       ASSERT_VALID(this);
       ASSERT(m_pStream != NULL);
@@ -113,7 +113,7 @@ namespace mac
       
       //   ASSERT(fx_is_valid_address(lpBuf, nCount));
       
-      UINT nRead = 0;
+      size_t nRead = 0;
       
       if ((nRead = fread(lpBuf, sizeof(BYTE), nCount, m_pStream)) == 0 && !feof(m_pStream))
          vfxThrowFileException(get_app(), ::ex1::file_exception::type_generic, errno, m_strFileName);
@@ -125,7 +125,7 @@ namespace mac
       return nRead;
    }
    
-   void stdio_file::write(const void * lpBuf, DWORD_PTR nCount)
+   void stdio_file::write(const void * lpBuf, uint_ptr nCount)
    {
       ASSERT_VALID(this);
       ASSERT(m_pStream != NULL);
@@ -168,7 +168,7 @@ namespace mac
       const int32_t nMaxSize = 128;
       char * lpsz = rString.GetBuffer(nMaxSize);
       char * lpszResult;
-      int32_t nLen = 0;
+      strsize nLen = 0;
       for (;;)
       {
          lpszResult = fgets(lpsz, nMaxSize+1, m_pStream);
@@ -315,7 +315,7 @@ namespace mac
       return NULL;
    }
    
-   void stdio_file::LockRange(DWORD_PTR /* dwPos */, DWORD_PTR /* dwCount */)
+   void stdio_file::LockRange(uint_ptr /* dwPos */, uint_ptr /* dwCount */)
    {
       ASSERT_VALID(this);
       ASSERT(m_pStream != NULL);
@@ -323,7 +323,7 @@ namespace mac
       throw not_supported_exception(get_app());
    }
    
-   void stdio_file::UnlockRange(DWORD_PTR /* dwPos */, DWORD_PTR /* dwCount */)
+   void stdio_file::UnlockRange(uint_ptr /* dwPos */, uint_ptr /* dwCount */)
    {
       ASSERT_VALID(this);
       ASSERT(m_pStream != NULL);
@@ -343,13 +343,13 @@ namespace mac
    
    
    
-   DWORD_PTR stdio_file::get_length() const
+   uint_ptr stdio_file::get_length() const
    {
       ASSERT_VALID(this);
       
-      LONG nCurrent;
-      LONG nLength;
-      LONG nResult;
+      long nCurrent;
+      long nLength;
+      long nResult;
       
       nCurrent = ftell(m_pStream);
       if (nCurrent == -1)
