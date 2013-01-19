@@ -1088,9 +1088,9 @@ WINBOOL GetCursorPos(LPPOINT lpptCursor);
 WINBOOL SetWindowPos(oswindow hWnd, oswindow hWndInsertAfter, int X, int Y, int cx, int cy, UINT uFlags);
 
 
-WINBOOL IsWindowVisible(oswindow hWnd);
+//WINBOOL IsWindowVisible(oswindow hWnd);
 
-WINBOOL IsIconic(oswindow hWnd);
+//WINBOOL IsIconic(oswindow hWnd);
 
 
 
