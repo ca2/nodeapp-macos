@@ -12,7 +12,7 @@ namespace mac
       
       m_bPrinting       = FALSE;
       m_pdibAlphaBlend  = NULL;
-      m_pdc             = NULL;
+//      m_pdc             = NULL;
       /*      m_hdc             = NULL;
        m_ppath           = NULL;
        m_ppathPaint      = NULL;
@@ -25,7 +25,7 @@ namespace mac
    {
       
       m_bPrinting       = FALSE;
-      m_pdc             = NULL;
+//      m_pdc             = NULL;
       /*      m_pgraphics       = NULL;
        m_hdc             = NULL;
        m_ppath           = NULL;
@@ -67,11 +67,11 @@ namespace mac
        }
        }*/
       
-      if(m_pdc != NULL)
-      {
-         cairo_destroy(m_pdc);
-         m_pdc = NULL;
-      }
+//      if(m_pdc != NULL)
+  //    {
+    //     cairo_destroy(m_pdc);
+      //   m_pdc = NULL;
+      //}
       
       /*      if(m_ppath != NULL)
        {
@@ -114,71 +114,73 @@ namespace mac
    bool graphics::CreateCompatibleDC(::ca::graphics * pgraphics)
    {
       
-      if(m_pdc != NULL)
-      {
-         
-         cairo_destroy(m_pdc);
-         
-         m_pdc = NULL;
-         
-      }
-      
-      if(pgraphics == NULL)
-      {
-         
-         cairo_surface_t * psurface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 1, 1);
-         
-         if(psurface == NULL)
-            return false;
-         
-         m_pdc = cairo_create(psurface);
-         
-         cairo_surface_destroy(psurface);
-         
-         return m_pdc != NULL;
-         
-      }
-      else
-      {
-         
-         cairo_surface_t * psurface = cairo_get_target(LNX_DC(pgraphics)->m_pdc);
-         
-         if(cairo_surface_status(psurface) != CAIRO_STATUS_SUCCESS)
-            return false;
-         
-         cairo_surface_t * psurfaceNew = cairo_surface_create_similar(psurface, cairo_surface_get_content(psurface), 1, 1);
-         
-         if(psurfaceNew == NULL)
-            return false;
-         
-         m_pdc = cairo_create(psurfaceNew);
-         
-         cairo_surface_destroy(psurfaceNew);
-         
-         return m_pdc != NULL;
-         
-      }
-      /*
-       HDC hdc = NULL;
-       
-       if(pgraphics == NULL)
-       {
-       hdc = ::CreateCompatibleDC(NULL);
-       }
-       else
-       {
-       hdc = ::CreateCompatibleDC((HDC)(dynamic_cast<::win::graphics * >(pgraphics))->get_handle1());
-       }
-       
-       if(!Attach(hdc))
-       {
-       ::DeleteDC(hdc);
-       return FALSE;
-       }
-       */
-      
       return true;
       
+//      if(m_pdc != NULL)
+//      {
+//         
+//         cairo_destroy(m_pdc);
+//         
+//         m_pdc = NULL;
+//         
+//      }
+//      
+//      if(pgraphics == NULL)
+//      {
+//         
+//         cairo_surface_t * psurface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 1, 1);
+//         
+//         if(psurface == NULL)
+//            return false;
+//         
+//         m_pdc = cairo_create(psurface);
+//         
+//         cairo_surface_destroy(psurface);
+//         
+//         return m_pdc != NULL;
+//         
+//      }
+//      else
+//      {
+//         
+//         cairo_surface_t * psurface = cairo_get_target(LNX_DC(pgraphics)->m_pdc);
+//         
+//         if(cairo_surface_status(psurface) != CAIRO_STATUS_SUCCESS)
+//            return false;
+//         
+//         cairo_surface_t * psurfaceNew = cairo_surface_create_similar(psurface, cairo_surface_get_content(psurface), 1, 1);
+//         
+//         if(psurfaceNew == NULL)
+//            return false;
+//         
+//         m_pdc = cairo_create(psurfaceNew);
+//         
+//         cairo_surface_destroy(psurfaceNew);
+//         
+//         return m_pdc != NULL;
+//         
+//      }
+//      /*
+//       HDC hdc = NULL;
+//       
+//       if(pgraphics == NULL)
+//       {
+//       hdc = ::CreateCompatibleDC(NULL);
+//       }
+//       else
+//       {
+//       hdc = ::CreateCompatibleDC((HDC)(dynamic_cast<::win::graphics * >(pgraphics))->get_handle1());
+//       }
+//       
+//       if(!Attach(hdc))
+//       {
+//       ::DeleteDC(hdc);
+//       return FALSE;
+//       }
+//       */
+//      
+//      return true;
+//      
    }
    
    int32_t graphics::ExcludeUpdateRgn(::ca::window * pWnd)
@@ -241,25 +243,25 @@ namespace mac
    ::ca::bitmap* graphics::SelectObject(::ca::bitmap* pbitmap)
    {
       
-      
-      if(pbitmap == NULL)
-         return NULL;
-      
-      /*      if(get_handle1() == NULL)
-       return NULL;
-       if(pbitmap == NULL)
-       return NULL;
-       return dynamic_cast < ::ca::bitmap* > (SelectGdiObject(get_app(), get_handle1(), pbitmap->get_os_data()));*/
-      if(m_pdc != NULL)
-      {
-         cairo_destroy(m_pdc);
-      }
-      
-      m_pdc = cairo_create((cairo_surface_t *) pbitmap->get_os_data());
-      
-      set_text_rendering(::ca::text_rendering_anti_alias_grid_fit);
-      
-      m_bitmap = pbitmap;
+//      
+//      if(pbitmap == NULL)
+//         return NULL;
+//      
+//      /*      if(get_handle1() == NULL)
+//       return NULL;
+//       if(pbitmap == NULL)
+//       return NULL;
+//       return dynamic_cast < ::ca::bitmap* > (SelectGdiObject(get_app(), get_handle1(), pbitmap->get_os_data()));*/
+//      if(m_pdc != NULL)
+//      {
+//         cairo_destroy(m_pdc);
+//      }
+//      
+//      m_pdc = cairo_create((cairo_surface_t *) pbitmap->get_os_data());
+//      
+//      set_text_rendering(::ca::text_rendering_anti_alias_grid_fit);
+//      
+//      m_bitmap = pbitmap;
       
       return m_bitmap;
    }
@@ -305,7 +307,7 @@ namespace mac
     
     }
     
-    //*ASSERT(get_handle1() == get_handle2()); // ASSERT a simple graphics object
+     ASSERT(get_handle1() == get_handle2()); // ASSERT a simple graphics object
     //return (hObject != NULL) ? ::SelectObject(get_handle1(), hObject) : NULL; */
    /*    return NULL;
     }*/
@@ -344,7 +346,8 @@ namespace mac
    int32_t graphics::GetPolyFillMode() const
    {
       //return ::GetPolyFillMode(get_handle2());
-      return cairo_get_fill_rule(m_pdc) == CAIRO_FILL_RULE_WINDING ? ::ca::fill_mode_winding : ::ca::fill_mode_alternate;
+//      return cairo_get_fill_rule(m_pdc) == CAIRO_FILL_RULE_WINDING ? ::ca::fill_mode_winding : ::ca::fill_mode_alternate;
+      return 0;
    }
    
    int32_t graphics::GetROP2() const
@@ -545,29 +548,29 @@ namespace mac
    bool graphics::Arc(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3, int32_t x4, int32_t y4)
    {
       
-      double centerx    = (x2 + x1) / 2.0;
-      double centery    = (y2 + y1) / 2.0;
-      
-      double radiusx    = abs(x2 - x1) / 2.0;
-      double radiusy    = abs(y2 - y1) / 2.0;
-      
-      if(radiusx == 0.0 || radiusy == 0.0)
-         return false;
-      
-      double start      = atan2(y3 - centery, x3 - centerx);
-      double end        = atan2(y4 - centery, x4 - centerx);
-      
-      
-      cairo_translate(m_pdc, centerx, centery);
-      
-      cairo_scale(m_pdc, radiusx, radiusy);
-      
-      cairo_arc(m_pdc, 0.0, 0.0, 1.0, start, end);
-      
-      cairo_scale(m_pdc, 1.0 / radiusx, 1.0 / radiusy);
-      
-      cairo_translate(m_pdc, -centerx,  -centery);
-      
+//      double centerx    = (x2 + x1) / 2.0;
+//      double centery    = (y2 + y1) / 2.0;
+//      
+//      double radiusx    = abs(x2 - x1) / 2.0;
+//      double radiusy    = abs(y2 - y1) / 2.0;
+//      
+//      if(radiusx == 0.0 || radiusy == 0.0)
+//         return false;
+//      
+//      double start      = atan2(y3 - centery, x3 - centerx);
+//      double end        = atan2(y4 - centery, x4 - centerx);
+//      
+//      
+//      cairo_translate(m_pdc, centerx, centery);
+//      
+//      cairo_scale(m_pdc, radiusx, radiusy);
+//      
+//      cairo_arc(m_pdc, 0.0, 0.0, 1.0, start, end);
+//      
+//      cairo_scale(m_pdc, 1.0 / radiusx, 1.0 / radiusy);
+//      
+//      cairo_translate(m_pdc, -centerx,  -centery);
+//      
       return true;
       
    }
@@ -868,26 +871,26 @@ namespace mac
    bool graphics::DrawEllipse(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
    {
       
-      double centerx    = (x2 + x1) / 2.0;
-      double centery    = (y2 + y1) / 2.0;
-      
-      double radiusx    = abs(x2 - x1) / 2.0;
-      double radiusy    = abs(y2 - y1) / 2.0;
-      
-      if(radiusx == 0.0 || radiusy == 0.0)
-         return false;
-      
-      cairo_translate(m_pdc, centerx, centery);
-      
-      cairo_scale(m_pdc, radiusx, radiusy);
-      
-      cairo_arc(m_pdc, 0.0, 0.0, 1.0, 0.0, 2.0 * 3.1415);
-      
-      draw();
-      
-      cairo_scale(m_pdc, 1.0 / radiusx, 1.0 / radiusy);
-      
-      cairo_translate(m_pdc, -centerx,  -centery);
+//      double centerx    = (x2 + x1) / 2.0;
+//      double centery    = (y2 + y1) / 2.0;
+//      
+//      double radiusx    = abs(x2 - x1) / 2.0;
+//      double radiusy    = abs(y2 - y1) / 2.0;
+//      
+//      if(radiusx == 0.0 || radiusy == 0.0)
+//         return false;
+//      
+//      cairo_translate(m_pdc, centerx, centery);
+//      
+//      cairo_scale(m_pdc, radiusx, radiusy);
+//      
+//      cairo_arc(m_pdc, 0.0, 0.0, 1.0, 0.0, 2.0 * 3.1415);
+//      
+//      draw();
+//      
+//      cairo_scale(m_pdc, 1.0 / radiusx, 1.0 / radiusy);
+//      
+//      cairo_translate(m_pdc, -centerx,  -centery);
       
       return true;
       
@@ -907,28 +910,28 @@ namespace mac
    bool graphics::FillEllipse(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
    {
       
-      double centerx    = (x2 + x1) / 2.0;
-      
-      double centery    = (y2 + y1) / 2.0;
-      
-      double radiusx    = abs(x2 - x1) / 2.0;
-      
-      double radiusy    = abs(y2 - y1) / 2.0;
-      
-      if(radiusx == 0.0 || radiusy == 0.0)
-         return false;
-      
-      cairo_translate(m_pdc, centerx, centery);
-      
-      cairo_scale(m_pdc, radiusx, radiusy);
-      
-      cairo_arc(m_pdc, 0.0, 0.0, 1.0, 0.0, 2.0 * 3.1415);
-      
-      fill();
-      
-      cairo_scale(m_pdc, 1.0 / radiusx, 1.0 / radiusy);
-      
-      cairo_translate(m_pdc, -centerx,  -centery);
+//      double centerx    = (x2 + x1) / 2.0;
+//
+//      double centery    = (y2 + y1) / 2.0;
+//      
+//      double radiusx    = abs(x2 - x1) / 2.0;
+//      
+//      double radiusy    = abs(y2 - y1) / 2.0;
+//      
+//      if(radiusx == 0.0 || radiusy == 0.0)
+//         return false;
+//      
+//      cairo_translate(m_pdc, centerx, centery);
+//      
+//      cairo_scale(m_pdc, radiusx, radiusy);
+//      
+//      cairo_arc(m_pdc, 0.0, 0.0, 1.0, 0.0, 2.0 * 3.1415);
+//      
+//      fill();
+//      
+//      cairo_scale(m_pdc, 1.0 / radiusx, 1.0 / radiusy);
+//      
+//      cairo_translate(m_pdc, -centerx,  -centery);
       
       return true;
    }
@@ -968,19 +971,19 @@ namespace mac
    
    bool graphics::fill_polygon(const POINTD * pa, int32_t nCount)
    {
-      
-      if(nCount <= 0)
-         return TRUE;
-      
-      
-      cairo_move_to(m_pdc, pa[0].x, pa[0].y);
-      
-      for(int32_t i = 1; i < nCount; i++)
-      {
-         cairo_line_to(m_pdc, pa[i].x, pa[i].y);
-      }
-      
-      fill();
+//      
+//      if(nCount <= 0)
+//         return TRUE;
+//      
+//      
+//      cairo_move_to(m_pdc, pa[0].x, pa[0].y);
+//      
+//      for(int32_t i = 1; i < nCount; i++)
+//      {
+//         cairo_line_to(m_pdc, pa[i].x, pa[i].y);
+//      }
+//      
+//      fill();
       
       return true;
       
@@ -988,19 +991,19 @@ namespace mac
    
    bool graphics::fill_polygon(const POINT* pa, int32_t nCount)
    {
-      
-      if(nCount <= 0)
-         return TRUE;
-      
-      
-      cairo_move_to(m_pdc, pa[0].x, pa[0].y);
-      
-      for(int32_t i = 1; i < nCount; i++)
-      {
-         cairo_line_to(m_pdc, pa[i].x, pa[i].y);
-      }
-      
-      fill();
+//      
+//      if(nCount <= 0)
+//         return TRUE;
+//      
+//      
+//      cairo_move_to(m_pdc, pa[0].x, pa[0].y);
+//      
+//      for(int32_t i = 1; i < nCount; i++)
+//      {
+//         cairo_line_to(m_pdc, pa[i].x, pa[i].y);
+//      }
+//      
+//      fill();
       
       return true;
       
@@ -1009,20 +1012,20 @@ namespace mac
    
    bool graphics::Polygon(const POINT* pa, int32_t nCount)
    {
-      
-      
-      if(nCount <= 0)
-         return TRUE;
-      
-      
-      cairo_move_to(m_pdc, pa[0].x, pa[0].y);
-      
-      for(int32_t i = 1; i < nCount; i++)
-      {
-         
-         cairo_line_to(m_pdc, pa[i].x, pa[i].y);
-         
-      }
+//      
+//      
+//      if(nCount <= 0)
+//         return TRUE;
+//      
+//      
+//      cairo_move_to(m_pdc, pa[0].x, pa[0].y);
+//      
+//      for(int32_t i = 1; i < nCount; i++)
+//      {
+//         
+//         cairo_line_to(m_pdc, pa[i].x, pa[i].y);
+//         
+//      }
       
       return fill_and_draw();
       
@@ -1050,11 +1053,11 @@ namespace mac
        bool bOk2 = m_pgraphics->DrawRectangle(gdiplus_pen(), rectf) == Gdiplus::Status::Ok;
        
        return bOk1 && bOk2;*/
-      
-      
-      cairo_rectangle(m_pdc, x1, y1, x2, y2);
-      
-      
+//      
+//      
+//      cairo_rectangle(m_pdc, x1, y1, x2, y2);
+//      
+//      
       return fill_and_draw();
       
       
@@ -1071,9 +1074,9 @@ namespace mac
    
    bool graphics::DrawRectangle(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
    {
-      
-      cairo_rectangle(m_pdc, x1, y1, x2, y2);
-      
+//      
+//      cairo_rectangle(m_pdc, x1, y1, x2, y2);
+//      
       return draw();
       
    }
@@ -1088,7 +1091,7 @@ namespace mac
    bool graphics::FillRectangle(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
    {
       
-      cairo_rectangle(m_pdc, x1, y1, x2, y2);
+//      cairo_rectangle(m_pdc, x1, y1, x2, y2);
       
       return fill();
       
@@ -1210,7 +1213,7 @@ namespace mac
           
           pdibWork->channel_multiply(visual::rgba::channel_alpha, pdibWork4);
           
-          /*pdibWork->get_graphics()->set_alpha_mode(::ca::alpha_mode_blend);
+          pdibWork->get_graphics()->set_alpha_mode(::ca::alpha_mode_blend);
           
           pdibWork->from(point(max(0, m_ptAlphaBlend.x - x), max(0, m_ptAlphaBlend.y - y)),
           m_pdibAlphaBlend->get_graphics(), point(max(0, x - m_ptAlphaBlend.x), max(0, y - m_ptAlphaBlend.y)),
@@ -1240,17 +1243,17 @@ namespace mac
       try
       {
          
-         if(pgraphicsSrc == NULL)
-            return false;
-         
-         cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
-         
-         if(ppattern == NULL)
-            return false;
-         
-         cairo_set_source(m_pdc, ppattern);
-         
-         cairo_paint(m_pdc);
+//         if(pgraphicsSrc == NULL)
+//            return false;
+//         
+//         cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
+//         
+//         if(ppattern == NULL)
+//            return false;
+//         
+//         cairo_set_source(m_pdc, ppattern);
+//         
+//         cairo_paint(m_pdc);
          
          return true;
          
@@ -1270,28 +1273,28 @@ namespace mac
    bool graphics::StretchBlt(int32_t xDst, int32_t yDst, int32_t nDstWidth, int32_t nDstHeight, ::ca::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nSrcWidth, int32_t nSrcHeight, DWORD dwRop)
    {
       
-      if(pgraphicsSrc == NULL)
-         return false;
-      
-      if(nSrcWidth == 0 || nSrcHeight == 0 || nDstWidth == 0 || nDstHeight == 0)
-         return false;
-      
-      cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
-      
-      if(ppattern == NULL)
-         return false;
-      
-      cairo_translate(m_pdc, xDst, yDst);
-      
-      cairo_scale(m_pdc, (double) nDstWidth / (double) nSrcWidth, (double) nDstHeight / (double) nSrcHeight);
-      
-      cairo_set_source(m_pdc, ppattern);
-      
-      cairo_paint(m_pdc);
-      
-      cairo_scale(m_pdc, (double) nSrcWidth / (double) nDstWidth, (double) nSrcHeight / (double) nDstHeight);
-      
-      cairo_translate(m_pdc, -xDst, -yDst);
+//      if(pgraphicsSrc == NULL)
+//         return false;
+//      
+//      if(nSrcWidth == 0 || nSrcHeight == 0 || nDstWidth == 0 || nDstHeight == 0)
+//         return false;
+//      
+//      cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
+//      
+//      if(ppattern == NULL)
+//         return false;
+//      
+//      cairo_translate(m_pdc, xDst, yDst);
+//      
+//      cairo_scale(m_pdc, (double) nDstWidth / (double) nSrcWidth, (double) nDstHeight / (double) nSrcHeight);
+//      
+//      cairo_set_source(m_pdc, ppattern);
+//      
+//      cairo_paint(m_pdc);
+//      
+//      cairo_scale(m_pdc, (double) nSrcWidth / (double) nDstWidth, (double) nSrcHeight / (double) nDstHeight);
+//      
+//      cairo_translate(m_pdc, -xDst, -yDst);
       
       return true;
       
@@ -1386,7 +1389,7 @@ namespace mac
           rect rectText(point(x, y), GetTextExtent(str));
           if(rectIntersect.intersect(rectIntersect, rectText))
           {
-          /*::ca::dib_sp dib0(get_app());
+          ::ca::dib_sp dib0(get_app());
           dib0->create(rectText.size());
           dib0->Fill(0, 0, 0, 0);
           dib0->get_graphics()->SetTextColor(ARGB(255, 255, 255, 255));
@@ -1411,14 +1414,14 @@ namespace mac
           size(max(0, m_pdibAlphaBlend->width()-max(0, x - m_ptAlphaBlend.x)),
           max(0, m_pdibAlphaBlend->height()-max(0, y - m_ptAlphaBlend.y))));
           dib1->channel_multiply(visual::rgba::channel_alpha, dib2);
-          /*::ca::dib_sp dib3(get_app());
+          ::ca::dib_sp dib3(get_app());
           dib1->mult_alpha(dib3);*/
          
          /*           keeper < ::ca::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
           
           return System.imaging().true_blend(this, point(x, y), rectText.size(), dib1->get_graphics(), null_point());
           
-          /*BLENDFUNCTION bf;
+          BLENDFUNCTION bf;
           bf.BlendOp     = AC_SRC_OVER;
           bf.BlendFlags  = 0;
           bf.SourceConstantAlpha = 0xFF;
@@ -1628,72 +1631,72 @@ namespace mac
    
    bool graphics::get_text_metrics(LPTEXTMETRIC lpMetrics) const
    {
-      //ASSERT(get_handle2() != NULL); return ::GetTextMetrics(get_handle2(), lpMetrics);
-      /*wstring wstr(L"123AWZwmc");
-       Gdiplus::RectF rect;
-       Gdiplus::RectF rect2;
-       Gdiplus::PointF origin(0, 0);
-       m_pgraphics->MeasureString(wstr.m_pwsz, -1, (Gdiplus::Font *) m_font->get_os_data(), origin, &rect);
-       
-       wstr = L"123AWZwmcpQçg";
-       m_pgraphics->MeasureString(wstr.m_pwsz, -1, (Gdiplus::Font *) m_font->get_os_data(), origin, &rect2);
-       
-       lpMetrics->tmAveCharWidth = rect.width / (double) wstr.get_length();
-       lpMetrics->tmAscent = rect.height;
-       lpMetrics->tmDescent = rect2.height - rect.height;*/
-      
-      
-      //retry_single_lock slGdiplus(&System.s_mutexGdiplus, millis(1), millis(1));
-      
-      ((::lnx::graphics *) this)->set(&m_fontxyz);
-      
-      cairo_font_extents_t e;
-      
-      cairo_font_extents(m_pdc, &e);
-      
-      //Gdiplus::FontFamily family;
-      
-      
-      //if(((graphics * )this)->gdiplus_font() == NULL)
-      //   return FALSE;
-      
-      //((graphics * )this)->gdiplus_font()->GetFamily(&family);
-      
-      //double dHeight = family.GetEmHeight(((graphics * )this)->gdiplus_font()->GetStyle());
-      
-      //lpMetrics->tmAscent              = (LONG) (((graphics * )this)->gdiplus_font()->GetSize() * family.GetCellAscent(((graphics * )this)->gdiplus_font()->GetStyle()) / dHeight);
-      //lpMetrics->tmDescent             = (LONG) (((graphics * )this)->gdiplus_font()->GetSize() * family.GetCellDescent(((graphics * )this)->gdiplus_font()->GetStyle()) / dHeight);
-      //lpMetrics->tmHeight              = (LONG) (((graphics * )this)->gdiplus_font()->GetSize());
-      lpMetrics->tmAscent              = (LONG) e.ascent;
-      lpMetrics->tmDescent             = (LONG) e.descent;
-      lpMetrics->tmHeight              = (LONG) e.height;
-      
-      lpMetrics->tmInternalLeading     = (LONG) lpMetrics->tmAscent + lpMetrics->tmDescent - lpMetrics->tmHeight;
-      lpMetrics->tmExternalLeading     = (LONG) (e.height * 0.25);
-      //                                                (e.family.GetLineSpacing(((graphics * )this)->gdiplus_font()->GetStyle())
-      //                                              - family.GetCellAscent(((graphics * )this)->gdiplus_font()->GetStyle())
-      //                                            - family.GetCellDescent(((graphics * )this)->gdiplus_font()->GetStyle())) / dHeight);
-      
-      //      m_spfont->
-      
-      //     ::Gdiplus::Font font2(pfamilyMono, pfamilyMono->GetEmHeight(((graphics * )this)->gdiplus_font()->GetStyle()));
-      //
-      string str(L"123AWZwmc123AWZwmcpQçg");
-      /*      Gdiplus::RectF rect;
-       Gdiplus::RectF rect2;
-       Gdiplus::PointF origin(0, 0);
-       
-       m_pgraphics->MeasureString(wstr, (INT) wstr.get_length(), ((graphics * )this)->gdiplus_font(), origin, &rect);*/
-      
-      ::size size = GetTextExtent(str);
-      
-      
-      /*wstr = L"";
-       m_pgraphics->MeasureString(wstr.m_pwsz, -1, (Gdiplus::Font *) m_font->get_os_data(), origin, &rect2);*/
-      
-      lpMetrics->tmAveCharWidth        = (LONG) (size.cx * m_fontxyz.m_dFontWidth / (double) str.get_length());
-      
-      
+//      //ASSERT(get_handle2() != NULL); return ::GetTextMetrics(get_handle2(), lpMetrics);
+//      /*wstring wstr(L"123AWZwmc");
+//       Gdiplus::RectF rect;
+//       Gdiplus::RectF rect2;
+//       Gdiplus::PointF origin(0, 0);
+//       m_pgraphics->MeasureString(wstr.m_pwsz, -1, (Gdiplus::Font *) m_font->get_os_data(), origin, &rect);
+//       
+//       wstr = L"123AWZwmcpQçg";
+//       m_pgraphics->MeasureString(wstr.m_pwsz, -1, (Gdiplus::Font *) m_font->get_os_data(), origin, &rect2);
+//       
+//       lpMetrics->tmAveCharWidth = rect.width / (double) wstr.get_length();
+//       lpMetrics->tmAscent = rect.height;
+//       lpMetrics->tmDescent = rect2.height - rect.height;*/
+//      
+//      
+//      //retry_single_lock slGdiplus(&System.s_mutexGdiplus, millis(1), millis(1));
+//      
+//      ((::lnx::graphics *) this)->set(&m_fontxyz);
+//      
+//      cairo_font_extents_t e;
+//      
+//      cairo_font_extents(m_pdc, &e);
+//      
+//      //Gdiplus::FontFamily family;
+//      
+//      
+//      //if(((graphics * )this)->gdiplus_font() == NULL)
+//      //   return FALSE;
+//      
+//      //((graphics * )this)->gdiplus_font()->GetFamily(&family);
+//      
+//      //double dHeight = family.GetEmHeight(((graphics * )this)->gdiplus_font()->GetStyle());
+//      
+//      //lpMetrics->tmAscent              = (LONG) (((graphics * )this)->gdiplus_font()->GetSize() * family.GetCellAscent(((graphics * )this)->gdiplus_font()->GetStyle()) / dHeight);
+//      //lpMetrics->tmDescent             = (LONG) (((graphics * )this)->gdiplus_font()->GetSize() * family.GetCellDescent(((graphics * )this)->gdiplus_font()->GetStyle()) / dHeight);
+//      //lpMetrics->tmHeight              = (LONG) (((graphics * )this)->gdiplus_font()->GetSize());
+//      lpMetrics->tmAscent              = (LONG) e.ascent;
+//      lpMetrics->tmDescent             = (LONG) e.descent;
+//      lpMetrics->tmHeight              = (LONG) e.height;
+//      
+//      lpMetrics->tmInternalLeading     = (LONG) lpMetrics->tmAscent + lpMetrics->tmDescent - lpMetrics->tmHeight;
+//      lpMetrics->tmExternalLeading     = (LONG) (e.height * 0.25);
+//      //                                                (e.family.GetLineSpacing(((graphics * )this)->gdiplus_font()->GetStyle())
+//      //                                              - family.GetCellAscent(((graphics * )this)->gdiplus_font()->GetStyle())
+//      //                                            - family.GetCellDescent(((graphics * )this)->gdiplus_font()->GetStyle())) / dHeight);
+//      
+//      //      m_spfont->
+//      
+//      //     ::Gdiplus::Font font2(pfamilyMono, pfamilyMono->GetEmHeight(((graphics * )this)->gdiplus_font()->GetStyle()));
+//      //
+//      string str(L"123AWZwmc123AWZwmcpQçg");
+//      /*      Gdiplus::RectF rect;
+//       Gdiplus::RectF rect2;
+//       Gdiplus::PointF origin(0, 0);
+//       
+//       m_pgraphics->MeasureString(wstr, (INT) wstr.get_length(), ((graphics * )this)->gdiplus_font(), origin, &rect);*/
+//      
+//      ::size size = GetTextExtent(str);
+//      
+//      
+//      /*wstr = L"";
+//       m_pgraphics->MeasureString(wstr.m_pwsz, -1, (Gdiplus::Font *) m_font->get_os_data(), origin, &rect2);*/
+//      
+//      lpMetrics->tmAveCharWidth        = (LONG) (size.cx * m_fontxyz.m_dFontWidth / (double) str.get_length());
+//      
+//      
       return TRUE;
    }
    
@@ -2516,30 +2519,30 @@ namespace mac
           
           */
       }
-      
-      if(pgraphicsSrc == NULL)
-         return false;
-      
-      
-      if(nSrcWidth == 0 || nSrcHeight == 0 || nDstWidth == 0 || nDstHeight == 0)
-         return false;
-      
-      cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
-      
-      if(ppattern == NULL)
-         return false;
-      
-      cairo_translate(m_pdc, xDst, yDst);
-      
-      cairo_scale(m_pdc, (double) nDstWidth / (double) nSrcWidth, (double) nDstHeight / (double) nSrcHeight);
-      
-      cairo_set_source(m_pdc, ppattern);
-      
-      cairo_paint_with_alpha(m_pdc, dRate);
-      
-      cairo_scale(m_pdc, (double) nSrcWidth / (double) nDstWidth, (double) nSrcHeight / (double) nDstHeight);
-      
-      cairo_translate(m_pdc, -xDst, -yDst);
+//      
+//      if(pgraphicsSrc == NULL)
+//         return false;
+//      
+//      
+//      if(nSrcWidth == 0 || nSrcHeight == 0 || nDstWidth == 0 || nDstHeight == 0)
+//         return false;
+//      
+//      cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
+//      
+//      if(ppattern == NULL)
+//         return false;
+//      
+//      cairo_translate(m_pdc, xDst, yDst);
+//      
+//      cairo_scale(m_pdc, (double) nDstWidth / (double) nSrcWidth, (double) nDstHeight / (double) nSrcHeight);
+//      
+//      cairo_set_source(m_pdc, ppattern);
+//      
+//      cairo_paint_with_alpha(m_pdc, dRate);
+//      
+//      cairo_scale(m_pdc, (double) nSrcWidth / (double) nDstWidth, (double) nSrcHeight / (double) nDstHeight);
+//      
+//      cairo_translate(m_pdc, -xDst, -yDst);
       
       return true;
       
@@ -3052,7 +3055,7 @@ namespace mac
     
     return m_pgraphics != NULL;
     
-    /*ASSERT(get_handle1() == NULL);      // only attach once, detach on destroy
+    ASSERT(get_handle1() == NULL);      // only attach once, detach on destroy
     ASSERT(get_handle2() == NULL);    // only attach to an is_empty DC
     
     if (hDC == NULL)
@@ -3091,14 +3094,14 @@ namespace mac
    
    bool graphics::DeleteDC()
    {
-      
-      if(m_pdc == NULL)
-         return true;
-      
-      
-      cairo_destroy(m_pdc);
-      
-      m_pdc = NULL;
+//      
+//      if(m_pdc == NULL)
+//         return true;
+//      
+//      
+//      cairo_destroy(m_pdc);
+//      
+//      m_pdc = NULL;
       
       return true;
       
@@ -3115,7 +3118,7 @@ namespace mac
     void graphics::SetOutputDC(HDC hDC)  // Set the Output DC
     {
     #ifdef DEBUG
-    /*      hdc_map* pMap = afxMapHDC();
+          hdc_map* pMap = afxMapHDC();
     if (pMap != NULL && pMap->lookup_permanent(get_handle1()) == this)
     {
     TRACE(::radix::trace::category_AppMsg, 0, "Cannot Set Output hDC on Attached graphics.\n");
@@ -3133,7 +3136,7 @@ namespace mac
     void graphics::ReleaseOutputDC()     // Release the Output DC
     {
     #ifdef DEBUG
-    /*      hdc_map* pMap = afxMapHDC();
+          hdc_map* pMap = afxMapHDC();
     if (pMap != NULL && pMap->lookup_permanent(get_handle1()) == this)
     {
     TRACE(::radix::trace::category_AppMsg, 0, "Cannot Release Output hDC on Attached graphics.\n");
@@ -3488,13 +3491,14 @@ namespace mac
       //POINT point;
       //::GetViewportOrgEx(get_handle2(), &point);
       
-      double x = 0.0;
+//      double x = 0.0;
+//      
+//      double y = 0.0;
+//      
+//      cairo_user_to_device(m_pdc, &x, &y);
       
-      double y = 0.0;
-      
-      cairo_user_to_device(m_pdc, &x, &y);
-      
-      return point((int64_t) x, (int64_t) y);
+//      return point((int64_t) x, (int64_t) y);
+      return point(0, 0);
       
    }
    
@@ -3507,12 +3511,12 @@ namespace mac
        ::SetViewportOrgEx(get_handle1(), x, y, &point);
        if(get_handle2() != NULL)
        ::SetViewportOrgEx(get_handle2(), x, y, &point);*/
-      
-      cairo_matrix_t m;
-      
-      cairo_matrix_translate(&m, x, y);
-      
-      cairo_transform(m_pdc, &m);
+//      
+//      cairo_matrix_t m;
+//      
+//      cairo_matrix_translate(&m, x, y);
+//      
+//      cairo_transform(m_pdc, &m);
       
       //return point;
       return point(x, y);
@@ -3524,7 +3528,7 @@ namespace mac
       
       point point = GetViewportOrg();
       
-      cairo_translate(m_pdc, nWidth, nHeight);
+//      cairo_translate(m_pdc, nWidth, nHeight);
       
       return ::point(point.x + nWidth, point.y + nHeight);
       
@@ -3645,7 +3649,7 @@ namespace mac
       if(pregion == NULL)
       {
          
-         cairo_reset_clip(m_pdc);
+//         cairo_reset_clip(m_pdc);
          
       }
       else
@@ -4015,7 +4019,7 @@ namespace mac
     throw not_implemented(get_app());
     return false;
     
-    /*
+    
     ASSERT(get_handle1() != NULL);
     bool bResult = FALSE;
     if (get_handle1() != get_handle2())
@@ -4204,7 +4208,7 @@ namespace mac
     throw not_implemented(get_app());
     return false;
     
-    /*
+    
     if (::GetDeviceCaps(get_handle1(), TECHNOLOGY) == DT_METAFILE)
     {
     // playing metafile in metafile, just use core windows API
@@ -4376,19 +4380,19 @@ namespace mac
        m_pgraphics->SetTransform(&m);
        
        delete pmNew;*/
-      
-      cairo_translate(m_pdc, lpRect->left, lpRect->top);
-      
-      cairo_scale(m_pdc, m_fontxyz.m_dFontWidth, 1.0);
-      
-      set(m_spfont);
-      
-      cairo_show_text(m_pdc, str);
-      
-      cairo_scale(m_pdc, 1.0 / m_fontxyz.m_dFontWidth, 1.0);
-      
-      cairo_translate(m_pdc, -lpRect->left, -lpRect->top);
-      
+//      
+//      cairo_translate(m_pdc, lpRect->left, lpRect->top);
+//      
+//      cairo_scale(m_pdc, m_fontxyz.m_dFontWidth, 1.0);
+//      
+//      set(m_spfont);
+//      
+//      cairo_show_text(m_pdc, str);
+//      
+//      cairo_scale(m_pdc, 1.0 / m_fontxyz.m_dFontWidth, 1.0);
+//      
+//      cairo_translate(m_pdc, -lpRect->left, -lpRect->top);
+//      
       
       return 1;
       
@@ -4437,15 +4441,19 @@ namespace mac
       
       ((graphics *) this)->set(m_spfont);
       
-      cairo_text_extents_t ex;
-      
-      cairo_text_extents(m_pdc, str, &ex);
+//      cairo_text_extents_t ex;
+//      
+//      cairo_text_extents(m_pdc, str, &ex);
+//      
+//      SIZE size;
+//      
+//      size.cx = ex.width;
+//      
+//      size.cy = ex.height;
       
       SIZE size;
-      
-      size.cx = ex.width;
-      
-      size.cy = ex.height;
+      size.cx = 0;
+      size.cy = 0;
       
       return size;
       
@@ -4553,15 +4561,20 @@ namespace mac
       
       ((graphics *) this)->set(m_spfont);
       
-      cairo_text_extents_t ex;
-      
-      cairo_text_extents(m_pdc, str, &ex);
+//      cairo_text_extents_t ex;
+//      
+//      cairo_text_extents(m_pdc, str, &ex);
+//      
+//      SIZE size;
+//      
+//      size.cx = ex.width;
+//      
+//      size.cy = ex.height;
       
       SIZE size;
-      
-      size.cx = ex.width;
-      
-      size.cy = ex.height;
+      size.cx = 0;
+      size.cy = 0;
+
       
       return size;
       
@@ -4607,7 +4620,7 @@ namespace mac
       
       class sized size;
       
-      if(!GetTextExtent(size, str, str.get_length(), str.get_length()))
+      if(!GetTextExtent(size, str, str.get_length(), (int32_t) str.get_length()))
          return ::size(0, 0);
       
       return ::size((long) size.cx, (long) size.cy);
@@ -4677,13 +4690,13 @@ namespace mac
       
       ((graphics *) this)->set(&m_fontxyz);
       
-      cairo_text_extents_t ex;
-      
-      cairo_text_extents(m_pdc, str, &ex);
-      
-      size.cx = ex.width;
-      
-      size.cy = ex.height;
+//      cairo_text_extents_t ex;
+//      
+//      cairo_text_extents(m_pdc, str, &ex);
+//      
+//      size.cx = ex.width;
+//      
+//      size.cy = ex.height;
       
       return size;
       
@@ -4819,15 +4832,15 @@ namespace mac
       
       
       ((graphics *) this)->set(m_spfont);
-      
-      cairo_text_extents_t ex;
-      
-      cairo_text_extents(m_pdc, str, &ex);
-      
-      size.cx = ex.width;
-      
-      size.cy = ex.height;
-      
+//      
+//      cairo_text_extents_t ex;
+//      
+//      cairo_text_extents(m_pdc, str, &ex);
+//      
+//      size.cx = ex.width;
+//      
+//      size.cy = ex.height;
+//      
       return size;
       
       
@@ -5014,10 +5027,10 @@ namespace mac
       
       set_color(clr);
       
-      cairo_rectangle(m_pdc, lpRect->left, lpRect->top, lpRect->right - lpRect->left, lpRect->bottom - lpRect->top);
-      
-      cairo_fill(m_pdc);
-      
+//      cairo_rectangle(m_pdc, lpRect->left, lpRect->top, lpRect->right - lpRect->left, lpRect->bottom - lpRect->top);
+//      
+//      cairo_fill(m_pdc);
+//      
       //      m_pgraphics->FillRectangle(gdiplus_brush(), lpRect->left, lpRect->top, lpRect->right - lpRect->left, lpRect->bottom - lpRect->top);
       
       //::SetBkColor(get_handle1(), clr);
@@ -5033,9 +5046,9 @@ namespace mac
       
       set_color(clr);
       
-      cairo_rectangle(m_pdc, x, y, cx, cy);
+//      cairo_rectangle(m_pdc, x, y, cx, cy);
       
-      cairo_fill(m_pdc);
+//      cairo_fill(m_pdc);
       
    }
    
@@ -5046,10 +5059,10 @@ namespace mac
       
       
       ((graphics *) this)->set(m_spfont);
-      
-      cairo_move_to(m_pdc, x, y);
-      
-      cairo_show_text(m_pdc, str);
+//      
+//      cairo_move_to(m_pdc, x, y);
+//      
+//      cairo_show_text(m_pdc, str);
       
       /*::Gdiplus::PointF origin(0, 0);
        
@@ -5172,9 +5185,9 @@ namespace mac
       
       ((graphics *) this)->set(m_spfont);
       
-      cairo_move_to(m_pdc, x, y);
-      
-      cairo_show_text(m_pdc, str);
+//      cairo_move_to(m_pdc, x, y);
+//      
+//      cairo_show_text(m_pdc, str);
       
       return true;
       
@@ -5304,7 +5317,7 @@ namespace mac
       
       
       
-      cairo_line_to(m_pdc, x, y);
+//      cairo_line_to(m_pdc, x, y);
       
       draw();
       
@@ -5323,17 +5336,17 @@ namespace mac
       try
       {
          
-         if(m_pdc == NULL)
-            return;
+//         if(m_pdc == NULL)
+//            return;
          
          ::ca::graphics::set_alpha_mode(ealphamode);
          if(m_ealphamode == ::ca::alpha_mode_blend)
          {
-            cairo_set_operator(m_pdc, CAIRO_OPERATOR_OVER);
+//            cairo_set_operator(m_pdc, CAIRO_OPERATOR_OVER);
          }
          else if(m_ealphamode == ::ca::alpha_mode_set)
          {
-            cairo_set_operator(m_pdc, CAIRO_OPERATOR_SOURCE);
+//            cairo_set_operator(m_pdc, CAIRO_OPERATOR_SOURCE);
          }
          
       }
@@ -5355,7 +5368,8 @@ namespace mac
    void * graphics::get_os_data() const
    {
       
-      return (void *) m_pdc;
+//      return (void *) m_pdc;
+      return NULL;
       
    }
    
@@ -5378,14 +5392,14 @@ namespace mac
    bool graphics::attach(void * pdata)
    {
       
-      if(m_pdc != NULL)
-      {
-         
-         cairo_destroy(m_pdc);
-         
-      }
-      
-      m_pdc = (cairo_t *) pdata;
+//      if(m_pdc != NULL)
+//      {
+//         
+//         cairo_destroy(m_pdc);
+//         
+//      }
+//      
+//      m_pdc = (cairo_t *) pdata;
       
       return true;
       
@@ -5443,87 +5457,87 @@ namespace mac
    //      return ::ca::fill_mode_winding;
    // }
    
-   void cairo_image_surface_blur( cairo_surface_t* surface, double radius )
-   {
-      // Steve Hanov, 2009
-      // Released into the public domain.
-      
-      // get width, height
-      int32_t width = cairo_image_surface_get_width( surface );
-      int32_t height = cairo_image_surface_get_height( surface );
-      unsigned char* dst = (unsigned char*)malloc(width*height*4);
-      unsigned* precalc =
-      (unsigned*)malloc(width*height*sizeof(unsigned));
-      unsigned char* src = cairo_image_surface_get_data( surface );
-      double mul=1.f/((radius*2)*(radius*2));
-      int32_t channel;
-      
-      // The number of times to perform the averaging. According to wikipedia,
-      // three iterations is good enough to pass for a gaussian.
-      const int32_t MAX_ITERATIONS = 3;
-      int32_t iteration;
-      
-      memcpy( dst, src, width*height*4 );
-      
-      for ( iteration = 0; iteration < MAX_ITERATIONS; iteration++ ) {
-         for( channel = 0; channel < 4; channel++ ) {
-            int32_t x,y;
-            
-            // precomputation step.
-            unsigned char* pix = src;
-            unsigned* pre = precalc;
-            
-            pix += channel;
-            for (y=0;y<height;y++) {
-               for (x=0;x<width;x++) {
-                  int32_t tot=pix[0];
-                  if (x>0) tot+=pre[-1];
-                  if (y>0) tot+=pre[-width];
-                  if (x>0 && y>0) tot-=pre[-width-1];
-                  *pre++=tot;
-                  pix += 4;
-               }
-            }
-            
-            // blur step.
-            pix = dst + (int32_t)radius * width * 4 + (int32_t)radius * 4 + channel;
-            for (y=radius;y<height-radius;y++) {
-               for (x=radius;x<width-radius;x++) {
-                  int32_t l = x < radius ? 0 : x - radius;
-                  int32_t t = y < radius ? 0 : y - radius;
-                  int32_t r = x + radius >= width ? width - 1 : x + radius;
-                  int32_t b = y + radius >= height ? height - 1 : y + radius;
-                  int32_t tot = precalc[r+b*width] + precalc[l+t*width] -
-                  precalc[l+b*width] - precalc[r+t*width];
-                  *pix=(unsigned char)(tot*mul);
-                  pix += 4;
-               }
-               pix += (int32_t)radius * 2 * 4;
-            }
-         }
-         memcpy( src, dst, width*height*4 );
-      }
-      
-      free( dst );
-      free( precalc );
-   }
+//   void cairo_image_surface_blur( cairo_surface_t* surface, double radius )
+//   {
+//      // Steve Hanov, 2009
+//      // Released into the public domain.
+//      
+//      // get width, height
+//      int32_t width = cairo_image_surface_get_width( surface );
+//      int32_t height = cairo_image_surface_get_height( surface );
+//      unsigned char* dst = (unsigned char*)malloc(width*height*4);
+//      unsigned* precalc =
+//      (unsigned*)malloc(width*height*sizeof(unsigned));
+//      unsigned char* src = cairo_image_surface_get_data( surface );
+//      double mul=1.f/((radius*2)*(radius*2));
+//      int32_t channel;
+//      
+//      // The number of times to perform the averaging. According to wikipedia,
+//      // three iterations is good enough to pass for a gaussian.
+//      const int32_t MAX_ITERATIONS = 3;
+//      int32_t iteration;
+//      
+//      memcpy( dst, src, width*height*4 );
+//      
+//      for ( iteration = 0; iteration < MAX_ITERATIONS; iteration++ ) {
+//         for( channel = 0; channel < 4; channel++ ) {
+//            int32_t x,y;
+//            
+//            // precomputation step.
+//            unsigned char* pix = src;
+//            unsigned* pre = precalc;
+//            
+//            pix += channel;
+//            for (y=0;y<height;y++) {
+//               for (x=0;x<width;x++) {
+//                  int32_t tot=pix[0];
+//                  if (x>0) tot+=pre[-1];
+//                  if (y>0) tot+=pre[-width];
+//                  if (x>0 && y>0) tot-=pre[-width-1];
+//                  *pre++=tot;
+//                  pix += 4;
+//               }
+//            }
+//            
+//            // blur step.
+//            pix = dst + (int32_t)radius * width * 4 + (int32_t)radius * 4 + channel;
+//            for (y=radius;y<height-radius;y++) {
+//               for (x=radius;x<width-radius;x++) {
+//                  int32_t l = x < radius ? 0 : x - radius;
+//                  int32_t t = y < radius ? 0 : y - radius;
+//                  int32_t r = x + radius >= width ? width - 1 : x + radius;
+//                  int32_t b = y + radius >= height ? height - 1 : y + radius;
+//                  int32_t tot = precalc[r+b*width] + precalc[l+t*width] -
+//                  precalc[l+b*width] - precalc[r+t*width];
+//                  *pix=(unsigned char)(tot*mul);
+//                  pix += 4;
+//               }
+//               pix += (int32_t)radius * 2 * 4;
+//            }
+//         }
+//         memcpy( src, dst, width*height*4 );
+//      }
+//      
+//      free( dst );
+//      free( precalc );
+//   }
    
    
    bool graphics::blur(bool bExpand, double dRadius, LPCRECT lpcrect)
    {
       
-      cairo_pattern_t * ppattern = cairo_get_source(m_pdc);
-      
-      if(ppattern == NULL)
-         return false;
-      
-      cairo_surface_t * psurfaceSrc = NULL;
-      
-      cairo_pattern_get_surface(ppattern, &psurfaceSrc);
-      
-      cairo_surface_t * psurface = cairo_surface_create_for_rectangle(psurfaceSrc, lpcrect->left, lpcrect->top, width(lpcrect), height(lpcrect));
-      
-      cairo_image_surface_blur(psurface, dRadius);
+//      cairo_pattern_t * ppattern = cairo_get_source(m_pdc);
+//      
+//      if(ppattern == NULL)
+//         return false;
+//      
+//      cairo_surface_t * psurfaceSrc = NULL;
+//      
+//      cairo_pattern_get_surface(ppattern, &psurfaceSrc);
+//      
+//      cairo_surface_t * psurface = cairo_surface_create_for_rectangle(psurfaceSrc, lpcrect->left, lpcrect->top, width(lpcrect), height(lpcrect));
+//      
+//      cairo_image_surface_blur(psurface, dRadius);
       
       return true;
       
@@ -5542,7 +5556,8 @@ namespace mac
    bool graphics::set(const ::ca::brush * pbrush)
    {
       
-      cairo_set_source_rgba(m_pdc, GetRValue(pbrush->m_cr) / 255.0, GetGValue(pbrush->m_cr) / 255.0, GetBValue(pbrush->m_cr) / 255.0, GetAValue(pbrush->m_cr) / 255.0);
+//      cairo_set_source_rgba(m_pdc, GetRValue(pbrush->m_cr) / 255.0, GetGValue(pbrush->m_cr) / 255.0, GetBValue(pbrush->m_cr) / 255.0, GetAValue(pbrush->m_cr) / 255.0);
+      return true;
       
    }
    
@@ -5550,68 +5565,68 @@ namespace mac
    bool graphics::set(const ::ca::pen * ppen)
    {
       
-      cairo_set_source_rgba(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
-      
-      cairo_set_line_width(m_pdc, ppen->m_dWidth);
-      
+//      cairo_set_source_rgba(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
+//      
+//      cairo_set_line_width(m_pdc, ppen->m_dWidth);
+      return true;
    }
    
    bool graphics::set(const ::ca::font * pfont)
    {
       
-      cairo_select_font_face(m_pdc, pfont->m_strFontFamilyName, pfont->m_bItalic ? CAIRO_FONT_SLANT_ITALIC : CAIRO_FONT_SLANT_NORMAL, pfont->m_iFontWeight > 650 ? CAIRO_FONT_WEIGHT_BOLD : CAIRO_FONT_WEIGHT_NORMAL);
+//      cairo_select_font_face(m_pdc, pfont->m_strFontFamilyName, pfont->m_bItalic ? CAIRO_FONT_SLANT_ITALIC : CAIRO_FONT_SLANT_NORMAL, pfont->m_iFontWeight > 650 ? CAIRO_FONT_WEIGHT_BOLD : CAIRO_FONT_WEIGHT_NORMAL);
+//      
+//      if(pfont->m_eunitFontSize == ::ca::unit_pixel)
+//      {
+//         
+//         cairo_set_font_size(m_pdc, pfont->m_dFontSize);
+//         
+//      }
+//      else
+//      {
+//         
+//         cairo_set_font_size(m_pdc, pfont->m_dFontSize * 96.0 / 72.0);
+//         
+//      }
+//      
       
-      if(pfont->m_eunitFontSize == ::ca::unit_pixel)
-      {
-         
-         cairo_set_font_size(m_pdc, pfont->m_dFontSize);
-         
-      }
-      else
-      {
-         
-         cairo_set_font_size(m_pdc, pfont->m_dFontSize * 96.0 / 72.0);
-         
-      }
-      
-      
-      
+          return true;
    }
    
    bool graphics::fill_and_draw()
    {
       
-      bool bPen = m_sppen.is_set() && (m_sppen->m_etype != ::ca::pen::type_null);
-      
-      if(m_spbrush.is_set() && (m_spbrush->m_etype != ::ca::brush::type_null))
-      {
-         
-         set(m_spbrush);
-         
-         if(bPen)
-         {
-            
-            cairo_fill_preserve(m_pdc);
-            
-         }
-         else
-         {
-            
-            cairo_fill(m_pdc);
-            
-         }
-         
-      }
-      
-      if(bPen)
-      {
-         
-         set(m_sppen);
-         
-         cairo_stroke(m_pdc);
-         
-         
-      }
+//      bool bPen = m_sppen.is_set() && (m_sppen->m_etype != ::ca::pen::type_null);
+//      
+//      if(m_spbrush.is_set() && (m_spbrush->m_etype != ::ca::brush::type_null))
+//      {
+//         
+//         set(m_spbrush);
+//         
+//         if(bPen)
+//         {
+//            
+//            cairo_fill_preserve(m_pdc);
+//            
+//         }
+//         else
+//         {
+//            
+//            cairo_fill(m_pdc);
+//            
+//         }
+//         
+//      }
+//      
+//      if(bPen)
+//      {
+//         
+//         set(m_sppen);
+//         
+//         cairo_stroke(m_pdc);
+//         
+//         
+//      }
       
       
       return true;
@@ -5622,24 +5637,28 @@ namespace mac
    bool graphics::fill(::ca::brush * pbrush)
    {
       
-      if(pbrush == NULL || pbrush->m_etype == ::ca::brush::type_null)
-         return true;
+//      if(pbrush == NULL || pbrush->m_etype == ::ca::brush::type_null)
+//         return true;
+//      
+//      set(pbrush);
+//      
+//      cairo_fill(m_pdc);
+//
       
-      set(pbrush);
-      
-      cairo_fill(m_pdc);
-      
+            return true;
    }
    
    bool graphics::draw(::ca::pen * ppen)
    {
-      
-      if(ppen == NULL || ppen->m_etype == ::ca::pen::type_null)
-         return true;
-      
-      set(ppen);
-      
-      cairo_stroke(m_pdc);
+//      
+//      if(ppen == NULL || ppen->m_etype == ::ca::pen::type_null)
+//         return true;
+//      
+//      set(ppen);
+//      
+//      cairo_stroke(m_pdc);
+//      
+            return true;
       
    }
    
@@ -5647,27 +5666,27 @@ namespace mac
    bool graphics::set(const ::ca::graphics_path * ppathParam)
    {
       
-      ::lnx::graphics_path * ppath = dynamic_cast < ::lnx::graphics_path * > ((::ca::graphics_path *) ppathParam);
-      
-      for(int32_t i = 0; i < ppath->m_elementa.get_count(); i++)
-      {
-         
-         set(ppath->m_elementa[i]);
-         
-      }
-      
-      if(ppath->m_efillmode == ::ca::fill_mode_alternate)
-      {
-         
-         cairo_set_fill_rule(m_pdc, CAIRO_FILL_RULE_EVEN_ODD);
-         
-      }
-      else
-      {
-         
-         cairo_set_fill_rule(m_pdc, CAIRO_FILL_RULE_WINDING);
-         
-      }
+//      ::lnx::graphics_path * ppath = dynamic_cast < ::lnx::graphics_path * > ((::ca::graphics_path *) ppathParam);
+//      
+//      for(int32_t i = 0; i < ppath->m_elementa.get_count(); i++)
+//      {
+//         
+//         set(ppath->m_elementa[i]);
+//         
+//      }
+//      
+//      if(ppath->m_efillmode == ::ca::fill_mode_alternate)
+//      {
+//         
+//         cairo_set_fill_rule(m_pdc, CAIRO_FILL_RULE_EVEN_ODD);
+//         
+//      }
+//      else
+//      {
+//         
+//         cairo_set_fill_rule(m_pdc, CAIRO_FILL_RULE_WINDING);
+//         
+//      }
       
       
       return true;
@@ -5675,19 +5694,19 @@ namespace mac
    }
    
    
-   bool graphics::set(const ::lnx::graphics_path::element & e)
+   bool graphics::set(const ::mac::graphics_path::element & e)
    {
       
       switch(e.m_etype)
       {
-         case simple_path::element::type_arc:
+         case ::mac::graphics_path::element::type_arc:
             set(e.m_arc);
             break;
-         case simple_path::element::type_line:
+         case ::mac::graphics_path::element::type_line:
             set(e.m_line);
             break;
-         case simple_path::element::type_close:
-            cairo_close_path(m_pdc);
+         case ::mac::graphics_path::element::type_close:
+//            cairo_close_path(m_pdc);
             break;
          default:
             throw "unexpected simple os graphics element type";
@@ -5697,48 +5716,48 @@ namespace mac
       
    }
    
-   bool graphics::set(const ::lnx::graphics_path::arc & a)
+   bool graphics::set(const ::mac::graphics_path::arc & a)
    {
       
-      cairo_translate(m_pdc, a.m_xCenter, a.m_yCenter);
-      
-      cairo_scale(m_pdc, 1.0, a.m_dRadiusY / a.m_dRadiusX);
-      
-      cairo_arc(m_pdc, 0.0, 0.0, a.m_dRadiusX, a.m_dAngle1, a.m_dAngle2);
-      
-      cairo_scale(m_pdc, 1.0, a.m_dRadiusX / a.m_dRadiusY);
-      
-      cairo_translate(m_pdc, -a.m_xCenter, -a.m_yCenter);
+//      cairo_translate(m_pdc, a.m_xCenter, a.m_yCenter);
+//      
+//      cairo_scale(m_pdc, 1.0, a.m_dRadiusY / a.m_dRadiusX);
+//      
+//      cairo_arc(m_pdc, 0.0, 0.0, a.m_dRadiusX, a.m_dAngle1, a.m_dAngle2);
+//      
+//      cairo_scale(m_pdc, 1.0, a.m_dRadiusX / a.m_dRadiusY);
+//      
+//      cairo_translate(m_pdc, -a.m_xCenter, -a.m_yCenter);
       
       return true;
       
    }
    
-   bool graphics::set(const ::lnx::graphics_path::line & l)
+   bool graphics::set(const ::mac::graphics_path::line & l)
    {
       
-      if(!cairo_has_current_point(m_pdc))
-      {
-         
-         cairo_move_to(m_pdc, l.m_x, l.m_y);
-         
-      }
-      else
-      {
-         
-         cairo_line_to(m_pdc, l.m_x, l.m_y);
-         
-      }
+//      if(!cairo_has_current_point(m_pdc))
+//      {
+//         
+//         cairo_move_to(m_pdc, l.m_x, l.m_y);
+//         
+//      }
+//      else
+//      {
+//         
+//         cairo_line_to(m_pdc, l.m_x, l.m_y);
+//         
+//      }
       
       return true;
       
    }
    
    
-   bool graphics::set(const ::lnx::graphics_path::move & p)
+   bool graphics::set(const ::mac::graphics_path::move & p)
    {
       
-      cairo_move_to(m_pdc, p.m_x, p.m_y);
+//      cairo_move_to(m_pdc, p.m_x, p.m_y);
       
       
       return true;
