@@ -24,6 +24,12 @@ namespace ca // Thommy Gustavinho Cecynzinho Lundgrenzinho
    
 } // namespace ca
 
+typedef struct tagPOINT
+{
+   int32_t  x;
+   int32_t  y;
+} POINT, *PPOINT;
+
 namespace user
 {
     
@@ -129,21 +135,96 @@ public:
       return m_pdata == NULL ? NULL : m_pdata->m_nswindow;
    }
    
-    void set_user_interaction(::user::interaction_base * pui);
-    ::user::interaction_base * get_user_interaction_base();
-    ::user::interaction_base * get_user_interaction_base() const;
-    ::user::interaction * get_user_interaction();
-    ::user::interaction * get_user_interaction() const;
+   
+   void set_user_interaction(::user::interaction_base * pui);
+   ::user::interaction_base * get_user_interaction_base();
+   ::user::interaction_base * get_user_interaction_base() const;
+   ::user::interaction * get_user_interaction();
+   ::user::interaction * get_user_interaction() const;
    
    
+   void post_nc_destroy();
    
+   
+   bool is_child(oswindow oswindowCandidateChildOrDescendant); // or descendant
    oswindow get_parent();
    oswindow set_parent(oswindow oswindowNewParent);
+   long get_state();
+   bool is_iconic();
+   bool is_window_visible();
+   bool show_window(int32_t nCmdShow);
+   int32_t get_window_long(int32_t nIndex);
+   int32_t set_window_long(int32_t nIndex, int32_t l);
+   bool client_to_screen(POINT * lppoint);
+   bool screen_to_client(POINT * lppoint);
+   
+   
+   
+   bool is_null() const
+   {
+      return m_pdata == NULL;
+   }
    
 };
+
+
+
+
+inline bool IsWindow(oswindow oswindow)
+{
+   return oswindow.get_user_interaction() != NULL;
+}
+
+inline bool IsChild(oswindow oswindowParent, ::oswindow oswindowCandidateChildOrDescendant)
+{
+   return oswindowParent.is_child(oswindowCandidateChildOrDescendant);
+}
 
 inline oswindow GetParent(::oswindow oswindow)
 {
    return oswindow.get_parent();
 }
 
+inline oswindow SetParent(::oswindow oswindow, ::oswindow oswindowNewParent)
+{
+   return oswindow.set_parent(oswindowNewParent);
+}
+
+inline bool ShowWindow(::oswindow oswindow, int32_t nCmdShow)
+{
+   return oswindow.show_window(nCmdShow);
+}
+
+inline int32_t GetWindowLongA(::oswindow oswindow, int32_t nIndex)
+{
+   return oswindow.get_window_long(nIndex);
+}
+
+inline int32_t SetWindowLongA(::oswindow oswindow, int32_t nIndex, int32_t l)
+{
+   return oswindow.set_window_long(nIndex, l);
+}
+
+inline bool ClientToScreen(::oswindow oswindow, POINT * lppoint)
+{
+   return oswindow.client_to_screen(lppoint);
+}
+
+inline bool ScreenToClient(::oswindow oswindow, POINT * lppoint)
+{
+   return oswindow.screen_to_client(lppoint);
+}
+
+inline int32_t IsIconic(::oswindow oswindow)
+{
+   return oswindow.is_iconic();
+}
+
+inline int32_t IsWindowVisible(::oswindow oswindow)
+{
+   return oswindow.is_window_visible();
+}
+
+
+#define GetWindowLong GetWindowLongA
+#define SetWindowLong SetWindowLongA
