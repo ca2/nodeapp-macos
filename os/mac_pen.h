@@ -1,38 +1,44 @@
 #pragma once
 
+
+
 namespace mac
 {
-
-   /////////////////////////////////////////////////////////////////////////////
-   // ::ca::graphics_object subclasses (drawing tools)
-
-   class CLASS_DECL_mac pen : 
-      virtual public ::mac::graphics_object,
-      virtual public ::ca::pen
+   
+   
+   class CLASS_DECL_mac pen :
+   virtual public ::mac::graphics_object,
+   virtual public ::ca::pen
    {
    public:
-      static pen* PASCAL from_handle(::ca::application * papp, HPEN hPen);
-
+      
+      
+      
+      //int32_t                  m_iStock;
+      //int32_t                  m_iStyle;
+      //int32_t                  m_iWidth;
+      //COLORREF             m_cr;
+      
+      
       pen(::ca::application * papp);
-      virtual void construct(int nPenStyle, int nWidth, COLORREF crColor);
-      virtual void construct(int nPenStyle, int nWidth, const LOGBRUSH* pLogBrush,
-         int nStyleCount = 0, const DWORD* lpStyle = NULL);
-      WINBOOL CreatePen(int nPenStyle, int nWidth, COLORREF crColor);
-      WINBOOL CreatePen(int nPenStyle, int nWidth, const LOGBRUSH* pLogBrush,
-         int nStyleCount = 0, const DWORD* lpStyle = NULL);
-      WINBOOL CreatePenIndirect(LPLOGPEN lpLogPen);
-
-   // Attributes
-      operator HPEN() const;
-      int GetLogPen(LOGPEN* pLogPen);
-      int GetExtLogPen(EXTLOGPEN* pLogPen);
-
-   // Implementation
-   public:
       virtual ~pen();
-   #ifdef _DEBUG
+      /*virtual void construct(int32_t nPenStyle, double nWidth, COLORREF crColor);
+       virtual void construct(int32_t nPenStyle, double nWidth, const LOGBRUSH* pLogBrush, int32_t nStyleCount = 0, const DWORD* lpStyle = NULL);
+       bool CreatePen(int32_t nPenStyle, double nWidth, COLORREF crColor);
+       bool CreatePen(int32_t nPenStyle, double nWidth, const LOGBRUSH* pLogBrush, int32_t nStyleCount = 0, const DWORD* lpStyle = NULL);*/
+      
+      
+      //      virtual void * get_os_data() const;
+      
+      
       virtual void dump(dump_context & dumpcontext) const;
-   #endif
+      
    };
-
+   
+   
 } // namespace mac
+
+
+
+
+
