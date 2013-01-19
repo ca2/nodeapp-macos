@@ -301,11 +301,7 @@ typedef struct _RECTL       /* rcl */
 
 typedef const RECTL FAR* LPCRECTL;
 
-typedef struct tagPOINT
-{
-    LONG  x;
-    LONG  y;
-} POINT, *PPOINT, NEAR *NPPOINT, FAR *LPPOINT;
+typedef struct tagPOINT NEAR *NPPOINT, FAR *LPPOINT;
 
 typedef struct _POINTL      /* ptl  */
 {
