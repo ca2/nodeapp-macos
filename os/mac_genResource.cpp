@@ -1,5 +1,5 @@
-#include "StdAfx.h"
-#include "implementation.h"
+#include "framework.h"
+#include "mac_implementation.h"
 
 /*
 namespace gen
