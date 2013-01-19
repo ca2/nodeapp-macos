@@ -1,10 +1,10 @@
 #pragma once
 
-#include "dir.h"
-#include "MacFileSystem.h"
-#include "MacFile.h"
-#include "MacShell.h"
-#include "MacResource.h"
-#include "MacStdioFile.h"
-#include "MacFileSet.h"
-#include "state.h"
+
+#include "mac_dir.h"
+#include "mac_file_system.h"
+#include "mac_file.h"
+#include "mac_shell.h"
+#include "mac_stdio_file.h"
+#include "mac_file_set.h"
+#include "mac_state.h"
