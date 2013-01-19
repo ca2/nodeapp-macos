@@ -186,7 +186,7 @@ CLASS_DECL_mac void __set_thread(::radix::thread * pthread)
 {
    // check for current thread in module thread state
    __MODULE_THREAD_STATE* pState = __get_module_thread_state();
-   pState->m_pCurrentWinThread = dynamic_cast < ::mac::::thread * > (pthread->::ca::thread_sp::m_p);
+   pState->m_pCurrentWinThread = dynamic_cast < ::mac::thread * > (pthread->::ca::thread_sp::m_p);
 }
 
 
@@ -480,7 +480,7 @@ void CLASS_DECL_mac AfxInitThread()
    if (!afxContextIsDLL)
    {
       // set message filter proc
-      ___THREAD_STATE* pThreadState = __get_thread_state();
+//      ___THREAD_STATE* pThreadState = __get_thread_state();
       //      ASSERT(pThreadState->m_hHookOldMsgFilter == NULL);
       //    pThreadState->m_hHookOldMsgFilter = ::SetWindowsHookEx(WH_MSGFILTER,
       //     _AfxMsgFilterHook, NULL, ::GetCurrentThreadId());
@@ -656,21 +656,6 @@ namespace mac
       return m_nID;
    }
    
-   bool thread::Begin(::ca::e_thread_priority epriority, UINT nStackSize, DWORD dwCreateFlags, LPSECURITY_ATTRIBUTES lpSecurityAttrs)
-   {
-      if(!create_thread(epriority, dwCreateFlags, nStackSize, lpSecurityAttrs))
-      {
-         Delete();
-         return false;
-      }
-      //VERIFY(SetThreadPriority(epriority));
-      //if (!(dwCreateFlags & CREATE_SUSPENDED))
-      //{
-      // ENSURE(ResumeThread() != (DWORD)-1);
-      //}
-      return true;
-   }
-   
    void thread::on_delete(::ca::ca * p)
    {
    }
@@ -835,9 +820,27 @@ namespace mac
       m_ptimera->check();
    }
    
-   bool thread::create_thread(::ca::e_thread_priority epriority, DWORD dwCreateFlagsParam, UINT nStackSize, LPSECURITY_ATTRIBUTES lpSecurityAttrs)
+   
+   bool thread::begin(::ca::e_thread_priority epriority, uint_ptr nStackSize, uint32_t dwCreateFlags, LPSECURITY_ATTRIBUTES lpSecurityAttrs)
    {
-      DWORD dwCreateFlags = dwCreateFlagsParam;
+      if(!create_thread(epriority, dwCreateFlags, nStackSize, lpSecurityAttrs))
+      {
+         Delete();
+         return false;
+      }
+      //VERIFY(SetThreadPriority(epriority));
+      //if (!(dwCreateFlags & CREATE_SUSPENDED))
+      //{
+      // ENSURE(ResumeThread() != (DWORD)-1);
+      //}
+      return true;
+   }
+   
+   
+   bool thread::create_thread(::ca::e_thread_priority epriority, uint32_t dwCreateFlagsParam, uint_ptr nStackSize, LPSECURITY_ATTRIBUTES lpSecurityAttrs)
+   {
+      
+      uint32_t dwCreateFlags = dwCreateFlagsParam;
       
       if(epriority != ::ca::thread_priority_normal)
       {
@@ -867,7 +870,7 @@ namespace mac
        return FALSE;
        }*/
       
-      m_hThread = (HTHREAD) (ulong_ptr) ::create_thread(lpSecurityAttrs, nStackSize, (DWORD (__stdcall *)(LPVOID)) &::__thread_entry, pstartup, dwCreateFlags | CREATE_SUSPENDED, &m_nID);
+      m_hThread = ::create_thread(lpSecurityAttrs, nStackSize, (DWORD (__stdcall *)(LPVOID)) &::__thread_entry, pstartup, dwCreateFlags | CREATE_SUSPENDED, &m_nID);
       
       if (m_hThread == NULL)
          return FALSE;
@@ -915,7 +918,7 @@ namespace mac
          if(m_pappDelete != NULL)
             delete m_pappDelete;
          m_evFinish.SetEvent();
-         ::radix::thread * pthread = dynamic_cast < ::radix::thread * > (m_p);
+//         ::radix::thread * pthread = dynamic_cast < ::radix::thread * > (m_p);
          //      if(pthread->m_peventReady != NULL)
          //    {
          //     ::SetEvent((HANDLE) pthread->m_peventReady);
@@ -1145,8 +1148,8 @@ namespace mac
       
 #if defined(DEBUG) && !defined(_AFX_NO_DEBUG_CRT)
       // check ca2 API's allocator (before idle)
-      if (_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) & _CRTDBG_CHECK_ALWAYS_DF)
-         ASSERT(__check_memory());
+//      if (_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) & _CRTDBG_CHECK_ALWAYS_DF)
+  //       ASSERT(__check_memory());
 #endif
       
       if(lCount <= 0 && m_puiptra != NULL)
@@ -1176,7 +1179,7 @@ namespace mac
           ::user::interaction* pMainWnd = GetMainWnd();
           if (pMainWnd != NULL && pMainWnd->IsWindowVisible())
           {
-          /*AfxCallWndProc(pMainWnd, pMainWnd->get_handle(),
+          AfxCallWndProc(pMainWnd, pMainWnd->get_handle(),
           WM_IDLEUPDATECMDUI, (WPARAM)TRUE, 0);*/
          /* pMainWnd->SendMessage(WM_IDLEUPDATECMDUI, (WPARAM)TRUE, 0);
           pMainWnd->SendMessageToDescendants(WM_IDLEUPDATECMDUI,
@@ -1220,8 +1223,8 @@ namespace mac
       
 #if defined(DEBUG) && !defined(_AFX_NO_DEBUG_CRT)
       // check ca2 API's allocator (after idle)
-      if (_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) & _CRTDBG_CHECK_ALWAYS_DF)
-         ASSERT(__check_memory());
+//      if (_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) & _CRTDBG_CHECK_ALWAYS_DF)
+  //       ASSERT(__check_memory());
 #endif
       
       return lCount < 0;  // nothing more to do if lCount >= 0
@@ -1248,7 +1251,7 @@ namespace mac
       /*   const __MSGMAP* pMessageMap; pMessageMap = GetMessageMap();
        const __MSGMAP_ENTRY* lpEntry;
        
-       for (/* pMessageMap already init'ed *//*; pMessageMap->pfnGetBaseMap != NULL;
+       for ( pMessageMap already init'ed *//*; pMessageMap->pfnGetBaseMap != NULL;
                                               pMessageMap = (*pMessageMap->pfnGetBaseMap)())
                                               {
                                               // Note: catch not so common but fatal mistake!!
@@ -1339,11 +1342,11 @@ namespace mac
       if(pobj == NULL)
          return;   // not handled
       
-      SCAST_PTR(::gen::message::base, pbase, pobj);
-      
-      frame_window* pTopFrameWnd;
-      ::user::interaction* pMainWnd;
-      ::user::interaction* pMsgWnd;
+//      SCAST_PTR(::gen::message::base, pbase, pobj);
+//      
+//      frame_window* pTopFrameWnd;
+//      ::user::interaction* pMainWnd;
+//      ::user::interaction* pMsgWnd;
       switch (code)
       {
             /*      case MESSAGEF_DDEMGR:
@@ -1765,7 +1768,7 @@ namespace mac
       
       ::mac::thread* pThread = dynamic_cast < ::mac::thread * > (pstartup->m_pthread);
       
-      ::radix::application* papp = dynamic_cast < ::radix::application * > (get_app());
+//      ::radix::application* papp = dynamic_cast < ::radix::application * > (get_app());
       m_evFinish.ResetEvent();
       install_message_handling(pThread);
       m_p->install_message_handling(pThread);
@@ -2465,7 +2468,7 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  
  // walk from target to main ::ca::window
  ::user::interaction* pMainWnd = System.GetMainWnd();
- /* trans   if (::ca::window::WalkPreTranslateTree(pMainWnd->GetSafeHwnd(), pMsg))
+ trans   if (::ca::window::WalkPreTranslateTree(pMainWnd->GetSafeHwnd(), pMsg))
  return TRUE; */
 
 // in case of modeless dialogs, last chance route through main
@@ -2522,7 +2525,6 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  return AfxInternalIsIdleMessage( pMsg );
  }
  
- /*
  thread* CLASS_DECL_mac AfxBeginThread(::ca::type_info pThreadClass,
  int32_t nPriority, UINT nStackSize, DWORD dwCreateFlags,
  LPSECURITY_ATTRIBUTES lpSecurityAttrs)
@@ -2803,14 +2805,14 @@ namespace mac
     ::user::interaction* pMainWnd = GetMainWnd();
     if (pMainWnd != NULL && pMainWnd->IsWindowVisible())
     {
-    /*AfxCallWndProc(pMainWnd, pMainWnd->get_handle(),
+    AfxCallWndProc(pMainWnd, pMainWnd->get_handle(),
     WM_IDLEUPDATECMDUI, (WPARAM)TRUE, 0);*/
    /*       pMainWnd->SendMessage(WM_IDLEUPDATECMDUI, (WPARAM)TRUE, 0);
     pMainWnd->SendMessageToDescendants(WM_IDLEUPDATECMDUI,
     (WPARAM)TRUE, 0, TRUE, TRUE);
     }
     // send WM_IDLEUPDATECMDUI to all frame windows
-    /* linux __MODULE_THREAD_STATE* pState = _AFX_CMDTARGET_GETSTATE()->m_thread;
+     linux __MODULE_THREAD_STATE* pState = _AFX_CMDTARGET_GETSTATE()->m_thread;
     frame_window* pFrameWnd = pState->m_frameList;
     while (pFrameWnd != NULL)
     {
@@ -2867,10 +2869,10 @@ namespace mac
     spmessage->send();
     return TRUE;
     }
-    /*   const __MSGMAP* pMessageMap; pMessageMap = GetMessageMap();
+       const __MSGMAP* pMessageMap; pMessageMap = GetMessageMap();
     const __MSGMAP_ENTRY* lpEntry;
     
-    for (/* pMessageMap already init'ed *//*; pMessageMap->pfnGetBaseMap != NULL;
+    for ( pMessageMap already init'ed *//*; pMessageMap->pfnGetBaseMap != NULL;
                                            pMessageMap = (*pMessageMap->pfnGetBaseMap)())
                                            {
                                            // Note: catch not so common but fatal mistake!!
