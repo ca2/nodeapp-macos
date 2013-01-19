@@ -8,11 +8,13 @@ namespace gen
 namespace mac
 {
 
-   class CLASS_DECL_mac main_init_data
+   class CLASS_DECL_mac main_init_data :
+   
+public    ::ca::main_init_data
    {
    public:
       HINSTANCE   m_hInstance;
-      HINSTANCE   m_hPrevInstance;
+     HINSTANCE   m_hPrevInstance;
       string      m_strCommandLine;
       int         m_nCmdShow;
    };
