@@ -93,7 +93,7 @@ namespace mac
        TRACELASTERROR();
        return false;
        }
-       /*if (!ExitWindowsEx(EWX_REBOOT | EWX_FORCE,
+       if (!ExitWindowsEx(EWX_REBOOT | EWX_FORCE,
        SHTDN_REASON_MAJOR_SOFTWARE | SHTDN_REASON_MINOR_INSTALLATION))
        {
        DWORD dwLastError = ::GetLastError();
@@ -121,7 +121,7 @@ namespace mac
        FALSE, dwPid );
        TerminateProcess(hProcess, (UINT) -1);
        CloseHandle(hProcess);
-       /*::EnumWindows((WNDENUMPROC)
+       ::EnumWindows((WNDENUMPROC)
        CKillProcessHelper::TerminateAppEnum,
        (LPARAM) dwId);
        // Wait on the handle. If it signals, great.
