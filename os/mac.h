@@ -7,9 +7,7 @@
 #include "ca.h"
 
 
-#ifdef LINUX
 #define CLASS_DECL_mac
-#endif
 
 
 string get_error_message(DWORD dwError);
@@ -56,9 +54,9 @@ CLASS_DECL_mac void AfxResetMsgCache();
 #define _AfxUnhookWindowCreate  AfxUnhookWindowCreate
 
 #include "mac1.h"
-#include "implementation.h"
+#include "mac_implementation.h"
 #include "mac_state.h"
-// xxx #include "handle.h"
+//#include "mac_handle.h"
 // xxx #include "mac_file_find.h"
 #include "mac_dir.h"
 // xxx #include "mac_folder_watch.h"
