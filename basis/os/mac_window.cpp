@@ -1,16 +1,16 @@
 #include "framework.h"
-#include <cairo/cairo-xlib.h>
+//#include <cairo/cairo-xlib.h>
 
 //#define COMPILE_MULTIMON_STUBS
 //#include <multimon.h>
 
 //#include "sal.h"
 
-CLASS_DECL_lnx void hook_window_create(::user::interaction * pWnd);
-CLASS_DECL_lnx bool unhook_window_create();
-void CLASS_DECL_lnx __pre_init_dialog(
+CLASS_DECL_mac void hook_window_create(::user::interaction * pWnd);
+CLASS_DECL_mac bool unhook_window_create();
+void CLASS_DECL_mac __pre_init_dialog(
                                       ::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld);
-void CLASS_DECL_lnx __post_init_dialog(
+void CLASS_DECL_mac __post_init_dialog(
                                        ::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld);
 LRESULT CALLBACK
 __activation_window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lparam);
@@ -110,14 +110,14 @@ namespace mac
    
    void * window::get_os_data() const
    {
-      return m_oswindow;
+      return ((oswindow &) m_oswindow);
    }
    
    
    
    // Change a window's style
    
-   /*__STATIC bool CLASS_DECL_lnx __modify_style(oswindow hWnd, int32_t nStyleOffset,
+   /*__STATIC bool CLASS_DECL_mac __modify_style(oswindow hWnd, int32_t nStyleOffset,
     DWORD dwRemove, DWORD dwAdd, UINT nFlags)
     {
     ASSERT(hWnd != NULL);
@@ -137,21 +137,23 @@ namespace mac
    
    bool  window::ModifyStyle(oswindow hWnd, DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
-      DWORD dw = hWnd.get_window_long(GWL_STYLE);
+      throw todo(::ca::get_thread_app());
+/*      DWORD dw = hWnd.get_window_long(GWL_STYLE);
       dw &= ~dwRemove;
       dw |= dwAdd;
       hWnd.set_window_long(GWL_STYLE, dw);
       //return __modify_style(hWnd, GWL_STYLE, dwRemove, dwAdd, nFlags);
-      return true;
+      return true;*/
    }
    
    bool window::ModifyStyleEx(oswindow hWnd, DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
-      DWORD dw = hWnd.get_window_long(GWL_EXSTYLE);
+      throw todo(::ca::get_thread_app());
+/*      DWORD dw = hWnd.get_window_long(GWL_EXSTYLE);
       dw &= ~dwRemove;
       dw |= dwAdd;
       hWnd.set_window_long(GWL_EXSTYLE, dw);
-      return true;
+      return true;*/
       //      return __modify_style(hWnd, GWL_EXSTYLE, dwRemove, dwAdd, nFlags);
    }
    
@@ -299,7 +301,9 @@ namespace mac
       hook_window_create(this);
       
       
-      Display *dpy;
+      throw todo(get_app());
+      
+/*      Display *dpy;
       Window rootwin;
       XEvent e;
       int32_t scr;
@@ -322,13 +326,13 @@ namespace mac
       
       
       
-      
+      */
       /*oswindow hWnd = ::CreateWindowEx(cs.dwExStyle, cs.lpszClass,
        cs.lpszName, cs.style, cs.x, cs.y, cs.cx, cs.cy,
        cs.hwndParent, cs.hMenu, cs.hInstance, cs.lpCreateParams);*/
       
-#ifdef DEBUG
-      if (window == 0)
+//#ifdef DEBUG
+/*      if (window == 0)
       {
          DWORD dwLastError = GetLastError();
          string strLastError = FormatMessageFromSystem(dwLastError);
@@ -361,7 +365,7 @@ namespace mac
       XSelectInput(m_oswindow.display(), m_oswindow.window(), ExposureMask|ButtonPressMask);
       XMapWindow(m_oswindow.display(), m_oswindow.window());
       
-      
+      */
       if (!unhook_window_create())
          PostNcDestroy();        // cleanup if CreateWindowEx fails too soon
       
@@ -605,7 +609,7 @@ namespace mac
    void window::PostNcDestroy()
    {
       //set_handle(NULL);
-      m_oswindow.post_nc_destroy();
+//      m_oswindow.post_nc_destroy();
       // default to nothing
    }
    
@@ -646,7 +650,7 @@ namespace mac
        ASSERT(pMap != NULL);
        
        //         ::radix::object* p=NULL;
-       /*if(pMap)
+       if(pMap)
        {
        ASSERT( (p = pMap->lookup_permanent(get_os_data())) != NULL ||
        (p = pMap->lookup_temporary(get_os_data())) != NULL);
@@ -1011,7 +1015,7 @@ namespace mac
        //  instead of calling gen::CallWindowProc, so that Default()
        //  will still work (it will call the Default window proc with
        //  the original Win32 WM_CTLCOLOR message).
-       /*
+       
        return message_handler(WM_CTLCOLOR, 0, (LPARAM)&ctl);*/
       return 0;
    }
@@ -1025,7 +1029,7 @@ namespace mac
     UNREFERENCED_PARAMETER(nCmd);
     throw not_implemented(get_app());
     
-    /*      application* pApp = &System;
+         application* pApp = &System;
     ASSERT_VALID(pApp);
     ASSERT(pApp->m_pszHelpFilePath != NULL);
     ASSERT(pApp->m_eHelpType == afxWinHelp);
@@ -1040,7 +1044,7 @@ namespace mac
     TRACE(::radix::trace::category_AppMsg, 0, "WinHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
     
     // finally, run the oswindows Help engine
-    /* trans   if (!::WinHelp(LNX_WINDOW(pWnd)->get_os_data(), pApp->m_pszHelpFilePath, nCmd, dwData))
+     trans   if (!::WinHelp(MAC_WINDOW(pWnd)->get_os_data(), pApp->m_pszHelpFilePath, nCmd, dwData))
     {
     // linux System.simple_message_box(__IDP_FAILED_TO_LAUNCH_HELP);
     System.simple_message_box("Failed to launch help");
@@ -1068,7 +1072,7 @@ namespace mac
     TRACE(::radix::trace::category_AppMsg, 0, "HtmlHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
     
     // run the HTML Help engine
-    /* trans   if (!gen::HtmlHelp(LNX_WINDOW(pWnd)->get_os_data(), pApp->m_pszHelpFilePath, nCmd, dwData))
+     trans   if (!gen::HtmlHelp(MAC_WINDOW(pWnd)->get_os_data(), pApp->m_pszHelpFilePath, nCmd, dwData))
     {
     // linux System.simple_message_box(__IDP_FAILED_TO_LAUNCH_HELP);
     System.simple_message_box("Failed to launch help");
@@ -1090,8 +1094,8 @@ namespace mac
        
        // need to use top level parent (for the case where get_os_data() is in DLL)
        ::user::interaction * pWnd = EnsureTopLevelParent();
-       LNX_WINDOW(pWnd)->send_message(WM_CANCELMODE);
-       LNX_WINDOW(pWnd)->SendMessageToDescendants(WM_CANCELMODE, 0, 0, TRUE, TRUE);
+       MAC_WINDOW(pWnd)->send_message(WM_CANCELMODE);
+       MAC_WINDOW(pWnd)->SendMessageToDescendants(WM_CANCELMODE, 0, 0, TRUE, TRUE);
        
        // attempt to cancel capture
        oswindow hWndCapture = ::GetCapture();
@@ -1105,7 +1109,7 @@ namespace mac
     UNREFERENCED_PARAMETER(dwData);
     UNREFERENCED_PARAMETER(nCmd);
     throw not_implemented(get_app());
-    /*
+    
     application* pApp = &System;
     ASSERT_VALID(pApp);
     if (pApp->m_eHelpType == afxHTMLHelp)
@@ -1520,8 +1524,7 @@ namespace mac
     // not in cache, look for it
     pMsgCache->nMsg = message;
     pMsgCache->pMessageMap = pMessageMap;
-    
-    for (/* pMessageMap already init'ed */ /*; pMessageMap->pfnGetBaseMap != NULL;
+       for ( pMessageMap already init'ed */ /*; pMessageMap->pfnGetBaseMap != NULL;
                                             pMessageMap = (*pMessageMap->pfnGetBaseMap)())
                                             {
                                             // Note: catch not so common but fatal mistake!!
@@ -1989,12 +1992,12 @@ namespace mac
       return NULL;
    }
    
-   /* trans oswindow CLASS_DECL_lnx __get_parent_owner(::user::interaction * hWnd)
+   /* trans oswindow CLASS_DECL_mac __get_parent_owner(::user::interaction * hWnd)
     {
     // check for permanent-owned window first
     ::ca::window * pWnd = ::mac::window::FromHandlePermanent(hWnd);
     if (pWnd != NULL)
-    return LNX_WINDOW(pWnd)->GetOwner();
+    return MAC_WINDOW(pWnd)->GetOwner();
     
     // otherwise, return parent in the oswindows sense
     return (::GetWindowLong(hWnd, GWL_STYLE) & WS_CHILD) ?
@@ -2008,13 +2011,14 @@ namespace mac
          return NULL;
       
       ASSERT_VALID(this);
-      
-      ::user::interaction * hWndParent = this;
-      ::user::interaction * hWndT;
+//      
+//      ::user::interaction * hWndParent = this;
+//      ::user::interaction * hWndT;
       //while ((hWndT = __get_parent_owner(hWndParent)) != NULL)
       // hWndParent = hWndT;
       
-      return hWndParent;
+//      return hWndParent;
+      return NULL;
    }
    
    ::user::interaction * window::GetTopLevelOwner()
@@ -2066,8 +2070,8 @@ namespace mac
    void window::ActivateTopParent()
    {
       // special activate logic for floating toolbars and palettes
-      ::ca::window * pActiveWnd = GetForegroundWindow();
-      //      if (pActiveWnd == NULL || !(LNX_WINDOW(pActiveWnd)->get_os_data() == get_os_data() || ::IsChild(LNX_WINDOW(pActiveWnd)->get_os_data(), get_os_data())))
+//      ::ca::window * pActiveWnd = GetForegroundWindow();
+      //      if (pActiveWnd == NULL || !(MAC_WINDOW(pActiveWnd)->get_os_data() == get_os_data() || ::IsChild(MAC_WINDOW(pActiveWnd)->get_os_data(), get_os_data())))
       {
          // clicking on floating frame when it does not have
          // focus itself -- activate the toplevel frame instead.
@@ -2120,7 +2124,7 @@ namespace mac
       // breadth-first for 1 level, then depth-first for next level
       
       // use GetDlgItem since it is a fast USER function
-      ::user::interaction * pWndChild;
+//      ::user::interaction * pWndChild;
       /*      if ((pWndChild = hWnd->GetDlgItem(id)) != NULL)
        {
        if (pWndChild->GetTopWindow() != NULL)
@@ -2144,18 +2148,18 @@ namespace mac
                return hWnd->m_uiptraChild[i];
          }
       }
-      
-      if(pWndChild == NULL)
-         return NULL;
-      
-      // walk each child
-      for (pWndChild = pWndChild->GetTopWindow(); pWndChild != NULL;
-           pWndChild = pWndChild->GetNextWindow(GW_HWNDNEXT))
-      {
-         pWndChild = GetDescendantWindow(pWndChild, id);
-         if (pWndChild != NULL)
-            return pWndChild;
-      }
+//      
+//      if(pWndChild == NULL)
+//         return NULL;
+//      
+//      // walk each child
+//      for (pWndChild = pWndChild->GetTopWindow(); pWndChild != NULL;
+//           pWndChild = pWndChild->GetNextWindow(GW_HWNDNEXT))
+//      {
+//         pWndChild = GetDescendantWindow(pWndChild, id);
+//         if (pWndChild != NULL)
+//            return pWndChild;
+//      }
       return NULL;    // not found
    }
    
@@ -2174,7 +2178,7 @@ namespace mac
           if (pWnd != NULL)
           {
           // call window proc directly since it is a C++ window
-          __call_window_procedure(dynamic_cast < ::user::interaction * > (pWnd), LNX_WINDOW(pWnd)->get_os_data(), message, wparam, lparam);
+          __call_window_procedure(dynamic_cast < ::user::interaction * > (pWnd), MAC_WINDOW(pWnd)->get_os_data(), message, wparam, lparam);
           }
           }
           else
@@ -2453,7 +2457,7 @@ namespace mac
       // NOTE: nIDFirst->nIDLast are usually 0->0xffff
       
       __SIZEPARENTPARAMS layout;
-      ::user::interaction * hWndLeftOver = NULL;
+//      ::user::interaction * hWndLeftOver = NULL;
       
       layout.bStretch = bStretch;
       layout.sizeTotal.cx = layout.sizeTotal.cy = 0;
@@ -2616,6 +2620,7 @@ namespace mac
        return true;
        }
        return false;*/
+      return false;
    }
    
    void window::WalkPreTranslateTree(::user::interaction * puiStop, gen::signal_object * pobj)
@@ -2660,7 +2665,7 @@ namespace mac
        // check if in permanent ::collection::map, if it is reflect it (could be OLE control)
        ::ca::window * pWnd = dynamic_cast < ::ca::window * > (pMap->lookup_permanent(hWndChild)); */
       ::ca::window * pWnd = dynamic_cast < ::ca::window * > (FromHandlePermanent(hWndChild));
-      ASSERT(pWnd == NULL || LNX_WINDOW(pWnd)->get_os_data() == hWndChild);
+      ASSERT(pWnd == NULL || MAC_WINDOW(pWnd)->get_os_data() == hWndChild);
       if (pWnd == NULL)
       {
          return FALSE;
@@ -2668,7 +2673,7 @@ namespace mac
       
       // only OLE controls and permanent windows will get reflected msgs
       ASSERT(pWnd != NULL);
-      return LNX_WINDOW(pWnd)->SendChildNotifyLastMsg(pResult);
+      return MAC_WINDOW(pWnd)->SendChildNotifyLastMsg(pResult);
    }
    
    bool window::OnChildNotify(UINT uMsg, WPARAM wparam, LPARAM lparam, LRESULT* pResult)
@@ -2818,7 +2823,7 @@ namespace mac
     {
     UNREFERENCED_PARAMETER(lpDeviceName);
     throw not_implemented(get_app());
-    /*application* pApp = &System;
+    application* pApp = &System;
     if (pApp != NULL && pApp->GetMainWnd() == this)
     pApp->DevModeChange(lpDeviceName);
     
@@ -2951,17 +2956,17 @@ namespace mac
       
       static UINT c_cdecl s_print_window(LPVOID pvoid)
       {
-         print_window * pprintwindow = (print_window *) pvoid;
-         try
-         {
-            HANDLE hevent = (HANDLE) pprintwindow->m_event.get_os_data();
-            throw not_implemented(pprintwindow->get_app());
-            /*            ::PrintWindow(pprintwindow->m_hwnd, pprintwindow->m_hdc, 0);
-             ::SetEvent(hevent);*/
-         }
-         catch(...)
-         {
-         }
+//         print_window * pprintwindow = (print_window *) pvoid;
+//         try
+//         {
+//            HANDLE hevent = (HANDLE) pprintwindow->m_event.get_os_data();
+//            throw not_implemented(pprintwindow->get_app());
+//            /*            ::PrintWindow(pprintwindow->m_hwnd, pprintwindow->m_hdc, 0);
+//             ::SetEvent(hevent);*/
+//         }
+//         catch(...)
+//         {
+//         }
          return 0;
       }
    };
@@ -2986,9 +2991,9 @@ namespace mac
       user::oswindow_array wndaApp;
       
       
-      HRGN rgnWindow;
-      HRGN rgnIntersect;
-      HRGN rgnUpdate = NULL;
+//      HRGN rgnWindow;
+//      HRGN rgnIntersect;
+//      HRGN rgnUpdate = NULL;
       
       throw not_implemented(get_app());
       /*
@@ -3324,9 +3329,9 @@ namespace mac
    
    HBRUSH window::OnCtlColor(::ca::graphics *, ::ca::window * pWnd, UINT)
    {
-      ASSERT(pWnd != NULL && LNX_WINDOW(pWnd)->get_os_data() != NULL);
+      ASSERT(pWnd != NULL && MAC_WINDOW(pWnd)->get_os_data() != NULL);
       LRESULT lResult;
-      if (LNX_WINDOW(pWnd)->SendChildNotifyLastMsg(&lResult))
+      if (MAC_WINDOW(pWnd)->SendChildNotifyLastMsg(&lResult))
          return (HBRUSH)lResult;     // eat it
       return (HBRUSH)Default();
    }
@@ -3644,7 +3649,7 @@ namespace mac
        if (pWnd != NULL)
        {
        // call it directly to disable any routing
-       if (LNX_WINDOW(pWnd)->window::_001OnCommand(0, MAKELONG(0xffff,
+       if (MAC_WINDOW(pWnd)->window::_001OnCommand(0, MAKELONG(0xffff,
        WM_COMMAND+WM_REFLECT_BASE), &state, NULL))
        continue;
        }
@@ -3685,10 +3690,10 @@ namespace mac
    id window::RunModalLoop(DWORD dwFlags, ::ca::live_object * pliveobject)
    {
       // for tracking the idle time state
-      bool bIdle = TRUE;
-      LONG lIdleCount = 0;
-      bool bShowIdle = (dwFlags & MLF_SHOWONIDLE) && !(GetStyle() & WS_VISIBLE);
-      oswindow hWndParent = ::GetParent(get_os_data());
+//      bool bIdle = TRUE;
+//      LONG lIdleCount = 0;
+//      bool bShowIdle = (dwFlags & MLF_SHOWONIDLE) && !(GetStyle() & WS_VISIBLE);
+//      oswindow hWndParent = ::GetParent(get_os_data());
       m_iModal = m_iModalCount;
       int32_t iLevel = m_iModal;
       oprop(string("RunModalLoop.thread(") + gen::str::from(iLevel) + ")") = System.GetThread();
@@ -3922,10 +3927,10 @@ namespace mac
       //   bool window::SubclassDlgItem(UINT nID, ::ca::window * pParent)
       //   {
       //      ASSERT(pParent != NULL);
-      //      ASSERT(::IsWindow(LNX_WINDOW(pParent)->get_os_data()));
+      //      ASSERT(::IsWindow(MAC_WINDOW(pParent)->get_os_data()));
       //
       //      // check for normal dialog control first
-      //      oswindow hWndControl = ::GetDlgItem(LNX_WINDOW(pParent)->get_os_data(), nID);
+      //      oswindow hWndControl = ::GetDlgItem(MAC_WINDOW(pParent)->get_os_data(), nID);
       //      if (hWndControl != NULL)
       //         return SubclassWindow(hWndControl);
       //
@@ -3959,13 +3964,14 @@ namespace mac
    bool window::IsChild(::user::interaction * pWnd)
    {
       ASSERT(::IsWindow(get_os_data()));
-      if(LNX_WINDOW(pWnd)->get_handle() == NULL)
+      if(MAC_WINDOW(pWnd)->get_handle() == NULL)
       {
          return ::user::interaction::IsChild(pWnd);
       }
       else
       {
-         return ::IsChild(get_os_data(), LNX_WINDOW(pWnd)->get_handle()) != FALSE;
+//         return ::IsChild(get_os_data(), MAC_WINDOW(pWnd)->get_handle()) != FALSE;
+         return FALSE;
       }
    }
    
@@ -3990,7 +3996,7 @@ namespace mac
       ASSERT(::IsWindow(get_os_data()));
       /*   return ::SetWindowPos(get_os_data(), pWndInsertAfter->get_os_data(),
        x, y, cx, cy, nFlags) != FALSE; */
-      rect64 rectWindowOld = m_rectParentClient;
+//      rect64 rectWindowOld = m_rectParentClient;
       if(nFlags & SWP_NOMOVE)
       {
          if(nFlags & SWP_NOSIZE)
@@ -4054,7 +4060,7 @@ namespace mac
        {
        ::SetWindowPos(get_os_data(), (oswindow) z, x, y, cx, cy, nFlags);
        }
-       /*if(m_pguie != NULL)
+       if(m_pguie != NULL)
        {
        m_pguie->oprop("pending_layout") = true;
        m_pguie->oprop("pending_zorder") = z;
@@ -4246,7 +4252,7 @@ namespace mac
       m_eappearance = appearance_normal;
       if(m_pguie != NULL)
          m_pguie->m_eappearance = appearance_normal;
-      ::ShowWindow(get_os_data(), SW_RESTORE);
+//      ::ShowWindow(get_os_data(), SW_RESTORE);
    }
    
    bool window::ShowWindow(int32_t nCmdShow)
@@ -4293,7 +4299,7 @@ namespace mac
        }
        else*/
       {
-         ::ShowWindow(get_os_data(), nCmdShow);
+//         ::ShowWindow(get_os_data(), nCmdShow);
          m_bVisible = ::IsWindowVisible(get_os_data()) != FALSE;
          if(m_pguie!= NULL && m_pguie != this)
             m_pguie->m_bVisible = m_bVisible;
@@ -4338,7 +4344,8 @@ namespace mac
    
    LONG window::SetWindowLong(int32_t nIndex, LONG lValue)
    {
-      return ::SetWindowLong(get_os_data(), nIndex, lValue);
+//      return ::SetWindowLong(get_os_data(), nIndex, lValue);
+      return 0;
    }
    
    
@@ -4383,9 +4390,9 @@ namespace mac
       //         {
       //            if(m_pguie != NULL)
       //            {
-      //               if(m_pguie->get_wnd() != NULL && LNX_WINDOW(m_pguie->get_wnd())->m_pguieCapture != NULL)
+      //               if(m_pguie->get_wnd() != NULL && MAC_WINDOW(m_pguie->get_wnd())->m_pguieCapture != NULL)
       //               {
-      //                  return LNX_WINDOW(m_pguie->get_wnd())->m_pguieCapture;
+      //                  return MAC_WINDOW(m_pguie->get_wnd())->m_pguieCapture;
       //               }
       //               else
       //               {
@@ -4411,12 +4418,12 @@ namespace mac
     { return this == NULL ? NULL : get_os_data(); }*/
    bool window::operator==(const ::ca::window& wnd) const
    {
-      return LNX_WINDOW(const_cast < ::ca::window * > (&wnd))->get_handle() == get_handle();
+      return MAC_WINDOW(const_cast < ::ca::window * > (&wnd))->get_handle() == get_handle();
    }
    
    bool window::operator!=(const ::ca::window& wnd) const
    {
-      return LNX_WINDOW(const_cast < ::ca::window * > (&wnd))->get_handle() != get_handle();
+      return MAC_WINDOW(const_cast < ::ca::window * > (&wnd))->get_handle() != get_handle();
    }
    
    DWORD window::GetStyle()
@@ -4595,7 +4602,7 @@ namespace mac
       rectClient.top = 0;
       rectClient.right = 500;
       rectClient.bottom = 500;
-      (dynamic_cast < ::mac::graphics * >(g.m_p))->attach(cairo_create(cairo_xlib_surface_create(oswindow.display(), oswindow.window(), DefaultVisual(oswindow.display(), 0), rectClient.width(), rectClient.height())));
+//      (dynamic_cast < ::mac::graphics * >(g.m_p))->attach(cairo_create(cairo_xlib_surface_create(oswindow.display(), oswindow.window(), DefaultVisual(oswindow.display(), 0), rectClient.width(), rectClient.height())));
       return g.detach();
    }
    
@@ -4613,13 +4620,13 @@ namespace mac
       if(pgraphics == NULL)
          return false;
       
-      cairo_t * pcairo = (cairo_t *) pgraphics->get_os_data();
-      
-      cairo_surface_t * psurface = cairo_get_target(pcairo);
-      
-      cairo_destroy(pcairo);
-      
-      cairo_surface_destroy(psurface);
+//      cairo_t * pcairo = (cairo_t *) pgraphics->get_os_data();
+//      
+//      cairo_surface_t * psurface = cairo_get_target(pcairo);
+//      
+//      cairo_destroy(pcairo);
+//      
+//      cairo_surface_destroy(psurface);
       
       //      if(((Gdiplus::Graphics *)(dynamic_cast<::mac::graphics * >(pgraphics))->get_os_data()) == NULL)
       //       return false;
@@ -4857,6 +4864,8 @@ namespace mac
       //throw not_implemented(get_app());
       //ASSERT(::IsWindow(get_os_data()));
       //return ::SetTimer(get_os_data(), nIDEvent, nElapse, lpfnTimer);
+      
+      return true;
       
    }
    
@@ -5621,7 +5630,7 @@ namespace mac
    { Default(); }
    void window::OnAskCbFormatName(UINT nMaxCount, LPTSTR pszName)
    {
-      (nMaxCount);
+//      (nMaxCount);
       if(nMaxCount>0)
       {
          /* defwindow proc should do this for us, but to be safe, we'll do it here too */
@@ -5667,7 +5676,7 @@ namespace mac
    void window::OnCaptureChanged(::ca::window *)
    { Default(); }
    
-   bool window::OnDeviceChange(UINT, dword_ptr)
+   bool window::OnDeviceChange(UINT, uint_ptr)
    {
       
       return Default() != FALSE;
@@ -5805,7 +5814,7 @@ namespace mac
    /////////////////////////////////////////////////////////////////////////////
    // Official way to send message to a window
    
-   CLASS_DECL_lnx LRESULT __call_window_procedure(::user::interaction * pinteraction, oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lparam)
+   CLASS_DECL_mac LRESULT __call_window_procedure(::user::interaction * pinteraction, oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lparam)
    {
       ___THREAD_STATE* pThreadState = gen_ThreadState.get_data();
       MESSAGE oldState = pThreadState->m_lastSentMsg;   // save for nesting
@@ -6141,31 +6150,31 @@ LRESULT CALLBACK __window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPA
    //   // all other messages route through message ::collection::map
    //   ::ca::window * pWnd = ::mac::window::FromHandlePermanent(hWnd);
    //   //ASSERT(pWnd != NULL);
-   //   //ASSERT(pWnd==NULL || LNX_WINDOW(pWnd)->get_os_data() == hWnd);
-   //   if (pWnd == NULL || LNX_WINDOW(pWnd)->get_os_data() != hWnd)
+   //   //ASSERT(pWnd==NULL || MAC_WINDOW(pWnd)->get_os_data() == hWnd);
+   //   if (pWnd == NULL || MAC_WINDOW(pWnd)->get_os_data() != hWnd)
    //      return ::DefWindowProc(hWnd, nMsg, wparam, lparam);
    //   return mac::__call_window_procedure(pWnd, hWnd, nMsg, wparam, lparam);
 }
 
 // always indirectly accessed via __get_window_procedure
-//WNDPROC CLASS_DECL_lnx __get_window_procedure()
+//WNDPROC CLASS_DECL_mac __get_window_procedure()
 //{
 //   return __get_module_state()->m_pfn_window_procedure;
 //}
 /////////////////////////////////////////////////////////////////////////////
 // Special helpers for certain windows messages
 
-__STATIC void CLASS_DECL_lnx __pre_init_dialog(
+__STATIC void CLASS_DECL_mac __pre_init_dialog(
                                                ::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld)
 {
    ASSERT(lpRectOld != NULL);
    ASSERT(pdwStyleOld != NULL);
    
-   LNX_WINDOW(pWnd)->GetWindowRect(lpRectOld);
-   *pdwStyleOld = LNX_WINDOW(pWnd)->GetStyle();
+   MAC_WINDOW(pWnd)->GetWindowRect(lpRectOld);
+   *pdwStyleOld = MAC_WINDOW(pWnd)->GetStyle();
 }
 
-__STATIC void CLASS_DECL_lnx __post_init_dialog(
+__STATIC void CLASS_DECL_mac __post_init_dialog(
                                                 ::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld)
 {
    // must be hidden to start with
@@ -6173,30 +6182,30 @@ __STATIC void CLASS_DECL_lnx __post_init_dialog(
       return;
    
    // must not be visible after WM_INITDIALOG
-   if (LNX_WINDOW(pWnd)->GetStyle() & (WS_VISIBLE|WS_CHILD))
+   if (MAC_WINDOW(pWnd)->GetStyle() & (WS_VISIBLE|WS_CHILD))
       return;
    
    // must not move during WM_INITDIALOG
    rect rect;
-   LNX_WINDOW(pWnd)->GetWindowRect(rect);
+   MAC_WINDOW(pWnd)->GetWindowRect(rect);
    if (rectOld.left != rect.left || rectOld.top != rect.top)
       return;
    
    // must be unowned or owner disabled
-   ::user::interaction * pParent = LNX_WINDOW(pWnd)->GetWindow(GW_OWNER);
+   ::user::interaction * pParent = MAC_WINDOW(pWnd)->GetWindow(GW_OWNER);
    if (pParent != NULL && pParent->IsWindowEnabled())
       return;
    
-   if (!LNX_WINDOW(pWnd)->CheckAutoCenter())
+   if (!MAC_WINDOW(pWnd)->CheckAutoCenter())
       return;
    
    // center modal dialog boxes/message boxes
-   //LNX_WINDOW(pWnd)->CenterWindow();
+   //MAC_WINDOW(pWnd)->CenterWindow();
 }
 
 
 
-CLASS_DECL_lnx void hook_window_create(::user::interaction * pWnd)
+CLASS_DECL_mac void hook_window_create(::user::interaction * pWnd)
 {
    
    //      throw not_implemented(::ca::get_thread_app());
@@ -6213,14 +6222,14 @@ CLASS_DECL_lnx void hook_window_create(::user::interaction * pWnd)
    //   }
    //   ASSERT(pThreadState->m_hHookOldCbtFilter != NULL);
    //   ASSERT(pWnd != NULL);
-   //   // trans   ASSERT(LNX_WINDOW(pWnd)->get_os_data() == NULL);   // only do once
+   //   // trans   ASSERT(MAC_WINDOW(pWnd)->get_os_data() == NULL);   // only do once
    //
    ASSERT(pThreadState->m_pWndInit == NULL);   // hook not already in progress
    //pThreadState->m_pWndInit = pWnd;
 }
 
 
-CLASS_DECL_lnx bool unhook_window_create()
+CLASS_DECL_mac bool unhook_window_create()
 {
    ___THREAD_STATE* pThreadState = gen_ThreadState.get_data();
    if (pThreadState->m_pWndInit != NULL)
@@ -6233,7 +6242,7 @@ CLASS_DECL_lnx bool unhook_window_create()
 
 
 
-CLASS_DECL_lnx const char * __register_window_class(UINT nClassStyle,
+CLASS_DECL_mac const char * __register_window_class(UINT nClassStyle,
                                                     HCURSOR hCursor, HBRUSH hbrBackground, HICON hIcon)
 {
    
@@ -6291,7 +6300,7 @@ CLASS_DECL_lnx const char * __register_window_class(UINT nClassStyle,
 }
 
 
-__STATIC void CLASS_DECL_lnx
+__STATIC void CLASS_DECL_mac
 __handle_activate(::ca::window * pWnd, WPARAM nState, ::ca::window * pWndOther)
 {
    
@@ -6299,22 +6308,22 @@ __handle_activate(::ca::window * pWnd, WPARAM nState, ::ca::window * pWndOther)
    //   ASSERT(pWnd != NULL);
    //
    //   // send WM_ACTIVATETOPLEVEL when top-level parents change
-   //   if (!(LNX_WINDOW(pWnd)->GetStyle() & WS_CHILD))
+   //   if (!(MAC_WINDOW(pWnd)->GetStyle() & WS_CHILD))
    //   {
-   //      ::user::interaction * pTopLevel= LNX_WINDOW(pWnd)->GetTopLevelParent();
-   //      if (pTopLevel && (pWndOther == NULL || !::IsWindow(LNX_WINDOW(pWndOther)->get_os_data()) || pTopLevel != LNX_WINDOW(pWndOther)->GetTopLevelParent()))
+   //      ::user::interaction * pTopLevel= MAC_WINDOW(pWnd)->GetTopLevelParent();
+   //      if (pTopLevel && (pWndOther == NULL || !::IsWindow(MAC_WINDOW(pWndOther)->get_os_data()) || pTopLevel != MAC_WINDOW(pWndOther)->GetTopLevelParent()))
    //      {
    //         // lparam points to window getting the WM_ACTIVATE message and
    //         //  hWndOther from the WM_ACTIVATE.
    //         oswindow hWnd2[2];
-   //         hWnd2[0] = LNX_WINDOW(pWnd)->get_os_data();
-   //         if(pWndOther == NULL || LNX_WINDOW(pWndOther) == NULL)
+   //         hWnd2[0] = MAC_WINDOW(pWnd)->get_os_data();
+   //         if(pWndOther == NULL || MAC_WINDOW(pWndOther) == NULL)
    //         {
    //            hWnd2[1] = NULL;
    //         }
    //         else
    //         {
-   //            hWnd2[1] = LNX_WINDOW(pWndOther)->get_os_data();
+   //            hWnd2[1] = MAC_WINDOW(pWndOther)->get_os_data();
    //         }
    //         // send it...
    //         pTopLevel->send_message(WM_ACTIVATETOPLEVEL, nState, (LPARAM)&hWnd2[0]);
@@ -6322,7 +6331,7 @@ __handle_activate(::ca::window * pWnd, WPARAM nState, ::ca::window * pWndOther)
    //   }
 }
 
-__STATIC bool CLASS_DECL_lnx
+__STATIC bool CLASS_DECL_mac
 __handle_set_cursor(::ca::window * pWnd, UINT nHitTest, UINT nMsg)
 {
    
@@ -6332,7 +6341,7 @@ __handle_set_cursor(::ca::window * pWnd, UINT nHitTest, UINT nMsg)
    //      nMsg == WM_RBUTTONDOWN))
    //   {
    //      // activate the last active window if not active
-   //      ::user::interaction * pLastActive = LNX_WINDOW(pWnd)->GetTopLevelParent();
+   //      ::user::interaction * pLastActive = MAC_WINDOW(pWnd)->GetTopLevelParent();
    //      if (pLastActive != NULL)
    //         pLastActive = pLastActive->GetLastActivePopup();
    //      if (pLastActive != NULL &&
@@ -6351,7 +6360,7 @@ __handle_set_cursor(::ca::window * pWnd, UINT nHitTest, UINT nMsg)
 /////////////////////////////////////////////////////////////////////////////
 // Standard init called by WinMain
 
-//__STATIC bool CLASS_DECL_lnx __register_with_icon(WNDCLASS* pWndCls,
+//__STATIC bool CLASS_DECL_mac __register_with_icon(WNDCLASS* pWndCls,
 //                                                  const char * lpszClassName, UINT nIDIcon)
 //{
 //   pWndCls->lpszClassName = lpszClassName;
@@ -6360,7 +6369,7 @@ __handle_set_cursor(::ca::window * pWnd, UINT nHitTest, UINT nMsg)
 //}
 
 
-//bool CLASS_DECL_lnx __end_defer_register_class(LONG fToRegisterParam, const char ** ppszClass)
+//bool CLASS_DECL_mac __end_defer_register_class(LONG fToRegisterParam, const char ** ppszClass)
 //{
 //   // mask off all classes that are already registered
 //   __MODULE_STATE* pModuleState = __get_module_state();
@@ -6572,7 +6581,7 @@ __activation_window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lp
 // Additional helpers for WNDCLASS init
 
 // like RegisterClass, except will automatically call UnregisterClass
-//bool CLASS_DECL_lnx __register_class(WNDCLASS* lpWndClass)
+//bool CLASS_DECL_mac __register_class(WNDCLASS* lpWndClass)
 //{
 //   WNDCLASS wndcls;
 //   if (GetClassInfo(lpWndClass->hInstance, lpWndClass->lpszClassName,
