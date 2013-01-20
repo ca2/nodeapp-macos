@@ -301,7 +301,7 @@ namespace mac
       hook_window_create(this);
       
       
-      throw todo(get_app());
+//      throw todo(get_app());
       
 /*      Display *dpy;
       Window rootwin;
@@ -428,8 +428,7 @@ namespace mac
       else
       {
          string strName = "ca2::fontopus::message_wnd::winservice_1";
-         //         if(!CreateEx(0, NULL, pszName, WS_CHILD, 0, 0, 0, 0, oswindow_MESSAGE, NULL, NULL))
-         if(!CreateEx(0, NULL, pszName, WS_CHILD, 0, 0, 0, 0,::ca::null(), id(), NULL))
+         if(!CreateEx(0, NULL, pszName, WS_CHILD, 0, 0, 0, 0, MESSAGE_WINDOW_PARENT, NULL, NULL))
          {
             return false;
          }
