@@ -83,14 +83,79 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../../appseed/app/app.mm"
-         timestampString = "380299255.883899"
+         filePath = "../../os/mac_window.cpp"
+         timestampString = "380336430.899289"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "18"
-         endingLineNumber = "18"
-         landmarkName = "main()"
-         landmarkType = "7">
+         startingLineNumber = "431"
+         endingLineNumber = "431"
+         landmarkName = "window::create_message_window(const char * pszName, ::ca::window_callback * pcallback)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/plane/plane_system.cpp"
+         timestampString = "380403299.330673"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1326"
+         endingLineNumber = "1326"
+         landmarkName = "system::on_request(::ca::create_context * pcreatecontext)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/radix/radix_application.cpp"
+         timestampString = "380373216.875028"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1719"
+         endingLineNumber = "1719"
+         landmarkName = "application::simple_message_box(::user::interaction * puiOwner, const char * pszMessage, UINT fuStyle)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/plane/plane_session.cpp"
+         timestampString = "380373282.632325"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "275"
+         endingLineNumber = "275"
+         landmarkName = "session::on_request(::ca::create_context * pcreatecontext)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/ca4/ca4_http_system.cpp"
+         timestampString = "380374856.494067"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1213"
+         endingLineNumber = "1213"
+         landmarkName = "system::get( ::sockets::socket_handler &amp; handler, const char * pszUrl, gen::property_set &amp; post, gen::property_set &amp; headers, gen::property_set &amp; set, ::http::cookies * pcookies, ::fontopus::user * puser, const char * pszVersion, e_status * pestatus)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/user/user_application.cpp"
+         timestampString = "380403891.918735"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "application::initialize()"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
