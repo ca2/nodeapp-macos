@@ -32,6 +32,8 @@ namespace mac
 //    System.factory().cloneable_small < draw_dib             >  (typeid(::ca::draw_dib          ));
       System.factory().creatable < os                         >  (typeid(::ca::os                ), 1);
       System.factory().creatable < port_forward               >  (typeid(::ca4::port_forward     ), 1);
+      System.factory().creatable < crypt                      >  (typeid(::ca4::crypt            ), 1);
+      System.factory().creatable < copydesk                   >  (typeid(::ca4::copydesk         ), 1);
       
       ::mac::dib::s_initialize();
       
@@ -45,7 +47,7 @@ namespace mac
 
 
 
-void ca2_factory_exchange(::ca::application * papp)
+extern "C" void ca2_factory_exchange(::ca::application * papp)
 {
    mac::factory_exchange factoryexchange(papp);
 }
