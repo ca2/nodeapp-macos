@@ -12,6 +12,7 @@
 namespace ca // Thommy Gustavinho Cecynzinho Lundgrenzinho
 {
    
+   
    class CLASS_DECL_c null
    {
    public:
@@ -21,8 +22,10 @@ namespace ca // Thommy Gustavinho Cecynzinho Lundgrenzinho
       
       
    };
+
    
 } // namespace ca
+
 
 typedef struct tagPOINT
 {
@@ -43,11 +46,16 @@ namespace user
 
 class oswindow_dataptra;
 
-#ifdef __MM
-typedef NSWindow * nswindow;
-#else
-typedef void * nswindow;
+#ifndef __MM
+
+struct NSWindow;
+
 #endif
+
+typedef NSWindow * nswindow;
+
+
+#define MESSAGE_WINDOW_PARENT (::oswindow((void *) (int_ptr) 1))
 
 class CLASS_DECL_c oswindow
 {
@@ -66,14 +74,12 @@ public:
 private:
    
    
+   data *                        m_pdata;
    
    
+   static oswindow_dataptra *    s_pdataptra;
    
    
-   data *   m_pdata;
-   
-   
-   static oswindow_dataptra * s_pdataptra;
    static int find(nswindow window);
    static data * get(nswindow window);
    
