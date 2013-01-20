@@ -70,6 +70,10 @@ namespace mac
                   }
                }
             }
+            else
+            {
+               iLenFolder--;
+            }
          }
          else
          {
