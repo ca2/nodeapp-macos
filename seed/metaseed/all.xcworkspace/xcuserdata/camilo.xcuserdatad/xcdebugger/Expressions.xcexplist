@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "mac::dir::appdata(char const*, char const*):mac_dir.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "mac::dir::is(char const*, ca::application*):mac_dir.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
