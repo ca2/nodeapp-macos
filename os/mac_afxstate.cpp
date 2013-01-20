@@ -72,6 +72,8 @@ ___THREAD_STATE::___THREAD_STATE()
    m_nMsgLast = WM_NULL;
    //System.get_cursor_pos(&(m_ptCursorLast));
    m_ptCursorLast = point(0,0);
+   m_pSafetyPoolBuffer = NULL;
+   m_pWndPark = NULL;
 }
 
 ___THREAD_STATE::~___THREAD_STATE()
