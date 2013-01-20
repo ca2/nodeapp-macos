@@ -101,7 +101,7 @@ namespace mac
        m_Info.bmiHeader.biCompression=BI_RGB;
        m_Info.bmiHeader.biSizeImage=cx*cy*4;*/
       
-      m_mem.allocate(lpbmi->bmiHeader.biWidth * lpbmi->bmiHeader.biHeight * 4);
+      m_mem.allocate(abs(lpbmi->bmiHeader.biWidth) * abs(lpbmi->bmiHeader.biHeight) * 4);
       
       memset(m_mem.get_data(), 0, m_mem.get_size());
       
