@@ -122,6 +122,7 @@ UINT APIENTRY __thread_entry(void * pParam)
       // inherit parent's module state
       ___THREAD_STATE* pThreadState = __get_thread_state();
       pThreadState->m_pModuleState = pStartup->pThreadState->m_pModuleState;
+      pThreadState->m_pCurrentWinThread = pThread;
       
       // set current thread pointer for System.GetThread
       //      __MODULE_STATE* pModuleState = AfxGetModuleState();
@@ -176,7 +177,7 @@ UINT APIENTRY __thread_entry(void * pParam)
 CLASS_DECL_mac ::mac::thread * __get_thread()
 {
    // check for current thread in module thread state
-   __MODULE_THREAD_STATE* pState = __get_module_thread_state();
+   ___THREAD_STATE* pState = __get_thread_state();
    ::mac::thread* pThread = pState->m_pCurrentWinThread;
    return pThread;
 }
@@ -185,7 +186,7 @@ CLASS_DECL_mac ::mac::thread * __get_thread()
 CLASS_DECL_mac void __set_thread(::radix::thread * pthread)
 {
    // check for current thread in module thread state
-   __MODULE_THREAD_STATE* pState = __get_module_thread_state();
+   ___THREAD_STATE* pState = __get_thread_state();
    pState->m_pCurrentWinThread = dynamic_cast < ::mac::thread * > (pthread->::ca::thread_sp::m_p);
 }
 
@@ -420,8 +421,11 @@ WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg)
 void CLASS_DECL_mac __end_thread(::radix::application * papp, UINT nExitCode, bool bDelete)
 {
    // remove current thread object from primitive::memory
-   __MODULE_THREAD_STATE* pState = __get_module_thread_state();
-   ::mac::thread* pThread = pState->m_pCurrentWinThread;
+//   __MODULE_THREAD_STATE* pState = __get_module_thread_state();
+
+   ___THREAD_STATE* pState = __get_thread_state();
+::mac::thread* pThread = pState->m_pCurrentWinThread;
+   
    if (pThread != NULL)
    {
       ASSERT_VALID(pThread);
