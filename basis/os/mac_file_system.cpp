@@ -18,7 +18,8 @@ namespace mac
 {
    
    
-   file_system::file_system(::ca::application * papp)
+   file_system::file_system(::ca::application * papp) :
+      ca(papp)
    {
    }
    
