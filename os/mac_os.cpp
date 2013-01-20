@@ -244,7 +244,7 @@ namespace mac
    
    bool os::connection_settings_get_auto_detect()
    {
-      throw not_implemented(get_app());
+//      throw not_implemented(get_app());
       return false;
       
       /*
@@ -267,7 +267,7 @@ namespace mac
    string os::connection_settings_get_auto_config_url()
    {
       
-      throw not_implemented(get_app());
+//      throw not_implemented(get_app());
       return "";
       /*
        registry::Key key;
