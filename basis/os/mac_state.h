@@ -239,6 +239,8 @@ public:
    __MODULE_STATE* m_pPrevModuleState;
    
    
+   ::mac::thread * m_pCurrentWinThread;
+   
    
    // primitive::memory safety pool for temp maps
    void * m_pSafetyPoolBuffer;    // current buffer
