@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07741ADF16AD5D350065CE47 /* libos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07741ADE16AD5D350065CE47 /* libos.dylib */; };
 		9A5752B716AAE1D2000CC4EF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5752B616AAE1D2000CC4EF /* Cocoa.framework */; };
 		9A5752DD16AAE321000CC4EF /* app.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5752DC16AAE321000CC4EF /* app.mm */; };
-		9A5752DF16AAE3BB000CC4EF /* libos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5752DE16AAE3BA000CC4EF /* libos.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07741ADE16AD5D350065CE47 /* libos.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libos.dylib; path = "../../../../Users/carlos/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libos.dylib"; sourceTree = "<group>"; };
+		078F801B16ACCED400258702 /* libos.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libos.dylib; path = ../../os/build/Release/libos.dylib; sourceTree = "<group>"; };
 		9A5752B216AAE1D2000CC4EF /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5752B616AAE1D2000CC4EF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9A5752B916AAE1D2000CC4EF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -28,7 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A5752DF16AAE3BB000CC4EF /* libos.dylib in Frameworks */,
+				07741ADF16AD5D350065CE47 /* libos.dylib in Frameworks */,
 				9A5752B716AAE1D2000CC4EF /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,6 +41,8 @@
 		9A5752A716AAE1D2000CC4EF = {
 			isa = PBXGroup;
 			children = (
+				07741ADE16AD5D350065CE47 /* libos.dylib */,
+				078F801B16ACCED400258702 /* libos.dylib */,
 				9A5752DE16AAE3BA000CC4EF /* libos.dylib */,
 				9A5752BC16AAE1D2000CC4EF /* app */,
 				9A5752B516AAE1D2000CC4EF /* Frameworks */,
@@ -219,7 +223,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"/Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug\"",
+					"\"/Users/carlos/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -235,7 +239,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"/Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug\"",
+					"\"/Users/carlos/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
