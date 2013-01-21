@@ -92,5 +92,18 @@
          landmarkName = "GeoIP_update_database (::ca::application * papp, char * license_key, int verbose, void (*f)( char * ))"
          landmarkType = "7">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/planebase/planebase_application.cpp"
+         timestampString = "380461681.972305"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "759"
+         endingLineNumber = "759"
+         landmarkName = "application::main()"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
