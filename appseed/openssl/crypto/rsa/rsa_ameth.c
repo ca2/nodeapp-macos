@@ -518,7 +518,7 @@ static int rsa_item_verify(EVP_MD_CTX *ctx, const ASN1_ITEM *it, void *asn,
 
 	if (pss->saltLength)
 		{
-		saltlen = ASN1_INTEGER_get(pss->saltLength);
+		saltlen = (int) ASN1_INTEGER_get(pss->saltLength);
 
 		/* Could perform more salt length sanity checks but the main
 		 * RSA routines will trap other invalid values anyway.
