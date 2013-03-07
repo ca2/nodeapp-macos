@@ -96,7 +96,7 @@ long PKCS7_ctrl(PKCS7 *p7, int cmd, long larg, char *parg)
 				ret = 1;
 			else ret = 0;
 				
-			p7->detached = ret;
+			p7->detached = (int) ret;
 			}
 		else
 			{

@@ -360,7 +360,7 @@ int PKCS7_verify(PKCS7 *p7, STACK_OF(X509) *certs, X509_STORE *store,
 		char *ptr;
 		long len;
 		len = BIO_get_mem_data(indata, &ptr);
-		tmpin = BIO_new_mem_buf(ptr, len);
+		tmpin = BIO_new_mem_buf(ptr, (int) len);
 		if (tmpin == NULL)
 			{
 			PKCS7err(PKCS7_F_PKCS7_VERIFY,ERR_R_MALLOC_FAILURE);
