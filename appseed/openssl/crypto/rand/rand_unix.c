@@ -344,7 +344,7 @@ int RAND_poll(void)
 				
 				if (try_read)
 					{
-					r = read(fd,(unsigned char *)tmpbuf+n, ENTROPY_NEEDED-n);
+					r = (int) read(fd,(unsigned char *)tmpbuf+n, ENTROPY_NEEDED-n);
 					if (r > 0)
 						n += r;
 #if defined(OPENSSL_SYS_BEOS_R5)
