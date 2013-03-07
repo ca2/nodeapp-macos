@@ -227,7 +227,7 @@ static int parse_http_line1(char *line)
 	*q++ = 0;
 
 	/* Attempt to parse numeric code */
-	retcode = strtoul(p, &r, 10);
+	retcode = (int) strtoul(p, &r, 10);
 
 	if(*r)
 		return 0;
@@ -286,10 +286,10 @@ int OCSP_sendreq_nbio(OCSP_RESPONSE **presp, OCSP_REQ_CTX *rctx)
 		{
 
 		case OHS_ASN1_WRITE:
-		n = BIO_get_mem_data(rctx->mem, &p);
+		n = (int) BIO_get_mem_data(rctx->mem, &p);
 
 		i = BIO_write(rctx->io,
-			p + (n - rctx->asn1_len), rctx->asn1_len);
+			p + (n - rctx->asn1_len), (int) rctx->asn1_len);
 
 		if (i <= 0)
 			{
@@ -337,7 +337,7 @@ int OCSP_sendreq_nbio(OCSP_RESPONSE **presp, OCSP_REQ_CTX *rctx)
 		 * have to check there's a complete line in there before
 		 * calling BIO_gets or we'll just get a partial read.
 		 */
-		n = BIO_get_mem_data(rctx->mem, &p);
+		n = (int) BIO_get_mem_data(rctx->mem, &p);
 		if ((n <= 0) || !memchr(p, '\n', n))
 			{
 			if (n >= rctx->iobuflen)
@@ -401,7 +401,7 @@ int OCSP_sendreq_nbio(OCSP_RESPONSE **presp, OCSP_REQ_CTX *rctx)
 		 * is enough for ASN1 SEQUENCE header and either length field
 		 * or at least the length of the length field.
 		 */
-		n = BIO_get_mem_data(rctx->mem, &p);
+		n = (int) BIO_get_mem_data(rctx->mem, &p);
 		if (n < 2)
 			goto next_io;
 
@@ -451,7 +451,7 @@ int OCSP_sendreq_nbio(OCSP_RESPONSE **presp, OCSP_REQ_CTX *rctx)
 		/* Fall thru */
 		
 		case OHS_ASN1_CONTENT:
-		n = BIO_get_mem_data(rctx->mem, &p);
+		n = (int) BIO_get_mem_data(rctx->mem, &p);
 		if (n < (int)rctx->asn1_len)
 			goto next_io;
 
