@@ -231,7 +231,7 @@ void ASN1_primitive_free(ASN1_VALUE **pval, const ASN1_ITEM *it)
 		}
 	else
 		{
-		utype = it->utype;
+		utype = (int) it->utype;
 		if ((utype != V_ASN1_BOOLEAN) && !*pval)
 			return;
 		}
@@ -244,7 +244,7 @@ void ASN1_primitive_free(ASN1_VALUE **pval, const ASN1_ITEM *it)
 
 		case V_ASN1_BOOLEAN:
 		if (it)
-			*(ASN1_BOOLEAN *)pval = it->size;
+			*(ASN1_BOOLEAN *)pval = (ASN1_BOOLEAN) it->size;
 		else
 			*(ASN1_BOOLEAN *)pval = -1;
 		return;

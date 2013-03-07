@@ -490,7 +490,7 @@ static int do_name_ex(char_io *io_ch, void *arg, X509_NAME *n,
 					objbuf = "";
 				}
 			}
-			objlen = strlen(objbuf);
+			objlen = (int) strlen(objbuf);
 			if(!io_ch(arg, objbuf, objlen)) return -1;
 			if ((objlen < fld_len) && (flags & XN_FLAG_FN_ALIGN)) {
 				if (!do_indent(io_ch, arg, fld_len - objlen)) return -1;

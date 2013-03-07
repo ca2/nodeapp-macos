@@ -271,7 +271,7 @@ static int asn1_template_ex_i2d(ASN1_VALUE **pval, unsigned char **out,
 				const ASN1_TEMPLATE *tt, int tag, int iclass)
 	{
 	int i, ret, flags, ttag, tclass, ndef;
-	flags = tt->flags;
+	flags = (int) tt->flags;
 	/* Work out tag and class to use: tagging may come
 	 * either from the template or the arguments, not both
 	 * because this would create ambiguity. Additionally
@@ -285,7 +285,7 @@ static int asn1_template_ex_i2d(ASN1_VALUE **pval, unsigned char **out,
 			/* FIXME: error code here */
 			return -1;
 		/* Get tagging from template */
-		ttag = tt->tag;
+		ttag = (int) tt->tag;
 		tclass = flags & ASN1_TFLG_TAG_CLASS;
 		}
 	else if (tag != -1)
@@ -509,7 +509,7 @@ static int asn1_i2d_ex_primitive(ASN1_VALUE **pval, unsigned char **out,
 	int usetag;
 	int ndef = 0;
 
-	utype = it->utype;
+	utype = (int) it->utype;
 
 	/* Get length of content octets and maybe find
 	 * out the underlying type.

@@ -95,7 +95,7 @@ int a2d_ASN1_OBJECT(unsigned char *out, int olen, const char *buf, int num)
 	if (num == 0)
 		return(0);
 	else if (num == -1)
-		num=strlen(buf);
+		num=(int) strlen(buf);
 
 	p=buf;
 	c= *(p++);
@@ -144,7 +144,7 @@ int a2d_ASN1_OBJECT(unsigned char *out, int olen, const char *buf, int num)
 				use_bn = 1;
 				if (!bl)
 					bl = BN_new();
-				if (!bl || !BN_set_word(bl, l))
+				if (!bl || !BN_set_word(bl, (BN_ULONG) l))
 					goto err;
 				}
 			if (use_bn)

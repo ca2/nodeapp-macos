@@ -169,7 +169,7 @@ static int asn1_d2i_read_bio(BIO *in, BUF_MEM **pb)
 				ASN1err(ASN1_F_ASN1_D2I_READ_BIO,ERR_R_MALLOC_FAILURE);
 				goto err;
 				}
-			i=BIO_read(in,&(b->data[len]),want);
+			i=BIO_read(in,&(b->data[len]), (int) want);
 			if ((i < 0) && ((len-off) == 0))
 				{
 				ASN1err(ASN1_F_ASN1_D2I_READ_BIO,ASN1_R_NOT_ENOUGH_DATA);
@@ -201,7 +201,7 @@ static int asn1_d2i_read_bio(BIO *in, BUF_MEM **pb)
 			else
 				ERR_clear_error(); /* clear error */
 			}
-		i=c.p-p;/* header length */
+      i = (int) (c.p - p);/* header length */
 		off+=i;	/* end of data */
 
 		if (c.inf & 1)
@@ -244,7 +244,7 @@ static int asn1_d2i_read_bio(BIO *in, BUF_MEM **pb)
 					}
 				while (want > 0)
 					{
-					i=BIO_read(in,&(b->data[len]),want);
+					i=BIO_read(in,&(b->data[len]), (int) want);
 					if (i <= 0)
 						{
 						ASN1err(ASN1_F_ASN1_D2I_READ_BIO,
@@ -279,7 +279,7 @@ static int asn1_d2i_read_bio(BIO *in, BUF_MEM **pb)
 		}
 
 	*pb = b;
-	return off;
+	return (int) off;
 err:
 	if (b != NULL) BUF_MEM_free(b);
 	return -1;

@@ -503,7 +503,7 @@ int X509_NAME_print(BIO *bp, X509_NAME *name, int obase)
 			(*s == '\0'))
 #endif
 			{
-			i=s-c;
+			i=(int) (s-c);
 			if (BIO_write(bp,c,i) != i) goto err;
 			c=s+1;	/* skip following slash */
 			if (*s != '\0')

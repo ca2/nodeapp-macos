@@ -99,7 +99,7 @@ int ASN1_mbstring_ncopy(ASN1_STRING **out, const unsigned char *in, int len,
 	int nchar;
 	char strbuf[32];
 	int (*cpyfunc)(unsigned long,void *) = NULL;
-	if(len == -1) len = strlen((const char *)in);
+	if(len == -1) len = (int)strlen((const char *)in);
 	if(!mask) mask = DIRSTRING_TYPE;
 
 	/* First do a string check and work out the number of characters */

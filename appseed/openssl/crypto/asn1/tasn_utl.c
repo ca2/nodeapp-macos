@@ -195,7 +195,7 @@ int asn1_enc_restore(int *len, unsigned char **out, ASN1_VALUE **pval,
 		*out += enc->len;
 		}
 	if (len)
-		*len = enc->len;
+		*len = (int) enc->len;
 	return 1;
 	}
 

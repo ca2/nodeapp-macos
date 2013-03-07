@@ -204,7 +204,7 @@ int i2d_RSA_NET(const RSA *a, unsigned char **pp,
 		ASN1err(ASN1_F_I2D_RSA_NET,ASN1_R_BAD_PASSWORD_READ);
 		goto err;
 		}
-	i = strlen((char *)buf);
+	i = (int) strlen((char *)buf);
 	/* If the key is used for SGC the algorithm is modified a little. */
 	if(sgckey) {
 		if (!EVP_Digest(buf, i, buf, NULL, EVP_md5(), NULL))
@@ -302,7 +302,7 @@ static RSA *d2i_RSA_NET_2(RSA **a, ASN1_OCTET_STRING *os,
 		goto err;
 		}
 
-	i = strlen((char *)buf);
+	i = (int) strlen((char *)buf);
 	if(sgckey){
 		if (!EVP_Digest(buf, i, buf, NULL, EVP_md5(), NULL))
 			goto err;
