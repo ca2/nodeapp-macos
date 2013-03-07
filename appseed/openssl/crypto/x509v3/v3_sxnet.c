@@ -189,7 +189,7 @@ int SXNET_add_id_INTEGER(SXNET **psx, ASN1_INTEGER *zone, char *user,
 		X509V3err(X509V3_F_SXNET_ADD_ID_INTEGER,X509V3_R_INVALID_NULL_ARGUMENT);
 		return 0;
 	}
-	if(userlen == -1) userlen = strlen(user);
+	if(userlen == -1) userlen = (int) strlen(user);
 	if(userlen > 64) {
 		X509V3err(X509V3_F_SXNET_ADD_ID_INTEGER,X509V3_R_USER_TOO_LONG);
 		return 0;
@@ -205,7 +205,7 @@ int SXNET_add_id_INTEGER(SXNET **psx, ASN1_INTEGER *zone, char *user,
 	}
 
 	if(!(id = SXNETID_new())) goto err;
-	if(userlen == -1) userlen = strlen(user);
+	if(userlen == -1) userlen = (int) strlen(user);
 		
 	if(!M_ASN1_OCTET_STRING_set(id->user, user, userlen)) goto err;
 	if(!sk_SXNETID_push(sx->ids, id)) goto err;

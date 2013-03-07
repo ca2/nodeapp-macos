@@ -451,7 +451,7 @@ int name_cmp(const char *name, const char *cmp)
 {
 	int len, ret;
 	char c;
-	len = strlen(cmp);
+	len = (int) strlen(cmp);
 	if((ret = strncmp(name, cmp, len))) return ret;
 	c = name[len];
 	if(!c || (c=='.')) return 0;
@@ -865,7 +865,7 @@ int X509V3_NAME_from_section(X509_NAME *nm, STACK_OF(CONF_VALUE)*dn_sk,
 			}
 		else
 			mval = 0;
-		if (!X509_NAME_add_entry_by_txt(nm,type, chtype,
+		if (!X509_NAME_add_entry_by_txt(nm,type, (int) chtype,
 				(unsigned char *) v->value,-1,-1,mval))
 					return 0;
 

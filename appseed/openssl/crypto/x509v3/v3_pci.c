@@ -136,7 +136,7 @@ static int process_pci_value(CONF_VALUE *val,
 				}
 
 			tmp_data = OPENSSL_realloc((*policy)->data,
-				(*policy)->length + val_len + 1);
+				(int) ((*policy)->length + val_len + 1));
 			if (tmp_data)
 				{
 				(*policy)->data = tmp_data;
@@ -198,7 +198,7 @@ static int process_pci_value(CONF_VALUE *val,
 			{
 			val_len = strlen(val->value + 5);
 			tmp_data = OPENSSL_realloc((*policy)->data,
-				(*policy)->length + val_len + 1);
+				(int) ((*policy)->length + val_len + 1));
 			if (tmp_data)
 				{
 				(*policy)->data = tmp_data;

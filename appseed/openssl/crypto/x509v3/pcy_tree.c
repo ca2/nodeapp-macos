@@ -205,7 +205,7 @@ static int tree_init(X509_POLICY_TREE **ptree, STACK_OF(X509) *certs,
 				explicit_policy--;
 			if ((cache->explicit_skip != -1)
 				&& (cache->explicit_skip < explicit_policy))
-				explicit_policy = cache->explicit_skip;
+				explicit_policy = (int) cache->explicit_skip;
 			}
 		}
 
@@ -276,7 +276,7 @@ static int tree_init(X509_POLICY_TREE **ptree, STACK_OF(X509) *certs,
 				any_skip--;
 			if ((cache->any_skip >= 0)
 				&& (cache->any_skip < any_skip))
-				any_skip = cache->any_skip;
+				any_skip = (int) cache->any_skip;
 			}
 
 		if (map_skip == 0)
@@ -287,7 +287,7 @@ static int tree_init(X509_POLICY_TREE **ptree, STACK_OF(X509) *certs,
 				map_skip--;
 			if ((cache->map_skip >= 0)
 				&& (cache->map_skip < map_skip))
-				map_skip = cache->map_skip;
+				map_skip = (int) cache->map_skip;
 			}
 
 		}
