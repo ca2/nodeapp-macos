@@ -143,7 +143,7 @@ static int asn1_parse2(BIO *bp, const unsigned char **pp, long length, int offse
 			ret=0;
 			goto end;
 			}
-		hl=(p-op);
+		hl = (int) (p - op);
 		length-=hl;
 		/* if j == 0x21 it is a constructed indefinite length object */
 		if (BIO_printf(bp,"%5ld:",(long)offset+(long)(op- *pp))
@@ -179,7 +179,7 @@ static int asn1_parse2(BIO *bp, const unsigned char **pp, long length, int offse
 				for (;;)
 					{
 					r=asn1_parse2(bp,&p,(long)(tot-p),
-						offset+(p - *pp),depth+1,
+						(int) (offset + (p - *pp)),depth+1,
 						indent,dump);
 					if (r == 0) { ret=0; goto end; }
 					if ((r == 2) || (p >= tot)) break;
@@ -189,7 +189,7 @@ static int asn1_parse2(BIO *bp, const unsigned char **pp, long length, int offse
 				while (p < ep)
 					{
 					r=asn1_parse2(bp,&p,(long)len,
-						offset+(p - *pp),depth+1,
+						(int) (offset + (p - *pp)),depth+1,
 						indent,dump);
 					if (r == 0) { ret=0; goto end; }
 					}
@@ -388,7 +388,7 @@ static int asn1_parse2(BIO *bp, const unsigned char **pp, long length, int offse
 						goto end;
 					}
 				if (BIO_dump_indent(bp,(const char *)p,
-					((dump == -1 || dump > len)?len:dump),
+					((dump == -1 || dump > len)? (int) len:dump),
 					dump_indent) <= 0)
 					goto end;
 				nl=1;

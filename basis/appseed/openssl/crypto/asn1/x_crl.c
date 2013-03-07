@@ -172,7 +172,7 @@ static int crl_set_issuers(X509_CRL *crl)
 
 		if (reason)
 			{
-			rev->reason = ASN1_ENUMERATED_get(reason);
+			rev->reason = (int) ASN1_ENUMERATED_get(reason);
 			ASN1_ENUMERATED_free(reason);
 			}
 		else

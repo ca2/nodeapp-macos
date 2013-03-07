@@ -131,12 +131,12 @@ int i2d_ASN1_SET(STACK_OF(OPENSSL_BLOCK) *a, unsigned char **pp,
 	        {
                 rgSetBlob[i].pbData = p;  /* catch each set encode blob */
                 i2d(sk_OPENSSL_BLOCK_value(a,i),&p);
-                rgSetBlob[i].cbData = p - rgSetBlob[i].pbData; /* Length of this
+                rgSetBlob[i].cbData = (int) (p - rgSetBlob[i].pbData); /* Length of this
 SetBlob
 */
 		}
         *pp=p;
-        totSize = p - pStart; /* This is the total size of all set blobs */
+        totSize = (int) (p - pStart); /* This is the total size of all set blobs */
 
  /* Now we have to sort the blobs. I am using a simple algo.
     *Sort ptrs *Copy to temp-mem *Copy from temp-mem to user-mem*/

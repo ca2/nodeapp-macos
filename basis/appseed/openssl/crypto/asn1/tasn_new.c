@@ -338,7 +338,7 @@ int ASN1_primitive_new(ASN1_VALUE **pval, const ASN1_ITEM *it)
 	if (!it || (it->itype == ASN1_ITYPE_MSTRING))
 		utype = -1;
 	else
-		utype = it->utype;
+		utype = (int) it->utype;
 	switch(utype)
 		{
 		case V_ASN1_OBJECT:
@@ -346,7 +346,7 @@ int ASN1_primitive_new(ASN1_VALUE **pval, const ASN1_ITEM *it)
 		return 1;
 
 		case V_ASN1_BOOLEAN:
-		*(ASN1_BOOLEAN *)pval = it->size;
+		*(ASN1_BOOLEAN *)pval = (ASN1_BOOLEAN) it->size;
 		return 1;
 
 		case V_ASN1_NULL:
@@ -389,8 +389,8 @@ static void asn1_primitive_clear(ASN1_VALUE **pval, const ASN1_ITEM *it)
 	if (!it || (it->itype == ASN1_ITYPE_MSTRING))
 		utype = -1;
 	else
-		utype = it->utype;
+		utype = (int) it->utype;
 	if (utype == V_ASN1_BOOLEAN)
-		*(ASN1_BOOLEAN *)pval = it->size;
+		*(ASN1_BOOLEAN *)pval = (ASN1_BOOLEAN) it->size;
 	else *pval = NULL;
 	}

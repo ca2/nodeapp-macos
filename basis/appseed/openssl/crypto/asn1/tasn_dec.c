@@ -249,7 +249,7 @@ int ASN1_item_ex_d2i(ASN1_VALUE **pval, const unsigned char **in, long len,
 			int exptag;
 			p = *in;
 			if (tag == -1)
-				exptag = it->utype;
+				exptag = (int) it->utype;
 			else exptag = tag;
 			/* Don't care about anything other than presence
 			 * of expected tag */
@@ -503,7 +503,7 @@ int ASN1_item_ex_d2i(ASN1_VALUE **pval, const unsigned char **in, long len,
 				}
 			}
 		/* Save encoding */
-		if (!asn1_enc_save(pval, *in, p - *in, it))
+		if (!asn1_enc_save(pval, *in, (int) (p - *in), it))
 			goto auxerr;
 		*in = p;
 		if (asn1_cb && !asn1_cb(ASN1_OP_D2I_POST, pval, it, NULL))
@@ -541,7 +541,7 @@ static int asn1_template_ex_d2i(ASN1_VALUE **val,
 	char exp_eoc;
 	if (!val)
 		return 0;
-	flags = tt->flags;
+	flags = (int) tt->flags;
 	aclass = flags & ASN1_TFLG_TAG_CLASS;
 
 	p = *in;
@@ -555,7 +555,7 @@ static int asn1_template_ex_d2i(ASN1_VALUE **val,
 		 * get the info.
 		 */
 		ret = asn1_check_tlen(&len, NULL, NULL, &exp_eoc, &cst,
-					&p, inlen, tt->tag, aclass, opt, ctx);
+					&p, inlen, (int) tt->tag, aclass, opt, ctx);
 		q = p;
 		if (!ret)
 			{
@@ -625,7 +625,7 @@ static int asn1_template_noexp_d2i(ASN1_VALUE **val,
 	const unsigned char *p, *q;
 	if (!val)
 		return 0;
-	flags = tt->flags;
+	flags = (int) tt->flags;
 	aclass = flags & ASN1_TFLG_TAG_CLASS;
 
 	p = *in;
@@ -639,7 +639,7 @@ static int asn1_template_noexp_d2i(ASN1_VALUE **val,
 		/* First work out expected inner tag value */
 		if (flags & ASN1_TFLG_IMPTAG)
 			{
-			sktag = tt->tag;
+			sktag = (int) tt->tag;
 			skaclass = aclass;
 			}
 		else
@@ -730,7 +730,7 @@ static int asn1_template_noexp_d2i(ASN1_VALUE **val,
 		{
 		/* IMPLICIT tagging */
 		ret = ASN1_item_ex_d2i(val, &p, len,
-			ASN1_ITEM_ptr(tt->item), tt->tag, aclass, opt, ctx);
+			ASN1_ITEM_ptr(tt->item), (int) tt->tag, aclass, opt, ctx);
 		if (!ret)
 			{
 			ASN1err(ASN1_F_ASN1_TEMPLATE_NOEXP_D2I,
@@ -787,7 +787,7 @@ static int asn1_d2i_ex_primitive(ASN1_VALUE **pval,
 		tag = -1;
 		}
 	else
-		utype = it->utype;
+		utype = (int) it->utype;
 
 	if (utype == V_ASN1_ANY)
 		{
@@ -904,7 +904,7 @@ static int asn1_d2i_ex_primitive(ASN1_VALUE **pval,
 		}
 
 	/* We now have content length and type: translate into a structure */
-	if (!asn1_ex_c2i(pval, cont, len, utype, &free_cont, it))
+	if (!asn1_ex_c2i(pval, cont, (int) len, utype, &free_cont, it))
 		goto err;
 
 	*in = p;
@@ -1222,7 +1222,7 @@ static int collect_data(BUF_MEM *buf, const unsigned char **p, long plen)
 	int len;
 	if (buf)
 		{
-		len = buf->length;
+		len = (int) buf->length;
 		if (!BUF_MEM_grow_clean(buf, len + plen))
 			{
 			ASN1err(ASN1_F_COLLECT_DATA, ERR_R_MALLOC_FAILURE);
@@ -1286,7 +1286,7 @@ static int asn1_check_tlen(long *olen, int *otag, unsigned char *oclass,
 			ctx->plen = plen;
 			ctx->pclass = pclass;
 			ctx->ptag = ptag;
-			ctx->hdrlen = p - q;
+			ctx->hdrlen = (int) (p - q);
 			ctx->valid = 1;
 			/* If definite length, and no error, length +
 			 * header can't exceed total amount of data available. 

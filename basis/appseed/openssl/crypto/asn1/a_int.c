@@ -215,7 +215,7 @@ ASN1_INTEGER *c2i_ASN1_INTEGER(ASN1_INTEGER **a, const unsigned char **pp,
 			p++;
 			len--;
 		}
-		i = len;
+		i = (int) len;
 		p += i - 1;
 		to += i - 1;
 		while((!*p) && i) {

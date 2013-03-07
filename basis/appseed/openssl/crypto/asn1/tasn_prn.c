@@ -341,7 +341,7 @@ int asn1_template_print_ctx(BIO *out, ASN1_VALUE **fld, int indent,
 	{
 	int i, flags;
 	const char *sname, *fname;
-	flags = tt->flags;
+	flags = (int) tt->flags;
 	if(pctx->flags & ASN1_PCTX_FLAGS_SHOW_FIELD_STRUCT_NAME)
 		sname = ASN1_ITEM_ptr(tt->item)->sname;
 	else
@@ -545,12 +545,12 @@ static int asn1_primitive_print(BIO *out, ASN1_VALUE **fld,
 		if (pctx->flags & ASN1_PCTX_FLAGS_NO_ANY_TYPE)
 			pname = NULL;
 		else 
-			pname = ASN1_tag2str(utype);
+			pname = ASN1_tag2str((int) utype);
 		}
 	else
 		{
 		if (pctx->flags & ASN1_PCTX_FLAGS_SHOW_TYPE)
-			pname = ASN1_tag2str(utype);
+			pname = ASN1_tag2str((int) utype);
 		else 
 			pname = NULL;
 		}
@@ -576,7 +576,7 @@ static int asn1_primitive_print(BIO *out, ASN1_VALUE **fld,
 			{
 			int boolval = *(int *)fld;
 			if (boolval == -1)
-				boolval = it->size;
+				boolval = (int) it->size;
 			ret = asn1_print_boolean_ctx(out, boolval, pctx);
 			}
 		break;
