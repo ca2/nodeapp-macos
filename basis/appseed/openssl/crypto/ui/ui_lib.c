@@ -425,7 +425,7 @@ char *UI_construct_prompt(UI *ui, const char *object_desc,
 
 		if (object_desc == NULL)
 			return NULL;
-		len = sizeof(prompt1) - 1 + strlen(object_desc);
+		len = (int) (sizeof(prompt1) - 1 + strlen(object_desc));
 		if (object_name)
 			len += sizeof(prompt2) - 1 + strlen(object_name);
 		len += sizeof(prompt3) - 1;
@@ -844,7 +844,7 @@ int UI_get_result_maxsize(UI_STRING *uis)
 
 int UI_set_result(UI *ui, UI_STRING *uis, const char *result)
 	{
-	int l = strlen(result);
+	int l = (int) strlen(result);
 
 	ui->flags &= ~UI_FLAG_REDOABLE;
 
