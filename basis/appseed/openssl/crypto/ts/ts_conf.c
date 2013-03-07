@@ -462,7 +462,7 @@ int TS_CONF_set_clock_precision_digits(CONF *conf, const char *section,
 		goto err;
 		}
 
-	if (!TS_RESP_CTX_set_clock_precision_digits(ctx, digits))
+	if (!TS_RESP_CTX_set_clock_precision_digits(ctx, (unsigned int) digits))
 		goto err;
 
 	return 1;
