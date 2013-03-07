@@ -173,7 +173,7 @@ EVP_PKEY *PEM_read_bio_Parameters(BIO *bp, EVP_PKEY **x)
 			goto err;
 		if (!EVP_PKEY_set_type_str(ret, nm, slen)
 			|| !ret->ameth->param_decode
-			|| !ret->ameth->param_decode(ret, &p, len))
+			|| !ret->ameth->param_decode(ret, &p, (int) len))
 			{
 			EVP_PKEY_free(ret);
 			ret = NULL;

@@ -93,7 +93,7 @@ int PEM_def_callback(char *buf, int num, int w, void *key)
 	int i,j;
 	const char *prompt;
 	if(key) {
-		i=strlen(key);
+		i=(int) strlen(key);
 		i=(i > num)?num:i;
 		memcpy(buf,key,i);
 		return(i);
@@ -112,7 +112,7 @@ int PEM_def_callback(char *buf, int num, int w, void *key)
 			memset(buf,0,(unsigned int)num);
 			return(-1);
 			}
-		j=strlen(buf);
+		j = (int) strlen(buf);
 		if (j < MIN_LENGTH)
 			{
 			fprintf(stderr,"phrase is too short, needs to be at least %d chars\n",MIN_LENGTH);
@@ -151,7 +151,7 @@ void PEM_dek_info(char *buf, const char *type, int len, char *str)
 	BUF_strlcat(buf,"DEK-Info: ",PEM_BUFSIZE);
 	BUF_strlcat(buf,type,PEM_BUFSIZE);
 	BUF_strlcat(buf,",",PEM_BUFSIZE);
-	j=strlen(buf);
+   j = (int) strlen(buf);
 	if (j + (len * 2) + 1 > PEM_BUFSIZE)
         	return;
 	for (i=0; i<len; i++)
@@ -593,14 +593,14 @@ int PEM_write_bio(BIO *bp, const char *name, char *header, unsigned char *data,
 	int reason=ERR_R_BUF_LIB;
 	
 	EVP_EncodeInit(&ctx);
-	nlen=strlen(name);
+	nlen = (int) strlen(name);
 
 	if (	(BIO_write(bp,"-----BEGIN ",11) != 11) ||
 		(BIO_write(bp,name,nlen) != nlen) ||
 		(BIO_write(bp,"-----\n",6) != 6))
 		goto err;
 		
-	i=strlen(header);
+	i = (int) strlen(header);
 	if (i > 0)
 		{
 		if (	(BIO_write(bp,header,i) != i) ||
@@ -702,7 +702,7 @@ int PEM_read_bio(BIO *bp, char **name, char **header, unsigned char **data,
 
 		if (strncmp(buf,"-----BEGIN ",11) == 0)
 			{
-			i=strlen(&(buf[11]));
+			i = (int) strlen(&(buf[11]));
 
 			if (strncmp(&(buf[11+i-6]),"-----\n",6) != 0)
 				continue;
@@ -787,7 +787,7 @@ int PEM_read_bio(BIO *bp, char **name, char **header, unsigned char **data,
 		dataB=tmpB;
 		bl=hl;
 		}
-	i=strlen(nameB->data);
+	i = (int) strlen(nameB->data);
 	if (	(strncmp(buf,"-----END ",9) != 0) ||
 		(strncmp(nameB->data,&(buf[9]),i) != 0) ||
 		(strncmp(&(buf[9+i]),"-----\n",6) != 0))
@@ -836,8 +836,8 @@ err:
 
 int pem_check_suffix(const char *pem_str, const char *suffix)
 	{
-	int pem_len = strlen(pem_str);
-	int suffix_len = strlen(suffix);
+	int pem_len = (int) strlen(pem_str);
+	int suffix_len = (int) strlen(suffix);
 	const char *p;
 	if (suffix_len + 1 >= pem_len)
 		return 0;
@@ -847,6 +847,6 @@ int pem_check_suffix(const char *pem_str, const char *suffix)
 	p--;
 	if (*p != ' ')
 		return 0;
-	return p - pem_str;
+	return (int)  (p - pem_str);
 	}
 
