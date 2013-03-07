@@ -329,7 +329,7 @@ static int get_cert_by_subject(X509_LOOKUP *xl, int type, X509_NAME *name,
 		int idx;
 		BY_DIR_HASH htmp, *hent;
 		ent = sk_BY_DIR_ENTRY_value(ctx->dirs, i);
-		j=strlen(ent->dir)+1+8+6+1+1;
+		j = (int) (strlen(ent->dir)+1+8+6+1+1);
 		if (!BUF_MEM_grow(b,j))
 			{
 			X509err(X509_F_GET_CERT_BY_SUBJECT,ERR_R_MALLOC_FAILURE);

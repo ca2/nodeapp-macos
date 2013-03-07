@@ -1482,7 +1482,7 @@ static int check_policy(X509_STORE_CTX *ctx)
 	if (ctx->parent)
 		return 1;
 	ret = X509_policy_check(&ctx->tree, &ctx->explicit_policy, ctx->chain,
-				ctx->param->policies, ctx->param->flags);
+				ctx->param->policies, (unsigned int) ctx->param->flags);
 	if (ret == 0)
 		{
 		X509err(X509_F_CHECK_POLICY,ERR_R_MALLOC_FAILURE);
