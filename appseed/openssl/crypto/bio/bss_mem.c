@@ -185,7 +185,7 @@ static int mem_write(BIO *b, const char *in, int inl)
 	}
 
 	BIO_clear_retry_flags(b);
-	blen=bm->length;
+	blen=(int) bm->length;
 	if (BUF_MEM_grow_clean(bm,blen+inl) != (blen+inl))
 		goto end;
 	memcpy(&(bm->data[blen]),in,inl);
@@ -279,7 +279,7 @@ static int mem_gets(BIO *bp, char *buf, int size)
 	BUF_MEM *bm=(BUF_MEM *)bp->ptr;
 
 	BIO_clear_retry_flags(bp);
-	j=bm->length;
+	j=(int) bm->length;
 	if ((size-1) < j) j=size-1;
 	if (j <= 0)
 		{
@@ -311,7 +311,7 @@ static int mem_puts(BIO *bp, const char *str)
 	{
 	int n,ret;
 
-	n=strlen(str);
+	n=(int) strlen(str);
 	ret=mem_write(bp,str,n);
 	/* memory semantics is that it will always work */
 	return(ret);

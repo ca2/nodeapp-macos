@@ -370,7 +370,7 @@ _dopr(
 		    if (buffer)
 			max = INT_MAX;
 		    else
-			max = *maxlen;
+			max = (int)*maxlen;
 		}
                 fmtstr(sbuffer, buffer, &currlen, maxlen, strvalue,
                        flags, min, max);
@@ -396,7 +396,7 @@ _dopr(
                 } else {
                     int    *num;
                     num = va_arg(args, int *);
-                    *num = currlen;
+                    *num = (int) currlen;
                 }
                 break;
             case '%':
@@ -519,7 +519,7 @@ fmtint(
     convert[place] = 0;
 
     zpadlen = max - place;
-    spadlen = min - OSSL_MAX(max, place) - (signvalue ? 1 : 0) - strlen(prefix);
+    spadlen = (int) (min - OSSL_MAX(max, place) - (signvalue ? 1 : 0) - strlen(prefix));
     if (zpadlen < 0)
         zpadlen = 0;
     if (spadlen < 0)

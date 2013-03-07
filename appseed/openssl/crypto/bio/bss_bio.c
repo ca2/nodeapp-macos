@@ -266,7 +266,7 @@ static int bio_read(BIO *bio, char *buf, int size_)
 		}
 	while (rest);
 	
-	return size;
+	return (int) size;
 	}
 
 /* non-copying interface: provide pointer to available data in buffer
@@ -419,7 +419,7 @@ static int bio_write(BIO *bio, const char *buf, int num_)
 		}
 	while (rest);
 
-	return num;
+	return (int) num;
 	}
 
 /* non-copying interface: provide pointer to region to write to
@@ -697,7 +697,7 @@ static long bio_ctrl(BIO *bio, int cmd, long num, void *ptr)
 
 static int bio_puts(BIO *bio, const char *str)
 	{
-	return bio_write(bio, str, strlen(str));
+	return bio_write(bio, str, (int) strlen(str));
 	}
 
 
@@ -917,7 +917,7 @@ int BIO_nwrite(BIO *bio, char **buf, int num)
 		return -2;
 		}
 
-	ret = BIO_ctrl(bio, BIO_C_NWRITE, num, buf);
+	ret = (int) BIO_ctrl(bio, BIO_C_NWRITE, num, buf);
 	if (ret > 0)
 		bio->num_write += ret;
 	return ret;

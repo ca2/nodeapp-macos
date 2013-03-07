@@ -507,6 +507,6 @@ static int buffer_gets(BIO *b, char *buf, int size)
 
 static int buffer_puts(BIO *b, const char *str)
 	{
-	return(buffer_write(b,str,strlen(str)));
+	return(buffer_write(b,str,(int)strlen(str)));
 	}
 

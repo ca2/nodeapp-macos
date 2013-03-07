@@ -239,7 +239,7 @@ static int MS_CALLBACK file_read(BIO *b, char *out, int outl)
 		if (b->flags&BIO_FLAGS_UPLINK)
 			ret=UP_fread(out,1,(int)outl,b->ptr);
 		else
-			ret=fread(out,1,(int)outl,(FILE *)b->ptr);
+			ret=(int) fread(out,1,(int)outl,(FILE *)b->ptr);
 		if(ret == 0 && (b->flags&BIO_FLAGS_UPLINK)?UP_ferror((FILE *)b->ptr):ferror((FILE *)b->ptr))
 			{
 			SYSerr(SYS_F_FREAD,get_last_sys_error());
@@ -259,7 +259,7 @@ static int MS_CALLBACK file_write(BIO *b, const char *in, int inl)
 		if (b->flags&BIO_FLAGS_UPLINK)
 			ret=UP_fwrite(in,(int)inl,1,b->ptr);
 		else
-			ret=fwrite(in,(int)inl,1,(FILE *)b->ptr);
+			ret=(int) fwrite(in,(int)inl,1,(FILE *)b->ptr);
 		if (ret)
 			ret=inl;
 		/* ret=fwrite(in,1,(int)inl,(FILE *)b->ptr); */
@@ -456,7 +456,7 @@ static int MS_CALLBACK file_gets(BIO *bp, char *buf, int size)
 			goto err;
 		}
 	if (buf[0] != '\0')
-		ret=strlen(buf);
+		ret=(int) strlen(buf);
 	err:
 	return(ret);
 	}
@@ -465,7 +465,7 @@ static int MS_CALLBACK file_puts(BIO *bp, const char *str)
 	{
 	int n,ret;
 
-	n=strlen(str);
+	n=(int) strlen(str);
 	ret=file_write(bp,str,n);
 	return(ret);
 	}

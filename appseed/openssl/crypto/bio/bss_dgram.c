@@ -371,7 +371,7 @@ static int dgram_read(BIO *b, char *out, int outl)
 		clear_socket_error();
 		memset(&sa.peer, 0x00, sizeof(sa.peer));
 		dgram_adjust_rcv_timeout(b);
-		ret=recvfrom(b->num,out,outl,0,&sa.peer.sa,(void *)&sa.len);
+		ret=(int) recvfrom(b->num,out,outl,0,&sa.peer.sa,(void *)&sa.len);
 		if (sizeof(sa.len.i)!=sizeof(sa.len.s) && sa.len.i==0)
 			{
 			OPENSSL_assert(sa.len.s<=sizeof(sa.peer));
@@ -403,7 +403,7 @@ static int dgram_write(BIO *b, const char *in, int inl)
 	clear_socket_error();
 
 	if ( data->connected )
-		ret=writesocket(b->num,in,inl);
+		ret=(int) writesocket(b->num,in,inl);
 	else
 		{
 		int peerlen = sizeof(data->peer);
@@ -417,7 +417,7 @@ static int dgram_write(BIO *b, const char *in, int inl)
 #if defined(NETWARE_CLIB) && defined(NETWARE_BSDSOCK)
 		ret=sendto(b->num, (char *)in, inl, 0, &data->peer.sa, peerlen);
 #else
-		ret=sendto(b->num, in, inl, 0, &data->peer.sa, peerlen);
+		ret=(int) sendto(b->num, in, inl, 0, &data->peer.sa, peerlen);
 #endif
 		}
 
@@ -641,7 +641,7 @@ static long dgram_ctrl(BIO *b, int cmd, long num, void *ptr)
 		return data->mtu;
 		break;
 	case BIO_CTRL_DGRAM_SET_MTU:
-		data->mtu = num;
+		data->mtu = (unsigned int)num;
 		ret = num;
 		break;
 	case BIO_CTRL_DGRAM_SET_CONNECTED:
@@ -823,7 +823,7 @@ static int dgram_puts(BIO *bp, const char *str)
 	{
 	int n,ret;
 
-	n=strlen(str);
+	n = (int) strlen(str);
 	ret=dgram_write(bp,str,n);
 	return(ret);
 	}
