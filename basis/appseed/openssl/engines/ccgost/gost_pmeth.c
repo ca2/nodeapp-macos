@@ -345,7 +345,7 @@ static int pkey_gost94_cp_sign(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *si
 		*siglen= 64; /* better to check size of pkey->pkey.dsa-q */
 		return 1;
 		}	
-	unpacked_sig = gost_do_sign(tbs,tbs_len,EVP_PKEY_get0(pkey));
+	unpacked_sig = gost_do_sign(tbs, (int) tbs_len,EVP_PKEY_get0(pkey));
 	if (!unpacked_sig)
 		{
 		return 0;
@@ -364,7 +364,7 @@ static int pkey_gost01_cp_sign(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *si
 		*siglen= 64; /* better to check size of curve order*/
 		return 1;
 		}	
-	unpacked_sig = gost2001_do_sign(tbs,tbs_len,EVP_PKEY_get0(pkey));
+	unpacked_sig = gost2001_do_sign(tbs, (int) tbs_len,EVP_PKEY_get0(pkey));
 	if (!unpacked_sig)
 		{
 		return 0;
@@ -381,7 +381,7 @@ static int pkey_gost94_cp_verify(EVP_PKEY_CTX *ctx, const unsigned char *sig,
 	EVP_PKEY* pub_key = EVP_PKEY_CTX_get0_pkey(ctx);
 	DSA_SIG *s=unpack_cp_signature(sig,siglen);
 	if (!s) return 0;
-	if (pub_key) ok = gost_do_verify(tbs,tbs_len,s,EVP_PKEY_get0(pub_key));
+	if (pub_key) ok = gost_do_verify(tbs, (int) tbs_len,s,EVP_PKEY_get0(pub_key));
 	DSA_SIG_free(s);
 	return ok;
 	}
@@ -401,7 +401,7 @@ static int pkey_gost01_cp_verify(EVP_PKEY_CTX *ctx, const unsigned char *sig,
 	BN_print_fp(stderr,s->s);
 	fprintf(stderr,"\n");
 #endif	
-	if (pub_key) ok = gost2001_do_verify(tbs,tbs_len,s,EVP_PKEY_get0(pub_key));
+	if (pub_key) ok = gost2001_do_verify(tbs, (int) tbs_len,s,EVP_PKEY_get0(pub_key));
 	DSA_SIG_free(s);
 	return ok;
 	}
@@ -561,7 +561,7 @@ static int pkey_gost_mac_signctx_init(EVP_PKEY_CTX *ctx, EVP_MD_CTX *mctx)
 
 static int pkey_gost_mac_signctx(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *siglen, EVP_MD_CTX *mctx)
 	{
-		unsigned int tmpsiglen=*siglen; /* for platforms where sizeof(int)!=sizeof(size_t)*/
+		unsigned int tmpsiglen= (unsigned int) *siglen; /* for platforms where sizeof(int)!=sizeof(size_t)*/
 		int ret;
 		if (!sig) 
 			{

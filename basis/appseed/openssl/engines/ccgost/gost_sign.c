@@ -299,7 +299,7 @@ BIGNUM *getbnfrombuf(const unsigned char *buf,size_t len)
 		}
 	if (len)
 		{
-		return BN_bin2bn(buf,len,NULL);
+		return BN_bin2bn(buf, (int) len,NULL);
 		}
 	else
 		{
