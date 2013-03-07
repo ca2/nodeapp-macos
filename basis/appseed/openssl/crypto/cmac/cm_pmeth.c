@@ -163,7 +163,7 @@ static int pkey_cmac_ctrl_str(EVP_PKEY_CTX *ctx,
 		{
 		void *p = (void *)value;
 		return pkey_cmac_ctrl(ctx, EVP_PKEY_CTRL_SET_MAC_KEY,
-								strlen(p), p);
+								(int) strlen(p), p);
 		}
 	if (!strcmp(type, "cipher"))
 		{
@@ -181,7 +181,7 @@ static int pkey_cmac_ctrl_str(EVP_PKEY_CTX *ctx,
 		key = string_to_hex(value, &keylen);
 		if (!key)
 			return 0;
-		r = pkey_cmac_ctrl(ctx, EVP_PKEY_CTRL_SET_MAC_KEY, keylen, key);
+		r = pkey_cmac_ctrl(ctx, EVP_PKEY_CTRL_SET_MAC_KEY, (int) keylen, key);
 		OPENSSL_free(key);
 		return r;
 		}

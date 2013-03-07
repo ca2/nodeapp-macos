@@ -346,7 +346,7 @@ static int cms_RecipientInfo_ktri_encrypt(CMS_ContentInfo *cms,
 	if (EVP_PKEY_encrypt(pctx, ek, &eklen, ec->key, ec->keylen) <= 0)
 		goto err;
 
-	ASN1_STRING_set0(ktri->encryptedKey, ek, eklen);
+	ASN1_STRING_set0(ktri->encryptedKey, ek, (int) eklen);
 	ek = NULL;
 
 	ret = 1;
@@ -564,7 +564,7 @@ CMS_RecipientInfo *CMS_add0_recipient_key(CMS_ContentInfo *cms, int nid,
 	kekri->key = key;
 	kekri->keylen = keylen;
 
-	ASN1_STRING_set0(kekri->kekid->keyIdentifier, id, idlen);
+	ASN1_STRING_set0(kekri->kekid->keyIdentifier, id, (int) idlen);
 
 	kekri->kekid->date = date;
 
@@ -664,7 +664,7 @@ static int cms_RecipientInfo_kekri_encrypt(CMS_ContentInfo *cms,
 		return 0;
 		}
 
-	if (AES_set_encrypt_key(kekri->key, kekri->keylen << 3, &actx))
+	if (AES_set_encrypt_key(kekri->key, (int) (kekri->keylen << 3), &actx))
 		{ 
 		CMSerr(CMS_F_CMS_RECIPIENTINFO_KEKRI_ENCRYPT,
 						CMS_R_ERROR_SETTING_KEY);
@@ -680,7 +680,7 @@ static int cms_RecipientInfo_kekri_encrypt(CMS_ContentInfo *cms,
 		goto err;
 		}
 
-	wkeylen = AES_wrap_key(&actx, NULL, wkey, ec->key, ec->keylen);
+	wkeylen = AES_wrap_key(&actx, NULL, wkey, ec->key, (int) ec->keylen);
 
 	if (wkeylen <= 0)
 		{
@@ -741,7 +741,7 @@ static int cms_RecipientInfo_kekri_decrypt(CMS_ContentInfo *cms,
 		goto err;
 		}
 
-	if (AES_set_decrypt_key(kekri->key, kekri->keylen << 3, &actx))
+	if (AES_set_decrypt_key(kekri->key, (int) (kekri->keylen << 3), &actx))
 		{ 
 		CMSerr(CMS_F_CMS_RECIPIENTINFO_KEKRI_DECRYPT,
 						CMS_R_ERROR_SETTING_KEY);

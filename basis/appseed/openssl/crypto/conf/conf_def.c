@@ -263,7 +263,7 @@ static int def_load_bio(CONF *conf, BIO *in, long *line)
 		*p='\0';
 		BIO_gets(in, p, CONFBUFSIZE-1);
 		p[CONFBUFSIZE-1]='\0';
-		ii=i=strlen(p);
+		ii=i=(int) (strlen(p));
 		if (i == 0 && !again) break;
 		again=0;
 		while (i > 0)
@@ -508,7 +508,7 @@ static int str_copy(CONF *conf, char *section, char **pto, char *from)
 
 	if ((buf=BUF_MEM_new()) == NULL) return(0);
 
-	len=strlen(from)+1;
+	len=(int) (strlen(from)+1);
 	if (!BUF_MEM_grow(buf,len)) goto err;
 
 	for (;;)

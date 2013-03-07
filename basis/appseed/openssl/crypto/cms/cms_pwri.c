@@ -240,20 +240,20 @@ static int kek_unwrap_key(unsigned char *out, size_t *outlen,
 	tmp = OPENSSL_malloc(inlen);
 	/* setup IV by decrypting last two blocks */
 	EVP_DecryptUpdate(ctx, tmp + inlen - 2 * blocklen, &outl,
-				in  + inlen - 2 * blocklen, blocklen * 2);
+				in  + inlen - 2 * blocklen, (int) (blocklen * 2));
 	/* Do a decrypt of last decrypted block to set IV to correct value
 	 * output it to start of buffer so we don't corrupt decrypted block
 	 * this works because buffer is at least two block lengths long.
 	 */
 	EVP_DecryptUpdate(ctx, tmp, &outl,
-				tmp  + inlen - blocklen, blocklen);
+				tmp  + inlen - blocklen, (int) blocklen);
 	/* Can now decrypt first n - 1 blocks */
-	EVP_DecryptUpdate(ctx, tmp, &outl, in, inlen - blocklen);
+	EVP_DecryptUpdate(ctx, tmp, &outl, in, (int) (inlen - blocklen));
 
 	/* Reset IV to original value */
 	EVP_DecryptInit_ex(ctx, NULL, NULL, NULL, NULL);
 	/* Decrypt again */
-	EVP_DecryptUpdate(ctx, tmp, &outl, tmp, inlen);
+	EVP_DecryptUpdate(ctx, tmp, &outl, tmp, (int) inlen);
 	/* Check check bytes */
 	if (((tmp[1] ^ tmp[4]) & (tmp[2] ^ tmp[5]) & (tmp[3] ^ tmp[6])) != 0xff)
 		{
@@ -306,10 +306,10 @@ static int kek_wrap_key(unsigned char *out, size_t *outlen,
 		memcpy(out + 4, in, inlen);
 		/* Add random padding to end */
 		if (olen > inlen + 4)
-			RAND_pseudo_bytes(out + 4 + inlen, olen - 4 - inlen);
+			RAND_pseudo_bytes(out + 4 + inlen, (int) (olen - 4 - inlen));
 		/* Encrypt twice */
-		EVP_EncryptUpdate(ctx, out, &dummy, out, olen);
-		EVP_EncryptUpdate(ctx, out, &dummy, out, olen);
+		EVP_EncryptUpdate(ctx, out, &dummy, out, (int) olen);
+		EVP_EncryptUpdate(ctx, out, &dummy, out, (int) olen);
 		}
 
 	*outlen = olen;
@@ -390,7 +390,7 @@ int cms_RecipientInfo_pwri_crypt(CMS_ContentInfo *cms, CMS_RecipientInfo *ri,
 	/* Finish password based key derivation to setup key in "ctx" */
 
 	if (EVP_PBE_CipherInit(algtmp->algorithm,
-				(char *)pwri->pass, pwri->passlen,
+				(char *)pwri->pass, (int) pwri->passlen,
 				algtmp->parameter, &kekctx, en_de) < 0)
 		{
 		CMSerr(CMS_F_CMS_RECIPIENTINFO_PWRI_CRYPT, ERR_R_EVP_LIB);
@@ -413,7 +413,7 @@ int cms_RecipientInfo_pwri_crypt(CMS_ContentInfo *cms, CMS_RecipientInfo *ri,
 		if (!kek_wrap_key(key, &keylen, ec->key, ec->keylen, &kekctx))
 			goto err;
 		pwri->encryptedKey->data = key;
-		pwri->encryptedKey->length = keylen;
+		pwri->encryptedKey->length = (int) keylen;
 		}
 	else
 		{

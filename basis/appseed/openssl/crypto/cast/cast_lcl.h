@@ -114,14 +114,14 @@
 			c+=n; \
 			l1=l2=0; \
 			switch (n) { \
-			case 8: l2 =((unsigned long)(*(--(c))))    ; \
-			case 7: l2|=((unsigned long)(*(--(c))))<< 8; \
-			case 6: l2|=((unsigned long)(*(--(c))))<<16; \
-			case 5: l2|=((unsigned long)(*(--(c))))<<24; \
-			case 4: l1 =((unsigned long)(*(--(c))))    ; \
-			case 3: l1|=((unsigned long)(*(--(c))))<< 8; \
-			case 2: l1|=((unsigned long)(*(--(c))))<<16; \
-			case 1: l1|=((unsigned long)(*(--(c))))<<24; \
+			case 8: l2 =((CAST_LONG)(*(--(c))))    ; \
+			case 7: l2|=((CAST_LONG)(*(--(c))))<< 8; \
+			case 6: l2|=((CAST_LONG)(*(--(c))))<<16; \
+			case 5: l2|=((CAST_LONG)(*(--(c))))<<24; \
+			case 4: l1 =((CAST_LONG)(*(--(c))))    ; \
+			case 3: l1|=((CAST_LONG)(*(--(c))))<< 8; \
+			case 2: l1|=((CAST_LONG)(*(--(c))))<<16; \
+			case 1: l1|=((CAST_LONG)(*(--(c))))<<24; \
 				} \
 			}
 
@@ -141,10 +141,10 @@
 			}
 
 #undef n2l
-#define n2l(c,l)        (l =((unsigned long)(*((c)++)))<<24L, \
-                         l|=((unsigned long)(*((c)++)))<<16L, \
-                         l|=((unsigned long)(*((c)++)))<< 8L, \
-                         l|=((unsigned long)(*((c)++))))
+#define n2l(c,l)        (l =((CAST_LONG)(*((c)++)))<<24L, \
+                         l|=((CAST_LONG)(*((c)++)))<<16L, \
+                         l|=((CAST_LONG)(*((c)++)))<< 8L, \
+                         l|=((CAST_LONG)(*((c)++))))
 
 #undef l2n
 #define l2n(l,c)        (*((c)++)=(unsigned char)(((l)>>24L)&0xff), \

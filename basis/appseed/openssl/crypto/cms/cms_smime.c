@@ -396,7 +396,7 @@ int CMS_verify(CMS_ContentInfo *cms, STACK_OF(X509) *certs,
 		char *ptr;
 		long len;
 		len = BIO_get_mem_data(dcont, &ptr);
-		tmpin = BIO_new_mem_buf(ptr, len);
+		tmpin = BIO_new_mem_buf(ptr, (int) len);
 		if (tmpin == NULL)
 			{
 			CMSerr(CMS_F_CMS_VERIFY,ERR_R_MALLOC_FAILURE);
