@@ -239,7 +239,7 @@ static int ocsp_check_issuer(OCSP_BASICRESP *bs, STACK_OF(X509) *chain, unsigned
 		if (i)
 			{
 			/* We have a match, if extensions OK then success */
-			if (ocsp_check_delegated(signer, flags)) return 1;
+			if (ocsp_check_delegated(signer, (int) flags)) return 1;
 			return 0;
 			}
 		}

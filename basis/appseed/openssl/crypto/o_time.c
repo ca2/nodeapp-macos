@@ -241,9 +241,9 @@ int OPENSSL_gmtime_adj(struct tm *tm, int off_day, long offset_sec)
 	long time_jd;
 	int time_year, time_month, time_day;
 	/* split offset into days and day seconds */
-	offset_day = offset_sec / SECS_PER_DAY;
+	offset_day = (int) (offset_sec / SECS_PER_DAY);
 	/* Avoid sign issues with % operator */
-	offset_hms  = offset_sec - (offset_day * SECS_PER_DAY);
+	offset_hms  = (int) (offset_sec - (offset_day * SECS_PER_DAY));
 	offset_day += off_day;
 	/* Add current time seconds to offset */
 	offset_hms += tm->tm_hour * 3600 + tm->tm_min * 60 + tm->tm_sec;
@@ -316,10 +316,10 @@ static void julian_to_date(long jd, int *y, int *m, int *d)
 	i = (4000 * (L + 1)) / 1461001;
 	L = L - (1461 * i) / 4 + 31;
 	j = (80 * L) / 2447;
-	*d = L - (2447 * j) / 80;
+	*d = (int) (L - (2447 * j) / 80);
 	L = j / 11;
-	*m = j + 2 - (12 * L);
-	*y = 100 * (n - 49) + i + L;
+	*m = (int) (j + 2 - (12 * L));
+	*y = (int) (100 * (n - 49) + i + L);
 	}
 
 #ifdef OPENSSL_TIME_TEST

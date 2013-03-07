@@ -186,7 +186,7 @@ err:
 
 int OCSP_response_status(OCSP_RESPONSE *resp)
 	{
-	return ASN1_ENUMERATED_get(resp->responseStatus);
+	return (int) ASN1_ENUMERATED_get(resp->responseStatus);
 	}
 
 /* Extract basic response from OCSP_RESPONSE or NULL if
@@ -272,7 +272,7 @@ int OCSP_single_get0_status(OCSP_SINGLERESP *single, int *reason,
 		if (reason) 
 			{
 			if(rev->revocationReason)
-				*reason = ASN1_ENUMERATED_get(rev->revocationReason);
+				*reason = (int) ASN1_ENUMERATED_get(rev->revocationReason);
 			else *reason = -1;
 			}
 		}

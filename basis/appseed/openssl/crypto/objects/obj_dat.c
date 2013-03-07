@@ -487,7 +487,7 @@ int OBJ_obj2txt(char *buf, int buf_len, const ASN1_OBJECT *a, int no_name)
 			{
 			if (buf)
 				BUF_strlcpy(buf,s,buf_len);
-			n=strlen(s);
+			n = (int) strlen(s);
 			return n;
 			}
 		}
@@ -522,7 +522,7 @@ int OBJ_obj2txt(char *buf, int buf_len, const ASN1_OBJECT *a, int no_name)
 				{
 				if (!bl && !(bl = BN_new()))
 					goto err;
-				if (!BN_set_word(bl, l))
+				if (!BN_set_word(bl, (int) l))
 					goto err;
 				use_bn = 1;
 				}
@@ -568,7 +568,7 @@ int OBJ_obj2txt(char *buf, int buf_len, const ASN1_OBJECT *a, int no_name)
 			bndec = BN_bn2dec(bl);
 			if (!bndec)
 				goto err;
-			i = strlen(bndec);
+			i = (int) strlen(bndec);
 			if (buf)
 				{
 				if (buf_len > 0)
@@ -595,7 +595,7 @@ int OBJ_obj2txt(char *buf, int buf_len, const ASN1_OBJECT *a, int no_name)
 		else
 			{
 			BIO_snprintf(tbuf,sizeof tbuf,".%lu",l);
-			i=strlen(tbuf);
+			i = (int) strlen(tbuf);
 			if (buf && (buf_len > 0))
 				{
 				BUF_strlcpy(buf,tbuf,buf_len);
