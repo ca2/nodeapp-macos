@@ -607,7 +607,7 @@ static void surewarehk_error_handling(char *const msg,int func,int ret)
 		if (logstream)
 		{
 			CRYPTO_w_lock(CRYPTO_LOCK_BIO);
-			BIO_write(logstream, msg, strlen(msg));
+			BIO_write(logstream, msg, (int) strlen(msg));
 			CRYPTO_w_unlock(CRYPTO_LOCK_BIO);
 		}
 	}
@@ -677,8 +677,8 @@ static EVP_PKEY* sureware_load_public(ENGINE *e,const char *key_id,char *hptr,un
 		/* set public big nums*/
 		rsatmp->e = BN_new();
 		rsatmp->n = BN_new();
-		bn_expand2(rsatmp->e, el/sizeof(BN_ULONG));
-		bn_expand2(rsatmp->n, el/sizeof(BN_ULONG));
+		bn_expand2(rsatmp->e, (int) (el / sizeof(BN_ULONG)));
+		bn_expand2(rsatmp->n, (int) (el / sizeof(BN_ULONG)));
 		if (!rsatmp->e || rsatmp->e->dmax!=(int)(el/sizeof(BN_ULONG))|| 
 			!rsatmp->n || rsatmp->n->dmax!=(int)(el/sizeof(BN_ULONG)))
 			goto err;
@@ -692,9 +692,9 @@ static EVP_PKEY* sureware_load_public(ENGINE *e,const char *key_id,char *hptr,un
 			goto err;
 		}
 		/* normalise pub e and pub n */
-		rsatmp->e->top=el/sizeof(BN_ULONG);
+		rsatmp->e->top = (int) (el / sizeof(BN_ULONG));
 		bn_fix_top(rsatmp->e);
-		rsatmp->n->top=el/sizeof(BN_ULONG);
+		rsatmp->n->top = (int) (el / sizeof(BN_ULONG));
 		bn_fix_top(rsatmp->n);
 		/* create an EVP object: engine + rsa key */
 		res = EVP_PKEY_new();
@@ -714,10 +714,10 @@ static EVP_PKEY* sureware_load_public(ENGINE *e,const char *key_id,char *hptr,un
 		dsatmp->p = BN_new();
 		dsatmp->q = BN_new();
 		dsatmp->g = BN_new();
-		bn_expand2(dsatmp->pub_key, el/sizeof(BN_ULONG));
-		bn_expand2(dsatmp->p, el/sizeof(BN_ULONG));
+		bn_expand2(dsatmp->pub_key, (int) (el / sizeof(BN_ULONG)));
+		bn_expand2(dsatmp->p, (int) (el / sizeof(BN_ULONG)));
 		bn_expand2(dsatmp->q, 20/sizeof(BN_ULONG));
-		bn_expand2(dsatmp->g, el/sizeof(BN_ULONG));
+		bn_expand2(dsatmp->g, (int) (el / sizeof(BN_ULONG)));
 		if (!dsatmp->pub_key || dsatmp->pub_key->dmax!=(int)(el/sizeof(BN_ULONG))|| 
 			!dsatmp->p || dsatmp->p->dmax!=(int)(el/sizeof(BN_ULONG)) ||
 			!dsatmp->q || dsatmp->q->dmax!=20/sizeof(BN_ULONG) ||
@@ -737,13 +737,13 @@ static EVP_PKEY* sureware_load_public(ENGINE *e,const char *key_id,char *hptr,un
 		}
 		/* set parameters */
 		/* normalise pubkey and parameters in case of */
-		dsatmp->pub_key->top=el/sizeof(BN_ULONG);
+		dsatmp->pub_key->top = (int) (el / sizeof(BN_ULONG));
 		bn_fix_top(dsatmp->pub_key);
-		dsatmp->p->top=el/sizeof(BN_ULONG);
+		dsatmp->p->top = (int) (el / sizeof(BN_ULONG));
 		bn_fix_top(dsatmp->p);
 		dsatmp->q->top=20/sizeof(BN_ULONG);
 		bn_fix_top(dsatmp->q);
-		dsatmp->g->top=el/sizeof(BN_ULONG);
+		dsatmp->g->top = (int) (el / sizeof(BN_ULONG));
 		bn_fix_top(dsatmp->g);
 
 		/* create an EVP object: engine + rsa key */

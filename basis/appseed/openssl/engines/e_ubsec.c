@@ -545,7 +545,7 @@ static int ubsec_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f)(void))
 			UBSECerr(UBSEC_F_UBSEC_CTRL,UBSEC_R_ALREADY_LOADED);
 			return 0;
 			}
-		return set_UBSEC_LIBNAME((const char *)p);
+		return (int) set_UBSEC_LIBNAME((const char *)p);
 	default:
 		break;
 		}
