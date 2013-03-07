@@ -150,14 +150,14 @@ int DES_enc_write(int fd, const void *_buf, int len,
 				DES_ENCRYPT); 
 
 	/* output */
-	outnum=rnum+HDRSIZE;
+	outnum=(int) (rnum+HDRSIZE);
 
 	for (j=0; j<outnum; j+=i)
 		{
 		/* eay 26/08/92 I was not doing writing from where we
 		 * got up to. */
 #ifndef _WIN32
-		i=write(fd,(void *)&(outbuf[j]),outnum-j);
+		i=(int) write(fd,(void *)&(outbuf[j]),outnum-j);
 #else
 		i=_write(fd,(void *)&(outbuf[j]),outnum-j);
 #endif

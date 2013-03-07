@@ -130,7 +130,7 @@ static int pkey_dsa_sign(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *siglen,
 	else
 		type = NID_sha1;
 
-	ret = DSA_sign(type, tbs, tbslen, sig, &sltmp, dsa);
+	ret = DSA_sign(type, tbs, (int) tbslen, sig, &sltmp, dsa);
 
 	if (ret <= 0)
 		return ret;
@@ -151,7 +151,7 @@ static int pkey_dsa_verify(EVP_PKEY_CTX *ctx,
 	else
 		type = NID_sha1;
 
-	ret = DSA_verify(type, tbs, tbslen, sig, siglen, dsa);
+	ret = DSA_verify(type, tbs, (int) tbslen, sig, (int) siglen, dsa);
 
 	return ret;
 	}
