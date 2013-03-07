@@ -86,14 +86,14 @@ void ripemd160_block_data_order (RIPEMD160_CTX *c, const void *p,size_t num);
 #define HASH_UPDATE             RIPEMD160_Update
 #define HASH_TRANSFORM          RIPEMD160_Transform
 #define HASH_FINAL              RIPEMD160_Final
-#define	HASH_MAKE_STRING(c,s)	do {	\
-	unsigned long ll;		\
-	ll=(c)->A; HOST_l2c(ll,(s));	\
-	ll=(c)->B; HOST_l2c(ll,(s));	\
-	ll=(c)->C; HOST_l2c(ll,(s));	\
-	ll=(c)->D; HOST_l2c(ll,(s));	\
-	ll=(c)->E; HOST_l2c(ll,(s));	\
-	} while (0)
+#define	HASH_MAKE_STRING(c,s)	{	\
+	unsigned int ll;		\
+	ll=(c)->A; HOST_l2c_noret(ll,(s));	\
+	ll=(c)->B; HOST_l2c_noret(ll,(s));	\
+	ll=(c)->C; HOST_l2c_noret(ll,(s));	\
+	ll=(c)->D; HOST_l2c_noret(ll,(s));	\
+	ll=(c)->E; HOST_l2c_noret(ll,(s));	\
+	} 
 #define HASH_BLOCK_DATA_ORDER   ripemd160_block_data_order
 
 #include "md32_common.h"
