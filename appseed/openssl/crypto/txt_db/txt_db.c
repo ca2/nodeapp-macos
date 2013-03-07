@@ -116,7 +116,7 @@ TXT_DB *TXT_DB_read(BIO *in, int num)
 		ln++;
 		if (buf->data[offset] == '\0') break;
 		if ((offset == 0) && (buf->data[0] == '#')) continue;
-		i=strlen(&(buf->data[offset]));
+		i = (int) strlen(&(buf->data[offset]));
 		offset+=i;
 		if (buf->data[offset-1] != '\n')
 			continue;
@@ -265,7 +265,7 @@ long TXT_DB_write(BIO *out, TXT_DB *db)
 	nn=db->num_fields;
 	for (i=0; i<n; i++)
 		{
-		pp=sk_OPENSSL_PSTRING_value(db->data,i);
+		pp=sk_OPENSSL_PSTRING_value(db->data, (int) i);
 
 		l=0;
 		for (j=0; j<nn; j++)
