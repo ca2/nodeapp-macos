@@ -89,7 +89,7 @@ int PKCS12_PBE_keyivgen(EVP_CIPHER_CTX *ctx, const char *pass, int passlen,
 	}
 
 	if (!pbe->iter) iter = 1;
-	else iter = ASN1_INTEGER_get (pbe->iter);
+	else iter = (int) ASN1_INTEGER_get (pbe->iter);
 	salt = pbe->salt->data;
 	saltlen = pbe->salt->length;
 	if (!PKCS12_key_gen (pass, passlen, salt, saltlen, PKCS12_KEY_ID,
