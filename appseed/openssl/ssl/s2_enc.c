@@ -145,7 +145,7 @@ void ssl2_enc(SSL *s, int send)
 	if (bs == 8)
 		l=(l+7)/8*8;
 
-	EVP_Cipher(ds,s->s2->mac_data,s->s2->mac_data,l);
+	EVP_Cipher(ds,s->s2->mac_data,s->s2->mac_data, (unsigned int) l);
 	}
 
 void ssl2_mac(SSL *s, unsigned char *md, int send)

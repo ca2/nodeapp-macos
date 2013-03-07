@@ -518,7 +518,7 @@ int ssl23_get_client_hello(SSL *s)
 			}
 #endif
 
-		i = (d-(unsigned char *)s->init_buf->data) - 4;
+		i = (unsigned int ) ((d-(unsigned char *)s->init_buf->data) - 4);
 		l2n3((long)i, d_len);
 
 		/* get the data reused from the init_buf */

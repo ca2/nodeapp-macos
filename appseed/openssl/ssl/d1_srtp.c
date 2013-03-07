@@ -206,7 +206,7 @@ static int ssl_ctx_make_profiles(const char *profiles_string,STACK_OF(SRTP_PROTE
 		col=strchr(ptr,':');
 
 		if(!find_profile_by_name(ptr,&p,
-					 col ? col-ptr : (int)strlen(ptr)))
+					 col ? (int) (col - ptr) : (int)strlen(ptr)))
 			{
 			sk_SRTP_PROTECTION_PROFILE_push(profiles,p);
 			}

@@ -530,7 +530,7 @@ int ssl3_enc(SSL *s, int send)
 			/* otherwise, rec->length >= bs */
 			}
 		
-		EVP_Cipher(ds,rec->data,rec->input,l);
+		EVP_Cipher(ds,rec->data,rec->input, (unsigned int) l);
 
 		if ((bs != 1) && !send)
 			{

@@ -792,7 +792,7 @@ static int server_hello(SSL *s)
 		d+=SSL2_CONNECTION_ID_LENGTH;
 
 		s->state=SSL2_ST_SEND_SERVER_HELLO_B;
-		s->init_num=d-(unsigned char *)s->init_buf->data;
+		s->init_num = (int) (d - (unsigned char *)s->init_buf->data);
 		s->init_off=0;
 		}
 	/* SSL2_ST_SEND_SERVER_HELLO_B */

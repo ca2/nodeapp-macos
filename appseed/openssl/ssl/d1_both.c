@@ -230,7 +230,7 @@ int dtls1_do_write(SSL *s, int type)
 	if (s->d1->mtu < dtls1_min_mtu() && !(SSL_get_options(s) & SSL_OP_NO_QUERY_MTU))
 		{
 		s->d1->mtu = 
-			BIO_ctrl(SSL_get_wbio(s), BIO_CTRL_DGRAM_QUERY_MTU, 0, NULL);
+			(unsigned int) BIO_ctrl(SSL_get_wbio(s), BIO_CTRL_DGRAM_QUERY_MTU, 0, NULL);
 
 		/* I've seen the kernel return bogus numbers when it doesn't know
 		 * (initial write), so just make sure we have a reasonable number */
@@ -338,7 +338,7 @@ int dtls1_do_write(SSL *s, int type)
 			 */
 			if ( BIO_ctrl(SSL_get_wbio(s),
 				BIO_CTRL_DGRAM_MTU_EXCEEDED, 0, NULL) > 0 )
-				s->d1->mtu = BIO_ctrl(SSL_get_wbio(s),
+				s->d1->mtu = (unsigned int) BIO_ctrl(SSL_get_wbio(s),
 					BIO_CTRL_DGRAM_QUERY_MTU, 0, NULL);
 			else
 				return(-1);
@@ -433,7 +433,7 @@ long dtls1_get_message(SSL *s, int st1, int stn, int mt, long max, int *ok)
 	memset(msg_hdr, 0x00, sizeof(struct hm_header_st));
 
 again:
-	i = dtls1_get_message_fragment(s, st1, stn, max, ok);
+	i = (int) dtls1_get_message_fragment(s, st1, stn, max, ok);
 	if ( i == DTLS1_HM_BAD_FRAGMENT ||
 		i == DTLS1_HM_FRAGMENT_RETRY)  /* bad fragment received */
 		goto again;
@@ -454,7 +454,7 @@ again:
 		msg_len += DTLS1_HM_HEADER_LENGTH;
 	}
 
-	ssl3_finish_mac(s, p, msg_len);
+	ssl3_finish_mac(s, p, (unsigned int) msg_len);
 	if (s->msg_callback)
 		s->msg_callback(0, s->version, SSL3_RT_HANDSHAKE,
 			p, msg_len,
@@ -553,7 +553,7 @@ dtls1_retrieve_buffered_fragment(SSL *s, long max, int *ok)
 		unsigned long frag_len = frag->msg_header.frag_len;
 		pqueue_pop(s->d1->buffered_messages);
 
-		al=dtls1_preprocess_fragment(s,&frag->msg_header,max);
+		al=dtls1_preprocess_fragment(s,&frag->msg_header, (int) max);
 
 		if (al==0) /* no alert */
 			{
@@ -568,7 +568,7 @@ dtls1_retrieve_buffered_fragment(SSL *s, long max, int *ok)
 		if (al==0)
 			{
 			*ok = 1;
-			return frag_len;
+			return (int) frag_len;
 			}
 
 		ssl3_send_alert(s,SSL3_AL_FATAL,al);
@@ -633,7 +633,7 @@ dtls1_reassemble_fragment(SSL *s, struct hm_header_st* msg_hdr, int *ok)
 			{
 			i = s->method->ssl_read_bytes(s,SSL3_RT_HANDSHAKE,
 				devnull,
-				frag_len>sizeof(devnull)?sizeof(devnull):frag_len,0);
+				frag_len>sizeof(devnull)?sizeof(devnull): (int) frag_len,0);
 			if (i<=0) goto err;
 			frag_len -= i;
 			}
@@ -642,7 +642,7 @@ dtls1_reassemble_fragment(SSL *s, struct hm_header_st* msg_hdr, int *ok)
 
 	/* read the body of the fragment (header has already been read */
 	i = s->method->ssl_read_bytes(s,SSL3_RT_HANDSHAKE,
-		frag->fragment + msg_hdr->frag_off,frag_len,0);
+		frag->fragment + msg_hdr->frag_off, (int) frag_len,0);
 	if (i<=0 || (unsigned long)i!=frag_len)
 		goto err;
 
@@ -723,7 +723,7 @@ dtls1_process_out_of_seq_message(SSL *s, struct hm_header_st* msg_hdr, int *ok)
 			{
 			i = s->method->ssl_read_bytes(s,SSL3_RT_HANDSHAKE,
 				devnull,
-				frag_len>sizeof(devnull)?sizeof(devnull):frag_len,0);
+				frag_len>sizeof(devnull)?sizeof(devnull): (int) frag_len,0);
 			if (i<=0) goto err;
 			frag_len -= i;
 			}
@@ -743,7 +743,7 @@ dtls1_process_out_of_seq_message(SSL *s, struct hm_header_st* msg_hdr, int *ok)
 			{
 			/* read the body of the fragment (header has already been read */
 			i = s->method->ssl_read_bytes(s,SSL3_RT_HANDSHAKE,
-				frag->fragment,frag_len,0);
+				frag->fragment, (int) frag_len,0);
 			if (i<=0 || (unsigned long)i!=frag_len)
 				goto err;
 			}
@@ -780,7 +780,7 @@ dtls1_get_message_fragment(SSL *s, int st1, int stn, long max, int *ok)
 	/* see if we have the required fragment already */
 	if ((frag_len = dtls1_retrieve_buffered_fragment(s,max,ok)) || *ok)
 		{
-		if (*ok)	s->init_num = frag_len;
+		if (*ok)	s->init_num = (int) frag_len;
 		return frag_len;
 		}
 
@@ -846,7 +846,7 @@ dtls1_get_message_fragment(SSL *s, int st1, int stn, long max, int *ok)
 			}
 		}
 
-	if ((al=dtls1_preprocess_fragment(s,&msg_hdr,max)))
+	if ((al=dtls1_preprocess_fragment(s,&msg_hdr, (int) max)))
 		goto f_err;
 
 	/* XDTLS:  ressurect this when restart is in place */
@@ -857,7 +857,7 @@ dtls1_get_message_fragment(SSL *s, int st1, int stn, long max, int *ok)
 		unsigned char *p=(unsigned char *)s->init_buf->data+DTLS1_HM_HEADER_LENGTH;
 
 		i=s->method->ssl_read_bytes(s,SSL3_RT_HANDSHAKE,
-			&p[frag_off],frag_len,0);
+			&p[frag_off], (int) frag_len,0);
 		/* XDTLS:  fix this--message fragments cannot span multiple packets */
 		if (i <= 0)
 			{
@@ -884,7 +884,7 @@ dtls1_get_message_fragment(SSL *s, int st1, int stn, long max, int *ok)
 	 * s->init_buf->data, but as a counter summing up fragments'
 	 * lengths: as soon as they sum up to handshake packet
 	 * length, we assume we have got all the fragments. */
-	s->init_num = frag_len;
+	s->init_num = (int) frag_len;
 	return frag_len;
 
 f_err:
@@ -1256,7 +1256,7 @@ dtls1_retransmit_message(SSL *s, unsigned short seq, unsigned long frag_off,
 
 	memcpy(s->init_buf->data, frag->fragment, 
 		frag->msg_header.msg_len + header_length);
-		s->init_num = frag->msg_header.msg_len + header_length;
+		s->init_num = (int) (frag->msg_header.msg_len + header_length);
 
 	dtls1_set_message_header_int(s, frag->msg_header.type, 
 		frag->msg_header.msg_len, frag->msg_header.seq, 0, 

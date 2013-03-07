@@ -601,8 +601,8 @@ static int client_hello(SSL *s)
 		d+=SSL2_CHALLENGE_LENGTH;
 
 		s->state=SSL2_ST_SEND_CLIENT_HELLO_B;
-		s->init_num=d-buf;
-		s->init_off=0;
+		s->init_num = (int) (d - buf);
+		s->init_off = 0;
 		}
 	/* SSL2_ST_SEND_CLIENT_HELLO_B */
 	return(ssl2_do_write(s));
@@ -712,8 +712,8 @@ static int client_master_key(SSL *s)
 		d+=karg;
 
 		s->state=SSL2_ST_SEND_CLIENT_MASTER_KEY_B;
-		s->init_num=d-buf;
-		s->init_off=0;
+		s->init_num = (int) (d - buf);
+		s->init_off = 0;
 		}
 
 	/* SSL2_ST_SEND_CLIENT_MASTER_KEY_B */
@@ -887,8 +887,8 @@ static int client_certificate(SSL *s)
 		d+=n;
 
 		s->state=SSL2_ST_SEND_CLIENT_CERTIFICATE_D;
-		s->init_num=d-buf;
-		s->init_off=0;
+		s->init_num = (int) (d - buf);
+		s->init_off = 0;
 		}
 	/* if (s->state == SSL2_ST_SEND_CLIENT_CERTIFICATE_D) */
 	return(ssl2_do_write(s));

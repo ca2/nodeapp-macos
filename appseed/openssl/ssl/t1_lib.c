@@ -436,7 +436,7 @@ unsigned char *ssl_add_clienthello_tlsext(SSL *s, unsigned char *p, unsigned cha
 	if (s->srp_ctx.login != NULL)
 		{ /* Add TLS extension SRP username to the Client Hello message */
 
-		int login_len = strlen(s->srp_ctx.login);	
+		int login_len = (int) strlen(s->srp_ctx.login);
 		if (login_len > 255 || login_len == 0)
 			{
 			SSLerr(SSL_F_SSL_ADD_CLIENTHELLO_TLSEXT, ERR_R_INTERNAL_ERROR);
@@ -512,7 +512,7 @@ unsigned char *ssl_add_clienthello_tlsext(SSL *s, unsigned char *p, unsigned cha
 		{
 		int ticklen;
 		if (!s->new_session && s->session && s->session->tlsext_tick)
-			ticklen = s->session->tlsext_ticklen;
+			ticklen = (int) s->session->tlsext_ticklen;
 		else if (s->session && s->tlsext_session_ticket &&
 			 s->tlsext_session_ticket->data)
 			{
@@ -668,7 +668,7 @@ unsigned char *ssl_add_clienthello_tlsext(SSL *s, unsigned char *p, unsigned cha
                 ret += el;
                 }
 
-	if ((extdatalen = ret-p-2)== 0) 
+	if ((extdatalen = (int) (ret - p - 2))== 0)
 		return p;
 
 	s2n(extdatalen,p);
@@ -855,7 +855,7 @@ unsigned char *ssl_add_serverhello_tlsext(SSL *s, unsigned char *p, unsigned cha
 		}
 #endif
 
-	if ((extdatalen = ret-p-2)== 0) 
+	if ((extdatalen = (int) (ret - p - 2))== 0)
 		return p;
 
 	s2n(extdatalen,p);
@@ -1527,7 +1527,7 @@ int ssl_parse_serverhello_tlsext(SSL *s, unsigned char **p, unsigned char *d, in
 			unsigned char selected_len;
 
 			/* We must have requested it. */
-			if ((s->ctx->next_proto_select_cb == NULL))
+			if (s->ctx->next_proto_select_cb == NULL)
 				{
 				*al = TLS1_AD_UNSUPPORTED_EXTENSION;
 				return 0;

@@ -241,13 +241,13 @@ int i2d_SSL_SESSION(SSL_SESSION *in, unsigned char **pp)
 #ifndef OPENSSL_NO_TLSEXT
 	if (in->tlsext_hostname)
                 {
-                a.tlsext_hostname.length=strlen(in->tlsext_hostname);
+                a.tlsext_hostname.length = (int) strlen(in->tlsext_hostname);
                 a.tlsext_hostname.type=V_ASN1_OCTET_STRING;
                 a.tlsext_hostname.data=(unsigned char *)in->tlsext_hostname;
                 }
 	if (in->tlsext_tick)
                 {
-                a.tlsext_tick.length= in->tlsext_ticklen;
+                a.tlsext_tick.length = (int) in->tlsext_ticklen;
                 a.tlsext_tick.type=V_ASN1_OCTET_STRING;
                 a.tlsext_tick.data=(unsigned char *)in->tlsext_tick;
                 }
@@ -262,13 +262,13 @@ int i2d_SSL_SESSION(SSL_SESSION *in, unsigned char **pp)
 #ifndef OPENSSL_NO_PSK
 	if (in->psk_identity_hint)
 		{
-		a.psk_identity_hint.length=strlen(in->psk_identity_hint);
+		a.psk_identity_hint.length = (int) strlen(in->psk_identity_hint);
 		a.psk_identity_hint.type=V_ASN1_OCTET_STRING;
 		a.psk_identity_hint.data=(unsigned char *)(in->psk_identity_hint);
 		}
 	if (in->psk_identity)
 		{
-		a.psk_identity.length=strlen(in->psk_identity);
+		a.psk_identity.length = (int) strlen(in->psk_identity);
 		a.psk_identity.type=V_ASN1_OCTET_STRING;
 		a.psk_identity.data=(unsigned char *)(in->psk_identity);
 		}
@@ -276,7 +276,7 @@ int i2d_SSL_SESSION(SSL_SESSION *in, unsigned char **pp)
 #ifndef OPENSSL_NO_SRP
 	if (in->srp_username)
 		{
-		a.srp_username.length=strlen(in->srp_username);
+		a.srp_username.length = (int) strlen(in->srp_username);
 		a.srp_username.type=V_ASN1_OCTET_STRING;
 		a.srp_username.data=(unsigned char *)(in->srp_username);
 		}

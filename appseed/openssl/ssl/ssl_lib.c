@@ -1057,7 +1057,7 @@ long SSL_ctrl(SSL *s,int cmd,long larg,void *parg)
 		return(s->read_ahead);
 	case SSL_CTRL_SET_READ_AHEAD:
 		l=s->read_ahead;
-		s->read_ahead=larg;
+		s->read_ahead = (int) larg;
 		return(l);
 
 	case SSL_CTRL_SET_MSG_CALLBACK_ARG:
@@ -1087,14 +1087,14 @@ long SSL_ctrl(SSL *s,int cmd,long larg,void *parg)
 		if (SSL_version(s) == DTLS1_VERSION ||
 		    SSL_version(s) == DTLS1_BAD_VER)
 			{
-			s->d1->mtu = larg;
+			s->d1->mtu = (int) larg;
 			return larg;
 			}
 		return 0;
 	case SSL_CTRL_SET_MAX_SEND_FRAGMENT:
 		if (larg < 512 || larg > SSL3_RT_MAX_PLAIN_LENGTH)
 			return 0;
-		s->max_send_fragment = larg;
+		s->max_send_fragment = (int) larg;
 		return 1;
 	case SSL_CTRL_GET_RI_SUPPORT:
 		if (s->s3)
@@ -1133,7 +1133,7 @@ long SSL_CTX_ctrl(SSL_CTX *ctx,int cmd,long larg,void *parg)
 		return(ctx->read_ahead);
 	case SSL_CTRL_SET_READ_AHEAD:
 		l=ctx->read_ahead;
-		ctx->read_ahead=larg;
+		ctx->read_ahead = (int)larg;
 		return(l);
 		
 	case SSL_CTRL_SET_MSG_CALLBACK_ARG:
@@ -1155,7 +1155,7 @@ long SSL_CTX_ctrl(SSL_CTX *ctx,int cmd,long larg,void *parg)
 		return(ctx->session_cache_size);
 	case SSL_CTRL_SET_SESS_CACHE_MODE:
 		l=ctx->session_cache_mode;
-		ctx->session_cache_mode=larg;
+		ctx->session_cache_mode = (int)larg;
 		return(l);
 	case SSL_CTRL_GET_SESS_CACHE_MODE:
 		return(ctx->session_cache_mode);
@@ -1195,7 +1195,7 @@ long SSL_CTX_ctrl(SSL_CTX *ctx,int cmd,long larg,void *parg)
 	case SSL_CTRL_SET_MAX_SEND_FRAGMENT:
 		if (larg < 512 || larg > SSL3_RT_MAX_PLAIN_LENGTH)
 			return 0;
-		ctx->max_send_fragment = larg;
+		ctx->max_send_fragment = (int) larg;
 		return 1;
 	default:
 		return(ctx->method->ssl_ctx_ctrl(ctx,cmd,larg,parg));
@@ -1352,7 +1352,7 @@ char *SSL_get_shared_ciphers(const SSL *s,char *buf,int len)
 		int n;
 
 		c=sk_SSL_CIPHER_value(sk,i);
-		n=strlen(c->name);
+		n = (int) strlen(c->name);
 		if (n+1 > len)
 			{
 			if (p != buf)
@@ -1419,7 +1419,7 @@ int ssl_cipher_list_to_bytes(SSL *s,STACK_OF(SSL_CIPHER) *sk,unsigned char *p,
 #endif
 		}
 
-	return(p-q);
+	return (int) (p - q);
 	}
 
 STACK_OF(SSL_CIPHER) *ssl_bytes_to_cipher_list(SSL *s,unsigned char *p,int num,

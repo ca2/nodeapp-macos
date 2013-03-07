@@ -452,7 +452,7 @@ static int ssl23_client_hello(SSL *s)
 			memcpy(p,&(s->s3->client_random[SSL3_RANDOM_SIZE-i]),i);
 			p+=i;
 
-			i= p- &(buf[2]);
+			i = (int) (p- &(buf[2]));
 			buf[0]=((i>>8)&0xff)|0x80;
 			buf[1]=(i&0xff);
 
@@ -559,8 +559,8 @@ static int ssl23_client_hello(SSL *s)
 			s2n((int)l,d);
 
 			/* number of bytes to write */
-			s->init_num=p-buf;
-			s->init_off=0;
+			s->init_num = (int) (p - buf);
+			s->init_off = 0;
 
 			ssl3_finish_mac(s,&(buf[5]), s->init_num - 5);
 			}

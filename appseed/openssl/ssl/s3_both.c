@@ -527,7 +527,7 @@ long ssl3_get_message(SSL *s, int st1, int stn, int mt, long max, int *ok)
 	n = s->s3->tmp.message_size - s->init_num;
 	while (n > 0)
 		{
-		i=s->method->ssl_read_bytes(s,SSL3_RT_HANDSHAKE,&p[s->init_num],n,0);
+		i = s->method->ssl_read_bytes(s,SSL3_RT_HANDSHAKE,&p[s->init_num], (int) n, 0);
 		if (i <= 0)
 			{
 			s->rwstate=SSL_READING;
@@ -757,7 +757,7 @@ int ssl3_setup_read_buffer(SSL *s)
 		if (!(s->options & SSL_OP_NO_COMPRESSION))
 			len += SSL3_RT_MAX_COMPRESSED_OVERHEAD;
 #endif
-		if ((p=freelist_extract(s->ctx, 1, len)) == NULL)
+		if ((p=freelist_extract(s->ctx, 1, (int) len)) == NULL)
 			goto err;
 		s->s3->rbuf.buf = p;
 		s->s3->rbuf.len = len;
@@ -798,7 +798,7 @@ int ssl3_setup_write_buffer(SSL *s)
 			len += headerlen + align
 				+ SSL3_RT_SEND_MAX_ENCRYPTED_OVERHEAD;
 
-		if ((p=freelist_extract(s->ctx, 0, len)) == NULL)
+		if ((p=freelist_extract(s->ctx, 0, (int)len)) == NULL)
 			goto err;
 		s->s3->wbuf.buf = p;
 		s->s3->wbuf.len = len;
