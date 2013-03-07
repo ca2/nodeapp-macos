@@ -224,7 +224,7 @@ static void *d2i_ocsp_nonce(void *a, const unsigned char **pp, long length)
 	pos = a;
 	if(!pos || !*pos) os = ASN1_OCTET_STRING_new();
 	else os = *pos;
-	if(!ASN1_OCTET_STRING_set(os, *pp, length)) goto err;
+	if(!ASN1_OCTET_STRING_set(os, *pp, (int) length)) goto err;
 
 	*pp += length;
 

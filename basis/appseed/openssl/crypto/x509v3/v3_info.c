@@ -114,7 +114,7 @@ static STACK_OF(CONF_VALUE) *i2v_AUTHORITY_INFO_ACCESS(X509V3_EXT_METHOD *method
 		if(!ret) break;
 		vtmp = sk_CONF_VALUE_value(ret, i);
 		i2t_ASN1_OBJECT(objtmp, sizeof objtmp, desc->method);
-		nlen = strlen(objtmp) + strlen(vtmp->name) + 5;
+		nlen = (int) (strlen(objtmp) + strlen(vtmp->name) + 5);
 		ntmp = OPENSSL_malloc(nlen);
 		if(!ntmp) {
 			X509V3err(X509V3_F_I2V_AUTHORITY_INFO_ACCESS,
@@ -156,7 +156,7 @@ static AUTHORITY_INFO_ACCESS *v2i_AUTHORITY_INFO_ACCESS(X509V3_EXT_METHOD *metho
 			X509V3err(X509V3_F_V2I_AUTHORITY_INFO_ACCESS,X509V3_R_INVALID_SYNTAX);
 			goto err;
 		}
-		objlen = ptmp - cnf->name;
+		objlen = (int) (ptmp - cnf->name);
 		ctmp.name = ptmp + 1;
 		ctmp.value = cnf->value;
 		if(!v2i_GENERAL_NAME_ex(acc->location, method, ctx, &ctmp, 0))
