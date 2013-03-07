@@ -192,7 +192,7 @@ int CMAC_Init(CMAC_CTX *ctx, const void *key, size_t keylen,
 		int bl;
 		if (!EVP_CIPHER_CTX_cipher(&ctx->cctx))
 			return 0;
-		if (!EVP_CIPHER_CTX_set_key_length(&ctx->cctx, keylen))
+		if (!EVP_CIPHER_CTX_set_key_length(&ctx->cctx, (int) keylen))
 			return 0;
 		if (!EVP_EncryptInit_ex(&ctx->cctx, NULL, NULL, key, zero_iv))
 			return 0;
@@ -240,20 +240,20 @@ int CMAC_Update(CMAC_CTX *ctx, const void *in, size_t dlen)
 			return 1;
 		data += nleft;
 		/* Else not final block so encrypt it */
-		if (!EVP_Cipher(&ctx->cctx, ctx->tbl, ctx->last_block,bl))
+		if (!EVP_Cipher(&ctx->cctx, ctx->tbl, ctx->last_block,(int) bl))
 			return 0;
 		}
 	/* Encrypt all but one of the complete blocks left */
 	while(dlen > bl)
 		{
-		if (!EVP_Cipher(&ctx->cctx, ctx->tbl, data, bl))
+		if (!EVP_Cipher(&ctx->cctx, ctx->tbl, data, (int) bl))
 			return 0;
 		dlen -= bl;
 		data += bl;
 		}
 	/* Copy any data left to last block buffer */
 	memcpy(ctx->last_block, data, dlen);
-	ctx->nlast_block = dlen;
+	ctx->nlast_block = (int) dlen;
 	return 1;
 
 	}
