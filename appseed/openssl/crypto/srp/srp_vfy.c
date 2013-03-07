@@ -84,7 +84,7 @@ static int t_fromb64(unsigned char *a, const char *src)
 
 	while(*src && (*src == ' ' || *src == '\t' || *src == '\n'))
 		++src;
-	size = strlen(src);
+	size = (int) strlen(src);
 	i = 0;
 	while(i < size)
 		{
