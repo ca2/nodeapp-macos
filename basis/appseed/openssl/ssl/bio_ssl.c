@@ -512,7 +512,7 @@ static int ssl_puts(BIO *bp, const char *str)
 	{
 	int n,ret;
 
-	n=strlen(str);
+	n = (int) strlen(str);
 	ret=BIO_write(bp,str,n);
 	return(ret);
 	}

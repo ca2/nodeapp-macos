@@ -152,7 +152,7 @@ int ssl3_read_n(SSL *s, int n, int max, int extend)
 		{
 		/* start with empty packet ... */
 		if (left == 0)
-			rb->offset = align;
+			rb->offset = (int) align;
 		else if (align != 0 && left >= SSL3_RT_HEADER_LENGTH)
 			{
 			/* check if next packet length is large
@@ -169,7 +169,7 @@ int ssl3_read_n(SSL *s, int n, int max, int extend)
 				 * arguments and therefore no buffer
 				 * overrun can be triggered. */
 				memmove (rb->buf+align,pkt,left);
-				rb->offset = align;
+				rb->offset = (int) align;
 				}
 			}
 		s->packet = rb->buf + rb->offset;
@@ -206,7 +206,7 @@ int ssl3_read_n(SSL *s, int n, int max, int extend)
 		{
 		memmove(pkt, s->packet, len+left);
 		s->packet = pkt;
-		rb->offset = len + align;
+		rb->offset = (int) (len + align);
 		}
 
 	if (n > (int)(rb->len - rb->offset)) /* does not happen */
@@ -223,7 +223,7 @@ int ssl3_read_n(SSL *s, int n, int max, int extend)
 		if (max < n)
 			max = n;
 		if (max > (int)(rb->len - rb->offset))
-			max = rb->len - rb->offset;
+			max = (int) (rb->len - rb->offset);
 		}
 
 	while (left < n)
@@ -316,7 +316,7 @@ again:
 	if (	(s->rstate != SSL_ST_READ_BODY) ||
 		(s->packet_length < SSL3_RT_HEADER_LENGTH)) 
 		{
-		n=ssl3_read_n(s, SSL3_RT_HEADER_LENGTH, s->s3->rbuf.len, 0);
+		n=ssl3_read_n(s, SSL3_RT_HEADER_LENGTH,(int) (s->s3->rbuf.len), 0);
 		if (n <= 0) return(n); /* error or non-blocking */
 		s->rstate=SSL_ST_READ_BODY;
 
@@ -718,7 +718,7 @@ static int do_ssl3_write(SSL *s, int type, const unsigned char *buf,
 		align = (-align)&(SSL3_ALIGN_PAYLOAD-1);
 #endif
 		p = wb->buf + align;
-		wb->offset  = align;
+		wb->offset  = (int) align;
 		}
 	else if (prefix_len)
 		{
@@ -731,7 +731,7 @@ static int do_ssl3_write(SSL *s, int type, const unsigned char *buf,
 		align = (-align)&(SSL3_ALIGN_PAYLOAD-1);
 #endif
 		p = wb->buf + align;
-		wb->offset  = align;
+		wb->offset  = (int) align;
 		}
 
 	/* write the header */

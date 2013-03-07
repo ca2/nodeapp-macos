@@ -3292,7 +3292,7 @@ long ssl3_ctrl(SSL *s, int cmd, long larg, void *parg)
 #endif
 
 	case SSL_CTRL_SET_TLSEXT_STATUS_REQ_TYPE:
-		s->tlsext_status_type=larg;
+		s->tlsext_status_type = (int) larg;
 		ret = 1;
 		break;
 
@@ -3324,7 +3324,7 @@ long ssl3_ctrl(SSL *s, int cmd, long larg, void *parg)
 		if (s->tlsext_ocsp_resp)
 			OPENSSL_free(s->tlsext_ocsp_resp);
 		s->tlsext_ocsp_resp = parg;
-		s->tlsext_ocsp_resplen = larg;
+		s->tlsext_ocsp_resplen = (int) larg;
 		ret = 1;
 		break;
 
@@ -3610,7 +3610,7 @@ long ssl3_ctx_ctrl(SSL_CTX *ctx, int cmd, long larg, void *parg)
 		break;
 
 	case SSL_CTRL_SET_TLS_EXT_SRP_STRENGTH:
-		ctx->srp_ctx.strength=larg;
+		ctx->srp_ctx.strength = (int) larg;
 		break;
 #endif
 #endif /* !OPENSSL_NO_TLSEXT */

@@ -825,7 +825,7 @@ int tls1_enc(SSL *s, int send)
 				}
 			}
 		
-		i = EVP_Cipher(ds,rec->data,rec->input,l);
+		i = EVP_Cipher(ds,rec->data,rec->input, (unsigned int) l);
 		if ((EVP_CIPHER_flags(ds->cipher)&EVP_CIPH_FLAG_CUSTOM_CIPHER)
 						?(i<0)
 						:(i==0))
@@ -1072,7 +1072,7 @@ printf("rec=");
 #ifdef TLS_DEBUG
 {unsigned int z; for (z=0; z<md_size; z++) printf("%02X ",md[z]); printf("\n"); }
 #endif
-	return(md_size);
+	return (int) (md_size);
 	}
 
 int tls1_generate_master_secret(SSL *s, unsigned char *out, unsigned char *p,
@@ -1188,13 +1188,13 @@ int tls1_export_keying_material(SSL *s, unsigned char *out, size_t olen,
 		 TLS_MD_KEY_EXPANSION_CONST_SIZE) == 0) goto err1;
 
 	rv = tls1_PRF(s->s3->tmp.new_cipher->algorithm2,
-		      val, vallen,
+		      val, (int) vallen,
 		      NULL, 0,
 		      NULL, 0,
 		      NULL, 0,
 		      NULL, 0,
 		      s->session->master_key,s->session->master_key_length,
-		      out,buff,olen);
+		      out,buff, (int) olen);
 
 #ifdef KSSL_DEBUG
 	printf ("tls1_export_keying_material() complete\n");

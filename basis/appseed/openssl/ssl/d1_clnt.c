@@ -882,8 +882,8 @@ int dtls1_client_hello(SSL *s)
 
 		s->state=SSL3_ST_CW_CLNT_HELLO_B;
 		/* number of bytes to write */
-		s->init_num=p-buf;
-		s->init_off=0;
+		s->init_num = (int) (p - buf);
+		s->init_off = 0;
 
 		/* buffer the message to handle re-xmits */
 		dtls1_buffer_message(s, 0);
