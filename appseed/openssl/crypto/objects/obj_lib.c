@@ -92,7 +92,7 @@ ASN1_OBJECT *OBJ_dup(const ASN1_OBJECT *o)
 	r->ln=r->sn=NULL;
 	if (o->ln != NULL)
 		{
-		i=strlen(o->ln)+1;
+		i = (int) strlen(o->ln)+1;
 		ln=OPENSSL_malloc(i);
 		if (ln == NULL) goto err;
 		memcpy(ln,o->ln,i);
@@ -101,7 +101,7 @@ ASN1_OBJECT *OBJ_dup(const ASN1_OBJECT *o)
 
 	if (o->sn != NULL)
 		{
-		i=strlen(o->sn)+1;
+		i = (int) strlen(o->sn)+1;
 		sn=OPENSSL_malloc(i);
 		if (sn == NULL) goto err;
 		memcpy(sn,o->sn,i);
