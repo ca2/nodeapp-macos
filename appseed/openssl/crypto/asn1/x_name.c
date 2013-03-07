@@ -233,7 +233,7 @@ static int x509_name_ex_i2d(ASN1_VALUE **val, unsigned char **out, const ASN1_IT
 		if(ret < 0)
 			return ret;
 	}
-	ret = a->bytes->length;
+	ret = (int) a->bytes->length;
 	if(out != NULL) {
 		memcpy(*out,a->bytes->data,ret);
 		*out+=ret;
@@ -471,7 +471,7 @@ static int asn1_string_canon(ASN1_STRING *out, ASN1_STRING *in)
 			}
 		}
 
-	out->length = to - out->data;
+	out->length = (int) (to - out->data);
 
 	return 1;
 

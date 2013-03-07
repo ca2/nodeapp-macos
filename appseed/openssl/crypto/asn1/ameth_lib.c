@@ -205,7 +205,7 @@ const EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_find_str(ENGINE **pe,
 	int i;
 	const EVP_PKEY_ASN1_METHOD *ameth;
 	if (len == -1)
-		len = strlen(str);
+		len = (int) strlen(str);
 	if (pe)
 		{
 #ifndef OPENSSL_NO_ENGINE
@@ -272,7 +272,7 @@ int EVP_PKEY_asn1_get0_info(int *ppkey_id, int *ppkey_base_id, int *ppkey_flags,
 	if (ppkey_base_id)
 		*ppkey_base_id = ameth->pkey_base_id;
 	if (ppkey_flags)
-		*ppkey_flags = ameth->pkey_flags;
+		*ppkey_flags = (int) ameth->pkey_flags;
 	if (pinfo)
 		*pinfo = ameth->info;
 	if (ppem_str)

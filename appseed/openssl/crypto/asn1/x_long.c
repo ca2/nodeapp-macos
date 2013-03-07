@@ -120,7 +120,7 @@ static int long_i2c(ASN1_VALUE **pval, unsigned char *cont, int *putype, const A
 	 */
 	if(ltmp < 0) utmp = -ltmp - 1;
 	else utmp = ltmp;
-	clen = BN_num_bits_word(utmp);
+	clen = BN_num_bits_word((int) utmp);
 	/* If MSB of leading octet set we need to pad */
 	if(!(clen & 0x7)) pad = 1;
 	else pad = 0;
