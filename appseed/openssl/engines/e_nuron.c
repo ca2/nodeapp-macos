@@ -181,7 +181,7 @@ static int nuron_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f)(void))
 			NURONerr(NURON_F_NURON_CTRL,NURON_R_ALREADY_LOADED);
 			return 0;
 			}
-		return set_NURON_LIBNAME((const char *)p);
+		return (int) set_NURON_LIBNAME((const char *)p);
 	default:
 		break;
 		}

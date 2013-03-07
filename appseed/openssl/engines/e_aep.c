@@ -590,7 +590,7 @@ static int aep_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f)(void))
 				AEPHK_R_ALREADY_LOADED);
 			return 0;
 			}
-		return set_AEP_LIBNAME((const char*)p);
+		return (int) set_AEP_LIBNAME((const char*)p);
 	default:
 		break;
 		}
@@ -1121,11 +1121,11 @@ static AEP_RV ConvertAEPBigNum(void* ArbBigNum, AEP_U32 BigNumSize,
 
 	memcpy(bn->d, AEP_BigNum, BigNumSize);
 #else
-	bn->top = BigNumSize >> 2;
+	bn->top = (int) (BigNumSize >> 2);
  
 	for(i=0;i<bn->top;i++)
 		{
-		bn->d[i] = (AEP_U32)
+		bn->d[i] = (unsigned int) (AEP_U32)
 			((unsigned) AEP_BigNum[3] << 8 | AEP_BigNum[2]) << 16 |
 			((unsigned) AEP_BigNum[1] << 8 | AEP_BigNum[0]);
 		AEP_BigNum += 4;

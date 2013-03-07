@@ -382,7 +382,7 @@ static int ibm_4758_cca_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f)(void
 					CCA4758_R_ALREADY_LOADED);
 			return 0;
 			}
-		return set_CCA4758_LIB_NAME((const char *)p);
+		return (int) set_CCA4758_LIB_NAME((const char *) p);
 	default:
 		break;
 		}
@@ -471,8 +471,8 @@ static EVP_PKEY *ibm_4758_load_privkey(ENGINE* e, const char* key_id,
 	rtmp = RSA_new_method(e);
 	RSA_set_ex_data(rtmp, hndidx, (char *)keyToken);
 
-	rtmp->e = BN_bin2bn(exponent, exponentLength, NULL);
-	rtmp->n = BN_bin2bn(modulus, modulusFieldLength, NULL);
+	rtmp->e = BN_bin2bn(exponent, (int) exponentLength, NULL);
+	rtmp->n = BN_bin2bn(modulus, (int) modulusFieldLength, NULL);
 	rtmp->flags |= RSA_FLAG_EXT_PKEY;
 
 	res = EVP_PKEY_new();
@@ -546,8 +546,8 @@ static EVP_PKEY *ibm_4758_load_pubkey(ENGINE* e, const char* key_id,
 	(*(long*)keyToken) = keyTokenLength;
 	rtmp = RSA_new_method(e);
 	RSA_set_ex_data(rtmp, hndidx, (char *)keyToken);
-	rtmp->e = BN_bin2bn(exponent, exponentLength, NULL);
-	rtmp->n = BN_bin2bn(modulus, modulusFieldLength, NULL);
+	rtmp->e = BN_bin2bn(exponent, (int) exponentLength, NULL);
+	rtmp->n = BN_bin2bn(modulus, (int) modulusFieldLength, NULL);
 	rtmp->flags |= RSA_FLAG_EXT_PKEY;
 	res = EVP_PKEY_new();
 	EVP_PKEY_assign_RSA(res, rtmp);
@@ -584,8 +584,8 @@ static int cca_rsa_pub_enc(int flen, const unsigned char *from,
 		keyToken, &outputLength, to);
 
 	if (returnCode || reasonCode)
-		return -(returnCode << 16 | reasonCode);
-	return outputLength;
+		return (int) ( -(returnCode << 16 | reasonCode));
+	return (int) outputLength;
 	}
 
 static int cca_rsa_priv_dec(int flen, const unsigned char *from,
@@ -859,7 +859,7 @@ static int cca_rsa_sign(int type, const unsigned char *m, unsigned int m_len,
 		OPENSSL_free(hashBuffer);
 		}
 
-	*siglen = outputLength;
+	*siglen = (unsigned int) outputLength;
 
 	return ((returnCode || reasonCode) ? 0 : 1);
 	}

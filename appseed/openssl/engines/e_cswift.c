@@ -474,7 +474,7 @@ static int cswift_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f)(void))
 			CSWIFTerr(CSWIFT_F_CSWIFT_CTRL,CSWIFT_R_ALREADY_LOADED);
 			return 0;
 			}
-		return set_CSWIFT_LIBNAME((const char *)p);
+		return (int) set_CSWIFT_LIBNAME((const char *)p);
 	default:
 		break;
 		}
@@ -570,7 +570,7 @@ static int cswift_mod_exp(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
 		goto err;
 		}
 	/* Convert the response */
-	BN_bin2bn((unsigned char *)result->d, res.nbytes, r);
+	BN_bin2bn((unsigned char *)result->d, (int) res.nbytes, r);
 	to_return = 1;
 err:
 	if(acquired)
@@ -715,7 +715,7 @@ static int cswift_mod_exp_crt(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
 		goto err;
 		}
 	/* Convert the response */
-	BN_bin2bn((unsigned char *)result->d, res.nbytes, r);
+	BN_bin2bn((unsigned char *)result->d, (int) res.nbytes, r);
 	to_return = 1;
 err:
 	if(sw_param.up.crt.p.value)

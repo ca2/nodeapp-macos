@@ -670,7 +670,7 @@ static int hwcrhk_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f)(void))
 			HWCRHKerr(HWCRHK_F_HWCRHK_CTRL,ERR_R_PASSED_NULL_PARAMETER);
 			return 0;
 			}
-		return set_HWCRHK_LIBNAME((const char *)p);
+		return (int) set_HWCRHK_LIBNAME((const char *)p);
 	case ENGINE_CTRL_SET_LOGSTREAM:
 		{
 		BIO *bio = (BIO *)p;
@@ -814,8 +814,8 @@ static EVP_PKEY *hwcrhk_load_privkey(ENGINE *eng, const char *key_id,
 		goto err;
 		}
 
-	bn_expand2(rtmp->e, e.size/sizeof(BN_ULONG));
-	bn_expand2(rtmp->n, n.size/sizeof(BN_ULONG));
+	bn_expand2(rtmp->e, (int) (e.size/sizeof(BN_ULONG)));
+	bn_expand2(rtmp->n, (int) (n.size/sizeof(BN_ULONG)));
 	MPI2BN(rtmp->e, e);
 	MPI2BN(rtmp->n, n);
 
@@ -826,9 +826,9 @@ static EVP_PKEY *hwcrhk_load_privkey(ENGINE *eng, const char *key_id,
 		ERR_add_error_data(1,rmsg.buf);
 		goto err;
 		}
-	rtmp->e->top = e.size / sizeof(BN_ULONG);
+	rtmp->e->top = (int) (e.size / sizeof(BN_ULONG));
 	bn_fix_top(rtmp->e);
-	rtmp->n->top = n.size / sizeof(BN_ULONG);
+	rtmp->n->top = (int) (n.size / sizeof(BN_ULONG));
 	bn_fix_top(rtmp->n);
 
 	res = EVP_PKEY_new();
@@ -923,7 +923,7 @@ static int hwcrhk_mod_exp(BIGNUM *r, const BIGNUM *a, const BIGNUM *p,
 	ret = p_hwcrhk_ModExp(hwcrhk_context, m_a, m_p, m_n, &m_r, &rmsg);
 
 	/* Convert the response */
-	r->top = m_r.size / sizeof(BN_ULONG);
+	r->top = (int) (m_r.size / sizeof(BN_ULONG));
 	bn_fix_top(r);
 
 	if (ret < 0)
@@ -989,7 +989,7 @@ static int hwcrhk_rsa_mod_exp(BIGNUM *r, const BIGNUM *I, RSA *rsa, BN_CTX *ctx)
 		ret = p_hwcrhk_RSA(m_a, *hptr, &m_r, &rmsg);
 
 		/* Convert the response */
-		r->top = m_r.size / sizeof(BN_ULONG);
+		r->top = (int) (m_r.size / sizeof(BN_ULONG));
 		bn_fix_top(r);
 
 		if (ret < 0)
@@ -1037,7 +1037,7 @@ static int hwcrhk_rsa_mod_exp(BIGNUM *r, const BIGNUM *I, RSA *rsa, BN_CTX *ctx)
 			m_dmp1, m_dmq1, m_iqmp, &m_r, &rmsg);
 
 		/* Convert the response */
-		r->top = m_r.size / sizeof(BN_ULONG);
+		r->top = (int) (m_r.size / sizeof(BN_ULONG));
 		bn_fix_top(r);
 
 		if (ret < 0)
@@ -1237,7 +1237,7 @@ static int hwcrhk_get_pass(const char *prompt_info,
 				while (ok < 0 && UI_ctrl(ui, UI_CTRL_IS_REDOABLE, 0, 0, 0));
 
                         if (ok >= 0)
-                                *len_io = strlen(buf);
+                                *len_io = (int) strlen(buf);
 
                         UI_free(ui);
                         OPENSSL_free(prompt);
