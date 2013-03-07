@@ -155,7 +155,7 @@ int RAND_load_file(const char *file, long bytes)
 			n = (bytes < BUFSIZE)?(int)bytes:BUFSIZE;
 		else
 			n = BUFSIZE;
-		i=fread(buf,1,n,in);
+		i = (int)fread(buf,1,n,in);
 		if (i <= 0) break;
 #ifdef PURIFY
 		RAND_add(buf,i,(double)i);
@@ -252,7 +252,7 @@ int RAND_write_file(const char *file)
 		n-=BUFSIZE;
 		if (RAND_bytes(buf,i) <= 0)
 			rand_err=1;
-		i=fwrite(buf,1,i,out);
+		i = (int) fwrite(buf,1,i,out);
 		if (i <= 0)
 			{
 			ret=0;
