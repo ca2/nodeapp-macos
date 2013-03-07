@@ -292,7 +292,7 @@ static X509_EXTENSION *v3_generic_extension(const char *ext, char *value,
 		}
 
 	oct->data = ext_der;
-	oct->length = ext_len;
+	oct->length = (int) ext_len;
 	ext_der = NULL;
 
 	extension = X509_EXTENSION_create_by_OBJ(NULL, obj, crit, oct);

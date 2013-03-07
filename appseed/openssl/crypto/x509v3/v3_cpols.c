@@ -223,7 +223,7 @@ static POLICYINFO *policy_section(X509V3_CTX *ctx,
 			qual->pqualid = OBJ_nid2obj(NID_id_qt_cps);
 			qual->d.cpsuri = M_ASN1_IA5STRING_new();
 			if(!ASN1_STRING_set(qual->d.cpsuri, cnf->value,
-						 strlen(cnf->value))) goto merr;
+						 (int) strlen(cnf->value))) goto merr;
 		} else if(!name_cmp(cnf->name, "userNotice")) {
 			STACK_OF(CONF_VALUE) *unot;
 			if(*cnf->value != '@') {
@@ -285,7 +285,7 @@ static POLICYQUALINFO *notice_section(X509V3_CTX *ctx,
 		if(!strcmp(cnf->name, "explicitText")) {
 			not->exptext = M_ASN1_VISIBLESTRING_new();
 			if(!ASN1_STRING_set(not->exptext, cnf->value,
-						 strlen(cnf->value))) goto merr;
+						 (int) strlen(cnf->value))) goto merr;
 		} else if(!strcmp(cnf->name, "organization")) {
 			NOTICEREF *nref;
 			if(!not->noticeref) {
@@ -295,7 +295,7 @@ static POLICYQUALINFO *notice_section(X509V3_CTX *ctx,
 			if(ia5org) nref->organization->type = V_ASN1_IA5STRING;
 			else nref->organization->type = V_ASN1_VISIBLESTRING;
 			if(!ASN1_STRING_set(nref->organization, cnf->value,
-						 strlen(cnf->value))) goto merr;
+						 (int) strlen(cnf->value))) goto merr;
 		} else if(!strcmp(cnf->name, "noticeNumbers")) {
 			NOTICEREF *nref;
 			STACK_OF(CONF_VALUE) *nos;
