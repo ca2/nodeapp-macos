@@ -754,7 +754,7 @@ int CMS_SignerInfo_sign(CMS_SignerInfo *si)
 
 	EVP_MD_CTX_cleanup(&mctx);
 
-	ASN1_STRING_set0(si->signature, abuf, siglen);
+	ASN1_STRING_set0(si->signature, abuf, (int)siglen);
 
 	return 1;
 
