@@ -418,12 +418,12 @@ static EVP_PKEY *b2i_rsa(const unsigned char **in, unsigned int length,
 
 EVP_PKEY *b2i_PrivateKey(const unsigned char **in, long length)
 	{
-	return do_b2i(in, length, 0);
+	return do_b2i(in, (int) length, 0);
 	}
 
 EVP_PKEY *b2i_PublicKey(const unsigned char **in, long length)
 	{
-	return do_b2i(in, length, 1);
+	return do_b2i(in, (int) length, 1);
 	}
 
 
