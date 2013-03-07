@@ -99,12 +99,12 @@ int PKCS5_PBE_keyivgen(EVP_CIPHER_CTX *cctx, const char *pass, int passlen,
 	}
 
 	if (!pbe->iter) iter = 1;
-	else iter = ASN1_INTEGER_get (pbe->iter);
+	else iter = (int) ASN1_INTEGER_get (pbe->iter);
 	salt = pbe->salt->data;
 	saltlen = pbe->salt->length;
 
 	if(!pass) passlen = 0;
-	else if(passlen == -1) passlen = strlen(pass);
+	else if(passlen == -1) passlen = (int) strlen(pass);
 
 	if (!EVP_DigestInit_ex(&ctx, md, NULL))
 		goto err;

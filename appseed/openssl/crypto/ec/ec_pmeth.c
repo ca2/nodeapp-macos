@@ -141,7 +141,7 @@ static int pkey_ec_sign(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *siglen,
 		type = NID_sha1;
 
 
-	ret = ECDSA_sign(type, tbs, tbslen, sig, &sltmp, ec);
+	ret = ECDSA_sign(type, tbs, (int) tbslen, sig, &sltmp, ec);
 
 	if (ret <= 0)
 		return ret;
@@ -162,7 +162,7 @@ static int pkey_ec_verify(EVP_PKEY_CTX *ctx,
 	else
 		type = NID_sha1;
 
-	ret = ECDSA_verify(type, tbs, tbslen, sig, siglen, ec);
+	ret = ECDSA_verify(type, tbs, (int) tbslen, sig, (int) siglen, ec);
 
 	return ret;
 	}

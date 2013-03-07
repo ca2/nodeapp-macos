@@ -295,7 +295,7 @@ static signed char *compute_wNAF(const BIGNUM *scalar, int w, size_t *ret_len)
 		r[j++] = sign * digit;
 
 		window_val >>= 1;
-		window_val += bit * BN_is_bit_set(scalar, j + w);
+		window_val += bit * BN_is_bit_set(scalar, (int) (j + w));
 
 		if (window_val > next_bit)
 			{
@@ -465,7 +465,7 @@ int ec_wNAF_mul(const EC_GROUP *group, EC_POINT *r, const BIGNUM *scalar,
 		wsize[i] = EC_window_bits_for_scalar_size(bits);
 		num_val += (size_t)1 << (wsize[i] - 1);
 		wNAF[i + 1] = NULL; /* make sure we always have a pivot */
-		wNAF[i] = compute_wNAF((i < num ? scalars[i] : scalar), wsize[i], &wNAF_len[i]);
+		wNAF[i] = compute_wNAF((i < num ? scalars[i] : scalar), (int) wsize[i], &wNAF_len[i]);
 		if (wNAF[i] == NULL)
 			goto err;
 		if (wNAF_len[i] > max_len)
@@ -498,7 +498,7 @@ int ec_wNAF_mul(const EC_GROUP *group, EC_POINT *r, const BIGNUM *scalar,
 
 			/* use the window size for which we have precomputation */
 			wsize[num] = pre_comp->w;
-			tmp_wNAF = compute_wNAF(scalar, wsize[num], &tmp_len);
+			tmp_wNAF = compute_wNAF(scalar, (int) wsize[num], &tmp_len);
 			if (!tmp_wNAF)
 				goto err;
 
@@ -652,7 +652,7 @@ int ec_wNAF_mul(const EC_GROUP *group, EC_POINT *r, const BIGNUM *scalar,
 
 	r_is_at_infinity = 1;
 
-	for (k = max_len - 1; k >= 0; k--)
+	for (k = (int) (max_len - 1); k >= 0; k--)
 		{
 		if (!r_is_at_infinity)
 			{
@@ -825,7 +825,7 @@ int ec_wNAF_precompute_mult(EC_GROUP *group, BN_CTX *ctx)
 	pre_points_per_block = (size_t)1 << (w - 1);
 	num = pre_points_per_block * numblocks; /* number of points to compute and store */
 
-	points = OPENSSL_malloc(sizeof (EC_POINT*)*(num + 1));
+	points = OPENSSL_malloc((int) (sizeof (EC_POINT*)*(num + 1)));
 	if (!points)
 		{
 		ECerr(EC_F_EC_WNAF_PRECOMPUTE_MULT, ERR_R_MALLOC_FAILURE);
