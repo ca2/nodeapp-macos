@@ -2,16 +2,19 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../appseed/app/app.xcodeproj">
+      location = "group:../../../app/thirdparty/appseed/zlib/ca2zlib.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/appseed/optca/optca.xcodeproj">
+      location = "group:../../../app/thirdparty/appseed/FreeImage/FreeImage.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/thirdparty/appseed/freetype/freetype.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/thirdparty/appseed/FreeImage/FreeImage.xcodeproj">
+      location = "group:../../appseed/app/app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/optca/optca.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../appseed/openssl/openssl.xcodeproj">
