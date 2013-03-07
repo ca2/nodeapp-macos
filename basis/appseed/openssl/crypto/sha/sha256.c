@@ -83,22 +83,22 @@ int SHA224_Final (unsigned char *md, SHA256_CTX *c)
  * compiler decide if it's appropriate to unroll small loops.
  */
 #define	HASH_MAKE_STRING(c,s)	do {	\
-	unsigned long ll;		\
+	unsigned int ll;		\
 	unsigned int  nn;		\
 	switch ((c)->md_len)		\
 	{   case SHA224_DIGEST_LENGTH:	\
 		for (nn=0;nn<SHA224_DIGEST_LENGTH/4;nn++)	\
-		{   ll=(c)->h[nn]; HOST_l2c(ll,(s));   }	\
+		{   ll=(c)->h[nn]; HOST_l2c_noret(ll,(s));   }	\
 		break;			\
 	    case SHA256_DIGEST_LENGTH:	\
 		for (nn=0;nn<SHA256_DIGEST_LENGTH/4;nn++)	\
-		{   ll=(c)->h[nn]; HOST_l2c(ll,(s));   }	\
+		{   ll=(c)->h[nn]; HOST_l2c_noret(ll,(s));   }	\
 		break;			\
 	    default:			\
 		if ((c)->md_len > SHA256_DIGEST_LENGTH)	\
 		    return 0;				\
 		for (nn=0;nn<(c)->md_len/4;nn++)		\
-		{   ll=(c)->h[nn]; HOST_l2c(ll,(s));   }	\
+		{   ll=(c)->h[nn]; HOST_l2c_noret(ll,(s));   }	\
 		break;			\
 	}				\
 	} while (0)
@@ -240,22 +240,22 @@ static void sha256_block_data_order (SHA256_CTX *ctx, const void *in, size_t num
 		{
 		SHA_LONG l;
 
-		HOST_c2l(data,l); T1 = X[0] = l;  ROUND_00_15(0,a,b,c,d,e,f,g,h);
-		HOST_c2l(data,l); T1 = X[1] = l;  ROUND_00_15(1,h,a,b,c,d,e,f,g);
-		HOST_c2l(data,l); T1 = X[2] = l;  ROUND_00_15(2,g,h,a,b,c,d,e,f);
-		HOST_c2l(data,l); T1 = X[3] = l;  ROUND_00_15(3,f,g,h,a,b,c,d,e);
-		HOST_c2l(data,l); T1 = X[4] = l;  ROUND_00_15(4,e,f,g,h,a,b,c,d);
-		HOST_c2l(data,l); T1 = X[5] = l;  ROUND_00_15(5,d,e,f,g,h,a,b,c);
-		HOST_c2l(data,l); T1 = X[6] = l;  ROUND_00_15(6,c,d,e,f,g,h,a,b);
-		HOST_c2l(data,l); T1 = X[7] = l;  ROUND_00_15(7,b,c,d,e,f,g,h,a);
-		HOST_c2l(data,l); T1 = X[8] = l;  ROUND_00_15(8,a,b,c,d,e,f,g,h);
-		HOST_c2l(data,l); T1 = X[9] = l;  ROUND_00_15(9,h,a,b,c,d,e,f,g);
-		HOST_c2l(data,l); T1 = X[10] = l; ROUND_00_15(10,g,h,a,b,c,d,e,f);
-		HOST_c2l(data,l); T1 = X[11] = l; ROUND_00_15(11,f,g,h,a,b,c,d,e);
-		HOST_c2l(data,l); T1 = X[12] = l; ROUND_00_15(12,e,f,g,h,a,b,c,d);
-		HOST_c2l(data,l); T1 = X[13] = l; ROUND_00_15(13,d,e,f,g,h,a,b,c);
-		HOST_c2l(data,l); T1 = X[14] = l; ROUND_00_15(14,c,d,e,f,g,h,a,b);
-		HOST_c2l(data,l); T1 = X[15] = l; ROUND_00_15(15,b,c,d,e,f,g,h,a);
+		HOST_c2l_noret(data,l); T1 = X[0] = l;  ROUND_00_15(0,a,b,c,d,e,f,g,h);
+		HOST_c2l_noret(data,l); T1 = X[1] = l;  ROUND_00_15(1,h,a,b,c,d,e,f,g);
+		HOST_c2l_noret(data,l); T1 = X[2] = l;  ROUND_00_15(2,g,h,a,b,c,d,e,f);
+		HOST_c2l_noret(data,l); T1 = X[3] = l;  ROUND_00_15(3,f,g,h,a,b,c,d,e);
+		HOST_c2l_noret(data,l); T1 = X[4] = l;  ROUND_00_15(4,e,f,g,h,a,b,c,d);
+		HOST_c2l_noret(data,l); T1 = X[5] = l;  ROUND_00_15(5,d,e,f,g,h,a,b,c);
+		HOST_c2l_noret(data,l); T1 = X[6] = l;  ROUND_00_15(6,c,d,e,f,g,h,a,b);
+		HOST_c2l_noret(data,l); T1 = X[7] = l;  ROUND_00_15(7,b,c,d,e,f,g,h,a);
+		HOST_c2l_noret(data,l); T1 = X[8] = l;  ROUND_00_15(8,a,b,c,d,e,f,g,h);
+		HOST_c2l_noret(data,l); T1 = X[9] = l;  ROUND_00_15(9,h,a,b,c,d,e,f,g);
+		HOST_c2l_noret(data,l); T1 = X[10] = l; ROUND_00_15(10,g,h,a,b,c,d,e,f);
+		HOST_c2l_noret(data,l); T1 = X[11] = l; ROUND_00_15(11,f,g,h,a,b,c,d,e);
+		HOST_c2l_noret(data,l); T1 = X[12] = l; ROUND_00_15(12,e,f,g,h,a,b,c,d);
+		HOST_c2l_noret(data,l); T1 = X[13] = l; ROUND_00_15(13,d,e,f,g,h,a,b,c);
+		HOST_c2l_noret(data,l); T1 = X[14] = l; ROUND_00_15(14,c,d,e,f,g,h,a,b);
+		HOST_c2l_noret(data,l); T1 = X[15] = l; ROUND_00_15(15,b,c,d,e,f,g,h,a);
 		}
 
 	for (i=16;i<64;i+=8)
