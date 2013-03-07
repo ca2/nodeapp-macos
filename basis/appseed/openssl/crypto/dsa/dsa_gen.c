@@ -141,7 +141,7 @@ int dsa_builtin_paramgen(DSA *ret, size_t bits, size_t qbits,
 	BIGNUM *r0,*W,*X,*c,*test;
 	BIGNUM *g=NULL,*q=NULL,*p=NULL;
 	BN_MONT_CTX *mont=NULL;
-	int i, k, n=0, m=0, qsize = qbits >> 3;
+	int i, k, n=0, m=0, qsize = (int) (qbits >> 3);
 	int counter=0;
 	int r=0;
 	BN_CTX *ctx=NULL;
@@ -188,7 +188,7 @@ int dsa_builtin_paramgen(DSA *ret, size_t bits, size_t qbits,
 	p = BN_CTX_get(ctx);
 	test = BN_CTX_get(ctx);
 
-	if (!BN_lshift(test,BN_value_one(),bits-1))
+	if (!BN_lshift(test,BN_value_one(),(int) (bits-1)))
 		goto err;
 
 	for (;;)
@@ -254,7 +254,7 @@ int dsa_builtin_paramgen(DSA *ret, size_t bits, size_t qbits,
 		counter=0;
 		/* "offset = 2" */
 
-		n=(bits-1)/160;
+		n=(int) ((bits-1)/160);
 
 		for (;;)
 			{
@@ -286,7 +286,7 @@ int dsa_builtin_paramgen(DSA *ret, size_t bits, size_t qbits,
 				}
 
 			/* more of step 8 */
-			if (!BN_mask_bits(W,bits-1)) goto err;
+			if (!BN_mask_bits(W,(int) (bits-1))) goto err;
 			if (!BN_copy(X,W)) goto err;
 			if (!BN_add(X,X,test)) goto err;
 
