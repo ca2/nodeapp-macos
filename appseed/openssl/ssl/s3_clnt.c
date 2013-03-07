@@ -807,8 +807,8 @@ int ssl3_client_hello(SSL *s)
 
 		s->state=SSL3_ST_CW_CLNT_HELLO_B;
 		/* number of bytes to write */
-		s->init_num=p-buf;
-		s->init_off=0;
+		s->init_num = (int) (p - buf);
+		s->init_off = 0;
 		}
 
 	/* SSL3_ST_CW_CLNT_HELLO_B */
@@ -987,7 +987,10 @@ int ssl3_get_server_hello(SSL *s)
 	 * client authentication.
 	 */
 	if (TLS1_get_version(s) < TLS1_2_VERSION && !ssl3_digest_cached_records(s))
+   {
+		al=SSL_AD_ILLEGAL_PARAMETER;
 		goto f_err;
+   }
 	/* lets get the compression algorithm */
 	/* COMPRESSION */
 #ifdef OPENSSL_NO_COMP
@@ -1041,7 +1044,7 @@ int ssl3_get_server_hello(SSL *s)
 	/* TLS extensions*/
 	if (s->version >= SSL3_VERSION)
 		{
-		if (!ssl_parse_serverhello_tlsext(s,&p,d,n, &al))
+		if (!ssl_parse_serverhello_tlsext(s,&p,d, (int) n, &al))
 			{
 			/* 'al' set by ssl_parse_serverhello_tlsext */
 			SSLerr(SSL_F_SSL3_GET_SERVER_HELLO,SSL_R_PARSE_TLSEXT);
@@ -1781,7 +1784,7 @@ fprintf(stderr, "USING TLSv1.2 HASH %s\n", EVP_MD_name(md));
 				q+=i;
 				j+=i;
 				}
-			i=RSA_verify(NID_md5_sha1, md_buf, j, p, n,
+			i=RSA_verify(NID_md5_sha1, md_buf, j, p, (unsigned int) n,
 								pkey->pkey.rsa);
 			if (i < 0)
 				{
@@ -2162,7 +2165,7 @@ int ssl3_get_cert_status(SSL *s)
 		SSLerr(SSL_F_SSL3_GET_CERT_STATUS,ERR_R_MALLOC_FAILURE);
 		goto f_err;
 		}
-	s->tlsext_ocsp_resplen = resplen;
+	s->tlsext_ocsp_resplen = (int) resplen;
 	if (s->ctx->tlsext_status_cb)
 		{
 		int ret;
@@ -2647,7 +2650,7 @@ int ssl3_send_client_key_exchange(SSL *s)
 				 * allocate memory accordingly.
 				 */
 				encoded_pt_len = 
-				    EC_POINT_point2oct(srvr_group, 
+               (int) EC_POINT_point2oct(srvr_group,
 					EC_KEY_get0_public_key(clnt_ecdh), 
 					POINT_CONVERSION_UNCOMPRESSED, 
 					NULL, 0, NULL);
@@ -2664,7 +2667,7 @@ int ssl3_send_client_key_exchange(SSL *s)
 					}
 
 				/* Encode the public key */
-				n = EC_POINT_point2oct(srvr_group, 
+				n = (int) EC_POINT_point2oct(srvr_group,
 				    EC_KEY_get0_public_key(clnt_ecdh), 
 				    POINT_CONVERSION_UNCOMPRESSED, 
 				    encodedPoint, encoded_pt_len, bn_ctx);
@@ -2755,12 +2758,12 @@ int ssl3_send_client_key_exchange(SSL *s)
 				{
 				*(p++)=0x81;
 				*(p++)= msglen & 0xff;
-				n=msglen+3;
+				n = (int) (msglen + 3);
 				}
 			else
 				{
 				*(p++)= msglen & 0xff;
-				n=msglen+2;
+				n = (int) (msglen + 2);
 				}
 			memcpy(p, tmp, msglen);
 			/* Check if pubkey from client certificate was used */
@@ -2876,7 +2879,7 @@ int ssl3_send_client_key_exchange(SSL *s)
 				s->method->ssl3_enc->generate_master_secret(s,
 					s->session->master_key,
 					psk_or_pre_ms, pre_ms_len); 
-			n = strlen(identity);
+			n = (int) strlen(identity);
 			s2n(n, p);
 			memcpy(p, identity, n);
 			n+=2;

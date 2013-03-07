@@ -891,15 +891,15 @@ int dtls1_send_hello_verify_request(SSL *s)
 		*(p++) = (unsigned char) s->d1->cookie_len;
 		memcpy(p, s->d1->cookie, s->d1->cookie_len);
 		p += s->d1->cookie_len;
-		msg_len = p - msg;
+		msg_len = (int) (p - msg);
 
 		dtls1_set_message_header(s, buf,
 			DTLS1_MT_HELLO_VERIFY_REQUEST, msg_len, 0, msg_len);
 
 		s->state=DTLS1_ST_SW_HELLO_VERIFY_REQUEST_B;
 		/* number of bytes to write */
-		s->init_num=p-buf;
-		s->init_off=0;
+		s->init_num = (int) (p - buf);
+		s->init_off = 0;
 		}
 
 	/* s->state = DTLS1_ST_SW_HELLO_VERIFY_REQUEST_B */
@@ -984,8 +984,8 @@ int dtls1_send_server_hello(SSL *s)
 
 		s->state=SSL3_ST_SW_SRVR_HELLO_B;
 		/* number of bytes to write */
-		s->init_num=p-buf;
-		s->init_off=0;
+		s->init_num = (int) (p - buf);
+		s->init_off = 0;
 
 		/* buffer the message to handle re-xmits */
 		dtls1_buffer_message(s, 0);
@@ -1227,7 +1227,7 @@ int dtls1_send_server_key_exchange(SSL *s)
 			 * First check the size of encoding and
 			 * allocate memory accordingly.
 			 */
-			encodedlen = EC_POINT_point2oct(group, 
+			encodedlen = (int) EC_POINT_point2oct(group,
 			    EC_KEY_get0_public_key(ecdh),
 			    POINT_CONVERSION_UNCOMPRESSED, 
 			    NULL, 0, NULL);
@@ -1242,7 +1242,7 @@ int dtls1_send_server_key_exchange(SSL *s)
 				}
 
 
-			encodedlen = EC_POINT_point2oct(group, 
+			encodedlen = (int) EC_POINT_point2oct(group,
 			    EC_KEY_get0_public_key(ecdh), 
 			    POINT_CONVERSION_UNCOMPRESSED, 
 			    encodedPoint, encodedlen, bn_ctx);
@@ -1685,7 +1685,7 @@ int dtls1_send_newsession_ticket(SSL *s)
 		p += hlen;
 		/* Now write out lengths: p points to end of data written */
 		/* Total length */
-		len = p - (unsigned char *)(s->init_buf->data);
+		len = (int) (p - (unsigned char *)(s->init_buf->data));
 		/* Ticket length */
 		p=(unsigned char *)&(s->init_buf->data[DTLS1_HM_HEADER_LENGTH]) + 4;
 		s2n(len - DTLS1_HM_HEADER_LENGTH - 6, p);
