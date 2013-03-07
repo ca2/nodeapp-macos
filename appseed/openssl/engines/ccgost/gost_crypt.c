@@ -275,7 +275,7 @@ int	gost_cipher_do_cfb(EVP_CIPHER_CTX *ctx, unsigned char *out,
 			}
 		else
 			{
-			ctx->num=j;
+			ctx->num = (int) j;
 			return 1;
 			}	
 		}	
@@ -304,7 +304,7 @@ int	gost_cipher_do_cfb(EVP_CIPHER_CTX *ctx, unsigned char *out,
 			{
 			out_ptr[j]=ctx->buf[j]^in_ptr[j];
 			}			
-		ctx->num = j;
+		ctx->num = (int) j;
 		if (ctx->encrypt) memcpy(ctx->buf+8,out_ptr,j);
 		}
 	else
@@ -334,7 +334,7 @@ static int gost_cipher_do_cnt(EVP_CIPHER_CTX *ctx, unsigned char *out,
 			}
 		else
 			{
-			ctx->num=j;
+			ctx->num = (int) j;
 			return 1;
 			}	
 		}	
@@ -359,7 +359,7 @@ static int gost_cipher_do_cnt(EVP_CIPHER_CTX *ctx, unsigned char *out,
 			{
 			out_ptr[j]=ctx->buf[j]^in_ptr[j];
 			}			
-		ctx->num = j;
+		ctx->num = (int) j;
 		}
 	else
 		{
@@ -540,7 +540,7 @@ int gost_imit_update(EVP_MD_CTX *ctx, const void *data, size_t count)
 			}
 		else
 			{
-			c->bytes_left = i;
+			c->bytes_left = (int) i;
 			return 1;
 			}		
 		}	
@@ -554,7 +554,7 @@ int gost_imit_update(EVP_MD_CTX *ctx, const void *data, size_t count)
 		{
 		memcpy(c->partial_block,p,bytes);
 		}	
-	c->bytes_left=bytes;
+	c->bytes_left = (int) bytes;
 	return 1;
 	}
 
