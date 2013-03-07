@@ -206,10 +206,10 @@
      * this trick on x86* platforms only, because these CPUs can fetch
      * unaligned data without raising an exception.
      */
-#   define HOST_c2l(c,l)	({ unsigned int r=*((const unsigned int *)(c));	\
+#   define HOST_c2l_noret(c,l)	({ unsigned int r=*((const unsigned int *)(c));	\
 				   asm ("bswapl %0":"=r"(r):"0"(r));	\
 				   (c)+=4; (l)=r;			})
-#   define HOST_l2c(l,c)	({ unsigned int r=(l);			\
+#   define HOST_l2c_noret(l,c)	({ unsigned int r=(l);			\
 				   asm ("bswapl %0":"=r"(r):"0"(r));	\
 				   *((unsigned int *)(c))=r; (c)+=4; r;	})
 #   endif
@@ -217,19 +217,19 @@
 # endif
 #endif
 #if defined(__s390__) || defined(__s390x__)
-# define HOST_c2l(c,l) ((l)=*((const unsigned int *)(c)), (c)+=4, (l))
-# define HOST_l2c(l,c) (*((unsigned int *)(c))=(l), (c)+=4, (l))
+# define HOST_c2l_noret(c,l) ((l)=*((const unsigned int *)(c)), (c)+=4, (l))
+# define HOST_l2c_noret(l,c) (*((unsigned int *)(c))=(l), (c)+=4, (l))
 #endif
 
-#ifndef HOST_c2l
-#define HOST_c2l(c,l)	(l =(((unsigned long)(*((c)++)))<<24),		\
+#ifndef HOST_c2l_noret
+#define HOST_c2l_noret(c,l)	(l =(((unsigned long)(*((c)++)))<<24),		\
 			 l|=(((unsigned long)(*((c)++)))<<16),		\
 			 l|=(((unsigned long)(*((c)++)))<< 8),		\
 			 l|=(((unsigned long)(*((c)++)))    ),		\
 			 l)
 #endif
-#ifndef HOST_l2c
-#define HOST_l2c(l,c)	(*((c)++)=(unsigned char)(((l)>>24)&0xff),	\
+#ifndef HOST_l2c_noret
+#define HOST_l2c_noret(l,c)	(*((c)++)=(unsigned char)(((l)>>24)&0xff),	\
 			 *((c)++)=(unsigned char)(((l)>>16)&0xff),	\
 			 *((c)++)=(unsigned char)(((l)>> 8)&0xff),	\
 			 *((c)++)=(unsigned char)(((l)    )&0xff),	\
@@ -253,27 +253,29 @@
 #if defined(__i386) || defined(__i386__) || defined(__x86_64) || defined(__x86_64__)
 # ifndef B_ENDIAN
    /* See comment in DATA_ORDER_IS_BIG_ENDIAN section. */
-#  define HOST_c2l(c,l)	((l)=*((const unsigned int *)(c)), (c)+=4, l)
-#  define HOST_l2c(l,c)	(*((unsigned int *)(c))=(l), (c)+=4, l)
+#  define HOST_c2l_noret(c,l)	((l)=*((const unsigned int *)(c)), (c)+=4)
+#  define HOST_l2c_noret(l,c)	(*((unsigned int *)(c))=(l), (c)+=4)
 # endif
 #endif
 
-#ifndef HOST_c2l
-#define HOST_c2l(c,l)	(l =(((unsigned long)(*((c)++)))    ),		\
-			 l|=(((unsigned long)(*((c)++)))<< 8),		\
-			 l|=(((unsigned long)(*((c)++)))<<16),		\
-			 l|=(((unsigned long)(*((c)++)))<<24),		\
-			 l)
+#ifndef HOST_c2l_noret
+#define HOST_c2l_noret(c,l)	(l =(((unsigned int)(*((c)++)))    ),		\
+			 l|=(((unsigned int)(*((c)++)))<< 8),		\
+			 l|=(((unsigned int)(*((c)++)))<<16),		\
+			 l|=(((unsigned int)(*((c)++)))<<24))
 #endif
-#ifndef HOST_l2c
-#define HOST_l2c(l,c)	(*((c)++)=(unsigned char)(((l)    )&0xff),	\
+#ifndef HOST_l2c_noret
+#define HOST_l2c_noret(l,c)	(*((c)++)=(unsigned char)(((l)    )&0xff),	\
 			 *((c)++)=(unsigned char)(((l)>> 8)&0xff),	\
 			 *((c)++)=(unsigned char)(((l)>>16)&0xff),	\
-			 *((c)++)=(unsigned char)(((l)>>24)&0xff),	\
-			 l)
+			 *((c)++)=(unsigned char)(((l)>>24)&0xff))
 #endif
 
 #endif
+
+#  define HOST_c2l_ret(c,l)	(HOST_c2l_noret(c,l), l)
+#  define HOST_l2c_ret(l,c)	(HOST_c2l_noret(l,c), l)
+
 
 /*
  * Time for some action:-)
@@ -362,11 +364,11 @@ int HASH_FINAL (unsigned char *md, HASH_CTX *c)
 
 	p += HASH_CBLOCK-8;
 #if   defined(DATA_ORDER_IS_BIG_ENDIAN)
-	(void)HOST_l2c(c->Nh,p);
-	(void)HOST_l2c(c->Nl,p);
+	(void)HOST_l2c_ret(c->Nh,p);
+	(void)HOST_l2c_ret(c->Nl,p);
 #elif defined(DATA_ORDER_IS_LITTLE_ENDIAN)
-	(void)HOST_l2c(c->Nl,p);
-	(void)HOST_l2c(c->Nh,p);
+	(void)HOST_l2c_ret(c->Nl,p);
+	(void)HOST_l2c_ret(c->Nh,p);
 #endif
 	p -= HASH_CBLOCK;
 	HASH_BLOCK_DATA_ORDER (c,p,1);
