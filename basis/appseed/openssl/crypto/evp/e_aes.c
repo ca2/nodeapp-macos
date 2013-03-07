@@ -666,7 +666,7 @@ static int aes_ctr_cipher (EVP_CIPHER_CTX *ctx, unsigned char *out,
 	else
 		CRYPTO_ctr128_encrypt(in,out,len,&dat->ks,
 			ctx->iv,ctx->buf,&num,dat->block);
-	ctx->num = (size_t)num;
+	ctx->num = (int)num;
 	return 1;
 }
 
@@ -922,7 +922,7 @@ static int aes_gcm_tls_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 		out += len;
 		/* Finally write tag */
 		CRYPTO_gcm128_tag(&gctx->gcm, out, EVP_GCM_TLS_TAG_LEN);
-		rv = len + EVP_GCM_TLS_EXPLICIT_IV_LEN + EVP_GCM_TLS_TAG_LEN;
+		rv = (int) (len + EVP_GCM_TLS_EXPLICIT_IV_LEN + EVP_GCM_TLS_TAG_LEN);
 		}
 	else
 		{
@@ -947,7 +947,7 @@ static int aes_gcm_tls_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 			OPENSSL_cleanse(out, len);
 			goto err;
 			}
-		rv = len;
+		rv = (int) len;
 		}
 
 	err:
@@ -1006,7 +1006,7 @@ static int aes_gcm_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 					return -1;
 				}
 			}
-		return len;
+		return (int) len;
 		}
 	else
 		{
@@ -1252,13 +1252,13 @@ static int aes_ccm_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 			if (CRYPTO_ccm128_setiv(ccm, ctx->iv, 15 - cctx->L,len))
 				return -1;
 			cctx->len_set = 1;
-			return len;
+			return (int) len;
 			}
 		/* If have AAD need message length */
 		if (!cctx->len_set && len)
 			return -1;
 		CRYPTO_ccm128_aad(ccm, in, len);
-		return len;
+		return (int) len;
 		}
 	/* EVP_*Final() doesn't return any data */
 	if (!in)
@@ -1277,7 +1277,7 @@ static int aes_ccm_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 				CRYPTO_ccm128_encrypt(ccm, in, out, len))
 			return -1;
 		cctx->tag_set = 1;
-		return len;
+		return (int) len;
 		}
 	else
 		{
@@ -1290,7 +1290,7 @@ static int aes_ccm_cipher(EVP_CIPHER_CTX *ctx, unsigned char *out,
 			if (CRYPTO_ccm128_tag(ccm, tag, cctx->M))
 				{
 				if (!memcmp(tag, ctx->buf, cctx->M))
-					rv = len;
+					rv = (int) len;
 				}
 			}
 		if (rv == -1)
