@@ -228,7 +228,7 @@ static int pkey_hmac_ctrl_str(EVP_PKEY_CTX *ctx,
 		key = string_to_hex(value, &keylen);
 		if (!key)
 			return 0;
-		r = pkey_hmac_ctrl(ctx, EVP_PKEY_CTRL_SET_MAC_KEY, keylen, key);
+		r = pkey_hmac_ctrl(ctx, EVP_PKEY_CTRL_SET_MAC_KEY, (int) keylen, key);
 		OPENSSL_free(key);
 		return r;
 		}
