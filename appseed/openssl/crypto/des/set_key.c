@@ -370,8 +370,8 @@ void private_DES_set_key_unchecked(const_DES_cblock *key, DES_key_schedule *sche
 	PERM_OP (d,c,t,1,0x55555555L);
 	PERM_OP (c,d,t,8,0x00ff00ffL);
 	PERM_OP (d,c,t,1,0x55555555L);
-	d=	(((d&0x000000ffL)<<16L)| (d&0x0000ff00L)     |
-		 ((d&0x00ff0000L)>>16L)|((c&0xf0000000L)>>4L));
+	d=	 (int) ((((d&0x000000ffL)<<16L)| (d&0x0000ff00L)     |
+		 ((d&0x00ff0000L)>>16L)|((c&0xf0000000L)>>4L)));
 	c&=0x0fffffffL;
 
 	for (i=0; i<ITERATIONS; i++)

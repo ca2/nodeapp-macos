@@ -82,14 +82,14 @@ void DES_ofb_encrypt(const unsigned char *in, unsigned char *out, int numbits,
 		if (num >= 64)
 			mask1=mask0;
 		else
-			mask1=(1L<<(num-32))-1;
+			mask1=(int) ((1L<<(num-32))-1);
 		}
 	else
 		{
 		if (num == 32)
 			mask0=0xffffffffL;
 		else
-			mask0=(1L<<num)-1;
+			mask0=(int) ((1L<<num)-1);
 		mask1=0x00000000L;
 		}
 

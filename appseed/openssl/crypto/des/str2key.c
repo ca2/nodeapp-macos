@@ -66,7 +66,7 @@ void DES_string_to_key(const char *str, DES_cblock *key)
 	register unsigned char j;
 
 	memset(key,0,8);
-	length=strlen(str);
+	length=(int) strlen(str);
 #ifdef OLD_STR_TO_KEY
 	for (i=0; i<length; i++)
 		(*key)[i%8]^=(str[i]<<1);
@@ -107,7 +107,7 @@ void DES_string_to_2keys(const char *str, DES_cblock *key1, DES_cblock *key2)
 
 	memset(key1,0,8);
 	memset(key2,0,8);
-	length=strlen(str);
+	length=(int) strlen(str);
 #ifdef OLD_STR_TO_KEY
 	if (length <= 8)
 		{

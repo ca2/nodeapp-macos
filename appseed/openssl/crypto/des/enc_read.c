@@ -151,7 +151,7 @@ int DES_enc_read(int fd, void *buf, int len, DES_key_schedule *sched,
 	while (net_num < HDRSIZE) 
 		{
 #ifndef OPENSSL_SYS_WIN32
-		i=read(fd,(void *)&(net[net_num]),HDRSIZE-net_num);
+		i=(int) read(fd,(void *)&(net[net_num]),HDRSIZE-net_num);
 #else
 		i=_read(fd,(void *)&(net[net_num]),HDRSIZE-net_num);
 #endif
@@ -177,7 +177,7 @@ int DES_enc_read(int fd, void *buf, int len, DES_key_schedule *sched,
 	while (net_num < rnum)
 		{
 #ifndef OPENSSL_SYS_WIN32
-		i=read(fd,(void *)&(net[net_num]),rnum-net_num);
+		i=(int) read(fd,(void *)&(net[net_num]),rnum-net_num);
 #else
 		i=_read(fd,(void *)&(net[net_num]),rnum-net_num);
 #endif
@@ -197,7 +197,7 @@ int DES_enc_read(int fd, void *buf, int len, DES_key_schedule *sched,
 			DES_cbc_encrypt(net,unnet,num,sched,iv,DES_DECRYPT);
 		memcpy(buf,unnet,len);
 		unnet_start=len;
-		unnet_left=num-len;
+		unnet_left=(int) (num-len);
 
 		/* The following line is done because we return num
 		 * as the number of bytes read. */
@@ -234,7 +234,7 @@ int DES_enc_read(int fd, void *buf, int len, DES_key_schedule *sched,
 						DES_DECRYPT);
 			}
 		}
-	return num;
+	return (int) num;
 #endif /* OPENSSL_NO_POSIX_IO */
 	}
 
