@@ -82,7 +82,7 @@ int PKCS12_gen_mac(PKCS12 *p12, const char *pass, int passlen,
 	salt = p12->mac->salt->data;
 	saltlen = p12->mac->salt->length;
 	if (!p12->mac->iter) iter = 1;
-	else iter = ASN1_INTEGER_get (p12->mac->iter);
+	else iter = (int) ASN1_INTEGER_get (p12->mac->iter);
     	if(!(md_type =
 		 EVP_get_digestbyobj (p12->mac->dinfo->algor->algorithm))) {
 		PKCS12err(PKCS12_F_PKCS12_GEN_MAC,PKCS12_R_UNKNOWN_DIGEST_ALGORITHM);

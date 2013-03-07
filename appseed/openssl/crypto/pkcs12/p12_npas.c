@@ -218,7 +218,7 @@ static int alg_get(X509_ALGOR *alg, int *pnid, int *piter, int *psaltlen)
 	if (!pbe)
 		return 0;
         *pnid = OBJ_obj2nid(alg->algorithm);
-	*piter = ASN1_INTEGER_get(pbe->iter);
+	*piter = (int) ASN1_INTEGER_get(pbe->iter);
 	*psaltlen = pbe->salt->length;
         PBEPARAM_free(pbe);
         return 1;
