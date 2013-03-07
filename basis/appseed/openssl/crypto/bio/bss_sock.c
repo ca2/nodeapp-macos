@@ -139,7 +139,7 @@ static int sock_read(BIO *b, char *out, int outl)
 	if (out != NULL)
 		{
 		clear_socket_error();
-		ret=readsocket(b->num,out,outl);
+		ret=(int) readsocket(b->num,out,outl);
 		BIO_clear_retry_flags(b);
 		if (ret <= 0)
 			{
@@ -155,7 +155,7 @@ static int sock_write(BIO *b, const char *in, int inl)
 	int ret;
 	
 	clear_socket_error();
-	ret=writesocket(b->num,in,inl);
+	ret=(int) writesocket(b->num,in,inl);
 	BIO_clear_retry_flags(b);
 	if (ret <= 0)
 		{
@@ -209,7 +209,7 @@ static int sock_puts(BIO *bp, const char *str)
 	{
 	int n,ret;
 
-	n=strlen(str);
+	n=(int) strlen(str);
 	ret=sock_write(bp,str,n);
 	return(ret);
 	}

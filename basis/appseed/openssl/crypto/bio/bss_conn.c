@@ -415,7 +415,7 @@ static int conn_read(BIO *b, char *out, int outl)
 	if (out != NULL)
 		{
 		clear_socket_error();
-		ret=readsocket(b->num,out,outl);
+		ret=(int) readsocket(b->num,out,outl);
 		BIO_clear_retry_flags(b);
 		if (ret <= 0)
 			{
@@ -439,7 +439,7 @@ static int conn_write(BIO *b, const char *in, int inl)
 		}
 
 	clear_socket_error();
-	ret=writesocket(b->num,in,inl);
+	ret=(int) writesocket(b->num,in,inl);
 	BIO_clear_retry_flags(b);
 	if (ret <= 0)
 		{
@@ -628,7 +628,7 @@ static int conn_puts(BIO *bp, const char *str)
 	{
 	int n,ret;
 
-	n=strlen(str);
+	n = (int) strlen(str);
 	ret=conn_write(bp,str,n);
 	return(ret);
 	}

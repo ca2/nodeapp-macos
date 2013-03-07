@@ -102,13 +102,13 @@ int BUF_MEM_grow(BUF_MEM *str, size_t len)
 	if (str->length >= len)
 		{
 		str->length=len;
-		return(len);
+		return (int) (len);
 		}
 	if (str->max >= len)
 		{
 		memset(&str->data[str->length],0,len-str->length);
 		str->length=len;
-		return(len);
+		return (int) (len);
 		}
 	/* This limit is sufficient to ensure (len+3)/3*4 < 2**31 */
 	if (len > LIMIT_BEFORE_EXPANSION)
@@ -133,7 +133,7 @@ int BUF_MEM_grow(BUF_MEM *str, size_t len)
 		memset(&str->data[str->length],0,len-str->length);
 		str->length=len;
 		}
-	return(len);
+	return (int) (len);
 	}
 
 int BUF_MEM_grow_clean(BUF_MEM *str, size_t len)
@@ -145,13 +145,13 @@ int BUF_MEM_grow_clean(BUF_MEM *str, size_t len)
 		{
 		memset(&str->data[len],0,str->length-len);
 		str->length=len;
-		return(len);
+		return (int) (len);
 		}
 	if (str->max >= len)
 		{
 		memset(&str->data[str->length],0,len-str->length);
 		str->length=len;
-		return(len);
+		return (int) (len);
 		}
 	/* This limit is sufficient to ensure (len+3)/3*4 < 2**31 */
 	if (len > LIMIT_BEFORE_EXPANSION)
@@ -163,7 +163,7 @@ int BUF_MEM_grow_clean(BUF_MEM *str, size_t len)
 	if (str->data == NULL)
 		ret=OPENSSL_malloc(n);
 	else
-		ret=OPENSSL_realloc_clean(str->data,str->max,n);
+		ret=OPENSSL_realloc_clean(str->data,(int) str->max,(int) n);
 	if (ret == NULL)
 		{
 		BUFerr(BUF_F_BUF_MEM_GROW_CLEAN,ERR_R_MALLOC_FAILURE);
@@ -176,7 +176,7 @@ int BUF_MEM_grow_clean(BUF_MEM *str, size_t len)
 		memset(&str->data[str->length],0,len-str->length);
 		str->length=len;
 		}
-	return(len);
+	return (int) (len);
 	}
 
 void BUF_reverse(unsigned char *out, unsigned char *in, size_t size)
