@@ -229,7 +229,7 @@ static int pkey_rsa_sign(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *siglen,
 			if (rctx->pad_mode != RSA_PKCS1_PADDING)
 				return -1;
 			ret = RSA_sign_ASN1_OCTET_STRING(NID_mdc2,
-						tbs, tbslen, sig, &sltmp, rsa);
+						tbs, (int) tbslen, sig, &sltmp, rsa);
 
 			if (ret <= 0)
 				return ret;
@@ -242,14 +242,14 @@ static int pkey_rsa_sign(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *siglen,
 			memcpy(rctx->tbuf, tbs, tbslen);
 			rctx->tbuf[tbslen] =
 				RSA_X931_hash_id(EVP_MD_type(rctx->md));
-			ret = RSA_private_encrypt(tbslen + 1, rctx->tbuf,
+			ret = RSA_private_encrypt((int) tbslen + 1, rctx->tbuf,
 						sig, rsa, RSA_X931_PADDING);
 			}
 		else if (rctx->pad_mode == RSA_PKCS1_PADDING)
 			{
 			unsigned int sltmp;
 			ret = RSA_sign(EVP_MD_type(rctx->md),
-						tbs, tbslen, sig, &sltmp, rsa);
+						tbs, (int) tbslen, sig, &sltmp, rsa);
 			if (ret <= 0)
 				return ret;
 			ret = sltmp;
@@ -270,7 +270,7 @@ static int pkey_rsa_sign(EVP_PKEY_CTX *ctx, unsigned char *sig, size_t *siglen,
 			return -1;
 		}
 	else
-		ret = RSA_private_encrypt(tbslen, tbs, sig, ctx->pkey->pkey.rsa,
+		ret = RSA_private_encrypt((int) tbslen, tbs, sig, ctx->pkey->pkey.rsa,
 							rctx->pad_mode);
 	if (ret < 0)
 		return ret;
@@ -292,7 +292,7 @@ static int pkey_rsa_verifyrecover(EVP_PKEY_CTX *ctx,
 			{
 			if (!setup_tbuf(rctx, ctx))
 				return -1;
-			ret = RSA_public_decrypt(siglen, sig,
+			ret = RSA_public_decrypt((int) siglen, sig,
 						rctx->tbuf, ctx->pkey->pkey.rsa,
 						RSA_X931_PADDING);
 			if (ret < 1)
@@ -322,13 +322,13 @@ static int pkey_rsa_verifyrecover(EVP_PKEY_CTX *ctx,
 					sig, siglen, ctx->pkey->pkey.rsa);
 			if (ret <= 0)
 				return 0;
-			ret = sltmp;
+			ret = (int) sltmp;
 			}
 		else
 			return -1;
 		}
 	else
-		ret = RSA_public_decrypt(siglen, sig, rout, ctx->pkey->pkey.rsa,
+		ret = RSA_public_decrypt((int) siglen, sig, rout, ctx->pkey->pkey.rsa,
 							rctx->pad_mode);
 	if (ret < 0)
 		return ret;
@@ -368,8 +368,8 @@ static int pkey_rsa_verify(EVP_PKEY_CTX *ctx,
 			}
 #endif
 		if (rctx->pad_mode == RSA_PKCS1_PADDING)
-			return RSA_verify(EVP_MD_type(rctx->md), tbs, tbslen,
-					sig, siglen, rsa);
+			return RSA_verify(EVP_MD_type(rctx->md), tbs, (int) tbslen,
+					sig, (int) siglen, rsa);
 		if (rctx->pad_mode == RSA_X931_PADDING)
 			{
 			if (pkey_rsa_verifyrecover(ctx, NULL, &rslen,
@@ -381,7 +381,7 @@ static int pkey_rsa_verify(EVP_PKEY_CTX *ctx,
 			int ret;
 			if (!setup_tbuf(rctx, ctx))
 				return -1;
-			ret = RSA_public_decrypt(siglen, sig, rctx->tbuf,
+			ret = RSA_public_decrypt((int) siglen, sig, rctx->tbuf,
 							rsa, RSA_NO_PADDING);
 			if (ret <= 0)
 				return 0;
@@ -399,7 +399,7 @@ static int pkey_rsa_verify(EVP_PKEY_CTX *ctx,
 		{
 		if (!setup_tbuf(rctx, ctx))
 			return -1;
-		rslen = RSA_public_decrypt(siglen, sig, rctx->tbuf,
+		rslen = RSA_public_decrypt((int) siglen, sig, rctx->tbuf,
 						rsa, rctx->pad_mode);
 		if (rslen == 0)
 			return 0;
@@ -419,7 +419,7 @@ static int pkey_rsa_encrypt(EVP_PKEY_CTX *ctx,
 	{
 	int ret;
 	RSA_PKEY_CTX *rctx = ctx->data;
-	ret = RSA_public_encrypt(inlen, in, out, ctx->pkey->pkey.rsa,
+	ret = RSA_public_encrypt((int) inlen, in, out, ctx->pkey->pkey.rsa,
 							rctx->pad_mode);
 	if (ret < 0)
 		return ret;
@@ -433,7 +433,7 @@ static int pkey_rsa_decrypt(EVP_PKEY_CTX *ctx,
 	{
 	int ret;
 	RSA_PKEY_CTX *rctx = ctx->data;
-	ret = RSA_private_decrypt(inlen, in, out, ctx->pkey->pkey.rsa,
+	ret = RSA_private_decrypt((int) inlen, in, out, ctx->pkey->pkey.rsa,
 							rctx->pad_mode);
 	if (ret < 0)
 		return ret;
