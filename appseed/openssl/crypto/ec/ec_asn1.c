@@ -520,8 +520,8 @@ static int ec_asn1_group2curve(const EC_GROUP *group, X9_62_CURVE *curve)
 		}
 	
 	/* set a and b */
-	if (!M_ASN1_OCTET_STRING_set(curve->a, a_buf, len_1) ||
-	    !M_ASN1_OCTET_STRING_set(curve->b, b_buf, len_2))
+	if (!M_ASN1_OCTET_STRING_set(curve->a, a_buf, (int) len_1) ||
+	    !M_ASN1_OCTET_STRING_set(curve->b, b_buf, (int) len_2))
 		{
 		ECerr(EC_F_EC_ASN1_GROUP2CURVE, ERR_R_ASN1_LIB);
 		goto err;
@@ -643,7 +643,7 @@ static ECPARAMETERS *ec_asn1_group2parameters(const EC_GROUP *group,
 		ECerr(EC_F_EC_ASN1_GROUP2PARAMETERS, ERR_R_MALLOC_FAILURE);
 		goto err;
 		}
-	if (!ASN1_OCTET_STRING_set(ret->base, buffer, len))
+	if (!ASN1_OCTET_STRING_set(ret->base, buffer, (int) len))
 		{
 		ECerr(EC_F_EC_ASN1_GROUP2PARAMETERS, ERR_R_ASN1_LIB);
 		goto err;
@@ -1159,7 +1159,7 @@ EC_KEY *d2i_ECPrivateKey(EC_KEY **a, const unsigned char **in, long len)
 		goto err;
 		}
 
-	ret->version = priv_key->version;
+	ret->version = (int) priv_key->version;
 
 	if (priv_key->privateKey)
 		{
@@ -1259,7 +1259,7 @@ int	i2d_ECPrivateKey(EC_KEY *a, unsigned char **out)
 		goto err;
 		}
 
-	if (!M_ASN1_OCTET_STRING_set(priv_key->privateKey, buffer, buf_len))
+	if (!M_ASN1_OCTET_STRING_set(priv_key->privateKey, buffer, (int) buf_len))
 		{
 		ECerr(EC_F_I2D_ECPRIVATEKEY, ERR_R_ASN1_LIB);
 		goto err;
@@ -1310,7 +1310,7 @@ int	i2d_ECPrivateKey(EC_KEY *a, unsigned char **out)
 		priv_key->publicKey->flags &= ~(ASN1_STRING_FLAG_BITS_LEFT|0x07);
 		priv_key->publicKey->flags |= ASN1_STRING_FLAG_BITS_LEFT;
 		if (!M_ASN1_BIT_STRING_set(priv_key->publicKey, buffer, 
-				buf_len))
+				(int) buf_len))
 			{
 			ECerr(EC_F_I2D_ECPRIVATEKEY, ERR_R_ASN1_LIB);
 			goto err;
@@ -1418,7 +1418,7 @@ int i2o_ECPublicKey(EC_KEY *a, unsigned char **out)
 
 	if (out == NULL || buf_len == 0)
 	/* out == NULL => just return the length of the octet string */
-		return buf_len;
+		return (int) buf_len;
 
 	if (*out == NULL)
 		{
@@ -1439,5 +1439,5 @@ int i2o_ECPublicKey(EC_KEY *a, unsigned char **out)
 		}
 	if (!new_buffer)
 		*out += buf_len;
-	return buf_len;
+	return (int) buf_len;
 	}

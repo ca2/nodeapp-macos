@@ -189,7 +189,7 @@ int EVP_DigestVerifyFinal(EVP_MD_CTX *ctx, unsigned char *sig, size_t siglen)
 	if (vctx)
 		{
 		r = tmp_ctx.pctx->pmeth->verifyctx(tmp_ctx.pctx,
-					sig, siglen, &tmp_ctx);
+					sig, (int) siglen, &tmp_ctx);
 		}
 	else
 		r = EVP_DigestFinal_ex(&tmp_ctx,md,&mdlen);

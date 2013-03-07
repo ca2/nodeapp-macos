@@ -243,7 +243,7 @@ static int b64_read(BIO *b, char *out, int outl)
 
 				k=EVP_DecodeUpdate(&(ctx->base64),
 					(unsigned char *)ctx->buf,
-					&num,p,q-p);
+					&num,p, (int) (q - p));
 				if ((k <= 0) && (num == 0) && (ctx->start))
 					EVP_DecodeInit(&ctx->base64);
 				else 
@@ -279,7 +279,7 @@ static int b64_read(BIO *b, char *out, int outl)
 					}
 				else if (p != q) /* finished on a '\n' */
 					{
-					n=q-p;
+					n = (int) (q - p);
 					for (ii=0; ii<n; ii++)
 						ctx->tmp[ii]=p[ii];
 					ctx->tmp_len=n;
@@ -594,5 +594,5 @@ static long b64_callback_ctrl(BIO *b, int cmd, bio_info_cb *fp)
 
 static int b64_puts(BIO *b, const char *str)
 	{
-	return b64_write(b,str,strlen(str));
+	return b64_write(b,str, (int) strlen(str));
 	}

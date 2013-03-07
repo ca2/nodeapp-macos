@@ -79,7 +79,7 @@ BIGNUM *EC_POINT_point2bn(const EC_GROUP *group,
 		return NULL;
 		}
 
-	ret = BN_bin2bn(buf, buf_len, ret);
+	ret = BN_bin2bn(buf, (int) buf_len, ret);
 
 	OPENSSL_free(buf);
 

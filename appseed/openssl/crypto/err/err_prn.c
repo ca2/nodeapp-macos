@@ -104,7 +104,7 @@ void ERR_print_errors_fp(FILE *fp)
 
 static int print_bio(const char *str, size_t len, void *bp)
 	{
-	return BIO_write((BIO *)bp, str, len);
+	return BIO_write((BIO *)bp, str, (int) len);
 	}
 void ERR_print_errors(BIO *bp)
 	{

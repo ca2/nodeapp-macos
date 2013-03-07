@@ -226,7 +226,7 @@ static int ok_read(BIO *b, char *out, int outl)
 		/* copy clean bytes to output buffer */
 		if (ctx->blockout)
 			{
-			i=ctx->buf_len-ctx->buf_off;
+			i = (int) (ctx->buf_len - ctx->buf_off);
 			if (i > outl) i=outl;
 			memcpy(out,&(ctx->buf[ctx->buf_off]),i);
 			ret+=i;
@@ -258,7 +258,7 @@ static int ok_read(BIO *b, char *out, int outl)
 		if (outl == 0) break;
 
 		/* no clean bytes in buffer -- fill it */
-		n=IOBS- ctx->buf_len;
+		n = (int) (IOBS - ctx->buf_len);
 		i=BIO_read(b->next_bio,&(ctx->buf[ctx->buf_len]),n);
 
 		if (i <= 0) break;	/* nothing new */
@@ -312,7 +312,7 @@ static int ok_write(BIO *b, const char *in, int inl)
 
 	do{
 		BIO_clear_retry_flags(b);
-		n=ctx->buf_len-ctx->buf_off;
+		n = (int) (ctx->buf_len - ctx->buf_off);
 		while (ctx->blockout && n > 0)
 			{
 			i=BIO_write(b->next_bio,&(ctx->buf[ctx->buf_off]),n);
