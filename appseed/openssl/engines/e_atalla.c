@@ -433,7 +433,7 @@ static int atalla_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f)(void))
 			ATALLAerr(ATALLA_F_ATALLA_CTRL,ATALLA_R_ALREADY_LOADED);
 			return 0;
 			}
-		return set_ATALLA_LIBNAME((const char *)p);
+		return (int) set_ATALLA_LIBNAME((const char *)p);
 	default:
 		break;
 		}
