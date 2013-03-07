@@ -19,9 +19,6 @@
 		9A574B3B16AA1E97000CC4EF /* mac_crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B3916AA1E93000CC4EF /* mac_crypt.h */; };
 		9A574B5116AA2049000CC4EF /* kerr.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4316AA2031000CC4EF /* kerr.h */; };
 		9A574B5216AA2049000CC4EF /* LocalMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4416AA2031000CC4EF /* LocalMemory.h */; };
-		9A574B5316AA2049000CC4EF /* mac_afxImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4516AA2031000CC4EF /* mac_afxImpl.h */; };
-		9A574B5516AA2049000CC4EF /* mac_file_set.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4716AA203B000CC4EF /* mac_file_set.h */; };
-		9A574B5616AA2049000CC4EF /* mac_genResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B4816AA203E000CC4EF /* mac_genResource.cpp */; };
 		9A574B5716AA2049000CC4EF /* mac_ip_enum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B4916AA2042000CC4EF /* mac_ip_enum.cpp */; };
 		9A574B5816AA2049000CC4EF /* mac_ip_enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4A16AA2045000CC4EF /* mac_ip_enum.h */; };
 		9A574B5A16AA3B02000CC4EF /* mac_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */; };
@@ -472,8 +469,6 @@
 				9A574B3B16AA1E97000CC4EF /* mac_crypt.h in Headers */,
 				9A574B5116AA2049000CC4EF /* kerr.h in Headers */,
 				9A574B5216AA2049000CC4EF /* LocalMemory.h in Headers */,
-				9A574B5316AA2049000CC4EF /* mac_afxImpl.h in Headers */,
-				9A574B5516AA2049000CC4EF /* mac_file_set.h in Headers */,
 				9A574B5816AA2049000CC4EF /* mac_ip_enum.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,7 +499,7 @@
 		A1CFD76F154F5EA7007447E2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "ca2 Desenvolvimento de Sofware Ltda.";
 			};
 			buildConfigurationList = A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "os" */;
@@ -569,7 +564,6 @@
 				9A1B496716A4A10100875A94 /* framework.cpp in Sources */,
 				9A574B3616AA1AC7000CC4EF /* mac_copydesk.cpp in Sources */,
 				9A574B3A16AA1E97000CC4EF /* mac_crypt.cpp in Sources */,
-				9A574B5616AA2049000CC4EF /* mac_genResource.cpp in Sources */,
 				9A574B5716AA2049000CC4EF /* mac_ip_enum.cpp in Sources */,
 				9A574B5A16AA3B02000CC4EF /* mac_exception.cpp in Sources */,
 				9A574B8C16AAB7B9000CC4EF /* mac_brush.cpp in Sources */,
@@ -585,6 +579,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				EXECUTABLE_EXTENSION = dylib;
 				EXECUTABLE_PREFIX = lib;
@@ -621,6 +619,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EXECUTABLE_EXTENSION = dylib;
