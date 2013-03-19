@@ -4,7 +4,7 @@
 #define SECURITY_WIN32
 
 
-#include "app/appseed/ca2/ca2.h"
+#include "app/appseed/ca/ca.h"
 
 
 #define CLASS_DECL_mac

@@ -5,6 +5,7 @@
 
 
 #include "nodeapp/os/mac.h"
+#include "ca2.h"
 
 
 #define CLASS_DECL_mac2
