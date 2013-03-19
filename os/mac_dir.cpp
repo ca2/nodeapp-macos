@@ -1143,16 +1143,24 @@ namespace mac
       
       xml::document doc(get_app());
       
-      doc.load(Application.file().as_string(appdata("configuration\\directory.xml")));
+      string strPath = appdata("configuration\\directory.xml");
       
-      if(doc.get_root()->get_name() == "directory_configuration")
+      string strDocument = Application.file().as_string(strPath);
+      
+      if(doc.load(strDocument))
       {
+      
+         if(doc.get_root()->get_name() == "directory_configuration")
+         {
          
-         m_strTimeFolder = doc.get_root()->get_child_value("time");
+            m_strTimeFolder = doc.get_root()->get_child_value("time");
          
-         m_strNetSeedFolder = doc.get_root()->get_child_value("netseed");
+            m_strNetSeedFolder = doc.get_root()->get_child_value("netseed");
+         
+         }
          
       }
+      
 #ifdef LINUX
       
       m_strTimeFolder = "/var/tmp/ca2/time";

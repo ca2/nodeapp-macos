@@ -3,7 +3,19 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ca::type_info::friendly_name() const:ca_type_info.cpp">
+      </ContextState>
+      <ContextState
          contextName = "mac::dir::appdata(char const*, char const*):mac_dir.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "string_format::printf(char const*&amp;):primitive_string_format.h">
+      </ContextState>
+      <ContextState
+         contextName = "mac::dir::initialize():mac_dir.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "int ca::application::simple_message_box&lt;char const*&gt;(user::interaction*, unsigned int, char const*, char const* const&amp;):ca_application.h">
       </ContextState>
       <ContextState
          contextName = "mac::dir::is(char const*, ca::application*):mac_dir.cpp">
