@@ -15,7 +15,7 @@ void CLASS_DECL_mac __post_init_dialog(
 LRESULT CALLBACK
 __activation_window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lparam);
 
-const char gen_OldWndProc[] = "gen::OldWndProc423";
+const char gen_OldWndProc[] = "::ca::OldWndProc423";
 
 /*const char gen_WndControlBar[] = __WNDCONTROLBAR;
  const char gen_WndMDIFrame[] = __WNDMDIFRAME;
@@ -339,8 +339,8 @@ namespace mac
          string strMessage;
          strMessage.Format("%s\n\nSystem Error Code: %d", strLastError, dwLastError);
          
-         TRACE(::radix::trace::category_AppMsg, 0, "Warning: oswindow creation failed: GetLastError returned:\n");
-         TRACE(::radix::trace::category_AppMsg, 0, "%s\n", strMessage);
+         TRACE(::ca::trace::category_AppMsg, 0, "Warning: oswindow creation failed: GetLastError returned:\n");
+         TRACE(::ca::trace::category_AppMsg, 0, "%s\n", strMessage);
          try
          {
             if(dwLastError == 0x0000057e)
@@ -440,9 +440,9 @@ namespace mac
    window::~window()
    {
       
-      if(m_papp != NULL && m_papp->m_psystem != NULL && Sys(m_papp).m_pwindowmap != NULL)
+      if(m_papp != NULL && m_papp->m_psystem != NULL && Sys(m_papp).user().m_pwindowmap != NULL)
       {
-         Sys(m_papp).m_pwindowmap->m_map.remove_key((int_ptr) get_os_data());
+         Sys(m_papp).user().m_pwindowmap->m_map.remove_key((int_ptr) get_os_data());
       }
       
       single_lock sl(m_pthread == NULL ? NULL : &m_pthread->m_pthread->m_mutex, TRUE);
@@ -453,14 +453,14 @@ namespace mac
       sl.unlock();
       if (get_os_data() != NULL)
       {
-         TRACE(::radix::trace::category_AppMsg, 0, "Warning: calling DestroyWindow in window::~window; "
+         TRACE(::ca::trace::category_AppMsg, 0, "Warning: calling DestroyWindow in window::~window; "
                "OnDestroy or PostNcDestroy in derived class will not be called.\n");
          m_pcallback = NULL;
          DestroyWindow();
       }
    }
    
-   void window::install_message_handling(::gen::message::dispatch * pinterface)
+   void window::install_message_handling(::ca::message::dispatch * pinterface)
    {
       //m_pbuffer->InstallMessageHandling(pinterface);
       IGUI_WIN_MSG_LINK(WM_DESTROY           , pinterface, this, &window::_001OnDestroy);
@@ -481,7 +481,7 @@ namespace mac
       IGUI_WIN_MSG_LINK(ca2m_PRODEVIAN_SYNCH , pinterface, this, &window::_001OnProdevianSynch);
    }
    
-   void window::_001OnMove(gen::signal_object * pobj)
+   void window::_001OnMove(::ca::signal_object * pobj)
    {
       UNREFERENCED_PARAMETER(pobj);
       /*      if(!m_bRectOk && !(GetExStyle() & WS_EX_LAYERED))
@@ -493,7 +493,7 @@ namespace mac
        }*/
    }
    
-   void window::_001OnSize(gen::signal_object * pobj)
+   void window::_001OnSize(::ca::signal_object * pobj)
    {
       UNREFERENCED_PARAMETER(pobj);
       
@@ -527,15 +527,15 @@ namespace mac
       
    }
    
-   void window::_001OnShowWindow(gen::signal_object * pobj)
+   void window::_001OnShowWindow(::ca::signal_object * pobj)
    {
-      SCAST_PTR(::gen::message::show_window, pshowwindow, pobj);
+      SCAST_PTR(::ca::message::show_window, pshowwindow, pobj);
       m_bVisible = pshowwindow->m_bShow != FALSE;
       if(m_pguie != NULL && m_pguie != this)
          m_pguie->m_bVisible = m_bVisible;
    }
    
-   void window::_001OnDestroy(gen::signal_object * pobj)
+   void window::_001OnDestroy(::ca::signal_object * pobj)
    {
       UNREFERENCED_PARAMETER(pobj);
       Default();
@@ -548,14 +548,14 @@ namespace mac
       }
    }
    
-   void window::_001OnCaptureChanged(gen::signal_object * pobj)
+   void window::_001OnCaptureChanged(::ca::signal_object * pobj)
    {
       UNREFERENCED_PARAMETER(pobj);
       m_pguieCapture = NULL;
    }
    
    // WM_NCDESTROY is the absolute LAST message sent.
-   void window::_001OnNcDestroy(gen::signal_object * pobj)
+   void window::_001OnNcDestroy(::ca::signal_object * pobj)
    {
       single_lock sl(m_pthread == NULL ? NULL : &m_pthread->m_pthread->m_mutex, TRUE);
       pobj->m_bRet = true;
@@ -648,7 +648,7 @@ namespace mac
        return; // let go
        ASSERT(pMap != NULL);
        
-       //         ::radix::object* p=NULL;
+       //         ::ca::object* p=NULL;
        if(pMap)
        {
        ASSERT( (p = pMap->lookup_permanent(get_os_data())) != NULL ||
@@ -676,7 +676,7 @@ namespace mac
    
    void window::dump(dump_context & dumpcontext) const
    {
-      ::radix::object::dump(dumpcontext);
+      ::ca::object::dump(dumpcontext);
       
       dumpcontext << "\nm_hWnd = " << (void *)get_os_data();
       
@@ -811,7 +811,7 @@ namespace mac
     return &m_pfnSuper;
     }
     */
-   void window::pre_translate_message(gen::signal_object * pobj)
+   void window::pre_translate_message(::ca::signal_object * pobj)
    {
       UNREFERENCED_PARAMETER(pobj);
       // no default processing
@@ -1011,7 +1011,7 @@ namespace mac
        ASSERT(ctl.nCtlType <= CTLCOLOR_STATIC);
        
        // Note: We call the virtual message_handler for this window directly,
-       //  instead of calling gen::CallWindowProc, so that Default()
+       //  instead of calling ::ca::CallWindowProc, so that Default()
        //  will still work (it will call the Default window proc with
        //  the original Win32 WM_CTLCOLOR message).
        
@@ -1040,7 +1040,7 @@ namespace mac
     // need to use top level parent (for the case where get_os_data() is in DLL)
     ::user::interaction * pWnd = EnsureTopLevelParent();
     
-    TRACE(::radix::trace::category_AppMsg, 0, "WinHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
+    TRACE(::ca::trace::category_AppMsg, 0, "WinHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
     
     // finally, run the oswindows Help engine
      trans   if (!::WinHelp(MAC_WINDOW(pWnd)->get_os_data(), pApp->m_pszHelpFilePath, nCmd, dwData))
@@ -1068,10 +1068,10 @@ namespace mac
     // need to use top level parent (for the case where get_os_data() is in DLL)
     ::user::interaction * pWnd = EnsureTopLevelParent();
     
-    TRACE(::radix::trace::category_AppMsg, 0, "HtmlHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
+    TRACE(::ca::trace::category_AppMsg, 0, "HtmlHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
     
     // run the HTML Help engine
-     trans   if (!gen::HtmlHelp(MAC_WINDOW(pWnd)->get_os_data(), pApp->m_pszHelpFilePath, nCmd, dwData))
+     trans   if (!::ca::HtmlHelp(MAC_WINDOW(pWnd)->get_os_data(), pApp->m_pszHelpFilePath, nCmd, dwData))
     {
     // linux System.simple_message_box(__IDP_FAILED_TO_LAUNCH_HELP);
     System.simple_message_box("Failed to launch help");
@@ -1160,9 +1160,9 @@ namespace mac
    /////////////////////////////////////////////////////////////////////////////
    // main message_handler implementation
    
-   void window::message_handler(gen::signal_object * pobj)
+   void window::message_handler(::ca::signal_object * pobj)
    {
-      SCAST_PTR(::gen::message::base, pbase, pobj);
+      SCAST_PTR(::ca::message::base, pbase, pobj);
       
       if(m_pguie != NULL)
       {
@@ -1244,7 +1244,7 @@ namespace mac
                }
             }
          }
-         ::gen::message::mouse * pmouse = (::gen::message::mouse *) pbase;
+         ::ca::message::mouse * pmouse = (::ca::message::mouse *) pbase;
          
          Application.m_ptCursor = pmouse->m_pt;
          if(m_papp->m_psession != NULL)
@@ -1333,7 +1333,7 @@ namespace mac
                //m_pguieCapture->m_pimpl->SendMessage(pbase);
                try
                {
-                  (m_pguieCapture->m_pimpl->*m_pguieCapture->m_pimpl->m_pfnDispatchWindowProc)(dynamic_cast < gen::signal_object * > (pmouse));
+                  (m_pguieCapture->m_pimpl->*m_pguieCapture->m_pimpl->m_pfnDispatchWindowProc)(dynamic_cast < ::ca::signal_object * > (pmouse));
                   if(pmouse->get_lresult() != 0)
                      return;
                }
@@ -1347,7 +1347,7 @@ namespace mac
                //m_pguieCapture->SendMessage(pbase);
                try
                {
-                  (m_pguieCapture->*m_pguieCapture->m_pfnDispatchWindowProc)(dynamic_cast < gen::signal_object * > (pmouse));
+                  (m_pguieCapture->*m_pguieCapture->m_pfnDispatchWindowProc)(dynamic_cast < ::ca::signal_object * > (pmouse));
                   if(pmouse->get_lresult() != 0)
                      return;
                }
@@ -1384,7 +1384,7 @@ namespace mac
          {
             try
             {
-               Application.set_key_pressed((int32_t) pbase->m_wparam, true);
+               Application.set_key_pressed((::user::e_key) pbase->m_wparam, true);
             }
             catch(...)
             {
@@ -1394,15 +1394,15 @@ namespace mac
          {
             try
             {
-               Application.set_key_pressed((int32_t) pbase->m_wparam, false);
+               Application.set_key_pressed((::user::e_key) pbase->m_wparam, false);
             }
             catch(...)
             {
             }
          }
          
-         ::gen::message::key * pkey = (::gen::message::key *) pbase;
-         ::user::interaction * puiFocus = dynamic_cast < ::user::interaction * > (Application.get_keyboard_focus());
+         ::ca::message::key * pkey = (::ca::message::key *) pbase;
+         ::user::interaction * puiFocus = dynamic_cast < ::user::interaction * > (Application.user().get_keyboard_focus());
          if(puiFocus != NULL
             && puiFocus->IsWindow()
             && puiFocus->GetTopLevelParent() != NULL)
@@ -1429,7 +1429,7 @@ namespace mac
          pbase->set_lresult(DefWindowProc(pbase->m_uiMessage, pbase->m_wparam, pbase->m_lparam));
          return;
       }
-      if(pbase->m_uiMessage == ::gen::message_event)
+      if(pbase->m_uiMessage == ::ca::message_event)
       {
          if(m_pguie != this && m_pguie != NULL)
          {
@@ -1532,7 +1532,7 @@ namespace mac
                                             if (message < 0xC000)
                                             {
                                             // constant window message
-                                            if ((lpEntry = gen::FindMessageEntry(pMessageMap->lpEntries,
+                                            if ((lpEntry = ::ca::FindMessageEntry(pMessageMap->lpEntries,
                                             message, 0, 0)) != NULL)
                                             {
                                             pMsgCache->lpEntry = lpEntry;
@@ -1544,7 +1544,7 @@ namespace mac
                                             {
                                             // registered windows message
                                             lpEntry = pMessageMap->lpEntries;
-                                            while ((lpEntry = gen::FindMessageEntry(lpEntry, 0xC000, 0, 0)) != NULL)
+                                            while ((lpEntry = ::ca::FindMessageEntry(lpEntry, 0xC000, 0, 0)) != NULL)
                                             {
                                             UINT* pnID = (UINT*)(lpEntry->nSig);
                                             ASSERT(*pnID >= 0xC000 || *pnID == 0);
@@ -1575,65 +1575,65 @@ namespace mac
                                             default:
                                             ASSERT(FALSE);
                                             break;
-                                            case gen::Sig_l_p:
+                                            case ::ca::Sig_l_p:
                                             {
                                             point point(lparam);
                                             lResult = (this->*mmf.pfn_l_p)(point);
                                             break;
                                             }
-                                            case gen::Sig_b_D_v:
+                                            case ::ca::Sig_b_D_v:
                                             lResult = (this->*mmf.pfn_b_D)(::mac::graphics::from_handle(reinterpret_cast<HDC>(wparam)));
                                             break;
                                             
-                                            case gen::Sig_b_b_v:
+                                            case ::ca::Sig_b_b_v:
                                             lResult = (this->*mmf.pfn_b_b)(static_cast<bool>(wparam));
                                             break;
                                             
-                                            case gen::Sig_b_u_v:
+                                            case ::ca::Sig_b_u_v:
                                             lResult = (this->*mmf.pfn_b_u)(static_cast<UINT>(wparam));
                                             break;
                                             
-                                            case gen::Sig_b_h_v:
+                                            case ::ca::Sig_b_h_v:
                                             lResult = (this->*mmf.pfn_b_h)(reinterpret_cast<HANDLE>(wparam));
                                             break;
                                             
-                                            case gen::Sig_i_u_v:
+                                            case ::ca::Sig_i_u_v:
                                             lResult = (this->*mmf.pfn_i_u)(static_cast<UINT>(wparam));
                                             break;
                                             
-                                            case gen::Sig_C_v_v:
+                                            case ::ca::Sig_C_v_v:
                                             lResult = reinterpret_cast<LRESULT>((this->*mmf.pfn_C_v)());
                                             break;
                                             
-                                            case gen::Sig_v_u_W:
+                                            case ::ca::Sig_v_u_W:
                                             (this->*mmf.pfn_v_u_W)(static_cast<UINT>(wparam),
                                             ::mac::window::from_handle(reinterpret_cast<oswindow>(lparam)));
                                             break;
                                             
-                                            case gen::Sig_u_u_v:
+                                            case ::ca::Sig_u_u_v:
                                             lResult = (this->*mmf.pfn_u_u)(static_cast<UINT>(wparam));
                                             break;
                                             
-                                            case gen::Sig_b_v_v:
+                                            case ::ca::Sig_b_v_v:
                                             lResult = (this->*mmf.pfn_b_v)();
                                             break;
                                             
-                                            case gen::Sig_b_W_uu:
+                                            case ::ca::Sig_b_W_uu:
                                             lResult = (this->*mmf.pfn_b_W_u_u)(::mac::window::from_handle(reinterpret_cast<oswindow>(wparam)),
                                             LOWORD(lparam), HIWORD(lparam));
                                             break;
                                             
-                                            case gen::Sig_b_W_COPYDATASTRUCT:
+                                            case ::ca::Sig_b_W_COPYDATASTRUCT:
                                             lResult = (this->*mmf.pfn_b_W_COPYDATASTRUCT)(
                                             ::mac::window::from_handle(reinterpret_cast<oswindow>(wparam)),
                                             reinterpret_cast<COPYDATASTRUCT*>(lparam));
                                             break;
                                             
-                                            case gen::Sig_b_v_HELPINFO:
+                                            case ::ca::Sig_b_v_HELPINFO:
                                             lResult = (this->*mmf.pfn_b_HELPINFO)(reinterpret_cast<LPHELPINFO>(lparam));
                                             break;
                                             
-                                            case gen::Sig_CTLCOLOR:
+                                            case ::ca::Sig_CTLCOLOR:
                                             {
                                             // special case for OnCtlColor to avoid too many temporary objects
                                             ASSERT(message == WM_CTLCOLOR);
@@ -1657,7 +1657,7 @@ namespace mac
                                             }
                                             break;
                                             
-                                            case gen::Sig_CTLCOLOR_REFLECT:
+                                            case ::ca::Sig_CTLCOLOR_REFLECT:
                                             {
                                             // special case for CtlColor to avoid too many temporary objects
                                             ASSERT(message == WM_REFLECT_BASE+WM_CTLCOLOR);
@@ -1672,126 +1672,126 @@ namespace mac
                                             }
                                             break;
                                             
-                                            case gen::Sig_i_u_W_u:
+                                            case ::ca::Sig_i_u_W_u:
                                             lResult = (this->*mmf.pfn_i_u_W_u)(LOWORD(wparam),
                                             ::mac::window::from_handle(reinterpret_cast<oswindow>(lparam)), HIWORD(wparam));
                                             break;
                                             
-                                            case gen::Sig_i_uu_v:
+                                            case ::ca::Sig_i_uu_v:
                                             lResult = (this->*mmf.pfn_i_u_u)(LOWORD(wparam), HIWORD(wparam));
                                             break;
                                             
-                                            case gen::Sig_i_W_uu:
+                                            case ::ca::Sig_i_W_uu:
                                             lResult = (this->*mmf.pfn_i_W_u_u)(::mac::window::from_handle(reinterpret_cast<oswindow>(wparam)),
                                             LOWORD(lparam), HIWORD(lparam));
                                             break;
                                             
-                                            case gen::Sig_i_v_s:
+                                            case ::ca::Sig_i_v_s:
                                             lResult = (this->*mmf.pfn_i_s)(reinterpret_cast<LPTSTR>(lparam));
                                             break;
                                             
-                                            case gen::Sig_l_w_l:
+                                            case ::ca::Sig_l_w_l:
                                             lResult = (this->*mmf.pfn_l_w_l)(wparam, lparam);
                                             break;
                                             
                                             
                                             
-                                            case gen::Sig_v_b_h:
+                                            case ::ca::Sig_v_b_h:
                                             (this->*mmf.pfn_v_b_h)(static_cast<bool>(wparam),
                                             reinterpret_cast<HANDLE>(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_h_v:
+                                            case ::ca::Sig_v_h_v:
                                             (this->*mmf.pfn_v_h)(reinterpret_cast<HANDLE>(wparam));
                                             break;
                                             
-                                            case gen::Sig_v_h_h:
+                                            case ::ca::Sig_v_h_h:
                                             (this->*mmf.pfn_v_h_h)(reinterpret_cast<HANDLE>(wparam),
                                             reinterpret_cast<HANDLE>(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_v_v:
+                                            case ::ca::Sig_v_v_v:
                                             (this->*mmf.pfn_v_v)();
                                             break;
                                             
-                                            case gen::Sig_v_u_v:
+                                            case ::ca::Sig_v_u_v:
                                             (this->*mmf.pfn_v_u)(static_cast<UINT>(wparam));
                                             break;
                                             
-                                            case gen::Sig_v_u_u:
+                                            case ::ca::Sig_v_u_u:
                                             (this->*mmf.pfn_v_u_u)(static_cast<UINT>(wparam), static_cast<UINT>(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_uu_v:
+                                            case ::ca::Sig_v_uu_v:
                                             (this->*mmf.pfn_v_u_u)(LOWORD(wparam), HIWORD(wparam));
                                             break;
                                             
-                                            case gen::Sig_v_v_ii:
+                                            case ::ca::Sig_v_v_ii:
                                             (this->*mmf.pfn_v_i_i)(GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_u_uu:
+                                            case ::ca::Sig_v_u_uu:
                                             (this->*mmf.pfn_v_u_u_u)(static_cast<UINT>(wparam), LOWORD(lparam), HIWORD(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_u_ii:
+                                            case ::ca::Sig_v_u_ii:
                                             (this->*mmf.pfn_v_u_i_i)(static_cast<UINT>(wparam), LOWORD(lparam), HIWORD(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_w_l:
+                                            case ::ca::Sig_v_w_l:
                                             (this->*mmf.pfn_v_w_l)(wparam, lparam);
                                             break;
                                             
-                                            case gen::Sig_MDIACTIVATE:
+                                            case ::ca::Sig_MDIACTIVATE:
                                             (this->*mmf.pfn_v_b_W_W)(get_os_data() == reinterpret_cast<oswindow>(lparam),
                                             ::mac::window::from_handle(reinterpret_cast<oswindow>(lparam)),
                                             ::mac::window::from_handle(reinterpret_cast<oswindow>(wparam)));
                                             break;
                                             
-                                            case gen::Sig_v_D_v:
+                                            case ::ca::Sig_v_D_v:
                                             (this->*mmf.pfn_v_D)(::mac::graphics::from_handle(reinterpret_cast<HDC>(wparam)));
                                             break;
                                             
                                             
-                                            case gen::Sig_v_W_v:
+                                            case ::ca::Sig_v_W_v:
                                             (this->*mmf.pfn_v_W)(::mac::window::from_handle(reinterpret_cast<oswindow>(wparam)));
                                             break;
                                             
-                                            case gen::Sig_v_v_W:
+                                            case ::ca::Sig_v_v_W:
                                             (this->*mmf.pfn_v_W)(::mac::window::from_handle(reinterpret_cast<oswindow>(lparam)));
                                             break;
                                             
-                                            case gen::Sig_v_W_uu:
+                                            case ::ca::Sig_v_W_uu:
                                             (this->*mmf.pfn_v_W_u_u)(::mac::window::from_handle(reinterpret_cast<oswindow>(wparam)), LOWORD(lparam),
                                             HIWORD(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_W_p:
+                                            case ::ca::Sig_v_W_p:
                                             {
                                             point point(lparam);
                                             (this->*mmf.pfn_v_W_p)(::mac::window::from_handle(reinterpret_cast<oswindow>(wparam)), point);
                                             }
                                             break;
                                             
-                                            case gen::Sig_v_W_h:
+                                            case ::ca::Sig_v_W_h:
                                             (this->*mmf.pfn_v_W_h)(::mac::window::from_handle(reinterpret_cast<oswindow>(wparam)),
                                             reinterpret_cast<HANDLE>(lparam));
                                             break;
                                             
-                                            case gen::Sig_ACTIVATE:
+                                            case ::ca::Sig_ACTIVATE:
                                             (this->*mmf.pfn_v_u_W_b)(LOWORD(wparam),
                                             ::mac::window::from_handle(reinterpret_cast<oswindow>(lparam)), HIWORD(wparam));
                                             break;
                                             
-                                            case gen::Sig_SCROLL:
-                                            case gen::Sig_SCROLL_REFLECT:
+                                            case ::ca::Sig_SCROLL:
+                                            case ::ca::Sig_SCROLL_REFLECT:
                                             {
                                             // special case for WM_VSCROLL and WM_HSCROLL
                                             ASSERT(message == WM_VSCROLL || message == WM_HSCROLL ||
                                             message == WM_VSCROLL+WM_REFLECT_BASE || message == WM_HSCROLL+WM_REFLECT_BASE);
                                             int32_t nScrollCode = (short)LOWORD(wparam);
                                             int32_t nPos = (short)HIWORD(wparam);
-                                            if (lpEntry->nSig == gen::Sig_SCROLL)
+                                            if (lpEntry->nSig == ::ca::Sig_SCROLL)
                                             (this->*mmf.pfn_v_u_u_W)(nScrollCode, nPos,
                                             ::mac::window::from_handle(reinterpret_cast<oswindow>(lparam)));
                                             else
@@ -1799,66 +1799,66 @@ namespace mac
                                             }
                                             break;
                                             
-                                            case gen::Sig_v_v_s:
+                                            case ::ca::Sig_v_v_s:
                                             (this->*mmf.pfn_v_s)(reinterpret_cast<LPTSTR>(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_u_cs:
+                                            case ::ca::Sig_v_u_cs:
                                             (this->*mmf.pfn_v_u_cs)(static_cast<UINT>(wparam), reinterpret_cast<const char *>(lparam));
                                             break;
                                             
-                                            case gen::Sig_OWNERDRAW:
+                                            case ::ca::Sig_OWNERDRAW:
                                             (this->*mmf.pfn_v_i_s)(static_cast<int32_t>(wparam), reinterpret_cast<LPTSTR>(lparam));
                                             lResult = TRUE;
                                             break;
                                             
-                                            case gen::Sig_i_i_s:
+                                            case ::ca::Sig_i_i_s:
                                             lResult = (this->*mmf.pfn_i_i_s)(static_cast<int32_t>(wparam), reinterpret_cast<LPTSTR>(lparam));
                                             break;
                                             
-                                            case gen::Sig_u_v_p:
+                                            case ::ca::Sig_u_v_p:
                                             {
                                             point point(lparam);
                                             lResult = (this->*mmf.pfn_u_p)(point);
                                             }
                                             break;
                                             
-                                            case gen::Sig_u_v_v:
+                                            case ::ca::Sig_u_v_v:
                                             lResult = (this->*mmf.pfn_u_v)();
                                             break;
                                             
-                                            case gen::Sig_v_b_NCCALCSIZEPARAMS:
+                                            case ::ca::Sig_v_b_NCCALCSIZEPARAMS:
                                             (this->*mmf.pfn_v_b_NCCALCSIZEPARAMS)(static_cast<bool>(wparam),
                                             reinterpret_cast<NCCALCSIZE_PARAMS*>(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_v_WINDOWPOS:
+                                            case ::ca::Sig_v_v_WINDOWPOS:
                                             (this->*mmf.pfn_v_v_WINDOWPOS)(reinterpret_cast<WINDOWPOS*>(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_uu_M:
+                                            case ::ca::Sig_v_uu_M:
                                             (this->*mmf.pfn_v_u_u_M)(LOWORD(wparam), HIWORD(wparam), reinterpret_cast<HMENU>(lparam));
                                             break;
                                             
-                                            case gen::Sig_v_u_p:
+                                            case ::ca::Sig_v_u_p:
                                             {
                                             point point(lparam);
                                             (this->*mmf.pfn_v_u_p)(static_cast<UINT>(wparam), point);
                                             }
                                             break;
                                             
-                                            case gen::Sig_SIZING:
+                                            case ::ca::Sig_SIZING:
                                             (this->*mmf.pfn_v_u_pr)(static_cast<UINT>(wparam), reinterpret_cast<LPRECT>(lparam));
                                             lResult = TRUE;
                                             break;
                                             
-                                            case gen::Sig_MOUSEWHEEL:
+                                            case ::ca::Sig_MOUSEWHEEL:
                                             lResult = (this->*mmf.pfn_b_u_s_p)(LOWORD(wparam), (short)HIWORD(wparam),
                                             point(GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)));
                                             if (!lResult)
                                             return FALSE;
                                             break;
-                                            case gen::Sig_l:
+                                            case ::ca::Sig_l:
                                             lResult = (this->*mmf.pfn_l_v)();
                                             if (lResult != 0)
                                             return FALSE;
@@ -1906,7 +1906,7 @@ namespace mac
        _001OnCommand(nID, CN_UPDATE_COMMAND_UI, &state, NULL);
        if (!state.m_bEnabled)
        {
-       TRACE(::radix::trace::category_AppMsg, 0, "Warning: not executing disabled command %d\n", nID);
+       TRACE(::ca::trace::category_AppMsg, 0, "Warning: not executing disabled command %d\n", nID);
        return TRUE;
        }
        
@@ -1932,7 +1932,7 @@ namespace mac
        
        #ifdef DEBUG
        if (nCode < 0 && nCode != (int32_t)0x8000)
-       TRACE(::radix::trace::category_AppMsg, 0, "Implementation Warning: control notification = $%X.\n",
+       TRACE(::ca::trace::category_AppMsg, 0, "Implementation Warning: control notification = $%X.\n",
        nCode);
        #endif
        
@@ -2360,7 +2360,7 @@ namespace mac
     ::user::interaction * pWnd = hWndChild;
     if (strIdc == pszIdLeftOver)
     hWndLeftOver = hWndChild;
-    else if (gen::str::begins(strIdc, pszPrefix) && pWnd != NULL)
+    else if (::ca::str::begins(strIdc, pszPrefix) && pWnd != NULL)
     hWndChild->SendMessage(WM_SIZEPARENT, 0, (LPARAM)&layout);
     }
     for (int32_t i = 0; i < m_pguie->m_uiptra.get_count();   i++)
@@ -2370,7 +2370,7 @@ namespace mac
     ::user::interaction * pWnd = hWndChild;
     if (strIdc == pszIdLeftOver)
     hWndLeftOver = hWndChild;
-    else if (gen::str::begins(strIdc, pszPrefix) && pWnd != NULL)
+    else if (::ca::str::begins(strIdc, pszPrefix) && pWnd != NULL)
     hWndChild->SendMessage(WM_SIZEPARENT, 0, (LPARAM)&layout);
     }
     }
@@ -2383,7 +2383,7 @@ namespace mac
     ::user::interaction * pWnd = hWndChild;
     if (strIdc == pszIdLeftOver)
     hWndLeftOver = hWndChild;
-    else if (gen::str::begins(strIdc, pszPrefix) && pWnd != NULL)
+    else if (::ca::str::begins(strIdc, pszPrefix) && pWnd != NULL)
     hWndChild->SendMessage(WM_SIZEPARENT, 0, (LPARAM)&layout);
     }
     for (int32_t i = 0; i < m_uiptra.get_count();   i++)
@@ -2393,7 +2393,7 @@ namespace mac
     ::user::interaction * pWnd = hWndChild;
     if (strIdc == pszIdLeftOver)
     hWndLeftOver = hWndChild;
-    else if (gen::str::begins(strIdc, pszPrefix) && pWnd != NULL)
+    else if (::ca::str::begins(strIdc, pszPrefix) && pWnd != NULL)
     hWndChild->SendMessage(WM_SIZEPARENT, 0, (LPARAM)&layout);
     }
     }
@@ -2436,7 +2436,7 @@ namespace mac
     
     // move and resize all the windows at once!
     if (layout.hDWP == NULL || !::EndDeferWindowPos(layout.hDWP))
-    TRACE(::radix::trace::category_AppMsg, 0, "Warning: DeferWindowPos failed - low system resources.\n");
+    TRACE(::ca::trace::category_AppMsg, 0, "Warning: DeferWindowPos failed - low system resources.\n");
     }
     
     */
@@ -2560,7 +2560,7 @@ namespace mac
        
        // move and resize all the windows at once!
        if (layout.hDWP == NULL || !::EndDeferWindowPos(layout.hDWP))
-       TRACE(::radix::trace::category_AppMsg, 0, "Warning: DeferWindowPos failed - low system resources.\n");*/
+       TRACE(::ca::trace::category_AppMsg, 0, "Warning: DeferWindowPos failed - low system resources.\n");*/
    }
    
    
@@ -2622,12 +2622,12 @@ namespace mac
       return false;
    }
    
-   void window::WalkPreTranslateTree(::user::interaction * puiStop, gen::signal_object * pobj)
+   void window::WalkPreTranslateTree(::user::interaction * puiStop, ::ca::signal_object * pobj)
    {
       ASSERT(puiStop == NULL || puiStop->IsWindow());
       ASSERT(pobj != NULL);
       
-      SCAST_PTR(::gen::message::base, pbase, pobj);
+      SCAST_PTR(::ca::message::base, pbase, pobj);
       // walk from the target window up to the hWndStop window checking
       //  if any window wants to translate this message
       
@@ -2889,7 +2889,7 @@ namespace mac
       //      return (int32_t)Default();
    }
    
-   void window::_001OnCreate(gen::signal_object * pobj)
+   void window::_001OnCreate(::ca::signal_object * pobj)
    {
       UNREFERENCED_PARAMETER(pobj);
       Default();
@@ -2927,7 +2927,7 @@ namespace mac
    
    
    class print_window :
-   virtual ::radix::object
+   virtual ::ca::object
    {
    public:
       
@@ -3150,21 +3150,21 @@ namespace mac
       //      ::DeleteObject(rgnUpdate);
    }
    
-   void window::_001OnProdevianSynch(gen::signal_object * pobj)
+   void window::_001OnProdevianSynch(::ca::signal_object * pobj)
    {
       UNREFERENCED_PARAMETER(pobj);
       //      System.get_event(m_pthread->m_pthread)->SetEvent();
       //    System.get_event(System.get_twf())->wait(millis(8400));
    }
    
-   void window::_001OnPaint(gen::signal_object * pobj)
+   void window::_001OnPaint(::ca::signal_object * pobj)
    {
       
       //lock lock(m_pguie, 1984);
       
       throw not_implemented(get_app());
       
-      //      SCAST_PTR(::gen::message::base, pbase, pobj);
+      //      SCAST_PTR(::ca::message::base, pbase, pobj);
       //
       //      PAINTSTRUCT paint;
       //      memset(&paint, 0, sizeof(paint));
@@ -3234,10 +3234,10 @@ namespace mac
    }
    
    
-   void window::_001OnPrint(gen::signal_object * pobj)
+   void window::_001OnPrint(::ca::signal_object * pobj)
    {
       throw not_implemented(get_app());
-      //      SCAST_PTR(::gen::message::base, pbase, pobj);
+      //      SCAST_PTR(::ca::message::base, pbase, pobj);
       //
       //      if(pbase->m_wparam == NULL)
       //         return;
@@ -3347,7 +3347,7 @@ namespace mac
       //      if (hDC == NULL)
       //      {
       //         // sometimes Win32 passes a NULL hDC in the WM_CTLCOLOR message.
-      //         //         TRACE(::radix::trace::category_AppMsg, 0, "Warning: hDC is NULL in window::GrayCtlColor; WM_CTLCOLOR not processed.\n");
+      //         //         TRACE(::ca::trace::category_AppMsg, 0, "Warning: hDC is NULL in window::GrayCtlColor; WM_CTLCOLOR not processed.\n");
       //         return FALSE;
       //      }
       //
@@ -3529,7 +3529,7 @@ namespace mac
       HGLOBAL hResource = NULL;
       if (lpszResourceName != NULL)
       {
-         //         HINSTANCE hInst = gen::FindResourceHandle(lpszResourceName, RT_DLGINIT);
+         //         HINSTANCE hInst = ::ca::FindResourceHandle(lpszResourceName, RT_DLGINIT);
          //       HRSRC hDlgInit = ::FindResource(hInst, lpszResourceName, RT_DLGINIT);
          /*     if (hDlgInit != NULL)
           {
@@ -3695,14 +3695,14 @@ namespace mac
 //      oswindow hWndParent = ::GetParent(get_os_data());
       m_iModal = m_iModalCount;
       int32_t iLevel = m_iModal;
-      oprop(string("RunModalLoop.thread(") + gen::str::from(iLevel) + ")") = System.GetThread();
+      oprop(string("RunModalLoop.thread(") + ::ca::str::from(iLevel) + ")") = System.GetThread();
       m_iModalCount++;
       
       throw not_implemented(get_app());
       //
       //      m_iaModalThread.add(::GetCurrentThreadId());
-      //      ::radix::application * pappThis1 = dynamic_cast < ::radix::application * > (m_pthread->m_p);
-      //      ::radix::application * pappThis2 = dynamic_cast < ::radix::application * > (m_pthread);
+      //      ::ca::application * pappThis1 = dynamic_cast < ::ca::application * > (m_pthread->m_p);
+      //      ::ca::application * pappThis2 = dynamic_cast < ::ca::application * > (m_pthread);
       //      // acquire and dispatch messages until the modal state is done
       //      MESSAGE msg;
       //      for (;;)
@@ -3864,7 +3864,7 @@ namespace mac
          System.GetThread()->post_thread_message(WM_NULL, 0, 0);
          for(int32_t i = iLevel; i >= 0; i--)
          {
-            ::ca::thread * pthread = oprop(string("RunModalLoop.thread(") + gen::str::from(i) + ")").ca2 < ::ca::thread > ();
+            ::ca::thread * pthread = oprop(string("RunModalLoop.thread(") + ::ca::str::from(i) + ")").ca < ::ca::thread > ();
             try
             {
                pthread->post_thread_message(WM_NULL, 0, 0);
@@ -3909,16 +3909,16 @@ namespace mac
       //#ifdef DEBUG
       //      else if (*lplpfn != oldWndProc)
       //      {
-      //         TRACE(::radix::trace::category_AppMsg, 0, "p: Trying to use SubclassWindow with incorrect window\n");
-      //         TRACE(::radix::trace::category_AppMsg, 0, "\tderived class.\n");
-      //         TRACE(::radix::trace::category_AppMsg, 0, "\thWnd = $%08X (nIDC=$%08X) is not a %hs.\n", (UINT)(uint_ptr)hWnd,
+      //         TRACE(::ca::trace::category_AppMsg, 0, "p: Trying to use SubclassWindow with incorrect window\n");
+      //         TRACE(::ca::trace::category_AppMsg, 0, "\tderived class.\n");
+      //         TRACE(::ca::trace::category_AppMsg, 0, "\thWnd = $%08X (nIDC=$%08X) is not a %hs.\n", (UINT)(uint_ptr)hWnd,
       //            __get_dialog_control_id(hWnd), typeid(*this).name());
       //         ASSERT(FALSE);
       //         // undo the subclassing if continuing after assert
       //         ::SetWindowLongPtr(hWnd, GWLP_WNDPROC, (int_ptr)oldWndProc);
       //      }
       //#endif
-      //      ::gen::message::size size(get_app());
+      //      ::ca::message::size size(get_app());
       //      _001OnSize(&size);
       //      return TRUE;
       //   }
@@ -4229,7 +4229,7 @@ namespace mac
     m_pguieForward = NULL;
     }
     
-    LRESULT guie_message_wnd::message_handler(gen::signal_object * pobj)
+    LRESULT guie_message_wnd::message_handler(::ca::signal_object * pobj)
     {
     if(m_pguieForward != NULL)
     {
@@ -5491,11 +5491,11 @@ namespace mac
       
    }
    
-   void window::_001OnSetCursor(gen::signal_object * pobj)
+   void window::_001OnSetCursor(::ca::signal_object * pobj)
    {
-      SCAST_PTR(::gen::message::base, pbase, pobj);
-      if(System.get_cursor() != NULL
-         && System.get_cursor()->m_ecursor != ::visual::cursor_system)
+      SCAST_PTR(::ca::message::base, pbase, pobj);
+      if(Session.get_cursor() != NULL
+         && Session.get_cursor()->m_ecursor != ::visual::cursor_system)
       {
          
          throw not_implemented(get_app());
@@ -5827,7 +5827,7 @@ namespace mac
       
       // Catch exceptions thrown outside the scope of a callback
       // in debug builds and warn the ::fontopus::user.
-      //      ::ca::smart_pointer < ::gen::message::base > spbase;
+      //      ::ca::smart_pointer < ::ca::message::base > spbase;
       //
       //      spbase(pinteraction->get_base(pinteraction, nMsg, wparam, lparam));
       //
@@ -5870,7 +5870,7 @@ namespace mac
       //      catch(base_exception * pe)
       //      {
       //         __process_window_procedure_exception(pe, spbase);
-      //         //         TRACE(::radix::trace::category_AppMsg, 0, "Warning: Uncaught exception in message_handler (returning %ld).\n", spbase->get_lresult());
+      //         //         TRACE(::ca::trace::category_AppMsg, 0, "Warning: Uncaught exception in message_handler (returning %ld).\n", spbase->get_lresult());
       //         pe->Delete();
       //      }
       //      catch(...)
@@ -5956,7 +5956,7 @@ namespace mac
       //            // the window should not be in the permanent ::collection::map at this time
       //            ASSERT(::mac::window::FromHandlePermanent(hWnd) == NULL);
       //
-      //            pWndInit->m_pthread = dynamic_cast < ::radix::thread * > (::mac::get_thread());
+      //            pWndInit->m_pthread = dynamic_cast < ::ca::thread * > (::mac::get_thread());
       //            pWndInit->m_pthread->add(pWndInit);
       //            pWndInit->m_pguie->m_pthread = pWndInit->m_pthread;
       //            pWndInit->m_pguie->m_pthread->add(pWndInit->m_pguie);
@@ -6039,16 +6039,16 @@ namespace mac
    
    
    
-   void window::_001OnEraseBkgnd(gen::signal_object * pobj)
+   void window::_001OnEraseBkgnd(::ca::signal_object * pobj)
    {
-      SCAST_PTR(::gen::message::erase_bkgnd, perasebkgnd, pobj);
+      SCAST_PTR(::ca::message::erase_bkgnd, perasebkgnd, pobj);
       perasebkgnd->m_bRet = true;
       perasebkgnd->set_result(TRUE);
    }
    
    void window::_001BaseWndInterfaceMap()
    {
-      System.window_map().set((int_ptr)get_os_data(), this);
+      System.user().window_map().set((int_ptr)get_os_data(), this);
    }
    
    
@@ -6258,11 +6258,11 @@ CLASS_DECL_mac const char * __register_window_class(UINT nClassStyle,
    //
    //   if (hCursor == NULL && hbrBackground == NULL && hIcon == NULL)
    //   {
-   //      C_RUNTIME_ERRORCHECK_SPRINTF(_sntprintf_s(lpszName, ___TEMP_CLASS_NAME_SIZE, ___TEMP_CLASS_NAME_SIZE - 1, "gen:::%p:%x", hInst, nClassStyle));
+   //      C_RUNTIME_ERRORCHECK_SPRINTF(_sntprintf_s(lpszName, ___TEMP_CLASS_NAME_SIZE, ___TEMP_CLASS_NAME_SIZE - 1, "::ca:::%p:%x", hInst, nClassStyle));
    //   }
    //   else
    //   {
-   //      C_RUNTIME_ERRORCHECK_SPRINTF(_sntprintf_s(lpszName, ___TEMP_CLASS_NAME_SIZE, ___TEMP_CLASS_NAME_SIZE - 1, "gen:::%p:%x:%p:%p:%p", hInst, nClassStyle,
+   //      C_RUNTIME_ERRORCHECK_SPRINTF(_sntprintf_s(lpszName, ___TEMP_CLASS_NAME_SIZE, ___TEMP_CLASS_NAME_SIZE - 1, "::ca:::%p:%x:%p:%p:%p", hInst, nClassStyle,
    //         hCursor, hbrBackground, hIcon));
    //   }
    //
@@ -6564,7 +6564,7 @@ __activation_window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lp
    //      msg.lparam = lparam;
    //
    //      //lResult = __process_window_procedure_exception(pe, &msg);
-   //      //      TRACE(::radix::trace::category_AppMsg, 0, "Warning: Uncaught exception in __activation_window_procedure (returning %ld).\n",
+   //      //      TRACE(::ca::trace::category_AppMsg, 0, "Warning: Uncaught exception in __activation_window_procedure (returning %ld).\n",
    //      //       lResult);
    //      pe->Delete();
    //   }
@@ -6592,7 +6592,7 @@ __activation_window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lp
 //
 //   if (!::RegisterClass(lpWndClass))
 //   {
-//      //      TRACE(::radix::trace::category_AppMsg, 0, "Can't register window class named %s\n",
+//      //      TRACE(::ca::trace::category_AppMsg, 0, "Can't register window class named %s\n",
 //      //       lpWndClass->lpszClassName);
 //      return FALSE;
 //   }

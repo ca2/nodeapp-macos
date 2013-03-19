@@ -64,7 +64,7 @@ CLASS_DECL_mac LRESULT CALLBACK __window_procedure(oswindow hWnd, UINT nMsg, WPA
 typedef void (__MSG_CALL ::ca::window::*__PMSGW)();
 // like '__PMSG' but for ::ca::window derived classes only
 
-typedef void (__MSG_CALL ::radix::thread::*__PMSGT)();
+typedef void (__MSG_CALL ::ca::thread::*__PMSGT)();
 // like '__PMSG' but for thread-derived classes only
 
 
@@ -78,13 +78,13 @@ typedef void (__MSG_CALL ::radix::thread::*__PMSGT)();
 
 
 CLASS_DECL_mac ::mac::thread * __get_thread();
-CLASS_DECL_mac void __set_thread(::radix::thread * pthread);
+CLASS_DECL_mac void __set_thread(::ca::thread * pthread);
 CLASS_DECL_mac MESSAGE * __get_current_message();
 
-CLASS_DECL_mac void __end_thread(::radix::application * papp, UINT nExitCode, bool bDelete = TRUE);
+CLASS_DECL_mac void __end_thread(::ca::application * papp, UINT nExitCode, bool bDelete = TRUE);
 
 CLASS_DECL_mac void __init_thread();
-CLASS_DECL_mac void __term_thread(::radix::application * papp, HINSTANCE hInstTerm = NULL);
+CLASS_DECL_mac void __term_thread(::ca::application * papp, HINSTANCE hInstTerm = NULL);
 
 /////////////////////////////////////////////////////////////////////////////
 // Global functions for access to the one and only application
@@ -99,11 +99,11 @@ CLASS_DECL_mac void __term_thread(::radix::application * papp, HINSTANCE hInstTe
 
 
 // Advanced initialization: for overriding default WinMain
-//CLASS_DECL_mac bool gen::WinInit(__in HINSTANCE hInstance, __in HINSTANCE hPrevInstance,
+//CLASS_DECL_mac bool ::ca::WinInit(__in HINSTANCE hInstance, __in HINSTANCE hPrevInstance,
 // __in_z LPTSTR lpCmdLine, __in int32_t nCmdShow);
 CLASS_DECL_mac void __mac_term();
 
-CLASS_DECL_mac ::radix::application* __get_app();
+CLASS_DECL_mac ::ca::application* __get_app();
 CLASS_DECL_mac ::user::interaction* __get_main_window();
 //CLASS_DECL_mac HINSTANCE CLASS_DECL_mac System.m_hInstance;
 CLASS_DECL_mac HINSTANCE __get_resource_handle();

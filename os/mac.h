@@ -4,7 +4,7 @@
 #define SECURITY_WIN32
 
 
-#include "ca.h"
+#include "app/appseed/ca2/ca2.h"
 
 
 #define CLASS_DECL_mac
@@ -95,15 +95,15 @@ CLASS_DECL_mac void AfxResetMsgCache();
 
 #include "mac_shell.h"
 
-CLASS_DECL_mac void __trace_message(const char * lpszPrefix, gen::signal_object * pobj);
+CLASS_DECL_mac void __trace_message(const char * lpszPrefix, ::ca::signal_object * pobj);
 CLASS_DECL_mac void __trace_message(const char * lpszPrefix, LPMESSAGE lpmsg);
 
-CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(gen::signal_object * pobj);
+CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(::ca::signal_object * pobj);
 CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg);
 
 
-CLASS_DECL_mac void AfxProcessWndProcException(base_exception*, gen::signal_object * pobj);
-CLASS_DECL_mac void __cdecl __pre_translate_message(gen::signal_object * pobj);
+CLASS_DECL_mac void AfxProcessWndProcException(base_exception*, ::ca::signal_object * pobj);
+CLASS_DECL_mac void __cdecl __pre_translate_message(::ca::signal_object * pobj);
 
 
 #include "mac_application.h"

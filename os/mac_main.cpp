@@ -22,7 +22,7 @@ void __cdecl _null_se_translator(uint32_t uiCode, EXCEPTION_POINTERS * ppointers
 //UINT c_cdecl          win_application_thread_proc(LPVOID);
 /////////////////////////////////////////////////////////////////////////////
 // Standard WinMain implementation
-//  Can be replaced as long as 'gen::WinInit' is called first
+//  Can be replaced as long as '::ca::WinInit' is called first
 
 int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
 {

@@ -29,13 +29,13 @@ namespace mac
       ASSERT(lpszFileName != NULL);
       //ASSERT(AfxIsValidString(lpszFileName));
       
-      if(nOpenFlags  & ::ex1::file::defer_create_directory)
+      if(nOpenFlags  & ::ca::file::defer_create_directory)
       {
          Application.dir().mk(System.dir().name(lpszFileName));
       }
       
       m_pStream = NULL;
-      //if (!::lnx::file::open(lpszFileName, (nOpenFlags & ~::ex1::file::type_text)))
+      //if (!::lnx::file::open(lpszFileName, (nOpenFlags & ~::ca::file::type_text)))
       // return FALSE;
       
       //   ASSERT(m_hFile != hFileNull);
@@ -44,7 +44,7 @@ namespace mac
       char szMode[4]; // C-runtime open string
       int32_t nMode = 0;
       
-      // determine read/write mode depending on ex1::filesp mode
+      // determine read/write mode depending on ::ca::filesp mode
       if (nOpenFlags & mode_create)
       {
          if (nOpenFlags & modeNoTruncate)
@@ -86,12 +86,12 @@ namespace mac
       
       if (m_pStream == NULL)
       {
-         vfxThrowFileException(get_app(), ::ex1::file_exception::type_generic, errno, m_strFileName);
+         vfxThrowFileException(get_app(), ::ca::file_exception::type_generic, errno, m_strFileName);
          // an error somewhere along the way...
          //if (pException != NULL)
          {
             //         pException->m_lOsError = errno;
-            //         pException->m_cause = ::ex1::file_exception::OsErrorToException(errno);
+            //         pException->m_cause = ::ca::file_exception::OsErrorToException(errno);
          }
          
          ::mac::file::Abort(); // close m_hFile
@@ -116,11 +116,11 @@ namespace mac
       size_t nRead = 0;
       
       if ((nRead = fread(lpBuf, sizeof(BYTE), nCount, m_pStream)) == 0 && !feof(m_pStream))
-         vfxThrowFileException(get_app(), ::ex1::file_exception::type_generic, errno, m_strFileName);
+         vfxThrowFileException(get_app(), ::ca::file_exception::type_generic, errno, m_strFileName);
       if (ferror(m_pStream))
       {
          clearerr(m_pStream);
-         vfxThrowFileException(get_app(), ::ex1::file_exception::type_generic, errno, m_strFileName);
+         vfxThrowFileException(get_app(), ::ca::file_exception::type_generic, errno, m_strFileName);
       }
       return nRead;
    }
@@ -132,7 +132,7 @@ namespace mac
       //   ASSERT(fx_is_valid_address(lpBuf, nCount, FALSE));
       
       if (fwrite(lpBuf, sizeof(BYTE), nCount, m_pStream) != nCount)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::type_generic, errno, m_strFileName);
+         vfxThrowFileException(get_app(), ::ca::file_exception::type_generic, errno, m_strFileName);
    }
    
    void stdio_file::write_string(const char * lpsz)
@@ -141,7 +141,7 @@ namespace mac
       ASSERT(m_pStream != NULL);
       
       if (fputs(lpsz, m_pStream) == EOF)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::diskFull, errno, m_strFileName);
+         vfxThrowFileException(get_app(), ::ca::file_exception::diskFull, errno, m_strFileName);
    }
    
    LPTSTR stdio_file::read_string(LPTSTR lpsz, UINT nMax)
@@ -154,7 +154,7 @@ namespace mac
       if (lpszResult == NULL && !feof(m_pStream))
       {
          clearerr(m_pStream);
-         vfxThrowFileException(get_app(), ::ex1::file_exception::type_generic, errno, m_strFileName);
+         vfxThrowFileException(get_app(), ::ca::file_exception::type_generic, errno, m_strFileName);
       }
       return lpszResult;
    }
@@ -178,7 +178,7 @@ namespace mac
          if (lpszResult == NULL && !feof(m_pStream))
          {
             clearerr(m_pStream);
-            vfxThrowFileException(get_app(), ::ex1::file_exception::type_generic, errno,
+            vfxThrowFileException(get_app(), ::ca::file_exception::type_generic, errno,
                                   m_strFileName);
          }
          
@@ -207,7 +207,7 @@ namespace mac
     ASSERT(m_pStream != NULL);
     
     if (fputws(lpsz, m_pStream) == _TEOF)
-    vfxThrowFileException(get_app(), ::ex1::file_exception::diskFull, errno, m_strFileName);
+    vfxThrowFileException(get_app(), ::ca::file_exception::diskFull, errno, m_strFileName);
     }*/
    
    /*wchar_t * stdio_file::read_string(wchar_t * lpsz, UINT nMax)
@@ -220,35 +220,35 @@ namespace mac
     if (lpszResult == NULL && !feof(m_pStream))
     {
     clearerr(m_pStream);
-    vfxThrowFileException(get_app(), ::ex1::file_exception::type_generic, errno, m_strFileName);
+    vfxThrowFileException(get_app(), ::ca::file_exception::type_generic, errno, m_strFileName);
     }
     return lpszResult;
     }*/
    
-   file_position stdio_file::seek(file_offset lOff, ::ex1::e_seek eseek)
+   file_position stdio_file::seek(file_offset lOff, ::ca::e_seek eseek)
    {
       ASSERT_VALID(this);
-      ASSERT(eseek == ::ex1::seek_begin || eseek== ::ex1::seek_end || eseek== ::ex1::seek_current);
+      ASSERT(eseek == ::ca::seek_begin || eseek== ::ca::seek_end || eseek== ::ca::seek_current);
       ASSERT(m_pStream != NULL);
       
       int32_t nFrom;
       switch(eseek)
       {
-         case ::ex1::seek_begin:
+         case ::ca::seek_begin:
             nFrom = SEEK_SET;
             break;
-         case ::ex1::seek_end:
+         case ::ca::seek_end:
             nFrom = SEEK_END;
             break;
-         case ::ex1::seek_current:
+         case ::ca::seek_current:
             nFrom = SEEK_CUR;
             break;
          default:
-            vfxThrowFileException(get_app(), ::ex1::file_exception::badSeek, -1, m_strFileName);
+            vfxThrowFileException(get_app(), ::ca::file_exception::badSeek, -1, m_strFileName);
       }
       
       if (fseek(m_pStream, lOff, nFrom) != 0)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::badSeek, errno,
+         vfxThrowFileException(get_app(), ::ca::file_exception::badSeek, errno,
                                m_strFileName);
       
       long pos = ftell(m_pStream);
@@ -262,7 +262,7 @@ namespace mac
       
       long pos = ftell(m_pStream);
       if (pos == -1)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::invalidFile, errno,
+         vfxThrowFileException(get_app(), ::ca::file_exception::invalidFile, errno,
                                m_strFileName);
       return pos;
    }
@@ -272,7 +272,7 @@ namespace mac
       ASSERT_VALID(this);
       
       if (m_pStream != NULL && fflush(m_pStream) != 0)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::diskFull, errno,
+         vfxThrowFileException(get_app(), ::ca::file_exception::diskFull, errno,
                                m_strFileName);
    }
    
@@ -291,7 +291,7 @@ namespace mac
       m_pStream = NULL;
       
       if (nErr != 0)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::diskFull, errno,
+         vfxThrowFileException(get_app(), ::ca::file_exception::diskFull, errno,
                                m_strFileName);
    }
    
@@ -306,7 +306,7 @@ namespace mac
       m_bCloseOnDelete = FALSE;
    }
    
-   ex1::file * stdio_file::Duplicate() const
+   ::ca::file * stdio_file::Duplicate() const
    {
       ASSERT_VALID(this);
       ASSERT(m_pStream != NULL);
@@ -353,21 +353,21 @@ namespace mac
       
       nCurrent = ftell(m_pStream);
       if (nCurrent == -1)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::invalidFile, errno,
+         vfxThrowFileException(get_app(), ::ca::file_exception::invalidFile, errno,
                                m_strFileName);
       
       nResult = fseek(m_pStream, 0, SEEK_END);
       if (nResult != 0)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::badSeek, errno,
+         vfxThrowFileException(get_app(), ::ca::file_exception::badSeek, errno,
                                m_strFileName);
       
       nLength = ftell(m_pStream);
       if (nLength == -1)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::invalidFile, errno,
+         vfxThrowFileException(get_app(), ::ca::file_exception::invalidFile, errno,
                                m_strFileName);
       nResult = fseek(m_pStream, nCurrent, SEEK_SET);
       if (nResult != 0)
-         vfxThrowFileException(get_app(), ::ex1::file_exception::badSeek, errno,
+         vfxThrowFileException(get_app(), ::ca::file_exception::badSeek, errno,
                                m_strFileName);
       
       return nLength;

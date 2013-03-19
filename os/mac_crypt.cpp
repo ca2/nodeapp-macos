@@ -7,7 +7,7 @@ namespace mac
 
    crypt::crypt(::ca::application * papp) :
       ca(papp),
-      ::ca4::crypt(papp)
+      ::ca::crypt(papp)
    {
    }
 

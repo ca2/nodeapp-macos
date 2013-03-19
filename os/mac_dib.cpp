@@ -129,7 +129,7 @@ namespace mac
          return FALSE;
       }
       
-      if(!m_spbitmap->CreateDIBSection(NULL, &m_info, DIB_RGB_COLORS, (void **) &m_pcolorref, NULL, 0))
+      if(!m_spbitmap->CreateDIBSection(NULL, &m_info, DIB_RGB_COLORS, (void **) &m_pcolorref, &scan, NULL,  0))
       {
          m_size = ::size(0, 0);
          return FALSE;
@@ -186,11 +186,11 @@ namespace mac
    bool dib::Destroy ()
    {
       if(m_spbitmap.is_set())
-         gen::release(m_spbitmap.m_p);
+         ::ca::release(m_spbitmap.m_p);
       
       
       if(m_spgraphics.is_set())
-         gen::release(m_spgraphics.m_p);
+         ::ca::release(m_spgraphics.m_p);
       
       m_size         = ::size(0, 0);
       m_pcolorref    = NULL;

@@ -6,7 +6,7 @@
 
 void CLASS_DECL_mac __abort()
 {
-   //   TRACE(::radix::trace::category_AppMsg, 0, "__abort called.\n");
+   //   TRACE(::ca::trace::category_AppMsg, 0, "__abort called.\n");
    
    __mac_term();
    abort();

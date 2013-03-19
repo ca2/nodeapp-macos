@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A1CFD777154F5EAA007447E2"
-               BuildableName = "libos.dylib"
-               BlueprintName = "os"
+               BuildableName = "libca2os.dylib"
+               BlueprintName = "ca2os"
                ReferencedContainer = "container:os.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

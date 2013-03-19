@@ -230,11 +230,7 @@ typedef ::std::type_info std_type_info;
 
 #include <stddef.h>
 #include <limits.h>
-#ifdef MACOS
 #include <malloc/malloc.h>
-#else
-#include <malloc.h>
-#endif
 #undef AfxWndProc
 
 #include <sys/types.h>

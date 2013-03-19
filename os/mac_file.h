@@ -13,7 +13,7 @@ namespace mac
    // File - raw unbuffered disk file I/O
 
    class CLASS_DECL_mac file :
-      virtual public ex1::file
+      virtual public ::ca::file
    {
    public:
 
@@ -61,7 +61,7 @@ namespace mac
       virtual file_position get_position() const;
       
       
-      bool GetStatus(ex1::file_status & rStatus) const;
+      bool GetStatus(::ca::file_status & rStatus) const;
       virtual string GetFileName() const;
       virtual string GetFileTitle() const;
       virtual string GetFilePath() const;
@@ -69,14 +69,14 @@ namespace mac
       
       virtual bool open(const char * lpszFileName, UINT nOpenFlags);
       
-      virtual bool PASCAL GetStatus(const char * lpszFileName, ::ex1::file_status& rStatus);
+      virtual bool PASCAL GetStatus(const char * lpszFileName, ::ca::file_status& rStatus);
       
       uint64_t ReadHuge(void * lpBuffer, uint64_t dwCount);
       void WriteHuge(const void * lpBuffer, uint64_t dwCount);
       
-      virtual ex1::file * Duplicate() const;
+      virtual ::ca::file * Duplicate() const;
       
-      virtual file_position seek(file_offset lOff, ::ex1::e_seek nFrom);
+      virtual file_position seek(file_offset lOff, ::ca::e_seek nFrom);
       virtual void set_length(file_size dwNewLen);
       virtual file_size get_length() const;
       

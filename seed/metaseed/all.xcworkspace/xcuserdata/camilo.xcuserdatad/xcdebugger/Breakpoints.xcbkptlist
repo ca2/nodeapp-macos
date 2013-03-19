@@ -102,7 +102,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1326"
          endingLineNumber = "1326"
-         landmarkName = "system::on_request(::ca::create_context * pcreatecontext)"
+         landmarkName = "system::unregister_delete(::ca::ca * plistened, ::ca::ca * plistener)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -181,6 +181,136 @@
          startingLineNumber = "455"
          endingLineNumber = "455"
          landmarkName = "FT_Done_GlyphSlot()"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/ca/ca_application.cpp"
+         timestampString = "385344224.861794"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "493"
+         endingLineNumber = "493"
+         landmarkName = "application::process_initialize()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/ca/ca_application.cpp"
+         timestampString = "385332122.289172"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "502"
+         endingLineNumber = "502"
+         landmarkName = "application::process_initialize()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/c/macos/c_os_library.cpp"
+         timestampString = "385342756.743144"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "library::open(const char * pszPath)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/c/macos/c_os_user.cpp"
+         timestampString = "385380816.923578"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
+         landmarkName = "MessageBoxA(oswindow hwnd, const char * message, const char * header, unsigned int message_type )"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/plane/plane_system.cpp"
+         timestampString = "385380871.576426"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1436"
+         endingLineNumber = "1436"
+         landmarkName = "system::on_allocation_error(::ca::application * papp, ::ca::type_info &amp; info)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/primitive/primitive_string_format.h"
+         timestampString = "385388056.917573"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "280"
+         endingLineNumber = "280"
+         landmarkName = "printf(const char * &amp; s)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/primitive/primitive_string_format.h"
+         timestampString = "385388056.917573"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "281"
+         endingLineNumber = "281"
+         landmarkName = "printf(const char * &amp; s)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/primitive/primitive_string.h"
+         timestampString = "385381661.212397"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "614"
+         endingLineNumber = "614"
+         landmarkName = "FormatPrinter(void * , const char * s)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/primitive/primitive_string_format.h"
+         timestampString = "385388056.917573"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "276"
+         endingLineNumber = "276"
+         landmarkName = "printf(const char * &amp; s)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca/ca/ca_application.h"
+         timestampString = "385385173.617427"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "757"
+         endingLineNumber = "757"
+         landmarkName = "simple_message_box(::user::interaction * puiOwner, UINT fuStyle, const char * pszFormat, const T &amp; value, Args... args)"
          landmarkType = "7">
       </FileBreakpoint>
    </FileBreakpoints>
