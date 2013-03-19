@@ -155,7 +155,7 @@ public:
 
 
 template < class TYPE, int32_t iSlot >
-class thread_local :
+class thread_slot :
 public thread_local_object < iSlot >
 {
    // Attributes
@@ -187,9 +187,9 @@ public:
 };
 
 #define THREAD_LOCAL(class_name, ident_name, slot) \
-thread_local < class_name, slot > ident_name;
+thread_slot < class_name, slot > ident_name;
 #define EXTERN_THREAD_LOCAL(class_name, ident_name, slot) \
-extern CLASS_DECL_mac thread_local<class_name, slot> ident_name;
+extern CLASS_DECL_mac thread_slot<class_name, slot> ident_name;
 
 template<class TYPE>
 class process_local : public process_local_object

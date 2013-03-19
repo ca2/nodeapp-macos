@@ -6,7 +6,7 @@ namespace mac
    
    
    class CLASS_DECL_mac file_set :
-   public ex2::file_set
+   public ::ca::file_set
    {
    public:
       

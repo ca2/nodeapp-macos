@@ -6,7 +6,7 @@ namespace mac
 
 
    class CLASS_DECL_mac crypt :
-      virtual public ::ca4::crypt
+      virtual public ::ca::crypt
    {
    public:
 

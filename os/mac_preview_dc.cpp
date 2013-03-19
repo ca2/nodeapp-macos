@@ -789,7 +789,7 @@
  WINBOOL (CALLBACK *)(HDC, LPARAM, int32_t),
  LPARAM lpData, int32_t nCount, int32_t x, int32_t y, int32_t, int32_t)
  {
- TRACE(::radix::trace::category_AppMsg, 0, "TextOut() substituted for GrayString() in Print Preview.\n");
+ TRACE(::ca::trace::category_AppMsg, 0, "TextOut() substituted for GrayString() in Print Preview.\n");
  return TextOut(x, y, (const char *)lpData, nCount);
  }
  

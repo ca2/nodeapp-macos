@@ -6,7 +6,7 @@ namespace mac
 
 
    class CLASS_DECL_mac copydesk :
-      virtual public ::ca4::copydesk,
+      virtual public ::ca::copydesk,
       virtual public ::ca::window_sp
    {
    public:
