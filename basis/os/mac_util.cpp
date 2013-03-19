@@ -162,7 +162,7 @@ int32_t AfxCriticalNewHandler(size_t nSize)
    return 0;
    // called during critical primitive::memory allocation
    //  free up part of the cast's safety cache
-   //   TRACE(::radix::trace::category_Memory, 0, "Warning: Critical primitive::memory allocation failed!\n");
+   //   TRACE(::ca::trace::category_Memory, 0, "Warning: Critical primitive::memory allocation failed!\n");
    /*   ___THREAD_STATE* pThreadState = __get_thread_state();
     if (pThreadState != NULL && pThreadState->m_pSafetyPoolBuffer != NULL)
     {
@@ -170,7 +170,7 @@ int32_t AfxCriticalNewHandler(size_t nSize)
     if (nOldBufferSize <= nSize + MIN_MALLOC_OVERHEAD)
     {
     // give it all up
-    ///       TRACE(::radix::trace::category_Memory, 0, "Warning: Freeing application's primitive::memory safety pool!\n");
+    ///       TRACE(::ca::trace::category_Memory, 0, "Warning: Freeing application's primitive::memory safety pool!\n");
     free(pThreadState->m_pSafetyPoolBuffer);
     pThreadState->m_pSafetyPoolBuffer = NULL;
     }
@@ -180,13 +180,13 @@ int32_t AfxCriticalNewHandler(size_t nSize)
     _expand(pThreadState->m_pSafetyPoolBuffer,
     nOldBufferSize - (nSize + MIN_MALLOC_OVERHEAD));
     AfxEnableMemoryTracking(bEnable);
-    //         TRACE(::radix::trace::category_Memory, 0, "Warning: Shrinking safety pool from %d to %d to satisfy request of %d bytes.\n",
+    //         TRACE(::ca::trace::category_Memory, 0, "Warning: Shrinking safety pool from %d to %d to satisfy request of %d bytes.\n",
     //           nOldBufferSize, _msize(pThreadState->m_pSafetyPoolBuffer), nSize);
     }
     return 1;       // retry it
     }
     */
-   //   TRACE(::radix::trace::category_Memory, 0, "ERROR: Critical primitive::memory allocation from safety pool failed!\n");
+   //   TRACE(::ca::trace::category_Memory, 0, "ERROR: Critical primitive::memory allocation from safety pool failed!\n");
    //   AfxThrowMemoryException();      // oops
 }
 #endif // !_AFX_PORTABLE

@@ -125,7 +125,7 @@ namespace mac
    
    void graphics_object::dump(dump_context & dumpcontext) const
    {
-      ::radix::object::dump(dumpcontext);
+      ::ca::object::dump(dumpcontext);
       
       //      dumpcontext << "get_handle() = " << get_handle();
       //    dumpcontext << "\n";
@@ -133,7 +133,7 @@ namespace mac
    
    void graphics_object::assert_valid() const
    {
-      ::radix::object::assert_valid();
+      ::ca::object::assert_valid();
       //ASSERT(get_handle() == NULL ||
       // (afxData.bWin95 || ::GetObjectType(get_handle()) != 0));
    }

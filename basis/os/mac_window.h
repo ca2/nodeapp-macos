@@ -41,7 +41,7 @@ namespace mac
       
       static const MESSAGE* PASCAL GetCurrentMessage();
       
-      virtual void install_message_handling(::gen::message::dispatch * pinterface);
+      virtual void install_message_handling(::ca::message::dispatch * pinterface);
       
       bool operator==(const ::ca::window& wnd) const;
       bool operator!=(const ::ca::window& wnd) const;
@@ -605,11 +605,11 @@ namespace mac
       virtual void EndModalState();
       
       // for translating oswindows messages in main message pump
-      virtual void pre_translate_message(gen::signal_object * pobj);
+      virtual void pre_translate_message(::ca::signal_object * pobj);
       
       
       // for processing oswindows messages
-      virtual void message_handler(gen::signal_object * pobj);
+      virtual void message_handler(::ca::signal_object * pobj);
       //virtual bool OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult);
       
       // for handling default processing
@@ -638,7 +638,7 @@ namespace mac
       bool HandleFloatingSysCommand(UINT nID, LPARAM lParam);
       bool IsTopParentActive();
       void ActivateTopParent();
-      virtual void WalkPreTranslateTree(::user::interaction * puiStop, gen::signal_object * pobj);
+      virtual void WalkPreTranslateTree(::user::interaction * puiStop, ::ca::signal_object * pobj);
       static ::user::interaction * PASCAL GetDescendantWindow(::user::interaction * hWnd, id id);
       static void PASCAL SendMessageToDescendants(void*  hWnd, UINT message, WPARAM wParam, LPARAM lParam, bool bDeep, bool bOnlyPerm);
       virtual bool IsFrameWnd(); // is_kind_of(System.type_info < frame_window > ()))

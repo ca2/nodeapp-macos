@@ -4,7 +4,7 @@ namespace mac
 {
 
    class CLASS_DECL_mac factory_exchange :
-      virtual public ::radix::object
+      virtual public ::ca::object
    {
    public:
       factory_exchange(::ca::application * papp);

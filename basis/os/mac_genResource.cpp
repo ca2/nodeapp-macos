@@ -52,12 +52,12 @@ namespace gen
            try
            {
               // create the .mdb file
-   //           ex1::filesp f(lpcszFilePath, ::ex1::file::mode_create | ::ex1::file::mode_write );
+   //           ::ca::filesp f(lpcszFilePath, ::ca::file::mode_create | ::ca::file::mode_write );
 
               // write the ::fontopus::user-defined resource to the .mdb file
               storage.set_data(lpnRes, dwResSize);
            }
-           catch(ex1::file_exception_sp * pe)
+           catch(::ca::file_exception_sp * pe)
            {
          #ifdef _DEBUG
               //

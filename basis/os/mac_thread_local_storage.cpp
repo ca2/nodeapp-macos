@@ -168,7 +168,7 @@ process_local_object::~process_local_object()
 /////////////////////////////////////////////////////////////////////////////
 // Init/Term for thread/process local data
 
-/*void CLASS_DECL_lnx gen::InitLocalData(HINSTANCE hInst)
+/*void CLASS_DECL_lnx ::ca::InitLocalData(HINSTANCE hInst)
  {
  if (__thread_data != NULL)
  __thread_data->AssignInstance(hInst);

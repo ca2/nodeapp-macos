@@ -128,7 +128,7 @@ public:
    __MODULE_STATE(bool bDLL, DWORD dwVersion, bool bSystem = FALSE);
    ~__MODULE_STATE();
    
-   ::radix::application* m_pCurrentWinApp;
+   ::ca::application* m_pCurrentWinApp;
    HINSTANCE m_hCurrentInstanceHandle;
    HINSTANCE m_hCurrentResourceHandle;
    const char * m_lpszCurrentAppName;
@@ -166,7 +166,7 @@ public:
    
    
    // define thread local portions of module state
-   thread_local<__MODULE_THREAD_STATE, slot___MODULE_THREAD_STATE> m_thread;
+   ::thread_slot < __MODULE_THREAD_STATE, slot___MODULE_THREAD_STATE > m_thread;
    
    //Fusion: declare pointer to base_array of pointers to isolation aware dll wrappers (ex: comctl32).
    CDllIsolationWrapperBase** m_pDllIsolationWrappers;

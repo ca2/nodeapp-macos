@@ -96,11 +96,11 @@ namespace mac
    // IMPLEMENT_DYNAMIC(user_exception, base_exception)
    //user_exception _simpleUserException(FALSE, __IDS_USER_EXCEPTION);
    
-   // IMPLEMENT_DYNCREATE(::ca::graphics_sp, ::radix::object)
+   // IMPLEMENT_DYNCREATE(::ca::graphics_sp, ::ca::object)
    // IMPLEMENT_DYNAMIC(CClientDC, ::ca::graphics_sp)
    // IMPLEMENT_DYNAMIC(CWindowDC, ::ca::graphics_sp)
    // IMPLEMENT_DYNAMIC(CPaintDC, ::ca::graphics_sp)
-   // IMPLEMENT_DYNCREATE(::ca::graphics_object, ::radix::object)
+   // IMPLEMENT_DYNCREATE(::ca::graphics_object, ::ca::object)
    
    // IMPLEMENT_DYNAMIC(pen, ::ca::graphics_object)
    // IMPLEMENT_DYNAMIC(::ca::brush, ::ca::graphics_object)

@@ -7,7 +7,7 @@ namespace mac
 
    ip_enum::ip_enum(::ca::application * papp) :
       ca(papp),
-      ::ca4::ip_enum(papp)
+      ::ca::ip_enum(papp)
    {
 
    }
@@ -57,7 +57,7 @@ namespace mac
 
          memcpy(&addr.s_addr, phostent->h_addr_list[nAdapter], phostent->h_length);
 
-         str = to_string(&addr);
+         str = to_vsstring(&addr);
 
          if(str.has_char())
          {
