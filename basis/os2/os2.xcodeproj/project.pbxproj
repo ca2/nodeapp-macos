@@ -15,7 +15,6 @@
 		9AA5E2A216F7C320005C45CE /* mac2_factory_exchange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA5E29516F7C320005C45CE /* mac2_factory_exchange.cpp */; };
 		9AA5E2A316F7C320005C45CE /* mac2_printer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA5E29616F7C320005C45CE /* mac2_printer.cpp */; };
 		9AA5E2A416F7C320005C45CE /* mac2_printer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA5E29716F7C320005C45CE /* mac2_printer.h */; };
-		9AA5E2A516F7C320005C45CE /* os2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AA5E29916F7C320005C45CE /* os2.cpp */; };
 		9AA5E2A616F7C320005C45CE /* os2.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA5E29B16F7C320005C45CE /* os2.h */; };
 		9ACA7CD616F7D38D00AA1CEE /* libca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA5E6D816F7C6BD005C45CE /* libca2c.dylib */; };
 		9ACA7CDF16F7D38D00AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CD716F7D38D00AA1CEE /* lib_ca2freeimage.dylib */; };
@@ -37,7 +36,6 @@
 		9AA5E29516F7C320005C45CE /* mac2_factory_exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac2_factory_exchange.cpp; sourceTree = "<group>"; };
 		9AA5E29616F7C320005C45CE /* mac2_printer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac2_printer.cpp; sourceTree = "<group>"; };
 		9AA5E29716F7C320005C45CE /* mac2_printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac2_printer.h; sourceTree = "<group>"; };
-		9AA5E29916F7C320005C45CE /* os2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = os2.cpp; sourceTree = "<group>"; };
 		9AA5E29B16F7C320005C45CE /* os2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = os2.h; sourceTree = "<group>"; };
 		9AA5E6D716F7C6BD005C45CE /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2.dylib"; sourceTree = "<group>"; };
 		9AA5E6D816F7C6BD005C45CE /* libca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2c.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2c.dylib"; sourceTree = "<group>"; };
@@ -45,10 +43,10 @@
 		9ACA7CD816F7D38D00AA1CEE /* lib_ca2freetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freetype.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freetype.dylib"; sourceTree = "<group>"; };
 		9ACA7CD916F7D38D00AA1CEE /* lib_ca2openssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2openssl.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2openssl.dylib"; sourceTree = "<group>"; };
 		9ACA7CDA16F7D38D00AA1CEE /* lib_ca2zlib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2zlib.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2zlib.dylib"; sourceTree = "<group>"; };
-		9ACA7CDB16F7D38D00AA1CEE /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; name = libca2.dylib; path = ../../app/appseed/ca2/build/Release/libca2.dylib; sourceTree = "<group>"; };
+		9ACA7CDB16F7D38D00AA1CEE /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = ../../app/appseed/ca2/build/Release/libca2.dylib; sourceTree = "<group>"; };
 		9ACA7CDC16F7D38D00AA1CEE /* libca2ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2ca.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2ca.dylib"; sourceTree = "<group>"; };
 		9ACA7CDD16F7D38D00AA1CEE /* libca2optca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2optca.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2optca.dylib"; sourceTree = "<group>"; };
-		9ACA7CDE16F7D38D00AA1CEE /* libca2os.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; name = libca2os.dylib; path = ../os/build/Release/libca2os.dylib; sourceTree = "<group>"; };
+		9ACA7CDE16F7D38D00AA1CEE /* libca2os.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2os.dylib; path = ../os/build/Release/libca2os.dylib; sourceTree = "<group>"; };
 		9ACA7CE916F7D62900AA1CEE /* libca2os.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2os.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2os.dylib"; sourceTree = "<group>"; };
 		9AEB7AD616F7C1BA0085103B /* libca2os2.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libca2os2.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,7 +93,6 @@
 				9AA5E29516F7C320005C45CE /* mac2_factory_exchange.cpp */,
 				9AA5E29616F7C320005C45CE /* mac2_printer.cpp */,
 				9AA5E29716F7C320005C45CE /* mac2_printer.h */,
-				9AA5E29916F7C320005C45CE /* os2.cpp */,
 				9AA5E29B16F7C320005C45CE /* os2.h */,
 				9AEB7AD716F7C1BA0085103B /* Products */,
 			);
@@ -179,7 +176,6 @@
 				9AA5E2A116F7C320005C45CE /* mac2_application.cpp in Sources */,
 				9AA5E2A216F7C320005C45CE /* mac2_factory_exchange.cpp in Sources */,
 				9AA5E2A316F7C320005C45CE /* mac2_printer.cpp in Sources */,
-				9AA5E2A516F7C320005C45CE /* os2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
