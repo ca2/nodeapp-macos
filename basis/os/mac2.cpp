@@ -14,10 +14,10 @@ CLASS_DECL_mac void __set_resource_handle(HINSTANCE hInstResource)
 { ASSERT(hInstResource != NULL); afxCurrentResourceHandle = hInstResource; }
 CLASS_DECL_mac const char * __get_app_name()
 { ASSERT(afxCurrentAppName != NULL); return afxCurrentAppName; }
-CLASS_DECL_mac ::user::interaction * __get_main_window()
+CLASS_DECL_mac sp(::user::interaction) __get_main_window()
 {
    ::ca::thread* pThread = dynamic_cast < ::ca::thread * > (::mac::get_thread());
-   return pThread != NULL ? pThread->GetMainWnd() : NULL;
+   return pThread != NULL ? pThread->GetMainWnd() : ::null();
 }
 
 CLASS_DECL_mac bool __gen_get_ambient_act_ctx()

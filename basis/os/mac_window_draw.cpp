@@ -666,7 +666,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       return &m_semaphoreBuffer;
    }
    
-   // The first ::ca::window handle in the base_array must belong
+   // The first ::ca::window handle in the array must belong
    // to the higher z order ::ca::window.
    // The rectangle must contain all update region.
    // It must be in screen coordinates.
@@ -848,7 +848,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    bool window_draw::TwfGetTopWindow(
                                      void * hwnd,
                                      user::oswindow_array & hwnda,
-                                     base_array < HRGN, HRGN > & hrgna,
+                                     array < HRGN, HRGN > & hrgna,
                                      user::oswindow_tree::Array & hwndtreea,
                                      HRGN hrgn)
    {
@@ -872,7 +872,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    bool window_draw::TwfGetTopWindow(
                                      void * hwndParam,
                                      user::oswindow_array & hwnda,
-                                     base_array < HRGN, HRGN > & hrgna,
+                                     array < HRGN, HRGN > & hrgna,
                                      user::oswindow_tree & hwndtree,
                                      HRGN hrgn)
    {
@@ -977,7 +977,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    void window_draw::TwfGetTopWindow(
                                      void * hwnd,
                                      user::oswindow_array & hwnda,
-                                     base_array < HRGN, HRGN > & hrgna,
+                                     array < HRGN, HRGN > & hrgna,
                                      user::oswindow_tree::Array & hwndtreea,
                                      LPCRECT lpcrect)
    {
@@ -995,7 +995,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    void window_draw::TwfGetTopWindowOptimizeOpaque(
                                                    void * hwndOpaque,
                                                    user::oswindow_array & hwnda,
-                                                   base_array < HRGN, HRGN > & hrgna)
+                                                   array < HRGN, HRGN > & hrgna)
    {
       rect rectWindow;
       
@@ -1318,7 +1318,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    
    
    
-   // The first ::ca::window handle in the base_array must belong
+   // The first ::ca::window handle in the array must belong
    // to the higher z order ::ca::window.
    // The rectangle must contain all update region.
    // It must be in screen coordinates.
