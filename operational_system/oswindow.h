@@ -29,7 +29,7 @@ namespace ca
       template < typename T >
       operator T *() { return (T *) (uint_ptr) 0; }
 
-      operator HWND () { return 0; }
+       //      operator HWND () { return 0; }
 
 
    };
@@ -139,6 +139,13 @@ public:
    
    
    operator void * ()
+   {
+      
+      return m_pdata;
+      
+   }
+   
+   operator void * () const
    {
       
       return m_pdata;
