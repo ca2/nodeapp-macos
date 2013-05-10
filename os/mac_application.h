@@ -36,7 +36,7 @@ public    ::ca::main_init_data
       virtual HINSTANCE GetHinstance();
       bool _001OnDDECommand(const char * lpcsz);
       virtual void _001EnableShellOpen();
-      virtual ::user::document_interface * _001OpenDocumentFile(var varFile);
+      virtual sp(::user::document_interface) _001OpenDocumentFile(var varFile);
       virtual void _001OnFileNew();
       
       // Loads a cursor resource.
@@ -180,20 +180,30 @@ public    ::ca::main_init_data
       
       //::ca::graphics * graphics_from_os_data(void * pdata);
       
-      ::ca::window * window_from_os_data(void * pdata);
-      ::ca::window * window_from_os_data_permanent(void * pdata);
+      sp(::ca::window) window_from_os_data(void * pdata);
+      sp(::ca::window) window_from_os_data_permanent(void * pdata);
       
       virtual ::ca::thread * GetThread();
       virtual void set_thread(::ca::thread * pthread);
       
-      virtual ::ca::window * FindWindow(const char * lpszClassName, const char * lpszWindowName);
-      virtual ::ca::window * FindWindowEx(oswindow hwndParent, oswindow hwndChildAfter, const char * lpszClass, const char * lpszWindow);
+      virtual sp(::ca::window) FindWindow(const char * lpszClassName, const char * lpszWindowName);
+      virtual sp(::ca::window) FindWindowEx(oswindow hwndParent, oswindow hwndChildAfter, const char * lpszClass, const char * lpszWindow);
       
       virtual void get_time(struct timeval *p);
       virtual void set_env_var(const string & var,const string & value);
       virtual uint32_t get_thread_id();
+      
+      
+      virtual ::user::printer * get_printer(const char * pszDeviceName);
 
    
    };
 
+   
 } // namespace mac
+
+
+
+
+
+

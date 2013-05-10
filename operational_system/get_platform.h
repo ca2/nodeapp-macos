@@ -11,7 +11,9 @@
 #define _POSIX_C_SOURCE 200809L
 #define _DARWIN_C_SOURCE
 
-
+#define CLASS_DECL_IMPORT
+#define CLASS_DECL_EXPORT
+#define CLASS_DECL_THREAD __thread
 
 #define DECL_C
 //#define PASCAL

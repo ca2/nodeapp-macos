@@ -15,7 +15,7 @@ class no_track_object;
 // template class process_local<>
 
 /////////////////////////////////////////////////////////////////////////////
-// thread_slot_data - manages owned base_array of "slots" for thread local storage
+// thread_slot_data - manages owned array of "slots" for thread local storage
 
 struct thread_data; // private to implementation
 struct slot_data;   // private to implementation
@@ -143,7 +143,7 @@ public:
    
    
    // Implementation
-   process_local_object() : m_mutex(NULL) { }
+   process_local_object() : m_mutex(::null()) { }
    ~process_local_object();
    
    

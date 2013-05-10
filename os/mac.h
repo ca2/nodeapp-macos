@@ -4,7 +4,7 @@
 #define SECURITY_WIN32
 
 
-#include "app/appseed/ca/ca.h"
+#include "app/appseed/ca2/ca2.h"
 
 
 #define CLASS_DECL_mac
@@ -104,7 +104,7 @@ CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg);
 
 CLASS_DECL_mac void AfxProcessWndProcException(base_exception*, ::ca::signal_object * pobj);
 CLASS_DECL_mac void __cdecl __pre_translate_message(::ca::signal_object * pobj);
-
+#include "mac_printer.h"
 
 #include "mac_application.h"
 

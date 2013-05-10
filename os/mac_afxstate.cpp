@@ -144,7 +144,7 @@ THREAD_LOCAL ( ___THREAD_STATE, gen_ThreadState, slot___THREAD_STATE )
  
  
  //bEnable = __enable_memory_tracking(FALSE);
- //Fusion: allocate dll wrappers base_array.
+ //Fusion: allocate dll wrappers array.
  m_pDllIsolationWrappers = NULL;
  //__enable_memory_tracking(bEnable);
  m_bSetAmbientActCtx = TRUE;
@@ -189,7 +189,7 @@ m_mutexRegClassList(NULL)
    
    
    //bEnable = __enable_memory_tracking(FALSE);
-   //Fusion: allocate dll wrappers base_array.
+   //Fusion: allocate dll wrappers array.
    m_pDllIsolationWrappers = NULL;
    //__enable_memory_tracking(bEnable);
    m_bSetAmbientActCtx = TRUE;

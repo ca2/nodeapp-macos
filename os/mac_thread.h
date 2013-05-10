@@ -60,7 +60,7 @@ namespace mac
 		/// true if waiting should be done on all items
 		bool				waitForAllItems_;
 		/// a list of items this threads waits for
-		::collection::list < waitable * >	itemsToWaitFor_;
+		list < waitable * >	itemsToWaitFor_;
       
       
       // list of frame_window objects for thread
@@ -136,8 +136,8 @@ namespace mac
       virtual event & get_finish_event();
       virtual bool get_run();
       virtual ::ca::thread * get_app_thread();
-      virtual ::user::interaction * get_active_ui();
-      virtual ::user::interaction * set_active_ui(::user::interaction * pui);
+      virtual sp(::user::interaction) get_active_ui();
+      virtual sp(::user::interaction) set_active_ui(sp(::user::interaction) pui);
       virtual void step_timer();
       
       
@@ -183,7 +183,7 @@ namespace mac
       virtual void ProcessMessageFilter(int32_t code, ::ca::signal_object * pobj);
       
       // Advanced: virtual access to GetMainWnd()
-      virtual ::user::interaction* GetMainWnd();
+      virtual sp(::user::interaction) GetMainWnd();
       
       // 'delete this' only if m_bAutoDelete == TRUE
       

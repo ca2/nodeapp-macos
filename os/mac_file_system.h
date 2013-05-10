@@ -5,13 +5,13 @@ namespace mac
 {
    
    
-   class CLASS_DECL_ca file_system :
+   class CLASS_DECL_mac file_system :
       public ::ca::file_system
    {
    public:
       
       
-      class CLASS_DECL_ca path :
+      class CLASS_DECL_mac path :
          public ::ca::file_system::path
       {
       public:

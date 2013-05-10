@@ -23,21 +23,12 @@
       location = "group:../../appseed/app/app.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/appseed/optca/optca.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/appseed/c/c.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/appseed/ca/ca.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/ca2/ca2.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../os/os.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../os2/os2.xcodeproj">
    </FileRef>
 </Workspace>

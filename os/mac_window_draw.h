@@ -92,28 +92,28 @@ namespace mac
       void TwfGetTopWindow(
                            void * hwnd,
                            user::oswindow_array & hwnda,
-                           base_array < HRGN, HRGN > & hrgna,
+                           array < HRGN, HRGN > & hrgna,
                            user::oswindow_tree::Array & hwndtreea,
                            LPCRECT lpcrect);
       
       bool TwfGetTopWindow(
                            void * hwnd,
                            user::oswindow_array & hwnda,
-                           base_array < HRGN, HRGN > & hrgna,
+                           array < HRGN, HRGN > & hrgna,
                            user::oswindow_tree::Array & hwndtreea,
                            HRGN hrgn);
       
       bool TwfGetTopWindow(
                            void * hwnd,
                            user::oswindow_array & hwnda,
-                           base_array < HRGN, HRGN > & hrgna,
+                           array < HRGN, HRGN > & hrgna,
                            user::oswindow_tree & hwndtree,
                            HRGN hrgn);
       
       void TwfGetTopWindowOptimizeOpaque(
                                          void * hwndOpaque,
                                          user::oswindow_array & hwnda,
-                                         base_array < HRGN, HRGN > & hrgna);
+                                         array < HRGN, HRGN > & hrgna);
       
       
       EOptimize TwfOptimizeRenderRemoveNextProper(

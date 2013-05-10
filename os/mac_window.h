@@ -17,7 +17,7 @@ namespace mac
    public:
       
       
-      pha(::user::interaction)      m_guieptraMouseHover;
+      spa(::user::interaction)      m_guieptraMouseHover;
       ::ca::window_callback *       m_pcallback;
       string                        m_strWindowText;
       oswindow                      m_oswindow;
@@ -76,7 +76,7 @@ namespace mac
       
 #endif   // WINVER >= 0x0500
       
-      virtual ::ca::window * from_os_data(void * pdata);
+      virtual sp(::ca::window) from_os_data(void * pdata);
       virtual void * get_os_data() const;
       
       static window * from_handle(oswindow hWnd);
@@ -130,17 +130,17 @@ namespace mac
       void get_child_by_id(id id, oswindow* phWnd) const;
       // as above, but returns oswindow
       using ::user::interaction::GetDescendantWindow;
-      ::user::interaction * GetDescendantWindow(id id);
+      sp(::user::interaction) GetDescendantWindow(id id);
       // like get_child_by_id but recursive
       void SendMessageToDescendants(UINT message, WPARAM wParam = 0,
                                     LPARAM lParam = 0, bool bDeep = TRUE, bool bOnlyPerm = FALSE);
-      frame_window* GetParentFrame();
-      frame_window* EnsureParentFrame();
-      ::user::interaction* GetTopLevelParent();
-      ::user::interaction* EnsureTopLevelParent();
-      ::user::interaction* GetTopLevelOwner();
-      ::user::interaction* GetParentOwner();
-      frame_window* GetTopLevelFrame();
+      sp(::user::frame_window) GetParentFrame();
+      sp(::user::frame_window) EnsureParentFrame();
+      sp(::user::interaction) GetTopLevelParent();
+      sp(::user::interaction) EnsureTopLevelParent();
+      sp(::user::interaction) GetTopLevelOwner();
+      sp(::user::interaction) GetParentOwner();
+      sp(::user::frame_window) GetTopLevelFrame();
       static ::ca::window * PASCAL GetSafeOwner(::ca::window * pParent = NULL, oswindow* pWndTop = NULL);
       
       virtual bool IsWindow();
@@ -280,8 +280,8 @@ namespace mac
       virtual bool EnableWindow(bool bEnable = TRUE);
       
       // the active ::ca::window applies only to top-level (frame windows)
-      virtual ::user::interaction * GetActiveWindow();
-      virtual ::user::interaction * SetActiveWindow();
+      virtual sp(::user::interaction) GetActiveWindow();
+      virtual sp(::user::interaction) SetActiveWindow();
       
       // the foreground ::ca::window applies only to top-level windows (frame windows)
       virtual bool SetForegroundWindow();
@@ -295,10 +295,10 @@ namespace mac
       // capture and focus apply to all windows
       static ::ca::window * PASCAL GetCapture();
       virtual ::user::interaction * set_capture(::user::interaction * pinterface = NULL);
-      virtual ::user::interaction * release_capture();
-      virtual ::user::interaction * get_capture();
+      virtual sp(::user::interaction) release_capture();
+      virtual sp(::user::interaction) get_capture();
       static ::ca::window * PASCAL GetFocus();
-      ::ca::window * SetFocus();
+      sp(::user::interaction) SetFocus();
       
       static ::ca::window * PASCAL GetDesktopWindow();
       
@@ -358,19 +358,19 @@ namespace mac
 #endif   // WINVER >= 0x0500
       
       // oswindow Access Functions
-      virtual ::ca::window * ChildWindowFromPoint(POINT point);
-      virtual ::ca::window * ChildWindowFromPoint(POINT point, UINT nFlags);
+      virtual sp(::user::interaction) ChildWindowFromPoint(POINT point);
+      virtual sp(::user::interaction) ChildWindowFromPoint(POINT point, UINT nFlags);
       static ::ca::window * PASCAL FindWindow(const char * lpszClassName, const char * lpszWindowName);
       static ::ca::window * FindWindowEx(oswindow hwndParent, oswindow hwndChildAfter, const char * lpszClass, const char * lpszWindow);
       
-      virtual ::user::interaction * GetNextWindow(UINT nFlag = GW_HWNDNEXT);
-      virtual ::user::interaction * GetTopWindow();
+      virtual sp(::user::interaction) GetNextWindow(UINT nFlag = GW_HWNDNEXT);
+      virtual sp(::user::interaction) GetTopWindow();
       
-      virtual ::user::interaction * GetWindow(UINT nCmd);
-      virtual ::user::interaction * GetLastActivePopup();
+      virtual sp(::user::interaction) GetWindow(UINT nCmd);
+      virtual sp(::user::interaction) GetLastActivePopup();
       
       virtual bool IsChild(::user::interaction *  pWnd);
-      virtual ::user::interaction * get_parent() const;
+      virtual sp(::user::interaction) get_parent() const;
       using ::user::interaction::set_parent;
       ::ca::window * set_parent(::ca::window * pWndNewParent);
       static ::ca::window * PASCAL oswindowFromPoint(POINT point);
@@ -473,7 +473,7 @@ namespace mac
       //xxx bool OnHelpInfo(HELPINFO* lpHelpInfo);
       void OnIconEraseBkgnd(::ca::graphics * pgraphics);
       void OnKillFocus(::ca::window * pNewWnd);
-      LRESULT OnMenuChar(UINT nChar, UINT nFlags, ::userbase::menu* pMenu);
+      LRESULT OnMenuChar(UINT nChar, UINT nFlags, ::user::menu* pMenu);
       void OnMenuSelect(UINT nItemID, UINT nFlags, HMENU hSysMenu);
       void OnMove(int32_t x, int32_t y);
       DECL_GEN_SIGNAL(_001OnPaint)
@@ -555,8 +555,8 @@ namespace mac
       void OnTimer(uint_ptr nIDEvent);
       
       // Initialization message handler member functions
-      void OnInitMenu(::userbase::menu* pMenu);
-      void OnInitMenuPopup(::userbase::menu* pPopupMenu, UINT nIndex, bool bSysMenu);
+      void OnInitMenu(::user::menu* pMenu);
+      void OnInitMenuPopup(::user::menu* pPopupMenu, UINT nIndex, bool bSysMenu);
       
       // Clipboard message handler member functions
       void OnAskCbFormatName(UINT nMaxCount, LPTSTR lpszString);

@@ -74,7 +74,7 @@ namespace mac
       uint64_t ReadHuge(void * lpBuffer, uint64_t dwCount);
       void WriteHuge(const void * lpBuffer, uint64_t dwCount);
       
-      virtual ::ca::file * Duplicate() const;
+      virtual sp(::ca::file) Duplicate() const;
       
       virtual file_position seek(file_offset lOff, ::ca::e_seek nFrom);
       virtual void set_length(file_size dwNewLen);
