@@ -77,7 +77,7 @@ struct slot_data
 thread_local_storage::thread_local_storage()
 {
    if(pthread_key_create(&key, NULL) != 0)
-      throw memory_exception(NULL);
+      throw memory_exception(::null());
    //   m_tlsIndex = TlsAlloc();
    
    

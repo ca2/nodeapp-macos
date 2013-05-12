@@ -153,7 +153,7 @@ THREAD_LOCAL ( ___THREAD_STATE, gen_ThreadState, slot___THREAD_STATE )
 
 
 __MODULE_STATE::__MODULE_STATE(bool bDLL, DWORD dwVersion, bool bSystem) :
-m_mutexRegClassList(NULL)
+   m_mutexRegClassList(::null())
 {
    m_pmapHWND              = NULL;
    //   m_pmapHDC               = NULL;
