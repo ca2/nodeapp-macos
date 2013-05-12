@@ -1450,21 +1450,21 @@ namespace mac
             rect rectText(point((int64_t) x, (int64_t) y), GetTextExtent(str));
             if(rectIntersect.intersect(rectIntersect, rectText))
             {
-               ::ca::dib_sp dib0(get_app());
+               ::ca::dib_sp dib0(allocer());
                dib0->create(rectText.size());
                dib0->get_graphics()->SetTextColor(RGB(255, 255, 255));
                dib0->get_graphics()->SelectObject(&GetCurrentFont());
                dib0->get_graphics()->SetBkMode(TRANSPARENT);
                dib0->get_graphics()->TextOut(0, 0, str);
                dib0->ToAlpha(0);
-               ::ca::dib_sp dib1(get_app());
+               ::ca::dib_sp dib1(allocer());
                dib1->create(rectText.size());
                dib1->get_graphics()->SetTextColor(GetTextColor());
                dib1->get_graphics()->SelectObject(&GetCurrentFont());
                dib1->get_graphics()->SetBkMode(TRANSPARENT);
                dib1->get_graphics()->TextOut(0, 0, str);
                dib1->channel_from(visual::rgba::channel_alpha, dib0);
-               ::ca::dib_sp dib2(get_app());
+               ::ca::dib_sp dib2(allocer());
                dib2->create(rectText.size());
                dib2->Fill(255, 0, 0, 0);
                dib2->from(point((int64_t) max(0, m_ptAlphaBlend.x - x), (int64_t) max(0, m_ptAlphaBlend.y - y)),

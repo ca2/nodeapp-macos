@@ -1,7 +1,7 @@
 #include "framework.h"
 
 
-CLASS_DECL_ca int32_t ca2_main();
+CLASS_DECL_mac int32_t ca2_main();
 
 //CLASS_DECL_ca extern fixed_alloc_array * g_pfixedallocaWstring;
 

@@ -151,7 +151,7 @@ UINT APIENTRY __thread_entry(void * pParam)
       //         threadWnd.Detach();
       pStartup->bError = TRUE;
       pStartup->hEvent.set_event();
-      __end_thread(dynamic_cast < ::ca::application * > (pThread->m_papp), (UINT)-1, FALSE);
+      __end_thread(dynamic_cast < ::ca::application * > (pThread->m_papp.m_p), (UINT)-1, FALSE);
       ASSERT(FALSE);  // unreachable
    }
    
@@ -187,7 +187,7 @@ CLASS_DECL_mac void __set_thread(::ca::thread * pthread)
 {
    // check for current thread in module thread state
    ___THREAD_STATE* pState = __get_thread_state();
-   pState->m_pCurrentWinThread = dynamic_cast < ::mac::thread * > (pthread->::ca::thread_sp::m_p);
+   pState->m_pCurrentWinThread = dynamic_cast < ::mac::thread * > (pthread->::ca::thread::m_p.m_p);
 }
 
 
@@ -272,7 +272,7 @@ void AfxInternalPreTranslateMessage(::ca::signal_object * pobj)
       user::interaction_ptr_array wnda = Sys(pThread->get_app()).frames();
       for(int32_t i = 0; i < wnda.get_count(); i++)
       {
-         ::user::interaction * pui = wnda[i];
+         ::user::interaction * pui = &wnda[i];
          try
          {
             if(pui != NULL)
@@ -524,7 +524,7 @@ namespace mac
    ca(papp),
    message_window_simple_callback(papp),//,
    m_evFinish(papp, FALSE, TRUE),
-   ::ca::thread(NULL),
+   ::ca::thread(::null()),
    m_mutexUiPtra(papp)
    {
       m_evFinish.SetEvent();
@@ -537,10 +537,10 @@ namespace mac
    
    void thread::CommonConstruct()
    {
-      m_ptimera      = NULL;
-      m_puiptra      = NULL;
-      m_puiMain      = NULL;
-      m_puiActive    = NULL;
+      m_ptimera      = ::null();
+      m_puiptra      = ::null();
+      m_puiMain      = ::null();
+      m_puiActive    = ::null();
       
       //      m_peventReady  = NULL;
       
@@ -566,8 +566,8 @@ namespace mac
       //      m_pmapHDC = new hdc_map;
       //    m_pmapHGDIOBJ = new hgdiobj_map;
       //      m_frameList.Construct(offsetof(frame_window, m_pNextFrameWnd));
-      m_ptimera = new ::user::interaction::timer_array(get_app());
-      m_puiptra = new user::interaction_ptr_array;
+      m_ptimera = canew(::user::interaction::timer_array(get_app()));
+      m_puiptra = canew(::user::interaction_ptr_array(get_app()));
       
       m_hThread = NULL;
       
@@ -580,7 +580,7 @@ namespace mac
       {
          single_lock sl(&m_mutexUiPtra, TRUE);
          ::user::interaction_ptr_array * puiptra = m_puiptra;
-         m_puiptra = NULL;
+         m_puiptra = ::null();
          for(int32_t i = 0; i < puiptra->get_size(); i++)
          {
             ::user::interaction * pui = puiptra->element_at(i);
@@ -589,8 +589,8 @@ namespace mac
                try
                {
                   if(MAC_THREAD(pui->m_pthread->m_pthread) == this
-                     || MAC_THREAD(pui->m_pthread->m_pthread->m_p) == MAC_THREAD(m_p)
-                     || MAC_THREAD(pui->m_pthread->m_pthread) == MAC_THREAD(m_p))
+                     || MAC_THREAD(pui->m_pthread->m_pthread->m_p.m_p) == MAC_THREAD(m_p.m_p)
+                     || MAC_THREAD(pui->m_pthread->m_pthread) == MAC_THREAD(m_p.m_p))
                   {
                      pui->m_pthread = NULL;
                   }
@@ -609,7 +609,7 @@ namespace mac
        pState->m_pmapHDC->delete_temp();
        pState->m_pmapHWND->delete_temp();*/
       
-      for(int32_t i = 0; i < m_captraDeletePool.get_count(); i++)
+/*      for(int32_t i = 0; i < m_captraDeletePool.get_count(); i++)
       {
          try
          {
@@ -622,7 +622,7 @@ namespace mac
          catch(...)
          {
          }
-      }
+      } */
       
       // free thread object
       //      if (m_hThread != NULL)
@@ -754,7 +754,7 @@ namespace mac
    
    void thread::set_timer(::user::interaction * pui, uint_ptr nIDEvent, UINT nEllapse)
    {
-      if(m_spwindowMessage.is_null())
+      if(m_spuiMessage.is_null())
       {
          return;
       }
@@ -763,15 +763,15 @@ namespace mac
       int32_t iMin = 100;
       for(int32_t i = 0; i < m_ptimera->m_timera.get_count(); i++)
       {
-         if(m_ptimera->m_timera.element_at(i).m_uiElapse < natural(iMin))
+         if(m_ptimera->m_timera.element_at(i)->m_uiElapse < natural(iMin))
          {
-            iMin = m_ptimera->m_timera.element_at(i).m_uiElapse;
+            iMin = m_ptimera->m_timera.element_at(i)->m_uiElapse;
          }
       }
       sl.unlock();
-      if(m_spwindowMessage->IsWindow())
+      if(m_spuiMessage->IsWindow())
       {
-         m_spwindowMessage->SetTimer((uint_ptr)-2, iMin, NULL);
+         m_spuiMessage->SetTimer((uint_ptr)-2, iMin, NULL);
       }
    }
    
@@ -805,12 +805,12 @@ namespace mac
       return m_pAppThread;
    }
    
-   ::user::interaction * thread::get_active_ui()
+   sp(::user::interaction) thread::get_active_ui()
    {
       return m_puiActive;
    }
    
-   ::user::interaction * thread::set_active_ui(::user::interaction * pui)
+   sp(::user::interaction) thread::set_active_ui(sp(::user::interaction) pui)
    {
       ::user::interaction * puiPrevious = m_puiActive;
       m_puiActive = pui;
@@ -920,7 +920,7 @@ namespace mac
       if(m_bAutoDelete)
       {
          if(m_pappDelete != NULL)
-            delete m_pappDelete;
+            m_pappDelete.release();
          m_evFinish.SetEvent();
 //         ::ca::thread * pthread = dynamic_cast < ::ca::thread * > (m_p);
          //      if(pthread->m_peventReady != NULL)
@@ -932,7 +932,7 @@ namespace mac
          //     ::SetEvent((HANDLE) m_peventReady);
          //}
          //pthread->::ca::smart_pointer < ::ca::thread >::m_p = NULL;
-         ::ca::del(m_p);
+         m_p.release();
          //      delete_this();
       }
       else
@@ -968,7 +968,7 @@ namespace mac
       WINBOOL bIdle = TRUE;
       LONG lIdleCount = 0;
       ::ca::application * pappThis1 = dynamic_cast < ::ca::application * > (this);
-      ::ca::application * pappThis2 = dynamic_cast < ::ca::application * > (m_p);
+      ::ca::application * pappThis2 = dynamic_cast < ::ca::application * > (m_p.m_p);
       
       // acquire and dispatch messages until a WM_QUIT message is received.
       MESSAGE msg;
@@ -1108,15 +1108,15 @@ namespace mac
          {
             single_lock sl(&m_mutexUiPtra, TRUE);
             ::user::interaction_ptr_array * puiptra = m_puiptra;
-            m_puiptra = NULL;
+            m_puiptra = ::null();
             for(int32_t i = 0; i < puiptra->get_size(); i++)
             {
                ::user::interaction * pui = puiptra->element_at(i);
                if(pui->m_pthread != NULL)
                {
                   if(MAC_THREAD(pui->m_pthread->m_pthread) == this
-                     || MAC_THREAD(pui->m_pthread->m_pthread->m_p) == MAC_THREAD(m_p)
-                     || MAC_THREAD(pui->m_pthread->m_pthread) == MAC_THREAD(m_p))
+                     || MAC_THREAD(pui->m_pthread->m_pthread->m_p.m_p) == MAC_THREAD(m_p.m_p)
+                     || MAC_THREAD(pui->m_pthread->m_pthread) == MAC_THREAD(m_p.m_p))
                   {
                      pui->m_pthread = NULL;
                   }
@@ -1133,7 +1133,7 @@ namespace mac
       try
       {
          ::user::interaction::timer_array * ptimera = m_ptimera;
-         m_ptimera = NULL;
+         m_ptimera = ::null();
          delete ptimera;
       }
       catch(...)
@@ -1247,7 +1247,7 @@ namespace mac
       SCAST_PTR(::ca::message::base, pbase, pobj);
       if(pbase->m_uiMessage == WM_APP + 1984 && pbase->m_wparam == 77)
       {
-         ::ca::scoped_ptr < ::user::message > spmessage(pbase->m_lparam);
+         ::c::smart_pointer < ::user::message > spmessage(pbase->m_lparam);
          spmessage->send();
          pbase->m_bRet = true;
          return;
@@ -1410,7 +1410,7 @@ namespace mac
    /////////////////////////////////////////////////////////////////////////////
    // Access to GetMainWnd() & m_pActiveWnd
    
-   ::user::interaction* thread::GetMainWnd()
+   sp(::user::interaction) thread::GetMainWnd()
    {
       if (m_puiActive != NULL)
          return m_puiActive;    // probably in-place active
@@ -1450,7 +1450,7 @@ namespace mac
          if(msg.message != WM_KICKIDLE)
          {
             {
-               ::ca::smart_pointer < ::ca::message::base > spbase;
+               ::c::smart_pointer < ::ca::message::base > spbase;
                
                throw todo(get_app());
                
@@ -1478,7 +1478,7 @@ namespace mac
                if(spbase->m_bRet)
                   return TRUE;
                
-               spbase.destroy();
+//               spbase.destroy();
             }
             {
                //               ::TranslateMessage(&msg);
@@ -1519,7 +1519,7 @@ namespace mac
       // dumpcontext << "\nm_nThreadID = " << m_nThreadID;
       dumpcontext << "\nm_nDisablePumpCount = " << pState->m_nDisablePumpCount;
       if (__get_thread() == this)
-         dumpcontext << "\nm_pMainWnd = " << m_puiMain;
+         dumpcontext << "\nm_pMainWnd = " << m_puiMain.m_p;
       
       dumpcontext << "\nm_msgCur = {";
       /*   dumpcontext << "\n\thwnd = " << (void *)pState->m_msgCur.hwnd;
@@ -1563,11 +1563,11 @@ namespace mac
    {
       SCAST_PTR(::ca::message::base, pbase, pobj);
       // special message which identifies the window as using AfxWndProc
-      if(pbase->m_uiMessage == WM_QUERYAFXWNDPROC)
-      {
-         pbase->set_lresult(0);
-         return;
-      }
+//      if(pbase->m_uiMessage == WM_QUERYAFXWNDPROC)
+  //    {
+    //     pbase->set_lresult(0);
+      //   return;
+      //}
       
       // all other messages route through message ::collection::map
       ::ca::window * pwindow = pbase->m_pwnd->get_wnd();
@@ -1779,8 +1779,8 @@ namespace mac
       
       ::ca::window threadWnd;
       
-      m_ptimera            = new ::user::interaction::timer_array(get_app());
-      m_puiptra            = new user::interaction_ptr_array;
+//      m_ptimera            = new ::user::interaction::timer_array(get_app());
+//      m_puiptra            = new user::interaction_ptr_array;
       m_bRun               = true;
       
       m_ptimera->m_papp    = m_papp;
@@ -1882,7 +1882,7 @@ namespace mac
       {
          // cleanup and shutdown the thread
          //         threadWnd.Detach();
-         __end_thread(dynamic_cast < ::ca::application * > (m_papp), nResult);
+         __end_thread(dynamic_cast < ::ca::application * > (m_papp.m_p), nResult);
       }
       catch(...)
       {
