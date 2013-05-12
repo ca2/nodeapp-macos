@@ -8,15 +8,14 @@ namespace mac
    application::application(::ca::application * papp) :
    ca(papp)
    {
-      ::ca::smart_pointer < ::ca::application_base >::set_app(papp);
-      ::ca::thread_sp::create(papp);
+      ::ca::thread::m_p.create(allocer());
+      ::ca::thread::m_p->m_p = this;
       
-      MAC_THREAD(smart_pointer < ::ca::thread >::m_p)->m_pAppThread = this;
+      MAC_THREAD(::ca::thread::m_p.m_p)->m_pAppThread = this;
       
-      m_pfilemanager = NULL;
+      m_psystem = papp->m_psystem;
       
-      
-      
+      m_pfilemanager = ::null();
       // in non-running state until WinMain
       // xxx      m_hInstance = NULL;
       //      m_hLangResourceDLL = NULL;
@@ -24,13 +23,13 @@ namespace mac
       m_pszProfileName = NULL;
       m_pszRegistryKey = NULL;
       //      m_pRecentFileList = NULL;
-      m_pdocmanager = NULL;
+      m_pdocmanager = ::null();
       // xxx       m_atomApp = m_atomSystemTopic = NULL;
       //m_lpCmdLine = NULL;
       //      m_pCmdInfo = NULL;
       
       // initialize wait cursor state
-      m_nWaitCursorCount = 0;
+//      m_nWaitCursorCount = 0;
       m_hcurWaitCursorRestore = NULL;
       
       // initialize current printer state
@@ -54,12 +53,13 @@ namespace mac
    
    void application::_001OnFileNew()
    {
-      ::ca::smart_pointer < ::ca::application_base > ::m_p->_001OnFileNew(NULL);
+//      ::ca::smart_pointer < ::ca::application_base > ::m_p->_001OnFileNew(NULL);
    }
    
-   ::user::document_interface * application::_001OpenDocumentFile(var varFile)
+   sp(::user::document_interface) application::_001OpenDocumentFile(var varFile)
    {
-      return ::ca::smart_pointer < ::ca::application_base > ::m_p->_001OpenDocumentFile(varFile);
+  //    return ::ca::smart_pointer < ::ca::application_base > ::m_p->_001OpenDocumentFile(varFile);
+      return ::null();
    }
    
    void application::_001EnableShellOpen()
@@ -202,12 +202,12 @@ namespace mac
    
    void application::LockTempMaps()
    {
-      MAC_THREAD(::ca::smart_pointer < ::ca::thread >::m_p)->LockTempMaps();
+      MAC_THREAD(::ca::thread::m_p.m_p)->LockTempMaps();
    }
    
    bool application::UnlockTempMaps(bool bDeleteTemp)
    {
-      return MAC_THREAD(::ca::smart_pointer < ::ca::thread >::m_p)->UnlockTempMaps(bDeleteTemp);
+      return MAC_THREAD(::ca::thread::m_p.m_p)->UnlockTempMaps(bDeleteTemp);
    }
    
    
@@ -421,7 +421,7 @@ namespace mac
     */
    bool application::process_initialize()
    {
-      if(::ca::smart_pointer < ::ca::application_base > ::m_p->is_system())
+      if(::ca::application_base::m_p->is_system())
       {
          /*
           if(__get_module_state()->m_pmapHWND == NULL)
@@ -448,17 +448,16 @@ namespace mac
       return true;
    }
    
+   
    bool application::initialize1()
    {
-      MAC_THREAD(smart_pointer < ::ca::thread >::m_p)->m_ptimera = new ::user::interaction::timer_array(this);
-      MAC_THREAD(smart_pointer < ::ca::thread >::m_p)->m_puiptra = new user::interaction_ptr_array;
       
-      MAC_THREAD(smart_pointer < ::ca::thread >::m_p)->m_ptimera->m_papp = dynamic_cast < ::plane::application * >  (::ca::smart_pointer < ::ca::application_base >::m_p);
-      MAC_THREAD(smart_pointer < ::ca::thread >::m_p)->m_puiptra->m_papp = dynamic_cast < ::plane::application * >  (::ca::smart_pointer < ::ca::application_base >::m_p);
+      MAC_THREAD(::ca::thread::m_p.m_p)->set_run();
       
-      MAC_THREAD(smart_pointer < ::ca::thread >::m_p)->set_run();
       return true;
+      
    }
+   
    
    bool application::initialize2()
    {
@@ -476,10 +475,10 @@ namespace mac
       
       // avoid calling CloseHandle() on our own thread handle
       // during the thread destructor
-      ::ca::thread_sp::m_p->set_os_data(NULL);
+      ::ca::thread::m_p->set_os_data(NULL);
       
-      MAC_THREAD(::ca::thread_sp::m_p)->m_bRun = false;
-      MAC_THREAD(::ca::smart_pointer < ::ca::application_base > ::m_p->::ca::thread_sp::m_p)->m_bRun = false;
+      MAC_THREAD(::ca::thread::m_p.m_p)->m_bRun = false;
+      MAC_THREAD(::ca::application_base::m_p.m_p->::ca::thread::m_p.m_p)->m_bRun = false;
       
       int32_t iRet = ::ca::application::exit_instance();
       
@@ -543,12 +542,12 @@ namespace mac
     return ::win::graphics::from_handle((HDC) pdata);
     }*/
    
-   ::ca::window * application::window_from_os_data(void * pdata)
+   sp(::ca::window) application::window_from_os_data(void * pdata)
    {
       return ::mac::window::from_handle((oswindow) pdata);
    }
    
-   ::ca::window * application::window_from_os_data_permanent(void * pdata)
+   sp(::ca::window) application::window_from_os_data_permanent(void * pdata)
    {
       ::ca::window * pwnd = ::mac::window::FromHandlePermanent((oswindow) pdata);
       if(pwnd != NULL)
@@ -556,12 +555,12 @@ namespace mac
       user::interaction_ptr_array wndptra = System.frames();
       for(int32_t i = 0; i < wndptra.get_count(); i++)
       {
-         if(wndptra[i]->get_safe_handle() == (oswindow) pdata)
+         if(wndptra[i].get_safe_handle() == (oswindow) pdata)
          {
-            return wndptra[i]->get_wnd();
+            return wndptra[i].get_wnd();
          }
       }
-      return NULL;
+      return ::null();
    }
    
    ::ca::thread * application::GetThread()
@@ -569,7 +568,7 @@ namespace mac
       if(__get_thread() == NULL)
          return NULL;
       else
-         return dynamic_cast < ::ca::thread * > (__get_thread()->m_p);
+         return dynamic_cast < ::ca::thread * > (__get_thread()->m_p.m_p);
    }
    
    void application::set_thread(::ca::thread * pthread)
@@ -628,7 +627,7 @@ namespace mac
          __MODULE_THREAD_STATE* pThreadState = pModuleState->m_thread;
          ENSURE(pThreadState);
          //         ASSERT(System.GetThread() == NULL);
-         pThreadState->m_pCurrentWinThread = dynamic_cast < class ::mac::thread * > (::ca::thread_sp::m_p);
+         pThreadState->m_pCurrentWinThread = dynamic_cast < class ::mac::thread * > (::ca::thread::m_p.m_p);
          //       ASSERT(System.GetThread() == this);
          
          // initialize application state
@@ -640,17 +639,17 @@ namespace mac
       
       //      dynamic_cast < ::mac::thread * > ((smart_pointer < ::ca::application >::m_p->::ca::thread_sp::m_p))->m_hThread = __get_thread()->m_hThread;
       //    dynamic_cast < ::mac::thread * > ((smart_pointer < ::ca::application >::m_p->::ca::thread_sp::m_p))->m_nThreadID = __get_thread()->m_nThreadID;
-      dynamic_cast < class ::mac::thread * > (::ca::thread_sp::m_p)->m_hThread      =  ::GetCurrentThread();
+      dynamic_cast < class ::mac::thread * > (::ca::thread::m_p.m_p)->m_hThread      =  ::GetCurrentThread();
       
       
    }
    
-   ::ca::window * application::FindWindow(const char * lpszClassName, const char * lpszWindowName)
+   sp(::ca::window) application::FindWindow(const char * lpszClassName, const char * lpszWindowName)
    {
       return window::FindWindow(lpszClassName, lpszWindowName);
    }
    
-   ::ca::window * application::FindWindowEx(oswindow hwndParent, oswindow hwndChildAfter, const char * lpszClass, const char * lpszWindow)
+   sp(::ca::window) application::FindWindowEx(oswindow hwndParent, oswindow hwndChildAfter, const char * lpszClass, const char * lpszWindow)
    {
       return window::FindWindowEx(hwndParent, hwndChildAfter, lpszClass, lpszWindow);
    }
@@ -706,7 +705,7 @@ namespace mac
       
       m_pmaininitdata = (::mac::main_init_data *) pdata;
       
-      if(m_pmaininitdata != NULL && ::ca::smart_pointer < ::ca::application_base >::m_p->is_system())
+      if(m_pmaininitdata != NULL && ::ca::application_base::m_p->is_system())
       {
          if(!win_init(m_pmaininitdata))
             return false;

@@ -64,7 +64,7 @@ namespace mac
       
       
       // list of frame_window objects for thread
-      simple_list < frame_window * > m_frameList;
+      simple_list < ::user::frame_window * > m_frameList;
       
       // temporary/permanent ::collection::map state
       DWORD m_nTempMapLock;           // if not 0, temp maps locked

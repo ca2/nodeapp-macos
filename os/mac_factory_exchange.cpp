@@ -9,31 +9,31 @@ namespace mac
       ca(papp)
    {
       
-      System.factory().cloneable_large < stdio_file           >  (typeid(::ca::text_file        ));
-      System.factory().cloneable_large < file                 >  (typeid(::ca::file             ));
-      System.factory().cloneable_large < file_set             >  (typeid(::ca::file_set         ));
-      System.factory().cloneable < file_system                >  (typeid(::ca::file_system      ), 1);
-//    System.factory().cloneable_small < file_exception       >  (typeid(::ca::file_exception   ));
-//    System.factory().cloneable <    WinResource             >  (typeid(::ca::resource         ), 1);
-      System.factory().cloneable < application                >  (typeid(::ca::application_base ), 1);
-      System.factory().cloneable < dir                        >  (typeid(::ca::dir::system       ), 1);
-//    System.factory().cloneable_small < folder_watch         >  (typeid(::ca::folder_watch     ));
-      System.factory().cloneable_large < dib                  >  (typeid(::ca::dib               ));
-      System.factory().cloneable_large < graphics             >  (typeid(::ca::graphics          ));
-      System.factory().cloneable_large < bitmap               >  (typeid(::ca::bitmap            ));
-      System.factory().cloneable_large < pen                  >  (typeid(::ca::pen               ));
-      System.factory().cloneable_large < brush                >  (typeid(::ca::brush             ));
-      System.factory().cloneable_large < palette              >  (typeid(::ca::palette           ));
-      System.factory().cloneable_large < region               >  (typeid(::ca::region            ));
-      System.factory().cloneable_large < font                 >  (typeid(::ca::font              ));
-      System.factory().creatable < window_draw                >  (typeid(::ca::window_draw       ), 1);
-      System.factory().creatable_large < thread               >  (typeid(::ca::thread            ));
-      System.factory().creatable_large < window               >  (typeid(::ca::window            ));
-//    System.factory().cloneable_small < draw_dib             >  (typeid(::ca::draw_dib          ));
-      System.factory().creatable < os                         >  (typeid(::ca::os                ), 1);
-      System.factory().creatable < port_forward               >  (typeid(::ca::port_forward     ), 1);
-      System.factory().creatable < crypt                      >  (typeid(::ca::crypt            ), 1);
-      System.factory().creatable < copydesk                   >  (typeid(::ca::copydesk         ), 1);
+      System.factory().cloneable_large < stdio_file           >  (System.type_info < ::ca::text_file        > ());
+      System.factory().cloneable_large < file                 >   (System.type_info < ::ca::file             > ());
+      System.factory().cloneable_large < file_set             >   (System.type_info < ::ca::file_set         > ());
+      System.factory().cloneable < file_system                >   (System.type_info < ::ca::file_system      > (), 1);
+//    System.factory().cloneable_small < file_exception       >   (System.type_info < ::ca::file_exception   > ());
+//    System.factory().cloneable <    WinResource             >   (System.type_info < ::ca::resource         > (), 1);
+      System.factory().cloneable < application                >   (System.type_info < ::ca::application_base > (), 1);
+      System.factory().cloneable < dir                        >   (System.type_info < ::ca::dir::system       > (), 1);
+//    System.factory().cloneable_small < folder_watch         >   (System.type_info < ::ca::folder_watch     > ());
+      System.factory().cloneable_large < dib                  >   (System.type_info < ::ca::dib               > ());
+      System.factory().cloneable_large < graphics             >   (System.type_info < ::ca::graphics          > ());
+      System.factory().cloneable_large < bitmap               >   (System.type_info < ::ca::bitmap            > ());
+      System.factory().cloneable_large < pen                  >   (System.type_info < ::ca::pen               > ());
+      System.factory().cloneable_large < brush                >   (System.type_info < ::ca::brush             > ());
+      System.factory().cloneable_large < palette              >   (System.type_info < ::ca::palette           > ());
+      System.factory().cloneable_large < region               >   (System.type_info < ::ca::region            > ());
+      System.factory().cloneable_large < font                 >   (System.type_info < ::ca::font              > ());
+      System.factory().creatable < window_draw                >   (System.type_info < ::ca::window_draw       > (), 1);
+      System.factory().creatable_large < thread               >   (System.type_info < ::ca::thread            > ());
+      System.factory().creatable_large < window               >   (System.type_info < ::ca::window            > ());
+//    System.factory().cloneable_small < draw_dib             >   (System.type_info < ::ca::draw_dib          > ());
+      System.factory().creatable < os                         >   (System.type_info < ::ca::os                > (), 1);
+      System.factory().creatable < port_forward               >   (System.type_info < ::ca::port_forward     > (), 1);
+      System.factory().creatable < crypt                      >   (System.type_info < ::ca::crypt            > (), 1);
+      System.factory().creatable < copydesk                   >   (System.type_info < ::ca::copydesk         > (), 1);
       
       ::mac::dib::s_initialize();
       

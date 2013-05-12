@@ -62,7 +62,7 @@ namespace mac
       
    }
    
-   ::ca::file * file::Duplicate() const
+   sp(::ca::file) file::Duplicate() const
    {
       ASSERT_VALID(this);
       ASSERT(m_iFile != (UINT)hFileNull);
@@ -70,7 +70,7 @@ namespace mac
       int32_t iNew = dup(m_iFile);
       
       if(iNew == -1)
-         return NULL;
+         return ::null();
       
       file* pFile = new file(get_app(), iNew);
       pFile->m_iFile = (UINT)iNew;

@@ -186,11 +186,11 @@ namespace mac
    bool dib::Destroy ()
    {
       if(m_spbitmap.is_set())
-         ::ca::release(m_spbitmap.m_p);
+         ::c::release(m_spbitmap.m_p);
       
       
       if(m_spgraphics.is_set())
-         ::ca::release(m_spgraphics.m_p);
+         ::c::release(m_spgraphics.m_p);
       
       m_size         = ::size(0, 0);
       m_pcolorref    = NULL;
@@ -1715,7 +1715,7 @@ namespace mac
                                   DI_IMAGE | DI_MASK);
       
       // Black blend dib
-      ::ca::dib_sp spdib2(get_app());
+      ::ca::dib_sp spdib2(allocer());
       spdib2->create(cx, cy);
       spdib2->Fill(0, 0, 0, 0);
       

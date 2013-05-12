@@ -5,13 +5,13 @@ namespace mac2
 {
 
 
-   class CLASS_DECL_mac2 printer :
+   class CLASS_DECL_mac printer :
       virtual public ::user::printer
    {
    public:
 
 
-      class CLASS_DECL_mac2 document_properties :
+      class CLASS_DECL_mac document_properties :
          virtual public ::ca::object
       {
       public:

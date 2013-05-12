@@ -306,13 +306,13 @@ namespace mac
       m_bCloseOnDelete = FALSE;
    }
    
-   ::ca::file * stdio_file::Duplicate() const
+   sp(::ca::file) stdio_file::Duplicate() const
    {
       ASSERT_VALID(this);
       ASSERT(m_pStream != NULL);
       
       throw not_supported_exception(get_app());
-      return NULL;
+      return ::null();
    }
    
    void stdio_file::LockRange(uint_ptr /* dwPos */, uint_ptr /* dwCount */)

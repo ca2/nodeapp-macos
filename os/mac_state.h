@@ -54,7 +54,7 @@ class hmenu_map;
 //class hdc_map;
 //class hgdiobj_map;
 class himagelist_map;
-class frame_window;
+//class frame_window;
 class CToolTipCtrl;
 // xxx class ::userbase::control_bar;
 // xxx class ::user::interaction;

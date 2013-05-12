@@ -104,7 +104,7 @@ CLASS_DECL_mac void __term_thread(::ca::application * papp, HINSTANCE hInstTerm 
 CLASS_DECL_mac void __mac_term();
 
 CLASS_DECL_mac ::ca::application* __get_app();
-CLASS_DECL_mac ::user::interaction* __get_main_window();
+CLASS_DECL_mac sp(::user::interaction) __get_main_window();
 //CLASS_DECL_mac HINSTANCE CLASS_DECL_mac System.m_hInstance;
 CLASS_DECL_mac HINSTANCE __get_resource_handle();
 CLASS_DECL_mac void __set_resource_handle(HINSTANCE hInstResource);
