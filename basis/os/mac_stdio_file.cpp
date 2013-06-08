@@ -312,7 +312,7 @@ namespace mac
       ASSERT(m_pStream != NULL);
       
       throw not_supported_exception(get_app());
-      return ::null();
+      return NULL;
    }
    
    void stdio_file::LockRange(uint_ptr /* dwPos */, uint_ptr /* dwCount */)

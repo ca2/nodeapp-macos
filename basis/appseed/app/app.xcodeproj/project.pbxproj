@@ -9,16 +9,13 @@
 /* Begin PBXBuildFile section */
 		9A5752B716AAE1D2000CC4EF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5752B616AAE1D2000CC4EF /* Cocoa.framework */; };
 		9A5752DD16AAE321000CC4EF /* app.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5752DC16AAE321000CC4EF /* app.mm */; };
+		9A6F20FB1762116A00C33206 /* libca2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6F20FA1762116A00C33206 /* libca2.dylib */; };
+		9A97A36F176236560012145D /* libca2os.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A36E176236560012145D /* libca2os.dylib */; };
 		9ACA7CC616F7D2F800AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CBC16F7D2F800AA1CEE /* lib_ca2freeimage.dylib */; };
 		9ACA7CC716F7D2F800AA1CEE /* lib_ca2freetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CBD16F7D2F800AA1CEE /* lib_ca2freetype.dylib */; };
 		9ACA7CC816F7D2F800AA1CEE /* lib_ca2openssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CBE16F7D2F800AA1CEE /* lib_ca2openssl.dylib */; };
 		9ACA7CC916F7D2F800AA1CEE /* lib_ca2zlib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CBF16F7D2F800AA1CEE /* lib_ca2zlib.dylib */; };
-		9ACA7CCA16F7D2F800AA1CEE /* libca2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CC016F7D2F800AA1CEE /* libca2.dylib */; };
 		9ACA7CCB16F7D2F800AA1CEE /* libca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CC116F7D2F800AA1CEE /* libca2c.dylib */; };
-		9ACA7CCC16F7D2F800AA1CEE /* libca2ca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CC216F7D2F800AA1CEE /* libca2ca.dylib */; };
-		9ACA7CCD16F7D2F800AA1CEE /* libca2optca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CC316F7D2F800AA1CEE /* libca2optca.dylib */; };
-		9ACA7CCE16F7D2F800AA1CEE /* libca2os.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CC416F7D2F800AA1CEE /* libca2os.dylib */; };
-		9ACA7CCF16F7D2F800AA1CEE /* libca2os2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CC516F7D2F800AA1CEE /* libca2os2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,17 +25,15 @@
 		9A5752BA16AAE1D2000CC4EF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9A5752BB16AAE1D2000CC4EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A5752DC16AAE321000CC4EF /* app.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = app.mm; sourceTree = SOURCE_ROOT; };
+		9A6F20FA1762116A00C33206 /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = ../../../app/appseed/ca2/build/Release/libca2.dylib; sourceTree = "<group>"; };
+		9A97A36E176236560012145D /* libca2os.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; name = libca2os.dylib; path = ../../os/build/Release/libca2os.dylib; sourceTree = "<group>"; };
 		9AB3522516AC11540084BFE8 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = app.entitlements; sourceTree = SOURCE_ROOT; };
 		9ACA7CBC16F7D2F800AA1CEE /* lib_ca2freeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freeimage.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freeimage.dylib"; sourceTree = "<group>"; };
 		9ACA7CBD16F7D2F800AA1CEE /* lib_ca2freetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freetype.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freetype.dylib"; sourceTree = "<group>"; };
 		9ACA7CBE16F7D2F800AA1CEE /* lib_ca2openssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2openssl.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2openssl.dylib"; sourceTree = "<group>"; };
 		9ACA7CBF16F7D2F800AA1CEE /* lib_ca2zlib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2zlib.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2zlib.dylib"; sourceTree = "<group>"; };
-		9ACA7CC016F7D2F800AA1CEE /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; name = libca2.dylib; path = ../../../app/appseed/ca2/build/Release/libca2.dylib; sourceTree = "<group>"; };
 		9ACA7CC116F7D2F800AA1CEE /* libca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2c.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2c.dylib"; sourceTree = "<group>"; };
 		9ACA7CC216F7D2F800AA1CEE /* libca2ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2ca.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2ca.dylib"; sourceTree = "<group>"; };
-		9ACA7CC316F7D2F800AA1CEE /* libca2optca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2optca.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2optca.dylib"; sourceTree = "<group>"; };
-		9ACA7CC416F7D2F800AA1CEE /* libca2os.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; name = libca2os.dylib; path = ../../os/build/Release/libca2os.dylib; sourceTree = "<group>"; };
-		9ACA7CC516F7D2F800AA1CEE /* libca2os2.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; name = libca2os2.dylib; path = ../../os2/build/Release/libca2os2.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,16 +41,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A97A36F176236560012145D /* libca2os.dylib in Frameworks */,
+				9A6F20FB1762116A00C33206 /* libca2.dylib in Frameworks */,
 				9ACA7CC616F7D2F800AA1CEE /* lib_ca2freeimage.dylib in Frameworks */,
 				9ACA7CC716F7D2F800AA1CEE /* lib_ca2freetype.dylib in Frameworks */,
 				9ACA7CC816F7D2F800AA1CEE /* lib_ca2openssl.dylib in Frameworks */,
 				9ACA7CC916F7D2F800AA1CEE /* lib_ca2zlib.dylib in Frameworks */,
-				9ACA7CCA16F7D2F800AA1CEE /* libca2.dylib in Frameworks */,
 				9ACA7CCB16F7D2F800AA1CEE /* libca2c.dylib in Frameworks */,
-				9ACA7CCC16F7D2F800AA1CEE /* libca2ca.dylib in Frameworks */,
-				9ACA7CCD16F7D2F800AA1CEE /* libca2optca.dylib in Frameworks */,
-				9ACA7CCE16F7D2F800AA1CEE /* libca2os.dylib in Frameworks */,
-				9ACA7CCF16F7D2F800AA1CEE /* libca2os2.dylib in Frameworks */,
 				9A5752B716AAE1D2000CC4EF /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,16 +58,14 @@
 		9A5752A716AAE1D2000CC4EF = {
 			isa = PBXGroup;
 			children = (
+				9A97A36E176236560012145D /* libca2os.dylib */,
+				9A6F20FA1762116A00C33206 /* libca2.dylib */,
 				9ACA7CBC16F7D2F800AA1CEE /* lib_ca2freeimage.dylib */,
 				9ACA7CBD16F7D2F800AA1CEE /* lib_ca2freetype.dylib */,
 				9ACA7CBE16F7D2F800AA1CEE /* lib_ca2openssl.dylib */,
 				9ACA7CBF16F7D2F800AA1CEE /* lib_ca2zlib.dylib */,
-				9ACA7CC016F7D2F800AA1CEE /* libca2.dylib */,
 				9ACA7CC116F7D2F800AA1CEE /* libca2c.dylib */,
 				9ACA7CC216F7D2F800AA1CEE /* libca2ca.dylib */,
-				9ACA7CC316F7D2F800AA1CEE /* libca2optca.dylib */,
-				9ACA7CC416F7D2F800AA1CEE /* libca2os.dylib */,
-				9ACA7CC516F7D2F800AA1CEE /* libca2os2.dylib */,
 				9A5752BC16AAE1D2000CC4EF /* app */,
 				9A5752B516AAE1D2000CC4EF /* Frameworks */,
 				9A5752B316AAE1D2000CC4EF /* Products */,

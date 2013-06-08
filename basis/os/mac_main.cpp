@@ -1,6 +1,6 @@
 #include "framework.h"
 
-
+#include <crt_externs.h>
 CLASS_DECL_mac int32_t ca2_main();
 
 //CLASS_DECL_ca extern fixed_alloc_array * g_pfixedallocaWstring;
@@ -16,6 +16,8 @@ void CLASS_DECL_mac __cdecl _ca2_purecall()
 void __cdecl _null_se_translator(uint32_t uiCode, EXCEPTION_POINTERS * ppointers);
 
 
+uint32_t __run_system(void * p);
+
 //::ca::application *     win_application_create(::ca::application * pappSystem, const char * pszId);
 //::ca::application *     win_instantiate_application(::ca::application * pappSystem, const char * pszId);
 //int32_t                     win_application_procedure(::ca::application * pappSystem)
@@ -27,125 +29,14 @@ void __cdecl _null_se_translator(uint32_t uiCode, EXCEPTION_POINTERS * ppointers
 int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
 {
    
-   //   UNREFERENCED_PARAMETER(lpCmdLine);
+   ns_shared_application();
    
    
+   CreateThread(NULL, 0, __run_system, NULL, 0, 0);
    
+   ns_app_run();
    
-   //   ::CoInitialize(NULL);
-   
-   
-   //throw todo(::ca::get_thread_app());
-   
-   if(!main_initialize())
-      return -1;
-   
-   
-   //   _set_purecall_handler(_ca2_purecall);
-   
-   ::plane::system * psystem = new ::plane::system();
-   
-   //   ASSERT(hPrevInstance == NULL);
-   
-   int32_t nReturnCode = 0;
-   
-   
-   ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
-   
-   
-   pinitmaindata->m_hInstance             = NULL;
-   pinitmaindata->m_hPrevInstance         = NULL;
-   for(int32_t i = 0; i < argc; i++)
-   {
-      pinitmaindata->m_strCommandLine     += argv[i];
-   }
-   pinitmaindata->m_nCmdShow              = SW_SHOW;
-   
-   
-   psystem->init_main_data(pinitmaindata);
-   
-   //MessageBox(NULL, "box1", "box1", MB_ICONINFORMATION);
-   
-   nReturnCode = psystem->main();
-   
-   
-   try
-   {
-      main_finalize();
-   }
-   catch(...)
-   {
-   }
-   
-   try
-   {
-      __mac_term();
-   }
-   catch(...)
-   {
-   }
-   
-   
-   try
-   {
-      delete psystem;
-   }
-   catch(...)
-   {
-   }
-   
-   psystem = NULL;
-   
-   
-   try
-   {
-      //      delete __get_module_state()->m_pmapHWND;
-   }
-   catch(...)
-   {
-   }
-   /*   try
-    {
-    delete __get_module_state()->m_pmapHDC;
-    }
-    catch(...)
-    {
-    }*/
-   /*   try
-    {
-    delete __get_module_state()->m_pmapHGDIOBJ;
-    }
-    catch(...)
-    {
-    }*/
-   //      delete __get_module_state()->m_pmapHMENU;
-   
-   try
-   {
-      __get_module_state()->m_pmapHWND     = NULL;
-   }
-   catch(...)
-   {
-   }
-   /*   try
-    {
-    __get_module_state()->m_pmapHDC      = NULL;
-    }
-    catch(...)
-    {
-    }*/
-   /*   try
-    {
-    __get_module_state()->m_pmapHGDIOBJ  = NULL;
-    }
-    catch(...)
-    {
-    }*/
-   
-   
-   set_heap_mutex(NULL);
-   
-   return nReturnCode;
+   return 0;
    
    
 }
@@ -256,4 +147,136 @@ void __cdecl _null_se_translator(uint32_t uiCode, EXCEPTION_POINTERS * ppointers
 {
    UNREFERENCED_PARAMETER(uiCode);
    UNREFERENCED_PARAMETER(ppointers);
+}
+
+
+
+uint32_t __run_system(void * p)
+{
+   
+   
+   int32_t nReturnCode = 0;
+   
+   
+   
+   //   UNREFERENCED_PARAMETER(lpCmdLine);
+   
+   
+   
+   
+   //   ::CoInitialize(NULL);
+   
+   
+   //throw todo(::ca::get_thread_app());
+   
+   if(!main_initialize())
+      return -1;
+   
+   
+   //   _set_purecall_handler(_ca2_purecall);
+   
+   sp(::plane::system) psystem = canew(::plane::system());
+   
+   //   ASSERT(hPrevInstance == NULL);
+   
+   ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
+   
+   
+   pinitmaindata->m_hInstance             = NULL;
+   pinitmaindata->m_hPrevInstance         = NULL;
+   for(int32_t i = 0; i < *_NSGetArgc(); i++)
+   {
+      pinitmaindata->m_strCommandLine     += _NSGetArgv()[i];
+   }
+   pinitmaindata->m_nCmdShow              = SW_SHOW;
+   
+   
+   psystem->init_main_data(pinitmaindata);
+   
+   //MessageBox(NULL, "box1", "box1", MB_ICONINFORMATION);
+   
+   
+   
+   nReturnCode = psystem->main();
+   
+   
+   try
+   {
+      main_finalize();
+   }
+   catch(...)
+   {
+   }
+   
+   try
+   {
+      __mac_term();
+   }
+   catch(...)
+   {
+   }
+   
+   
+   try
+   {
+      psystem.release();
+   }
+   catch(...)
+   {
+   }
+   
+   //   psystem = NULL;
+   
+   
+   try
+   {
+      //      delete __get_module_state()->m_pmapHWND;
+   }
+   catch(...)
+   {
+   }
+   /*   try
+    {
+    delete __get_module_state()->m_pmapHDC;
+    }
+    catch(...)
+    {
+    }*/
+   /*   try
+    {
+    delete __get_module_state()->m_pmapHGDIOBJ;
+    }
+    catch(...)
+    {
+    }*/
+   //      delete __get_module_state()->m_pmapHMENU;
+   
+   try
+   {
+      __get_module_state()->m_pmapHWND     = NULL;
+   }
+   catch(...)
+   {
+   }
+   /*   try
+    {
+    __get_module_state()->m_pmapHDC      = NULL;
+    }
+    catch(...)
+    {
+    }*/
+   /*   try
+    {
+    __get_module_state()->m_pmapHGDIOBJ  = NULL;
+    }
+    catch(...)
+    {
+    }*/
+   
+   
+   set_heap_mutex(NULL);
+   
+   return nReturnCode;
+   
+   
 }
