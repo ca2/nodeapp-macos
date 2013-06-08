@@ -91,7 +91,7 @@ namespace mac
    {
       if(!m_bProDevianMode)
       {
-         m_spuiMessage->PostMessage(WM_USER + 1984 + 1977);
+         m_spuiMessage->post_message(WM_USER + 1984 + 1977);
       }
    }
    
