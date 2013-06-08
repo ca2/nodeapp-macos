@@ -343,8 +343,8 @@ namespace mac
          catch(...)
          {
          }
-         //         while(::PeekMessage(&msg, ::ca::null(), NULL, NULL, PM_NOREMOVE))
-         while(::PeekMessage(&msg, ::ca::null(), 0, 0, 0))
+         //         while(::PeekMessage(&msg, ::caNULL, NULL, NULL, PM_NOREMOVE))
+         while(::PeekMessage(&msg, NULL, 0, 0, 0))
          {
             __get_thread()->pump_message();
          }
@@ -772,7 +772,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       
       ::oswindow oswindow = hwndtree.m_oswindow;
       
-      ::user::window_interface * ptwi = oswindow.get_user_interaction();
+      ::user::window_interface * ptwi = oswindow->get_user_interaction();
       
       if(!::IsWindowVisible(oswindow))
       {

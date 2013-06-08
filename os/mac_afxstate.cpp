@@ -74,6 +74,10 @@ ___THREAD_STATE::___THREAD_STATE()
    m_ptCursorLast = point(0,0);
    m_pSafetyPoolBuffer = NULL;
    m_pWndPark = NULL;
+   m_hWndInit = NULL;
+   m_pCurrentWinThread = NULL;
+   m_pWndInit = NULL;
+   m_pModuleState = NULL;
 }
 
 ___THREAD_STATE::~___THREAD_STATE()
@@ -153,7 +157,7 @@ THREAD_LOCAL ( ___THREAD_STATE, gen_ThreadState, slot___THREAD_STATE )
 
 
 __MODULE_STATE::__MODULE_STATE(bool bDLL, DWORD dwVersion, bool bSystem) :
-   m_mutexRegClassList(::null())
+   m_mutexRegClassList(NULL)
 {
    m_pmapHWND              = NULL;
    //   m_pmapHDC               = NULL;

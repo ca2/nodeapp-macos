@@ -143,7 +143,7 @@ public:
    
    
    // Implementation
-   process_local_object() : m_mutex(::null()) { }
+   process_local_object() : m_mutex(NULL) { }
    ~process_local_object();
    
    

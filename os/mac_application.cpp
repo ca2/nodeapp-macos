@@ -15,7 +15,7 @@ namespace mac
       
       m_psystem = papp->m_psystem;
       
-      m_pfilemanager = ::null();
+      m_pfilemanager = NULL;
       // in non-running state until WinMain
       // xxx      m_hInstance = NULL;
       //      m_hLangResourceDLL = NULL;
@@ -23,7 +23,7 @@ namespace mac
       m_pszProfileName = NULL;
       m_pszRegistryKey = NULL;
       //      m_pRecentFileList = NULL;
-      m_pdocmanager = ::null();
+      m_pdocmanager = NULL;
       // xxx       m_atomApp = m_atomSystemTopic = NULL;
       //m_lpCmdLine = NULL;
       //      m_pCmdInfo = NULL;
@@ -59,7 +59,7 @@ namespace mac
    sp(::user::document_interface) application::_001OpenDocumentFile(var varFile)
    {
   //    return ::ca::smart_pointer < ::ca::application_base > ::m_p->_001OpenDocumentFile(varFile);
-      return ::null();
+      return NULL;
    }
    
    void application::_001EnableShellOpen()
@@ -560,7 +560,7 @@ namespace mac
             return wndptra[i].get_wnd();
          }
       }
-      return ::null();
+      return NULL;
    }
    
    ::ca::thread * application::GetThread()
