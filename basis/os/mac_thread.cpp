@@ -1697,17 +1697,23 @@ namespace mac
       // return ::SuspendThread(m_hThread);
       
    }
+   
+   
    bool thread::post_thread_message(UINT message, WPARAM wParam, lparam lParam)
    {
-      throw not_implemented(get_app());
-      //ASSERT(m_hThread != NULL);
-      //return ::post_thread_message(m_nThreadID, message, wParam, lParam);
+      
+      return ::PostThreadMessage(m_nID, message, wParam, lParam);
+      
    }
+   
    
    void thread::set_os_data(void * pvoidOsData)
    {
+      
       m_hThread = (HTHREAD) pvoidOsData;
+      
    }
+   
    
    void thread::set_os_int(int_ptr iData)
    {
