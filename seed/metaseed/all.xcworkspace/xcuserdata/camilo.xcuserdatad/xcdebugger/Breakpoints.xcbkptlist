@@ -473,19 +473,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/user/user_virtual_user_interface.cpp"
-         timestampString = "392401974.984863"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1465"
-         endingLineNumber = "1465"
-         landmarkName = "virtual_user_interface::PostMessage(UINT uiMessage, WPARAM wparam, lparam lparam)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "../../../app/appseed/ca2/user/fontopus/fontopus_validate.cpp"
          timestampString = "392404021.586483"
          startingColumnNumber = "9223372036854775807"
@@ -499,13 +486,39 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/user/user_view.cpp"
-         timestampString = "392406106.785159"
+         filePath = "../../os/RoundWindow.mm"
+         timestampString = "392417664.442979"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "624"
-         endingLineNumber = "624"
-         landmarkName = "view::s_create_view(::ca::create_context * pContext, sp(::user::interaction) pwndParent, id id)"
+         startingLineNumber = "188"
+         endingLineNumber = "188"
+         landmarkName = "-drawRect:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../os/mac_thread.cpp"
+         timestampString = "392419107.315418"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1283"
+         endingLineNumber = "1283"
+         landmarkName = "thread::DispatchThreadMessageEx(::ca::signal_object * pobj)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca2/user/simple/simple_frame_window.cpp"
+         timestampString = "392421132.540342"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "188"
+         endingLineNumber = "188"
+         landmarkName = "simple_frame_window::_001OnCreate(::ca::signal_object * pobj)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
