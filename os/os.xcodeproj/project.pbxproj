@@ -23,7 +23,14 @@
 		9A574B5816AA2049000CC4EF /* mac_ip_enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4A16AA2045000CC4EF /* mac_ip_enum.h */; };
 		9A574B5A16AA3B02000CC4EF /* mac_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */; };
 		9A574B8C16AAB7B9000CC4EF /* mac_brush.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B8B16AAB7B8000CC4EF /* mac_brush.cpp */; };
-		9A8916861751DD0C00E531ED /* libca2ca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8916851751DD0C00E531ED /* libca2ca.dylib */; };
+		9A6F20F91762114D00C33206 /* libca2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6F20F81762114D00C33206 /* libca2.dylib */; };
+		9AA1B44117634E520019E812 /* RoundWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA1B3EA17634E520019E812 /* RoundWindow.h */; };
+		9AA1B44217634E520019E812 /* RoundWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B3EB17634E520019E812 /* RoundWindow.mm */; };
+		9AA1B44317634E520019E812 /* RoundWindowFrameView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */; };
+		9AA1B44417634E520019E812 /* RoundWindowFrameView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B3ED17634E520019E812 /* RoundWindowFrameView.mm */; };
+		9AA1B447176355620019E812 /* round_window.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B445176355610019E812 /* round_window.mm */; };
+		9AA1B448176355620019E812 /* round_window.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA1B446176355610019E812 /* round_window.h */; };
+		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
 		9ACA7CD516F7D36F00AA1CEE /* libca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA5E6E916F7C81B005C45CE /* libca2c.dylib */; };
 		9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */; };
 		A1CFD8F9154FB715007447E2 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87D154FB715007447E2 /* _.h */; };
@@ -137,7 +144,15 @@
 		9A574B4A16AA2045000CC4EF /* mac_ip_enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_ip_enum.h; sourceTree = "<group>"; };
 		9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_exception.cpp; sourceTree = "<group>"; };
 		9A574B8B16AAB7B8000CC4EF /* mac_brush.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_brush.cpp; sourceTree = "<group>"; };
+		9A6F20F81762114D00C33206 /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = ../../app/appseed/ca2/build/Release/libca2.dylib; sourceTree = "<group>"; };
 		9A8916851751DD0C00E531ED /* libca2ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2ca.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2ca.dylib"; sourceTree = "<group>"; };
+		9AA1B3EA17634E520019E812 /* RoundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundWindow.h; sourceTree = "<group>"; };
+		9AA1B3EB17634E520019E812 /* RoundWindow.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = RoundWindow.mm; sourceTree = "<group>"; };
+		9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundWindowFrameView.h; sourceTree = "<group>"; };
+		9AA1B3ED17634E520019E812 /* RoundWindowFrameView.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = RoundWindowFrameView.mm; sourceTree = "<group>"; };
+		9AA1B445176355610019E812 /* round_window.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = round_window.mm; sourceTree = "<group>"; };
+		9AA1B446176355610019E812 /* round_window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = round_window.h; sourceTree = "<group>"; };
+		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AA5E6E916F7C81B005C45CE /* libca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2c.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2c.dylib"; sourceTree = "<group>"; };
 		9ABBC6DB16A568FC009CA32E /* mac_graphics_path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mac_graphics_path.h; sourceTree = "<group>"; };
 		9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freeimage.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freeimage.dylib"; sourceTree = "<group>"; };
@@ -237,7 +252,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A8916861751DD0C00E531ED /* libca2ca.dylib in Frameworks */,
+				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
+				9A6F20F91762114D00C33206 /* libca2.dylib in Frameworks */,
 				9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */,
 				9ACA7CD516F7D36F00AA1CEE /* libca2c.dylib in Frameworks */,
 			);
@@ -258,6 +274,8 @@
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				9AA1B449176361950019E812 /* Cocoa.framework */,
+				9A6F20F81762114D00C33206 /* libca2.dylib */,
 				9A8916851751DD0C00E531ED /* libca2ca.dylib */,
 				9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */,
 				9AA5E6E916F7C81B005C45CE /* libca2c.dylib */,
@@ -357,6 +375,10 @@
 				A1CFD8A4154FB715007447E2 /* mac_brush.h */,
 				A1CFD8A5154FB715007447E2 /* mac_dib.cpp */,
 				A1CFD8A6154FB715007447E2 /* mac_dib.h */,
+				9AA1B3EA17634E520019E812 /* RoundWindow.h */,
+				9AA1B3EB17634E520019E812 /* RoundWindow.mm */,
+				9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */,
+				9AA1B3ED17634E520019E812 /* RoundWindowFrameView.mm */,
 				A1CFD8A7154FB715007447E2 /* mac_dir.cpp */,
 				A1CFD8A9154FB715007447E2 /* mac_dir.h */,
 				A1CFD8AC154FB715007447E2 /* mac_dumpinit.cpp */,
@@ -410,6 +432,8 @@
 				A1CFD8F8154FB715007447E2 /* mac_window_draw.h */,
 				9A1B496616A4A10100875A94 /* framework.cpp */,
 				9ABBC6DB16A568FC009CA32E /* mac_graphics_path.h */,
+				9AA1B445176355610019E812 /* round_window.mm */,
+				9AA1B446176355610019E812 /* round_window.h */,
 			);
 			name = os;
 			sourceTree = "<group>";
@@ -481,6 +505,9 @@
 				9A574B5816AA2049000CC4EF /* mac_ip_enum.h in Headers */,
 				071B28A9173FD8E700610E30 /* mac_printer.h in Headers */,
 				071B28AA173FD8E700610E30 /* mac_shell.h in Headers */,
+				9AA1B44117634E520019E812 /* RoundWindow.h in Headers */,
+				9AA1B44317634E520019E812 /* RoundWindowFrameView.h in Headers */,
+				9AA1B448176355620019E812 /* round_window.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +606,9 @@
 				9A574B5A16AA3B02000CC4EF /* mac_exception.cpp in Sources */,
 				9A574B8C16AAB7B9000CC4EF /* mac_brush.cpp in Sources */,
 				071B28A8173FD8E700610E30 /* mac_printer.cpp in Sources */,
+				9AA1B44217634E520019E812 /* RoundWindow.mm in Sources */,
+				9AA1B44417634E520019E812 /* RoundWindowFrameView.mm in Sources */,
+				9AA1B447176355620019E812 /* round_window.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

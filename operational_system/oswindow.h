@@ -7,64 +7,6 @@
 //
 
 
-// backlink at inha-ubuntu at veriverse at Curitiba near Finados Holyday 2012-11-03 from ca.dylib/ca.so/ca.dll
-// backlink on 2012-11-04 in metrowin also and macos - see macos
-namespace ca
-{
-
-   class CLASS_DECL_c null
-   {
-   public:
-
-
-      null() {}
-
-      null(const null &&) {}
-
-      null & operator = (const null && n)
-      {
-         return *this;
-      }
-
-      template < typename T >
-      operator T *() { return (T *) (uint_ptr) 0; }
-
-       //      operator HWND () { return 0; }
-
-
-   };
-
-
-} // namespace
-
-inline ::ca::null null()
-{
-   return ::ca::null();
-}
-
-template < typename T >
-inline bool operator != (const T t, const ::ca::null & n)
-{
-   return t != ((int_ptr) 0);
-}
-
-template < typename T >
-inline bool operator != (const ::ca::null & n, const T t)
-{
-   return t != ((int_ptr) 0);
-}
-
-template < typename T >
-inline bool operator == (const T t, const ::ca::null & n)
-{
-   return t == ((int_ptr) 0);
-}
-
-template < typename T >
-inline bool operator == (const ::ca::null & n, const T t)
-{
-   return t == ((int_ptr) 0);
-}
 
 
 typedef struct tagPOINT
@@ -92,63 +34,48 @@ struct NSWindow;
 
 #endif
 
+
 typedef NSWindow * nswindow;
+
+
+class oswindow_data;
+
+
+typedef oswindow_data * oswindow;
 
 
 #define MESSAGE_WINDOW_PARENT (::oswindow((void *) (int_ptr) 1))
 
-class CLASS_DECL_c oswindow
+
+class CLASS_DECL_c oswindow_data
 {
 public:
    
    
-   class CLASS_DECL_c data
-   {
-   public:
-      
-      nswindow                m_nswindow;
-      ::user::interaction_base *    m_pui;
-      
-   };
-   
-private:
-   
-   
-   data *                        m_pdata;
+   nswindow                      m_nswindow;
+   ::user::interaction_base *    m_pui;
    
    
    static oswindow_dataptra *    s_pdataptra;
    
    
-   static int find(nswindow window);
-   static data * get(nswindow window);
-   
-   
-   
-public:
-   
-   
-   oswindow();
-   oswindow(const ::ca::null & null);
-   oswindow(nswindow window);
-   oswindow(const void * p);
-   oswindow(const oswindow & oswindow);
-   oswindow(const LPARAM & lparam);
-   oswindow(const WPARAM & wparam);
+   oswindow_data();
+   oswindow_data(nswindow window);
+   oswindow_data(const oswindow_data & oswindow);
    
    
    
    operator void * ()
    {
       
-      return m_pdata;
+      return this;
       
    }
    
    operator void * () const
    {
       
-      return m_pdata;
+      return (void *) this;
       
    }
    
@@ -161,31 +88,20 @@ public:
    
 #endif
    
-   static bool remove(nswindow window);
-   
-   
-   oswindow & operator = (const oswindow & window);
+   oswindow_data & operator = (const oswindow_data & window);
    
    bool operator == (const void * p) const
    {
-      return m_pdata == p;
+      return this == p;
    }
    bool operator != (const void * p) const
    {
-      return m_pdata != p;
-   }
-   bool operator == (const oswindow & w) const
-   {
-      return m_pdata == w.m_pdata;
-   }
-   bool operator != (const oswindow & w) const
-   {
-      return m_pdata != w.m_pdata;
+      return this != p;
    }
    
    nswindow window()
    {
-      return m_pdata == NULL ? NULL : m_pdata->m_nswindow;
+      return this == NULL ? NULL : m_nswindow;
    }
    
    
@@ -215,67 +131,75 @@ public:
    
    bool is_null() const
    {
-      return m_pdata == NULL;
+      return this == NULL;
    }
    
 };
+   
+   
+
+
+
+int oswindow_find(nswindow window);
+oswindow_data * oswindow_get(nswindow window);
+bool oswindow_remove(nswindow window);
 
 
 
 
 inline bool IsWindow(oswindow oswindow)
 {
-   return oswindow.get_user_interaction() != NULL;
+   return oswindow->get_user_interaction() != NULL;
 }
 
 inline bool IsChild(oswindow oswindowParent, ::oswindow oswindowCandidateChildOrDescendant)
 {
-   return oswindowParent.is_child(oswindowCandidateChildOrDescendant);
+   return oswindowParent->is_child(oswindowCandidateChildOrDescendant);
 }
 
 inline oswindow GetParent(::oswindow oswindow)
 {
-   return oswindow.get_parent();
+   return oswindow->get_parent();
 }
 
 inline oswindow SetParent(::oswindow oswindow, ::oswindow oswindowNewParent)
 {
-   return oswindow.set_parent(oswindowNewParent);
+   return oswindow->set_parent(oswindowNewParent);
 }
 
 inline bool ShowWindow(::oswindow oswindow, int32_t nCmdShow)
 {
-   return oswindow.show_window(nCmdShow);
+   return oswindow->show_window(nCmdShow);
 }
 
 inline int32_t GetWindowLongA(::oswindow oswindow, int32_t nIndex)
 {
-   return oswindow.get_window_long(nIndex);
+   return oswindow->get_window_long(nIndex);
 }
 
 inline int32_t SetWindowLongA(::oswindow oswindow, int32_t nIndex, int32_t l)
 {
-   return oswindow.set_window_long(nIndex, l);
+   return oswindow->set_window_long(nIndex, l);
 }
 
 inline bool ClientToScreen(::oswindow oswindow, POINT * lppoint)
 {
-   return oswindow.client_to_screen(lppoint);
+   return oswindow->client_to_screen(lppoint);
 }
 
 inline bool ScreenToClient(::oswindow oswindow, POINT * lppoint)
 {
-   return oswindow.screen_to_client(lppoint);
+   return oswindow->screen_to_client(lppoint);
 }
 
 inline int32_t IsIconic(::oswindow oswindow)
 {
-   return oswindow.is_iconic();
+   return oswindow->is_iconic();
 }
 
 inline int32_t IsWindowVisible(::oswindow oswindow)
 {
-   return oswindow.is_window_visible();
+   return oswindow->is_window_visible();
 }
 
 

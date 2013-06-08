@@ -121,17 +121,19 @@ UINT APIENTRY __thread_entry(void * pParam)
    {
       // inherit parent's module state
       ___THREAD_STATE* pThreadState = __get_thread_state();
+      
       pThreadState->m_pModuleState = pStartup->pThreadState->m_pModuleState;
       pThreadState->m_pCurrentWinThread = pThread;
       
       // set current thread pointer for System.GetThread
-      //      __MODULE_STATE* pModuleState = AfxGetModuleState();
-      //    __MODULE_THREAD_STATE* pState = pModuleState->m_thread;
-      //  pState->m_pCurrentWinThread = pThread;
+      __MODULE_STATE* pModuleState = __get_module_state();
+      __MODULE_THREAD_STATE* pState = pModuleState->m_thread;
+      pState->m_pCurrentWinThread = pThread;
+      __get_thread()->m_pthread = pThread->m_p.m_p;
       
       // forced initialization of the thread
       __init_thread();
-      
+
       // thread inherits cast's main ::ca::window if not already set
       //if (papp != NULL && GetMainWnd() == NULL)
       {
@@ -154,6 +156,8 @@ UINT APIENTRY __thread_entry(void * pParam)
       __end_thread(dynamic_cast < ::ca::application * > (pThread->m_papp.m_p), (UINT)-1, FALSE);
       ASSERT(FALSE);  // unreachable
    }
+   
+   pStartup->m_pthread = pStartup->pThread;
    
    pThread->thread_entry(pStartup);
    
@@ -180,6 +184,19 @@ CLASS_DECL_mac ::mac::thread * __get_thread()
    ___THREAD_STATE* pState = __get_thread_state();
    ::mac::thread* pThread = pState->m_pCurrentWinThread;
    return pThread;
+}
+
+namespace mac
+{
+
+   CLASS_DECL_mac ::ca::thread * __get_thread()
+   {
+      // check for current thread in module thread state
+      ___THREAD_STATE* pState = __get_thread_state();
+      ::ca::thread* pThread = pState->m_pCurrentWinThread;
+      return pThread;
+   }
+   
 }
 
 
@@ -491,6 +508,22 @@ void CLASS_DECL_mac AfxInitThread()
    }
 }
 
+
+namespace ca
+{
+   extern CLASS_DECL_ca2 PFN_get_thread g_pfn_get_thread;
+   extern CLASS_DECL_ca2 PFN_get_thread_state g_pfn_get_thread_state;
+   
+}
+
+
+
+__attribute__((constructor))
+static void initialize_navigationBarImages() {
+   ::ca::g_pfn_get_thread = &::mac::__get_thread;
+   ::ca::g_pfn_get_thread_state = (::ca::thread_state *(*)() )&__get_thread_state;
+}
+
 namespace mac
 {
    
@@ -508,7 +541,7 @@ namespace mac
       m_evFinish.SetEvent();
       if(System.GetThread() != NULL)
       {
-         m_pAppThread = __get_thread()->m_pAppThread;
+         m_pAppThread = ::__get_thread()->m_pAppThread;
       }
       else
       {
@@ -524,7 +557,7 @@ namespace mac
    ca(papp),
    message_window_simple_callback(papp),//,
    m_evFinish(papp, FALSE, TRUE),
-   ::ca::thread(::null()),
+   ::ca::thread(NULL),
    m_mutexUiPtra(papp)
    {
       m_evFinish.SetEvent();
@@ -537,10 +570,10 @@ namespace mac
    
    void thread::CommonConstruct()
    {
-      m_ptimera      = ::null();
-      m_puiptra      = ::null();
-      m_puiMain      = ::null();
-      m_puiActive    = ::null();
+      m_ptimera      = NULL;
+      m_puiptra      = NULL;
+      m_puiMain      = NULL;
+      m_puiActive    = NULL;
       
       //      m_peventReady  = NULL;
       
@@ -580,7 +613,7 @@ namespace mac
       {
          single_lock sl(&m_mutexUiPtra, TRUE);
          ::user::interaction_ptr_array * puiptra = m_puiptra;
-         m_puiptra = ::null();
+         m_puiptra = NULL;
          for(int32_t i = 0; i < puiptra->get_size(); i++)
          {
             ::user::interaction * pui = puiptra->element_at(i);
@@ -666,14 +699,14 @@ namespace mac
    
    
    
-   ::user::interaction * thread::SetMainWnd(::user::interaction * pui)
+   sp(::user::interaction) thread::SetMainWnd(sp(::user::interaction) pui)
    {
       ::user::interaction * puiPrevious = m_puiMain;
       m_puiMain  = pui;
       return puiPrevious;
    }
    
-   void thread::add(::user::interaction * pui)
+   void thread::add(sp(::user::interaction) pui)
    {
       single_lock sl(&m_mutexUiPtra, TRUE);
       m_puiptra->add(pui);
@@ -746,13 +779,13 @@ namespace mac
       return m_puiptra->get_count();
    }
    
-   ::user::interaction * thread::get_ui(int32_t iIndex)
+   sp(::user::interaction) thread::get_ui(int32_t iIndex)
    {
       single_lock sl(&m_mutexUiPtra, TRUE);
       return m_puiptra->element_at(iIndex);
    }
    
-   void thread::set_timer(::user::interaction * pui, uint_ptr nIDEvent, UINT nEllapse)
+   void thread::set_timer(sp(::user::interaction) pui, uint_ptr nIDEvent, UINT nEllapse)
    {
       if(m_spuiMessage.is_null())
       {
@@ -775,7 +808,7 @@ namespace mac
       }
    }
    
-   void thread::unset_timer(::user::interaction * pui, uint_ptr nIDEvent)
+   void thread::unset_timer(sp(::user::interaction) pui, uint_ptr nIDEvent)
    {
       m_ptimera->unset(pui, nIDEvent);
    }
@@ -901,11 +934,11 @@ namespace mac
       if(epriority != ::ca::thread_priority_normal)
       {
          
-         VERIFY(set_thread_priority(epriority));
+         //VERIFY(set_thread_priority(epriority));
          
          if (!(dwCreateFlagsParam & CREATE_SUSPENDED))
          {
-            ENSURE(ResumeThread() != (DWORD)-1);
+            //ENSURE(ResumeThread() != (DWORD)-1);
          }
          
       }
@@ -975,7 +1008,7 @@ namespace mac
       while(m_bRun)
       {
          // phase1: check to see if we can do idle work
-         while (bIdle && !::PeekMessage(&msg, ::ca::null(), 0, 0, PM_NOREMOVE))
+         while (bIdle && !::PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE))
          {
             // call on_idle while in bIdle state
             if (!on_idle(lIdleCount++))
@@ -1051,7 +1084,7 @@ namespace mac
             }
          }
          //         while (::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE) != FALSE);
-         while (::PeekMessage(&msg, ::ca::null(),0, 0, 0) != FALSE);
+         while (::PeekMessage(&msg, NULL,0, 0, 0) != FALSE);
          
       }
    stop_run:
@@ -1108,7 +1141,7 @@ namespace mac
          {
             single_lock sl(&m_mutexUiPtra, TRUE);
             ::user::interaction_ptr_array * puiptra = m_puiptra;
-            m_puiptra = ::null();
+            m_puiptra = NULL;
             for(int32_t i = 0; i < puiptra->get_size(); i++)
             {
                ::user::interaction * pui = puiptra->element_at(i);
@@ -1133,7 +1166,7 @@ namespace mac
       try
       {
          ::user::interaction::timer_array * ptimera = m_ptimera;
-         m_ptimera = ::null();
+         m_ptimera = NULL;
          delete ptimera;
       }
       catch(...)
@@ -1430,7 +1463,7 @@ namespace mac
       try
       {
          MESSAGE msg;
-         if(!::GetMessage(&msg, ::ca::null(), 0, 0))
+         if(!::GetMessage(&msg, NULL, 0, 0))
          {
             TRACE(::ca::trace::category_AppMsg, 1, "thread::pump_message - Received WM_QUIT.\n");
             m_nDisablePumpCount++; // application must die
@@ -1539,7 +1572,7 @@ namespace mac
    }
 #endif
    
-   bool thread::post_message(::user::interaction * pguie, UINT uiMessage, WPARAM wparam, LPARAM lparam)
+   bool thread::post_message(sp(::user::interaction) pguie, UINT uiMessage, WPARAM wparam, lparam lparam)
    {
       //      if(m_hThread == NULL)
       //       return false;
@@ -1635,19 +1668,22 @@ namespace mac
    }
    
    
-   //   thread::operator HANDLE() const
-   // { return this == NULL ? NULL : m_hThread; }
-   WINBOOL thread::SetThreadPriority(int32_t nPriority)
+   bool thread::set_thread_priority(::ca::e_thread_priority epriority)
    {
-      throw not_implemented(get_app());
-      //       return ::SetThreadPriority(thread_ nPriority);
+
+      return ::SetThreadPriority(m_hThread, ::get_thread_priority_normal()) != FALSE;
+      
    }
-   int32_t thread::GetThreadPriority()
+   
+   
+   ::ca::e_thread_priority thread::get_thread_priority()
    {
-      throw not_implemented(get_app());
-      //ASSERT(m_hThread != NULL);
-      //return ::GetThreadPriority(m_hThread);
+      ::GetThreadPriority(m_hThread);
+      return ::get_thread_priority_normal();
+      
    }
+   
+   
    DWORD thread::ResumeThread()
    {
       //throw not_implemented(get_app());
@@ -1661,7 +1697,7 @@ namespace mac
       // return ::SuspendThread(m_hThread);
       
    }
-   bool thread::post_thread_message(UINT message, WPARAM wParam, LPARAM lParam)
+   bool thread::post_thread_message(UINT message, WPARAM wParam, lparam lParam)
    {
       throw not_implemented(get_app());
       //ASSERT(m_hThread != NULL);
@@ -1686,7 +1722,7 @@ namespace mac
    
    CLASS_DECL_mac ::ca::thread * get_thread()
    {
-      ::mac::thread * pwinthread = __get_thread();
+      ::mac::thread * pwinthread = ::__get_thread();
       if(pwinthread == NULL)
          return NULL;
       return pwinthread->m_p;
@@ -1769,7 +1805,7 @@ namespace mac
       //      ASSERT(pstartup->pThreadState != NULL);
       ASSERT(pstartup->m_pthread != NULL);
       //ASSERT(!pstartup->bError);
-      
+
       ::mac::thread* pThread = dynamic_cast < ::mac::thread * > (pstartup->m_pthread);
       
 //      ::ca::application* papp = dynamic_cast < ::ca::application * > (get_app());
@@ -1777,7 +1813,7 @@ namespace mac
       install_message_handling(pThread);
       m_p->install_message_handling(pThread);
       
-      ::ca::window threadWnd;
+//      ::ca::window threadWnd;
       
 //      m_ptimera            = new ::user::interaction::timer_array(get_app());
 //      m_puiptra            = new user::interaction_ptr_array;
@@ -1838,6 +1874,10 @@ namespace mac
          {
             try
             {
+               m_bReady = true;
+               m_p->m_bReady = true;
+               m_bRun = true;
+               m_p->m_bRun = true;
                nResult = m_p->run();
             }
             catch(const ::ca::exception & e)

@@ -47,7 +47,7 @@ namespace mac
 
 
 
-extern "C" void ca2_factory_exchange(::ca::application * papp)
+extern "C" void ca2_factory_exchange(sp(::ca::application) papp)
 {
    mac::factory_exchange factoryexchange(papp);
 }

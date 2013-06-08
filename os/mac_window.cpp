@@ -49,68 +49,86 @@ WINBOOL GetMessage(
 namespace mac
 {
    
-   void window::mouse_hover_add(::user::interaction* pinterface)
+   void window::mouse_hover_add(sp(::user::interaction) pinterface)
    {
       m_guieptraMouseHover.add_unique(pinterface);
    }
    
-   void window::mouse_hover_remove(::user::interaction* pinterface)
+   void window::mouse_hover_remove(sp(::user::interaction) pinterface)
    {
       m_guieptraMouseHover.remove(pinterface);
    }
    
+   
    window::window()
    {
-      m_pcallback = NULL;
-      m_pguie = this;
-      //      set_handle(NULL);
-      m_pguieOwner = ::null();
-      m_pguie->m_nFlags = 0;
-      //      m_pfnSuper = NULL;
-      m_nModalResult = 0;
-      m_bMouseHover = false;
-      m_pfont = NULL;
-      m_pguieCapture = NULL;
+      
+      m_pcallback          = NULL;
+      m_pguie              = this;
+      //set_handle(NULL);
+      m_pguieOwner         = NULL;
+      m_pguie->m_nFlags    = 0;
+      //m_pfnSuper         = NULL;
+      m_nModalResult       = 0;
+      m_bMouseHover        = false;
+      m_pfont              = NULL;
+      m_pguieCapture       = NULL;
+      m_oswindow           = NULL;
+      
    }
+   
    
    void window::construct(oswindow hWnd)
    {
-      m_pcallback = NULL;
-      m_pguie = this;
-      m_oswindow = hWnd;
+      
+      m_pcallback          = NULL;
+      m_pguie              = this;
+      m_oswindow           = hWnd;
       //set_handle(hWnd);
-      m_pguie->m_nFlags = 0;
-      //      m_pfnSuper = NULL;
-      m_nModalResult = 0;
-      m_bMouseHover = false;
-      m_pfont = NULL;
-      m_pguieCapture = NULL;
+      m_pguie->m_nFlags    = 0;
+      //m_pfnSuper         = NULL;
+      m_nModalResult       = 0;
+      m_bMouseHover        = false;
+      m_pfont              = NULL;
+      m_pguieCapture       = NULL;
+      m_oswindow           = NULL;
+      
    }
+   
    
    window::window(::ca::application * papp) :
    ca(papp),
    ::user::interaction(papp)
    {
-      m_pcallback = NULL;
-      m_pguie = this;
-      //      set_handle(NULL);
-      m_pguieOwner = ::null();
-      m_pguie->m_nFlags = 0;
-      //      m_pfnSuper = NULL;
-      m_nModalResult = 0;
-      m_bMouseHover = false;
-      m_pfont = NULL;
-      m_pguieCapture = NULL;
+      
+      m_pcallback          = NULL;
+      m_pguie              = this;
+      //set_handle(NULL);
+      m_pguieOwner         = NULL;
+      m_pguie->m_nFlags    = 0;
+      //m_pfnSuper         = NULL;
+      m_nModalResult       = 0;
+      m_bMouseHover        = false;
+      m_pfont              = NULL;
+      m_pguieCapture       = NULL;
+      m_oswindow           = NULL;
+      
    }
+   
    
    sp(::ca::window) window::from_os_data(void * pdata)
    {
+      
       return dynamic_cast < ::ca::window * >(from_handle((oswindow) pdata));
+      
    }
+   
    
    void * window::get_os_data() const
    {
+      
       return ((oswindow &) m_oswindow);
+      
    }
    
    
@@ -181,19 +199,24 @@ namespace mac
    
    ::mac::window * window::from_handle(oswindow oswindow)
    {
-      return dynamic_cast < ::mac::window * > (oswindow.get_user_interaction()->m_pimpl.m_p);
+      
+      if(oswindow == NULL)
+         return NULL;
+      
+      return dynamic_cast < ::mac::window * > (oswindow->get_user_interaction()->m_pimpl.m_p);
+      
    }
    
    
    window * PASCAL window::FromHandlePermanent(oswindow oswindow)
    {
-      return dynamic_cast < ::mac::window * > (oswindow.get_user_interaction()->m_pimpl.m_p);
+      return dynamic_cast < ::mac::window * > (oswindow->get_user_interaction()->m_pimpl.m_p);
    }
    
    bool window::Attach(oswindow hWndNew)
    {
       
-      ASSERT(get_os_data() == NULL);     // only attach once, detach on destroy
+      ASSERT(get_handle() == NULL);     // only attach once, detach on destroy
       //  ASSERT(FromHandlePermanent(hWndNew) == NULL);
       // must not already be in permanent ::collection::map
       
@@ -217,15 +240,15 @@ namespace mac
    
    oswindow window::Detach()
    {
-      oswindow hWnd = get_os_data();
+      oswindow hWnd = (oswindow) get_handle();
       if (hWnd != NULL)
       {
          //         single_lock sl(afxMutexHwnd(), TRUE);
          //  ;;       hwnd_map * pMap = afxMapHWND(); // don't create if not exist
          //     if (pMap != NULL)
-         //      pMap->remove_handle(get_os_data());
+         //      pMap->remove_handle(get_handle());
          //         set_handle(NULL);
-         m_oswindow = ::ca::null();
+         m_oswindow = NULL;
       }
       
       return hWnd;
@@ -242,7 +265,7 @@ namespace mac
    
    bool window::CreateEx(DWORD dwExStyle, const char * lpszClassName,
                          const char * lpszWindowName, DWORD dwStyle,
-                         const RECT& rect, ::user::interaction* pParentWnd, id id,
+                         const RECT& rect, sp(::user::interaction) pParentWnd, id id,
                          LPVOID lpParam /* = NULL */)
    {
       return CreateEx(dwExStyle, lpszClassName, lpszWindowName, dwStyle,
@@ -300,6 +323,30 @@ namespace mac
       
       hook_window_create(this);
       
+      NSRect rect;
+      
+      rect.origin.x = x;
+      rect.origin.y = y;
+      rect.size.width = nWidth;
+      rect.size.height = nHeight;
+      
+      m_pthread = ::ca::get_thread();
+      
+      
+      if(hWndParent == MESSAGE_WINDOW_PARENT)
+      {
+         return true;
+      }
+      else
+      {
+         
+         m_oswindow = oswindow_get(new_round_window(rect));
+         
+         m_oswindow->set_user_interaction(m_pguie);
+         
+      }
+      
+      send_message(WM_CREATE, 0, (LPARAM) &cs);      
       
 //      throw todo(get_app());
       
@@ -379,8 +426,8 @@ namespace mac
        m_pguie->set_icon(new ::visual::icon(wndcls.hIcon), false);
        m_pguie->set_icon(new ::visual::icon(wndcls.hIcon), true);
        }*/
-      //      oswindow hwndHandle = get_os_data();
-      /*      if(mac != get_os_data())
+      //      oswindow hwndHandle = get_handle();
+      /*      if(mac != get_handle())
        {
        ASSERT(FALSE); // should have been set in send msg hook
        }*/
@@ -404,7 +451,7 @@ namespace mac
    bool window::create(const char * lpszClassName,
                        const char * lpszWindowName, DWORD dwStyle,
                        const RECT& rect,
-                       ::user::interaction* pParentWnd, id id,
+                       sp(::user::interaction) pParentWnd, id id,
                        ::ca::create_context* pContext)
    {
       // can't use for desktop or pop-up windows (use CreateEx instead)
@@ -428,7 +475,7 @@ namespace mac
       else
       {
          string strName = "ca2::fontopus::message_wnd::winservice_1";
-         if(!CreateEx(0, ::null(), pszName, WS_CHILD, 0, 0, 0, 0, MESSAGE_WINDOW_PARENT, "", ::null()))
+         if(!CreateEx(0, NULL, pszName, WS_CHILD, 0, 0, 0, 0, MESSAGE_WINDOW_PARENT, "", NULL))
          {
             return false;
          }
@@ -442,7 +489,7 @@ namespace mac
       
       if(m_papp != NULL && m_papp->m_psystem != NULL && Sys(m_papp).user()->m_pwindowmap != NULL)
       {
-         Sys(m_papp).user()->m_pwindowmap->m_map.remove_key((int_ptr) get_os_data());
+         Sys(m_papp).user()->m_pwindowmap->m_map.remove_key((int_ptr) get_handle());
       }
       
       single_lock sl(m_pthread == NULL ? NULL : &m_pthread->m_pthread->m_mutex, TRUE);
@@ -451,7 +498,7 @@ namespace mac
          delete m_pfont;
       }
       sl.unlock();
-      if (get_os_data() != NULL)
+      if (get_handle() != NULL)
       {
          TRACE(::ca::trace::category_AppMsg, 0, "Warning: calling DestroyWindow in window::~window; "
                "OnDestroy or PostNcDestroy in derived class will not be called.\n");
@@ -487,7 +534,7 @@ namespace mac
       /*      if(!m_bRectOk && !(GetExStyle() & WS_EX_LAYERED))
        {
        class rect rectWindow;
-       ::GetWindowRect(get_os_data(), rectWindow);
+       ::GetWindowRect(get_handle(), rectWindow);
        m_pguie->m_rectParentClient = rectWindow;
        m_rectParentClient = rectWindow;
        }*/
@@ -501,7 +548,7 @@ namespace mac
       /*      if(!m_bRectOk && !(GetExStyle() & WS_EX_LAYERED))
        {
        class rect rectWindow;
-       ::GetWindowRect(get_os_data(), rectWindow);
+       ::GetWindowRect(get_handle(), rectWindow);
        m_pguie->m_rectParentClient = rectWindow;
        m_rectParentClient = rectWindow;
        }*/
@@ -571,10 +618,10 @@ namespace mac
                if (pThread != &System)
                   __post_quit_message(0);
             }
-            pThread->SetMainWnd(::null());
+            pThread->SetMainWnd(NULL);
          }
          if (pThread->get_active_ui() == this)
-            pThread->set_active_ui(::null());
+            pThread->set_active_ui(NULL);
       }
       
       // cleanup tooltip support
@@ -586,16 +633,16 @@ namespace mac
       }
       
       // call default, unsubclass, and detach from the ::collection::map
-      /*      WNDPROC pfnWndProc = WNDPROC(GetWindowLongPtr(get_os_data(), GWLP_WNDPROC));
+      /*      WNDPROC pfnWndProc = WNDPROC(GetWindowLongPtr(get_handle(), GWLP_WNDPROC));
        Default();
-       if (WNDPROC(GetWindowLongPtr(get_os_data(), GWLP_WNDPROC)) == pfnWndProc)
+       if (WNDPROC(GetWindowLongPtr(get_handle(), GWLP_WNDPROC)) == pfnWndProc)
        {
        WNDPROC pfnSuper = *GetSuperWndProcAddr();
        if (pfnSuper != NULL)
-       SetWindowLongPtr(get_os_data(), GWLP_WNDPROC, reinterpret_cast<int_ptr>(pfnSuper));
+       SetWindowLongPtr(get_handle(), GWLP_WNDPROC, reinterpret_cast<int_ptr>(pfnSuper));
        }*/
       Detach();
-      ASSERT(get_os_data() == NULL);
+      ASSERT(get_handle() == NULL);
       m_pfnDispatchWindowProc = &window::_start_user_message_handler;
       // call special post-cleanup routine
       PostNcDestroy();
@@ -614,7 +661,7 @@ namespace mac
    
    void window::on_final_release()
    {
-      if (get_os_data() != NULL)
+      if (get_handle() != NULL)
          DestroyWindow();    // will call PostNcDestroy
       else
          PostNcDestroy();
@@ -622,24 +669,24 @@ namespace mac
    
    void window::assert_valid() const
    {
-      if (get_os_data() == NULL)
+      if (get_handle() == NULL)
          return;     // null (unattached) windows are valid
       
       // check for special wnd??? values
       //      ASSERT(oswindow_TOP == NULL);       // same as desktop
-      /*      if (get_os_data() == oswindow_BOTTOM)
+      /*      if (get_handle() == oswindow_BOTTOM)
        {
        }
-       else if (get_os_data() == oswindow_TOPMOST)
+       else if (get_handle() == oswindow_TOPMOST)
        {
        }
-       else if (get_os_data() == oswindow_NOTOPMOST)
+       else if (get_handle() == oswindow_NOTOPMOST)
        {
        }
        else
        {
        // should be a normal window
-       ASSERT(::IsWindow(get_os_data()));
+       ASSERT(::IsWindow(get_handle()));
        
        // should also be in the permanent or temporary handle ::collection::map
        single_lock sl(afxMutexHwnd(), TRUE);
@@ -651,8 +698,8 @@ namespace mac
        //         ::ca::object* p=NULL;
        if(pMap)
        {
-       ASSERT( (p = pMap->lookup_permanent(get_os_data())) != NULL ||
-       (p = pMap->lookup_temporary(get_os_data())) != NULL);
+       ASSERT( (p = pMap->lookup_permanent(get_handle())) != NULL ||
+       (p = pMap->lookup_temporary(get_handle())) != NULL);
        }*/
       
       //ASSERT(dynamic_cast < ::ca::window * > (p) == this);   // must be us
@@ -678,16 +725,16 @@ namespace mac
    {
       ::ca::object::dump(dumpcontext);
       
-      dumpcontext << "\nm_hWnd = " << (void *)get_os_data();
+      dumpcontext << "\nm_hWnd = " << (void *)get_handle();
       
-      /*      if (get_os_data() == NULL || get_os_data() == oswindow_BOTTOM ||
-       get_os_data() == oswindow_TOPMOST || get_os_data() == oswindow_NOTOPMOST)
+      /*      if (get_handle() == NULL || get_handle() == oswindow_BOTTOM ||
+       get_handle() == oswindow_TOPMOST || get_handle() == oswindow_NOTOPMOST)
        {
        // not a normal window - nothing more to dump
        return;
        }*/
       
-      /*      if (!::IsWindow(get_os_data()))
+      /*      if (!::IsWindow(get_handle()))
        {
        // not a valid window
        dumpcontext << " (illegal oswindow)";
@@ -705,10 +752,10 @@ namespace mac
 //      if (!const_cast < window * > (this)->send_message(WM_QUERYAFXWNDPROC, 0, 0) && pWnd == this)
 //         ((::ca::window *) this)->GetWindowText(szBuf, _countof(szBuf));
       //    else
-      //         ::DefWindowProc(get_os_data(), WM_GETTEXT, _countof(szBuf), (LPARAM)&szBuf[0]);
+      //         ::DefWindowProc(get_handle(), WM_GETTEXT, _countof(szBuf), (LPARAM)&szBuf[0]);
       dumpcontext << "\ncaption = \"" << szBuf << "\"";
       
-      //      ::GetClassName(get_os_data(), szBuf, _countof(szBuf));
+      //      ::GetClassName(get_handle(), szBuf, _countof(szBuf));
       //    dumpcontext << "\nclass name = \"" << szBuf << "\"";
       
       rect rect;
@@ -716,9 +763,9 @@ namespace mac
       dumpcontext << "\nrect = " << rect;
       dumpcontext << "\nparent ::ca::window * = " << (void *)((::ca::window *) this)->get_parent();
       
-      //      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_os_data(), GWL_STYLE);
-      //    if (::GetWindowLong(get_os_data(), GWL_STYLE) & WS_CHILD)
-      //     dumpcontext << "\nid = " << __get_dialog_control_id(get_os_data());
+      //      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
+      //    if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
+      //     dumpcontext << "\nid = " << __get_dialog_control_id(get_handle());
       
       dumpcontext << "\n";
    }
@@ -731,28 +778,28 @@ namespace mac
       oswindow hWndOrig;
       bool bResult;
       
-      if ((get_os_data() == NULL) )
+      if ((get_handle() == NULL) )
          return FALSE;
       
       bResult = FALSE;
       pMap = NULL;
       pWnd = NULL;
-      hWndOrig = ::ca::null();
-      if (get_os_data() != NULL)
+      hWndOrig = NULL;
+      if (get_handle() != NULL)
       {
          //         single_lock sl(afxMutexHwnd(), TRUE);
          //       pMap = afxMapHWND();
          //     if(pMap != NULL)
          {
-            //      pWnd = dynamic_cast < ::ca::window * > (pMap->lookup_permanent(get_os_data()));
+            //      pWnd = dynamic_cast < ::ca::window * > (pMap->lookup_permanent(get_handle()));
 #ifdef DEBUG
-            //    hWndOrig = get_os_data();
+            //    hWndOrig = get_handle();
 #endif
          }
       }
       sl.unlock();
-      //    if (get_os_data() != NULL)
-      //         bResult = ::DestroyWindow(get_os_data()) != FALSE;
+      //    if (get_handle() != NULL)
+      //         bResult = ::DestroyWindow(get_handle()) != FALSE;
       sl.lock();
       if (hWndOrig != NULL)
       {
@@ -789,13 +836,13 @@ namespace mac
    LRESULT window::DefWindowProc(UINT nMsg, WPARAM wparam, LPARAM lparam)
    {
       /*  if (m_pfnSuper != NULL)
-       return ::CallWindowProc(m_pfnSuper, get_os_data(), nMsg, wparam, lparam);
+       return ::CallWindowProc(m_pfnSuper, get_handle(), nMsg, wparam, lparam);
        
        WNDPROC pfnWndProc;
        if ((pfnWndProc = *GetSuperWndProcAddr()) == NULL)
-       return ::DefWindowProc(get_os_data(), nMsg, wparam, lparam);
+       return ::DefWindowProc(get_handle(), nMsg, wparam, lparam);
        else
-       return ::CallWindowProc(pfnWndProc, get_os_data(), nMsg, wparam, lparam);*/
+       return ::CallWindowProc(pfnWndProc, get_handle(), nMsg, wparam, lparam);*/
       
       return 0;
    }
@@ -820,10 +867,10 @@ namespace mac
    
    void window::GetWindowText(string & rString)
    {
-      /*ASSERT(::IsWindow(get_os_data()));
+      /*ASSERT(::IsWindow(get_handle()));
        
-       int32_t nLen = ::GetWindowTextLength(get_os_data());
-       ::GetWindowText(get_os_data(), rString.GetBufferSetLength(nLen), nLen+1);
+       int32_t nLen = ::GetWindowTextLength(get_handle());
+       ::GetWindowText(get_handle(), rString.GetBufferSetLength(nLen), nLen+1);
        rString.ReleaseBuffer();*/
       rString = m_strWindowText;
       
@@ -832,10 +879,10 @@ namespace mac
    /*
     int32_t window::GetDlgItemText(int32_t nID, string & rString) const
     {
-    ASSERT(::IsWindow(get_os_data()));
+    ASSERT(::IsWindow(get_handle()));
     rString = "";    // is_empty without deallocating
     
-    oswindow hWnd = ::GetDlgItem(get_os_data(), nID);
+    oswindow hWnd = ::GetDlgItem(get_handle(), nID);
     if (hWnd != NULL)
     {
     int32_t nLen = ::GetWindowTextLength(hWnd);
@@ -849,17 +896,17 @@ namespace mac
    
    bool window::GetWindowPlacement(WINDOWPLACEMENT* lpwndpl)
    {
-      /*    ASSERT(::IsWindow(get_os_data()));
+      /*    ASSERT(::IsWindow(get_handle()));
        lpwndpl->length = sizeof(WINDOWPLACEMENT);
-       return ::GetWindowPlacement(get_os_data(), lpwndpl) != FALSE;*/
+       return ::GetWindowPlacement(get_handle(), lpwndpl) != FALSE;*/
       return false;
    }
    
    bool window::SetWindowPlacement(const WINDOWPLACEMENT* lpwndpl)
    {
-      /*      ASSERT(::IsWindow(get_os_data()));
+      /*      ASSERT(::IsWindow(get_handle()));
        ((WINDOWPLACEMENT*)lpwndpl)->length = sizeof(WINDOWPLACEMENT);
-       return ::SetWindowPlacement(get_os_data(), lpwndpl) != FALSE;*/
+       return ::SetWindowPlacement(get_handle(), lpwndpl) != FALSE;*/
       return false;
    }
    
@@ -926,41 +973,41 @@ namespace mac
    
    /*   bool window::GetWindowInfo(PWINDOWINFO pwi) const
     {
-    ASSERT(::IsWindow((oswindow)get_os_data()));
-    return ::GetWindowInfo((oswindow)get_os_data(), pwi) != FALSE;
+    ASSERT(::IsWindow((oswindow)get_handle()));
+    return ::GetWindowInfo((oswindow)get_handle(), pwi) != FALSE;
     }*/
    
    /*   ::ca::window * window::GetAncestor(UINT gaFlags) const
-    { ASSERT(::IsWindow((oswindow)get_os_data())); return  ::mac::window::from_handle(::GetAncestor((oswindow)get_os_data(), gaFlags)); }
+    { ASSERT(::IsWindow((oswindow)get_handle())); return  ::mac::window::from_handle(::GetAncestor((oswindow)get_handle(), gaFlags)); }
     
     */
    
    /*   bool window::GetScrollBarInfo(LONG idObject, PSCROLLBARINFO psbi) const
     {
-    ASSERT(::IsWindow((oswindow)get_os_data()));
+    ASSERT(::IsWindow((oswindow)get_handle()));
     ASSERT(psbi != NULL);
-    return ::GetScrollBarInfo((oswindow)get_os_data(), idObject, psbi) != FALSE;
+    return ::GetScrollBarInfo((oswindow)get_handle(), idObject, psbi) != FALSE;
     }
     */
    /*   bool window::GetTitleBarInfo(PTITLEBARINFO pti) const
     {
-    ASSERT(::IsWindow((oswindow)get_os_data()));
+    ASSERT(::IsWindow((oswindow)get_handle()));
     ASSERT(pti != NULL);
-    return ::GetTitleBarInfo((oswindow)get_os_data(), pti) != FALSE;
+    return ::GetTitleBarInfo((oswindow)get_handle(), pti) != FALSE;
     }
     */
    /*   bool window::AnimateWindow(DWORD dwTime, DWORD dwFlags)
     {
-    ASSERT(::IsWindow((oswindow)get_os_data()));
-    return ::AnimateWindow((oswindow)get_os_data(), dwTime, dwFlags) != FALSE;
+    ASSERT(::IsWindow((oswindow)get_handle()));
+    return ::AnimateWindow((oswindow)get_handle(), dwTime, dwFlags) != FALSE;
     }
     
     bool window::FlashWindowEx(DWORD dwFlags, UINT  uCount, DWORD dwTimeout)
     {
-    ASSERT(::IsWindow((oswindow)get_os_data()));
+    ASSERT(::IsWindow((oswindow)get_handle()));
     FLASHWINFO fwi;
     fwi.cbSize = sizeof(fwi);
-    fwi.hwnd = (oswindow)get_os_data();
+    fwi.hwnd = (oswindow)get_handle();
     fwi.dwFlags = dwFlags;
     fwi.uCount = uCount;
     fwi.dwTimeout = dwTimeout;
@@ -972,15 +1019,15 @@ namespace mac
    /*
     bool window::SetLayeredWindowAttributes(COLORREF crKey, BYTE bAlpha, DWORD dwFlags)
     {
-    ASSERT(::IsWindow((oswindow)get_os_data()));
-    return ::SetLayeredWindowAttributes((oswindow)get_os_data(), crKey, bAlpha, dwFlags) != FALSE;
+    ASSERT(::IsWindow((oswindow)get_handle()));
+    return ::SetLayeredWindowAttributes((oswindow)get_handle(), crKey, bAlpha, dwFlags) != FALSE;
     }
     
     bool window::UpdateLayeredWindow(::ca::graphics * pDCDst, POINT *pptDst, SIZE *psize,
     ::ca::graphics * pDCSrc, POINT *pptSrc, COLORREF crKey, BLENDFUNCTION *pblend, DWORD dwFlags)
     {
-    ASSERT(::IsWindow((oswindow)get_os_data()));
-    return ::UpdateLayeredWindow((oswindow)get_os_data(), WIN_HDC(pDCDst), pptDst, psize,
+    ASSERT(::IsWindow((oswindow)get_handle()));
+    return ::UpdateLayeredWindow((oswindow)get_handle(), WIN_HDC(pDCDst), pptDst, psize,
     WIN_HDC(pDCSrc), pptSrc, crKey, pblend, dwFlags) != FALSE;
     }
     
@@ -988,14 +1035,14 @@ namespace mac
    /*
     bool window::GetLayeredWindowAttributes(COLORREF *pcrKey, BYTE *pbAlpha, DWORD *pdwFlags) const
     {
-    ASSERT(::IsWindow((oswindow)get_os_data()));
-    return ::GetLayeredWindowAttributes((oswindow)get_os_data(), pcrKey, pbAlpha, pdwFlags) != FALSE;
+    ASSERT(::IsWindow((oswindow)get_handle()));
+    return ::GetLayeredWindowAttributes((oswindow)get_handle(), pcrKey, pbAlpha, pdwFlags) != FALSE;
     }
     
     bool window::PrintWindow(::ca::graphics * pgraphics, UINT nFlags) const
     {
-    ASSERT(::IsWindow((oswindow)get_os_data()));
-    return ::PrintWindow((oswindow)get_os_data(), (HDC)(dynamic_cast<::mac::graphics * >(pgraphics))->get_os_data(), nFlags) != FALSE;
+    ASSERT(::IsWindow((oswindow)get_handle()));
+    return ::PrintWindow((oswindow)get_handle(), (HDC)(dynamic_cast<::mac::graphics * >(pgraphics))->get_handle(), nFlags) != FALSE;
     }
     
     */
@@ -1037,13 +1084,13 @@ namespace mac
     
     PrepareForHelp();
     
-    // need to use top level parent (for the case where get_os_data() is in DLL)
+    // need to use top level parent (for the case where get_handle() is in DLL)
     ::user::interaction * pWnd = EnsureTopLevelParent();
     
     TRACE(::ca::trace::category_AppMsg, 0, "WinHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
     
     // finally, run the oswindows Help engine
-     trans   if (!::WinHelp(MAC_WINDOW(pWnd)->get_os_data(), pApp->m_pszHelpFilePath, nCmd, dwData))
+     trans   if (!::WinHelp(MAC_WINDOW(pWnd)->get_handle(), pApp->m_pszHelpFilePath, nCmd, dwData))
     {
     // linux System.simple_message_box(__IDP_FAILED_TO_LAUNCH_HELP);
     System.simple_message_box("Failed to launch help");
@@ -1065,13 +1112,13 @@ namespace mac
     
     PrepareForHelp();
     
-    // need to use top level parent (for the case where get_os_data() is in DLL)
+    // need to use top level parent (for the case where get_handle() is in DLL)
     ::user::interaction * pWnd = EnsureTopLevelParent();
     
     TRACE(::ca::trace::category_AppMsg, 0, "HtmlHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
     
     // run the HTML Help engine
-     trans   if (!::ca::HtmlHelp(MAC_WINDOW(pWnd)->get_os_data(), pApp->m_pszHelpFilePath, nCmd, dwData))
+     trans   if (!::ca::HtmlHelp(MAC_WINDOW(pWnd)->get_handle(), pApp->m_pszHelpFilePath, nCmd, dwData))
     {
     // linux System.simple_message_box(__IDP_FAILED_TO_LAUNCH_HELP);
     System.simple_message_box("Failed to launch help");
@@ -1091,7 +1138,7 @@ namespace mac
        send_message(WM_CANCELMODE);
        SendMessageToDescendants(WM_CANCELMODE, 0, 0, TRUE, TRUE);
        
-       // need to use top level parent (for the case where get_os_data() is in DLL)
+       // need to use top level parent (for the case where get_handle() is in DLL)
        ::user::interaction * pWnd = EnsureTopLevelParent();
        MAC_WINDOW(pWnd)->send_message(WM_CANCELMODE);
        MAC_WINDOW(pWnd)->SendMessageToDescendants(WM_CANCELMODE, 0, 0, TRUE, TRUE);
@@ -1153,7 +1200,7 @@ namespace mac
    void window::_002OnDraw(::ca::graphics * pdc)
    {
       
-      //      ::CallWindowProc(*GetSuperWndProcAddr(), get_os_data(), WM_PRINT, (WPARAM)((dynamic_cast<::mac::graphics * >(pdc))->get_os_data()), (LPARAM)(PRF_CHILDREN | PRF_CLIENT));
+      //      ::CallWindowProc(*GetSuperWndProcAddr(), get_handle(), WM_PRINT, (WPARAM)((dynamic_cast<::mac::graphics * >(pdc))->get_handle()), (LPARAM)(PRF_CHILDREN | PRF_CLIENT));
       
    }
    
@@ -1273,7 +1320,7 @@ namespace mac
             if(m_bOSNativeMouseMessagePosition)
             {
                class rect rectWindow32;
-               //               ::GetWindowRect(get_os_data(), &rectWindow32);
+               //               ::GetWindowRect(get_handle(), &rectWindow32);
                ::copy(rectWindow, rectWindow32);
             }
             else
@@ -1407,7 +1454,7 @@ namespace mac
             && puiFocus->IsWindow()
             && puiFocus->GetTopLevelParent() != NULL)
          {
-            puiFocus->send_message(pkey);
+            puiFocus->send(pkey);
             if(pbase->m_bRet)
                return;
          }
@@ -1644,7 +1691,7 @@ namespace mac
                                             wndTemp.set_handle(pCtl->hWnd);
                                             UINT nCtlType = pCtl->nCtlType;
                                             // if not coming from a permanent window, use stack temporary
-                                            ::ca::window * pWnd = ::mac::window::FromHandlePermanent(wndTemp.get_os_data());
+                                            ::ca::window * pWnd = ::mac::window::FromHandlePermanent(wndTemp.get_handle());
                                             if (pWnd == NULL)
                                             {
                                             pWnd = &wndTemp;
@@ -1743,7 +1790,7 @@ namespace mac
                                             break;
                                             
                                             case ::ca::Sig_MDIACTIVATE:
-                                            (this->*mmf.pfn_v_b_W_W)(get_os_data() == reinterpret_cast<oswindow>(lparam),
+                                            (this->*mmf.pfn_v_b_W_W)(get_handle() == reinterpret_cast<oswindow>(lparam),
                                             ::mac::window::from_handle(reinterpret_cast<oswindow>(lparam)),
                                             ::mac::window::from_handle(reinterpret_cast<oswindow>(wparam)));
                                             break;
@@ -1918,7 +1965,7 @@ namespace mac
        // control notification
        ASSERT(nID == 0 || ::IsWindow(hWndCtrl));
        
-       if (gen_ThreadState->m_hLockoutNotifyWindow == get_os_data())
+       if (gen_ThreadState->m_hLockoutNotifyWindow == get_handle())
        return TRUE;        // locked out - ignore control notification
        
        // reflect notification to child window control
@@ -1953,7 +2000,7 @@ namespace mac
        ASSERT(hWndCtrl != NULL);
        ASSERT(::IsWindow(hWndCtrl));
        
-       if (gen_ThreadState->m_hLockoutNotifyWindow == get_os_data())
+       if (gen_ThreadState->m_hLockoutNotifyWindow == get_handle())
        return true;        // locked out - ignore control notification
        
        // reflect notification to child window control
@@ -1972,9 +2019,9 @@ namespace mac
    
    sp(::user::frame_window) window::GetParentFrame()
    {
-      if (get_os_data() == NULL) // no oswindow attached
+      if (get_handle() == NULL) // no oswindow attached
       {
-         return ::null();
+         return NULL;
       }
       
       ASSERT_VALID(this);
@@ -1988,7 +2035,7 @@ namespace mac
          }
          pParentWnd = pParentWnd->get_parent();
       }
-      return ::null();
+      return NULL;
    }
    
    /* trans oswindow CLASS_DECL_mac __get_parent_owner(::user::interaction * hWnd)
@@ -2006,8 +2053,8 @@ namespace mac
    
    sp(::user::interaction) window::GetTopLevelParent()
    {
-      if (get_os_data() == NULL) // no oswindow attached
-         return ::null();
+      if (get_handle() == NULL) // no oswindow attached
+         return NULL;
       
       ASSERT_VALID(this);
 //      
@@ -2017,33 +2064,33 @@ namespace mac
       // hWndParent = hWndT;
       
 //      return hWndParent;
-      return ::null();
+      return NULL;
    }
    
    sp(::user::interaction) window::GetTopLevelOwner()
    {
-      if (get_os_data() == NULL) // no oswindow attached
-         return ::null();
+      if (get_handle() == NULL) // no oswindow attached
+         return NULL;
       
       ASSERT_VALID(this);
       
-      //      oswindow hWndOwner = get_os_data();
+      //      oswindow hWndOwner = get_handle();
       //    oswindow hWndT;
       //  while ((hWndT = ::GetWindow(hWndOwner, GW_OWNER)) != NULL)
       //   hWndOwner = hWndT;
       
       //      return ::mac::window::from_handle(hWndOwner);
-      return ::null();
+      return NULL;
    }
    
    sp(::user::interaction) window::GetParentOwner()
    {
-      if (get_os_data() == NULL) // no oswindow attached
-         return ::null();
+      if (get_handle() == NULL) // no oswindow attached
+         return NULL;
       
       ASSERT_VALID(this);
       
-      /*      oswindow hWndParent = get_os_data();
+      /*      oswindow hWndParent = get_handle();
        oswindow hWndT;
        while ((::GetWindowLong(hWndParent, GWL_STYLE) & WS_CHILD) &&
        (hWndT = ::GetParent(hWndParent)) != NULL)
@@ -2053,12 +2100,12 @@ namespace mac
        
        return ::mac::window::from_handle(hWndParent);*/
       
-      return ::null();
+      return NULL;
    }
    
    bool window::IsTopParentActive()
    {
-      ASSERT(get_os_data() != NULL);
+      ASSERT(get_handle() != NULL);
       ASSERT_VALID(this);
       
       ::user::interaction *pWndTopLevel=EnsureTopLevelParent();
@@ -2070,7 +2117,7 @@ namespace mac
    {
       // special activate logic for floating toolbars and palettes
 //      ::ca::window * pActiveWnd = GetForegroundWindow();
-      //      if (pActiveWnd == NULL || !(MAC_WINDOW(pActiveWnd)->get_os_data() == get_os_data() || ::IsChild(MAC_WINDOW(pActiveWnd)->get_os_data(), get_os_data())))
+      //      if (pActiveWnd == NULL || !(MAC_WINDOW(pActiveWnd)->get_handle() == get_handle() || ::IsChild(MAC_WINDOW(pActiveWnd)->get_handle(), get_handle())))
       {
          // clicking on floating frame when it does not have
          // focus itself -- activate the toplevel frame instead.
@@ -2080,8 +2127,8 @@ namespace mac
    
    sp(::user::frame_window) window::GetTopLevelFrame()
    {
-      if (get_os_data() == NULL) // no oswindow attached
-         return ::null();
+      if (get_handle() == NULL) // no oswindow attached
+         return NULL;
       
       ASSERT_VALID(this);
       
@@ -2104,7 +2151,7 @@ namespace mac
    
    /*   ::ca::window * window::GetSafeOwner(::ca::window * pParent, oswindow* pWndTop)
     {
-    oswindow hWnd = GetSafeOwner_((oswindow) pParent->get_os_data(), pWndTop);
+    oswindow hWnd = GetSafeOwner_((oswindow) pParent->get_handle(), pWndTop);
     return ::mac::window::from_handle(hWnd);
     }
     */
@@ -2112,11 +2159,11 @@ namespace mac
    {
       if (lpszCaption == NULL)
          lpszCaption = __get_app_name();
-      int32_t nResult = ::MessageBox((oswindow)get_os_data(), lpszText, lpszCaption, nType);
+      int32_t nResult = ::MessageBox((oswindow)get_handle(), lpszText, lpszCaption, nType);
       return nResult;
    }
    
-   ::user::interaction * PASCAL window::GetDescendantWindow(::user::interaction * hWnd, id id)
+   sp(::user::interaction) PASCAL window::GetDescendantWindow(sp(::user::interaction) hWnd, id id)
    {
       single_lock sl(&hWnd->m_pthread->m_pthread->m_mutex, TRUE);
       // GetDlgItem recursive (return first found)
@@ -2163,7 +2210,7 @@ namespace mac
    }
    
    void PASCAL window::SendMessageToDescendants(void * hWnd, UINT message,
-                                                WPARAM wparam, LPARAM lparam, bool bDeep, bool bOnlyPerm)
+                                                WPARAM wparam, lparam lparam, bool bDeep, bool bOnlyPerm)
    {
       // walk through oswindows to avoid creating temporary window objects
       // unless we need to call this function recursively
@@ -2177,7 +2224,7 @@ namespace mac
           if (pWnd != NULL)
           {
           // call window proc directly since it is a C++ window
-          __call_window_procedure(dynamic_cast < ::user::interaction * > (pWnd), MAC_WINDOW(pWnd)->get_os_data(), message, wparam, lparam);
+          __call_window_procedure(dynamic_cast < ::user::interaction * > (pWnd), MAC_WINDOW(pWnd)->get_handle(), message, wparam, lparam);
           }
           }
           else
@@ -2221,24 +2268,24 @@ namespace mac
    
    int32_t window::SetScrollPos(int32_t nBar, int32_t nPos, bool bRedraw)
    {
-      //      return ::SetScrollPos(get_os_data(), nBar, nPos, bRedraw);
+      //      return ::SetScrollPos(get_handle(), nBar, nPos, bRedraw);
       return 0;
    }
    
    int32_t window::GetScrollPos(int32_t nBar) const
    {
-      //return ::GetScrollPos(get_os_data(), nBar);
+      //return ::GetScrollPos(get_handle(), nBar);
       return 0;
    }
    
    void window::SetScrollRange(int32_t nBar, int32_t nMinPos, int32_t nMaxPos, bool bRedraw)
    {
-      //::SetScrollRange(get_os_data(), nBar, nMinPos, nMaxPos, bRedraw);
+      //::SetScrollRange(get_handle(), nBar, nMinPos, nMaxPos, bRedraw);
    }
    
    void window::GetScrollRange(int32_t nBar, LPINT lpMinPos, LPINT lpMaxPos) const
    {
-      //::GetScrollRange(get_os_data(), nBar, lpMinPos, lpMaxPos);
+      //::GetScrollRange(get_handle(), nBar, lpMinPos, lpMaxPos);
    }
    
    // Turn on/off non-control scrollbars
@@ -2255,7 +2302,7 @@ namespace mac
     {
     ASSERT(lpScrollInfo != NULL);
     
-    oswindow hWnd = get_os_data();
+    oswindow hWnd = get_handle();
     lpScrollInfo->cbSize = sizeof(*lpScrollInfo);
     ::SetScrollInfo(hWnd, nBar, lpScrollInfo, bRedraw);
     return true;
@@ -2266,7 +2313,7 @@ namespace mac
     UNREFERENCED_PARAMETER(nMask);
     ASSERT(lpScrollInfo != NULL);
     
-    oswindow hWnd = get_os_data();
+    oswindow hWnd = get_handle();
     return ::GetScrollInfo(hWnd, nBar, lpScrollInfo) != FALSE;
     }
     */
@@ -2285,12 +2332,12 @@ namespace mac
    void window::ScrollWindow(int32_t xAmount, int32_t yAmount,
                              LPCRECT lpRect, LPCRECT lpClipRect)
    {
-      /*      ASSERT(::IsWindow(get_os_data()));
+      /*      ASSERT(::IsWindow(get_handle()));
        
        if (IsWindowVisible() || lpRect != NULL || lpClipRect != NULL)
        {
        // When visible, let oswindows do the scrolling
-       ::ScrollWindow(get_os_data(), xAmount, yAmount, lpRect, lpClipRect);
+       ::ScrollWindow(get_handle(), xAmount, yAmount, lpRect, lpClipRect);
        }
        else
        {
@@ -2298,7 +2345,7 @@ namespace mac
        // not visible.  This leaves child windows unscrolled.
        // To account for this oversight, the child windows are moved
        // directly instead.
-       oswindow hWndChild = ::GetWindow(get_os_data(), GW_CHILD);
+       oswindow hWndChild = ::GetWindow(get_handle(), GW_CHILD);
        if (hWndChild != NULL)
        {
        for (; hWndChild != NULL;
@@ -2604,7 +2651,7 @@ namespace mac
        // Sending the above WM_SYSCOMMAND may destroy the cast,
        // so we have to be careful about restoring activation
        // and focus after sending it.
-       oswindow hWndSave = get_os_data();
+       oswindow hWndSave = get_handle();
        oswindow hWndFocus = ::GetFocus();
        pParent->SetActiveWindow();
        pParent->send_message(WM_SYSCOMMAND, nID, lparam);
@@ -2622,7 +2669,7 @@ namespace mac
       return false;
    }
    
-   void window::WalkPreTranslateTree(::user::interaction * puiStop, ::ca::signal_object * pobj)
+   void window::WalkPreTranslateTree(sp(::user::interaction) puiStop, ::ca::signal_object * pobj)
    {
       ASSERT(puiStop == NULL || puiStop->IsWindow());
       ASSERT(pobj != NULL);
@@ -2664,7 +2711,7 @@ namespace mac
        // check if in permanent ::collection::map, if it is reflect it (could be OLE control)
        ::ca::window * pWnd = dynamic_cast < ::ca::window * > (pMap->lookup_permanent(hWndChild)); */
       ::ca::window * pWnd = dynamic_cast < ::ca::window * > (FromHandlePermanent(hWndChild));
-      ASSERT(pWnd == NULL || MAC_WINDOW(pWnd)->get_os_data() == hWndChild);
+      ASSERT(pWnd == NULL || MAC_WINDOW(pWnd)->get_handle() == hWndChild);
       if (pWnd == NULL)
       {
          return FALSE;
@@ -2958,7 +3005,7 @@ namespace mac
 //         print_window * pprintwindow = (print_window *) pvoid;
 //         try
 //         {
-//            HANDLE hevent = (HANDLE) pprintwindow->m_event.get_os_data();
+//            HANDLE hevent = (HANDLE) pprintwindow->m_event.get_handle();
 //            throw not_implemented(pprintwindow->get_app());
 //            /*            ::PrintWindow(pprintwindow->m_hwnd, pprintwindow->m_hdc, 0);
 //             ::SetEvent(hevent);*/
@@ -3011,7 +3058,7 @@ namespace mac
       //            rect rect9;
       //
       //            rgnUpdate = CreateRectRgnIndirect(&rectUpdate);
-      //            oswindow hwndOrder = ::GetWindow(get_os_data(), GW_HWNDNEXT);
+      //            oswindow hwndOrder = ::GetWindow(get_handle(), GW_HWNDNEXT);
       //            for(;;)
       //            {
       //               //            char szText[1024];
@@ -3021,10 +3068,10 @@ namespace mac
       //                  break;
       //               if(!::IsWindowVisible(hwndOrder) ||
       //                  ::IsIconic(hwndOrder) ||
-      //                  hwndOrder == get_os_data()
+      //                  hwndOrder == get_handle()
       //                  || wndaApp.contains(hwndOrder))
       //               {
-      //                  if(hwndOrder == get_os_data())
+      //                  if(hwndOrder == get_handle())
       //                  {
       //                     // add as bookmark - doesn't paint it
       //                     wndaApp.add(hwndOrder);
@@ -3061,7 +3108,7 @@ namespace mac
       //            for(index j = wndaApp.get_upper_bound(); j >= 0; j--)
       //            {
       //               oswindow hWnd = wndaApp[j];
-      //               if(hWnd == get_os_data())
+      //               if(hWnd == get_handle())
       //                  break;
       //               if(!::IsWindowVisible(hWnd) || ::IsIconic(hWnd))
       //                  continue;
@@ -3168,7 +3215,7 @@ namespace mac
       //
       //      PAINTSTRUCT paint;
       //      memset(&paint, 0, sizeof(paint));
-      //      HDC hdc = ::BeginPaint(get_os_data(), &paint);
+      //      HDC hdc = ::BeginPaint(get_handle(), &paint);
       //      ::SelectClipRgn(hdc, NULL);
       //
       //      try
@@ -3184,7 +3231,7 @@ namespace mac
       //
       //         ::ca::graphics * pdc = dib->get_graphics();
       //
-      //         if((dynamic_cast<::mac::graphics * >(pdc))->get_os_data() == NULL
+      //         if((dynamic_cast<::mac::graphics * >(pdc))->get_handle() == NULL
       //            || (dynamic_cast<::mac::graphics * >(pdc))->get_os_data2() == NULL)
       //            return;
       //
@@ -3220,7 +3267,7 @@ namespace mac
       //         (dynamic_cast<::mac::graphics * >(pdc))->SetViewportOrg(point(0, 0));
       //         BitBlt(hdc, rectPaint.left, rectPaint.top,
       //            rectPaint.width(), rectPaint.height(),
-      //            (HDC) pdc->get_os_data(), rectUpdate.left, rectUpdate.top,
+      //            (HDC) pdc->get_handle(), rectUpdate.left, rectUpdate.top,
       //            SRCCOPY);
       //
       //      }
@@ -3228,7 +3275,7 @@ namespace mac
       //      {
       //      }
       //
-      //      ::EndPaint(get_os_data(), &paint);
+      //      ::EndPaint(get_handle(), &paint);
       //      pobj->m_bRet = true;
       //      pbase->set_lresult(0);
    }
@@ -3264,7 +3311,7 @@ namespace mac
       //
       //         ::ca::graphics * pdc = dib->get_graphics();
       //
-      //         if(pdc->get_os_data() == NULL)
+      //         if(pdc->get_handle() == NULL)
       //            return;
       //
       //         rect rectPaint;
@@ -3316,10 +3363,10 @@ namespace mac
       // when the first one is received, we trick oswindows into thinking
       // that only one was really sent and dispatched.
       {
-         MESSAGE msg;
+//         MESSAGE msg;
          throw not_implemented(get_app());
          //while (PeekMessage(&msg, NULL, WM_ENTERIDLE, WM_ENTERIDLE, PM_REMOVE))
-         //while (PeekMessage(&msg, ::ca::null(), WM_ENTERIDLE, WM_ENTERIDLE, TRUE))
+         //while (PeekMessage(&msg, ::caNULL, WM_ENTERIDLE, WM_ENTERIDLE, TRUE))
          // DispatchMessage(&msg);
       }
       
@@ -3328,7 +3375,7 @@ namespace mac
    
    HBRUSH window::OnCtlColor(::ca::graphics *, ::ca::window * pWnd, UINT)
    {
-      ASSERT(pWnd != NULL && MAC_WINDOW(pWnd)->get_os_data() != NULL);
+      ASSERT(pWnd != NULL && MAC_WINDOW(pWnd)->get_handle() != NULL);
       LRESULT lResult;
       if (MAC_WINDOW(pWnd)->SendChildNotifyLastMsg(&lResult))
          return (HBRUSH)lResult;     // eat it
@@ -3381,15 +3428,15 @@ namespace mac
    
    /*bool window::UpdateData(bool bSaveAndValidate)
     {
-    ASSERT(::IsWindow(get_os_data())); // calling UpdateData before DoModal?
+    ASSERT(::IsWindow(get_handle())); // calling UpdateData before DoModal?
     
     CDataExchange dx(this, bSaveAndValidate);
     
     // prevent control notifications from being dispatched during UpdateData
     ___THREAD_STATE* pThreadState = __get_thread_state();
     oswindow hWndOldLockout = pThreadState->m_hLockoutNotifyWindow;
-    ASSERT(hWndOldLockout != get_os_data());   // must not recurse
-    pThreadState->m_hLockoutNotifyWindow = get_os_data();
+    ASSERT(hWndOldLockout != get_handle());   // must not recurse
+    pThreadState->m_hLockoutNotifyWindow = get_handle();
     
     bool bOK = FALSE;       // assume failure
     try
@@ -3421,10 +3468,10 @@ namespace mac
    /////////////////////////////////////////////////////////////////////////////
    // Centering dialog support (works for any non-child window)
    
-   void window::CenterWindow(::user::interaction * pAlternateOwner)
+   void window::CenterWindow(sp(::user::interaction) pAlternateOwner)
    {
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
+      //      ASSERT(::IsWindow(get_handle()));
       //
       //      // determine owner window to center against
       //      DWORD dwStyle = GetStyle();
@@ -3605,12 +3652,12 @@ namespace mac
       //               item.iItem = -1;
       //               string strText(reinterpret_cast<LPTSTR>(lpnRes));
       //               item.pszText = const_cast<LPTSTR>(strText.GetString());
-      //               if (::SendDlgItemMessage(get_os_data(), nIDC, nMsg, 0, (LPARAM) &item) == -1)
+      //               if (::SendDlgItemMessage(get_handle(), nIDC, nMsg, 0, (LPARAM) &item) == -1)
       //                  bSuccess = FALSE;
       //            }
       //            {
       //               // List/Combobox returns -1 for error
-      //               if (::SendDlgItemMessageA(get_os_data(), nIDC, nMsg, 0, (LPARAM) lpnRes) == -1)
+      //               if (::SendDlgItemMessageA(get_handle(), nIDC, nMsg, 0, (LPARAM) lpnRes) == -1)
       //                  bSuccess = FALSE;
       //            }
       //
@@ -3635,7 +3682,7 @@ namespace mac
       window wndTemp;       // very temporary window just for CmdUI update
       
       // walk all the kids - assume the IDs are for buttons
-      /* xxx   for (oswindow hWndChild = ::GetTopWindow(get_os_data()); hWndChild != NULL;
+      /* xxx   for (oswindow hWndChild = ::GetTopWindow(get_handle()); hWndChild != NULL;
        hWndChild = ::GetNextWindow(hWndChild, GW_HWNDNEXT))
        {
        // send to buttons
@@ -3689,137 +3736,117 @@ namespace mac
    id window::RunModalLoop(DWORD dwFlags, ::ca::live_object * pliveobject)
    {
       // for tracking the idle time state
-//      bool bIdle = TRUE;
-//      LONG lIdleCount = 0;
-//      bool bShowIdle = (dwFlags & MLF_SHOWONIDLE) && !(GetStyle() & WS_VISIBLE);
-//      oswindow hWndParent = ::GetParent(get_os_data());
+      bool bIdle = TRUE;
+      LONG lIdleCount = 0;
+      bool bShowIdle = (dwFlags & MLF_SHOWONIDLE) && !(GetStyle() & WS_VISIBLE);
+      oswindow hWndParent = ::GetParent(get_handle());
       m_iModal = m_iModalCount;
       int32_t iLevel = m_iModal;
       oprop(string("RunModalLoop.thread(") + ::ca::str::from(iLevel) + ")") = System.GetThread();
       m_iModalCount++;
       
-      throw not_implemented(get_app());
-      //
-      //      m_iaModalThread.add(::GetCurrentThreadId());
-      //      ::ca::application * pappThis1 = dynamic_cast < ::ca::application * > (m_pthread->m_p);
-      //      ::ca::application * pappThis2 = dynamic_cast < ::ca::application * > (m_pthread);
-      //      // acquire and dispatch messages until the modal state is done
-      //      MESSAGE msg;
-      //      for (;;)
-      //      {
-      //         ASSERT(ContinueModal(iLevel));
-      //
-      //         // phase1: check to see if we can do idle work
-      //         while (bIdle && !::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE))
-      //         {
-      //            ASSERT(ContinueModal(iLevel));
-      //
-      //            // show the dialog when the message queue goes idle
-      //            if (bShowIdle)
-      //            {
-      //               ShowWindow(SW_SHOWNORMAL);
-      //               UpdateWindow();
-      //               bShowIdle = FALSE;
-      //            }
-      //
-      //            // call on_idle while in bIdle state
-      //            if (!(dwFlags & MLF_NOIDLEMSG) && hWndParent != NULL && lIdleCount == 0)
-      //            {
-      //               // send WM_ENTERIDLE to the parent
-      //               ::SendMessage(hWndParent, WM_ENTERIDLE, MESSAGEF_DIALOGBOX, (LPARAM)get_os_data());
-      //            }
-      //            if ((dwFlags & MLF_NOKICKIDLE) ||
-      //               !__call_window_procedure(this, get_os_data(), WM_KICKIDLE, MESSAGEF_DIALOGBOX, lIdleCount++))
-      //            {
-      //               // stop idle processing next time
-      //               bIdle = FALSE;
-      //            }
-      //
-      //            m_pthread->m_p->m_dwAlive = m_pthread->m_dwAlive = ::get_tick_count();
-      //            if(pappThis1 != NULL)
-      //            {
-      //               pappThis1->m_dwAlive = m_pthread->m_dwAlive;
-      //            }
-      //            if(pappThis2 != NULL)
-      //            {
-      //               pappThis2->m_dwAlive = m_pthread->m_dwAlive;
-      //            }
-      //            if(pliveobject != NULL)
-      //            {
-      //               pliveobject->keep_alive();
-      //            }
-      //         }
-      //
-      //
-      //         // phase2: pump messages while available
-      //         do
-      //         {
-      //            if (!ContinueModal(iLevel))
-      //               goto ExitModal;
-      //
-      //            // pump message, but quit on WM_QUIT
-      //            if (!m_pthread->pump_message())
-      //            {
-      //               __post_quit_message(0);
-      //               return -1;
-      //            }
-      //
-      //            // show the window when certain special messages rec'd
-      //            if (bShowIdle &&
-      //               (msg.message == 0x118 || msg.message == WM_SYSKEYDOWN))
-      //            {
-      //               ShowWindow(SW_SHOWNORMAL);
-      //               UpdateWindow();
-      //               bShowIdle = FALSE;
-      //            }
-      //
-      //            if (!ContinueModal(iLevel))
-      //               goto ExitModal;
-      //
-      //            // reset "no idle" state after pumping "normal" message
-      //            if (__is_idle_message(&msg))
-      //            {
-      //               bIdle = TRUE;
-      //               lIdleCount = 0;
-      //            }
-      //
-      //            m_pthread->m_p->m_dwAlive = m_pthread->m_dwAlive = ::get_tick_count();
-      //            if(pappThis1 != NULL)
-      //            {
-      //               pappThis1->m_dwAlive = m_pthread->m_dwAlive;
-      //            }
-      //            if(pappThis2 != NULL)
-      //            {
-      //               pappThis2->m_dwAlive = m_pthread->m_dwAlive;
-      //            }
-      //            if(pliveobject != NULL)
-      //            {
-      //               pliveobject->keep_alive();
-      //            }
-      //
-      //            /*            if(pliveobject != NULL)
-      //            {
-      //            pliveobject->keep();
-      //            }*/
-      //
-      //         }
-      //         while (::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE) != FALSE);
-      //
-      //
-      //         if(m_pguie->m_pthread != NULL)
-      //         {
-      //            m_pguie->m_pthread->step_timer();
-      //         }
-      //         if (!ContinueModal(iLevel))
-      //            goto ExitModal;
-      //
-      //
-      //      }
-      //
-      //ExitModal:
-      //      m_iaModalThread.remove_first(::GetCurrentThreadId());
-      //      m_iModal = m_iModalCount;
-      //      return m_nModalResult;
+                  m_iaModalThread.add(::GetCurrentThreadId());
+            ::ca::application * pappThis1 = dynamic_cast < ::ca::application * > (m_pthread->m_pthread->m_p.m_p);
+            ::ca::application * pappThis2 = dynamic_cast < ::ca::application * > (m_pthread->m_pthread);
+            // acquire and dispatch messages until the modal state is done
+            MESSAGE msg;
+            for (;;)
+            {
+               ASSERT(ContinueModal(iLevel));
+                     // phase1: check to see if we can do idle work
+               while (bIdle && !::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE))
+               {
+                  ASSERT(ContinueModal(iLevel));
+                        // show the dialog when the message queue goes idle
+                  if (bShowIdle)
+                  {
+                     ShowWindow(SW_SHOWNORMAL);
+                     UpdateWindow();
+                     bShowIdle = FALSE;
+                  }
+                        // call on_idle while in bIdle state
+                  if (!(dwFlags & MLF_NOIDLEMSG) && hWndParent != NULL && lIdleCount == 0)
+                  {
+                     // send WM_ENTERIDLE to the parent
+//                     hWndParent->get_user_interaction()->send_message(WM_ENTERIDLE, MESSAGEF_DIALOGBOX, (LPARAM)get_handle());
+                  }
+//                  if ((dwFlags & MLF_NOKICKIDLE) ||
+  //                   !__call_window_procedure(this, get_handle(), WM_KICKIDLE, MESSAGEF_DIALOGBOX, lIdleCount++))
+        //          {
+          //           // stop idle processing next time
+            //         bIdle = FALSE;
+              //    }
+                        m_pthread->m_pthread->m_p->m_dwAlive = m_pthread->m_pthread->m_dwAlive = ::get_tick_count();
+                  if(pappThis1 != NULL)
+                  {
+                     pappThis1->m_dwAlive = m_pthread->m_pthread->m_dwAlive;
+                  }
+                  if(pappThis2 != NULL)
+                  {
+                     pappThis2->m_dwAlive = m_pthread->m_pthread->m_dwAlive;
+                  }
+                  if(pliveobject != NULL)
+                  {
+                     pliveobject->keep_alive();
+                  }
+               }
+                           // phase2: pump messages while available
+               do
+               {
+                  if (!ContinueModal(iLevel))
+                     goto ExitModal;
+                        // pump message, but quit on WM_QUIT
+                  if (!m_pthread->m_pthread->pump_message())
+                  {
+                     __post_quit_message(0);
+                     return -1;
+                  }
+                        // show the window when certain special messages rec'd
+                  if (bShowIdle &&
+                     (msg.message == 0x118 || msg.message == WM_SYSKEYDOWN))
+                  {
+                     ShowWindow(SW_SHOWNORMAL);
+                     UpdateWindow();
+                     bShowIdle = FALSE;
+                  }
+                        if (!ContinueModal(iLevel))
+                     goto ExitModal;
+                        // reset "no idle" state after pumping "normal" message
+                  if (__is_idle_message(&msg))
+                  {
+                     bIdle = TRUE;
+                     lIdleCount = 0;
+                  }
+                        m_pthread->m_pthread->m_p->m_dwAlive = m_pthread->m_pthread->m_dwAlive = ::get_tick_count();
+                  if(pappThis1 != NULL)
+                  {
+                     pappThis1->m_dwAlive = m_pthread->m_pthread->m_dwAlive;
+                  }
+                  if(pappThis2 != NULL)
+                  {
+                     pappThis2->m_dwAlive = m_pthread->m_pthread->m_dwAlive;
+                  }
+                  if(pliveobject != NULL)
+                  {
+                     pliveobject->keep_alive();
+                  }
+                        /*            if(pliveobject != NULL)
+                  {
+                  pliveobject->keep();
+                  }*/
+                     }
+               while (::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE) != FALSE);
+                           if(m_pguie->m_pthread != NULL)
+               {
+                  m_pguie->m_pthread->step_timer();
+               }
+               if (!ContinueModal(iLevel))
+                  goto ExitModal;
+                        }
+            ExitModal:
+//            m_iaModalThread.remove_first(::GetCurrentThreadId());
+            m_iModal = m_iModalCount;
+            return m_nModalResult;
    }
    
    bool window::ContinueModal(int32_t iLevel)
@@ -3829,28 +3856,25 @@ namespace mac
    
    void window::EndModalLoop(id nResult)
    {
-      throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //
-      //      // this result will be returned from window::RunModalLoop
-      //      m_nModalResult = (int32_t) nResult;
-      //
-      //      // make sure a message goes through to exit the modal loop
-      //      if(m_iModalCount > 0)
-      //      {
-      //         m_iModalCount--;
-      //         for(index i = 0; i < m_iaModalThread.get_count(); i++)
-      //         {
-      //            ::post_thread_message((DWORD) m_iaModalThread[i], WM_NULL, 0, 0);
-      //         }
-      //         PostMessage(WM_NULL);
-      //         System.GetThread()->post_thread_message(WM_NULL, 0, 0);
-      //      }
+            ASSERT(::IsWindow(get_handle()));
+                  // this result will be returned from window::RunModalLoop
+            m_nModalResult = (int32_t) nResult;
+                  // make sure a message goes through to exit the modal loop
+            if(m_iModalCount > 0)
+            {
+               m_iModalCount--;
+               for(index i = 0; i < m_iaModalThread.get_count(); i++)
+               {
+//                  ::post_thread_message((DWORD) m_iaModalThread[i], WM_NULL, 0, 0);
+               }
+               PostMessage(WM_NULL);
+               System.GetThread()->post_thread_message(WM_NULL, 0, 0);
+            }
    }
    
    void window::EndAllModalLoops(id nResult)
    {
-      ASSERT(::IsWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
       
       // this result will be returned from window::RunModalLoop
       m_idModalResult = nResult;
@@ -3926,10 +3950,10 @@ namespace mac
       //   bool window::SubclassDlgItem(UINT nID, ::ca::window * pParent)
       //   {
       //      ASSERT(pParent != NULL);
-      //      ASSERT(::IsWindow(MAC_WINDOW(pParent)->get_os_data()));
+      //      ASSERT(::IsWindow(MAC_WINDOW(pParent)->get_handle()));
       //
       //      // check for normal dialog control first
-      //      oswindow hWndControl = ::GetDlgItem(MAC_WINDOW(pParent)->get_os_data(), nID);
+      //      oswindow hWndControl = ::GetDlgItem(MAC_WINDOW(pParent)->get_handle(), nID);
       //      if (hWndControl != NULL)
       //         return SubclassWindow(hWndControl);
       //
@@ -3939,12 +3963,12 @@ namespace mac
    
    oswindow window::UnsubclassWindow()
    {
-      ASSERT(::IsWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
       
       throw not_implemented(get_app());
       //      // set WNDPROC back to original value
       //      WNDPROC* lplpfn = GetSuperWndProcAddr();
-      //      SetWindowLongPtr(get_os_data(), GWLP_WNDPROC, (int_ptr)*lplpfn);
+      //      SetWindowLongPtr(get_handle(), GWLP_WNDPROC, (int_ptr)*lplpfn);
       //      *lplpfn = NULL;
       //
       //      // and Detach the oswindow from the window object
@@ -3960,28 +3984,30 @@ namespace mac
    
    
    
-   bool window::IsChild(::user::interaction * pWnd)
+   bool window::IsChild(sp(::user::interaction) pWnd)
    {
-      ASSERT(::IsWindow(get_os_data()));
-      if(MAC_WINDOW(pWnd)->get_handle() == NULL)
+      ASSERT(::IsWindow(get_handle()));
+      if(MAC_WINDOW(pWnd.m_p)->get_handle() == NULL)
       {
          return ::user::interaction::IsChild(pWnd);
       }
       else
       {
-//         return ::IsChild(get_os_data(), MAC_WINDOW(pWnd)->get_handle()) != FALSE;
+//         return ::IsChild(get_handle(), MAC_WINDOW(pWnd)->get_handle()) != FALSE;
          return FALSE;
       }
    }
    
    bool window::IsWindow()
    {
-      return ::IsWindow(get_os_data()) != FALSE;
+      return ::IsWindow(m_oswindow) != FALSE;
    }
    
    oswindow window::get_handle() const
    {
-      return get_os_data();
+      
+      return m_oswindow;
+      
    }
    
    bool window::SetWindowPos(int32_t z, int32_t x, int32_t y, int32_t cx, int32_t cy, UINT nFlags)
@@ -3992,8 +4018,8 @@ namespace mac
        pb = &m_papp->s_ptwf->m_bProDevianMode;
        keeper < bool > keepOnDemandDraw(pb, false, *pb, true);
        */
-      ASSERT(::IsWindow(get_os_data()));
-      /*   return ::SetWindowPos(get_os_data(), pWndInsertAfter->get_os_data(),
+      ASSERT(::IsWindow(get_handle()));
+      /*   return ::SetWindowPos(get_handle(), pWndInsertAfter->get_handle(),
        x, y, cx, cy, nFlags) != FALSE; */
 //      rect64 rectWindowOld = m_rectParentClient;
       if(nFlags & SWP_NOMOVE)
@@ -4052,12 +4078,12 @@ namespace mac
        //nFlags |= SWP_FRAMECHANGED;
        if(nFlags & SWP_SHOWWINDOW)
        {
-       ::SetWindowPos(get_os_data(), (oswindow) z, x, y, cx, cy, nFlags);
+       ::SetWindowPos(get_handle(), (oswindow) z, x, y, cx, cy, nFlags);
        ShowWindow(SW_SHOW);
        }
        else
        {
-       ::SetWindowPos(get_os_data(), (oswindow) z, x, y, cx, cy, nFlags);
+       ::SetWindowPos(get_handle(), (oswindow) z, x, y, cx, cy, nFlags);
        }
        if(m_pguie != NULL)
        {
@@ -4073,11 +4099,11 @@ namespace mac
        {
        if(z == -3)
        {
-       ::SetWindowPos(get_os_data(), (oswindow) 0, x, y, cx, cy, nFlags);
+       ::SetWindowPos(get_handle(), (oswindow) 0, x, y, cx, cy, nFlags);
        }
        else
        {
-       ::SetWindowPos(get_os_data(), (oswindow) z, x, y, cx, cy, nFlags);
+       ::SetWindowPos(get_handle(), (oswindow) z, x, y, cx, cy, nFlags);
        }
        }
        return true;*/
@@ -4086,7 +4112,7 @@ namespace mac
    
    void window::MoveWindow(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, bool bRepaint)
    {
-      ASSERT(::IsWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
       SetWindowPos(0, x, y, nWidth, nHeight, bRepaint ? SWP_SHOWWINDOW : 0);
    }
    
@@ -4181,13 +4207,13 @@ namespace mac
    
    void window::GetWindowRect(__rect64 * lprect)
    {
-      if(!::IsWindow(get_os_data()))
+      if(!::IsWindow(get_handle()))
          throw simple_exception(get_app(), "no more a window");
       // if it is temporary window - probably not ca2 wrapped window
       if(m_pguie == NULL || m_pguie == this)
       {
          rect rect32;
-         ::GetWindowRect(get_os_data(), rect32);
+         ::GetWindowRect(get_handle(), rect32);
          ::copy(lprect, rect32);
       }
       else
@@ -4198,12 +4224,12 @@ namespace mac
    
    void window::GetClientRect(__rect64 * lprect)
    {
-      ASSERT(::IsWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
       // if it is temporary window - probably not ca2 wrapped window
       if(m_pguie == NULL || m_pguie == this)
       {
          rect rect32;
-         ::GetClientRect(get_os_data(), rect32);
+         ::GetClientRect(get_handle(), rect32);
          ::copy(lprect, rect32);
       }
       else
@@ -4251,12 +4277,12 @@ namespace mac
       m_eappearance = appearance_normal;
       if(m_pguie != NULL)
          m_pguie->m_eappearance = appearance_normal;
-//      ::ShowWindow(get_os_data(), SW_RESTORE);
+//      ::ShowWindow(get_handle(), SW_RESTORE);
    }
    
    bool window::ShowWindow(int32_t nCmdShow)
    {
-      if(!::IsWindow(get_os_data()))
+      if(!::IsWindow(get_handle()))
          return false;
       
       /*
@@ -4264,11 +4290,11 @@ namespace mac
        {
        if(nCmdShow == SW_HIDE)
        {
-       ModifyStyle(get_os_data(), WS_VISIBLE, 0, 0);
+       ModifyStyle(get_handle(), WS_VISIBLE, 0, 0);
        }
        else
        {
-       ModifyStyle(get_os_data(), 0, WS_VISIBLE, 0);
+       ModifyStyle(get_handle(), 0, WS_VISIBLE, 0);
        }
        if(nCmdShow == SW_MAXIMIZE)
        {
@@ -4285,21 +4311,21 @@ namespace mac
        m_pguie->m_eappearance = appearance_iconic;
        m_eappearance = appearance_iconic;
        }
-       ::ShowWindow(get_os_data(), nCmdShow);
+       ::ShowWindow(get_handle(), nCmdShow);
        }
-       m_bVisible = ::IsWindowVisible(get_os_data()) != FALSE;
+       m_bVisible = ::IsWindowVisible(get_handle()) != FALSE;
        if(m_pguie!= NULL && m_pguie != this)
        m_pguie->m_bVisible = m_bVisible;
        if(!m_bVisible || IsIconic())
        {
-       ::UpdateLayeredWindow(get_os_data(), NULL, NULL, NULL, NULL, NULL, 0, NULL, 0);
+       ::UpdateLayeredWindow(get_handle(), NULL, NULL, NULL, NULL, NULL, 0, NULL, 0);
        }
        return m_bVisible;
        }
        else*/
       {
-//         ::ShowWindow(get_os_data(), nCmdShow);
-         m_bVisible = ::IsWindowVisible(get_os_data()) != FALSE;
+//         ::ShowWindow(get_handle(), nCmdShow);
+         m_bVisible = ::IsWindowVisible(get_handle()) != FALSE;
          if(m_pguie!= NULL && m_pguie != this)
             m_pguie->m_bVisible = m_bVisible;
          return m_bVisible;
@@ -4309,112 +4335,111 @@ namespace mac
    
    bool window::IsIconic()
    {
-      ASSERT(::IsWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
       if(GetExStyle() & WS_EX_LAYERED)
       {
          return m_pguie->m_eappearance == appearance_iconic;
       }
       else
       {
-         return ::IsIconic(get_os_data()) != FALSE;
+         return ::IsIconic(get_handle()) != FALSE;
       }
    }
    
    bool window::IsZoomed()
    {
-      ASSERT(::IsWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
       return m_pguie->m_eappearance == appearance_zoomed;
    }
    
    
    sp(::user::interaction) window::get_parent() const
    {
-      if(!::IsWindow(get_os_data()))
-         return ::null();
-      if(get_os_data() == NULL)
-         return ::null();
-      return ::mac::window::from_handle(::GetParent(get_os_data()));
+      return NULL;
+//      if(!::IsWindow(get_handle()))
+  //       return NULL;
+    //  if(get_handle() == NULL)
+      //   return NULL;
+     // return ::mac::window::from_handle(::GetParent(get_handle()));
    }
    
    LONG window::GetWindowLong(int32_t nIndex)
    {
-      return ::GetWindowLong(get_os_data(), nIndex);
+      return ::GetWindowLong(get_handle(), nIndex);
    }
    
    LONG window::SetWindowLong(int32_t nIndex, LONG lValue)
    {
-//      return ::SetWindowLong(get_os_data(), nIndex, lValue);
+//      return ::SetWindowLong(get_handle(), nIndex, lValue);
       return 0;
    }
    
    
    sp(::user::interaction) window::release_capture()
    {
-      throw not_implemented(get_app());
-      //      oswindow hwndCapture = ::GetCapture();
-      //      if(hwndCapture == NULL)
-      //         return NULL;
-      //      if(hwndCapture == get_os_data())
-      //      {
-      //         ::user::interaction * puieCapture = get_capture();
-      //         if(::ReleaseCapture())
-      //         {
-      //            m_pguieCapture = NULL;
-      //            return puieCapture;
-      //         }
-      //         else
-      //         {
-      //            return NULL;
-      //         }
-      //      }
-      //      else
-      //      {
-      //         return window::GetCapture()->release_capture();
-      //      }
+            oswindow hwndCapture = ::GetCapture();
+            if(hwndCapture == NULL)
+               return NULL;
+            if(hwndCapture == get_handle())
+            {
+               ::user::interaction * puieCapture = get_capture();
+               if(::ReleaseCapture())
+               {
+                  m_pguieCapture = NULL;
+                  return puieCapture;
+               }
+               else
+               {
+                  return NULL;
+               }
+            }
+            else
+            {
+               return window::GetCapture()->release_capture();
+            }
    }
    
    sp(::user::interaction) window::get_capture()
    {
-      throw not_implemented(get_app());
-      //      oswindow hwndCapture = ::GetCapture();
-      //      if(hwndCapture == NULL)
-      //         return NULL;
-      //      if(hwndCapture == get_os_data())
-      //      {
-      //         if(m_pguieCapture != NULL)
-      //         {
-      //            return m_pguieCapture;
-      //         }
-      //         else
-      //         {
-      //            if(m_pguie != NULL)
-      //            {
-      //               if(m_pguie->get_wnd() != NULL && MAC_WINDOW(m_pguie->get_wnd())->m_pguieCapture != NULL)
-      //               {
-      //                  return MAC_WINDOW(m_pguie->get_wnd())->m_pguieCapture;
-      //               }
-      //               else
-      //               {
-      //                  return m_pguie;
-      //               }
-      //            }
-      //            else
-      //            {
-      //               return this;
-      //            }
-      //         }
-      //      }
-      //      else
-      //      {
-      //         return window::GetCapture()->get_capture();
-      //      }
+            oswindow hwndCapture = ::GetCapture();
+            if(hwndCapture == NULL)
+               return NULL;
+            if(hwndCapture == get_handle())
+            {
+               if(m_pguieCapture != NULL)
+               {
+                  return m_pguieCapture;
+               }
+               else
+               {
+                  if(m_pguie != NULL)
+                  {
+                     if(m_pguie->get_wnd() != NULL && MAC_WINDOW(m_pguie->get_wnd().m_p)->m_pguieCapture != NULL)
+                     {
+                        return MAC_WINDOW(m_pguie->get_wnd().m_p)->m_pguieCapture;
+                     }
+                     else
+                     {
+                        return m_pguie;
+                     }
+                  }
+                  else
+                  {
+                     return this;
+                  }
+               }
+            }
+            else
+            {
+               return window::GetCapture()->get_capture();
+            }
    }
    
    
    
    // window
    /* window::operator oswindow() const
-    { return this == NULL ? NULL : get_os_data(); }*/
+    { return this == NULL ? NULL : get_handle(); }*/
    bool window::operator==(const ::ca::window& wnd) const
    {
       return MAC_WINDOW(const_cast < ::ca::window * > (&wnd))->get_handle() == get_handle();
@@ -4427,57 +4452,96 @@ namespace mac
    
    DWORD window::GetStyle()
    {
-      ASSERT(::IsWindow(get_os_data()));
-      return (DWORD)::GetWindowLong(get_os_data(), GWL_STYLE);
+      ASSERT(::IsWindow(get_handle()));
+      return (DWORD)::GetWindowLong(get_handle(), GWL_STYLE);
    }
    
    DWORD window::GetExStyle()
    {
-      ASSERT(::IsWindow(get_os_data()));
-      return (DWORD)::GetWindowLong(get_os_data(), GWL_EXSTYLE);
+      ASSERT(::IsWindow(get_handle()));
+      return (DWORD)::GetWindowLong(get_handle(), GWL_EXSTYLE);
    }
    
    bool window::ModifyStyle(DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
-      ASSERT(::IsWindow(get_os_data()));
-      return ModifyStyle(get_os_data(), dwRemove, dwAdd, nFlags);
+      ASSERT(::IsWindow(get_handle()));
+      return ModifyStyle(get_handle(), dwRemove, dwAdd, nFlags);
    }
    
    bool window::ModifyStyleEx(DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
-      ASSERT(::IsWindow(get_os_data()));
-      return ModifyStyleEx(get_os_data(), dwRemove, dwAdd, nFlags);
+      ASSERT(::IsWindow(get_handle()));
+      return ModifyStyleEx(get_handle(), dwRemove, dwAdd, nFlags);
    }
    
-   void window::set_owner(::user::interaction * pOwnerWnd)
+   void window::set_owner(sp(::user::interaction) pOwnerWnd)
    {
       m_pguieOwner = pOwnerWnd;
    }
    
-   LRESULT window::send_message(UINT message, WPARAM wparam, LPARAM lparam)
+   LRESULT window::send_message(UINT message, WPARAM wparam, lparam lparam)
    {
       
-      throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //return ::SendMessage(get_os_data(), message, wparam, lparam);
+      ::c::smart_pointer < ::ca::message::base > spbase;
       
+      spbase = get_base(m_pguie, message, wparam, lparam);
+      
+      /*      try
+       {
+       ::user::interaction * pui = m_pguie;
+       while(pui != NULL)
+       {
+       try
+       {
+       pui->pre_translate_message(spbase);
+       }
+       catch(...)
+       {
+       break;
+       }
+       if(spbase->m_bRet)
+       return spbase->get_lresult();
+       try
+       {
+       pui = pui->get_parent();
+       }
+       catch(...)
+       {
+       break;
+       }
+       }
+       }
+       catch(...)
+       {
+       }*/
+      message_handler(spbase);
+      return spbase->get_lresult();
+      
+      //throw todo(get_app());
+      
+      ////ASSERT(::IsWindow(get_handle()));
+      //return ::SendMessage(get_handle(), message, wParam, lParam);
    }
    
-   bool window::PostMessage(UINT message, WPARAM wparam, LPARAM lparam)
+   bool window::post_message(UINT message, WPARAM wparam, lparam lparam)
    {
-      
-      throw not_implemented(get_app());
-      //return ::PostMessage(get_os_data(), message, wparam, lparam) != FALSE;
-      
+      if(m_pthread != NULL)
+      {
+         return m_pthread->m_pthread->post_message(m_pguie, message, wparam, lparam);
+      }
+      else
+      {
+         return FALSE;
+      }
    }
    
    bool window::DragDetect(POINT pt) const
    {
       
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
+      //ASSERT(::IsWindow(get_handle()));
       
-      //return ::DragDetect(get_os_data(), pt) != FALSE;
+      //return ::DragDetect(get_handle(), pt) != FALSE;
       
    }
    
@@ -4496,21 +4560,21 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
+      //ASSERT(::IsWindow(get_handle()));
       
-      //return ::GetWindowTextLength(get_os_data());
+      //return ::GetWindowTextLength(get_handle());
       
    }
    
    void window::SetFont(::ca::font* pfont, bool bRedraw)
    {
       UNREFERENCED_PARAMETER(bRedraw);
-      ASSERT(::IsWindow(get_os_data())); m_pfont = new ::ca::font(*pfont);
+      ASSERT(::IsWindow(get_handle())); m_pfont = new ::ca::font(*pfont);
    }
    
    ::ca::font* window::GetFont()
    {
-      ASSERT(::IsWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
       return m_pfont;
    }
    
@@ -4519,8 +4583,8 @@ namespace mac
       
       throw not_implemented(get_app());
       
-      //ASSERT(::IsWindow(get_os_data()));
-      //::DragAcceptFiles(get_os_data(), bAccept);
+      //ASSERT(::IsWindow(get_handle()));
+      //::DragAcceptFiles(get_handle(), bAccept);
       
    }
    
@@ -4546,54 +4610,54 @@ namespace mac
    UINT window::ArrangeIconicWindows()
    {
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data())); return ::ArrangeIconicWindows(get_os_data());
+      //      ASSERT(::IsWindow(get_handle())); return ::ArrangeIconicWindows(get_handle());
    }
    
    int32_t window::SetWindowRgn(HRGN hRgn, bool bRedraw)
    {
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data())); return ::SetWindowRgn(get_os_data(), hRgn, bRedraw);
+      //      ASSERT(::IsWindow(get_handle())); return ::SetWindowRgn(get_handle(), hRgn, bRedraw);
    }
    
    int32_t window::GetWindowRgn(HRGN hRgn)
    {
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()) && hRgn != NULL); return ::GetWindowRgn(get_os_data(), hRgn);
+      //      ASSERT(::IsWindow(get_handle()) && hRgn != NULL); return ::GetWindowRgn(get_handle(), hRgn);
    }
    
    bool window::BringWindowToTop()
    {
       throw not_implemented(get_app());
-      //      return ::BringWindowToTop(get_os_data()) != FALSE;
+      //      return ::BringWindowToTop(get_handle()) != FALSE;
       
    }
    
    void window::MapWindowPoints(::ca::window * pwndTo, LPPOINT lpPoint, UINT nCount)
    {
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::MapWindowPoints(get_os_data(), (oswindow) pwndTo->get_os_data(), lpPoint, nCount);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::MapWindowPoints(get_handle(), (oswindow) pwndTo->get_handle(), lpPoint, nCount);
    }
    
    void window::MapWindowPoints(::ca::window * pwndTo, LPRECT lpRect)
    {
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::MapWindowPoints(get_os_data(), (oswindow) pwndTo->get_os_data(), (LPPOINT)lpRect, 2);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::MapWindowPoints(get_handle(), (oswindow) pwndTo->get_handle(), (LPPOINT)lpRect, 2);
    }
    
    ::ca::graphics * window::GetDC()
    {
       ::ca::graphics_sp g(allocer());
       oswindow oswindow;
-      if(get_os_data() == NULL)
+      if(get_handle() == NULL)
       {
-         oswindow = GetDesktopWindow();
+//         oswindow = ::GetDesktopWindow();
          
       }
       else
       {
-         oswindow = (::oswindow) get_os_data();
+         oswindow = (::oswindow) get_handle();
       }
       rect rectClient;
       //oswindow.get_client_rect(rectClient);
@@ -4607,9 +4671,9 @@ namespace mac
    
    ::ca::graphics * window::GetWindowDC()
    {
-      ASSERT(::IsWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
       ::ca::graphics_sp g(allocer());
-      g->attach(::GetWindowDC(get_os_data()));
+      g->attach(::GetWindowDC(get_handle()));
       return g.detach();
    }
    
@@ -4619,7 +4683,7 @@ namespace mac
       if(pgraphics == NULL)
          return false;
       
-//      cairo_t * pcairo = (cairo_t *) pgraphics->get_os_data();
+//      cairo_t * pcairo = (cairo_t *) pgraphics->get_handle();
 //      
 //      cairo_surface_t * psurface = cairo_get_target(pcairo);
 //      
@@ -4627,10 +4691,10 @@ namespace mac
 //      
 //      cairo_surface_destroy(psurface);
       
-      //      if(((Gdiplus::Graphics *)(dynamic_cast<::mac::graphics * >(pgraphics))->get_os_data()) == NULL)
+      //      if(((Gdiplus::Graphics *)(dynamic_cast<::mac::graphics * >(pgraphics))->get_handle()) == NULL)
       //       return false;
       
-      //::ReleaseDC(get_os_data(), (dynamic_cast < ::mac::graphics * > (pgraphics))->detach());
+      //::ReleaseDC(get_handle(), (dynamic_cast < ::mac::graphics * > (pgraphics))->detach());
       
       //      (dynamic_cast<::mac::graphics * >(pgraphics))->m_hdc = NULL;
       
@@ -4643,69 +4707,69 @@ namespace mac
    void window::UpdateWindow()
    {
       throw not_implemented(get_app());
-      //::UpdateWindow(get_os_data());
+      //::UpdateWindow(get_handle());
    }
    
    void window::SetRedraw(bool bRedraw)
    {
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //::SendMessage(get_os_data(), WM_SETREDRAW, bRedraw, 0);
+      //ASSERT(::IsWindow(get_handle()));
+      //::SendMessage(get_handle(), WM_SETREDRAW, bRedraw, 0);
    }
    
    bool window::GetUpdateRect(LPRECT lpRect, bool bErase)
    {
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //return ::GetUpdateRect(get_os_data(), lpRect, bErase) != FALSE;
+      //ASSERT(::IsWindow(get_handle()));
+      //return ::GetUpdateRect(get_handle(), lpRect, bErase) != FALSE;
    }
    
    int32_t window::GetUpdateRgn(::ca::region* pRgn, bool bErase)
    {
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //return ::GetUpdateRgn(get_os_data(), (HRGN)pRgn->get_os_data(), bErase);
+      //ASSERT(::IsWindow(get_handle()));
+      //return ::GetUpdateRgn(get_handle(), (HRGN)pRgn->get_handle(), bErase);
    }
    
    void window::Invalidate(bool bErase)
    {
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //::InvalidateRect(get_os_data(), NULL, bErase);
+      //ASSERT(::IsWindow(get_handle()));
+      //::InvalidateRect(get_handle(), NULL, bErase);
    }
    
    void window::InvalidateRect(LPCRECT lpRect, bool bErase)
    {
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //::InvalidateRect(get_os_data(), lpRect, bErase);
+      //ASSERT(::IsWindow(get_handle()));
+      //::InvalidateRect(get_handle(), lpRect, bErase);
    }
    
    void window::InvalidateRgn(::ca::region* pRgn, bool bErase)
    {
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //::InvalidateRgn(get_os_data(), (HRGN)pRgn->get_os_data(), bErase);
+      //ASSERT(::IsWindow(get_handle()));
+      //::InvalidateRgn(get_handle(), (HRGN)pRgn->get_handle(), bErase);
    }
    
    void window::ValidateRect(LPCRECT lpRect)
    {
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //::ValidateRect(get_os_data(), lpRect);
+      //ASSERT(::IsWindow(get_handle()));
+      //::ValidateRect(get_handle(), lpRect);
    }
    
    void window::ValidateRgn(::ca::region* pRgn)
    {
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //::ValidateRgn(get_os_data(), (HRGN)pRgn->get_os_data());
+      //ASSERT(::IsWindow(get_handle()));
+      //::ValidateRgn(get_handle(), (HRGN)pRgn->get_handle());
    }
    
    bool window::IsWindowVisible()
    {
       
-      if(!::IsWindow(get_os_data()))
+      if(!::IsWindow(get_handle()))
          return false;
       
       if(m_pguie != NULL)
@@ -4719,7 +4783,7 @@ namespace mac
          
       }
       
-      if(!::IsWindowVisible(get_os_data()))
+      if(!::IsWindowVisible(get_handle()))
          return false;
       
       return true;
@@ -4731,15 +4795,15 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //::ShowOwnedPopups(get_os_data(), bShow);
+      //ASSERT(::IsWindow(get_handle()));
+      //::ShowOwnedPopups(get_handle(), bShow);
       
    }
    
-   void window::SendMessageToDescendants(UINT message, WPARAM wparam, LPARAM lparam, bool bDeep, bool bOnlyPerm)
+   void window::SendMessageToDescendants(UINT message, WPARAM wparam, lparam lparam, bool bDeep, bool bOnlyPerm)
    {
-      ASSERT(::IsWindow(get_os_data()));
-      //window::SendMessageToDescendants(get_os_data(), message, wparam, lparam, bDeep, bOnlyPerm);
+      ASSERT(::IsWindow(get_handle()));
+      //window::SendMessageToDescendants(get_handle(), message, wparam, lparam, bDeep, bOnlyPerm);
       
       // walk through oswindows to avoid creating temporary window objects
       // unless we need to call this function recursively
@@ -4777,8 +4841,22 @@ namespace mac
    
    sp(::user::interaction) window::GetDescendantWindow(id id)
    {
-      ASSERT(::IsWindow(get_os_data()));
-      return window::GetDescendantWindow(this, id);
+//      ASSERT(::IsWindow(get_handle()));
+  //    return window::GetDescendantWindow(this, id);
+      
+      single_lock sl(&m_pthread->m_pthread->m_mutex, TRUE);
+      for(int32_t i = 0; i < m_pguie->m_uiptraChild.get_count(); i++)
+      {
+         if(m_pguie->m_uiptraChild[i].GetDlgCtrlId() == id)
+         {
+            if(m_pguie->m_uiptraChild[i].GetDescendantWindow(id))
+               return m_pguie->m_uiptraChild[i].GetDescendantWindow(id);
+            else
+               return m_pguie->m_uiptraChild(i);
+         }
+      }
+      
+      return NULL;
    }
    
    
@@ -4786,9 +4864,9 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
+      //ASSERT(::IsWindow(get_handle()));
       //::ca::graphics_sp g(get_app());
-      //g->attach(::GetDCEx(get_os_data(), (HRGN)prgnClip->get_os_data(), flags));
+      //g->attach(::GetDCEx(get_handle(), (HRGN)prgnClip->get_handle(), flags));
       //return g.detach();
       
    }
@@ -4797,8 +4875,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //return ::LockWindowUpdate(get_os_data()) != FALSE;
+      //ASSERT(::IsWindow(get_handle()));
+      //return ::LockWindowUpdate(get_handle()) != FALSE;
       
    }
    
@@ -4806,7 +4884,7 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
+      //ASSERT(::IsWindow(get_handle()));
       //::LockWindowUpdate(NULL);
       
    }
@@ -4820,11 +4898,11 @@ namespace mac
       if(System.get_twf()->m_bProDevianMode)
          return true;
       
-      ASSERT(::IsWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
       
       throw todo(get_app());
       
-      //return ::RedrawWindow(get_os_data(), lpRectUpdate, prgnUpdate == NULL ? NULL : (HRGN)prgnUpdate->get_os_data(), flags) != FALSE;
+      //return ::RedrawWindow(get_handle(), lpRectUpdate, prgnUpdate == NULL ? NULL : (HRGN)prgnUpdate->get_handle(), flags) != FALSE;
       
    }
    
@@ -4832,9 +4910,9 @@ namespace mac
     bool window::EnableScrollBar(int32_t nSBFlags, UINT nArrowFlags)
     {
     
-    ASSERT(::IsWindow(get_os_data()));
+    ASSERT(::IsWindow(get_handle()));
     
-    return ::EnableScrollBar(get_os_data(), nSBFlags, nArrowFlags) != FALSE;
+    return ::EnableScrollBar(get_handle(), nSBFlags, nArrowFlags) != FALSE;
     
     }
     */
@@ -4843,8 +4921,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //return ::DrawAnimatedRects(get_os_data(), idAni, lprcFrom, lprcTo) != FALSE;
+      //ASSERT(::IsWindow(get_handle()));
+      //return ::DrawAnimatedRects(get_handle(), idAni, lprcFrom, lprcTo) != FALSE;
       
    }
    
@@ -4852,8 +4930,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //return ::DrawCaption(get_os_data(), (HDC)(dynamic_cast<::mac::graphics * >(pgraphics))->get_os_data(), lprc, uFlags) != FALSE;
+      //ASSERT(::IsWindow(get_handle()));
+      //return ::DrawCaption(get_handle(), (HDC)(dynamic_cast<::mac::graphics * >(pgraphics))->get_handle(), lprc, uFlags) != FALSE;
       
    }
    
@@ -4861,8 +4939,8 @@ namespace mac
    {
       
       //throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //return ::SetTimer(get_os_data(), nIDEvent, nElapse, lpfnTimer);
+      //ASSERT(::IsWindow(get_handle()));
+      //return ::SetTimer(get_handle(), nIDEvent, nElapse, lpfnTimer);
       
       return true;
       
@@ -4872,8 +4950,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //return ::KillTimer(get_os_data(), nIDEvent)  != FALSE;
+      //ASSERT(::IsWindow(get_handle()));
+      //return ::KillTimer(get_handle(), nIDEvent)  != FALSE;
       
    }
    
@@ -4882,10 +4960,10 @@ namespace mac
       
       return true;
       
-      /*      if(!::IsWindow(get_os_data()))
+      /*      if(!::IsWindow(get_handle()))
        return false;
        
-       return ::IsWindowEnabled(get_os_data()) != FALSE;
+       return ::IsWindowEnabled(get_handle()) != FALSE;
        */
       
    }
@@ -4894,9 +4972,9 @@ namespace mac
    bool window::EnableWindow(bool bEnable)
    {
       
-      /*      ASSERT(::IsWindow(get_os_data()));
+      /*      ASSERT(::IsWindow(get_handle()));
        
-       return ::EnableWindow(get_os_data(), bEnable) != FALSE;
+       return ::EnableWindow(get_handle(), bEnable) != FALSE;
        */
       
       return true;
@@ -4906,38 +4984,34 @@ namespace mac
    sp(::user::interaction) window::GetActiveWindow()
    {
       
-      throw not_implemented(get_app());
-      //return ::mac::window::from_handle(::GetActiveWindow());
+      return ::mac::window::from_handle(::GetActiveWindow());
       
    }
    
    sp(::user::interaction) window::SetActiveWindow()
    {
       
-      throw not_implemented(get_app());
-      //ASSERT(::IsWindow(get_os_data()));
-      //return ::mac::window::from_handle(::SetActiveWindow(get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
+      return ::mac::window::from_handle(::SetActiveWindow(get_handle()));
       
    }
    
    ::ca::window * PASCAL window::GetCapture()
    {
       
-      throw not_implemented(::ca::get_thread_app());
-      //return ::mac::window::from_handle(::GetCapture());
+      return ::mac::window::from_handle(::GetCapture());
       
    }
    
-   ::user::interaction * window::set_capture(::user::interaction* pinterface)
+   sp(::user::interaction) window::set_capture(sp(::user::interaction) pinterface)
    {
       
-      throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //
-      //      if(pinterface != NULL)
-      //         m_pguieCapture = pinterface;
-      //
-      //      return dynamic_cast < ::ca::window * > (::mac::window::from_handle(::SetCapture(get_os_data())));
+      ASSERT(::IsWindow(get_handle()));
+      
+      if(pinterface != NULL)
+         m_pguieCapture = pinterface;
+      
+      return dynamic_cast < ::ca::window * > (::mac::window::from_handle(::SetCapture(get_handle())));
       
    }
    
@@ -4953,8 +5027,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::mac::window::from_handle(::SetFocus(get_os_data()));
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::mac::window::from_handle(::SetFocus(get_handle()));
       
    }
    
@@ -4982,8 +5056,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::CheckDlgButton(get_os_data(), nIDButton, nCheck);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::CheckDlgButton(get_handle(), nIDButton, nCheck);
       
    }
    
@@ -4991,8 +5065,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::CheckRadioButton(get_os_data(), nIDFirstButton, nIDLastButton, nIDCheckButton);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::CheckRadioButton(get_handle(), nIDFirstButton, nIDLastButton, nIDCheckButton);
       
    }
    
@@ -5000,8 +5074,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::DlgDirList(get_os_data(), lpPathSpec, nIDListBox, nIDStaticPath, nFileType);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::DlgDirList(get_handle(), lpPathSpec, nIDListBox, nIDStaticPath, nFileType);
       
    }
    
@@ -5009,8 +5083,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::DlgDirListComboBox(get_os_data(), lpPathSpec, nIDComboBox, nIDStaticPath, nFileType);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::DlgDirListComboBox(get_handle(), lpPathSpec, nIDComboBox, nIDStaticPath, nFileType);
       
    }
    
@@ -5018,8 +5092,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::DlgDirSelectEx(get_os_data(), lpString, nSize, nIDListBox) != FALSE;
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::DlgDirSelectEx(get_handle(), lpString, nSize, nIDListBox) != FALSE;
       
    }
    
@@ -5027,8 +5101,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::DlgDirSelectComboBoxEx(get_os_data(), lpString, nSize, nIDComboBox) != FALSE;
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::DlgDirSelectComboBoxEx(get_handle(), lpString, nSize, nIDComboBox) != FALSE;
       
    }
    
@@ -5036,9 +5110,9 @@ namespace mac
     void window::GetDlgItem(id id, oswindow* phWnd) const
     {
     
-    ASSERT(::IsWindow(get_os_data()));
+    ASSERT(::IsWindow(get_handle()));
     ASSERT(phWnd != NULL);
-    *phWnd = ::GetDlgItem(get_os_data(), (int32_t) id);
+    *phWnd = ::GetDlgItem(get_handle(), (int32_t) id);
     
     }
     */
@@ -5047,9 +5121,9 @@ namespace mac
     UINT window::GetDlgItemInt(int32_t nID, WINBOOL * lpTrans, bool bSigned) const
     {
     
-    ASSERT(::IsWindow(get_os_data()));
+    ASSERT(::IsWindow(get_handle()));
     
-    return ::GetDlgItemInt(get_os_data(), nID, lpTrans, bSigned);
+    return ::GetDlgItemInt(get_handle(), nID, lpTrans, bSigned);
     
     }
     */
@@ -5058,14 +5132,14 @@ namespace mac
    //   {
    //
    //      throw not_implemented(get_app());
-   //      ASSERT(::IsWindow(get_os_data())); return ::GetDlgItemText(get_os_data(), nID, lpStr, nMaxCount);}
+   //      ASSERT(::IsWindow(get_handle())); return ::GetDlgItemText(get_handle(), nID, lpStr, nMaxCount);}
    
    ::ca::window * window::GetNextDlgGroupItem(::ca::window * pWndCtl, bool bPrevious) const
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::mac::window::from_handle(::GetNextDlgGroupItem(get_os_data(), (oswindow) pWndCtl->get_os_data(), bPrevious));
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::mac::window::from_handle(::GetNextDlgGroupItem(get_handle(), (oswindow) pWndCtl->get_handle(), bPrevious));
       
    }
    
@@ -5073,8 +5147,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::mac::window::from_handle(::GetNextDlgTabItem(get_os_data(), (oswindow) pWndCtl->get_os_data(), bPrevious));
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::mac::window::from_handle(::GetNextDlgTabItem(get_handle(), (oswindow) pWndCtl->get_handle(), bPrevious));
       
    }
    
@@ -5082,8 +5156,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::IsDlgButtonChecked(get_os_data(), nIDButton);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::IsDlgButtonChecked(get_handle(), nIDButton);
       
    }
    
@@ -5091,8 +5165,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::SendDlgItemMessage(get_os_data(), nID, message, wparam, lparam);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::SendDlgItemMessage(get_handle(), nID, message, wparam, lparam);
       
    }
    
@@ -5100,8 +5174,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::SetDlgItemInt(get_os_data(), nID, nValue, bSigned);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::SetDlgItemInt(get_handle(), nID, nValue, bSigned);
       
    }
    
@@ -5109,8 +5183,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::SetDlgItemText(get_os_data(), nID, lpszString);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::SetDlgItemText(get_handle(), nID, lpszString);
       
    }
    
@@ -5118,8 +5192,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::ScrollWindowEx(get_os_data(), dx, dy, lpRectScroll, lpRectClip, (HRGN)prgnUpdate->get_os_data(), lpRectUpdate, flags);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::ScrollWindowEx(get_handle(), dx, dy, lpRectScroll, lpRectClip, (HRGN)prgnUpdate->get_handle(), lpRectUpdate, flags);
       
    }
    
@@ -5127,8 +5201,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::ShowScrollBar(get_os_data(), nBar, bShow);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::ShowScrollBar(get_handle(), nBar, bShow);
       
    }
    
@@ -5137,8 +5211,8 @@ namespace mac
       
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::mac::window::from_handle(::ChildWindowFromPoint(get_os_data(), point));
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::mac::window::from_handle(::ChildWindowFromPoint(get_handle(), point));
       
    }
    
@@ -5146,8 +5220,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::mac::window::from_handle(::ChildWindowFromPointEx(get_os_data(), point, nFlags));
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::mac::window::from_handle(::ChildWindowFromPointEx(get_handle(), point, nFlags));
       
    }
    
@@ -5172,8 +5246,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::mac::window::from_handle(::GetNextWindow(get_os_data(), nFlag));
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::mac::window::from_handle(::GetNextWindow(get_handle(), nFlag));
       
    }
    
@@ -5181,17 +5255,17 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::mac::window::from_handle(::GetTopWindow(get_os_data()));
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::mac::window::from_handle(::GetTopWindow(get_handle()));
       
    }
    
    sp(::user::interaction) window::GetWindow(UINT nCmd)
    {
       
-      ASSERT(::IsWindow(get_os_data()));
-      //      return ::mac::window::from_handle(::GetWindow(get_os_data(), nCmd));
-      return ::null();
+      ASSERT(::IsWindow(get_handle()));
+      //      return ::mac::window::from_handle(::GetWindow(get_handle(), nCmd));
+      return NULL;
       
    }
    
@@ -5200,16 +5274,16 @@ namespace mac
       
       
       throw todo(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::mac::window::from_handle(::GetLastActivePopup(get_os_data()));
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::mac::window::from_handle(::GetLastActivePopup(get_handle()));
       
    }
    
    ::ca::window * window::set_parent(::ca::window * pWndNewParent)
    {
       
-      ASSERT(::IsWindow(get_os_data()));
-      return ::mac::window::from_handle(::SetParent(get_os_data(), (oswindow) pWndNewParent->get_os_data()));
+      ASSERT(::IsWindow(get_handle()));
+      return ::mac::window::from_handle(::SetParent(get_handle(), (oswindow) pWndNewParent->get_handle()));
       
    }
    
@@ -5227,8 +5301,8 @@ namespace mac
       
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::FlashWindow(get_os_data(), bInvert) != FALSE;
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::FlashWindow(get_handle(), bInvert) != FALSE;
       
    }
    
@@ -5236,8 +5310,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::ChangeClipboardChain(get_os_data(), hWndNext) != FALSE;
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::ChangeClipboardChain(get_handle(), hWndNext) != FALSE;
       
    }
    
@@ -5245,8 +5319,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::SetClipboardViewer(get_os_data());
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::SetClipboardViewer(get_handle());
       
    }
    
@@ -5254,8 +5328,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::OpenClipboard(get_os_data()) != FALSE;
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::OpenClipboard(get_handle()) != FALSE;
       
    }
    
@@ -5287,8 +5361,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::CreateCaret(get_os_data(), (HBITMAP)pBitmap->get_os_data(), 0, 0);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::CreateCaret(get_handle(), (HBITMAP)pBitmap->get_handle(), 0, 0);
       
    }
    
@@ -5296,8 +5370,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::CreateCaret(get_os_data(), (HBITMAP)0, nWidth, nHeight);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::CreateCaret(get_handle(), (HBITMAP)0, nWidth, nHeight);
       
    }
    
@@ -5305,8 +5379,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::CreateCaret(get_os_data(), (HBITMAP)1, nWidth, nHeight);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::CreateCaret(get_handle(), (HBITMAP)1, nWidth, nHeight);
       
    }
    
@@ -5331,7 +5405,7 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ::HideCaret(get_os_data());
+      //      ::HideCaret(get_handle());
       
    }
    
@@ -5339,7 +5413,7 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //    ::ShowCaret(get_os_data());
+      //    ::ShowCaret(get_handle());
       
    }
    
@@ -5347,7 +5421,7 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      return ::SetForegroundWindow(get_os_data()) != FALSE;
+      //      return ::SetForegroundWindow(get_handle()) != FALSE;
       
    }
    
@@ -5363,7 +5437,7 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      return ::SendNotifyMessage(get_os_data(), message, wparam, lparam) != FALSE;
+      //      return ::SendNotifyMessage(get_handle(), message, wparam, lparam) != FALSE;
       
    }
    
@@ -5380,7 +5454,7 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
+      //      ASSERT(::IsWindow(get_handle()));
       //      return (HICON)const_cast < window * > (this)->send_message(WM_GETICON, bBigIcon, 0);
       
    }
@@ -5389,8 +5463,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      const_cast < window * > (this)->send_message(WM_PRINT, (WPARAM)(dynamic_cast<::mac::graphics * >(pgraphics))->get_os_data(), dwFlags);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      const_cast < window * > (this)->send_message(WM_PRINT, (WPARAM)(dynamic_cast<::mac::graphics * >(pgraphics))->get_handle(), dwFlags);
       
    }
    
@@ -5398,8 +5472,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      const_cast < window * > (this)->send_message(WM_PRINTCLIENT, (WPARAM)(dynamic_cast<::mac::graphics * >(pgraphics))->get_os_data(), dwFlags);
+      //      ASSERT(::IsWindow(get_handle()));
+      //      const_cast < window * > (this)->send_message(WM_PRINTCLIENT, (WPARAM)(dynamic_cast<::mac::graphics * >(pgraphics))->get_handle(), dwFlags);
       
    }
    
@@ -5407,8 +5481,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::SetWindowContextHelpId(get_os_data(), dwContextHelpId) != FALSE;
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::SetWindowContextHelpId(get_handle(), dwContextHelpId) != FALSE;
       
    }
    
@@ -5416,8 +5490,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::GetWindowContextHelpId(get_os_data());
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::GetWindowContextHelpId(get_handle());
       
    }
    
@@ -5707,7 +5781,7 @@ namespace mac
       
       throw todo(get_app());
       
-      //::EnableWindow(get_os_data(), FALSE);
+      //::EnableWindow(get_handle(), FALSE);
       
    }
    
@@ -5716,7 +5790,7 @@ namespace mac
       
       throw todo(get_app());
       
-      //::EnableWindow(get_os_data(), TRUE);
+      //::EnableWindow(get_handle(), TRUE);
       
    }
    
@@ -5739,8 +5813,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      ::CloseWindow(get_os_data());
+      //      ASSERT(::IsWindow(get_handle()));
+      //      ::CloseWindow(get_handle());
       
    }
    
@@ -5748,8 +5822,8 @@ namespace mac
    {
       
       throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_os_data()));
-      //      return ::OpenIcon(get_os_data()) != FALSE;
+      //      ASSERT(::IsWindow(get_handle()));
+      //      return ::OpenIcon(get_handle()) != FALSE;
       
    }
    
@@ -5764,9 +5838,9 @@ namespace mac
       {
          /* trans      frame_window* pFrame = command_target::GetRoutingFrame_();
           if (pFrame != NULL)
-          hWnd = pFrame->get_os_data();
+          hWnd = pFrame->get_handle();
           else
-          hWnd = System.GetMainWnd()->get_os_data();*/
+          hWnd = System.GetMainWnd()->get_handle();*/
       }
       
       // a popup ::ca::window cannot be owned by a child ::ca::window
@@ -5798,7 +5872,7 @@ namespace mac
           ::EnableWindow(hWndTop, FALSE);
           }
           else
-          *pWndTop = ::ca::null();*/
+          *pWndTop = ::caNULL;*/
       }
       
       return hWnd;    // return the owner as oswindow
@@ -5816,7 +5890,7 @@ namespace mac
    CLASS_DECL_mac LRESULT __call_window_procedure(::user::interaction * pinteraction, oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lparam)
    {
       ___THREAD_STATE* pThreadState = gen_ThreadState.get_data();
-      MESSAGE oldState = pThreadState->m_lastSentMsg;   // save for nesting
+//      MESSAGE oldState = pThreadState->m_lastSentMsg;   // save for nesting
       
       throw not_implemented(pinteraction->get_app());
       
@@ -6048,7 +6122,7 @@ namespace mac
    
    void window::_001BaseWndInterfaceMap()
    {
-      System.user()->window_map().set((int_ptr)get_os_data(), this);
+      System.user()->window_map().set((int_ptr)get_handle(), this);
    }
    
    
@@ -6060,7 +6134,7 @@ namespace mac
       //      m_bMouseHover = true;
       //      TRACKMOUSEEVENT tme = { sizeof(tme) };
       //      tme.dwFlags = TME_LEAVE;
-      //      tme.hwndTrack = get_os_data();
+      //      tme.hwndTrack = get_handle();
       //      TrackMouseEvent(&tme);
       
    }
@@ -6149,8 +6223,8 @@ LRESULT CALLBACK __window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPA
    //   // all other messages route through message ::collection::map
    //   ::ca::window * pWnd = ::mac::window::FromHandlePermanent(hWnd);
    //   //ASSERT(pWnd != NULL);
-   //   //ASSERT(pWnd==NULL || MAC_WINDOW(pWnd)->get_os_data() == hWnd);
-   //   if (pWnd == NULL || MAC_WINDOW(pWnd)->get_os_data() != hWnd)
+   //   //ASSERT(pWnd==NULL || MAC_WINDOW(pWnd)->get_handle() == hWnd);
+   //   if (pWnd == NULL || MAC_WINDOW(pWnd)->get_handle() != hWnd)
    //      return ::DefWindowProc(hWnd, nMsg, wparam, lparam);
    //   return mac::__call_window_procedure(pWnd, hWnd, nMsg, wparam, lparam);
 }
@@ -6221,7 +6295,7 @@ CLASS_DECL_mac void hook_window_create(::user::interaction * pWnd)
    //   }
    //   ASSERT(pThreadState->m_hHookOldCbtFilter != NULL);
    //   ASSERT(pWnd != NULL);
-   //   // trans   ASSERT(MAC_WINDOW(pWnd)->get_os_data() == NULL);   // only do once
+   //   // trans   ASSERT(MAC_WINDOW(pWnd)->get_handle() == NULL);   // only do once
    //
    ASSERT(pThreadState->m_pWndInit == NULL);   // hook not already in progress
    //pThreadState->m_pWndInit = pWnd;
@@ -6310,19 +6384,19 @@ __handle_activate(::ca::window * pWnd, WPARAM nState, ::ca::window * pWndOther)
    //   if (!(MAC_WINDOW(pWnd)->GetStyle() & WS_CHILD))
    //   {
    //      ::user::interaction * pTopLevel= MAC_WINDOW(pWnd)->GetTopLevelParent();
-   //      if (pTopLevel && (pWndOther == NULL || !::IsWindow(MAC_WINDOW(pWndOther)->get_os_data()) || pTopLevel != MAC_WINDOW(pWndOther)->GetTopLevelParent()))
+   //      if (pTopLevel && (pWndOther == NULL || !::IsWindow(MAC_WINDOW(pWndOther)->get_handle()) || pTopLevel != MAC_WINDOW(pWndOther)->GetTopLevelParent()))
    //      {
    //         // lparam points to window getting the WM_ACTIVATE message and
    //         //  hWndOther from the WM_ACTIVATE.
    //         oswindow hWnd2[2];
-   //         hWnd2[0] = MAC_WINDOW(pWnd)->get_os_data();
+   //         hWnd2[0] = MAC_WINDOW(pWnd)->get_handle();
    //         if(pWndOther == NULL || MAC_WINDOW(pWndOther) == NULL)
    //         {
    //            hWnd2[1] = NULL;
    //         }
    //         else
    //         {
-   //            hWnd2[1] = MAC_WINDOW(pWndOther)->get_os_data();
+   //            hWnd2[1] = MAC_WINDOW(pWndOther)->get_handle();
    //         }
    //         // send it...
    //         pTopLevel->send_message(WM_ACTIVATETOPLEVEL, nState, (LPARAM)&hWnd2[0]);
@@ -6748,7 +6822,7 @@ namespace mac
       //
       //
       //         {
-      //            HDC hdcScreen = ::GetDC(get_os_data());
+      //            HDC hdcScreen = ::GetDC(get_handle());
       //
       //            HDC hdcMem = ::CreateCompatibleDC(NULL);
       //
@@ -6760,13 +6834,13 @@ namespace mac
       //
       //            point ptSrc(0, 0);
       //
-      //            bool bOk = ::UpdateLayeredWindow(get_os_data(), hdcScreen, &pt, &sz, hdcMem, &ptSrc, RGB(0, 0, 0), &blendPixelFunction, ULW_ALPHA) != FALSE;
+      //            bool bOk = ::UpdateLayeredWindow(get_handle(), hdcScreen, &pt, &sz, hdcMem, &ptSrc, RGB(0, 0, 0), &blendPixelFunction, ULW_ALPHA) != FALSE;
       //
       //            ::SelectObject(hdcMem, hbitmapOld);
       //
       //            ::DeleteDC(hdcMem);
       //
-      //            ::ReleaseDC(get_os_data(), hdcScreen);
+      //            ::ReleaseDC(get_handle(), hdcScreen);
       //         }
       //
       //
@@ -6775,7 +6849,7 @@ namespace mac
       //      {
       //
       //         {
-      //            HDC hdcScreen = ::GetDC(get_os_data());
+      //            HDC hdcScreen = ::GetDC(get_handle());
       //
       //            HDC hdcMem = ::CreateCompatibleDC(NULL);
       //
@@ -6793,7 +6867,7 @@ namespace mac
       //
       //            ::DeleteDC(hdcMem);
       //
-      //            ::ReleaseDC(get_os_data(), hdcScreen);
+      //            ::ReleaseDC(get_handle(), hdcScreen);
       //         }
       //
       //      }

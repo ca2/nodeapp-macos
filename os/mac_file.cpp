@@ -70,7 +70,7 @@ namespace mac
       int32_t iNew = dup(m_iFile);
       
       if(iNew == -1)
-         return ::null();
+         return NULL;
       
       file* pFile = new file(get_app(), iNew);
       pFile->m_iFile = (UINT)iNew;

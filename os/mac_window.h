@@ -1,6 +1,9 @@
 #pragma once
 
 
+#include "round_window.h"
+
+
 namespace mac
 {
    
@@ -8,7 +11,7 @@ namespace mac
    CLASS_DECL_mac LRESULT CALLBACK __send_message_hook(int32_t, WPARAM, LPARAM);
    //CLASS_DECL_lnx void _gen::StandardSubclass(oswindow);
    CLASS_DECL_mac LRESULT CALLBACK __cbt_filter_hook(int32_t, WPARAM, LPARAM);
-   CLASS_DECL_mac LRESULT __call_window_procedure(::user::interaction * pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
+   CLASS_DECL_mac LRESULT __call_window_procedure(sp(::user::interaction)  pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
    
    
    class CLASS_DECL_mac window :
@@ -22,10 +25,10 @@ namespace mac
       string                        m_strWindowText;
       oswindow                      m_oswindow;
       ::user::window_interface *    m_pbasewnd;
-      ::user::interaction *         m_pguieCapture;
+      sp(::user::interaction)       m_pguieCapture;
       
-      //visual::dib_sp                m_spdib;
-      //visual::dib_sp                m_spdibMultAlphaWork;
+      //visual::dib_sp              m_spdib;
+      //visual::dib_sp              m_spdibMultAlphaWork;
       
       
       window();
@@ -34,8 +37,8 @@ namespace mac
       
       virtual void on_delete(::ca::ca * poc);
       
-      virtual void mouse_hover_add(::user::interaction* pinterface);
-      virtual void mouse_hover_remove(::user::interaction* pinterface);
+      virtual void mouse_hover_add(sp(::user::interaction)  pinterface);
+      virtual void mouse_hover_remove(sp(::user::interaction)  pinterface);
       
       bool create_message_window(const char * pszName, ::ca::window_callback * pcallback = NULL);
       
@@ -51,8 +54,8 @@ namespace mac
       bool ModifyStyle(DWORD dwRemove, DWORD dwAdd, UINT nFlags = 0);
       bool ModifyStyleEx(DWORD dwRemove, DWORD dwAdd, UINT nFlags = 0);
       
-      //virtual ::user::interaction * GetOwner();
-      virtual void set_owner(::user::interaction * pOwnerWnd);
+      //virtual sp(::user::interaction)  GetOwner();
+      virtual void set_owner(sp(::user::interaction)  pOwnerWnd);
       
       virtual oswindow get_handle() const;
       
@@ -100,7 +103,7 @@ namespace mac
       virtual bool create(const char * lpszClassName,
                           const char * lpszWindowName, DWORD dwStyle,
                           const RECT& rect,
-                          ::user::interaction * pParentWnd, id id,
+                          sp(::user::interaction)  pParentWnd, id id,
                           ::ca::create_context* pContext = NULL);
       
       // advanced creation (allows access to extended styles)
@@ -112,7 +115,7 @@ namespace mac
       virtual bool CreateEx(DWORD dwExStyle, const char * lpszClassName,
                             const char * lpszWindowName, DWORD dwStyle,
                             const RECT& rect,
-                            ::user::interaction* pParentWnd, id id,
+                            sp(::user::interaction)  pParentWnd, id id,
                             LPVOID lpParam = NULL);
       
       virtual bool DestroyWindow();
@@ -133,7 +136,7 @@ namespace mac
       sp(::user::interaction) GetDescendantWindow(id id);
       // like get_child_by_id but recursive
       void SendMessageToDescendants(UINT message, WPARAM wParam = 0,
-                                    LPARAM lParam = 0, bool bDeep = TRUE, bool bOnlyPerm = FALSE);
+                                    lparam lParam = NULL, bool bDeep = TRUE, bool bOnlyPerm = FALSE);
       sp(::user::frame_window) GetParentFrame();
       sp(::user::frame_window) EnsureParentFrame();
       sp(::user::interaction) GetTopLevelParent();
@@ -151,8 +154,8 @@ namespace mac
       
 #endif   // WINVER >= 0x0500
       
-      LRESULT send_message(UINT message, WPARAM wParam = 0, LPARAM lParam = 0);
-      bool PostMessage(UINT message, WPARAM wParam = 0, LPARAM lParam = 0);
+      LRESULT send_message(UINT message, WPARAM wParam = 0, lparam lParam = 0);
+      bool post_message(UINT message, WPARAM wParam = 0, lparam lParam = 0);
       
       bool SendNotifyMessage(UINT message, WPARAM wParam, LPARAM lParam);
       bool SendChildNotifyLastMsg(LRESULT* pResult = NULL);
@@ -294,7 +297,7 @@ namespace mac
       
       // capture and focus apply to all windows
       static ::ca::window * PASCAL GetCapture();
-      virtual ::user::interaction * set_capture(::user::interaction * pinterface = NULL);
+      virtual sp(::user::interaction)  set_capture(sp(::user::interaction)  pinterface = NULL);
       virtual sp(::user::interaction) release_capture();
       virtual sp(::user::interaction) get_capture();
       static ::ca::window * PASCAL GetFocus();
@@ -369,7 +372,7 @@ namespace mac
       virtual sp(::user::interaction) GetWindow(UINT nCmd);
       virtual sp(::user::interaction) GetLastActivePopup();
       
-      virtual bool IsChild(::user::interaction *  pWnd);
+      virtual bool IsChild(sp(::user::interaction)   pWnd);
       virtual sp(::user::interaction) get_parent() const;
       using ::user::interaction::set_parent;
       ::ca::window * set_parent(::ca::window * pWndNewParent);
@@ -441,7 +444,7 @@ namespace mac
       
       // dialog support
       void UpdateDialogControls(command_target* pTarget, bool bDisableIfNoHndler);
-      void CenterWindow(::user::interaction * pAlternateOwner = NULL);
+      void CenterWindow(sp(::user::interaction)  pAlternateOwner = NULL);
       virtual id   RunModalLoop(DWORD dwFlags = 0, ::ca::live_object * pliveobject = NULL);
       virtual bool ContinueModal(int32_t iLevel);
       virtual void EndModalLoop(id nResult);
@@ -638,9 +641,9 @@ namespace mac
       bool HandleFloatingSysCommand(UINT nID, LPARAM lParam);
       bool IsTopParentActive();
       void ActivateTopParent();
-      virtual void WalkPreTranslateTree(::user::interaction * puiStop, ::ca::signal_object * pobj);
-      static ::user::interaction * PASCAL GetDescendantWindow(::user::interaction * hWnd, id id);
-      static void PASCAL SendMessageToDescendants(void*  hWnd, UINT message, WPARAM wParam, LPARAM lParam, bool bDeep, bool bOnlyPerm);
+      virtual void WalkPreTranslateTree(sp(::user::interaction)  puiStop, ::ca::signal_object * pobj);
+      static sp(::user::interaction)  PASCAL GetDescendantWindow(sp(::user::interaction)  hWnd, id id);
+      static void PASCAL SendMessageToDescendants(void*  hWnd, UINT message, WPARAM wParam, lparam lParam, bool bDeep, bool bOnlyPerm);
       virtual bool IsFrameWnd(); // is_kind_of(System.type_info < frame_window > ()))
       virtual void on_final_release();
       static bool PASCAL ModifyStyle(oswindow hWnd, DWORD dwRemove, DWORD dwAdd, UINT nFlags);
@@ -670,7 +673,7 @@ namespace mac
       CLASS_DECL_mac friend LRESULT CALLBACK __send_message_hook(int32_t, WPARAM, LPARAM);
       //CLASS_DECL_mac friend void _gen::StandardSubclass(oswindow);
       CLASS_DECL_mac friend LRESULT CALLBACK __cbt_filter_hook(int32_t, WPARAM, LPARAM);
-      CLASS_DECL_mac friend LRESULT __call_window_procedure(::user::interaction * pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
+      CLASS_DECL_mac friend LRESULT __call_window_procedure(sp(::user::interaction)  pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
       
       // standard message implementation
       LRESULT OnNTCtlColor(WPARAM wParam, LPARAM lParam);
