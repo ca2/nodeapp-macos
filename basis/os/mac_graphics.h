@@ -8,7 +8,6 @@ namespace mac
    class pen;
    class font;
    class graphics_path;
-   class graphics_path::element;
    
    
    class CLASS_DECL_mac graphics :
@@ -513,10 +512,10 @@ namespace mac
       bool set(const ::ca::pen * ppen);
       bool set(const ::ca::font * pfont);
       bool set(const ::ca::graphics_path * ppath);
-      bool set(const ::mac::graphics_path::element & e);
-      bool set(const ::mac::graphics_path::arc & arc);
-      bool set(const ::mac::graphics_path::move & move);
-      bool set(const ::mac::graphics_path::line & line);
+      bool set(const ::ca::graphics_path::element & e);
+      bool set(const ::ca::graphics_path::arc & arc);
+      bool set(const ::ca::graphics_path::move & move);
+      bool set(const ::ca::graphics_path::line & line);
       bool fill_and_draw(::ca::brush * pbrush, ::ca::pen * ppen);
       bool fill(::ca::brush * pbrush);
       bool draw(::ca::pen * ppen);

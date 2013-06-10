@@ -33,6 +33,7 @@
 		9ACA7CD516F7D36F00AA1CEE /* libca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA5E6E916F7C81B005C45CE /* libca2c.dylib */; };
 		9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */; };
 		9ADEA4761766691300D4CF1F /* libca2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADEA4751766691300D4CF1F /* libca2.dylib */; };
+		9ADEA48417666C5800D4CF1F /* mac_graphics_path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEA48317666C5800D4CF1F /* mac_graphics_path.cpp */; };
 		A1CFD8F9154FB715007447E2 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87D154FB715007447E2 /* _.h */; };
 		A1CFD8FA154FB715007447E2 /* bare_operational_system.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87E154FB715007447E2 /* bare_operational_system.h */; };
 		A1CFD8FB154FB715007447E2 /* ca2.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87F154FB715007447E2 /* ca2.h */; };
@@ -155,6 +156,7 @@
 		9ABBC6DB16A568FC009CA32E /* mac_graphics_path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mac_graphics_path.h; sourceTree = "<group>"; };
 		9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freeimage.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freeimage.dylib"; sourceTree = "<group>"; };
 		9ADEA4751766691300D4CF1F /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2.dylib"; sourceTree = "<group>"; };
+		9ADEA48317666C5800D4CF1F /* mac_graphics_path.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_graphics_path.cpp; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libca2os.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libca2os.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CFD87D154FB715007447E2 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		A1CFD87E154FB715007447E2 /* bare_operational_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bare_operational_system.h; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				A1CFD8B7154FB715007447E2 /* mac_graphics.h */,
 				A1CFD8B8154FB715007447E2 /* mac_graphics_object.cpp */,
 				A1CFD8B9154FB715007447E2 /* mac_graphics_object.h */,
+				9ADEA48317666C5800D4CF1F /* mac_graphics_path.cpp */,
 				9ABBC6DB16A568FC009CA32E /* mac_graphics_path.h */,
 				A1CFD8BC154FB715007447E2 /* mac_implementation.h */,
 				A1CFD8C1154FB715007447E2 /* mac.h */,
@@ -607,6 +610,7 @@
 				9AA1B44217634E520019E812 /* RoundWindow.mm in Sources */,
 				9AA1B44417634E520019E812 /* RoundWindowFrameView.mm in Sources */,
 				9AA1B447176355620019E812 /* round_window.mm in Sources */,
+				9ADEA48417666C5800D4CF1F /* mac_graphics_path.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
