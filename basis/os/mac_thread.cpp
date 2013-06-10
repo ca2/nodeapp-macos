@@ -1485,10 +1485,8 @@ namespace mac
             {
                ::c::smart_pointer < ::ca::message::base > spbase;
                
-               throw todo(get_app());
+               spbase = get_base(&msg);
                
-               //               spbase(get_base(&msg));
-               //
                if(m_p != NULL)
                {
                   m_p->pre_translate_message(spbase);
@@ -1511,10 +1509,9 @@ namespace mac
                if(spbase->m_bRet)
                   return TRUE;
                
-//               spbase.destroy();
             }
             {
-               //               ::TranslateMessage(&msg);
+               //             ::TranslateMessage(&msg);
                //             ::DispatchMessage(&msg);
             }
          }

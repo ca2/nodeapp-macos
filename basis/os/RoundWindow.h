@@ -14,15 +14,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+#include "round_window.h"
+
 @class RoundWindowFrameView;
 
 @interface RoundWindow : NSWindow
 {
-	NSView *childContentView;
-	NSButton *closeButton;
-//   NSRect bounds;
-   // Window controller
-   NSWindowController * m_controller;
+@public
+   round_window         * m_pwindow;
+   
+	NSView               * childContentView;
+	NSButton             * closeButton;
+   NSWindowController   * m_controller;
+   
 }
 
 @end

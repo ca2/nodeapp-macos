@@ -15,7 +15,8 @@ namespace mac
    
    
    class CLASS_DECL_mac window :
-   virtual public ::ca::window
+      virtual public ::ca::window,
+      virtual public ::round_window
    {
    public:
       
@@ -232,6 +233,8 @@ namespace mac
       virtual void _001WindowRestore();
       virtual bool IsWindowVisible();
       virtual void ShowOwnedPopups(bool bShow = TRUE);
+      
+      void round_window_draw(CGContextRef cgc);
       
       virtual ::ca::graphics * GetDCEx(::ca::region* prgnClip, DWORD flags);
       virtual bool LockWindowUpdate();

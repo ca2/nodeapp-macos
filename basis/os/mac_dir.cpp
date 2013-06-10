@@ -1161,7 +1161,7 @@ namespace mac
          
       }
       
-#ifdef LINUX
+#if defined(LINUX)
       
       m_strTimeFolder = "/var/tmp/ca2/time";
       
@@ -1180,7 +1180,12 @@ namespace mac
       if(!is(m_strTimeFolder, get_app()))
          return false;
       
-      mk(path(m_strTimeFolder, "time"), get_app());
+      string strTime = path(m_strTimeFolder, "time");
+      
+      mk(strTime, get_app());
+      
+      if(!is(strTime, get_app()))
+         return false;
       
       return true;
       
