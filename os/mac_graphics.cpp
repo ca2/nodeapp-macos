@@ -5699,13 +5699,13 @@ namespace mac
       
       switch(e.m_etype)
       {
-         case ::mac::graphics_path::element::type_arc:
+         case ::ca::graphics_path::element::type_arc:
             set(e.m_arc);
             break;
-         case ::mac::graphics_path::element::type_line:
+         case ::ca::graphics_path::element::type_line:
             set(e.m_line);
             break;
-         case ::mac::graphics_path::element::type_close:
+         case ::ca::graphics_path::element::type_end:
 //            cairo_close_path(m_pdc);
             break;
          default:
