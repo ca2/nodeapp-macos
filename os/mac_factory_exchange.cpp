@@ -34,6 +34,7 @@ namespace mac
       System.factory().creatable < port_forward               >   (System.type_info < ::ca::port_forward     > (), 1);
       System.factory().creatable < crypt                      >   (System.type_info < ::ca::crypt            > (), 1);
       System.factory().creatable < copydesk                   >   (System.type_info < ::ca::copydesk         > (), 1);
+      System.factory().creatable < graphics_path              >   (System.type_info < ::ca::graphics_path         > (), 1);
       
       ::mac::dib::s_initialize();
       
