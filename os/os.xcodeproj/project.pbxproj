@@ -145,7 +145,6 @@
 		9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_exception.cpp; sourceTree = "<group>"; };
 		9A574B8B16AAB7B8000CC4EF /* mac_brush.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_brush.cpp; sourceTree = "<group>"; };
 		9A6F20F81762114D00C33206 /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = ../../app/appseed/ca2/build/Release/libca2.dylib; sourceTree = "<group>"; };
-		9A8916851751DD0C00E531ED /* libca2ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2ca.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2ca.dylib"; sourceTree = "<group>"; };
 		9AA1B3EA17634E520019E812 /* RoundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundWindow.h; sourceTree = "<group>"; };
 		9AA1B3EB17634E520019E812 /* RoundWindow.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = RoundWindow.mm; sourceTree = "<group>"; };
 		9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundWindowFrameView.h; sourceTree = "<group>"; };
@@ -276,7 +275,6 @@
 			children = (
 				9AA1B449176361950019E812 /* Cocoa.framework */,
 				9A6F20F81762114D00C33206 /* libca2.dylib */,
-				9A8916851751DD0C00E531ED /* libca2ca.dylib */,
 				9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */,
 				9AA5E6E916F7C81B005C45CE /* libca2c.dylib */,
 				A1CFD87C154FB715007447E2 /* operational_system */,
@@ -344,9 +342,6 @@
 		A1CFD896154FB715007447E2 /* os */ = {
 			isa = PBXGroup;
 			children = (
-				071B28A5173FD8E600610E30 /* mac_printer.cpp */,
-				071B28A6173FD8E600610E30 /* mac_printer.h */,
-				071B28A7173FD8E600610E30 /* mac_shell.h */,
 				9A574B4216AA202E000CC4EF /* Kerr */,
 				9A574B8B16AAB7B8000CC4EF /* mac_brush.cpp */,
 				9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */,
@@ -375,10 +370,6 @@
 				A1CFD8A4154FB715007447E2 /* mac_brush.h */,
 				A1CFD8A5154FB715007447E2 /* mac_dib.cpp */,
 				A1CFD8A6154FB715007447E2 /* mac_dib.h */,
-				9AA1B3EA17634E520019E812 /* RoundWindow.h */,
-				9AA1B3EB17634E520019E812 /* RoundWindow.mm */,
-				9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */,
-				9AA1B3ED17634E520019E812 /* RoundWindowFrameView.mm */,
 				A1CFD8A7154FB715007447E2 /* mac_dir.cpp */,
 				A1CFD8A9154FB715007447E2 /* mac_dir.h */,
 				A1CFD8AC154FB715007447E2 /* mac_dumpinit.cpp */,
@@ -392,6 +383,7 @@
 				A1CFD8B7154FB715007447E2 /* mac_graphics.h */,
 				A1CFD8B8154FB715007447E2 /* mac_graphics_object.cpp */,
 				A1CFD8B9154FB715007447E2 /* mac_graphics_object.h */,
+				9ABBC6DB16A568FC009CA32E /* mac_graphics_path.h */,
 				A1CFD8BC154FB715007447E2 /* mac_implementation.h */,
 				A1CFD8C1154FB715007447E2 /* mac.h */,
 				A1CFD8C2154FB715007447E2 /* mac1.cpp */,
@@ -417,8 +409,11 @@
 				A1CFD8E1154FB715007447E2 /* mac_port_forward.cpp */,
 				A1CFD8E2154FB715007447E2 /* mac_port_forward.h */,
 				A1CFD8E3154FB715007447E2 /* mac_preview_dc.cpp */,
+				071B28A5173FD8E600610E30 /* mac_printer.cpp */,
+				071B28A6173FD8E600610E30 /* mac_printer.h */,
 				A1CFD8E4154FB715007447E2 /* mac_region.cpp */,
 				A1CFD8E5154FB715007447E2 /* mac_region.h */,
+				071B28A7173FD8E600610E30 /* mac_shell.h */,
 				A1CFD8E6154FB715007447E2 /* mac_state.h */,
 				A1CFD8E9154FB715007447E2 /* mac_thread.cpp */,
 				A1CFD8EA154FB715007447E2 /* mac_thread.h */,
@@ -431,9 +426,12 @@
 				A1CFD8F6154FB715007447E2 /* mac_window_draw.cpp */,
 				A1CFD8F8154FB715007447E2 /* mac_window_draw.h */,
 				9A1B496616A4A10100875A94 /* framework.cpp */,
-				9ABBC6DB16A568FC009CA32E /* mac_graphics_path.h */,
-				9AA1B445176355610019E812 /* round_window.mm */,
 				9AA1B446176355610019E812 /* round_window.h */,
+				9AA1B445176355610019E812 /* round_window.mm */,
+				9AA1B3EA17634E520019E812 /* RoundWindow.h */,
+				9AA1B3EB17634E520019E812 /* RoundWindow.mm */,
+				9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */,
+				9AA1B3ED17634E520019E812 /* RoundWindowFrameView.mm */,
 			);
 			name = os;
 			sourceTree = "<group>";

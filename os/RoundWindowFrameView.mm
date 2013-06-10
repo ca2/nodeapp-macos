@@ -136,7 +136,15 @@
 //
 - (void)drawRect:(NSRect)rect
 {
-	[[NSColor clearColor] set];
+   
+   round_window * p = m_roundwindow->m_pwindow;
+   
+   CGContextRef cgc = (CGContextRef) [[NSGraphicsContext currentContext] graphicsPort];
+   
+   p->round_window_draw(cgc);
+   
+   
+/*	[[NSColor clearColor] set];
 	NSRectFill(rect);
 	
 	NSBezierPath *circlePath = [NSBezierPath bezierPathWithOvalInRect:[self bounds]];
@@ -176,7 +184,7 @@
 			dictionaryWithObjectsAndKeys:
 				paragraphStyle, NSParagraphStyleAttributeName,
 				[NSFont systemFontOfSize:14], NSFontAttributeName,
-			nil]];
+			nil]];*/
 }
 
 @end

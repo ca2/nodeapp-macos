@@ -47,6 +47,12 @@ typedef oswindow_data * oswindow;
 #define MESSAGE_WINDOW_PARENT (::oswindow((void *) (int_ptr) 1))
 
 
+template < class KEY, class VALUE > class simple_map;
+
+
+typedef simple_map < int32_t, int32_t > simple_long_map;
+
+
 class CLASS_DECL_c oswindow_data
 {
 public:
@@ -57,12 +63,13 @@ public:
    
    
    static oswindow_dataptra *    s_pdataptra;
+   simple_long_map *             m_plongmap;
    
    
    oswindow_data();
    oswindow_data(nswindow window);
    oswindow_data(const oswindow_data & oswindow);
-   
+   ~oswindow_data();
    
    
    operator void * ()

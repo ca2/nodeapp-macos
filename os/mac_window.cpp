@@ -153,26 +153,50 @@ namespace mac
     return TRUE;
     }*/
    
+   
    bool  window::ModifyStyle(oswindow hWnd, DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
-      throw todo(::ca::get_thread_app());
-/*      DWORD dw = hWnd.get_window_long(GWL_STYLE);
+      
+//      throw todo(::ca::get_thread_app());
+      
+      if(!::IsWindow(hWnd))
+         return false;
+      
+      DWORD dw = hWnd->get_window_long(GWL_STYLE);
+      
       dw &= ~dwRemove;
+      
       dw |= dwAdd;
-      hWnd.set_window_long(GWL_STYLE, dw);
+      
+      hWnd->set_window_long(GWL_STYLE, dw);
+      
       //return __modify_style(hWnd, GWL_STYLE, dwRemove, dwAdd, nFlags);
-      return true;*/
+      
+      return true;
+      
    }
+   
    
    bool window::ModifyStyleEx(oswindow hWnd, DWORD dwRemove, DWORD dwAdd, UINT nFlags)
    {
-      throw todo(::ca::get_thread_app());
-/*      DWORD dw = hWnd.get_window_long(GWL_EXSTYLE);
+      
+//      throw todo(::ca::get_thread_app());
+
+      if(!::IsWindow(hWnd))
+         return false;
+      
+      DWORD dw = hWnd->get_window_long(GWL_EXSTYLE);
+      
       dw &= ~dwRemove;
+      
       dw |= dwAdd;
-      hWnd.set_window_long(GWL_EXSTYLE, dw);
-      return true;*/
+      
+      hWnd->set_window_long(GWL_EXSTYLE, dw);
+      
+      return true;
+      
       //      return __modify_style(hWnd, GWL_EXSTYLE, dwRemove, dwAdd, nFlags);
+      
    }
    
    
@@ -340,7 +364,7 @@ namespace mac
       else
       {
          
-         m_oswindow = oswindow_get(new_round_window(rect));
+         m_oswindow = oswindow_get(new_round_window(this, rect));
          
          m_oswindow->set_user_interaction(m_pguie);
          
@@ -4019,16 +4043,25 @@ namespace mac
    
    bool window::SetWindowPos(int32_t z, int32_t x, int32_t y, int32_t cx, int32_t cy, UINT nFlags)
    {
-      /*bool b;
-       bool * pb = &b;
-       if(m_papp->s_ptwf != NULL)
-       pb = &m_papp->s_ptwf->m_bProDevianMode;
-       keeper < bool > keepOnDemandDraw(pb, false, *pb, true);
-       */
-      ASSERT(::IsWindow(get_handle()));
-      /*   return ::SetWindowPos(get_handle(), pWndInsertAfter->get_handle(),
-       x, y, cx, cy, nFlags) != FALSE; */
-//      rect64 rectWindowOld = m_rectParentClient;
+      
+      /*
+         bool b;
+         bool * pb = &b;
+         if(m_papp->s_ptwf != NULL)
+         pb = &m_papp->s_ptwf->m_bProDevianMode;
+         keeper < bool > keepOnDemandDraw(pb, false, *pb, true);
+      */
+      
+      if(!::IsWindow(get_handle()))
+         return false;
+      
+      /*
+         return ::SetWindowPos(get_handle(), pWndInsertAfter->get_handle(),
+         x, y, cx, cy, nFlags) != FALSE;
+      */
+
+      rect64 rectWindowOld = m_rectParentClient;
+      
       if(nFlags & SWP_NOMOVE)
       {
          if(nFlags & SWP_NOSIZE)
@@ -4054,13 +4087,32 @@ namespace mac
             m_rectParentClient.bottom  = m_rectParentClient.top + cy;
          }
       }
-      if(m_pguie != this
-         && m_pguie != NULL)
+      
+      if(m_pguie != this && m_pguie != NULL)
       {
+         
          m_pguie->m_rectParentClient = m_rectParentClient;
+         
       }
       
-      throw not_implemented(get_app());
+      ::SetWindowPos(m_oswindow, 0, x, y, cx, cy, SWP_SHOWWINDOW);
+      
+      if(rectWindowOld.top_left() != m_rectParentClient.top_left())
+      {
+      
+         send_message(WM_MOVE);
+      
+      }
+
+      if(rectWindowOld.size() != m_rectParentClient.size())
+      {
+      
+         send_message(WM_SIZE);
+      
+      }
+      
+      
+//      throw not_implemented(get_app());
       
       /*
        if(GetExStyle() & WS_EX_LAYERED)
@@ -4112,16 +4164,22 @@ namespace mac
        {
        ::SetWindowPos(get_handle(), (oswindow) z, x, y, cx, cy, nFlags);
        }
-       }
-       return true;*/
+       }*/
+      
+      return true;
       
    }
    
+   
    void window::MoveWindow(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, bool bRepaint)
    {
+      
       ASSERT(::IsWindow(get_handle()));
+      
       SetWindowPos(0, x, y, nWidth, nHeight, bRepaint ? SWP_SHOWWINDOW : 0);
+      
    }
+   
    
    void window::ClientToScreen(LPRECT lprect)
    {
@@ -4370,15 +4428,20 @@ namespace mac
      // return ::mac::window::from_handle(::GetParent(get_handle()));
    }
    
+   
    LONG window::GetWindowLong(int32_t nIndex)
    {
+      
       return ::GetWindowLong(get_handle(), nIndex);
+      
    }
+   
    
    LONG window::SetWindowLong(int32_t nIndex, LONG lValue)
    {
-//      return ::SetWindowLong(get_handle(), nIndex, lValue);
-      return 0;
+
+      return ::SetWindowLong(get_handle(), nIndex, lValue);
+      
    }
    
    
@@ -4632,12 +4695,14 @@ namespace mac
       //      ASSERT(::IsWindow(get_handle()) && hRgn != NULL); return ::GetWindowRgn(get_handle(), hRgn);
    }
    
+   
    bool window::BringWindowToTop()
    {
-      throw not_implemented(get_app());
-      //      return ::BringWindowToTop(get_handle()) != FALSE;
+      
+      return ::BringWindowToTop(get_handle()) != FALSE;
       
    }
+   
    
    void window::MapWindowPoints(::ca::window * pwndTo, LPPOINT lpPoint, UINT nCount)
    {
@@ -5003,12 +5068,14 @@ namespace mac
       
    }
    
+   
    ::ca::window * PASCAL window::GetCapture()
    {
       
       return ::mac::window::from_handle(::GetCapture());
       
    }
+   
    
    sp(::user::interaction) window::set_capture(sp(::user::interaction) pinterface)
    {
@@ -5022,35 +5089,42 @@ namespace mac
       
    }
    
+   
    ::ca::window * PASCAL window::GetFocus()
    {
       
-      throw not_implemented(::ca::get_thread_app());
-      //      return ::mac::window::from_handle(::GetFocus());
+      return ::mac::window::from_handle(::GetFocus());
       
    }
+   
    
    sp(::user::interaction) window::SetFocus()
    {
       
-      throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_handle()));
-      //      return ::mac::window::from_handle(::SetFocus(get_handle()));
+      if(!::IsWindow(get_handle()))
+         return NULL;
+      
+      return ::mac::window::from_handle(::SetFocus(get_handle()));
       
    }
    
+   
    ::ca::window * PASCAL window::GetDesktopWindow()
    {
+      
       /*
        return ::mac::window::from_handle(::GetDesktopWindow());
        */
+      
       return NULL;
+      
    }
    
    
    // Helper for radio buttons
    int32_t window::GetCheckedRadioButton(int32_t nIDFirstButton, int32_t nIDLastButton)
    {
+      
       for (int32_t nID = nIDFirstButton; nID <= nIDLastButton; nID++)
       {
          if (IsDlgButtonChecked(nID))
@@ -5427,16 +5501,15 @@ namespace mac
    bool window::SetForegroundWindow()
    {
       
-      throw not_implemented(get_app());
-      //      return ::SetForegroundWindow(get_handle()) != FALSE;
+      return ::SetForegroundWindow(get_handle()) != FALSE;
       
    }
    
    ::ca::window * PASCAL window::GetForegroundWindow()
    {
       
-      throw not_implemented(::ca::get_thread_app());
-      //      return ::mac::window::from_handle(::GetForegroundWindow());
+      return NULL;
+      // return ::mac::window::from_handle(::GetForegroundWindow());
       
    }
    
@@ -6145,6 +6218,20 @@ namespace mac
       //      TrackMouseEvent(&tme);
       
    }
+   
+
+   void window::round_window_draw(CGContextRef cgc)
+   {
+      
+      ::ca::graphics_sp g(allocer());
+      
+      g->attach(cgc);
+      
+      _000OnDraw(g);
+      
+   }
+   
+   
    
    
 } // namespace mac
@@ -6881,6 +6968,8 @@ namespace mac
       //
       //      ::DeleteObject(hbitmap);
    }
+   
+   
    
 }
 

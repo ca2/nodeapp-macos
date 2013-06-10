@@ -84,11 +84,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../../os/mac_window.cpp"
-         timestampString = "392403973.801124"
+         timestampString = "392514398.629792"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "478"
-         endingLineNumber = "478"
+         startingLineNumber = "502"
+         endingLineNumber = "502"
          landmarkName = "window::create_message_window(const char * pszName, ::ca::window_callback * pcallback)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -214,11 +214,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../../../app/appseed/c/macos/c_os_library.cpp"
-         timestampString = "385342756.743144"
+         timestampString = "392508026.172377"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
          landmarkName = "library::open(const char * pszPath)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -331,11 +331,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../../os/mac_dir.cpp"
-         timestampString = "385390807.54189"
+         timestampString = "392502197.748332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1221"
-         endingLineNumber = "1221"
+         startingLineNumber = "1226"
+         endingLineNumber = "1226"
          landmarkName = "dir::appdata(const char * lpcsz, const char * lpcsz2)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -396,11 +396,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../../../app/appseed/c/macos/c_os_cross_gdi.mm"
-         timestampString = "392282273.643533"
+         timestampString = "392571769.165372"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "22"
-         endingLineNumber = "22"
+         startingLineNumber = "23"
+         endingLineNumber = "23"
          landmarkName = "get_nswindow_rect(oswindow oswindow, LPRECT lprect)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -461,37 +461,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../../os/RoundWindow.mm"
-         timestampString = "392399166.418051"
+         timestampString = "392582719.725999"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "112"
-         endingLineNumber = "112"
-         landmarkName = "-create_view"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/user/fontopus/fontopus_validate.cpp"
-         timestampString = "392404021.586483"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1358"
-         endingLineNumber = "1358"
-         landmarkName = "validate::on_create_view(::user::view_creator_data * pcreatordata)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../../os/RoundWindow.mm"
-         timestampString = "392417664.442979"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188"
+         startingLineNumber = "200"
+         endingLineNumber = "200"
          landmarkName = "-drawRect:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -499,26 +473,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../../os/mac_thread.cpp"
-         timestampString = "392419107.315418"
+         filePath = "../../os/mac_window.cpp"
+         timestampString = "392514398.629792"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1283"
-         endingLineNumber = "1283"
-         landmarkName = "thread::DispatchThreadMessageEx(::ca::signal_object * pobj)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/user/simple/simple_frame_window.cpp"
-         timestampString = "392421132.540342"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188"
-         landmarkName = "simple_frame_window::_001OnCreate(::ca::signal_object * pobj)"
+         startingLineNumber = "171"
+         endingLineNumber = "171"
+         landmarkName = "window::ModifyStyle(oswindow hWnd, DWORD dwRemove, DWORD dwAdd, UINT nFlags)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

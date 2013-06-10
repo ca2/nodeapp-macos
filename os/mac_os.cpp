@@ -42,7 +42,7 @@ namespace mac
        AdjustTokenPrivileges(hToken, FALSE, &tkp, 0, (PTOKEN_PRIVILEGES) NULL, 0);
        return retval;*/
       
-      throw not_implemented(get_app());
+    //  throw not_implemented(get_app());
       return false;
       
    }
@@ -103,14 +103,14 @@ namespace mac
       /*    tkp.Privileges[0].Attributes = 0;
        AdjustTokenPrivileges(hToken, FALSE, &tkp, 0, (PTOKEN_PRIVILEGES) NULL, 0);
        return true;*/
-      throw not_implemented(get_app());
+  //    throw not_implemented(get_app());
       return false;
       
    }
    
    void os::terminate_processes_by_title(const char * pszName)
    {
-      throw not_implemented(get_app());
+//      throw not_implemented(get_app());
       return;
       
       /*      DWORD dwPid;
@@ -195,7 +195,7 @@ namespace mac
        
        CloseHandle( hProcess );
        return strName;*/
-      throw not_implemented(get_app());
+  //    throw not_implemented(get_app());
       return "";
       
    }
@@ -203,7 +203,7 @@ namespace mac
    void os::get_all_processes(uint32_array & dwa )
    {
       
-      throw not_implemented(get_app());
+    //  throw not_implemented(get_app());
       return;
       
       /*
@@ -225,7 +225,7 @@ namespace mac
    
    string os::get_module_path(HMODULE hmodule)
    {
-      throw not_implemented(get_app());
+   //   throw not_implemented(get_app());
       return "";
       /*
        string strPath;
@@ -285,7 +285,7 @@ namespace mac
    bool os::local_machine_set_run(const char * pszKey, const char * pszCommand)
    {
       
-      throw not_implemented(get_app());
+ //     throw not_implemented(get_app());
       return false;
       
       /*
@@ -304,7 +304,7 @@ namespace mac
    {
       
       
-      throw not_implemented(get_app());
+ //     throw not_implemented(get_app());
       return false;
       /*    registry::Key keyKar(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", true);
        
@@ -319,7 +319,7 @@ namespace mac
    bool os::current_user_set_run(const char * pszKey, const char * pszCommand)
    {
       
-      throw not_implemented(get_app());
+   //   throw not_implemented(get_app());
       return false;
       
       /*
@@ -336,7 +336,7 @@ namespace mac
    bool os::current_user_set_run_once(const char * pszKey, const char * pszCommand)
    {
       
-      throw not_implemented(get_app());
+ //    throw not_implemented(get_app());
       return false;
       
       /*
@@ -353,7 +353,7 @@ namespace mac
    
    bool os::defer_register_ca2_plugin_for_mozilla()
    {
-      throw not_implemented(get_app());
+  //    throw not_implemented(get_app());
       return false;
       
       /*
@@ -392,7 +392,7 @@ namespace mac
    
    bool os::file_extension_get_open_with_list_keys(stringa & straKey, const char * pszExtension)
    {
-      throw not_implemented(get_app());
+   //   throw not_implemented(get_app());
       return false;
       
       /*
@@ -431,7 +431,7 @@ namespace mac
    bool os::file_association_set_default_icon(const char * pszExtension, const char * pszExtensionNamingClass, const char * pszIconPath)
    {
       
-      throw not_implemented(get_app());
+  //    throw not_implemented(get_app());
       return false;
       
       /*
@@ -448,7 +448,7 @@ namespace mac
    
    bool os::file_association_set_shell_open_command(const char * pszExtension, const char * pszExtensionNamingClass,  const char * pszCommand, const char * pszParam)
    {
-      throw not_implemented(get_app());
+   //   throw not_implemented(get_app());
       return false;
       
       /*
@@ -480,7 +480,7 @@ namespace mac
    
    bool os::file_association_get_shell_open_command(const char * pszExtension, string & strExtensionNamingClass, string & strCommand, string & strParam)
    {
-      throw not_implemented(get_app());
+  //    throw not_implemented(get_app());
       return false;
       
       /*
@@ -524,7 +524,7 @@ namespace mac
    bool os::open_in_ie(const char * lpcsz)
    {
       
-      throw not_implemented(get_app());
+  //    throw not_implemented(get_app());
       return false;
       
       /*    registry reg;
@@ -573,7 +573,7 @@ namespace mac
    bool os::create_service(::plane::application * papp)
    {
       
-      throw not_implemented(get_app());
+  //    throw not_implemented(get_app());
       return false;
       
       /*
@@ -625,7 +625,7 @@ namespace mac
    
    bool os::remove_service(::plane::application * papp)
    {
-      throw not_implemented(get_app());
+   //   throw not_implemented(get_app());
       return false;
       
       /*
@@ -666,7 +666,7 @@ namespace mac
    
    bool os::start_service(::plane::application * papp)
    {
-      throw not_implemented(get_app());
+    //  throw not_implemented(get_app());
       return false;
       
       /*
@@ -707,7 +707,7 @@ namespace mac
    
    bool os::stop_service(::plane::application * papp)
    {
-      throw not_implemented(get_app());
+  //    throw not_implemented(get_app());
       return false;
       
       /*
@@ -755,7 +755,7 @@ namespace mac
    bool os::resolve_link(string & strTarget, const char * pszSource, ::user::interaction * puiMessageParentOptional)
    {
       
-      throw not_implemented(get_app());
+//      throw not_implemented(get_app());
       return false;
       
       //      return vfxResolveShortcut(strTarget, pszSource, puiMessageParentOptional);
@@ -775,7 +775,7 @@ namespace mac
    bool os::is_remote_session()
    {
       
-      throw not_implemented(get_app());
+//      throw not_implemented(get_app());
       return false;
       /*
        return GetSystemMetrics(SM_REMOTESESSION) != FALSE;
@@ -786,7 +786,7 @@ namespace mac
    void os::post_to_all_threads(UINT message, WPARAM wparam, LPARAM lparam)
    {
       
-      throw not_implemented(get_app());
+//      throw not_implemented(get_app());
       return;
       
       /*

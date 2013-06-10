@@ -11,7 +11,7 @@
 
 
 
-NSWindow * new_round_window(CGRect rect)
+NSWindow * new_round_window(round_window * pwindow, CGRect rect)
 {
    
    rect.origin.x = 100;
@@ -19,8 +19,12 @@ NSWindow * new_round_window(CGRect rect)
    rect.size.width = 500;
    rect.size.height = 500;
    
-   return [[RoundWindow alloc] initWithContentRect : rect styleMask : 0 backing : NSBackingStoreBuffered  defer : false ];
-
+   RoundWindow * round_window = [RoundWindow alloc];
+   
+   round_window->m_pwindow = pwindow;
+   
+   return [round_window initWithContentRect : rect styleMask : 0 backing : NSBackingStoreBuffered  defer : false ];
+   
 }
 
 

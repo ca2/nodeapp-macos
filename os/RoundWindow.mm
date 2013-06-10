@@ -50,9 +50,13 @@
 			object:self];
       
       m_controller = [[NSWindowController alloc] initWithWindow:self];
-//                      [self create_view];
+ 
+      [self create_view];
+      
 	}
+   
 	return self;
+   
 }
 
 //
@@ -106,22 +110,30 @@
 //
 - (void)create_view
 {
+
 	NSRect bounds = [self frame];
-	bounds.origin = NSZeroPoint;
+	
+   bounds.origin = NSZeroPoint;
 
-	RoundWindowFrameView * frameView= [[RoundWindowFrameView alloc] initWithFrame:bounds] ;
+	RoundWindowFrameView * frameView = [[RoundWindowFrameView alloc] initWithFrame : bounds] ;
+   
+   frameView->m_roundwindow =  self;
 		
-		[super setContentView:frameView];
+	[super setContentView : frameView];
 
-		closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:NSTitledWindowMask];
-		NSRect closeButtonRect = [closeButton frame];
-		[closeButton setFrame:NSMakeRect(WINDOW_FRAME_PADDING - 20, bounds.size.height - (WINDOW_FRAME_PADDING - 20) - closeButtonRect.size.height, closeButtonRect.size.width, closeButtonRect.size.height)];
-		[closeButton setAutoresizingMask:NSViewMaxXMargin | NSViewMinYMargin];
-		[frameView addSubview:closeButton];
-	childContentView = frameView;
-	[childContentView setFrame:[self contentRectForFrameRect:bounds]];
-	[childContentView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-	[frameView addSubview:childContentView];
+	//	closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:NSTitledWindowMask];
+	//	NSRect closeButtonRect = [closeButton frame];
+	//	[closeButton setFrame:NSMakeRect(WINDOW_FRAME_PADDING - 20, bounds.size.height - (WINDOW_FRAME_PADDING - 20) - closeButtonRect.size.height, closeButtonRect.size.width, closeButtonRect.size.height)];
+	//	[closeButton setAutoresizingMask:NSViewMaxXMargin | NSViewMinYMargin];
+	//	[frameView addSubview:closeButton];
+	//childContentView = frameView;
+   
+	[frameView setFrame : [self contentRectForFrameRect : bounds]];
+   
+	[frameView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+   
+//	[frameView addSubview:childContentView];
+   
 }
 
 //

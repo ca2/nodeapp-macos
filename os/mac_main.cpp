@@ -184,10 +184,21 @@ uint32_t __run_system(void * p)
    
    pinitmaindata->m_hInstance             = NULL;
    pinitmaindata->m_hPrevInstance         = NULL;
+   
    for(int32_t i = 0; i < *_NSGetArgc(); i++)
    {
-      pinitmaindata->m_strCommandLine     += _NSGetArgv()[i];
+      
+      if(i > 0)
+      {
+         
+         pinitmaindata->m_strCommandLine += " ";
+
+      }
+      
+      pinitmaindata->m_strCommandLine     += (*_NSGetArgv())[i];
+      
    }
+   pinitmaindata->m_vssCommandLine = pinitmaindata->m_strCommandLine;
    pinitmaindata->m_nCmdShow              = SW_SHOW;
    
    
@@ -276,7 +287,10 @@ uint32_t __run_system(void * p)
    
    set_heap_mutex(NULL);
    
+   exit(nReturnCode);
+   
    return nReturnCode;
+   
    
    
 }
