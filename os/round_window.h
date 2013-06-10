@@ -9,6 +9,19 @@
 #pragma once
 
 
+class round_window
+{
+public:
+   
+   
+   NSWindow * m_nswindow;
+   
+   virtual void round_window_draw(CGContextRef cgc) = 0;
+   
+   
+};
+
+
 void ns_shared_application();
-NSWindow * new_round_window(CGRect rect);
+NSWindow * new_round_window(round_window * pwindow, CGRect rect);
 void ns_app_run();

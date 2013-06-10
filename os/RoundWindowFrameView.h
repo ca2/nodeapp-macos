@@ -14,11 +14,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+
+#include "RoundWindow.h"
+
 #define WINDOW_FRAME_PADDING 75
 
 @interface RoundWindowFrameView : NSView
 {
-
+   @public
+   RoundWindow * m_roundwindow;
 }
 
 @end
