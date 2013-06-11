@@ -14,10 +14,10 @@
 NSWindow * new_round_window(round_window * pwindow, CGRect rect)
 {
    
-   rect.origin.x = 100;
-   rect.origin.x = 100;
-   rect.size.width = 500;
-   rect.size.height = 500;
+   rect.origin.x     = 0;
+   rect.origin.x     = 0;
+   rect.size.width   = 0;
+   rect.size.height  = 0;
    
    RoundWindow * round_window = [RoundWindow alloc];
    

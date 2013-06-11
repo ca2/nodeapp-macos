@@ -12,7 +12,8 @@ namespace mac
    public:
       
       
-      os_simple_path * m_pospath;
+      CGMutablePathRef        m_path;
+      bool                    m_bBegin;
       
       
       graphics_path(::ca::application * papp);
@@ -37,14 +38,16 @@ namespace mac
       
       //virtual bool internal_add_rect(int x1, int y1, int x2, int y2);
       
-      virtual void * get_os_data();
+      virtual void * get_os_data() const;
       virtual void * detach();
       
-      bool update();
+      virtual bool create();
       bool set(const ::ca::graphics_path::element & e);
       bool set(const ::ca::graphics_path::arc & arc);
       bool set(const ::ca::graphics_path::move & move);
       bool set(const ::ca::graphics_path::line & line);
+      virtual bool destroy();
+      
       
       
       
@@ -52,6 +55,8 @@ namespace mac
    
    
 } // namespace mac
+
+
 
 
 

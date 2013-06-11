@@ -486,13 +486,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../../../app-core/appseed/uinteraction/uinteraction_frame_schema_005.cpp"
-         timestampString = "392601116.142234"
+         filePath = "../../../app/appseed/ca2/user/user_tab.cpp"
+         timestampString = "392655097.472214"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "582"
-         endingLineNumber = "582"
-         landmarkName = "FrameSchemaHardCoded005::DrawFrame(::ca::graphics *pdc)"
+         startingLineNumber = "450"
+         endingLineNumber = "450"
+         landmarkName = "tab::_001OnDrawStandard(::ca::graphics * pdc)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca2/user/user_tab.cpp"
+         timestampString = "392655161.568516"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "402"
+         endingLineNumber = "402"
+         landmarkName = "tab::_001OnDrawStandard(::ca::graphics * pdc)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

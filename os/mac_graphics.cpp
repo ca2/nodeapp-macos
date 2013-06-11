@@ -1,5 +1,6 @@
 #include "framework.h"
 #include <math.h>
+#include <memory.h>
 
 
 namespace mac
@@ -19,6 +20,9 @@ namespace mac
        */
       m_etextrendering  = ::ca::text_rendering_anti_alias_grid_fit;
       
+      m_pdc             = NULL;
+      m_layer           = NULL;
+      
    }
    
    graphics::graphics()
@@ -31,7 +35,8 @@ namespace mac
        m_ppath           = NULL;
        m_ppathPaint      = NULL;*/
       m_etextrendering  = ::ca::text_rendering_anti_alias_grid_fit;
-      
+      m_pdc             = NULL;
+      m_layer           = NULL;
       
    }
    
@@ -111,8 +116,113 @@ namespace mac
       //return Attach(::CreateIC(lpszDriverName, lpszDeviceName, lpszOutput, (const DEVMODE*) lpInitData));
    }
    
+   CGContextRef MyCreateBitmapContext(int cx, int cy)
+   {
+      
+      CGContextRef    context = NULL;
+      CGColorSpaceRef colorSpace;
+      void *          data;
+      int             size;
+      int             scan;
+      
+      scan                 = (cx * 4);
+      
+      size                 = (scan * cy);
+      
+      colorSpace           = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+      
+      data                 = malloc(size);
+      
+      if(data == NULL)
+      {
+
+         return NULL;
+         
+      }
+      
+      context              = CGBitmapContextCreate(data, cx, cy, 8, scan, colorSpace, kCGImageAlphaPremultipliedLast);
+      
+      CGColorSpaceRelease(colorSpace);
+      
+      if(context== NULL)
+         
+      {
+         
+         free (data);
+         
+         return NULL;
+         
+      }
+      
+      return context;
+      
+   }
+   
+   
    bool graphics::CreateCompatibleDC(::ca::graphics * pgraphics)
    {
+      
+      m_pdc = NULL;
+      
+      CGContextRef cg = NULL;
+      
+      if(pgraphics == NULL || pgraphics->get_os_data() == NULL)
+      {
+      
+         cg = MyCreateBitmapContext(1920, 1080);
+         
+      }
+      else
+      {
+         
+         cg = (CGContextRef) pgraphics->get_os_data();
+         
+      }
+      
+      CGSize size;
+      
+      size.width = 1920;
+      
+      size.height = 1080;
+      
+      m_layer = CGLayerCreateWithContext(cg, size, NULL);
+      
+      if(m_layer != NULL)
+      {
+         
+         m_pdc = CGLayerGetContext(m_layer);
+         
+      }
+   
+      if(m_pdc == NULL)
+      {
+         
+         CGLayerRelease(m_layer);
+         
+         m_layer = NULL;
+         
+      }
+
+      if(pgraphics == NULL || pgraphics->get_os_data() == NULL)
+      {
+         
+         CGContextRelease(cg);
+         
+      }
+      
+      if(m_layer == NULL)
+      {
+         
+         return false;
+         
+      }
+      
+      if(m_pdc != NULL)
+      {
+         
+         m_affine = CGContextGetCTM(m_pdc);
+         
+      }
       
       return true;
       
@@ -362,12 +472,6 @@ namespace mac
       return 0;
    }
    
-   COLORREF graphics::GetTextColor() const
-   {
-      //return ::GetTextColor(get_handle2());
-      return 0;
-   }
-   
    int32_t graphics::GetMapMode() const
    {
       //return ::GetMapMode(get_handle2());
@@ -416,8 +520,43 @@ namespace mac
    // non-virtual helpers calling virtual mapping functions
    point graphics::SetViewportOrg(POINT point)
    {
-      //return SetViewportOrg(point.x, point.y);
-      return ::point(0, 0);
+      
+      CGAffineTransform affine = m_affine;
+
+//      CGAffineTransform affineInvert = CGAffineTransformInvert(affine);
+      
+      CGAffineTransform affineABCD = CGContextGetCTM(m_pdc);
+      
+//      CGAffineTransform affineBCD = CGAffineTransformConcat(affineInvert, affineABCD);
+      
+      CGAffineTransform affineABCDInvert = CGAffineTransformInvert(affineABCD);
+      
+      CGContextConcatCTM(m_pdc, affineABCDInvert);
+      
+//      CGAffineTransform affineQ1 = CGContextGetCTM(m_pdc);
+      
+      CGContextConcatCTM(m_pdc, affine);
+
+//      CGAffineTransform affineQ2 = CGContextGetCTM(m_pdc);
+      
+      CGContextTranslateCTM(m_pdc, point.x, point.y);
+      
+//      CGAffineTransform affineQ3 = CGContextGetCTM(m_pdc);
+      
+//      CGContextConcatCTM(m_pdc, affineBCD);
+      
+//      CGPoint pt;
+      
+//      pt.x = 0.f;
+      
+//      pt.y = 0.f;
+      
+//      CGPointApplyAffineTransform(pt, affineBCD);
+      
+//      CGContextTranslateCTM(m_pdc, -pt.x, -pt.y);
+      
+      return point;
+      
    }
    
    size graphics::SetViewportExt(SIZE size)
@@ -3094,14 +3233,27 @@ namespace mac
    
    bool graphics::DeleteDC()
    {
-//      
-//      if(m_pdc == NULL)
-//         return true;
-//      
-//      
-//      cairo_destroy(m_pdc);
-//      
-//      m_pdc = NULL;
+      
+      if(m_layer != NULL)
+      {
+         
+         CGContextRelease(m_pdc);
+         
+         m_pdc = NULL;
+      
+         CGLayerRelease(m_layer);
+         
+         m_layer = NULL;
+         
+      }
+      else
+      {
+         
+         m_pdc = NULL;
+         
+         m_layer = NULL;
+         
+      }
       
       return true;
       
@@ -3232,18 +3384,12 @@ namespace mac
       return &m_penxyz;
    }
    
-   ::ca::brush* graphics::SelectObject(::ca::brush* pBrush)
+   ::ca::brush * graphics::SelectObject(::ca::brush* pBrush)
    {
-      /*      HGDIOBJ hOldObj = NULL;
-       if(pBrush == NULL)
-       return NULL;
-       if(get_handle1() != NULL && get_handle1() != get_handle2())
-       hOldObj = ::SelectObject(get_handle1(), pBrush->get_os_data());
-       if(get_handle2() != NULL)
-       hOldObj = ::SelectObject(get_handle2(), pBrush->get_os_data());
-       return dynamic_cast < ::ca::brush * > (::win::graphics_object::from_handle(get_app(), hOldObj));*/
-      m_brushxyz = *pBrush;
-      return &m_brushxyz;
+
+      m_spbrush = pBrush;
+      
+      return m_spbrush;
       
    }
    
@@ -3389,19 +3535,6 @@ namespace mac
        if(get_handle2() != NULL)
        nRetVal = ::SetStretchBltMode(get_handle2(), nStretchMode);
        return nRetVal;*/
-   }
-   
-   COLORREF graphics::SetTextColor(COLORREF crColor)
-   {
-      return set_color(crColor);
-      //COLORREF crRetVal = m_crColor;
-      //m_crColor = crColor;
-      /*      COLORREF crRetVal = CLR_INVALID;
-       if(get_handle1() != NULL && get_handle1() != get_handle2())
-       crRetVal = ::SetTextColor(get_handle1(), crColor);
-       if(get_handle2() != NULL)
-       crRetVal = ::SetTextColor(get_handle2(), crColor);*/
-      //return crRetVal;
    }
    
    int32_t graphics::SetGraphicsMode(int32_t iMode)
@@ -4556,29 +4689,12 @@ namespace mac
    size graphics::GetTextExtent(const char * lpszString, strsize nCount) const
    {
       
-      //retry_single_lock slGdiplus(&System.s_mutexGdiplus, millis(1), millis(1));
+      class sized sized;
       
-      string str(lpszString, nCount);
+      if(!GetTextExtent(sized, lpszString, nCount, 0))
+         return ::size(0, 0);
       
-      
-      ((graphics *) this)->set(m_spfont);
-      
-//      cairo_text_extents_t ex;
-//      
-//      cairo_text_extents(m_pdc, str, &ex);
-//      
-//      SIZE size;
-//      
-//      size.cx = ex.width;
-//      
-//      size.cy = ex.height;
-      
-      SIZE size;
-      size.cx = 0;
-      size.cy = 0;
-
-      
-      return size;
+      return ::size(sized.cx, sized.cy);
       
       /*wstring wstr = ::ca::international::utf8_to_unicode(lpszString, nCount);
        
@@ -4622,7 +4738,7 @@ namespace mac
       
       class sized size;
       
-      if(!GetTextExtent(size, str, str.get_length(), (int32_t) str.get_length()))
+      if(!GetTextExtent(size, str, str.get_length(), 0))
          return ::size(0, 0);
       
       return ::size((long) size.cx, (long) size.cy);
@@ -4688,19 +4804,24 @@ namespace mac
    bool graphics::GetTextExtent(sized & size, const char * lpszString, strsize nCount, int32_t iIndex) const
    {
       
-      string str(&lpszString[iIndex], nCount);
+      ((graphics *) this)->set(m_spfont);
       
-      ((graphics *) this)->set(&m_fontxyz);
+      CGPoint pt1 = CGContextGetTextPosition(m_pdc);
       
-//      cairo_text_extents_t ex;
-//      
-//      cairo_text_extents(m_pdc, str, &ex);
-//      
-//      size.cx = ex.width;
-//      
-//      size.cy = ex.height;
+      CGContextSetTextDrawingMode(m_pdc, kCGTextInvisible);
       
-      return size;
+      CGContextShowText(m_pdc, &lpszString[iIndex], nCount);
+
+      CGPoint pt2 = CGContextGetTextPosition(m_pdc);
+
+      size.cx = pt2.x - pt1.x;
+      
+      size.cy = pt2.y - pt1.y;
+      
+      if(size.cy < m_fontxyz.m_dFontSize)
+         size.cy = m_fontxyz.m_dFontSize;
+      
+      return true;
       
       
       
@@ -4924,251 +5045,36 @@ namespace mac
    
    bool graphics::TextOut(int32_t x, int32_t y, const char * lpszString, int32_t nCount)
    {
-      string str(lpszString, nCount);
       
+      CGContextBeginPath(m_pdc);
       
       ((graphics *) this)->set(m_spfont);
-//      
-//      cairo_move_to(m_pdc, x, y);
-//      
-//      cairo_show_text(m_pdc, str);
       
-      /*::Gdiplus::PointF origin(0, 0);
-       
-       string str(lpszString, nCount);
-       
-       wstring wstr = ::ca::international::utf8_to_unicode(str);
-       
-       
-       try
-       {
-       
-       if(m_pgraphics == NULL)
-       return FALSE;
-       
-       switch(m_etextrendering)
-       {
-       case ::ca::text_rendering_anti_alias:
-       m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-       m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAlias);
-       break;
-       case ::ca::text_rendering_anti_alias_grid_fit:
-       m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-       m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAliasGridFit);
-       break;
-       case ::ca::text_rendering_single_bit_per_pixel:
-       m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-       m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintSingleBitPerPixel);
-       break;
-       case ::ca::text_rendering_clear_type_grid_fit:
-       m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-       m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintClearTypeGridFit);
-       break;
-       }
-       
-       }
-       catch(...)
-       {
-       }
-       
-       
-       //
-       //m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-       //m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAliasGridFit);
-       //m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintClearTypeGridFit);
-       //m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAlias);
-       
-       Gdiplus::Matrix m;
-       m_pgraphics->GetTransform(&m);
-       
-       Gdiplus::Matrix * pmNew;
-       
-       if(m_ppath != NULL)
-       {
-       pmNew = new Gdiplus::Matrix();
-       }
-       else
-       {
-       pmNew = m.Clone();
-       }
-       
-       pmNew->Translate((Gdiplus::REAL)  (x / m_fontxyz.m_dFontWidth), (Gdiplus::REAL) y);
-       pmNew->Scale((Gdiplus::REAL) m_fontxyz.m_dFontWidth, (Gdiplus::REAL) 1.0, Gdiplus::MatrixOrderAppend);
-       
-       Gdiplus::Status status;
-       
-       Gdiplus::StringFormat format(Gdiplus::StringFormat::GenericTypographic());
-       
-       format.SetFormatFlags(format.GetFormatFlags()
-       | Gdiplus::StringFormatFlagsNoClip | Gdiplus::StringFormatFlagsMeasureTrailingSpaces
-       | Gdiplus::StringFormatFlagsLineLimit | Gdiplus::StringFormatFlagsNoWrap
-       | Gdiplus::StringFormatFlagsNoFitBlackBox);
-       
-       
-       format.SetLineAlignment(Gdiplus::StringAlignmentNear);
-       
-       if(m_ppath != NULL)
-       {
-       
-       Gdiplus::GraphicsPath path;
-       
-       Gdiplus::FontFamily fontfamily;
-       
-       gdiplus_font()->GetFamily(&fontfamily);
-       
-       double d1 = gdiplus_font()->GetSize() * m_pgraphics->GetDpiX() / 72.0;
-       double d2 = fontfamily.GetEmHeight(gdiplus_font()->GetStyle());
-       double d3 = d1 * d2;
-       
-       status = path.AddString(::ca::international::utf8_to_unicode(str), -1, &fontfamily, gdiplus_font()->GetStyle(), (Gdiplus::REAL) d1, origin, &format);
-       
-       path.Transform(pmNew);
-       
-       
-       m_ppath->AddPath(&path, FALSE);
-       
-       }
-       else
-       {
-       
-       m_pgraphics->SetTransform(pmNew);
-       
-       status = m_pgraphics->DrawString(::ca::international::utf8_to_unicode(str), -1, gdiplus_font(), origin, &format, gdiplus_brush());
-       
-       m_pgraphics->SetTransform(&m);
-       
-       }
-       
-       delete pmNew;
-       
-       return status  == Gdiplus::Status::Ok;
-       */
+      CGContextSetTextDrawingMode(m_pdc, kCGTextFill);
+      
+      internal_set_fill_color(m_crColor);
+      
+      CGContextShowTextAtPoint(m_pdc, x, y, lpszString, nCount);
+      
       return true;
+      
    }
    
    bool graphics::TextOut(double x, double y, const char * lpszString, int32_t nCount)
    {
       
-      string str(lpszString, nCount);
-      
+      CGContextBeginPath(m_pdc);
       
       ((graphics *) this)->set(m_spfont);
       
-//      cairo_move_to(m_pdc, x, y);
-//      
-//      cairo_show_text(m_pdc, str);
+      CGContextSetTextDrawingMode(m_pdc, kCGTextFill);
+      
+      internal_set_fill_color(m_crColor);
+      
+      CGContextShowTextAtPoint(m_pdc, x, y, lpszString, nCount);
       
       return true;
       
-      /*
-       
-       ::Gdiplus::PointF origin(0, 0);
-       
-       string str(lpszString, nCount);
-       
-       wstring wstr = ::ca::international::utf8_to_unicode(str);
-       
-       
-       try
-       {
-       
-       if(m_pgraphics == NULL)
-       return FALSE;
-       
-       switch(m_etextrendering)
-       {
-       case ::ca::text_rendering_anti_alias:
-       m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAlias);
-       break;
-       case ::ca::text_rendering_anti_alias_grid_fit:
-       m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAliasGridFit);
-       break;
-       case ::ca::text_rendering_single_bit_per_pixel:
-       m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintSingleBitPerPixel);
-       break;
-       case ::ca::text_rendering_clear_type_grid_fit:
-       m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-       m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintClearTypeGridFit);
-       break;
-       }
-       
-       }
-       catch(...)
-       {
-       }
-       
-       
-       //
-       //m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-       //m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAliasGridFit);
-       //m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintClearTypeGridFit);
-       //m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAlias);
-       
-       Gdiplus::Matrix m;
-       m_pgraphics->GetTransform(&m);
-       
-       Gdiplus::Matrix * pmNew;
-       
-       if(m_ppath != NULL)
-       {
-       pmNew = new Gdiplus::Matrix();
-       }
-       else
-       {
-       pmNew = m.Clone();
-       }
-       
-       pmNew->Translate((Gdiplus::REAL)  (x / m_fontxyz.m_dFontWidth), (Gdiplus::REAL) y);
-       pmNew->Scale((Gdiplus::REAL) m_fontxyz.m_dFontWidth, (Gdiplus::REAL) 1.0, Gdiplus::MatrixOrderAppend);
-       
-       Gdiplus::Status status;
-       
-       Gdiplus::StringFormat format(Gdiplus::StringFormat::GenericTypographic());
-       
-       format.SetFormatFlags(format.GetFormatFlags()
-       | Gdiplus::StringFormatFlagsNoClip | Gdiplus::StringFormatFlagsMeasureTrailingSpaces
-       | Gdiplus::StringFormatFlagsLineLimit | Gdiplus::StringFormatFlagsNoWrap
-       | Gdiplus::StringFormatFlagsNoFitBlackBox);
-       
-       
-       format.SetLineAlignment(Gdiplus::StringAlignmentNear);
-       
-       if(m_ppath != NULL)
-       {
-       
-       Gdiplus::GraphicsPath path;
-       
-       Gdiplus::FontFamily fontfamily;
-       
-       gdiplus_font()->GetFamily(&fontfamily);
-       
-       double d1 = gdiplus_font()->GetSize() * m_pgraphics->GetDpiX() / 72.0;
-       double d2 = fontfamily.GetEmHeight(gdiplus_font()->GetStyle());
-       double d3 = d1 * d2;
-       
-       status = path.AddString(::ca::international::utf8_to_unicode(str), -1, &fontfamily, gdiplus_font()->GetStyle(), (Gdiplus::REAL) d1, origin, &format);
-       
-       path.Transform(pmNew);
-       
-       
-       m_ppath->AddPath(&path, FALSE);
-       
-       }
-       else
-       {
-       
-       m_pgraphics->SetTransform(pmNew);
-       
-       status = m_pgraphics->DrawString(::ca::international::utf8_to_unicode(str), -1, gdiplus_font(), origin, &format, gdiplus_brush());
-       
-       m_pgraphics->SetTransform(&m);
-       
-       }
-       
-       delete pmNew;
-       
-       return status  == Gdiplus::Status::Ok;
-       */
    }
    
    
@@ -5176,17 +5082,9 @@ namespace mac
    bool graphics::LineTo(double x, double y)
    {
       
-      //      ::Gdiplus::Pen pen(::Gdiplus::Color(GetAValue(m_crColor), GetRValue(m_crColor), GetGValue(m_crColor), GetBValue(m_crColor)), m_dPenWidth);
+      CGContextBeginPath(m_pdc);
       
-      //gdiplus_pen()->SetAlignment(Gdiplus::PenAlignment::PenAlignmentCenter);
-      
-      //m_pgraphics->DrawLine(gdiplus_pen(), Gdiplus::Point((FLOAT) m_x, (FLOAT) m_y), Gdiplus::Point((FLOAT) x,(FLOAT) y));
-      //string str(lpszString, nCount);
-      
-      
-      
-      
-//      cairo_line_to(m_pdc, x, y);
+      CGContextAddLineToPoint(m_pdc, x, y);
       
       draw();
       
@@ -5205,23 +5103,28 @@ namespace mac
       try
       {
          
-//         if(m_pdc == NULL)
-//            return;
+         if(m_pdc == NULL)
+            return;
          
          ::ca::graphics::set_alpha_mode(ealphamode);
+         
          if(m_ealphamode == ::ca::alpha_mode_blend)
          {
-//            cairo_set_operator(m_pdc, CAIRO_OPERATOR_OVER);
+            
+            CGContextSetBlendMode(m_pdc, kCGBlendModeNormal);
+            
          }
          else if(m_ealphamode == ::ca::alpha_mode_set)
          {
-//            cairo_set_operator(m_pdc, CAIRO_OPERATOR_SOURCE);
+            
+            CGContextSetBlendMode(m_pdc, kCGBlendModeCopy);
+            
          }
          
       }
       catch(...)
       {
-         return;
+
       }
       
    }
@@ -5229,6 +5132,7 @@ namespace mac
    
    void graphics::set_text_rendering(::ca::e_text_rendering etextrendering)
    {
+      
       m_etextrendering = etextrendering;
       
    }
@@ -5237,152 +5141,23 @@ namespace mac
    void * graphics::get_os_data() const
    {
       
-//      return (void *) m_pdc;
-      return NULL;
+      return (void *) m_pdc;
       
    }
    
-   
-   /*   HDC graphics::get_handle() const
-    {
-    return m_hdc;
-    }
-    
-    HDC graphics::get_handle1() const
-    {
-    return get_handle();
-    }
-    
-    HDC graphics::get_handle2() const
-    {
-    return get_handle();
-    }*/
    
    bool graphics::attach(void * pdata)
    {
       
       m_pdc = (CGContextRef) pdata;
       
+      if(m_pdc != NULL)
+         m_affine = CGContextGetCTM(m_pdc);
+      
       return true;
       
    }
    
-   /*
-    Gdiplus::Font * graphics::gdiplus_font()
-    {
-    if(m_spfont.is_null())
-    {
-    m_spfont.create(get_app());
-    m_spfont->operator=(m_fontxyz);
-    }
-    else if(!m_fontxyz.m_bUpdated)
-    {
-    m_fontxyz.m_bUpdated = true;
-    m_spfont->operator=(m_fontxyz);
-    }
-    return (Gdiplus::Font *) m_spfont->get_os_data();
-    }
-    
-    Gdiplus::Brush * graphics::gdiplus_brush()
-    {
-    if(m_spbrush.is_null())
-    {
-    m_spbrush.create(get_app());
-    m_spbrush->operator=(m_brushxyz);
-    }
-    else if(!m_brushxyz.m_bUpdated)
-    {
-    m_brushxyz.m_bUpdated = true;
-    m_spbrush->operator=(m_brushxyz);
-    }
-    return (Gdiplus::Brush *) m_spbrush->get_os_data();
-    }
-    
-    Gdiplus::Pen * graphics::gdiplus_pen()
-    {
-    if(m_sppen.is_null())
-    {
-    m_sppen.create(get_app());
-    m_sppen->operator=(m_penxyz);
-    }
-    else if(!m_penxyz.m_bUpdated)
-    {
-    m_penxyz.m_bUpdated = true;
-    m_sppen->operator=(m_penxyz);
-    }
-    return (Gdiplus::Pen *) m_sppen->get_os_data();
-    }*/
-   
-   
-   //   ::ca::e_fill_mode graphics::gdiplus_get_fill_mode()
-   // {
-   //      return ::ca::fill_mode_winding;
-   // }
-   
-//   void cairo_image_surface_blur( cairo_surface_t* surface, double radius )
-//   {
-//      // Steve Hanov, 2009
-//      // Released into the public domain.
-//      
-//      // get width, height
-//      int32_t width = cairo_image_surface_get_width( surface );
-//      int32_t height = cairo_image_surface_get_height( surface );
-//      unsigned char* dst = (unsigned char*)malloc(width*height*4);
-//      unsigned* precalc =
-//      (unsigned*)malloc(width*height*sizeof(unsigned));
-//      unsigned char* src = cairo_image_surface_get_data( surface );
-//      double mul=1.f/((radius*2)*(radius*2));
-//      int32_t channel;
-//      
-//      // The number of times to perform the averaging. According to wikipedia,
-//      // three iterations is good enough to pass for a gaussian.
-//      const int32_t MAX_ITERATIONS = 3;
-//      int32_t iteration;
-//      
-//      memcpy( dst, src, width*height*4 );
-//      
-//      for ( iteration = 0; iteration < MAX_ITERATIONS; iteration++ ) {
-//         for( channel = 0; channel < 4; channel++ ) {
-//            int32_t x,y;
-//            
-//            // precomputation step.
-//            unsigned char* pix = src;
-//            unsigned* pre = precalc;
-//            
-//            pix += channel;
-//            for (y=0;y<height;y++) {
-//               for (x=0;x<width;x++) {
-//                  int32_t tot=pix[0];
-//                  if (x>0) tot+=pre[-1];
-//                  if (y>0) tot+=pre[-width];
-//                  if (x>0 && y>0) tot-=pre[-width-1];
-//                  *pre++=tot;
-//                  pix += 4;
-//               }
-//            }
-//            
-//            // blur step.
-//            pix = dst + (int32_t)radius * width * 4 + (int32_t)radius * 4 + channel;
-//            for (y=radius;y<height-radius;y++) {
-//               for (x=radius;x<width-radius;x++) {
-//                  int32_t l = x < radius ? 0 : x - radius;
-//                  int32_t t = y < radius ? 0 : y - radius;
-//                  int32_t r = x + radius >= width ? width - 1 : x + radius;
-//                  int32_t b = y + radius >= height ? height - 1 : y + radius;
-//                  int32_t tot = precalc[r+b*width] + precalc[l+t*width] -
-//                  precalc[l+b*width] - precalc[r+t*width];
-//                  *pix=(unsigned char)(tot*mul);
-//                  pix += 4;
-//               }
-//               pix += (int32_t)radius * 2 * 4;
-//            }
-//         }
-//         memcpy( src, dst, width*height*4 );
-//      }
-//      
-//      free( dst );
-//      free( precalc );
-//   }
    
    
    bool graphics::blur(bool bExpand, double dRadius, LPCRECT lpcrect)
@@ -5433,63 +5208,51 @@ namespace mac
       return true;
    }
    
+   bool graphics::SelectFont(::ca::font * pfont)
+   {
+      // SIOOT - Should implemennt one of them
+      // OASOWO - otherwise a stack overflow will occur
+      // BTAIOM - because these are interface only methods
+      
+      m_spfont = pfont;
+      
+      return true;
+      
+   }
+   
    bool graphics::set(const ::ca::font * pfont)
    {
       
-//      cairo_select_font_face(m_pdc, pfont->m_strFontFamilyName, pfont->m_bItalic ? CAIRO_FONT_SLANT_ITALIC : CAIRO_FONT_SLANT_NORMAL, pfont->m_iFontWeight > 650 ? CAIRO_FONT_WEIGHT_BOLD : CAIRO_FONT_WEIGHT_NORMAL);
-//      
-//      if(pfont->m_eunitFontSize == ::ca::unit_pixel)
-//      {
-//         
-//         cairo_set_font_size(m_pdc, pfont->m_dFontSize);
-//         
-//      }
-//      else
-//      {
-//         
-//         cairo_set_font_size(m_pdc, pfont->m_dFontSize * 96.0 / 72.0);
-//         
-//      }
-//      
+      if(pfont == NULL)
+      {
+         
+         CGContextSelectFont(m_pdc, "Helvetica", 16.0 * m_dFontFactor, kCGEncodingFontSpecific);
+         
+      }
+      else if(pfont->m_strFontFamilyName == "Lucida Sans Unicode")
+      {
       
-          return true;
+         CGContextSelectFont(m_pdc, "Helvetica", pfont->m_dFontSize * m_dFontFactor, kCGEncodingFontSpecific);
+         
+      }
+      else
+      {
+         
+         CGContextSelectFont(m_pdc, "Helvetica", pfont->m_dFontSize * m_dFontFactor, kCGEncodingFontSpecific);
+         
+      }
+      
+      return true;
+      
    }
+   
    
    bool graphics::fill_and_draw()
    {
       
-//      bool bPen = m_sppen.is_set() && (m_sppen->m_etype != ::ca::pen::type_null);
-//      
-//      if(m_spbrush.is_set() && (m_spbrush->m_etype != ::ca::brush::type_null))
-//      {
-//         
-//         set(m_spbrush);
-//         
-//         if(bPen)
-//         {
-//            
-//            cairo_fill_preserve(m_pdc);
-//            
-//         }
-//         else
-//         {
-//            
-//            cairo_fill(m_pdc);
-//            
-//         }
-//         
-//      }
-//      
-//      if(bPen)
-//      {
-//         
-//         set(m_sppen);
-//         
-//         cairo_stroke(m_pdc);
-//         
-//         
-//      }
+      fill(m_spbrush);
       
+      draw(m_sppen);
       
       return true;
       
@@ -5499,28 +5262,57 @@ namespace mac
    bool graphics::fill(::ca::brush * pbrush)
    {
       
-//      if(pbrush == NULL || pbrush->m_etype == ::ca::brush::type_null)
-//         return true;
-//      
-//      set(pbrush);
-//      
-//      cairo_fill(m_pdc);
-//
+      if(pbrush == NULL || pbrush->m_etype == ::ca::brush::type_null)
+         return true;
       
-            return true;
+      if(pbrush->m_etype == ::ca::brush::type_linear_gradient_point_color)
+      {
+         
+         CGPoint myStartPoint, myEndPoint;
+         
+         myStartPoint.x = pbrush->m_pt1.x;
+         
+         myStartPoint.y = pbrush->m_pt1.y;
+         
+         myEndPoint.x = pbrush->m_pt2.x;
+         
+         myEndPoint.y = pbrush->m_pt2.y;
+         
+         CGContextDrawLinearGradient(m_pdc, (CGGradientRef) pbrush->get_os_data(), myStartPoint, myEndPoint, 0);
+         
+      }
+      else
+      {
+         
+         CGContextSetFillColorWithColor(m_pdc, (CGColorRef) pbrush->get_os_data());
+         
+         CGContextFillPath(m_pdc);
+         
+      }
+
+      return true;
+      
    }
+   
    
    bool graphics::draw(::ca::pen * ppen)
    {
-//      
-//      if(ppen == NULL || ppen->m_etype == ::ca::pen::type_null)
-//         return true;
-//      
-//      set(ppen);
-//      
-//      cairo_stroke(m_pdc);
-//      
-            return true;
+      
+      if(ppen == NULL || ppen->m_etype == ::ca::pen::type_null)
+         return true;
+      
+      if(ppen->m_etype == ::ca::pen::type_solid)
+      {
+         
+         CGContextSetRGBStrokeColor(m_pdc, GetRValue(ppen->m_cr) / 255.f, GetGValue(ppen->m_cr) / 255.f, GetBValue(ppen->m_cr) / 255.f, GetAValue(ppen->m_cr) / 255.f);
+         
+         CGContextSetLineWidth(m_pdc, ppen->m_dWidth);
+         
+         CGContextStrokePath(m_pdc);
+         
+      }
+
+      return true;
       
    }
    
@@ -5528,28 +5320,9 @@ namespace mac
    bool graphics::set(const ::ca::graphics_path * ppathParam)
    {
       
-//      ::lnx::graphics_path * ppath = dynamic_cast < ::lnx::graphics_path * > ((::ca::graphics_path *) ppathParam);
-//      
-//      for(int32_t i = 0; i < ppath->m_elementa.get_count(); i++)
-//      {
-//         
-//         set(ppath->m_elementa[i]);
-//         
-//      }
-//      
-//      if(ppath->m_efillmode == ::ca::fill_mode_alternate)
-//      {
-//         
-//         cairo_set_fill_rule(m_pdc, CAIRO_FILL_RULE_EVEN_ODD);
-//         
-//      }
-//      else
-//      {
-//         
-//         cairo_set_fill_rule(m_pdc, CAIRO_FILL_RULE_WINDING);
-//         
-//      }
-      
+      CGContextBeginPath(m_pdc);
+
+      CGContextAddPath(m_pdc, (CGMutablePathRef) ppathParam->get_os_data());
       
       return true;
       
@@ -5630,6 +5403,9 @@ namespace mac
    
    bool graphics::fill()
    {
+      
+      if(m_spbrush.is_set())
+         m_spbrush->defer_update();
       
       return fill(m_spbrush);
       

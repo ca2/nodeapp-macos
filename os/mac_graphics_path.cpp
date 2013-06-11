@@ -1,6 +1,8 @@
 #include "framework.h"
 
 
+#define MATH_PI 3.14159265359
+
 namespace mac
 {
    
@@ -11,19 +13,15 @@ namespace mac
    ca(papp)
    {
       
-      m_pospath = NULL;
+      m_path = NULL;
+      
+      m_bBegin = true;
       
    }
    
    graphics_path::~graphics_path()
    {
       
-      if(m_pospath != NULL)
-      {
-         
-         delete m_pospath;
-         
-      }
       
    }
    
@@ -31,7 +29,7 @@ namespace mac
    bool graphics_path::internal_begin_figure(bool bFill, ::ca::e_fill_mode efillmode)
    {
       
-      m_pospath->begin_figure(bFill, efillmode);
+      m_bBegin = true;
       
       return true;
       
@@ -41,7 +39,14 @@ namespace mac
    bool graphics_path::internal_end_figure(bool bClose)
    {
       
-      m_pospath->end_figure(bClose);
+      if(bClose)
+      {
+         
+         CGPathCloseSubpath(m_path);
+         
+      }
+      
+      m_bBegin = true;
       
       return true;
       
@@ -50,7 +55,34 @@ namespace mac
    bool graphics_path::internal_add_arc(const RECT & rect, int iStart, int iAngle)
    {
       
-      m_pospath->add_arc(rect, iStart, iAngle);
+      CGFloat d1 = rect.right - rect.left;
+      
+      if(d1 <= 0)
+         return true;
+      
+      CGFloat d2 = rect.bottom - rect.top;
+      
+      if(d2 <= 0)
+         return true;
+      
+      CGAffineTransform t = CGAffineTransformMakeScale(1.0, d2 / d1);
+      CGFloat x = (rect.right + rect.left) / 2.0;
+      CGFloat y = (rect.bottom + rect.top) / 2.0;
+      CGFloat x1 = x + d1 * sin(iStart * MATH_PI / 180.0f);
+      CGFloat y1 = y + d1 * cos(iStart * MATH_PI / 180.0f);
+      CGFloat x2 = x + d1 * sin((iStart + iAngle) * MATH_PI / 180.0f);
+      CGFloat y2 = y + d1 * cos((iStart + iAngle) * MATH_PI / 180.0f);
+      
+      if(m_bBegin)
+      {
+
+         m_bBegin = false;
+         
+         internal_add_move(x1, y1);
+         
+      }
+      
+      CGPathAddArcToPoint(m_path, &t, x1, y1, x2, y2, d1);
       
       return true;
       
@@ -59,8 +91,25 @@ namespace mac
    
    bool graphics_path::internal_add_line(int x1, int y1, int x2, int y2)
    {
+
+      if(m_bBegin)
+      {
+         
+         m_bBegin = false;
+         
+         internal_add_move(x1, y1);
+         
+      }
+      else
+      {
       
-      return m_pospath->add_line(x1, y1, x2, y2);
+         CGPathAddLineToPoint(m_path, NULL, x1, y1);
+         
+      }
+
+      CGPathAddLineToPoint(m_path, NULL, x2, y2);
+      
+      return true;
       
    }
    
@@ -68,17 +117,34 @@ namespace mac
    bool graphics_path::internal_add_line(int x, int y)
    {
       
-      return m_pospath->add_line(x, y);
+      if(m_bBegin)
+      {
+         
+         m_bBegin = false;
+         
+         internal_add_move(x, y);
+         
+      }
+      else
+      {
+         
+         CGPathAddLineToPoint(m_path, NULL, x, y);
+         
+      }
+      
+      return true;
       
    }
    
    
    bool graphics_path::internal_add_move(int x, int y)
    {
+
+      CGPathMoveToPoint(m_path, NULL, x, y);
       
-      end_figure(false);
+      m_bBegin = false;
       
-      return m_pospath->add_line(x, y);
+      return true;
       
    }
    
@@ -89,42 +155,44 @@ namespace mac
       
       void * ppath = get_os_data();
       
-      m_pospath->m_ppath = NULL;
-      
-      delete m_pospath;
-      
-      m_pospath = NULL;
+      m_path = NULL;
       
       return ppath;
       
    }
    
    
-   void * graphics_path::get_os_data()
+   void * graphics_path::get_os_data() const
    {
       
       defer_update();
       
-      if(m_pospath == NULL)
-         return NULL;
-      
-      return m_pospath->m_ppath;
+      return m_path;
          
       
    }
    
-   
-   bool graphics_path::update()
+   bool graphics_path::destroy()
    {
       
-      if(m_pospath != NULL)
+      if(m_path != NULL)
       {
          
-         delete m_pospath;
+         CGPathRelease(m_path);
+         
+         m_path = NULL;
          
       }
       
-      m_pospath = new os_simple_path();
+      return true;
+      
+   }
+   
+   
+   bool graphics_path::create()
+   {
+      
+      m_path = CGPathCreateMutable();
       
       for(int32_t i = 0; i < m_elementa.get_count(); i++)
       {

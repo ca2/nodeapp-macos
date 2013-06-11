@@ -236,6 +236,10 @@ namespace mac
       
       void round_window_draw(CGContextRef cgc);
       
+      void set_view_port_org(::ca::graphics * pgraphics);
+      void offset_view_port_org(LPRECT lprectScreen);
+      
+      
       virtual ::ca::graphics * GetDCEx(::ca::region* prgnClip, DWORD flags);
       virtual bool LockWindowUpdate();
       virtual void UnlockWindowUpdate();

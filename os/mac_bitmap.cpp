@@ -321,7 +321,7 @@ namespace mac
       
    }
    
-   void bitmap::destroy()
+   bool bitmap::destroy()
    {
       
 /*      if(m_psurface == NULL)
@@ -330,6 +330,7 @@ namespace mac
       cairo_surface_destroy(m_psurface);
   */
       
+      return true;
       
    }
    
