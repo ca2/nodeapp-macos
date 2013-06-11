@@ -345,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				9A574B4216AA202E000CC4EF /* Kerr */,
-				9A574B8B16AAB7B8000CC4EF /* mac_brush.cpp */,
 				9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */,
 				9A574B4516AA2031000CC4EF /* mac_afxImpl.h */,
 				9A574B4716AA203B000CC4EF /* mac_file_set.h */,
@@ -369,6 +368,7 @@
 				A1CFD8A0154FB715007447E2 /* mac_appterm.cpp */,
 				A1CFD8A1154FB715007447E2 /* mac_bitmap.cpp */,
 				A1CFD8A2154FB715007447E2 /* mac_bitmap.h */,
+				9A574B8B16AAB7B8000CC4EF /* mac_brush.cpp */,
 				A1CFD8A4154FB715007447E2 /* mac_brush.h */,
 				A1CFD8A5154FB715007447E2 /* mac_dib.cpp */,
 				A1CFD8A6154FB715007447E2 /* mac_dib.h */,

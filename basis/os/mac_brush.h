@@ -10,10 +10,9 @@ namespace mac
    public:
       
       
-      int32_t                  m_iStyle;
-      COLORREF             m_cr;
-      int32_t                  m_iStock;
-      
+      CGGradientRef     m_gradient;
+      CGColorRef        m_color;
+      CGColorSpaceRef   m_colorspace;
       
       //xxx      Gdiplus::Brush * m_pbrush;
       
@@ -26,6 +25,9 @@ namespace mac
       
       
       virtual void * get_os_data() const;
+      
+      virtual bool create();
+      virtual bool destroy();
       
       
       //bool CreateSolidBrush(COLORREF crColor);

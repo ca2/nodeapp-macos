@@ -24,6 +24,9 @@ namespace mac
 //#endif
       
       CGContextRef               m_pdc;
+      CGLayerRef                 m_layer;
+      CGAffineTransform          m_affine;
+      
       
       
       int32_t                     m_iType;
@@ -39,7 +42,6 @@ namespace mac
       bool                    m_bBackColor;
       uint64_t                m_uiForeColor;
       uint64_t                m_uiBackColor;
-      COLORREF                m_crTextColor;
       //xxx ::Gdiplus::GraphicsPath *     m_ppath;
       //xxx ::Gdiplus::GraphicsPath *     m_ppathPaint;
       //xxx HDC                           m_hdc;
@@ -126,7 +128,12 @@ namespace mac
       ::ca::bitmap* SelectObject(::ca::bitmap* pBitmap);
       int32_t SelectObject(::ca::region* pRgn);       // special return for regions
       ::ca::graphics_object* SelectObject(::ca::graphics_object* pObject);
+      
+      
       // ::ca::graphics_object* provided so compiler doesn't use SelectObject(HGDIOBJ)
+      
+      virtual bool SelectFont(::ca::font * pfont);
+
       
       // color and color Palette Functions
       COLORREF GetNearestColor(COLORREF crColor) const;
@@ -140,14 +147,12 @@ namespace mac
       int32_t GetPolyFillMode() const;
       int32_t GetROP2() const;
       int32_t GetStretchBltMode() const;
-      COLORREF GetTextColor() const;
       
       virtual COLORREF SetBkColor(COLORREF crColor);
       int32_t SetBkMode(int32_t nBkMode);
       int32_t SetPolyFillMode(int32_t nPolyFillMode);
       int32_t SetROP2(int32_t nDrawMode);
       int32_t SetStretchBltMode(int32_t nStretchMode);
-      virtual COLORREF SetTextColor(COLORREF crColor);
       
       // xxx      bool GetColorAdjustment(LPCOLORADJUSTMENT lpColorAdjust) const;
       // xxx      bool SetColorAdjustment(const COLORADJUSTMENT* lpColorAdjust);
