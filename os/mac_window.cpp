@@ -6229,6 +6229,9 @@ namespace mac
       
       _000OnDraw(g);
       
+      
+      g->FillSolidRect(10, 10, 100, 100, ARGB(128, 84, 184, 77));
+      
    }
    
    

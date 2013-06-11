@@ -460,19 +460,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../../os/RoundWindow.mm"
-         timestampString = "392582719.725999"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "200"
-         endingLineNumber = "200"
-         landmarkName = "-drawRect:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "../../os/mac_window.cpp"
          timestampString = "392514398.629792"
          startingColumnNumber = "9223372036854775807"
@@ -480,6 +467,32 @@
          startingLineNumber = "171"
          endingLineNumber = "171"
          landmarkName = "window::ModifyStyle(oswindow hWnd, DWORD dwRemove, DWORD dwAdd, UINT nFlags)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca2/user/simple/simple_frame_window.cpp"
+         timestampString = "392600474.843314"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "935"
+         endingLineNumber = "935"
+         landmarkName = "simple_frame_window::_001OnDraw(::ca::graphics * pdc)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app-core/appseed/uinteraction/uinteraction_frame_schema_005.cpp"
+         timestampString = "392601116.142234"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "582"
+         endingLineNumber = "582"
+         landmarkName = "FrameSchemaHardCoded005::DrawFrame(::ca::graphics *pdc)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

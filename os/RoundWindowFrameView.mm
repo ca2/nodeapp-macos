@@ -11,7 +11,6 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 //
-
 #import "RoundWindowFrameView.h"
 
 
@@ -129,6 +128,11 @@
 	}
 }
 
+- (BOOL) isFlipped
+{
+   return YES;
+}
+
 //
 // drawRect:
 //
@@ -137,30 +141,20 @@
 - (void)drawRect:(NSRect)rect
 {
    
-   round_window * p = m_roundwindow->m_pwindow;
-   
-   CGContextRef cgc = (CGContextRef) [[NSGraphicsContext currentContext] graphicsPort];
-   
-   p->round_window_draw(cgc);
-   
-   
-/*	[[NSColor clearColor] set];
+	[[NSColor clearColor] set];
 	NSRectFill(rect);
+
+/*
+	NSBezierPath * rectPath = [NSBezierPath bezierPathWithRect : [self bounds]];
 	
-	NSBezierPath *circlePath = [NSBezierPath bezierPathWithOvalInRect:[self bounds]];
-	
-	NSGradient* aGradient =
-		[[NSGradient alloc]
-			initWithColorsAndLocations:
-				[NSColor whiteColor], (CGFloat)0.0,
-				[NSColor lightGrayColor], (CGFloat)1.0,
-				nil];
-	[aGradient drawInBezierPath:circlePath angle:90];
+	NSGradient * gradient = [[NSGradient alloc] initWithColorsAndLocations : [NSColor whiteColor], (CGFloat) 0.0, [NSColor lightGrayColor], (CGFloat)1.0, nil];
+
+   [gradient drawInBezierPath : rectPath angle:90];
 
 	[[NSColor whiteColor] set];
-	[circlePath stroke];
+	[rectPath stroke];
 	
-	NSRect resizeRect = [self resizeRect];
+   NSRect resizeRect = [self resizeRect];
 	NSBezierPath *resizePath = [NSBezierPath bezierPathWithRect:resizeRect];
 
 	[[NSColor lightGrayColor] set];
@@ -169,7 +163,8 @@
 	[[NSColor darkGrayColor] set];
 	[resizePath stroke];
 	
-	[[NSColor blackColor] set];
+
+   [[NSColor blackColor] set];
 	NSString *windowTitle = [[self window] title];
 	NSRect titleRect = [self bounds];
 	titleRect.origin.y = titleRect.size.height - (WINDOW_FRAME_PADDING - 7);
@@ -184,7 +179,15 @@
 			dictionaryWithObjectsAndKeys:
 				paragraphStyle, NSParagraphStyleAttributeName,
 				[NSFont systemFontOfSize:14], NSFontAttributeName,
-			nil]];*/
+			nil]];
+ */
+   
+   round_window * p = m_roundwindow->m_pwindow;
+   
+   CGContextRef cgc = (CGContextRef) [[NSGraphicsContext currentContext] graphicsPort];
+   
+   p->round_window_draw(cgc);
+   
 }
 
 @end

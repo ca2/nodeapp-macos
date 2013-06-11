@@ -11,13 +11,11 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 //
-
 #import <Cocoa/Cocoa.h>
-
 
 #include "RoundWindow.h"
 
-#define WINDOW_FRAME_PADDING 75
+#define NS_ROUND_WINDOW_FRAME_PADDING 0
 
 @interface RoundWindowFrameView : NSView
 {
