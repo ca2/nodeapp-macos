@@ -2527,7 +2527,7 @@ namespace mac
       // NOTE: nIDFirst->nIDLast are usually 0->0xffff
       
       __SIZEPARENTPARAMS layout;
-//      ::user::interaction * hWndLeftOver = NULL;
+      ::user::interaction * hWndLeftOver = NULL;
       
       layout.bStretch = bStretch;
       layout.sizeTotal.cx = layout.sizeTotal.cy = 0;
@@ -2541,97 +2541,120 @@ namespace mac
             GetClientRect(&layout.rect);    // starting rect comes from client rect
       }
       
-      /*      if ((nFlags & ~reposNoPosLeftOver) != reposQuery)
-       layout.hDWP = ::BeginDeferWindowPos(8); // reasonable guess
-       else
-       layout.hDWP = NULL; // not actually doing layout
+//      if ((nFlags & ~reposNoPosLeftOver) != reposQuery)
+//         layout.hDWP = ::BeginDeferWindowPos(8); // reasonable guess
+//      else
+         layout.hDWP = NULL; // not actually doing layout
        
-       if(m_pguie != this && m_pguie != NULL)
-       {
-       for (::user::interaction * hWndChild = m_pguie->GetTopWindow(); hWndChild != NULL;
-       hWndChild = hWndChild->GetNextWindow(GW_HWNDNEXT))
-       {
-       id id = hWndChild->GetDlgCtrlId();
-       ::user::interaction * pWnd = hWndChild;
-       if (id == (int32_t) nIdLeftOver)
-       hWndLeftOver = hWndChild;
-       else if (pWnd != NULL)
-       hWndChild->send_message(WM_SIZEPARENT, 0, (LPARAM)&layout);
-       }
-       for (::user::interaction * hWndChild = m_pguie->get_top_child(); hWndChild != NULL;
-       hWndChild = hWndChild->under_sibling())
-       {
-       id id = hWndChild->GetDlgCtrlId();
-       ::user::interaction * pWnd = hWndChild;
-       if (id == nIdLeftOver)
-       hWndLeftOver = hWndChild;
-       else if (pWnd != NULL)
-       hWndChild->send_message(WM_SIZEPARENT, 0, (LPARAM)&layout);
-       }
+      if(m_pguie != this && m_pguie != NULL)
+      {
+         
+         for(::user::interaction * hWndChild = m_pguie->GetTopWindow(); hWndChild != NULL; hWndChild = hWndChild->GetNextWindow(GW_HWNDNEXT))
+         {
+            
+            id id = hWndChild->GetDlgCtrlId();
+       
+            ::user::interaction * pWnd = hWndChild;
+            
+            if (id == nIdLeftOver)
+               hWndLeftOver = hWndChild;
+            else if (pWnd != NULL)
+               hWndChild->send_message(WM_SIZEPARENT, 0, (LPARAM)&layout);
+         }
+         
+         for(::user::interaction * hWndChild = m_pguie->get_top_child(); hWndChild != NULL; hWndChild = hWndChild->under_sibling())
+         {
+            
+            id id = hWndChild->GetDlgCtrlId();
+       
+            ::user::interaction * pWnd = hWndChild;
+
+            if (id == nIdLeftOver)
+               hWndLeftOver = hWndChild;
+            else if (pWnd != NULL)
+               hWndChild->send_message(WM_SIZEPARENT, 0, (LPARAM)&layout);
+         }
+         
        }
        else
        {
-       for (::user::interaction * hWndChild = GetTopWindow(); hWndChild != NULL;
-       hWndChild = hWndChild->GetNextWindow(GW_HWNDNEXT))
-       {
-       id id = hWndChild->GetDlgCtrlId();
-       ::user::interaction * pWnd = hWndChild;
-       if (id == nIdLeftOver)
-       hWndLeftOver = hWndChild;
-       else if (pWnd != NULL)
-       hWndChild->send_message(WM_SIZEPARENT, 0, (LPARAM)&layout);
-       }
-       for (::user::interaction * hWndChild = m_pguie->get_top_child(); hWndChild != NULL;
-       hWndChild = hWndChild->under_sibling())
-       {
-       id id = hWndChild->GetDlgCtrlId();
-       ::user::interaction * pWnd = hWndChild;
-       if (id == nIdLeftOver)
-       hWndLeftOver = hWndChild;
-       else if (pWnd != NULL)
-       hWndChild->send_message(WM_SIZEPARENT, 0, (LPARAM)&layout);
-       }
+          
+          for(::user::interaction * hWndChild = GetTopWindow(); hWndChild != NULL; hWndChild = hWndChild->GetNextWindow(GW_HWNDNEXT))
+          {
+             
+             id id = hWndChild->GetDlgCtrlId();
+       
+             ::user::interaction * pWnd = hWndChild;
+       
+             if (id == nIdLeftOver)
+               hWndLeftOver = hWndChild;
+             else if (pWnd != NULL)
+                hWndChild->send_message(WM_SIZEPARENT, 0, (LPARAM)&layout);
+             
+          }
+          
+          for(::user::interaction * hWndChild = m_pguie->get_top_child(); hWndChild != NULL; hWndChild = hWndChild->under_sibling())
+          {
+             
+             id id = hWndChild->GetDlgCtrlId();
+       
+             ::user::interaction * pWnd = hWndChild;
+       
+             if(id == nIdLeftOver)
+                hWndLeftOver = hWndChild;
+             else if (pWnd != NULL)
+                hWndChild->send_message(WM_SIZEPARENT, 0, (LPARAM)&layout);
+             
+          }
+          
        }
        
        // if just getting the available rectangle, return it now...
        if ((nFlags & ~reposNoPosLeftOver) == reposQuery)
        {
-       ASSERT(lpRectParam != NULL);
-       if (bStretch)
-       ::CopyRect(lpRectParam, &layout.rect);
-       else
-       {
-       lpRectParam->left = lpRectParam->top = 0;
-       lpRectParam->right = layout.sizeTotal.cx;
-       lpRectParam->bottom = layout.sizeTotal.cy;
-       }
-       return;
+          
+          ASSERT(lpRectParam != NULL);
+          
+          if(bStretch)
+             ::CopyRect(lpRectParam, &layout.rect);
+          else
+          {
+            lpRectParam->left = lpRectParam->top = 0;
+             lpRectParam->right = layout.sizeTotal.cx;
+             lpRectParam->bottom = layout.sizeTotal.cy;
+          }
+          return;
        }
        
        // the rest is the client size of the left-over pane
-       if(nIdLeftOver != NULL && hWndLeftOver != NULL)
+       if(!nIdLeftOver.is_null() && hWndLeftOver != NULL)
        {
-       ::user::interaction * pLeftOver = hWndLeftOver;
-       // allow extra space as specified by lpRectBorder
-       if ((nFlags & ~reposNoPosLeftOver) == reposExtra)
-       {
-       ASSERT(lpRectParam != NULL);
-       layout.rect.left += lpRectParam->left;
-       layout.rect.top += lpRectParam->top;
-       layout.rect.right -= lpRectParam->right;
-       layout.rect.bottom -= lpRectParam->bottom;
-       }
-       // reposition the window
-       if ((nFlags & reposNoPosLeftOver) != reposNoPosLeftOver)
-       {
-       pLeftOver->CalcWindowRect(&layout.rect);
-       __reposition_window(&layout, pLeftOver, &layout.rect);
-       }
+       
+          ::user::interaction * pLeftOver = hWndLeftOver;
+          
+          // allow extra space as specified by lpRectBorder
+          
+          if ((nFlags & ~reposNoPosLeftOver) == reposExtra)
+          {
+             ASSERT(lpRectParam != NULL);
+             layout.rect.left += lpRectParam->left;
+             layout.rect.top += lpRectParam->top;
+             layout.rect.right -= lpRectParam->right;
+             layout.rect.bottom -= lpRectParam->bottom;
+          }
+       
+          // reposition the window
+          if ((nFlags & reposNoPosLeftOver) != reposNoPosLeftOver)
+          {
+             
+             pLeftOver->CalcWindowRect(&layout.rect);
+             __reposition_window(&layout, pLeftOver, &layout.rect);
+          }
        }
        
        // move and resize all the windows at once!
-       if (layout.hDWP == NULL || !::EndDeferWindowPos(layout.hDWP))
-       TRACE(::ca::trace::category_AppMsg, 0, "Warning: DeferWindowPos failed - low system resources.\n");*/
+//       if (layout.hDWP == NULL || !::EndDeferWindowPos(layout.hDWP))
+  //     TRACE(::ca::trace::category_AppMsg, 0, "Warning: DeferWindowPos failed - low system resources.\n");*/
    }
    
    
@@ -5326,18 +5349,17 @@ namespace mac
    sp(::user::interaction) window::GetNextWindow(UINT nFlag)
    {
       
-      throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_handle()));
-      //      return ::mac::window::from_handle(::GetNextWindow(get_handle(), nFlag));
+      return NULL;
       
    }
    
    sp(::user::interaction) window::GetTopWindow()
    {
       
-      throw not_implemented(get_app());
-      //      ASSERT(::IsWindow(get_handle()));
-      //      return ::mac::window::from_handle(::GetTopWindow(get_handle()));
+      if(m_pguie->m_uiptraChild.get_size() <= 0)
+         return NULL;
+      
+      return m_pguie->m_uiptraChild(0);
       
    }
    
@@ -6230,7 +6252,7 @@ namespace mac
       _000OnDraw(g);
       
       
-      g->FillSolidRect(10, 10, 100, 100, ARGB(128, 84, 184, 77));
+//      g->FillSolidRect(10, 10, 100, 100, ARGB(128, 84, 184, 77));
       
    }
    
@@ -6972,6 +6994,25 @@ namespace mac
       //      ::DeleteObject(hbitmap);
    }
    
+   void window::offset_view_port_org(LPRECT lprectScreen)
+   {
+   }
+
+   
+   void window::set_view_port_org(::ca::graphics * pgraphics)
+   {
+      // graphics will be already set its view port to the window for linux - cairo with xlib
+      
+      pgraphics->SetViewportOrg(point(0, 0));
+      
+      /*      rect64 rectWindow;
+       GetWindowRect(rectWindow);
+       get_wnd()->ScreenToClient(rectWindow);
+       pgraphics->SetViewportOrg(point(rectWindow.top_left()));
+       pgraphics->SelectClipRgn(NULL);
+       */
+      
+   }
    
    
 }

@@ -22,39 +22,26 @@
 //
 // Init method for the object.
 //
-- (id)initWithContentRect:(NSRect)contentRect
-	styleMask:(NSUInteger)windowStyle
-	backing:(NSBackingStoreType)bufferingType
-	defer:(BOOL)deferCreation
+- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation
 {
-	self = [super
-		initWithContentRect:contentRect
-		styleMask:NSBorderlessWindowMask
-		backing:bufferingType
-		defer:deferCreation];
-	if (self)
-	{
-		[self setOpaque:NO];
-		[self setBackgroundColor:[NSColor clearColor]];
-		
-		[[NSNotificationCenter defaultCenter]
-			addObserver:self
-			selector:@selector(mainWindowChanged:)
-			name:NSWindowDidBecomeMainNotification
-			object:self];
-		
-		[[NSNotificationCenter defaultCenter]
-			addObserver:self
-			selector:@selector(mainWindowChanged:)
-			name:NSWindowDidResignMainNotification
-			object:self];
-      
-      m_controller = [[NSWindowController alloc] initWithWindow:self];
- 
-      [self create_view];
-      
-	}
    
+	self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:bufferingType defer:deferCreation];
+
+	if(self == NULL)
+      return NULL;
+   
+	[self setOpaque:NO];
+
+   [self setBackgroundColor:[NSColor clearColor]];
+		
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mainWindowChanged:) name:NSWindowDidBecomeMainNotification object:self];
+		
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mainWindowChanged:) name:NSWindowDidResignMainNotification object:self];
+      
+   m_controller = [[NSWindowController alloc] initWithWindow:self];
+ 
+   [self create_view];
+      
 	return self;
    
 }
@@ -66,9 +53,11 @@
 //
 - (void)dealloc
 {
-	[[NSNotificationCenter defaultCenter]
-		removeObserver:self];
+   
+//	[[NSNotificationCenter defaultCenter] removeObserver:self];
+   
 //	[super dealloc];
+   
 }
 
 
@@ -79,17 +68,9 @@
 //
 - (void)setContentSize:(NSSize)newSize
 {
-	//NSSize sizeDelta = newSize;
-	//NSSize childBoundsSize = [childContentView bounds].size;
-	//sizeDelta.width -= childBoundsSize.width;
-	//sizeDelta.height -= childBoundsSize.height;
-	
-//	RoundWindowFrameView *frameView = [super contentView];
-	//NSSize newFrameSize = [frameView bounds].size;
-	//newFrameSize.width += sizeDelta.width;
-	//newFrameSize.height += sizeDelta.height;
 	
 	[super setContentSize:newSize];
+   
 }
 
 //
@@ -99,7 +80,9 @@
 //
 - (void)mainWindowChanged:(NSNotification *)aNotification
 {
+   
 	[closeButton setNeedsDisplay];
+   
 }
 
 //
@@ -121,18 +104,9 @@
 		
 	[super setContentView : frameView];
 
-	//	closeButton = [NSWindow standardWindowButton:NSWindowCloseButton forStyleMask:NSTitledWindowMask];
-	//	NSRect closeButtonRect = [closeButton frame];
-	//	[closeButton setFrame:NSMakeRect(WINDOW_FRAME_PADDING - 20, bounds.size.height - (WINDOW_FRAME_PADDING - 20) - closeButtonRect.size.height, closeButtonRect.size.width, closeButtonRect.size.height)];
-	//	[closeButton setAutoresizingMask:NSViewMaxXMargin | NSViewMinYMargin];
-	//	[frameView addSubview:closeButton];
-	//childContentView = frameView;
+	[frameView setFrame : bounds];
    
-	[frameView setFrame : [self contentRectForFrameRect : bounds]];
-   
-	[frameView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-   
-//	[frameView addSubview:childContentView];
+	[frameView setAutoresizingMask: 0];
    
 }
 
@@ -143,7 +117,7 @@
 //
 - (NSView *)contentView
 {
-	return childContentView;
+	return [super contentView];
 }
 
 //
