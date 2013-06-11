@@ -17,11 +17,15 @@ namespace mac
    public:
       
       
-#ifdef __MM
-      NSGraphicsContext *     m_nsgc;
-#else
-      void *                  m_pnsgc;
-#endif     
+//#ifdef __MM
+  //    NSGraphicsContext *     m_nsgc;
+//#else
+  //    void *                  m_pnsgc;
+//#endif
+      
+      CGContextRef               m_pdc;
+      
+      
       int32_t                     m_iType;
 #ifdef __MM
       NSColor *               m_nscolorFore;
@@ -522,6 +526,9 @@ namespace mac
       bool fill_and_draw();
       bool fill();
       bool draw();
+      
+      
+      void internal_set_fill_color(COLORREF cr);
       
    };
    

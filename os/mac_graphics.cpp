@@ -3637,7 +3637,9 @@ namespace mac
    int32_t graphics::GetClipBox(LPRECT lpRect) const
    {
       
-      throw not_implemented(get_app());
+      ::SetRectEmpty(lpRect);
+      
+//      throw not_implemented(get_app());
       return 0;
       
       /*      return ::GetClipBox(get_handle1(), lpRect);*/
@@ -4887,168 +4889,35 @@ namespace mac
    
    
    
-   /*
-    
-    /////////////////////////////////////////////////////////////////////////////
-    // Helper DCs
-    
-    
-    void CClientDC::assert_valid() const
-    {
-    graphics::assert_valid();
-    ASSERT(m_hWnd == NULL || ::IsWindow(m_hWnd));
-    }
-    
-    void CClientDC::dump(dump_context & dumpcontext) const
-    {
-    graphics::dump(dumpcontext);
-    
-    dumpcontext << "get_handle1() = " << m_hWnd;
-    dumpcontext << "\n";
-    }
-    
-    
-    CClientDC::CClientDC(window * pWnd)
-    {
-    ASSERT(pWnd == NULL || ::IsWindow(WIN_WINDOW(pWnd)->get_handle1()));
-    
-    if (!Attach(::GetDC(m_hWnd = WIN_WINDOW(pWnd)->GetSafeHwnd())))
-    throw resource_exception();
-    }
-    
-    CClientDC::~CClientDC()
-    {
-    ASSERT(get_handle1() != NULL);
-    ::ReleaseDC(m_hWnd, Detach());
-    }
-    
-    
-    void CWindowDC::assert_valid() const
-    {
-    graphics::assert_valid();
-    ASSERT(m_hWnd == NULL || ::IsWindow(m_hWnd));
-    }
-    
-    void CWindowDC::dump(dump_context & dumpcontext) const
-    {
-    graphics::dump(dumpcontext);
-    
-    dumpcontext << "get_handle1() = " << m_hWnd;
-    dumpcontext << "\n";
-    }
-    
-    
-    CWindowDC::CWindowDC(window * pWnd)
-    {
-    ASSERT(pWnd == NULL || ::IsWindow(WIN_WINDOW(pWnd)->get_handle1()));
-    
-    if (!Attach(::GetWindowDC(m_hWnd = WIN_WINDOW(pWnd)->GetSafeHwnd())))
-    throw resource_exception();
-    }
-    
-    CWindowDC::~CWindowDC()
-    {
-    ASSERT(get_handle1() != NULL);
-    ::ReleaseDC(m_hWnd, Detach());
-    }
-    
-    
-    void CPaintDC::assert_valid() const
-    {
-    graphics::assert_valid();
-    ASSERT(::IsWindow(m_hWnd));
-    }
-    
-    void CPaintDC::dump(dump_context & dumpcontext) const
-    {
-    graphics::dump(dumpcontext);
-    
-    dumpcontext << "get_handle1() = " << m_hWnd;
-    dumpcontext << "\nm_ps.hdc = " << m_ps.hdc;
-    dumpcontext << "\nm_ps.fErase = " << m_ps.fErase;
-    dumpcontext << "\nm_ps.rcPaint = " << (rect)m_ps.rcPaint;
-    
-    dumpcontext << "\n";
-    }
-    
-    
-    CPaintDC::CPaintDC(window * pWnd)
-    {
-    ASSERT_VALID(pWnd);
-    ASSERT(::IsWindow(WIN_WINDOW(pWnd)->get_handle1()));
-    
-    if (!Attach(::BeginPaint(m_hWnd = WIN_WINDOW(pWnd)->get_handle1(), &m_ps)))
-    throw resource_exception();
-    }
-    
-    CPaintDC::~CPaintDC()
-    {
-    ASSERT(get_handle1() != NULL);
-    ASSERT(::IsWindow(m_hWnd));
-    
-    ::EndPaint(m_hWnd, &m_ps);
-    Detach();
-    }
-    
-    */
-   
-   
-   
-   
-   
-   
-   
-   // IMPLEMENT_DYNAMIC(resource_exception, base_exception)
-   //resource_exception _simpleResourceException(FALSE, __IDS_RESOURCE_EXCEPTION);
-   
-   // IMPLEMENT_DYNAMIC(user_exception, base_exception)
-   //user_exception _simpleUserException(FALSE, __IDS_USER_EXCEPTION);
-   
-   // IMPLEMENT_DYNCREATE(graphics, ::ca::object)
-   // IMPLEMENT_DYNAMIC(CClientDC, graphics)
-   // IMPLEMENT_DYNAMIC(CWindowDC, graphics)
-   // IMPLEMENT_DYNAMIC(CPaintDC, graphics)
-   // IMPLEMENT_DYNCREATE(::ca::graphics_object, ::ca::object)
-   
-   // IMPLEMENT_DYNAMIC(pen, ::ca::graphics_object)
-   // IMPLEMENT_DYNAMIC(::ca::brush, ::ca::graphics_object)
-   // IMPLEMENT_DYNAMIC(::ca::font, ::ca::graphics_object)
-   // IMPLEMENT_DYNAMIC(::ca::bitmap, ::ca::graphics_object)
-   // IMPLEMENT_DYNAMIC(::ca::palette, ::ca::graphics_object)
-   // IMPLEMENT_DYNAMIC(::ca::region, ::ca::graphics_object)
-   
-   
    void graphics::FillSolidRect(LPCRECT lpRect, COLORREF clr)
    {
       
-      //g.SetCompositingMode(Gdiplus::CompositingModeSourceCopy);
-      //g().SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-      //g().SetCompositingQuality(Gdiplus::CompositingQualityGammaCorrected);
+      CGRect rect;
       
-      set_color(clr);
+      rect.origin.x     = lpRect->left;
+      rect.origin.y     = lpRect->top;
+      rect.size.width   = lpRect->right - lpRect->left;
+      rect.size.height  = lpRect->bottom - lpRect->top;
       
-//      cairo_rectangle(m_pdc, lpRect->left, lpRect->top, lpRect->right - lpRect->left, lpRect->bottom - lpRect->top);
-//      
-//      cairo_fill(m_pdc);
-//      
-      //      m_pgraphics->FillRectangle(gdiplus_brush(), lpRect->left, lpRect->top, lpRect->right - lpRect->left, lpRect->bottom - lpRect->top);
+      internal_set_fill_color(clr);
       
-      //::SetBkColor(get_handle1(), clr);
-      //::ExtTextOut(get_handle1(), 0, 0, ETO_OPAQUE, lpRect, NULL, 0, NULL);
+      CGContextFillRect(m_pdc, rect);
+      
    }
    
    void graphics::FillSolidRect(int32_t x, int32_t y, int32_t cx, int32_t cy, COLORREF clr)
    {
-      //g.SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-      //g().SetCompositingMode(Gdiplus::CompositingModeSourceOver);
-      //g().SetCompositingQuality(Gdiplus::CompositingQualityGammaCorrected);
       
+      CGRect rect;
       
-      set_color(clr);
+      rect.origin.x     = x;
+      rect.origin.y     = y;
+      rect.size.width   = cx;
+      rect.size.height  = cy;
       
-//      cairo_rectangle(m_pdc, x, y, cx, cy);
+      internal_set_fill_color(clr);
       
-//      cairo_fill(m_pdc);
+      CGContextFillRect(m_pdc, rect);
       
    }
    
@@ -5392,14 +5261,7 @@ namespace mac
    bool graphics::attach(void * pdata)
    {
       
-//      if(m_pdc != NULL)
-//      {
-//         
-//         cairo_destroy(m_pdc);
-//         
-//      }
-//      
-//      m_pdc = (cairo_t *) pdata;
+      m_pdc = (CGContextRef) pdata;
       
       return true;
       
@@ -5777,6 +5639,13 @@ namespace mac
    {
       
       return draw(m_sppen);
+      
+   }
+   
+   void graphics::internal_set_fill_color(COLORREF cr)
+   {
+      
+      CGContextSetRGBFillColor(m_pdc, GetRValue(cr) / 255.0f, GetGValue(cr) / 255.0f, GetBValue(cr) / 255.0f, GetAValue(cr) / 255.0f);
       
    }
    
