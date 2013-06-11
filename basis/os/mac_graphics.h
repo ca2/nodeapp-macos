@@ -342,6 +342,7 @@ namespace mac
        BLENDFUNCTION blend);*/
       
       // Text Functions
+      virtual bool internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode);
       virtual bool TextOut(int32_t x, int32_t y, const char * lpszString, int32_t nCount);
       virtual bool TextOut(int32_t x, int32_t y, const string & str);
       virtual bool TextOut(double x, double y, const char * lpszString, int32_t nCount);

@@ -1,7 +1,7 @@
 #include "framework.h"
 #include <math.h>
 #include <memory.h>
-
+#include <CoreFoundation/CFDictionary.h>
 
 namespace mac
 {
@@ -4800,150 +4800,26 @@ namespace mac
        return size;
        */
    }
+
    
    bool graphics::GetTextExtent(sized & size, const char * lpszString, strsize nCount, int32_t iIndex) const
    {
       
-      ((graphics *) this)->set(m_spfont);
+      const_cast < graphics * > (this)->internal_show_text(0, 0, &lpszString[iIndex], (int32_t) nCount, kCGTextInvisible);
       
-      CGPoint pt1 = CGContextGetTextPosition(m_pdc);
-      
-      CGContextSetTextDrawingMode(m_pdc, kCGTextInvisible);
-      
-      CGContextShowText(m_pdc, &lpszString[iIndex], nCount);
+      CGPoint pt = CGContextGetTextPosition(m_pdc);
 
-      CGPoint pt2 = CGContextGetTextPosition(m_pdc);
-
-      size.cx = pt2.x - pt1.x;
+      size.cx = pt.x;
       
-      size.cy = pt2.y - pt1.y;
+      size.cy = pt.y;
       
       if(size.cy < m_fontxyz.m_dFontSize)
          size.cy = m_fontxyz.m_dFontSize;
       
       return true;
       
-      
-      
-      //retry_single_lock slGdiplus(&System.s_mutexGdiplus, millis(1), millis(1));
-      
-      /*      if(lpszString == NULL || *lpszString == '\0')
-       return false;
-       
-       if(nCount < 0)
-       nCount = strlen(lpszString);
-       
-       if(iIndex > nCount)
-       return false;
-       
-       if(iIndex < 0)
-       return false;
-       
-       wstring wstr = ::ca::international::utf8_to_unicode(lpszString, nCount);
-       
-       strsize iRange = 0;
-       strsize i = 0;
-       strsize iLen;
-       const char * psz = lpszString;
-       while(i < iIndex)
-       {
-       try
-       {
-       iLen = ::ca::str::utf8_char(psz).length();
-       }
-       catch(...)
-       {
-       break;
-       }
-       iRange++;
-       i += iLen;
-       try
-       {
-       psz = ::ca::str::utf8_inc(psz);
-       }
-       catch(...)
-       {
-       break;
-       }
-       if(psz == NULL)
-       break;
-       if(*psz == '\0')
-       break;
-       }
-       
-       Gdiplus::CharacterRange charRanges[1] = { Gdiplus::CharacterRange(0, (INT) iRange) };
-       
-       Gdiplus::StringFormat strFormat(Gdiplus::StringFormat::GenericTypographic());
-       //Gdiplus::StringFormat strFormat;
-       
-       strFormat.SetMeasurableCharacterRanges(1, charRanges);
-       
-       strFormat.SetFormatFlags(strFormat.GetFormatFlags()
-       | Gdiplus::StringFormatFlagsNoClip | Gdiplus::StringFormatFlagsMeasureTrailingSpaces
-       | Gdiplus::StringFormatFlagsLineLimit | Gdiplus::StringFormatFlagsNoWrap);
-       
-       int32_t count = strFormat.GetMeasurableCharacterRangeCount();
-       
-       Gdiplus::Region * pCharRangeRegions = new Gdiplus::Region[count];
-       
-       //Gdiplus::RectF box(0.0f, 0.0f, 128.0f * 1024.0f, 128.0f * 1024.0f);
-       
-       Gdiplus::PointF origin(0, 0);
-       
-       
-       // Generate a layout rect for the text
-       
-       Gdiplus::RectF layoutRect;
-       Gdiplus::Status status = ((graphics *)this)->m_pgraphics->MeasureString( wstr, (INT) nCount, ((graphics *)this)->gdiplus_font(), origin, &layoutRect );
-       
-       
-       // Prevent clipping
-       
-       //StringFormat strFormat( StringFormat::GenericTypographic() );
-       //status = ((graphics *)this)->m_pgraphics->SetFormatFlags( StringFormatFlagsNoWrap | StringFormatFlagsNoClip );
-       
-       
-       
-       //m_pgraphics->MeasureString(wstr, (int32_t) wstr.get_length(), ((graphics *)this)->gdiplus_font(), origin, Gdiplus::StringFormat::GenericTypographic(), &box);
-       
-       ((graphics *)this)->m_pgraphics->MeasureCharacterRanges(wstr, (INT) nCount, ((graphics *)this)->gdiplus_font(), layoutRect, &strFormat, (INT) count, pCharRangeRegions);
-       
-       Gdiplus::Region * pregion = NULL;
-       
-       
-       if(count > 0)
-       {
-       
-       pregion = pCharRangeRegions[0].Clone();
-       
-       }
-       
-       for(i = 1; i < count; i++)
-       {
-       pregion->Union(&pCharRangeRegions[i]);
-       }
-       
-       delete [] pCharRangeRegions;
-       
-       if(pregion == NULL)
-       return false;
-       
-       Gdiplus::RectF rectBound;
-       
-       pregion->GetBounds(&rectBound, m_pgraphics);
-       
-       delete pregion;
-       
-       Gdiplus::SizeF sizef;
-       
-       rectBound.GetSize(&sizef);
-       
-       size.cx = sizef.Width * m_fontxyz.m_dFontWidth;
-       
-       size.cy = sizef.Height;
-       
-       return true;*/
    }
+   
    
    bool graphics::GetTextExtent(sized & size, const char * lpszString, strsize nCount) const
    {
@@ -5046,17 +4922,7 @@ namespace mac
    bool graphics::TextOut(int32_t x, int32_t y, const char * lpszString, int32_t nCount)
    {
       
-      CGContextBeginPath(m_pdc);
-      
-      ((graphics *) this)->set(m_spfont);
-      
-      CGContextSetTextDrawingMode(m_pdc, kCGTextFill);
-      
-      internal_set_fill_color(m_crColor);
-      
-      CGContextShowTextAtPoint(m_pdc, x, y, lpszString, nCount);
-      
-      return true;
+      return TextOut(double(x), double(y), lpszString, nCount);
       
    }
    
@@ -5065,18 +4931,240 @@ namespace mac
       
       CGContextBeginPath(m_pdc);
       
-      ((graphics *) this)->set(m_spfont);
+      string str(lpszString, nCount);
+      
+      CFStringRef string = CFStringCreateWithCString(NULL, str, kCFStringEncodingUTF8);
+
+      ::string strFontName;
+      
+      if(m_spfont.is_null())
+      {
+         
+         strFontName = "Helvetica";
+         
+      }
+      else if(m_spfont->m_strFontFamilyName == "Lucida Sans Unicode")
+      {
+         
+         strFontName = "Helvetica";
+         
+      }
+      else
+      {
+         
+         strFontName = "Helvetica";
+         
+      }
+      
+      CFStringRef fontName = CFStringCreateWithCString(NULL, strFontName, kCFStringEncodingUTF8);
+      
+      double dFontSize;
+      
+      if(m_spfont.is_null())
+      {
+         
+         dFontSize = 12.0;
+         
+      }
+      else
+      {
+         
+         dFontSize = m_spfont->m_dFontSize;
+         
+      }
+      
+      CTFontDescriptorRef fontD = CTFontDescriptorCreateWithNameAndSize(fontName, m_spfont->m_dFontSize);
+      
+      CTFontRef font =  CTFontCreateWithFontDescriptor(fontD, dFontSize, NULL);
+      
+      CFStringRef keys[] = { kCTFontAttributeName, kCTForegroundColorAttributeName };
+      
+      CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+      
+      CGFloat components[4];
+      
+      components[0] = GetRValue(m_crColor);
+      
+      components[1] = GetGValue(m_crColor);
+      
+      components[2] = GetBValue(m_crColor);
+      
+      components[3] = GetAValue(m_crColor);
+      
+      CGColorRef cr = CGColorCreate(rgbColorSpace, components);
+      
+      CGColorSpaceRelease(rgbColorSpace);
+      
+      CFTypeRef values[] = { font, cr };
+      
+      
+      CFDictionaryRef attributes =
+      
+      CFDictionaryCreate(kCFAllocatorDefault, (const void**)&keys,
+                         
+                         (const void**)&values, sizeof(keys) / sizeof(keys[0]),
+                         
+                         &kCFTypeDictionaryKeyCallBacks,
+                         
+                         &kCFTypeDictionaryValueCallBacks);
+      
+      
+      CFAttributedStringRef attrString =
+      
+      CFAttributedStringCreate(kCFAllocatorDefault, string, attributes);
+      
+      CFRelease(string);
+      
+      CFRelease(attributes);
+      
+      CTLineRef line = CTLineCreateWithAttributedString(attrString);
       
       CGContextSetTextDrawingMode(m_pdc, kCGTextFill);
       
-      internal_set_fill_color(m_crColor);
+      CGContextSetTextMatrix(m_pdc, CGAffineTransformTranslate(CGAffineTransformMakeScale(1.f, -1.f), x, - y - dFontSize));
+                                 
+      CTLineDraw(line, m_pdc);
       
-      CGContextShowTextAtPoint(m_pdc, x, y, lpszString, nCount);
+      CFRelease(line);
+      
+      CGColorRelease(cr);
+      
+      CFRelease(fontName);
+      
+      CFRelease(fontD);
+      
+      CFRelease(font);
       
       return true;
       
    }
+
    
+   bool graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode)
+   {
+      
+      string str(lpszString, nCount);
+      
+      CFStringRef string = CFStringCreateWithCString(NULL, str, kCFStringEncodingUTF8);
+
+      if(string == NULL)
+         return false;
+      
+      CGContextBeginPath(m_pdc);
+      
+      ::string strFontName;
+      
+      if(m_spfont.is_null())
+      {
+         
+         strFontName = "Helvetica";
+         
+      }
+      else if(m_spfont->m_strFontFamilyName == "Lucida Sans Unicode")
+      {
+         
+         strFontName = "Helvetica";
+         
+      }
+      else
+      {
+         
+         strFontName = "Helvetica";
+         
+      }
+      
+      CFStringRef fontName = CFStringCreateWithCString(NULL, strFontName, kCFStringEncodingUTF8);
+      
+      double dFontSize;
+      
+      if(m_spfont.is_null())
+      {
+         
+         dFontSize = 12.0;
+         
+      }
+      else
+      {
+         
+         dFontSize = m_spfont->m_dFontSize;
+         
+      }
+      
+      CTFontDescriptorRef fontD = CTFontDescriptorCreateWithNameAndSize(fontName, m_spfont->m_dFontSize);
+      
+      CTFontRef font =  CTFontCreateWithFontDescriptor(fontD, dFontSize, NULL);
+      
+      CFStringRef keys[] = { kCTFontAttributeName, kCTForegroundColorAttributeName };
+      
+      CGColorRef cr = NULL;
+      
+      if(emode == kCGTextInvisible)
+      {
+      
+         CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+      
+         CGFloat components[4];
+      
+         components[0] = GetRValue(m_crColor);
+      
+         components[1] = GetGValue(m_crColor);
+      
+         components[2] = GetBValue(m_crColor);
+      
+         components[3] = GetAValue(m_crColor);
+      
+         cr = CGColorCreate(rgbColorSpace, components);
+      
+         CGColorSpaceRelease(rgbColorSpace);
+         
+      }
+      
+      CFTypeRef values[] = { font, cr };
+      
+      CFDictionaryRef attributes =
+         CFDictionaryCreate(
+                            kCFAllocatorDefault,
+                            (const void**) &keys,
+                            (const void**)&values,
+                            emode == kCGTextInvisible ? 1 : 0,
+                            &kCFTypeDictionaryKeyCallBacks,
+                            &kCFTypeDictionaryValueCallBacks);
+      
+      
+      CFAttributedStringRef attrString =
+      
+      CFAttributedStringCreate(kCFAllocatorDefault, string, attributes);
+      
+      CFRelease(string);
+      
+      CFRelease(attributes);
+      
+      CTLineRef line = CTLineCreateWithAttributedString(attrString);
+      
+      CGContextSetTextDrawingMode(m_pdc, emode);
+      
+      CGContextSetTextMatrix(m_pdc, CGAffineTransformTranslate(CGAffineTransformMakeScale(1.f, -1.f), x, - y - dFontSize));
+      
+      CTLineDraw(line, m_pdc);
+      
+      CFRelease(line);
+      
+      if(emode != kCGTextInvisible)
+      {
+      
+         CGColorRelease(cr);
+         
+      }
+      
+      CFRelease(fontName);
+      
+      CFRelease(fontD);
+      
+      CFRelease(font);
+      
+      return true;
+      
+   }
    
    
    bool graphics::LineTo(double x, double y)
@@ -5268,6 +5356,10 @@ namespace mac
       if(pbrush->m_etype == ::ca::brush::type_linear_gradient_point_color)
       {
          
+         CGContextSaveGState(m_pdc);
+         
+         CGContextClip(m_pdc);
+         
          CGPoint myStartPoint, myEndPoint;
          
          myStartPoint.x = pbrush->m_pt1.x;
@@ -5279,6 +5371,8 @@ namespace mac
          myEndPoint.y = pbrush->m_pt2.y;
          
          CGContextDrawLinearGradient(m_pdc, (CGGradientRef) pbrush->get_os_data(), myStartPoint, myEndPoint, 0);
+         
+         CGContextRestoreGState(m_pdc);
          
       }
       else
@@ -5304,11 +5398,22 @@ namespace mac
       if(ppen->m_etype == ::ca::pen::type_solid)
       {
          
+         CGContextSaveGState(m_pdc);
+         
          CGContextSetRGBStrokeColor(m_pdc, GetRValue(ppen->m_cr) / 255.f, GetGValue(ppen->m_cr) / 255.f, GetBValue(ppen->m_cr) / 255.f, GetAValue(ppen->m_cr) / 255.f);
          
          CGContextSetLineWidth(m_pdc, ppen->m_dWidth);
          
+         if(fmod(ppen->m_dWidth, 2.0) <= 1.0)
+         {
+         
+            CGContextTranslateCTM(m_pdc, 0.5f, 0.5f);
+            
+         }
+         
          CGContextStrokePath(m_pdc);
+
+         CGContextRestoreGState(m_pdc);
          
       }
 
