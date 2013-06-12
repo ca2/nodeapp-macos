@@ -521,41 +521,7 @@ namespace mac
    point graphics::SetViewportOrg(POINT point)
    {
       
-      CGAffineTransform affine = m_affine;
-
-//      CGAffineTransform affineInvert = CGAffineTransformInvert(affine);
-      
-      CGAffineTransform affineABCD = CGContextGetCTM(m_pdc);
-      
-//      CGAffineTransform affineBCD = CGAffineTransformConcat(affineInvert, affineABCD);
-      
-      CGAffineTransform affineABCDInvert = CGAffineTransformInvert(affineABCD);
-      
-      CGContextConcatCTM(m_pdc, affineABCDInvert);
-      
-//      CGAffineTransform affineQ1 = CGContextGetCTM(m_pdc);
-      
-      CGContextConcatCTM(m_pdc, affine);
-
-//      CGAffineTransform affineQ2 = CGContextGetCTM(m_pdc);
-      
-      CGContextTranslateCTM(m_pdc, point.x, point.y);
-      
-//      CGAffineTransform affineQ3 = CGContextGetCTM(m_pdc);
-      
-//      CGContextConcatCTM(m_pdc, affineBCD);
-      
-//      CGPoint pt;
-      
-//      pt.x = 0.f;
-      
-//      pt.y = 0.f;
-      
-//      CGPointApplyAffineTransform(pt, affineBCD);
-      
-//      CGContextTranslateCTM(m_pdc, -pt.x, -pt.y);
-      
-      return point;
+      return SetViewportOrg(point.x, point.y);
       
    }
    
@@ -3445,7 +3411,7 @@ namespace mac
    COLORREF graphics::SetBkColor(COLORREF crColor)
    {
       
-      throw not_implemented(get_app());
+//      throw not_implemented(get_app());
       return 0;
       
       
@@ -3510,7 +3476,7 @@ namespace mac
    int32_t graphics::SetStretchBltMode(int32_t nStretchMode)
    {
       
-      throw not_implemented(get_app());
+//      throw not_implemented(get_app());
       return 0;
       
       
@@ -3621,17 +3587,40 @@ namespace mac
    
    point graphics::GetViewportOrg() const
    {
-      //POINT point;
-      //::GetViewportOrgEx(get_handle2(), &point);
       
-//      double x = 0.0;
-//      
-//      double y = 0.0;
-//      
-//      cairo_user_to_device(m_pdc, &x, &y);
+      CGPoint pt1;
       
-//      return point((int64_t) x, (int64_t) y);
-      return point(0, 0);
+      pt1.x = 0;
+      
+      pt1.y = 0;
+      
+      CGPoint pt2;
+      
+      pt2.x = 0;
+      
+      pt2.y = 0;
+      
+      CGAffineTransform affine = m_affine;
+      
+      CGAffineTransform affineABCD = CGContextGetCTM(m_pdc);
+      
+//      CGAffineTransform affineBCD = CGAffineTransformConcat(affineInvert, affineABCD);
+      
+//      CGAffineTransform affineBCDInvert = CGAffineTransformInvert(affineBCD);
+      
+//      pt = CGPointApplyAffineTransform(pt, affineBCDInvert);
+
+      pt1 = CGPointApplyAffineTransform(pt1, affineABCD);
+
+      pt2 = CGPointApplyAffineTransform(pt1, affine);
+      
+      point pt;
+      
+      pt.x = pt2.x;
+      
+      pt.y = pt2.y;
+      
+      return pt;
       
    }
    
@@ -3639,20 +3628,44 @@ namespace mac
    
    point graphics::SetViewportOrg(int32_t x, int32_t y)
    {
-      /*point point(0, 0);
-       if(get_handle1() != NULL && get_handle1() != get_handle2())
-       ::SetViewportOrgEx(get_handle1(), x, y, &point);
-       if(get_handle2() != NULL)
-       ::SetViewportOrgEx(get_handle2(), x, y, &point);*/
-//      
-//      cairo_matrix_t m;
-//      
-//      cairo_matrix_translate(&m, x, y);
-//      
-//      cairo_transform(m_pdc, &m);
       
-      //return point;
-      return point(x, y);
+      POINT ptOld = GetViewportOrg();
+      
+      CGAffineTransform affine = m_affine;
+      
+      //      CGAffineTransform affineInvert = CGAffineTransformInvert(affine);
+      
+      CGAffineTransform affineABCD = CGContextGetCTM(m_pdc);
+      
+      //      CGAffineTransform affineBCD = CGAffineTransformConcat(affineInvert, affineABCD);
+      
+      CGAffineTransform affineABCDInvert = CGAffineTransformInvert(affineABCD);
+      
+      CGContextConcatCTM(m_pdc, affineABCDInvert);
+      
+      //      CGAffineTransform affineQ1 = CGContextGetCTM(m_pdc);
+      
+      CGContextConcatCTM(m_pdc, affine);
+      
+      //      CGAffineTransform affineQ2 = CGContextGetCTM(m_pdc);
+      
+      CGContextTranslateCTM(m_pdc, x, y);
+      
+      //      CGAffineTransform affineQ3 = CGContextGetCTM(m_pdc);
+      
+      //      CGContextConcatCTM(m_pdc, affineBCD);
+      
+      //      CGPoint pt;
+      
+      //      pt.x = 0.f;
+      
+      //      pt.y = 0.f;
+      
+      //      CGPointApplyAffineTransform(pt, affineBCD);
+      
+      //      CGContextTranslateCTM(m_pdc, -pt.x, -pt.y);
+
+      return ptOld;
       
    }
    
@@ -3661,7 +3674,7 @@ namespace mac
       
       point point = GetViewportOrg();
       
-//      cairo_translate(m_pdc, nWidth, nHeight);
+      CGContextTranslateCTM(m_pdc, nWidth, nHeight);
       
       return ::point(point.x + nWidth, point.y + nHeight);
       
@@ -4453,6 +4466,11 @@ namespace mac
        }
        */
       
+      
+      visual::graphics_extension e(get_app());
+      
+      e._DrawText(this, str, lpRect, nFormat);
+      
       /*
        
        Gdiplus::StringFormat format(Gdiplus::StringFormat::GenericTypographic());
@@ -4929,111 +4947,7 @@ namespace mac
    bool graphics::TextOut(double x, double y, const char * lpszString, int32_t nCount)
    {
       
-      CGContextBeginPath(m_pdc);
-      
-      string str(lpszString, nCount);
-      
-      CFStringRef string = CFStringCreateWithCString(NULL, str, kCFStringEncodingUTF8);
-
-      ::string strFontName;
-      
-      if(m_spfont.is_null())
-      {
-         
-         strFontName = "Helvetica";
-         
-      }
-      else if(m_spfont->m_strFontFamilyName == "Lucida Sans Unicode")
-      {
-         
-         strFontName = "Helvetica";
-         
-      }
-      else
-      {
-         
-         strFontName = "Helvetica";
-         
-      }
-      
-      CFStringRef fontName = CFStringCreateWithCString(NULL, strFontName, kCFStringEncodingUTF8);
-      
-      double dFontSize;
-      
-      if(m_spfont.is_null())
-      {
-         
-         dFontSize = 12.0;
-         
-      }
-      else
-      {
-         
-         dFontSize = m_spfont->m_dFontSize;
-         
-      }
-      
-      CTFontDescriptorRef fontD = CTFontDescriptorCreateWithNameAndSize(fontName, m_spfont->m_dFontSize);
-      
-      CTFontRef font =  CTFontCreateWithFontDescriptor(fontD, dFontSize, NULL);
-      
-      CFStringRef keys[] = { kCTFontAttributeName, kCTForegroundColorAttributeName };
-      
-      CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
-      
-      CGFloat components[4];
-      
-      components[0] = GetRValue(m_crColor);
-      
-      components[1] = GetGValue(m_crColor);
-      
-      components[2] = GetBValue(m_crColor);
-      
-      components[3] = GetAValue(m_crColor);
-      
-      CGColorRef cr = CGColorCreate(rgbColorSpace, components);
-      
-      CGColorSpaceRelease(rgbColorSpace);
-      
-      CFTypeRef values[] = { font, cr };
-      
-      
-      CFDictionaryRef attributes =
-      
-      CFDictionaryCreate(kCFAllocatorDefault, (const void**)&keys,
-                         
-                         (const void**)&values, sizeof(keys) / sizeof(keys[0]),
-                         
-                         &kCFTypeDictionaryKeyCallBacks,
-                         
-                         &kCFTypeDictionaryValueCallBacks);
-      
-      
-      CFAttributedStringRef attrString =
-      
-      CFAttributedStringCreate(kCFAllocatorDefault, string, attributes);
-      
-      CFRelease(string);
-      
-      CFRelease(attributes);
-      
-      CTLineRef line = CTLineCreateWithAttributedString(attrString);
-      
-      CGContextSetTextDrawingMode(m_pdc, kCGTextFill);
-      
-      CGContextSetTextMatrix(m_pdc, CGAffineTransformTranslate(CGAffineTransformMakeScale(1.f, -1.f), x, - y - dFontSize));
-                                 
-      CTLineDraw(line, m_pdc);
-      
-      CFRelease(line);
-      
-      CGColorRelease(cr);
-      
-      CFRelease(fontName);
-      
-      CFRelease(fontD);
-      
-      CFRelease(font);
+      return internal_show_text(x, y, lpszString, nCount, kCGTextFill);
       
       return true;
       
@@ -5143,7 +5057,7 @@ namespace mac
       
       CGContextSetTextDrawingMode(m_pdc, emode);
       
-      CGContextSetTextMatrix(m_pdc, CGAffineTransformTranslate(CGAffineTransformMakeScale(1.f, -1.f), x, - y - dFontSize));
+      CGContextSetTextMatrix(m_pdc, CGAffineTransformScale(CGAffineTransformMakeTranslation(x, y + dFontSize * 0.67), 1.f, -1.f));
       
       CTLineDraw(line, m_pdc);
       
