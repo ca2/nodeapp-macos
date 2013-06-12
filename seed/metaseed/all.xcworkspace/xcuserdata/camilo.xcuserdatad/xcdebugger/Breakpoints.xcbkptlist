@@ -447,19 +447,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/net/sockets/bsd/basic/sockets_tcp_socket.cpp"
-         timestampString = "392357680.727215"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "567"
-         endingLineNumber = "567"
-         landmarkName = "tcp_socket::OnWrite()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "../../os/mac_window.cpp"
          timestampString = "392514398.629792"
          startingColumnNumber = "9223372036854775807"
@@ -506,58 +493,6 @@
          startingLineNumber = "402"
          endingLineNumber = "402"
          landmarkName = "tab::_001OnDrawStandard(::ca::graphics * pdc)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/graphics/html/html_image.cpp"
-         timestampString = "392686510.625626"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "18"
-         endingLineNumber = "18"
-         landmarkName = "image::_001OnDraw(data * pdata)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/graphics/html/html_text.cpp"
-         timestampString = "392692509.184402"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "472"
-         endingLineNumber = "472"
-         landmarkName = "text::_001OnDraw(data * pdata)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/graphics/html/html_text.cpp"
-         timestampString = "392744742.219981"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "357"
-         endingLineNumber = "357"
-         landmarkName = "text::_001OnDraw(data * pdata)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/graphics/html/html_data.cpp"
-         timestampString = "392750292.773102"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "244"
-         endingLineNumber = "244"
-         landmarkName = "data::layout(::ca::graphics * pdc)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
