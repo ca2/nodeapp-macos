@@ -4189,6 +4189,8 @@ namespace mac
        }
        }*/
       
+      RedrawWindow();
+      
       return true;
       
    }
@@ -4987,17 +4989,21 @@ namespace mac
    bool window::RedrawWindow(LPCRECT lpRectUpdate, ::ca::region* prgnUpdate, UINT flags)
    {
       
-      if(System.get_twf() == NULL)
-         return false;
+      ns_redraw_window(get_handle());
       
-      if(System.get_twf()->m_bProDevianMode)
-         return true;
+      return true;
       
-      ASSERT(::IsWindow(get_handle()));
+//      if(System.get_twf() == NULL)
+//         return false;
       
-      throw todo(get_app());
+//      if(System.get_twf()->m_bProDevianMode)
+//         return true;
       
-      //return ::RedrawWindow(get_handle(), lpRectUpdate, prgnUpdate == NULL ? NULL : (HRGN)prgnUpdate->get_handle(), flags) != FALSE;
+//      ASSERT(::IsWindow(get_handle()));
+      
+//      throw todo(get_app());
+      
+//      return ::RedrawWindow(get_handle(), lpRectUpdate, prgnUpdate == NULL ? NULL : (HRGN)prgnUpdate->get_handle(), flags) != FALSE;
       
    }
    
