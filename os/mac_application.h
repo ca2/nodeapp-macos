@@ -86,6 +86,7 @@ public    ::ca::main_init_data
       
       virtual bool win_init(main_init_data * pdata);
       
+      virtual bool update_module_paths();
       
       
       
