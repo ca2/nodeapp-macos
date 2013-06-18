@@ -5,10 +5,10 @@ namespace mac
 {
 
 
-   copydesk::copydesk(::ca::application * papp) :
-      ca(papp),
-   ::ca::copydesk(papp),
-      ::ca::window_sp(papp)
+   copydesk::copydesk(::ca2::application * papp) :
+      ca2(papp),
+   ::ca2::copydesk(papp),
+      ::ca2::window_sp(papp)
    {
    }
 
@@ -47,7 +47,7 @@ namespace mac
          UINT uiLen = ::DragQueryFileW(hdrop, i, NULL, 0);
          wchar_t * lpwsz = (wchar_t *) malloc(sizeof(wchar_t) * (uiLen + 1));
          ::DragQueryFileW(hdrop, i, lpwsz, uiLen + 1);
-         stra.add(::ca::international::unicode_to_utf8(lpwsz));
+         stra.add(::ca2::international::unicode_to_utf8(lpwsz));
          free(lpwsz);
       }
       ::CloseClipboard();
@@ -63,7 +63,7 @@ namespace mac
 
       for(int32_t i = 0; i < stra.get_size(); i++)
       {
-         iLen += ::ca::international::utf8_to_unicode_count(stra[i]) + 1;
+         iLen += ::ca2::international::utf8_to_unicode_count(stra[i]) + 1;
       }
 
       throw todo(get_app());
@@ -84,7 +84,7 @@ namespace mac
       for(int32_t i = 0; i < stra.get_size(); i++)
       {
          ASSERT(m_p->IsWindow());
-         ::ca::international::utf8_to_unicode(lpwstrCopy, ::ca::international::utf8_to_unicode_count(stra[i]) + 1, stra[i]);
+         ::ca2::international::utf8_to_unicode(lpwstrCopy, ::ca2::international::utf8_to_unicode_count(stra[i]) + 1, stra[i]);
          ASSERT(m_p->IsWindow());
          lpwstrCopy += (stra[i].get_length() + 1);
       }
@@ -111,7 +111,7 @@ namespace mac
    bool copydesk::initialize()
    {
 
-      if(!::ca::copydesk::initialize())
+      if(!::ca2::copydesk::initialize())
          return false;
 
   //    if(!m_p->CreateEx(0, System.RegisterWndClass(0), NULL, 0, rect(0, 0, 0, 0), NULL, id()))
@@ -130,11 +130,11 @@ namespace mac
 
       bool bOk;
 
-      bOk = ::ca::copydesk::finalize();
+      bOk = ::ca2::copydesk::finalize();
 
-      if(::ca::window_sp::is_set() && ::ca::window_sp::m_p->IsWindow())
+      if(::ca2::window_sp::is_set() && ::ca2::window_sp::m_p->IsWindow())
       {
-         bOk = ::ca::window_sp::m_p->DestroyWindow() != FALSE;
+         bOk = ::ca2::window_sp::m_p->DestroyWindow() != FALSE;
       }
       else
       {
@@ -151,7 +151,7 @@ namespace mac
    //   int32_t iLen = 0;
 
       string str;
-      str = ::ca::international::utf8_to_unicode(psz);
+      str = ::ca2::international::utf8_to_unicode(psz);
 
 
 
@@ -168,10 +168,10 @@ namespace mac
       EmptyClipboard();
 
 
-      count iCount = ::ca::international::utf8_to_unicode_count(str) + 1;
+      count iCount = ::ca2::international::utf8_to_unicode_count(str) + 1;
       HGLOBAL hglbCopy = ::GlobalAlloc(GMEM_MOVEABLE, iCount * sizeof(WCHAR));
       wchar_t * lpwstrCopy  = (wchar_t *) ::GlobalLock(hglbCopy);
-      ::ca::international::utf8_to_unicode(lpwstrCopy, iCount, str);
+      ::ca2::international::utf8_to_unicode(lpwstrCopy, iCount, str);
       ::GlobalUnlock(hglbCopy);
 
       HGLOBAL hglbCopy2 = ::GlobalAlloc(GMEM_MOVEABLE, sizeof(CHAR) * (strlen(psz) + 1));
@@ -199,7 +199,7 @@ namespace mac
          if(!m_p->OpenClipboard())
             return "";
          HGLOBAL hglb = GetClipboardData(CF_UNICODETEXT);
-         string str(::ca::international::unicode_to_utf8((const wchar_t *) GlobalLock(hglb)));
+         string str(::ca2::international::unicode_to_utf8((const wchar_t *) GlobalLock(hglb)));
          GlobalUnlock(hglb);
          VERIFY(::CloseClipboard());
          return str;
@@ -221,7 +221,7 @@ namespace mac
 */
    }
 
-   bool copydesk::desk_to_dib(::ca::dib * pdib)
+   bool copydesk::desk_to_dib(::ca2::dib * pdib)
    {
       if(!m_p->OpenClipboard())
          return false;
@@ -231,18 +231,18 @@ namespace mac
       HBITMAP hbitmap = (HBITMAP) ::GetClipboardData(CF_BITMAP);
       try
       {
-         ::ca::bitmap_sp bitmap(get_app());
+         ::ca2::bitmap_sp bitmap(get_app());
          bitmap->Attach(hbitmap);
          //HDC hdc = ::CreateCompatibleDC(NULL);
-         //::ca::graphics_sp g(get_app());
+         //::ca2::graphics_sp g(get_app());
          //g->Attach(hdc);
-         //::ca::graphics * pgraphics = Application.graphics_from_os_data(hdc);
+         //::ca2::graphics * pgraphics = Application.graphics_from_os_data(hdc);
          //g->SelectObject(hbitmap);
        //  BITMAP bm;
          //::GetObjectA(hbitmap, sizeof(bm), &bm);
          //if(!pdib->create(bm.bmWidth, bm.bmHeight))
            // return false;
-         ::ca::graphics_sp g(get_app());
+         ::ca2::graphics_sp g(get_app());
          g->SelectObject(bitmap);
          size sz = bitmap->GetBitmapDimension();
          if(pdib->create(sz))

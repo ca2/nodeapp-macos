@@ -36,7 +36,7 @@ void CLASS_DECL_mac __mac_term()
    // cleanup OLE if required
    //   thread* pThread = &System;
    
-   // cleanup thread local tooltip ::ca::window
+   // cleanup thread local tooltip ::ca2::window
    //   __MODULE_THREAD_STATE* pModuleThreadState = __get_module_thread_state();
    /*   if (pModuleThreadState->m_pToolTip != NULL)
     {

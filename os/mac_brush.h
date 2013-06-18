@@ -7,7 +7,7 @@ namespace mac
    
    class CLASS_DECL_mac brush : 
       virtual public ::mac::graphics_object,
-      virtual public ::ca::brush
+      virtual public ::ca2::brush
    {
    public:
       
@@ -17,7 +17,7 @@ namespace mac
       CGColorSpaceRef   m_colorspace;
       
       
-      brush(::ca::application * papp);
+      brush(::ca2::application * papp);
       virtual ~brush();
       
       

@@ -53,7 +53,7 @@ template < class KEY, class VALUE > class simple_map;
 typedef simple_map < int32_t, int32_t > simple_long_map;
 
 
-class CLASS_DECL_c oswindow_data
+class CLASS_DECL_ca oswindow_data
 {
 public:
    

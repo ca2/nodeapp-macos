@@ -9,8 +9,8 @@ namespace mac
    
    
    
-   graphics_path::graphics_path(::ca::application * papp) :
-   ca(papp)
+   graphics_path::graphics_path(::ca2::application * papp) :
+   ca2(papp)
    {
       
       m_path = NULL;
@@ -26,7 +26,7 @@ namespace mac
    }
    
    
-   bool graphics_path::internal_begin_figure(bool bFill, ::ca::e_fill_mode efillmode)
+   bool graphics_path::internal_begin_figure(bool bFill, ::ca2::e_fill_mode efillmode)
    {
       
       m_bBegin = true;
@@ -206,21 +206,21 @@ namespace mac
    }
 
    
-   bool graphics_path::set(const ::ca::graphics_path::element & e)
+   bool graphics_path::set(const ::ca2::graphics_path::element & e)
    {
       
       switch(e.m_etype)
       {
-         case ::ca::graphics_path::element::type_move:
+         case ::ca2::graphics_path::element::type_move:
             set(e.m_move);
             break;
-         case ::ca::graphics_path::element::type_arc:
+         case ::ca2::graphics_path::element::type_arc:
             set(e.m_arc);
             break;
-         case ::ca::graphics_path::element::type_line:
+         case ::ca2::graphics_path::element::type_line:
             set(e.m_line);
             break;
-         case ::ca::graphics_path::element::type_end:
+         case ::ca2::graphics_path::element::type_end:
             internal_end_figure(e.m_end.m_bClose);
             break;
          default:
@@ -232,7 +232,7 @@ namespace mac
    }
    
    
-   bool graphics_path::set(const ::ca::graphics_path::arc & arc)
+   bool graphics_path::set(const ::ca2::graphics_path::arc & arc)
    {
    
       rect rect;
@@ -246,14 +246,14 @@ namespace mac
    }
    
    
-   bool graphics_path::set(const ::ca::graphics_path::move & move)
+   bool graphics_path::set(const ::ca2::graphics_path::move & move)
    {
       
       return internal_add_move(move.m_x, move.m_y);
       
    }
    
-   bool graphics_path::set(const ::ca::graphics_path::line & line)
+   bool graphics_path::set(const ::ca2::graphics_path::line & line)
    {
       
       return internal_add_line(line.m_x, line.m_y);

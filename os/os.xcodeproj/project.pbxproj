@@ -10,6 +10,7 @@
 		071B28A8173FD8E700610E30 /* mac_printer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 071B28A5173FD8E600610E30 /* mac_printer.cpp */; };
 		071B28A9173FD8E700610E30 /* mac_printer.h in Headers */ = {isa = PBXBuildFile; fileRef = 071B28A6173FD8E600610E30 /* mac_printer.h */; };
 		071B28AA173FD8E700610E30 /* mac_shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 071B28A7173FD8E600610E30 /* mac_shell.h */; };
+		9A16FCAB1770D70600759432 /* libca2ca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A16FCAA1770D70600759432 /* libca2ca.dylib */; };
 		9A1B496416A494A600875A94 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496316A494A600875A94 /* framework.h */; };
 		9A1B496716A4A10100875A94 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B496616A4A10100875A94 /* framework.cpp */; };
 		9A1B496916A4A32500875A94 /* mac1.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496816A4A32500875A94 /* mac1.h */; };
@@ -30,6 +31,8 @@
 		9AA1B447176355620019E812 /* round_window.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B445176355610019E812 /* round_window.mm */; };
 		9AA1B448176355620019E812 /* round_window.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA1B446176355610019E812 /* round_window.h */; };
 		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
+		9AC444061770AA7C00DC2349 /* _c.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC444051770AA7C00DC2349 /* _c.h */; };
+		9AC444081770AAB100DC2349 /* _ca.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC444071770AAB100DC2349 /* _ca.h */; };
 		9ACA7CD516F7D36F00AA1CEE /* libca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA5E6E916F7C81B005C45CE /* libca2c.dylib */; };
 		9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */; };
 		9ADEA4761766691300D4CF1F /* libca2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADEA4751766691300D4CF1F /* libca2.dylib */; };
@@ -129,6 +132,7 @@
 		071B28A6173FD8E600610E30 /* mac_printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_printer.h; sourceTree = "<group>"; };
 		071B28A7173FD8E600610E30 /* mac_shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_shell.h; sourceTree = "<group>"; };
 		07401ECC164632BB00F5D0F3 /* oswindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oswindow.h; sourceTree = "<group>"; };
+		9A16FCAA1770D70600759432 /* libca2ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2ca.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2ca.dylib"; sourceTree = "<group>"; };
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9A1B496816A4A32500875A94 /* mac1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac1.h; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AA5E6E916F7C81B005C45CE /* libca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2c.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2c.dylib"; sourceTree = "<group>"; };
 		9ABBC6DB16A568FC009CA32E /* mac_graphics_path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mac_graphics_path.h; sourceTree = "<group>"; };
+		9AC444051770AA7C00DC2349 /* _c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _c.h; sourceTree = "<group>"; };
+		9AC444071770AAB100DC2349 /* _ca.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ca.h; sourceTree = "<group>"; };
 		9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freeimage.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freeimage.dylib"; sourceTree = "<group>"; };
 		9ADEA4751766691300D4CF1F /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2.dylib"; sourceTree = "<group>"; };
 		9ADEA48317666C5800D4CF1F /* mac_graphics_path.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_graphics_path.cpp; sourceTree = "<group>"; };
@@ -253,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A16FCAB1770D70600759432 /* libca2ca.dylib in Frameworks */,
 				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
 				9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */,
 				9ACA7CD516F7D36F00AA1CEE /* libca2c.dylib in Frameworks */,
@@ -275,6 +282,7 @@
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				9A16FCAA1770D70600759432 /* libca2ca.dylib */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
 				9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */,
 				9AA5E6E916F7C81B005C45CE /* libca2c.dylib */,
@@ -297,6 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				A1CFD87D154FB715007447E2 /* _.h */,
+				9AC444051770AA7C00DC2349 /* _c.h */,
+				9AC444071770AAB100DC2349 /* _ca.h */,
 				A1CFD87E154FB715007447E2 /* bare_operational_system.h */,
 				A1CFD87F154FB715007447E2 /* ca2.h */,
 				A1CFD880154FB715007447E2 /* cross */,
@@ -509,6 +519,8 @@
 				9AA1B44117634E520019E812 /* RoundWindow.h in Headers */,
 				9AA1B44317634E520019E812 /* RoundWindowFrameView.h in Headers */,
 				9AA1B448176355620019E812 /* round_window.h in Headers */,
+				9AC444061770AA7C00DC2349 /* _c.h in Headers */,
+				9AC444081770AAB100DC2349 /* _ca.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

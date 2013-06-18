@@ -12,7 +12,7 @@ namespace mac2
 
 
       class CLASS_DECL_mac document_properties :
-         virtual public ::ca::object
+         virtual public ::ca2::object
       {
       public:
 
@@ -21,14 +21,14 @@ namespace mac2
          HDC            m_hdc;
 
 
-         document_properties(::ca::application * papp);
+         document_properties(::ca2::application * papp);
          virtual ~document_properties();
 
 
   //       virtual bool initialize(::win2::printer * pprinter, DEVMODE * pdevmode = NULL);
          virtual bool initialize(::mac2::printer * pprinter);
          virtual bool close();
-         virtual ::ca::graphics * create_graphics();
+         virtual ::ca2::graphics * create_graphics();
 
       };
 
@@ -37,12 +37,12 @@ namespace mac2
       document_properties     m_documentproperties;
 
 
-      printer(::ca::application * papp);
+      printer(::ca2::application * papp);
       virtual ~printer();
 
 
       virtual bool open(const char * pszDeviceName);
-      virtual ::ca::graphics * create_graphics();
+      virtual ::ca2::graphics * create_graphics();
       virtual bool is_opened();
       virtual bool close();
 

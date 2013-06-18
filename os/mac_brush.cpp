@@ -5,8 +5,8 @@ namespace mac
 {
    
    
-   brush::brush(::ca::application * papp) :
-   ca(papp)
+   brush::brush(::ca2::application * papp) :
+   ca2(papp)
    {
       
       m_colorspace = NULL;
@@ -26,7 +26,7 @@ namespace mac
    
    void brush::dump(dump_context & dumpcontext) const
    {
-      ::ca::graphics_object::dump(dumpcontext);
+      ::ca2::graphics_object::dump(dumpcontext);
       
       //if (get_os_data() == NULL)
       // return;

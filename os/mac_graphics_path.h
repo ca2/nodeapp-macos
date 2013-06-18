@@ -6,7 +6,7 @@ namespace mac
    
    
    class CLASS_DECL_mac graphics_path :
-      virtual public ::ca::graphics_path,
+      virtual public ::ca2::graphics_path,
       virtual public graphics_object
    {
    public:
@@ -16,11 +16,11 @@ namespace mac
       bool                    m_bBegin;
       
       
-      graphics_path(::ca::application * papp);
+      graphics_path(::ca2::application * papp);
       virtual ~graphics_path();
       
       
-      virtual bool internal_begin_figure(bool bFill, ::ca::e_fill_mode efillmode);
+      virtual bool internal_begin_figure(bool bFill, ::ca2::e_fill_mode efillmode);
       virtual bool internal_end_figure(bool bClose);
       virtual bool internal_add_arc(const RECT & rect, int iStart, int iAngle);
       virtual bool internal_add_line(int x1, int y1, int x2, int y2);
@@ -35,10 +35,10 @@ namespace mac
 
       virtual void * detach();
       
-      bool set(const ::ca::graphics_path::element & e);
-      bool set(const ::ca::graphics_path::arc & arc);
-      bool set(const ::ca::graphics_path::move & move);
-      bool set(const ::ca::graphics_path::line & line);
+      bool set(const ::ca2::graphics_path::element & e);
+      bool set(const ::ca2::graphics_path::arc & arc);
+      bool set(const ::ca2::graphics_path::move & move);
+      bool set(const ::ca2::graphics_path::line & line);
    
       
       

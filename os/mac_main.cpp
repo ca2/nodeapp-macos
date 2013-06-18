@@ -9,7 +9,7 @@ CLASS_DECL_mac int32_t ca2_main();
 
 void CLASS_DECL_mac __cdecl _ca2_purecall()
 {
-   throw simple_exception(::ca::get_thread_app());
+   throw simple_exception(::ca2::get_thread_app());
 }
 
 
@@ -18,13 +18,13 @@ void __cdecl _null_se_translator(uint32_t uiCode, EXCEPTION_POINTERS * ppointers
 
 uint32_t __run_system(void * p);
 
-//::ca::application *     win_application_create(::ca::application * pappSystem, const char * pszId);
-//::ca::application *     win_instantiate_application(::ca::application * pappSystem, const char * pszId);
-//int32_t                     win_application_procedure(::ca::application * pappSystem)
+//::ca2::application *     win_application_create(::ca2::application * pappSystem, const char * pszId);
+//::ca2::application *     win_instantiate_application(::ca2::application * pappSystem, const char * pszId);
+//int32_t                     win_application_procedure(::ca2::application * pappSystem)
 //UINT c_cdecl          win_application_thread_proc(LPVOID);
 /////////////////////////////////////////////////////////////////////////////
 // Standard WinMain implementation
-//  Can be replaced as long as '::ca::WinInit' is called first
+//  Can be replaced as long as '::ca2::WinInit' is called first
 
 int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
 {
@@ -167,7 +167,7 @@ uint32_t __run_system(void * p)
    //   ::CoInitialize(NULL);
    
    
-   //throw todo(::ca::get_thread_app());
+   //throw todo(::ca2::get_thread_app());
    
    if(!main_initialize())
       return -1;

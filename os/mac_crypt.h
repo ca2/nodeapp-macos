@@ -6,12 +6,12 @@ namespace mac
 
 
    class CLASS_DECL_mac crypt :
-      virtual public ::ca::crypt
+      virtual public ::ca2::crypt
    {
    public:
 
 
-      crypt(::ca::application * papp);
+      crypt(::ca2::application * papp);
       virtual ~crypt();
 
 

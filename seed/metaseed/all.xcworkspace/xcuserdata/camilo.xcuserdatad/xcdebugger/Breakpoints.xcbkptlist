@@ -89,7 +89,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "502"
          endingLineNumber = "502"
-         landmarkName = "window::create_message_window(const char * pszName, ::ca::window_callback * pcallback)"
+         landmarkName = "window::create_message_window(const char * pszName, ::ca2::window_callback * pcallback)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

@@ -7,7 +7,7 @@ namespace mac
 
    class region :
       virtual public ::mac::graphics_object,
-      virtual public ::ca::region
+      virtual public ::ca2::region
    {
    public:
       
@@ -15,10 +15,10 @@ namespace mac
       
       // xxx     Gdiplus::Region *       m_pregion;
       
-      //static region * PASCAL from_handle(::ca::application * papp, HRGN hRgn);
+      //static region * PASCAL from_handle(::ca2::application * papp, HRGN hRgn);
       //operator HRGN() const;
       
-      region(::ca::application * papp);
+      region(::ca2::application * papp);
       virtual ~region();
       
       
@@ -33,16 +33,16 @@ namespace mac
        bool CreatePolyPolygonRgn(LPPOINT lpPoints, LPINT lpPolyCounts,
        int32_t nCount, int32_t nPolyFillMode);
        bool CreateRoundRectRgn(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3);
-       bool CreateFromPath(::ca::graphics * pgraphics);
+       bool CreateFromPath(::ca2::graphics * pgraphics);
        bool CreateFromData(const XFORM* lpXForm, int32_t nCount,
        const RGNDATA* pRgnData);*/
       
       // Operations
       //void SetRectRgn(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
       //void SetRectRgn(LPCRECT lpRect);
-      //int32_t CombineRgn(const ::ca::region* pRgn1, const ::ca::region* pRgn2, int32_t nCombineMode);
-      //int32_t CopyRgn(const ::ca::region* pRgnSrc);
-      //bool EqualRgn(const ::ca::region* pRgn) const;
+      //int32_t CombineRgn(const ::ca2::region* pRgn1, const ::ca2::region* pRgn2, int32_t nCombineMode);
+      //int32_t CopyRgn(const ::ca2::region* pRgnSrc);
+      //bool EqualRgn(const ::ca2::region* pRgn) const;
       //int32_t OffsetRgn(int32_t x, int32_t y);
       //int32_t OffsetRgn(POINT point);
       //int32_t GetRgnBox(LPRECT lpRect) const;

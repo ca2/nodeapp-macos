@@ -81,7 +81,7 @@ namespace gen
       }
       else
       {
-         //      ::ca::ThrowOleException( hr );
+         //      ::ca2::ThrowOleException( hr );
       }
 #else
       throw atl_exception( hr );

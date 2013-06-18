@@ -5,8 +5,8 @@ namespace mac
 {
    
    
-   font::font(::ca::application * papp) :
-   ca(papp)
+   font::font(::ca2::application * papp) :
+   ca2(papp)
    {
       
    }
@@ -21,7 +21,7 @@ namespace mac
    void font::dump(dump_context & dumpcontext) const
    {
       
-      ::ca::font::dump(dumpcontext);
+      ::ca2::font::dump(dumpcontext);
       
    }
    
