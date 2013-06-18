@@ -6,12 +6,12 @@ namespace mac
    
    
    class CLASS_DECL_mac font :
-      virtual public ::ca::font
+      virtual public ::ca2::font
    {
    public:
       
       
-      font(::ca::application * papp);
+      font(::ca2::application * papp);
       virtual ~font();
       
       

@@ -7,8 +7,8 @@ namespace mac
 {
    
    
-   graphics::graphics(::ca::application * papp) :
-   ca(papp)
+   graphics::graphics(::ca2::application * papp) :
+   ca2(papp)
    {
       
       m_bPrinting       = FALSE;
@@ -18,7 +18,7 @@ namespace mac
        m_ppath           = NULL;
        m_ppathPaint      = NULL;
        */
-      m_etextrendering  = ::ca::text_rendering_anti_alias_grid_fit;
+      m_etextrendering  = ::ca2::text_rendering_anti_alias_grid_fit;
       
       m_pdc             = NULL;
       m_layer           = NULL;
@@ -34,7 +34,7 @@ namespace mac
        m_hdc             = NULL;
        m_ppath           = NULL;
        m_ppathPaint      = NULL;*/
-      m_etextrendering  = ::ca::text_rendering_anti_alias_grid_fit;
+      m_etextrendering  = ::ca2::text_rendering_anti_alias_grid_fit;
       m_pdc             = NULL;
       m_layer           = NULL;
       
@@ -43,12 +43,12 @@ namespace mac
    
    void graphics::assert_valid() const
    {
-      ::ca::object::assert_valid();
+      ::ca2::object::assert_valid();
    }
    
    void graphics::dump(dump_context & dumpcontext) const
    {
-      ::ca::object::dump(dumpcontext);
+      ::ca2::object::dump(dumpcontext);
       
       //      dumpcontext << "get_handle1() = " << get_handle1();
       //    dumpcontext << "\nm_hAttribDC = " << get_handle2();
@@ -93,7 +93,7 @@ namespace mac
    }
    
    
-   /*   ::ca::window * graphics::GetWindow() const
+   /*   ::ca2::window * graphics::GetWindow() const
     {
     ASSERT(get_handle1() != NULL); return ::win::window::from_handle(::WindowFromDC(get_handle1()));
     }
@@ -159,7 +159,7 @@ namespace mac
    }
    
    
-   bool graphics::CreateCompatibleDC(::ca::graphics * pgraphics)
+   bool graphics::CreateCompatibleDC(::ca2::graphics * pgraphics)
    {
       
       m_pdc = NULL;
@@ -293,7 +293,7 @@ namespace mac
 //      
    }
    
-   int32_t graphics::ExcludeUpdateRgn(::ca::window * pWnd)
+   int32_t graphics::ExcludeUpdateRgn(::ca2::window * pWnd)
    {
       //    ASSERT(get_handle1() != NULL);
       //      return ::ExcludeUpdateRgn(get_handle1(), WIN_WINDOW(pWnd)->get_handle());
@@ -350,7 +350,7 @@ namespace mac
       
    }
    
-   ::ca::bitmap* graphics::SelectObject(::ca::bitmap* pbitmap)
+   ::ca2::bitmap* graphics::SelectObject(::ca2::bitmap* pbitmap)
    {
       
 //      
@@ -361,7 +361,7 @@ namespace mac
 //       return NULL;
 //       if(pbitmap == NULL)
 //       return NULL;
-//       return dynamic_cast < ::ca::bitmap* > (SelectGdiObject(get_app(), get_handle1(), pbitmap->get_os_data()));*/
+//       return dynamic_cast < ::ca2::bitmap* > (SelectGdiObject(get_app(), get_handle1(), pbitmap->get_os_data()));*/
 //      if(m_pdc != NULL)
 //      {
 //         cairo_destroy(m_pdc);
@@ -369,7 +369,7 @@ namespace mac
 //      
 //      m_pdc = cairo_create((cairo_surface_t *) pbitmap->get_os_data());
 //      
-//      set_text_rendering(::ca::text_rendering_anti_alias_grid_fit);
+//      set_text_rendering(::ca2::text_rendering_anti_alias_grid_fit);
 //      
 //      m_bitmap = pbitmap;
       
@@ -377,7 +377,7 @@ namespace mac
    }
    
    
-   ::ca::graphics_object* graphics::SelectObject(::ca::graphics_object* pObject)
+   ::ca2::graphics_object* graphics::SelectObject(::ca2::graphics_object* pObject)
    {
       /*      ASSERT(get_handle1() != NULL);
        if(pObject == NULL)
@@ -411,7 +411,7 @@ namespace mac
     
     m_pgraphics = new Gdiplus::Graphics((Gdiplus::Bitmap *) m_bitmap->get_os_data());
     
-    set_text_rendering(::ca::text_rendering_anti_alias_grid_fit);
+    set_text_rendering(::ca2::text_rendering_anti_alias_grid_fit);
     
     return hbitmap;
     
@@ -456,7 +456,7 @@ namespace mac
    int32_t graphics::GetPolyFillMode() const
    {
       //return ::GetPolyFillMode(get_handle2());
-//      return cairo_get_fill_rule(m_pdc) == CAIRO_FILL_RULE_WINDING ? ::ca::fill_mode_winding : ::ca::fill_mode_alternate;
+//      return cairo_get_fill_rule(m_pdc) == CAIRO_FILL_RULE_WINDING ? ::ca2::fill_mode_winding : ::ca2::fill_mode_alternate;
       return 0;
    }
    
@@ -563,7 +563,7 @@ namespace mac
       //::LPtoDP(get_handle2(), (LPPOINT)lpRect, 2);
    }
    
-   bool graphics::FillRgn(::ca::region* pRgn, ::ca::brush* pBrush)
+   bool graphics::FillRgn(::ca2::region* pRgn, ::ca2::brush* pBrush)
    {
       
       throw not_implemented(get_app());
@@ -572,7 +572,7 @@ namespace mac
       
    }
    
-   bool graphics::FrameRgn(::ca::region* pRgn, ::ca::brush* pBrush, int32_t nWidth, int32_t nHeight)
+   bool graphics::FrameRgn(::ca2::region* pRgn, ::ca2::brush* pBrush, int32_t nWidth, int32_t nHeight)
    {
       
       //      return ::FrameRgn(get_handle1(), (HRGN)pRgn->get_os_data(), (HBRUSH)pBrush->get_os_data(), nWidth, nHeight) != FALSE;
@@ -581,7 +581,7 @@ namespace mac
       
    }
    
-   bool graphics::InvertRgn(::ca::region* pRgn)
+   bool graphics::InvertRgn(::ca2::region* pRgn)
    {
       
       //    ASSERT(get_handle1() != NULL);
@@ -593,7 +593,7 @@ namespace mac
       
    }
    
-   bool graphics::PaintRgn(::ca::region* pRgn)
+   bool graphics::PaintRgn(::ca2::region* pRgn)
    {
       
       //      ASSERT(get_handle1() != NULL);
@@ -707,7 +707,7 @@ namespace mac
       
    }
    
-   void graphics::FillRect(LPCRECT lpRect, ::ca::brush* pBrush)
+   void graphics::FillRect(LPCRECT lpRect, ::ca2::brush* pBrush)
    {
       
       throw not_implemented(get_app());
@@ -716,7 +716,7 @@ namespace mac
       //      ASSERT(get_handle1() != NULL); ::FillRect(get_handle1(), lpRect, (HBRUSH)pBrush->get_os_data());
       
    }
-   void graphics::FrameRect(LPCRECT lpRect, ::ca::brush* pBrush)
+   void graphics::FrameRect(LPCRECT lpRect, ::ca2::brush* pBrush)
    {
       
       throw not_implemented(get_app());
@@ -846,7 +846,7 @@ namespace mac
       
    }
    
-   bool graphics::DrawState(point pt, size size, ::ca::bitmap* pBitmap, UINT nFlags, ::ca::brush* pBrush)
+   bool graphics::DrawState(point pt, size size, ::ca2::bitmap* pBitmap, UINT nFlags, ::ca2::brush* pBrush)
    {
       
       throw not_implemented(get_app());
@@ -867,7 +867,7 @@ namespace mac
    }
    
    
-   bool graphics::DrawState(point pt, size size, HICON hIcon, UINT nFlags, ::ca::brush* pBrush)
+   bool graphics::DrawState(point pt, size size, HICON hIcon, UINT nFlags, ::ca2::brush* pBrush)
    {
       
       throw not_implemented(get_app());
@@ -887,7 +887,7 @@ namespace mac
       
    }
    
-   bool graphics::DrawState(point pt, size size, const char * lpszText, UINT nFlags, bool bPrefixText, int32_t nTextLen, ::ca::brush* pBrush)
+   bool graphics::DrawState(point pt, size size, const char * lpszText, UINT nFlags, bool bPrefixText, int32_t nTextLen, ::ca2::brush* pBrush)
    {
       
       throw not_implemented(get_app());
@@ -910,7 +910,7 @@ namespace mac
     
     }
     
-    bool graphics::DrawState(point pt, size size, DRAWSTATEPROC lpDrawProc, LPARAM lData, UINT nFlags, ::ca::brush* pBrush)
+    bool graphics::DrawState(point pt, size size, DRAWSTATEPROC lpDrawProc, LPARAM lData, UINT nFlags, ::ca2::brush* pBrush)
     {
     
     throw not_implemented(get_app());
@@ -1244,7 +1244,7 @@ namespace mac
    }
    
    
-   bool graphics::BitBlt(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, ::ca::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, DWORD dwRop)
+   bool graphics::BitBlt(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, ::ca2::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, DWORD dwRop)
    {
       
       
@@ -1255,10 +1255,10 @@ namespace mac
          /*rect rectIntersect(m_ptAlphaBlend, m_pdibAlphaBlend->size());
           
           
-          ::ca::dib * pdibWork = NULL;
-          ::ca::dib * pdibWork2 = NULL;
-          //         ::ca::dib * pdibWork3 = NULL;
-          ::ca::dib * pdibWork4 = NULL;
+          ::ca2::dib * pdibWork = NULL;
+          ::ca2::dib * pdibWork2 = NULL;
+          //         ::ca2::dib * pdibWork3 = NULL;
+          ::ca2::dib * pdibWork4 = NULL;
           
           
           class point ptSrc(xSrc, ySrc);
@@ -1267,7 +1267,7 @@ namespace mac
           
           
           
-          ::ca::dib_sp spdib;
+          ::ca2::dib_sp spdib;
           if(pdibWork == NULL)
           {
           spdib.create(get_app());
@@ -1280,7 +1280,7 @@ namespace mac
           
           pdibWork->Fill(0, 0, 0, 0);
           
-          pdibWork->get_graphics()->set_alpha_mode(::ca::alpha_mode_set);
+          pdibWork->get_graphics()->set_alpha_mode(::ca2::alpha_mode_set);
           
           if(!pdibWork->from(null_point(), pgraphicsSrc, ptSrc, size))
           return false;
@@ -1288,7 +1288,7 @@ namespace mac
           
           
           
-          ::ca::dib_sp spdib2;
+          ::ca2::dib_sp spdib2;
           if(pdibWork2 == NULL)
           {
           spdib2.create(get_app());
@@ -1296,7 +1296,7 @@ namespace mac
           }
           
           
-          ::ca::dib_sp spdib4;
+          ::ca2::dib_sp spdib4;
           if(pdibWork4 == NULL)
           {
           spdib4.create(get_app());
@@ -1310,7 +1310,7 @@ namespace mac
           
           pdibWork4->Fill(255, 0, 0, 0);
           
-          pdibWork4->get_graphics()->set_alpha_mode(::ca::alpha_mode_set);
+          pdibWork4->get_graphics()->set_alpha_mode(::ca2::alpha_mode_set);
           
           pdibWork4->from(point(max(0, m_ptAlphaBlend.x - x), max(0, m_ptAlphaBlend.y - y)),
           m_pdibAlphaBlend->get_graphics(), point(max(0, x - m_ptAlphaBlend.x), max(0, y - m_ptAlphaBlend.y)),
@@ -1318,13 +1318,13 @@ namespace mac
           
           pdibWork->channel_multiply(visual::rgba::channel_alpha, pdibWork4);
           
-          pdibWork->get_graphics()->set_alpha_mode(::ca::alpha_mode_blend);
+          pdibWork->get_graphics()->set_alpha_mode(::ca2::alpha_mode_blend);
           
           pdibWork->from(point(max(0, m_ptAlphaBlend.x - x), max(0, m_ptAlphaBlend.y - y)),
           m_pdibAlphaBlend->get_graphics(), point(max(0, x - m_ptAlphaBlend.x), max(0, y - m_ptAlphaBlend.y)),
           class size(max(0, size.cx - max(0, x - m_ptAlphaBlend.x)), max(0, size.cy - max(0, y - m_ptAlphaBlend.y))));*/
          
-         //keeper < ::ca::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
+         //keeper < ::ca2::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
          
          /*Gdiplus::CompositingMode mode = m_pgraphics->GetCompositingMode();
           
@@ -1375,7 +1375,7 @@ namespace mac
    }
    
    
-   bool graphics::StretchBlt(int32_t xDst, int32_t yDst, int32_t nDstWidth, int32_t nDstHeight, ::ca::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nSrcWidth, int32_t nSrcHeight, DWORD dwRop)
+   bool graphics::StretchBlt(int32_t xDst, int32_t yDst, int32_t nDstWidth, int32_t nDstHeight, ::ca2::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nSrcWidth, int32_t nSrcHeight, DWORD dwRop)
    {
       
 //      if(pgraphicsSrc == NULL)
@@ -1494,7 +1494,7 @@ namespace mac
           rect rectText(point(x, y), GetTextExtent(str));
           if(rectIntersect.intersect(rectIntersect, rectText))
           {
-          ::ca::dib_sp dib0(get_app());
+          ::ca2::dib_sp dib0(get_app());
           dib0->create(rectText.size());
           dib0->Fill(0, 0, 0, 0);
           dib0->get_graphics()->SetTextColor(ARGB(255, 255, 255, 255));
@@ -1502,7 +1502,7 @@ namespace mac
           dib0->get_graphics()->SetBkMode(TRANSPARENT);
           dib0->get_graphics()->TextOut(0, 0, str);
           dib0->ToAlpha(0);*/
-         /*             ::ca::dib_sp dib1(get_app());
+         /*             ::ca2::dib_sp dib1(get_app());
           dib1->create(rectText.size());
           dib1->Fill(0, 0, 0, 0);
           dib1->get_graphics()->set_color(m_crColor);
@@ -1510,19 +1510,19 @@ namespace mac
           dib1->get_graphics()->SetBkMode(TRANSPARENT);
           dib1->get_graphics()->TextOut(0, 0, str);
           //dib1->channel_from(visual::rgba::channel_alpha, dib0);
-          ::ca::dib_sp dib2(get_app());
+          ::ca2::dib_sp dib2(get_app());
           dib2->create(rectText.size());
           dib2->Fill(255, 0, 0, 0);
-          dib2->get_graphics()->set_alpha_mode(::ca::alpha_mode_set);
+          dib2->get_graphics()->set_alpha_mode(::ca2::alpha_mode_set);
           dib2->from(point(max(0, m_ptAlphaBlend.x - x), max(0, m_ptAlphaBlend.y - y)),
           m_pdibAlphaBlend->get_graphics(), point(max(0, x - m_ptAlphaBlend.x), max(0, y - m_ptAlphaBlend.y)),
           size(max(0, m_pdibAlphaBlend->width()-max(0, x - m_ptAlphaBlend.x)),
           max(0, m_pdibAlphaBlend->height()-max(0, y - m_ptAlphaBlend.y))));
           dib1->channel_multiply(visual::rgba::channel_alpha, dib2);
-          ::ca::dib_sp dib3(get_app());
+          ::ca2::dib_sp dib3(get_app());
           dib1->mult_alpha(dib3);*/
          
-         /*           keeper < ::ca::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
+         /*           keeper < ::ca2::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
           
           return System.imaging().true_blend(this, point(x, y), rectText.size(), dib1->get_graphics(), null_point());
           
@@ -1539,7 +1539,7 @@ namespace mac
       }
       
       //ASSERT(get_handle1() != NULL);
-      //wstring wstr = ::ca::international::utf8_to_unicode(str);
+      //wstring wstr = ::ca2::international::utf8_to_unicode(str);
       return TextOut(x, y, str, (int32_t) str.get_length());
       
    } // call virtual
@@ -1555,30 +1555,30 @@ namespace mac
             rect rectText(point((int64_t) x, (int64_t) y), GetTextExtent(str));
             if(rectIntersect.intersect(rectIntersect, rectText))
             {
-               ::ca::dib_sp dib0(allocer());
+               ::ca2::dib_sp dib0(allocer());
                dib0->create(rectText.size());
                dib0->get_graphics()->SetTextColor(RGB(255, 255, 255));
                dib0->get_graphics()->SelectObject(&GetCurrentFont());
                dib0->get_graphics()->SetBkMode(TRANSPARENT);
                dib0->get_graphics()->TextOut(0, 0, str);
                dib0->ToAlpha(0);
-               ::ca::dib_sp dib1(allocer());
+               ::ca2::dib_sp dib1(allocer());
                dib1->create(rectText.size());
                dib1->get_graphics()->SetTextColor(GetTextColor());
                dib1->get_graphics()->SelectObject(&GetCurrentFont());
                dib1->get_graphics()->SetBkMode(TRANSPARENT);
                dib1->get_graphics()->TextOut(0, 0, str);
                dib1->channel_from(visual::rgba::channel_alpha, dib0);
-               ::ca::dib_sp dib2(allocer());
+               ::ca2::dib_sp dib2(allocer());
                dib2->create(rectText.size());
                dib2->Fill(255, 0, 0, 0);
                dib2->from(point((int64_t) max(0, m_ptAlphaBlend.x - x), (int64_t) max(0, m_ptAlphaBlend.y - y)),
                           m_pdibAlphaBlend->get_graphics(), point((int64_t) max(0, x - m_ptAlphaBlend.x), (int64_t) max(0, y - m_ptAlphaBlend.y)), rectText.size());
                dib1->channel_multiply(visual::rgba::channel_alpha, dib2);
-               /*::ca::dib_sp dib3(get_app());
+               /*::ca2::dib_sp dib3(get_app());
                 dib1->mult_alpha(dib3);*/
                
-               keeper < ::ca::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
+               keeper < ::ca2::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
                
                return System.visual().imaging().true_blend(this, point((int64_t) x, (int64_t) y), rectText.size(), dib1->get_graphics(), null_point());
                
@@ -1595,7 +1595,7 @@ namespace mac
       }
       
       //ASSERT(get_handle1() != NULL);
-      //wstring wstr = ::ca::international::utf8_to_unicode(str);
+      //wstring wstr = ::ca2::international::utf8_to_unicode(str);
       return TextOut(x, y, str, (int32_t) str.get_length());
       
    } // call virtual
@@ -1689,7 +1689,7 @@ namespace mac
       
    }
    
-   bool graphics::GrayString(::ca::brush* pBrush, bool (CALLBACK* lpfnOutput)(HDC, LPARAM, int32_t), LPARAM lpData, int32_t nCount,int32_t x, int32_t y, int32_t nWidth, int32_t nHeight)
+   bool graphics::GrayString(::ca2::brush* pBrush, bool (CALLBACK* lpfnOutput)(HDC, LPARAM, int32_t), LPARAM lpData, int32_t nCount,int32_t x, int32_t y, int32_t nWidth, int32_t nHeight)
    {
       
       throw not_implemented(get_app());
@@ -1902,7 +1902,7 @@ namespace mac
    }
    
    
-   bool graphics::ScrollDC(int32_t dx, int32_t dy, LPCRECT lpRectScroll, LPCRECT lpRectClip, ::ca::region* pRgnUpdate, LPRECT lpRectUpdate)
+   bool graphics::ScrollDC(int32_t dx, int32_t dy, LPCRECT lpRectScroll, LPCRECT lpRectClip, ::ca2::region* pRgnUpdate, LPRECT lpRectUpdate)
    {
       
       throw not_implemented(get_app());
@@ -2093,7 +2093,7 @@ namespace mac
       
    }
    
-   bool graphics::MaskBlt(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, ::ca::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, ::ca::bitmap& maskBitmap, int32_t xMask, int32_t yMask, DWORD dwRop)
+   bool graphics::MaskBlt(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, ::ca2::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, ::ca2::bitmap& maskBitmap, int32_t xMask, int32_t yMask, DWORD dwRop)
    {
       
       throw not_implemented(get_app());
@@ -2104,7 +2104,7 @@ namespace mac
       
    }
    
-   bool graphics::PlgBlt(LPPOINT lpPoint, ::ca::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nWidth, int32_t nHeight, ::ca::bitmap& maskBitmap, int32_t xMask, int32_t yMask)
+   bool graphics::PlgBlt(LPPOINT lpPoint, ::ca2::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nWidth, int32_t nHeight, ::ca2::bitmap& maskBitmap, int32_t xMask, int32_t yMask)
    {
       
       throw not_implemented(get_app());
@@ -2196,35 +2196,35 @@ namespace mac
     
     */
    
-   ::ca::pen & graphics::GetCurrentPen() const
+   ::ca2::pen & graphics::GetCurrentPen() const
    {
       
       return *m_sppen.m_p;
       
    }
    
-   ::ca::brush & graphics::GetCurrentBrush() const
+   ::ca2::brush & graphics::GetCurrentBrush() const
    {
       
       return *m_spbrush.m_p;
       
    }
    
-   ::ca::palette & graphics::GetCurrentPalette() const
+   ::ca2::palette & graphics::GetCurrentPalette() const
    {
       
-      return *(::ca::palette *)NULL;
+      return *(::ca2::palette *)NULL;
       
    }
    
-   ::ca::font & graphics::GetCurrentFont() const
+   ::ca2::font & graphics::GetCurrentFont() const
    {
       
       return *m_spfont.m_p;
       
    }
    
-   ::ca::bitmap & graphics::GetCurrentBitmap() const
+   ::ca2::bitmap & graphics::GetCurrentBitmap() const
    {
       
       return *m_bitmap.m_p;
@@ -2443,7 +2443,7 @@ namespace mac
    }
    
    
-   bool graphics::draw_path(::ca::graphics_path * ppath)
+   bool graphics::draw_path(::ca2::graphics_path * ppath)
    {
       
       if(!set(ppath))
@@ -2453,7 +2453,7 @@ namespace mac
       
    }
    
-   bool graphics::fill_path(::ca::graphics_path * ppath)
+   bool graphics::fill_path(::ca2::graphics_path * ppath)
    {
       
       if(!set(ppath))
@@ -2549,7 +2549,7 @@ namespace mac
    // India India
    // Member
    
-   bool graphics::alpha_blend(int32_t xDst, int32_t yDst, int32_t nDstWidth, int32_t nDstHeight, ::ca::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nSrcWidth, int32_t nSrcHeight, double dRate)
+   bool graphics::alpha_blend(int32_t xDst, int32_t yDst, int32_t nDstWidth, int32_t nDstHeight, ::ca2::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nSrcWidth, int32_t nSrcHeight, double dRate)
    {
       
       if(m_pdibAlphaBlend != NULL)
@@ -2561,10 +2561,10 @@ namespace mac
           rect rectIntersect(m_ptAlphaBlend, m_pdibAlphaBlend->size());
           
           
-          ::ca::dib * pdibWork = NULL;
-          ::ca::dib * pdibWork2 = NULL;
-          //         ::ca::dib * pdibWork3 = NULL;
-          ::ca::dib * pdibWork4 = NULL;
+          ::ca2::dib * pdibWork = NULL;
+          ::ca2::dib * pdibWork2 = NULL;
+          //         ::ca2::dib * pdibWork3 = NULL;
+          ::ca2::dib * pdibWork4 = NULL;
           
           
           class point ptSrc(xSrc, ySrc);
@@ -2573,7 +2573,7 @@ namespace mac
           
           
           
-          ::ca::dib_sp spdib;
+          ::ca2::dib_sp spdib;
           if(pdibWork == NULL)
           {
           spdib.create(get_app());
@@ -2589,7 +2589,7 @@ namespace mac
           
           
           
-          ::ca::dib_sp spdib2;
+          ::ca2::dib_sp spdib2;
           if(pdibWork2 == NULL)
           {
           spdib2.create(get_app());
@@ -2597,7 +2597,7 @@ namespace mac
           }
           
           
-          ::ca::dib_sp spdib4;
+          ::ca2::dib_sp spdib4;
           if(pdibWork4 == NULL)
           {
           spdib4.create(get_app());
@@ -2617,7 +2617,7 @@ namespace mac
           pdibWork->channel_multiply(visual::rgba::channel_alpha, pdibWork4);
           
           
-          keeper < ::ca::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
+          keeper < ::ca2::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
           
           
           return System.imaging().true_blend(this, ptDest, size, pdibWork->get_graphics(), ptSrc);
@@ -2655,7 +2655,7 @@ namespace mac
    
    
    /*bool graphics::alpha_blend(int32_t xDest, int32_t yDest, int32_t nDestWidth, int32_t nDestHeight,
-    ::ca::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nSrcWidth, int32_t nSrcHeight, BLENDFUNCTION blend)
+    ::ca2::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nSrcWidth, int32_t nSrcHeight, BLENDFUNCTION blend)
     {
     
     throw not_implemented(get_app());
@@ -2670,10 +2670,10 @@ namespace mac
     rect rectIntersect(m_ptAlphaBlend, m_pdibAlphaBlend->size());
     
     
-    ::ca::dib * pdibWork = NULL;
-    ::ca::dib * pdibWork2 = NULL;
-    //         ::ca::dib * pdibWork3 = NULL;
-    ::ca::dib * pdibWork4 = NULL;
+    ::ca2::dib * pdibWork = NULL;
+    ::ca2::dib * pdibWork2 = NULL;
+    //         ::ca2::dib * pdibWork3 = NULL;
+    ::ca2::dib * pdibWork4 = NULL;
     
     
     class point ptSrc(xSrc, ySrc);
@@ -2682,7 +2682,7 @@ namespace mac
     
     
     
-    ::ca::dib_sp spdib;
+    ::ca2::dib_sp spdib;
     if(pdibWork == NULL)
     {
     spdib.create(get_app());
@@ -2698,7 +2698,7 @@ namespace mac
     
     
     
-    ::ca::dib_sp spdib2;
+    ::ca2::dib_sp spdib2;
     if(pdibWork2 == NULL)
     {
     spdib2.create(get_app());
@@ -2706,7 +2706,7 @@ namespace mac
     }
     
     
-    ::ca::dib_sp spdib4;
+    ::ca2::dib_sp spdib4;
     if(pdibWork4 == NULL)
     {
     spdib4.create(get_app());
@@ -2726,7 +2726,7 @@ namespace mac
     pdibWork->channel_multiply(visual::rgba::channel_alpha, pdibWork4);
     
     
-    keeper < ::ca::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
+    keeper < ::ca2::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
     
     
     return System.imaging().true_blend(this, ptDest, size, pdibWork->get_graphics(), ptSrc);
@@ -2740,7 +2740,7 @@ namespace mac
     }*/
    
    
-   bool graphics::TransparentBlt(int32_t xDest, int32_t yDest, int32_t nDestWidth, int32_t nDestHeight, ::ca::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nSrcWidth, int32_t nSrcHeight, UINT crTransparent)
+   bool graphics::TransparentBlt(int32_t xDest, int32_t yDest, int32_t nDestWidth, int32_t nDestHeight, ::ca2::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, int32_t nSrcWidth, int32_t nSrcHeight, UINT crTransparent)
    {
       
       throw not_implemented(get_app());
@@ -2885,9 +2885,9 @@ namespace mac
        if (this != NULL && (nMapMode = GetMapMode()) < MM_ISOTROPIC && nMapMode != MM_TEXT)
        {
        // when using a constrained ::collection::map mode, ::collection::map against physical inch
-       ((::ca::graphics *)this)->SetMapMode(MM_HIMETRIC);
+       ((::ca2::graphics *)this)->SetMapMode(MM_HIMETRIC);
        DPtoLP(lpSize);
-       ((::ca::graphics *)this)->SetMapMode(nMapMode);
+       ((::ca2::graphics *)this)->SetMapMode(nMapMode);
        }
        else
        {
@@ -2926,9 +2926,9 @@ namespace mac
        nMapMode != MM_TEXT)
        {
        // when using a constrained ::collection::map mode, ::collection::map against physical inch
-       ((::ca::graphics *)this)->SetMapMode(MM_HIMETRIC);
+       ((::ca2::graphics *)this)->SetMapMode(MM_HIMETRIC);
        LPtoDP(lpSize);
-       ((::ca::graphics *)this)->SetMapMode(nMapMode);
+       ((::ca2::graphics *)this)->SetMapMode(nMapMode);
        }
        else
        {
@@ -2974,9 +2974,9 @@ namespace mac
    /////////////////////////////////////////////////////////////////////////////
    // special graphics drawing primitives/helpers
    
-   ::ca::brush* PASCAL graphics::GetHalftoneBrush(::ca::application * papp)
+   ::ca2::brush* PASCAL graphics::GetHalftoneBrush(::ca2::application * papp)
    {
-      /*      ::ca::LockGlobals(CRIT_HALFTONEBRUSH);
+      /*      ::ca2::LockGlobals(CRIT_HALFTONEBRUSH);
        if (gen_HalftoneBrush == NULL)
        {
        WORD grayPattern[8];
@@ -2991,13 +2991,13 @@ namespace mac
        }
        if (!gen_WingdixTerm)
        gen_WingdixTerm = (char)!atexit(&__win_gdi_x_term);
-       ::ca::UnlockGlobals(CRIT_HALFTONEBRUSH);
+       ::ca2::UnlockGlobals(CRIT_HALFTONEBRUSH);
        
        //      return ::win::brush::from_handle(papp, gen_HalftoneBrush);*/
       return NULL;
    }
    
-   void graphics::DrawDragRect(LPCRECT lpRect, SIZE size, LPCRECT lpRectLast, SIZE sizeLast, ::ca::brush* pBrush, ::ca::brush* pBrushLast)
+   void graphics::DrawDragRect(LPCRECT lpRect, SIZE size, LPCRECT lpRectLast, SIZE sizeLast, ::ca2::brush* pBrush, ::ca2::brush* pBrushLast)
    {
       
       throw not_implemented(get_app());
@@ -3008,8 +3008,8 @@ namespace mac
        __is_valid_address(lpRectLast, sizeof(RECT), FALSE));
        
        // first, determine the update region and select it
-       ::ca::region rgnNew;
-       ::ca::region rgnOutside, rgnInside;
+       ::ca2::region rgnNew;
+       ::ca2::region rgnOutside, rgnInside;
        rgnOutside.CreateRectRgnIndirect(lpRect);
        rect rect = *lpRect;
        rect.inflate(-size.cx, -size.cy);
@@ -3018,7 +3018,7 @@ namespace mac
        rgnNew.CreateRectRgn(0, 0, 0, 0);
        rgnNew.CombineRgn(&rgnOutside, &rgnInside, RGN_XOR);
        
-       ::ca::brush* pBrushOld = NULL;
+       ::ca2::brush* pBrushOld = NULL;
        if (pBrush == NULL)
        {
        pBrush = graphics::GetHalftoneBrush(get_app());
@@ -3031,7 +3031,7 @@ namespace mac
        pBrushLast = pBrush;
        }
        
-       ::ca::region rgnLast, rgnUpdate;
+       ::ca2::region rgnLast, rgnUpdate;
        if (lpRectLast != NULL)
        {
        // find difference between new region and old region
@@ -3121,11 +3121,11 @@ namespace mac
    
    
    
-   //::ca::graphics * PASCAL ::win::graphics::from_handle(HDC hDC)
+   //::ca2::graphics * PASCAL ::win::graphics::from_handle(HDC hDC)
    //{
    //hdc_map* pMap = afxMapHDC(TRUE); //create ::collection::map if not exist
    //ASSERT(pMap != NULL);
-   //      ::ca::graphics * pgraphics = (::ca::graphics *)pMap->from_handle(hDC);
+   //      ::ca2::graphics * pgraphics = (::ca2::graphics *)pMap->from_handle(hDC);
    //    ASSERT(pgraphics == NULL || (dynamic_cast<::win::graphics * >(pgraphics))->get_handle1() == hDC);
    //  return pgraphics;
    // return NULL;
@@ -3152,7 +3152,7 @@ namespace mac
     
     m_pgraphics = new ::Gdiplus::Graphics(hdc);
     
-    set_text_rendering(::ca::text_rendering_anti_alias_grid_fit);
+    set_text_rendering(::ca2::text_rendering_anti_alias_grid_fit);
     
     m_hdc = hdc;
     
@@ -3239,7 +3239,7 @@ namespace mac
           hdc_map* pMap = afxMapHDC();
     if (pMap != NULL && pMap->lookup_permanent(get_handle1()) == this)
     {
-    TRACE(::ca::trace::category_AppMsg, 0, "Cannot Set Output hDC on Attached graphics.\n");
+    TRACE(::ca2::trace::category_AppMsg, 0, "Cannot Set Output hDC on Attached graphics.\n");
     ASSERT(FALSE);
     }*/
    //#endif
@@ -3257,7 +3257,7 @@ namespace mac
           hdc_map* pMap = afxMapHDC();
     if (pMap != NULL && pMap->lookup_permanent(get_handle1()) == this)
     {
-    TRACE(::ca::trace::category_AppMsg, 0, "Cannot Release Output hDC on Attached graphics.\n");
+    TRACE(::ca2::trace::category_AppMsg, 0, "Cannot Release Output hDC on Attached graphics.\n");
     ASSERT(FALSE);
     }*/
    //#endif
@@ -3317,12 +3317,12 @@ namespace mac
       
    }
    
-   //   ::ca::graphics_object* PASCAL graphics::SelectGdiObject(::ca::application * papp, HDC hDC, HGDIOBJ h)
+   //   ::ca2::graphics_object* PASCAL graphics::SelectGdiObject(::ca2::application * papp, HDC hDC, HGDIOBJ h)
    // {
    //      return ::win::graphics_object::from_handle(papp, ::SelectObject(hDC, h));
    //}
    
-   ::ca::graphics_object* graphics::SelectStockObject(int32_t nIndex)
+   ::ca2::graphics_object* graphics::SelectStockObject(int32_t nIndex)
    {
       /*      HGDIOBJ hObject = ::GetStockObject(nIndex);
        HGDIOBJ hOldObj = NULL;
@@ -3336,7 +3336,7 @@ namespace mac
       return NULL;
    }
    
-   ::ca::pen* graphics::SelectObject(::ca::pen* pPen)
+   ::ca2::pen* graphics::SelectObject(::ca2::pen* pPen)
    {
       /*HGDIOBJ hOldObj = NULL;
        if(pPen == NULL)
@@ -3350,7 +3350,7 @@ namespace mac
       return &m_penxyz;
    }
    
-   ::ca::brush * graphics::SelectObject(::ca::brush* pBrush)
+   ::ca2::brush * graphics::SelectObject(::ca2::brush* pBrush)
    {
 
       m_spbrush = pBrush;
@@ -3359,7 +3359,7 @@ namespace mac
       
    }
    
-   ::ca::font* graphics::SelectObject(::ca::font* pfont)
+   ::ca2::font* graphics::SelectObject(::ca2::font* pfont)
    {
       /*      HGDIOBJ hOldObj = NULL;
        if(pFont == NULL)
@@ -3368,7 +3368,7 @@ namespace mac
        hOldObj = ::SelectObject(get_handle1(), pFont->get_os_data());
        if(get_handle2() != NULL)
        hOldObj = ::SelectObject(get_handle2(), pFont->get_os_data());
-       return dynamic_cast < ::ca::font * > (::win::graphics_object::from_handle(get_app(), hOldObj));*/
+       return dynamic_cast < ::ca2::font * > (::win::graphics_object::from_handle(get_app(), hOldObj));*/
       
       /*ASSERT(pFont != NULL);
        
@@ -3385,7 +3385,7 @@ namespace mac
       
    }
    
-   int32_t graphics::SelectObject(::ca::region* pRgn)
+   int32_t graphics::SelectObject(::ca2::region* pRgn)
    {
       
       throw not_implemented(get_app());
@@ -3402,10 +3402,10 @@ namespace mac
       
    }
    
-   ::ca::palette* graphics::SelectPalette(::ca::palette* pPalette, bool bForceBackground)
+   ::ca2::palette* graphics::SelectPalette(::ca2::palette* pPalette, bool bForceBackground)
    {
       return NULL;
-      //      return dynamic_cast < ::ca::palette * > (::win::graphics_object::from_handle(get_app(), ::SelectPalette(get_handle1(), (HPALETTE)pPalette->get_os_data(), bForceBackground)));
+      //      return dynamic_cast < ::ca2::palette * > (::win::graphics_object::from_handle(get_app(), ::SelectPalette(get_handle1(), (HPALETTE)pPalette->get_os_data(), bForceBackground)));
    }
    
    COLORREF graphics::SetBkColor(COLORREF crColor)
@@ -3791,7 +3791,7 @@ namespace mac
       /*      return ::GetClipBox(get_handle1(), lpRect);*/
    }
    
-   int32_t graphics::SelectClipRgn(::ca::region * pregion)
+   int32_t graphics::SelectClipRgn(::ca2::region * pregion)
    {
       
       if(pregion == NULL)
@@ -4219,7 +4219,7 @@ namespace mac
        HRGN hRgn = ::CreateRectRgn(0, 0, 0, 0);
        if (::GetClipRgn(get_handle1(), hRgn) < 0 || !::SelectClipRgn(get_handle2(), hRgn))
        {
-       TRACE(::ca::trace::category_AppMsg, 0, "Error: unable to transfer clip region in graphics::SelectClipPath!\n");
+       TRACE(::ca2::trace::category_AppMsg, 0, "Error: unable to transfer clip region in graphics::SelectClipPath!\n");
        bResult = FALSE;
        }
        ::DeleteObject(hRgn);
@@ -4229,7 +4229,7 @@ namespace mac
       
    }
    
-   int32_t graphics::SelectClipRgn(::ca::region* pRgn, int32_t nMode)
+   int32_t graphics::SelectClipRgn(::ca2::region* pRgn, int32_t nMode)
    {
       
       throw not_implemented(get_app());
@@ -4252,7 +4252,7 @@ namespace mac
     int32_t CALLBACK __enum_meta_file_procedure(HDC hDC,
     HANDLETABLE* pHandleTable, METARECORD* pMetaRec, int32_t nHandles, LPARAM lParam)
     {
-    ::ca::graphics * pgraphics = (::ca::graphics *)lParam;
+    ::ca2::graphics * pgraphics = (::ca2::graphics *)lParam;
     ASSERT_VALID(pgraphics);
     
     switch (pMetaRec->rdFunction)
@@ -4318,7 +4318,7 @@ namespace mac
     if (hObjOld == hStockFont)
     {
     // got the stock object back, so must be selecting a font
-    throw not_implemented(::ca::get_thread_app());
+    throw not_implemented(::ca2::get_thread_app());
     //                  (dynamic_cast<::win::graphics * >(pgraphics))->SelectObject(::win::font::from_handle(pgraphics->get_app(), (HFONT)hObject));
     break;  // don't play the default record
     }
@@ -4332,9 +4332,9 @@ namespace mac
     }
     else if (nObjType == OBJ_FONT)
     {
-    // play back as graphics::SelectObject(::ca::font*)
+    // play back as graphics::SelectObject(::ca2::font*)
     //               (dynamic_cast<::win::graphics * >(pgraphics))->SelectObject(::win::font::from_handle(pgraphics->get_app(), (HFONT)hObject));
-    throw not_implemented(::ca::get_thread_app());
+    throw not_implemented(::ca2::get_thread_app());
     break;  // don't play the default record
     }
     }
@@ -4415,7 +4415,7 @@ namespace mac
        // these flags would modify the string
        ASSERT((nFormat & (DT_END_ELLIPSIS | DT_MODIFYSTRING)) != (DT_END_ELLIPSIS | DT_MODIFYSTRING));
        ASSERT((nFormat & (DT_PATH_ELLIPSIS | DT_MODIFYSTRING)) != (DT_PATH_ELLIPSIS | DT_MODIFYSTRING));
-       wstring wstr = ::ca::international::utf8_to_unicode(string(lpszString, nCount));
+       wstring wstr = ::ca2::international::utf8_to_unicode(string(lpszString, nCount));
        return ::DrawTextW(get_handle1(), wstr, (int32_t) wcslen(wstr), lpRect, nFormat); */
       
       return draw_text(string(lpszString, nCount), lpRect, nFormat);
@@ -4430,7 +4430,7 @@ namespace mac
        // these flags would modify the string
        ASSERT((nFormat & (DT_END_ELLIPSIS | DT_MODIFYSTRING)) != (DT_END_ELLIPSIS | DT_MODIFYSTRING));
        ASSERT((nFormat & (DT_PATH_ELLIPSIS | DT_MODIFYSTRING)) != (DT_PATH_ELLIPSIS | DT_MODIFYSTRING));
-       wstring wstr = ::ca::international::utf8_to_unicode(str);
+       wstring wstr = ::ca2::international::utf8_to_unicode(str);
        return ::DrawTextW(get_handle1(), (const wchar_t *)wstr, (int32_t)wcslen(wstr), lpRect, nFormat); */
       
       /*
@@ -4442,19 +4442,19 @@ namespace mac
        
        switch(m_etextrendering)
        {
-       case ::ca::text_rendering_anti_alias:
+       case ::ca2::text_rendering_anti_alias:
        m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
        m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAlias);
        break;
-       case ::ca::text_rendering_anti_alias_grid_fit:
+       case ::ca2::text_rendering_anti_alias_grid_fit:
        m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
        m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAliasGridFit);
        break;
-       case ::ca::text_rendering_single_bit_per_pixel:
+       case ::ca2::text_rendering_single_bit_per_pixel:
        m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
        m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintSingleBitPerPixel);
        break;
-       case ::ca::text_rendering_clear_type_grid_fit:
+       case ::ca2::text_rendering_clear_type_grid_fit:
        m_pgraphics->SetCompositingMode(Gdiplus::CompositingModeSourceOver);
        m_pgraphics->SetTextRenderingHint(Gdiplus::TextRenderingHintClearTypeGridFit);
        break;
@@ -4528,7 +4528,7 @@ namespace mac
        
        m_pgraphics->SetTransform(pmNew);
        
-       m_pgraphics->DrawString(::ca::international::utf8_to_unicode(str), -1, gdiplus_font(), rectf, &format, gdiplus_brush());
+       m_pgraphics->DrawString(::ca2::international::utf8_to_unicode(str), -1, gdiplus_font(), rectf, &format, gdiplus_brush());
        
        m_pgraphics->SetTransform(&m);
        
@@ -4563,7 +4563,7 @@ namespace mac
        // these flags would modify the string
        ASSERT((nFormat & (DT_END_ELLIPSIS | DT_MODIFYSTRING)) != (DT_END_ELLIPSIS | DT_MODIFYSTRING));
        ASSERT((nFormat & (DT_PATH_ELLIPSIS | DT_MODIFYSTRING)) != (DT_PATH_ELLIPSIS | DT_MODIFYSTRING));
-       wstring wstr = ::ca::international::utf8_to_unicode(string(lpszString, nCount));
+       wstring wstr = ::ca2::international::utf8_to_unicode(string(lpszString, nCount));
        return ::DrawTextExW(get_handle1(), const_cast<wchar_t *>((const wchar_t *)wstr), (int32_t)wcslen(wstr), lpRect, nFormat, lpDTParams);
        */
    }
@@ -4579,7 +4579,7 @@ namespace mac
        // these flags would modify the string
        ASSERT((nFormat & (DT_END_ELLIPSIS | DT_MODIFYSTRING)) != (DT_END_ELLIPSIS | DT_MODIFYSTRING));
        ASSERT((nFormat & (DT_PATH_ELLIPSIS | DT_MODIFYSTRING)) != (DT_PATH_ELLIPSIS | DT_MODIFYSTRING));
-       wstring wstr = ::ca::international::utf8_to_unicode(str);
+       wstring wstr = ::ca2::international::utf8_to_unicode(str);
        return ::DrawTextExW(get_handle1(), const_cast<wchar_t *>((const wchar_t *)wstr), (int32_t)wcslen(wstr), lpRect, nFormat, lpDTParams);
        */
       
@@ -4623,7 +4623,7 @@ namespace mac
        if(iIndex < 0)
        return size(0, 0);
        
-       wstring wstr = ::ca::international::utf8_to_unicode(lpszString, nCount);
+       wstring wstr = ::ca2::international::utf8_to_unicode(lpszString, nCount);
        
        strsize iRange = 0;
        strsize i = 0;
@@ -4631,10 +4631,10 @@ namespace mac
        const char * psz = lpszString;
        while(i < iIndex)
        {
-       iLen = ::ca::str::utf8_char(psz).length();
+       iLen = ::ca2::str::utf8_char(psz).length();
        iRange++;
        i += iLen;
-       psz = ::ca::str::utf8_inc(psz);
+       psz = ::ca2::str::utf8_inc(psz);
        if(psz == NULL)
        break;
        if(*psz == '\0')
@@ -4714,7 +4714,7 @@ namespace mac
       
       return ::size(sized.cx, sized.cy);
       
-      /*wstring wstr = ::ca::international::utf8_to_unicode(lpszString, nCount);
+      /*wstring wstr = ::ca2::international::utf8_to_unicode(lpszString, nCount);
        
        Gdiplus::RectF box;
        
@@ -4734,7 +4734,7 @@ namespace mac
        return size(0, 0);
        SIZE size;
        string str(lpszString, nCount);
-       wstring wstr = ::ca::international::utf8_to_unicode(str);
+       wstring wstr = ::ca2::international::utf8_to_unicode(str);
        if(!::GetTextExtentPoint32W(get_handle2(), wstr, (int32_t)wstr.get_length(), &size))
        {
        return class size(0, 0);
@@ -4747,7 +4747,7 @@ namespace mac
       /*      if(get_handle2() == NULL)
        return size(0, 0);
        SIZE size;
-       wstring wstr = ::ca::international::utf8_to_unicode(str);
+       wstring wstr = ::ca2::international::utf8_to_unicode(str);
        if(!::GetTextExtentPoint32W(get_handle2(), wstr, (int32_t)wstr.get_length(), &size))
        {
        return class size(0, 0);
@@ -4764,7 +4764,7 @@ namespace mac
       /*if(m_pgraphics == NULL)
        return size(0, 0);
        
-       wstring wstr = ::ca::international::utf8_to_unicode(str);
+       wstring wstr = ::ca2::international::utf8_to_unicode(str);
        
        Gdiplus::RectF box;
        
@@ -4797,7 +4797,7 @@ namespace mac
        ASSERT(get_handle1() != NULL);
        SIZE size;
        string str(lpszString, nCount);
-       wstring wstr = ::ca::international::utf8_to_unicode(str);
+       wstring wstr = ::ca2::international::utf8_to_unicode(str);
        VERIFY(::GetTextExtentPoint32W(get_handle1(), wstr, (int32_t)wstr.get_length(), &size));
        return size;
        */
@@ -4813,7 +4813,7 @@ namespace mac
       /*
        ASSERT(get_handle1() != NULL);
        SIZE size;
-       wstring wstr = ::ca::international::utf8_to_unicode(str);
+       wstring wstr = ::ca2::international::utf8_to_unicode(str);
        VERIFY(::GetTextExtentPoint32W(get_handle1(), wstr, (int32_t)wstr.get_length(), &size));
        return size;
        */
@@ -4861,7 +4861,7 @@ namespace mac
       return size;
       
       
-      /*      wstring wstr = ::ca::international::utf8_to_unicode(lpszString, nCount);
+      /*      wstring wstr = ::ca2::international::utf8_to_unicode(lpszString, nCount);
        
        Gdiplus::RectF box;
        
@@ -5099,7 +5099,7 @@ namespace mac
    }
    
    
-   void graphics::set_alpha_mode(::ca::e_alpha_mode ealphamode)
+   void graphics::set_alpha_mode(::ca2::e_alpha_mode ealphamode)
    {
       
       try
@@ -5108,15 +5108,15 @@ namespace mac
          if(m_pdc == NULL)
             return;
          
-         ::ca::graphics::set_alpha_mode(ealphamode);
+         ::ca2::graphics::set_alpha_mode(ealphamode);
          
-         if(m_ealphamode == ::ca::alpha_mode_blend)
+         if(m_ealphamode == ::ca2::alpha_mode_blend)
          {
             
             CGContextSetBlendMode(m_pdc, kCGBlendModeNormal);
             
          }
-         else if(m_ealphamode == ::ca::alpha_mode_set)
+         else if(m_ealphamode == ::ca2::alpha_mode_set)
          {
             
             CGContextSetBlendMode(m_pdc, kCGBlendModeCopy);
@@ -5132,7 +5132,7 @@ namespace mac
    }
    
    
-   void graphics::set_text_rendering(::ca::e_text_rendering etextrendering)
+   void graphics::set_text_rendering(::ca2::e_text_rendering etextrendering)
    {
       
       m_etextrendering = etextrendering;
@@ -5192,7 +5192,7 @@ namespace mac
    }
    
    
-   bool graphics::set(const ::ca::brush * pbrush)
+   bool graphics::set(const ::ca2::brush * pbrush)
    {
       
 //      cairo_set_source_rgba(m_pdc, GetRValue(pbrush->m_cr) / 255.0, GetGValue(pbrush->m_cr) / 255.0, GetBValue(pbrush->m_cr) / 255.0, GetAValue(pbrush->m_cr) / 255.0);
@@ -5201,7 +5201,7 @@ namespace mac
    }
    
    
-   bool graphics::set(const ::ca::pen * ppen)
+   bool graphics::set(const ::ca2::pen * ppen)
    {
       
 //      cairo_set_source_rgba(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
@@ -5210,7 +5210,7 @@ namespace mac
       return true;
    }
    
-   bool graphics::SelectFont(::ca::font * pfont)
+   bool graphics::SelectFont(::ca2::font * pfont)
    {
       // SIOOT - Should implemennt one of them
       // OASOWO - otherwise a stack overflow will occur
@@ -5222,7 +5222,7 @@ namespace mac
       
    }
    
-   bool graphics::set(const ::ca::font * pfont)
+   bool graphics::set(const ::ca2::font * pfont)
    {
       
       if(pfont == NULL)
@@ -5261,13 +5261,13 @@ namespace mac
    }
    
    
-   bool graphics::fill(::ca::brush * pbrush)
+   bool graphics::fill(::ca2::brush * pbrush)
    {
       
-      if(pbrush == NULL || pbrush->m_etype == ::ca::brush::type_null)
+      if(pbrush == NULL || pbrush->m_etype == ::ca2::brush::type_null)
          return true;
       
-      if(pbrush->m_etype == ::ca::brush::type_linear_gradient_point_color)
+      if(pbrush->m_etype == ::ca2::brush::type_linear_gradient_point_color)
       {
          
          CGContextSaveGState(m_pdc);
@@ -5303,13 +5303,13 @@ namespace mac
    }
    
    
-   bool graphics::draw(::ca::pen * ppen)
+   bool graphics::draw(::ca2::pen * ppen)
    {
       
-      if(ppen == NULL || ppen->m_etype == ::ca::pen::type_null)
+      if(ppen == NULL || ppen->m_etype == ::ca2::pen::type_null)
          return true;
       
-      if(ppen->m_etype == ::ca::pen::type_solid)
+      if(ppen->m_etype == ::ca2::pen::type_solid)
       {
          
          CGContextSaveGState(m_pdc);
@@ -5336,7 +5336,7 @@ namespace mac
    }
    
    
-   bool graphics::set(const ::ca::graphics_path * ppathParam)
+   bool graphics::set(const ::ca2::graphics_path * ppathParam)
    {
       
       CGContextBeginPath(m_pdc);
@@ -5353,13 +5353,13 @@ namespace mac
       
       switch(e.m_etype)
       {
-         case ::ca::graphics_path::element::type_arc:
+         case ::ca2::graphics_path::element::type_arc:
             set(e.m_arc);
             break;
-         case ::ca::graphics_path::element::type_line:
+         case ::ca2::graphics_path::element::type_line:
             set(e.m_line);
             break;
-         case ::ca::graphics_path::element::type_end:
+         case ::ca2::graphics_path::element::type_end:
 //            cairo_close_path(m_pdc);
             break;
          default:

@@ -92,7 +92,7 @@ ___THREAD_STATE::~___THREAD_STATE()
    if (m_pSafetyPoolBuffer != NULL)
       free(m_pSafetyPoolBuffer);
    
-   // parking ::ca::window must have already been cleaned up by now!
+   // parking ::ca2::window must have already been cleaned up by now!
    ASSERT(m_pWndPark == NULL);
    
    
@@ -120,7 +120,7 @@ THREAD_LOCAL ( ___THREAD_STATE, gen_ThreadState, slot___THREAD_STATE )
  m_pmapHMENU             = NULL;
  m_pstrUnregisterList    = NULL;
   xxx xxx xxx
- m_classList.Construct(offsetof(::ca::type_info, m_pNextClass)); */
+ m_classList.Construct(offsetof(::ca2::type_info, m_pNextClass)); */
 
 /* m_fRegisteredClasses = 0;
  m_bDLL = (BYTE)bDLL;
@@ -165,7 +165,7 @@ __MODULE_STATE::__MODULE_STATE(bool bDLL, DWORD dwVersion, bool bSystem) :
    m_pmapHMENU             = NULL;
    m_pstrUnregisterList    = NULL;
    /* xxx xxx xxx
-    m_classList.Construct(offsetof(::ca::type_info, m_pNextClass)); */
+    m_classList.Construct(offsetof(::ca2::type_info, m_pNextClass)); */
    
    m_fRegisteredClasses = 0;
    m_bDLL = (BYTE)bDLL;
@@ -402,7 +402,7 @@ bool CLASS_DECL_mac __is_module_dll()
 
 bool CLASS_DECL_mac __init_current_state_app()
 {
-   ::ca::application* pApp = __get_module_state()->m_pCurrentWinApp;
+   ::ca2::application* pApp = __get_module_state()->m_pCurrentWinApp;
    if (pApp != NULL && !pApp->initialize_instance())
    {
       // Init Failed

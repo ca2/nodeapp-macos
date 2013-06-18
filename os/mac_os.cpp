@@ -8,9 +8,9 @@ namespace mac
 {
    
    
-   os::os(::ca::application * papp) :
-   ca(papp),
-   ::ca::os(papp)
+   os::os(::ca2::application * papp) :
+   ca2(papp),
+   ::ca2::os(papp)
    {
    }
    
@@ -504,9 +504,9 @@ namespace mac
        try
        {
        
-       strCommand = ::ca::str::consume_quoted_value(psz);
-       ::ca::str::consume_spaces(psz);
-       ::ca::str::consume(psz, "\"%L\"");
+       strCommand = ::ca2::str::consume_quoted_value(psz);
+       ::ca2::str::consume_spaces(psz);
+       ::ca2::str::consume(psz, "\"%L\"");
        strParam = psz;
        
        }
@@ -792,7 +792,7 @@ namespace mac
       /*
        ::count c;
        
-       ::ca::thread * pthread;
+       ::ca2::thread * pthread;
        
        c = ::win::thread::s_threadptra.get_size();
        
@@ -808,7 +808,7 @@ namespace mac
        
        try
        {
-       pthread = dynamic_cast < ::ca::thread * >(::win::thread::s_threadptra[i]);
+       pthread = dynamic_cast < ::ca2::thread * >(::win::thread::s_threadptra[i]);
        pthread->m_bRun = false;
        pthread->m_p->m_bRun = false;
        }

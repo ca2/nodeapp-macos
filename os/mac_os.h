@@ -4,12 +4,12 @@ namespace mac
 {
    
    class CLASS_DECL_mac os :
-   public ::ca::os
+   public ::ca2::os
    {
    public:
       
       
-      os(::ca::application * papp);
+      os(::ca2::application * papp);
       virtual ~os();
       
       
