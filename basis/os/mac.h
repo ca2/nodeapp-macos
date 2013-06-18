@@ -12,7 +12,7 @@
 
 string get_error_message(DWORD dwError);
 
-::ca::application *     mac_instantiate_application(::ca::application * pappSystem, const char * pszId);
+::ca2::application *     mac_instantiate_application(::ca2::application * pappSystem, const char * pszId);
 
 /////////////////////////////////////////////////////////////////////////////
 // explicit initialization for general purpose classes
@@ -85,25 +85,25 @@ CLASS_DECL_mac void AfxResetMsgCache();
 // xxx CLASS_DECL_mac WNDPROC AfxGetAfxWndProc();
 #define AfxWndProc (*AfxGetAfxWndProc())
 
-#define MAC_THREAD(pthread) (dynamic_cast < ::mac::thread * > (dynamic_cast < ::ca::thread * >(pthread)))
-#define MAC_WINDOW(pwnd) (dynamic_cast < ::mac::window * > (dynamic_cast < ::ca::window * >(pwnd)))
-#define MAC_DC(pgraphics) (dynamic_cast < ::mac::graphics * > (dynamic_cast < ::ca::graphics * > (pgraphics)))
-#define SP_DC(pgraphics) (dynamic_cast < ::mac::graphics * > (( ::ca::graphics * )(pgraphics)))
-#define MAC_HDC(pgraphics) ((HDC)*(dynamic_cast < ::mac::graphics * > (dynamic_cast < ::ca::graphics * > (pgraphics))))
-#define SP_HDC(pgraphics) ((HDC)*(dynamic_cast < ::mac::graphics * > ((::ca::graphics *)(pgraphics))))
-#define MAC_DIB(pdib) (dynamic_cast < ::mac::dib * > (dynamic_cast < ::ca::dib * >(pdib)))
+#define MAC_THREAD(pthread) (dynamic_cast < ::mac::thread * > (dynamic_cast < ::ca2::thread * >(pthread)))
+#define MAC_WINDOW(pwnd) (dynamic_cast < ::mac::window * > (dynamic_cast < ::ca2::window * >(pwnd)))
+#define MAC_DC(pgraphics) (dynamic_cast < ::mac::graphics * > (dynamic_cast < ::ca2::graphics * > (pgraphics)))
+#define SP_DC(pgraphics) (dynamic_cast < ::mac::graphics * > (( ::ca2::graphics * )(pgraphics)))
+#define MAC_HDC(pgraphics) ((HDC)*(dynamic_cast < ::mac::graphics * > (dynamic_cast < ::ca2::graphics * > (pgraphics))))
+#define SP_HDC(pgraphics) ((HDC)*(dynamic_cast < ::mac::graphics * > ((::ca2::graphics *)(pgraphics))))
+#define MAC_DIB(pdib) (dynamic_cast < ::mac::dib * > (dynamic_cast < ::ca2::dib * >(pdib)))
 
 #include "mac_shell.h"
 
-CLASS_DECL_mac void __trace_message(const char * lpszPrefix, ::ca::signal_object * pobj);
+CLASS_DECL_mac void __trace_message(const char * lpszPrefix, ::ca2::signal_object * pobj);
 CLASS_DECL_mac void __trace_message(const char * lpszPrefix, LPMESSAGE lpmsg);
 
-CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(::ca::signal_object * pobj);
+CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(::ca2::signal_object * pobj);
 CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg);
 
 
-CLASS_DECL_mac void AfxProcessWndProcException(base_exception*, ::ca::signal_object * pobj);
-CLASS_DECL_mac void __cdecl __pre_translate_message(::ca::signal_object * pobj);
+CLASS_DECL_mac void AfxProcessWndProcException(base_exception*, ::ca2::signal_object * pobj);
+CLASS_DECL_mac void __cdecl __pre_translate_message(::ca2::signal_object * pobj);
 #include "mac_printer.h"
 
 #include "mac_application.h"
@@ -128,4 +128,4 @@ WINBOOL GetMessage(
 int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[]);
 
 
-CLASS_DECL_mac void vfxThrowFileException(::ca::application * papp, int32_t cause, LONG lOsError, const char * lpszFileName = NULL);
+CLASS_DECL_mac void vfxThrowFileException(::ca2::application * papp, int32_t cause, LONG lOsError, const char * lpszFileName = NULL);

@@ -24,7 +24,7 @@ void * PASCAL no_track_object::operator new(size_t nSize)
 {
    void * p = ::malloc(nSize);
    if (p == NULL)
-      throw memory_exception(::ca::get_thread_app());
+      throw memory_exception(::ca2::get_thread_app());
    return p;
 }
 #define new DEBUG_NEW
@@ -152,7 +152,7 @@ no_track_object* process_local_object::get_data(
       }
       catch(base_exception * pe)
       {
-         ::ca::rethrow(pe);
+         ::ca2::rethrow(pe);
       }
       
    }
@@ -168,7 +168,7 @@ process_local_object::~process_local_object()
 /////////////////////////////////////////////////////////////////////////////
 // Init/Term for thread/process local data
 
-/*void CLASS_DECL_lnx ::ca::InitLocalData(HINSTANCE hInst)
+/*void CLASS_DECL_lnx ::ca2::InitLocalData(HINSTANCE hInst)
  {
  if (__thread_data != NULL)
  __thread_data->AssignInstance(hInst);

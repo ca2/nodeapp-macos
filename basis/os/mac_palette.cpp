@@ -5,8 +5,8 @@ namespace mac
 {
    
    
-   palette::palette(::ca::application * papp) :
-   ca(papp)
+   palette::palette(::ca2::application * papp) :
+   ca2(papp)
    {
       
    }
@@ -31,7 +31,7 @@ namespace mac
    
    /*
     
-    palette* PASCAL palette::from_handle(::ca::application * papp, HPALETTE hPalette)
+    palette* PASCAL palette::from_handle(::ca2::application * papp, HPALETTE hPalette)
     {
     
     //return dynamic_cast < palette * > (::win::graphics_object::from_handle(papp, hPalette));
@@ -60,7 +60,7 @@ namespace mac
    
    /*
     
-    WINBOOL palette::CreateHalftonePalette(::ca::graphics * pgraphics)
+    WINBOOL palette::CreateHalftonePalette(::ca2::graphics * pgraphics)
     {
     
     //ASSERT(pgraphics != NULL && (dynamic_cast<::win::graphics * >(pgraphics))->get_handle1() != NULL);
