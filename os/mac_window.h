@@ -234,7 +234,12 @@ namespace mac
       virtual bool IsWindowVisible();
       virtual void ShowOwnedPopups(bool bShow = TRUE);
       
-      void round_window_draw(CGContextRef cgc);
+      virtual void round_window_draw(CGContextRef cgc);
+      virtual void round_window_mouse_down(double x, double y);
+      virtual void round_window_mouse_up(double x, double y);
+      virtual void round_window_mouse_moved(double x, double y);
+      virtual void round_window_mouse_dragged(double x, double y);
+      
       
       void set_view_port_org(::ca2::graphics * pgraphics);
       void offset_view_port_org(LPRECT lprectScreen);

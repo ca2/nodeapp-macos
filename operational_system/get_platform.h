@@ -2,7 +2,12 @@
 
 
 
+#define MOVE_SEMANTICS
+
+
 #define PURE = 0
+
+
 
 
 
