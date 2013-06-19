@@ -23,10 +23,13 @@
 //
 - (NSRect)resizeRect
 {
+   
 	const CGFloat resizeBoxSize = 16.0;
+   
 	const CGFloat contentViewPadding = 5.5;
 	
 	NSRect contentViewRect = [[self window] contentRectForFrameRect:[[self window] frame]];
+   
 	NSRect resizeRect = NSMakeRect(
 		NSMaxX(contentViewRect) + contentViewPadding,
 		NSMinY(contentViewRect) - resizeBoxSize - contentViewPadding,
@@ -34,7 +37,75 @@
 		resizeBoxSize);
 	
 	return resizeRect;
+   
 }
+
+- (void)mouseUp:(NSEvent *)event
+{
+   
+   round_window * p = m_roundwindow->m_pwindow;
+   
+   NSPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
+   
+   NSRect e = [[NSScreen mainScreen] frame];
+   
+   int H = (int) e.size.height;
+   
+   int x = point.x;
+   
+   int y = H - point.y;
+   
+   p->round_window_mouse_up(x, y);
+   
+   return;
+   
+}
+
+
+- (void)mouseMoved:(NSEvent *)event
+{
+   
+   round_window * p = m_roundwindow->m_pwindow;
+   
+   NSPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
+   
+   NSRect e = [[NSScreen mainScreen] frame];
+   
+   int H = (int) e.size.height;
+   
+   int x = point.x;
+   
+   int y = H - point.y;
+   
+   p->round_window_mouse_moved(x, y);
+   
+   return;
+   
+}
+
+
+- (void)mouseDragged:(NSEvent *)event
+{
+   
+   round_window * p = m_roundwindow->m_pwindow;
+   
+   NSPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
+   
+   NSRect e = [[NSScreen mainScreen] frame];
+   
+   int H = (int) e.size.height;
+   
+   int x = point.x;
+   
+   int y = H - point.y;
+   
+   p->round_window_mouse_dragged(x, y);
+   
+   return;
+   
+   
+}
+
 
 //
 // mouseDown:
@@ -45,6 +116,23 @@
 //
 - (void)mouseDown:(NSEvent *)event
 {
+   
+   round_window * p = m_roundwindow->m_pwindow;
+   
+   NSPoint point = [[self window] convertBaseToScreen:[event locationInWindow]];
+   
+   NSRect e = [[NSScreen mainScreen] frame];
+   
+   int H = (int) e.size.height;
+   
+   int x = point.x;
+   
+   int y = H - point.y;
+   
+   p->round_window_mouse_down(x, y);
+   
+   return;
+   
 	NSPoint pointInView = [self convertPoint:[event locationInWindow] fromView:nil];
 	
 	BOOL resize = NO;
@@ -188,6 +276,18 @@
    
    p->round_window_draw(cgc);
    
+}
+
+
+- (BOOL)acceptsFirstResponder
+{
+   return TRUE;
+}
+
+- (BOOL) acceptsFirstMouse:(NSEvent *)theEvent
+{
+   [self mouseDown: theEvent];
+   return YES;
 }
 
 @end

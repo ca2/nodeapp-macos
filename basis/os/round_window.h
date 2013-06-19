@@ -17,6 +17,10 @@ public:
    NSWindow * m_nswindow;
    
    virtual void round_window_draw(CGContextRef cgc) = 0;
+   virtual void round_window_mouse_down(double x, double y) = 0;
+   virtual void round_window_mouse_up(double x, double y) = 0;
+   virtual void round_window_mouse_moved(double x, double y) = 0;
+   virtual void round_window_mouse_dragged(double x, double y) = 0;
    
    
 };
