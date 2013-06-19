@@ -42,6 +42,8 @@ namespace mac
       m_pbuffer = new user::buffer(papp);
       m_pbuffer->m_spdib.create(allocer());
       m_dwLastUpdate = false;
+      m_bProDevianMode = false;
+      
    }
    
    extern void _001DeferPaintLayeredWindowBackground(void * hwnd, ::ca2::graphics * pdc);

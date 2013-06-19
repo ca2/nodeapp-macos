@@ -297,11 +297,33 @@ namespace mac
                       pParentWnd->get_safe_handle(), id, lpParam);
    }
    
+   
    bool window::CreateEx(DWORD dwExStyle, const char * lpszClassName,
                          const char * lpszWindowName, DWORD dwStyle,
                          int32_t x, int32_t y, int32_t nWidth, int32_t nHeight,
                          oswindow hWndParent, id id, LPVOID lpParam)
    {
+      
+      if(::IsWindow(get_handle()))
+      {
+         
+         DestroyWindow();
+            
+      }
+
+      m_pthread = ::ca2::get_thread();
+      
+      if(m_pthread == NULL)
+         m_pthread = get_app();
+         
+      if(m_pthread == NULL)
+         return false;
+         
+      m_pthread->m_pthread->add(this);
+      m_pguie->m_pthread = m_pthread;
+         m_pguie->m_pthread->m_pthread->add(m_pguie);
+         
+      
       UNREFERENCED_PARAMETER(id);
       //      ASSERT(lpszClassName == NULL || __is_valid_string(lpszClassName) ||
       //       __is_valid_atom(lpszClassName));
@@ -325,24 +347,36 @@ namespace mac
       
       if(m_pguie != NULL && m_pguie != this)
       {
+         
          if(!m_pguie->pre_create_window(cs))
          {
+            
             PostNcDestroy();
+            
             return FALSE;
+            
          }
+         
       }
       else
       {
+         
          if (!pre_create_window(cs))
          {
+            
             PostNcDestroy();
+            
             return FALSE;
+            
          }
+         
       }
       
       if(cs.hwndParent == NULL)
       {
+         
          cs.style &= ~WS_CHILD;
+         
       }
       
       hook_window_create(this);
@@ -354,12 +388,12 @@ namespace mac
       rect.size.width = nWidth;
       rect.size.height = nHeight;
       
-      m_pthread = ::ca2::get_thread();
-      
-      
+
       if(hWndParent == MESSAGE_WINDOW_PARENT)
       {
+      
          return true;
+         
       }
       else
       {
@@ -4118,7 +4152,7 @@ namespace mac
          
       }
       
-      ::SetWindowPos(m_oswindow, 0, x, y, cx, cy, SWP_SHOWWINDOW);
+      ::SetWindowPos(m_oswindow, 0, m_rectParentClient.left, m_rectParentClient.top, m_rectParentClient.width(), m_rectParentClient., SWP_SHOWWINDOW);
       
       if(rectWindowOld.top_left() != m_rectParentClient.top_left())
       {
@@ -6238,7 +6272,7 @@ namespace mac
    {
       
       
-      throw not_implemented(get_app());
+      //throw not_implemented(get_app());
       //      m_bMouseHover = true;
       //      TRACKMOUSEEVENT tme = { sizeof(tme) };
       //      tme.dwFlags = TME_LEAVE;
@@ -6259,6 +6293,86 @@ namespace mac
       
       
 //      g->FillSolidRect(10, 10, 100, 100, ARGB(128, 84, 184, 77));
+      
+   }
+   
+   
+   void window::round_window_mouse_down(double x, double y)
+   {
+      
+      sp(::ca2::message::base) spbase;
+      
+      ::ca2::message::mouse * pmouse = canew(::ca2::message::mouse(get_app()));
+      
+      pmouse->m_uiMessage = WM_LBUTTONDOWN;
+      pmouse->m_pt.x = (LONG) x;
+      pmouse->m_pt.y = (LONG) y;
+      pmouse->m_bTranslated = true;
+//      pmouse->m_bTranslateMouseMessageCursor = true;
+      
+      spbase = pmouse;
+      
+      send(spbase);
+      
+   }
+   
+   
+   void window::round_window_mouse_up(double x, double y)
+   {
+      
+      sp(::ca2::message::base) spbase;
+      
+      ::ca2::message::mouse * pmouse = canew(::ca2::message::mouse(get_app()));
+      
+      pmouse->m_uiMessage = WM_LBUTTONUP;
+      pmouse->m_pt.x = (LONG) x;
+      pmouse->m_pt.y = (LONG) y;
+      pmouse->m_bTranslated = true;
+//      pmouse->m_bTranslateMouseMessageCursor = true;
+      
+      spbase = pmouse;
+      
+      send(spbase);
+      
+   }
+
+   
+   void window::round_window_mouse_moved(double x, double y)
+   {
+      
+      sp(::ca2::message::base) spbase;
+      
+      ::ca2::message::mouse * pmouse = canew(::ca2::message::mouse(get_app()));
+      
+      pmouse->m_uiMessage = WM_MOUSEMOVE;
+      pmouse->m_pt.x = (LONG) x;
+      pmouse->m_pt.y = (LONG) y;
+      pmouse->m_bTranslated = true;
+//      pmouse->m_bTranslateMouseMessageCursor = true;
+      
+      spbase = pmouse;
+      
+      send(spbase);
+      
+   }
+   
+   
+   void window::round_window_mouse_dragged(double x, double y)
+   {
+      
+      sp(::ca2::message::base) spbase;
+      
+      ::ca2::message::mouse * pmouse = canew(::ca2::message::mouse(get_app()));
+      
+      pmouse->m_uiMessage = WM_MOUSEMOVE;
+      pmouse->m_pt.x = (LONG) x;
+      pmouse->m_pt.y = (LONG) y;
+      pmouse->m_bTranslated = true;
+      //      pmouse->m_bTranslateMouseMessageCursor = true;
+      
+      spbase = pmouse;
+      
+      send(spbase);
       
    }
    
