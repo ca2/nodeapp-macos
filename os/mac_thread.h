@@ -105,8 +105,8 @@ namespace mac
       
       
       
-      virtual void * get_os_data();
-      virtual int_ptr get_os_int();
+      virtual void * get_os_data() const;
+      virtual int_ptr get_os_int() const;
       
       void set_os_data(void * pvoidOsData);
       void set_os_int(int_ptr iData);

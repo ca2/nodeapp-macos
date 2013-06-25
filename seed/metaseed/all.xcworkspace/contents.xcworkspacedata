@@ -17,6 +17,9 @@
       location = "group:../../../app/thirdparty/appseed/zlib/_ca2zlib.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/deepfish/app_core_deepfish.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-core/appseed/hellomultiverse/app_core_hellomultiverse.xcodeproj">
    </FileRef>
    <FileRef

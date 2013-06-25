@@ -49,6 +49,8 @@ public    ::ca2::main_init_data
       // Loads an OEM cursor; for all OCR_* values.
       HCURSOR LoadOEMCursor(UINT nIDCursor) const;
       
+      virtual void ShowWaitCursor(bool bShow);
+      
       // Loads an icon resource.
       HICON LoadIcon(const char * lpszResourceName) const;
       HICON LoadIcon(UINT nIDResource) const;

@@ -609,7 +609,7 @@ namespace mac
    
    thread::~thread()
    {
-      if(m_puiptra != NULL)
+/*      if(m_puiptra != NULL)
       {
          single_lock sl(&m_mutexUiPtra, TRUE);
          ::user::interaction_ptr_array * puiptra = m_puiptra;
@@ -634,7 +634,7 @@ namespace mac
             }
          }
          sl.unlock();
-      }
+      }*/
       
       __MODULE_THREAD_STATE* pState = __get_module_thread_state();
       /*      // clean up temp objects
@@ -683,15 +683,22 @@ namespace mac
       
    }
    
-   void * thread::get_os_data()
+   
+   void * thread::get_os_data() const
    {
+      
       return m_hThread;
+      
    }
    
-   int_ptr thread::get_os_int()
+   
+   int_ptr thread::get_os_int() const
    {
+      
       return m_nID;
+      
    }
+   
    
    void thread::on_delete(::ca2::ca2 * p)
    {
@@ -1193,7 +1200,7 @@ namespace mac
       {
          for(int32_t i = 0; i < m_puiptra->get_count(); i++)
          {
-            ::user::interaction* pui = m_puiptra->element_at(i);
+            sp(::user::interaction) pui = m_puiptra->element_at(i);
             try
             {
                if (pui != NULL && pui->IsWindowVisible())

@@ -9,6 +9,9 @@
 #pragma once
 
 
+#include "app/appseed/ca2/user/user_key_enum.h"
+
+
 class round_window
 {
 public:
@@ -21,6 +24,8 @@ public:
    virtual void round_window_mouse_up(double x, double y) = 0;
    virtual void round_window_mouse_moved(double x, double y) = 0;
    virtual void round_window_mouse_dragged(double x, double y) = 0;
+   virtual bool round_window_key_down(::user::e_key ekey) = 0;
+   virtual bool round_window_key_up(::user::e_key ekey) = 0;
    
    
 };
