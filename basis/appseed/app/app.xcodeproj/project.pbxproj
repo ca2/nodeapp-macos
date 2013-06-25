@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A5752B716AAE1D2000CC4EF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5752B616AAE1D2000CC4EF /* Cocoa.framework */; };
 		9A5752DD16AAE321000CC4EF /* app.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9A5752DC16AAE321000CC4EF /* app.mm */; };
+		9A73215C1779C7B800896A90 /* libca2ca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A73215B1779C7B800896A90 /* libca2ca.dylib */; };
 		9A98A6211771D764000AE16E /* lib_ca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A98A6201771D764000AE16E /* lib_ca2c.dylib */; };
 		9ACA7CC616F7D2F800AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CBC16F7D2F800AA1CEE /* lib_ca2freeimage.dylib */; };
 		9ACA7CC716F7D2F800AA1CEE /* lib_ca2freetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CBD16F7D2F800AA1CEE /* lib_ca2freetype.dylib */; };
@@ -25,13 +26,13 @@
 		9A5752BA16AAE1D2000CC4EF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9A5752BB16AAE1D2000CC4EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A5752DC16AAE321000CC4EF /* app.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = app.mm; sourceTree = SOURCE_ROOT; };
+		9A73215B1779C7B800896A90 /* libca2ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = file; name = libca2ca.dylib; path = ../../../app/appseed/ca/build/Release/libca2ca.dylib; sourceTree = "<group>"; };
 		9A98A6201771D764000AE16E /* lib_ca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2c.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2c.dylib"; sourceTree = "<group>"; };
 		9AB3522516AC11540084BFE8 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = app.entitlements; sourceTree = SOURCE_ROOT; };
 		9ACA7CBC16F7D2F800AA1CEE /* lib_ca2freeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freeimage.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freeimage.dylib"; sourceTree = "<group>"; };
 		9ACA7CBD16F7D2F800AA1CEE /* lib_ca2freetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freetype.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freetype.dylib"; sourceTree = "<group>"; };
 		9ACA7CBE16F7D2F800AA1CEE /* lib_ca2openssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2openssl.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2openssl.dylib"; sourceTree = "<group>"; };
 		9ACA7CBF16F7D2F800AA1CEE /* lib_ca2zlib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2zlib.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2zlib.dylib"; sourceTree = "<group>"; };
-		9ACA7CC116F7D2F800AA1CEE /* libca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2c.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2c.dylib"; sourceTree = "<group>"; };
 		9ADEA4771766695200D4CF1F /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2.dylib"; sourceTree = "<group>"; };
 		9ADEA4781766695200D4CF1F /* libca2os.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2os.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2os.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +48,7 @@
 				9ACA7CC616F7D2F800AA1CEE /* lib_ca2freeimage.dylib in Frameworks */,
 				9ACA7CC716F7D2F800AA1CEE /* lib_ca2freetype.dylib in Frameworks */,
 				9ACA7CC816F7D2F800AA1CEE /* lib_ca2openssl.dylib in Frameworks */,
+				9A73215C1779C7B800896A90 /* libca2ca.dylib in Frameworks */,
 				9ADEA4791766695200D4CF1F /* libca2.dylib in Frameworks */,
 				9ADEA47A1766695200D4CF1F /* libca2os.dylib in Frameworks */,
 			);
@@ -59,11 +61,11 @@
 			isa = PBXGroup;
 			children = (
 				9A98A6201771D764000AE16E /* lib_ca2c.dylib */,
-				9ACA7CBF16F7D2F800AA1CEE /* lib_ca2zlib.dylib */,
 				9ACA7CBC16F7D2F800AA1CEE /* lib_ca2freeimage.dylib */,
 				9ACA7CBD16F7D2F800AA1CEE /* lib_ca2freetype.dylib */,
 				9ACA7CBE16F7D2F800AA1CEE /* lib_ca2openssl.dylib */,
-				9ACA7CC116F7D2F800AA1CEE /* libca2c.dylib */,
+				9ACA7CBF16F7D2F800AA1CEE /* lib_ca2zlib.dylib */,
+				9A73215B1779C7B800896A90 /* libca2ca.dylib */,
 				9ADEA4771766695200D4CF1F /* libca2.dylib */,
 				9ADEA4781766695200D4CF1F /* libca2os.dylib */,
 				9A5752BC16AAE1D2000CC4EF /* app */,

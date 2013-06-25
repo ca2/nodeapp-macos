@@ -481,7 +481,7 @@ namespace mac
       ::ca2::thread::m_p->set_os_data(NULL);
 
       MAC_THREAD(::ca2::thread::m_p.m_p)->m_bRun = false;
-      MAC_THREAD(::ca2::application_base::m_p.m_p->::ca2::thread::m_p.m_p)->m_bRun = false;
+//      MAC_THREAD(::ca2::application_base::m_p.m_p->::ca2::thread::m_p.m_p)->m_bRun = false;
 
       int32_t iRet = ::ca2::application::exit_instance();
 
@@ -845,6 +845,15 @@ namespace mac
       return pprinter;
 
    }
+   
+   
+   void application::ShowWaitCursor(bool bShow)
+   {
+      
+      UNREFERENCED_PARAMETER(bShow);
+      
+   }
+   
 
 
 } // namespace mac

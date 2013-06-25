@@ -1483,7 +1483,7 @@ namespace mac
 
          ::ca2::message::key * pkey = (::ca2::message::key *) pbase;
 
-         Application.user()->keyboard().translate_os_key_message(pkey);
+//         Application.user()->keyboard().translate_os_key_message(pkey);
          
          if(pbase->m_uiMessage == WM_KEYDOWN)
          {
@@ -3924,10 +3924,14 @@ namespace mac
                if (!ContinueModal(iLevel))
                   goto ExitModal;
                         }
-            ExitModal:
-//            m_iaModalThread.remove_first(::GetCurrentThreadId());
-            m_iModal = m_iModalCount;
-            return m_nModalResult;
+   ExitModal:
+      
+      m_iaModalThread.remove_first(::GetCurrentThreadId());
+      
+      m_iModal = m_iModalCount;
+      
+      return m_nModalResult;
+      
    }
    
    bool window::ContinueModal(int32_t iLevel)
@@ -3937,23 +3941,30 @@ namespace mac
    
    void window::EndModalLoop(id nResult)
    {
-            ASSERT(::IsWindow(get_handle()));
-                  // this result will be returned from window::RunModalLoop
-            m_nModalResult = (int32_t) nResult;
-                  // make sure a message goes through to exit the modal loop
-            if(m_iModalCount > 0)
-            {
-               m_iModalCount--;
-               for(index i = 0; i < m_iaModalThread.get_count(); i++)
-               {
-//                  ::post_thread_message((DWORD) m_iaModalThread[i], WM_NULL, 0, 0);
-               }
+      
+      ASSERT(::IsWindow(get_handle()));
+      
+      // this result will be returned from window::RunModalLoop
+      m_nModalResult = (int32_t) nResult;
+      
+      // make sure a message goes through to exit the modal loop
+      if(m_iModalCount > 0)
+      {
+         
+         m_iModalCount--;
+         
+         for(index i = 0; i < m_iaModalThread.get_count(); i++)
+         {
+         
+            ::PostThreadMessage((DWORD) m_iaModalThread[i], WM_NULL, 0, 0);
+            
+         }
                
-               post_message(WM_NULL);
+         post_message(WM_NULL);
                
-               System.GetThread()->post_thread_message(WM_NULL, 0, 0);
+         System.GetThread()->post_thread_message(WM_NULL, 0, 0);
                
-            }
+      }
       
    }
    
@@ -3969,6 +3980,14 @@ namespace mac
       {
          int32_t iLevel = m_iModalCount - 1;
          m_iModalCount = 0;
+         
+         
+         for(index i = 0; i < m_iaModalThread.get_count(); i++)
+         {
+            
+            ::PostThreadMessage((DWORD) m_iaModalThread[i], WM_NULL, 0, 0);
+            
+         }
          
          post_message(WM_NULL);
          
@@ -4152,7 +4171,13 @@ namespace mac
          
       }
       
-      ::SetWindowPos(m_oswindow, 0, m_rectParentClient.left, m_rectParentClient.top, m_rectParentClient.width(), m_rectParentClient., SWP_SHOWWINDOW);
+      ::SetWindowPos(m_oswindow,
+                     0,
+                     (int) m_rectParentClient.left,
+                     (int) m_rectParentClient.top,
+                     (int) m_rectParentClient.width(),
+                     (int) m_rectParentClient.height(),
+                     SWP_SHOWWINDOW);
       
       if(rectWindowOld.top_left() != m_rectParentClient.top_left())
       {
@@ -6297,22 +6322,97 @@ namespace mac
    }
    
    
+   bool window::round_window_key_down(::user::e_key ekey)
+   {
+      
+      sp(::ca2::message::base) spbase;
+      
+      ::ca2::message::key * pkey = canew(::ca2::message::key(get_app()));
+      
+      pkey->m_uiMessage = WM_KEYDOWN;
+      pkey->m_ekey = ekey;
+      
+      spbase = pkey;
+      
+      send(spbase);
+      
+      return spbase->m_bRet;
+      
+   }
+
+   
+   bool window::round_window_key_up(::user::e_key ekey)
+   {
+      
+      sp(::ca2::message::base) spbase;
+      
+      ::ca2::message::key * pkey = canew(::ca2::message::key(get_app()));
+      
+      pkey->m_uiMessage = WM_KEYUP;
+      pkey->m_ekey = ekey;
+      
+      spbase = pkey;
+      
+      send(spbase);
+      
+      return spbase->m_bRet;
+      
+   }
+   
+   
    void window::round_window_mouse_down(double x, double y)
    {
       
       sp(::ca2::message::base) spbase;
       
-      ::ca2::message::mouse * pmouse = canew(::ca2::message::mouse(get_app()));
+      if(::GetActiveWindow() != get_handle())
+      {
+         
+         {
+            
+            ::ca2::message::mouse_activate * pmouseactivate = canew(::ca2::message::mouse_activate(get_app()));
+            
+            pmouseactivate->m_uiMessage = WM_MOUSEACTIVATE;
+            
+            spbase = pmouseactivate;
+            
+            send(spbase);
+            
+         }
+         
+         if(spbase->get_lresult() == MA_ACTIVATE || spbase->get_lresult() == MA_ACTIVATEANDEAT)
+         {
+            
+            ::ca2::message::activate * pactivate = canew(::ca2::message::activate(get_app()));
+            
+            pactivate->m_uiMessage = WM_ACTIVATE;
+            pactivate->m_wparam = WA_CLICKACTIVE;
+            pactivate->m_nState = WA_CLICKACTIVE;
+            pactivate->m_bMinimized = false;
+            
+            spbase = pactivate;
+            
+            send(spbase);
+            
+         }
+         
+      }
       
-      pmouse->m_uiMessage = WM_LBUTTONDOWN;
-      pmouse->m_pt.x = (LONG) x;
-      pmouse->m_pt.y = (LONG) y;
-      pmouse->m_bTranslated = true;
-//      pmouse->m_bTranslateMouseMessageCursor = true;
+      {
       
-      spbase = pmouse;
+         ::ca2::message::mouse * pmouse = canew(::ca2::message::mouse(get_app()));
       
-      send(spbase);
+         pmouse->m_uiMessage = WM_LBUTTONDOWN;
+         pmouse->m_pt.x = (LONG) x;
+         pmouse->m_pt.y = (LONG) y;
+         pmouse->m_bTranslated = true;
+         //pmouse->m_bTranslateMouseMessageCursor = true;
+      
+         spbase = pmouse;
+      
+         send(spbase);
+         
+      }
       
    }
    
