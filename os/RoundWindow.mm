@@ -101,6 +101,11 @@
 	RoundWindowFrameView * frameView = [[RoundWindowFrameView alloc] initWithFrame : bounds] ;
    
    frameView->m_roundwindow =  self;
+   
+   frameView->m_bShift = false;
+   frameView->m_bControl = false;
+   frameView->m_bAlt = false;
+   
 		
 	[super setContentView : frameView];
 
@@ -161,5 +166,6 @@
 {
 	return NSInsetRect(windowContentRect, -NS_ROUND_WINDOW_FRAME_PADDING, -NS_ROUND_WINDOW_FRAME_PADDING);
 }
+
 
 @end

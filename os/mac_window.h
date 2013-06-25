@@ -239,6 +239,8 @@ namespace mac
       virtual void round_window_mouse_up(double x, double y);
       virtual void round_window_mouse_moved(double x, double y);
       virtual void round_window_mouse_dragged(double x, double y);
+      virtual bool round_window_key_down(::user::e_key ekey);
+      virtual bool round_window_key_up(::user::e_key ekey);
       
       
       void set_view_port_org(::ca2::graphics * pgraphics);

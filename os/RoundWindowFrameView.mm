@@ -290,4 +290,338 @@
    return YES;
 }
 
+
+
+- (void)keyDown:(NSEvent *)event {
+   
+
+   ::user::e_key ekey = event_key(event);
+   
+   round_window * p = m_roundwindow->m_pwindow;
+   
+   if(p->round_window_key_down(ekey))
+      return;
+   
+   [super keyDown:event];
+   
+}
+
+- (void)keyUp:(NSEvent *)event {
+   
+   
+   ::user::e_key ekey = event_key(event);
+   
+   round_window * p = m_roundwindow->m_pwindow;
+   
+   if(p->round_window_key_up(ekey))
+      return;
+   
+   [super keyUp:event];
+   
+}
+
+- (void)flagsChanged:(NSEvent *)event
+{
+
+   round_window * p = m_roundwindow->m_pwindow;
+   
+   if([event modifierFlags] & NSShiftKeyMask)
+   {
+      if(!m_bShift)
+      {
+         m_bShift = true;
+         if(p->round_window_key_down(::user::key_shift))
+            return;
+      }
+   }
+   else
+   {
+      if(m_bShift)
+      {
+         m_bShift = false;
+         if(p->round_window_key_up(::user::key_shift))
+            return;
+      }
+   }
+
+   if([event modifierFlags] & NSControlKeyMask)
+   {
+      if(!m_bControl)
+      {
+         m_bControl = true;
+         if(p->round_window_key_down(::user::key_control))
+            return;
+      }
+   }
+   else
+   {
+      if(m_bControl)
+      {
+         m_bControl = false;
+         if(p->round_window_key_up(::user::key_control))
+            return;
+      }
+   }
+ 
+   if([event modifierFlags] & NSAlternateKeyMask)
+   {
+      if(!m_bAlt)
+      {
+         m_bAlt = true;
+         if(p->round_window_key_down(::user::key_control))
+            return;
+      }
+   }
+   else
+   {
+      if(m_bAlt)
+      {
+         m_bAlt = false;
+         if(p->round_window_key_up(::user::key_control))
+            return;
+      }
+   }
+
+   [super flagsChanged:event];
+}
+
 @end
+
+
+::user::e_key event_key(NSEvent * event)
+{
+   
+   if([event modifierFlags] & NSNumericPadKeyMask) // arrow keys have this mask
+   {
+      
+      NSString * arrow = [event charactersIgnoringModifiers];
+      
+      unichar key = 0;
+      
+      if([arrow length] == 0)
+         return ::user::key_none;            // reject dead keys
+      
+      if([arrow length] == 1)
+      {
+         
+         key = [arrow characterAtIndex:0];
+         
+         if(key == NSLeftArrowFunctionKey)
+         {
+            
+            return ::user::key_left;
+            
+         }
+         
+         if(key == NSRightArrowFunctionKey)
+         {
+            
+            return ::user::key_right;
+            
+         }
+         
+         if(key == NSUpArrowFunctionKey)
+         {
+            
+            return ::user::key_up;
+            
+         }
+         
+         if(key == NSDownArrowFunctionKey)
+         {
+            
+            return ::user::key_down;
+            
+         }
+         
+      }
+      
+   }
+   else
+   {
+      
+      unsigned short ush = [event keyCode];
+      
+      if(ush == 12)
+      {
+         return ::user::key_q;
+      }
+      else if(ush == 13)
+      {
+         return ::user::key_w;
+      }
+      else if(ush == 14)
+      {
+         return ::user::key_e;
+      }
+      else if(ush == 15)
+      {
+         return ::user::key_r;
+      }
+      else if(ush == 17)
+      {
+         return ::user::key_t;
+      }
+      else if(ush == 16)
+      {
+         return ::user::key_y;
+      }
+      else if(ush == 32)
+      {
+         return ::user::key_u;
+      }
+      else if(ush == 34)
+      {
+         return ::user::key_i;
+      }
+      else if(ush == 31)
+      {
+         return ::user::key_o;
+      }
+      else if(ush == 35)
+      {
+         return ::user::key_p;
+      }
+      else if(ush == 0)
+      {
+         return ::user::key_a;
+      }
+      else if(ush == 1)
+      {
+         return ::user::key_2;
+      }
+      else if(ush == 2)
+      {
+         return ::user::key_d;
+      }
+      else if(ush == 3)
+      {
+         return ::user::key_f;
+      }
+      else if(ush == 5)
+      {
+         return ::user::key_g;
+      }
+      else if(ush == 4)
+      {
+         return ::user::key_h;
+      }
+      else if(ush == 38)
+      {
+         return ::user::key_j;
+      }
+      else if(ush == 40)
+      {
+         return ::user::key_k;
+      }
+      else if(ush == 37)
+      {
+         return ::user::key_l;
+      }
+      else if(ush == 41)
+      {
+         return ::user::key_semicolon;
+      }
+      else if(ush == 6)
+      {
+         return ::user::key_z;
+      }
+      else if(ush == 7)
+      {
+         return ::user::key_x;
+      }
+      else if(ush == 8)
+      {
+         return ::user::key_c;
+      }
+      else if(ush == 9)
+      {
+         return ::user::key_v;
+      }
+      else if(ush == 11)
+      {
+         return ::user::key_b;
+      }
+      else if(ush == 45)
+      {
+         return ::user::key_n;
+      }
+      else if(ush == 46)
+      {
+         return ::user::key_m;
+      }
+      else if(ush == 43)
+      {
+         return ::user::key_comma;
+      }
+      else if(ush == 47)
+      {
+         return ::user::key_dot;
+      }
+      else if(ush == 44)
+      {
+         //         return ::user::key_;
+      }
+      else if(ush == 18)
+      {
+         return ::user::key_1;
+      }
+      else if(ush == 19)
+      {
+         return ::user::key_2;
+      }
+      else if(ush == 20)
+      {
+         return ::user::key_3;
+      }
+      else if(ush == 21)
+      {
+         return ::user::key_4;
+      }
+      else if(ush == 23)
+      {
+         return ::user::key_5;
+      }
+      else if(ush == 22)
+      {
+         return ::user::key_6;
+      }
+      else if(ush == 26)
+      {
+         return ::user::key_7;
+      }
+      else if(ush == 28)
+      {
+         return ::user::key_8;
+      }
+      else if(ush == 25)
+      {
+         return ::user::key_9;
+      }
+      else if(ush == 29)
+      {
+         return ::user::key_0;
+      }
+      else if(ush == 36)
+      {
+         return ::user::key_return;
+      }
+      else if(ush == 48)
+      {
+         return ::user::key_tab;
+      }
+      else if(ush == 51)
+      {
+         return ::user::key_back;
+      }
+      else if(ush == 117)
+      {
+         return ::user::key_delete;
+      }
+      
+   }
+   
+   return ::user::key_none;;
+   
+   
+}

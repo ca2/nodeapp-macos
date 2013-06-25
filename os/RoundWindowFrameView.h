@@ -17,10 +17,19 @@
 
 #define NS_ROUND_WINDOW_FRAME_PADDING 0
 
+::user::e_key event_key(NSEvent * event);
+
+
 @interface RoundWindowFrameView : NSView
 {
    @public
    RoundWindow * m_roundwindow;
+   bool m_bShift;
+   bool m_bControl;
+   bool m_bAlt;
+   
+   
 }
+
 
 @end
