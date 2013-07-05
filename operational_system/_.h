@@ -27,7 +27,7 @@
 
 
 #ifdef _DEBUG
-#define DEBUG
+#define DEBUG 1
 #endif // _DEBUG
 
 

@@ -584,6 +584,7 @@ namespace mac
       IGUI_WIN_MSG_LINK(WM_SIZE              , pinterface, this, &window::_001OnSize);
       IGUI_WIN_MSG_LINK(WM_SHOWWINDOW        , pinterface, this, &window::_001OnShowWindow);
       IGUI_WIN_MSG_LINK(ca2m_PRODEVIAN_SYNCH , pinterface, this, &window::_001OnProdevianSynch);
+      IGUI_WIN_MSG_LINK(WM_TIMER             , pinterface, this, &window::_001OnTimer);
    }
    
    void window::_001OnMove(::ca2::signal_object * pobj)
@@ -634,10 +635,21 @@ namespace mac
    
    void window::_001OnShowWindow(::ca2::signal_object * pobj)
    {
+
       SCAST_PTR(::ca2::message::show_window, pshowwindow, pobj);
+      
       m_bVisible = pshowwindow->m_bShow != FALSE;
+      
       if(m_pguie != NULL && m_pguie != this)
          m_pguie->m_bVisible = m_bVisible;
+      
+      if(m_bVisible)
+      {
+         
+         round_window_show();
+         
+      }
+      
    }
    
    void window::_001OnDestroy(::ca2::signal_object * pobj)
@@ -1284,7 +1296,7 @@ namespace mac
       }
       if(pbase->m_uiMessage == WM_TIMER)
       {
-         m_pthread->m_pthread->step_timer();
+//         m_pthread->m_pthread->step_timer();
       }
       else if(pbase->m_uiMessage == WM_LBUTTONDOWN)
       {
@@ -2122,8 +2134,10 @@ namespace mac
       // hWndParent = hWndT;
       
 //      return hWndParent;
-      return NULL;
+      return m_pguie;
+      
    }
+   
    
    sp(::user::interaction) window::GetTopLevelOwner()
    {
@@ -3017,11 +3031,34 @@ namespace mac
       //      return (int32_t)Default();
    }
    
+   
    void window::_001OnCreate(::ca2::signal_object * pobj)
    {
+      
       UNREFERENCED_PARAMETER(pobj);
+      
       Default();
+      
+      if(!System.get_twf()->m_bProDevianMode)
+      {
+         SetTimer(2049, 1000, NULL);
+      }
+      
    }
+   
+
+   void window::_001OnTimer(::ca2::signal_object * pobj)
+   {
+      
+      SCAST_PTR(::ca2::message::timer, ptimer, pobj);
+      
+      if(ptimer->m_nIDEvent == 2049)
+      {
+         _001RedrawWindow();
+      }
+      
+   }
+
    
    void window::OnHScroll(UINT, UINT, CScrollBar* pScrollBar)
    {
@@ -3073,7 +3110,7 @@ namespace mac
          m_event.ResetEvent();
          m_hwnd = hwnd;
          m_hdc = hdc;
-         __begin_thread(papp, &print_window::s_print_window, (LPVOID) this, ::ca2::thread_priority_normal);
+         __begin_thread(papp, &print_window::s_print_window, (LPVOID) this, ::ca2::scheduling_priority_normal);
          if(m_event.wait(millis(dwTimeout)).timeout())
          {
             TRACE("print_window::time_out");
@@ -4117,6 +4154,14 @@ namespace mac
       
    }
    
+   sp(::ca2::window) window::get_wnd() const
+   {
+      
+      return (::ca2::window *) this;
+      
+   }
+   
+   
    bool window::SetWindowPos(int32_t z, int32_t x, int32_t y, int32_t cx, int32_t cy, UINT nFlags)
    {
       
@@ -4191,6 +4236,12 @@ namespace mac
       
          send_message(WM_SIZE);
       
+      }
+      
+      
+      if(nFlags & SWP_SHOWWINDOW)
+      {
+         round_window_show();
       }
       
       
@@ -4751,9 +4802,13 @@ namespace mac
    
    sp(::user::interaction) window::EnsureTopLevelParent()
    {
-      ::user::interaction *pWnd=GetTopLevelParent();
+      
+      ::user::interaction * pWnd = GetTopLevelParent();
+      
       ENSURE_VALID(pWnd);
+      
       return pWnd;
+      
    }
    
    void window::MoveWindow(LPCRECT lpRect, bool bRepaint)
@@ -4783,7 +4838,11 @@ namespace mac
    bool window::BringWindowToTop()
    {
       
-      return ::BringWindowToTop(get_handle()) != FALSE;
+      bool b = ::BringWindowToTop(get_handle()) != FALSE;
+      
+      round_window_show();
+      
+      return b;
       
    }
    
@@ -5097,21 +5156,31 @@ namespace mac
    
    uint_ptr window::SetTimer(uint_ptr nIDEvent, UINT nElapse, void (CALLBACK* lpfnTimer)(oswindow, UINT, uint_ptr, DWORD))
    {
+
+      UNREFERENCED_PARAMETER(lpfnTimer);
+      
+      m_pguie->m_pthread->m_pthread->set_timer(m_pguie, nIDEvent, nElapse);
+      
+      return nIDEvent;
       
       //throw not_implemented(get_app());
       //ASSERT(::IsWindow(get_handle()));
       //return ::SetTimer(get_handle(), nIDEvent, nElapse, lpfnTimer);
-      
-      return true;
+      //return true;
       
    }
    
    bool window::KillTimer(uint_ptr nIDEvent)
    {
       
-      throw not_implemented(get_app());
+      //throw not_implemented(get_app());
       //ASSERT(::IsWindow(get_handle()));
       //return ::KillTimer(get_handle(), nIDEvent)  != FALSE;
+      
+      m_pguie->m_pthread->m_pthread->unset_timer(m_pguie, nIDEvent);
+      
+
+      return true;
       
    }
    
@@ -5588,7 +5657,11 @@ namespace mac
    bool window::SetForegroundWindow()
    {
       
-      return ::SetForegroundWindow(get_handle()) != FALSE;
+      bool b = ::SetForegroundWindow(get_handle()) != FALSE;
+      
+      round_window_show();
+      
+      return b;
       
    }
    
@@ -6316,8 +6389,7 @@ namespace mac
       
       _000OnDraw(g);
       
-      
-//      g->FillSolidRect(10, 10, 100, 100, ARGB(128, 84, 184, 77));
+      //g->FillSolidRect(10, 10, 100, 100, ARGB(128, 84, 184, 77));
       
    }
    

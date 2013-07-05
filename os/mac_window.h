@@ -60,6 +60,8 @@ namespace mac
       
       virtual oswindow get_handle() const;
       
+      virtual sp(::ca2::window) get_wnd() const;
+      
       virtual bool _001OnCmdMsg(BaseCmdMsg * pcmdmsg);
       
       virtual bool BaseOnControlEvent(::user::control_event * pevent);
@@ -711,6 +713,8 @@ namespace mac
       
       
       void _001OnTriggerMouseInside();
+      
+      DECL_GEN_SIGNAL(_001OnTimer);
       
       
    };

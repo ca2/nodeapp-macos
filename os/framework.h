@@ -3,7 +3,7 @@
 #endif
 
 #ifdef __OBJC__
-#include <Cocoa/Cocoa.h>
+#import "mac_mm.h"
 #else
 #include "mac.h"
 #include "mac_internal.h"

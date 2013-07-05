@@ -11,7 +11,7 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 //
-#import "RoundWindowFrameView.h"
+#import "mac_mm.h"
 
 
 @implementation RoundWindowFrameView
@@ -270,6 +270,7 @@
 			nil]];
  */
    
+  
    round_window * p = m_roundwindow->m_pwindow;
    
    CGContextRef cgc = (CGContextRef) [[NSGraphicsContext currentContext] graphicsPort];

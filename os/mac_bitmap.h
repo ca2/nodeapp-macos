@@ -12,8 +12,10 @@ namespace mac
    public:
       
       
-      simple_memory           m_mem;
+      COLORREF *              m_pdata;
       ::size                  m_size;
+      CGContextRef            m_context;
+      int32_t                 scan;
       
       
       bitmap(::ca2::application * papp);
@@ -33,7 +35,7 @@ namespace mac
       bool CreateBitmapIndirect(::ca2::graphics * pdc, LPBITMAP lpBitmap);
       bool CreateCompatibleBitmap(::ca2::graphics * pgraphics, int32_t nWidth, int32_t nHeight);
       bool CreateDiscardableBitmap(::ca2::graphics * pgraphics, int32_t nWidth, int32_t nHeight);
-      bool CreateDIBSection(::ca2::graphics * pdc, const BITMAPINFO * lpbmi, UINT usage, void **ppvBits, HANDLE hSection, DWORD offset);
+      bool CreateDIBSection(::ca2::graphics * pdc, const BITMAPINFO * lpbmi, UINT usage, void **ppvBits, int * piStride, HANDLE hSection, uint32_t offset);
       bool CreateDIBitmap(::ca2::graphics * pdc, const BITMAPINFOHEADER *pbmih, DWORD flInit, const void *pjBits, const BITMAPINFO *pbmi, UINT iUsage);
       
       int32_t GetBitmap(BITMAP* pBitMap);
