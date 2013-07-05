@@ -4,6 +4,7 @@
 namespace mac
 {
    
+   
    class brush;
    class pen;
    class font;
@@ -11,7 +12,7 @@ namespace mac
    
    
    class CLASS_DECL_mac graphics :
-   virtual public ::ca2::graphics
+      virtual public ::ca2::graphics
    {
       // // DECLARE_DYNCREATE(::ca2::graphics_sp)
    public:
@@ -342,7 +343,7 @@ namespace mac
        BLENDFUNCTION blend);*/
       
       // Text Functions
-      virtual bool internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode);
+      virtual bool internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw = true, CGFloat * pascent = NULL, CGFloat * pdescent = NULL, CGFloat * pleading = NULL, CGFloat * pwidth = NULL);
       virtual bool TextOut(int32_t x, int32_t y, const char * lpszString, int32_t nCount);
       virtual bool TextOut(int32_t x, int32_t y, const string & str);
       virtual bool TextOut(double x, double y, const char * lpszString, int32_t nCount);

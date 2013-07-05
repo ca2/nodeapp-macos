@@ -73,11 +73,9 @@ namespace mac
       CGFloat x2 = x + d1 * sin((iStart + iAngle) * MATH_PI / 180.0f);
       CGFloat y2 = y + d1 * cos((iStart + iAngle) * MATH_PI / 180.0f);
       
-      if(m_bBegin)
+      if(CGPathIsEmpty(m_path))
       {
 
-         m_bBegin = false;
-         
          internal_add_move(x1, y1);
          
       }
@@ -92,10 +90,8 @@ namespace mac
    bool graphics_path::internal_add_line(int x1, int y1, int x2, int y2)
    {
 
-      if(m_bBegin)
+      if(CGPathIsEmpty(m_path))
       {
-         
-         m_bBegin = false;
          
          internal_add_move(x1, y1);
          
@@ -117,10 +113,8 @@ namespace mac
    bool graphics_path::internal_add_line(int x, int y)
    {
       
-      if(m_bBegin)
+      if(CGPathIsEmpty(m_path))
       {
-         
-         m_bBegin = false;
          
          internal_add_move(x, y);
          

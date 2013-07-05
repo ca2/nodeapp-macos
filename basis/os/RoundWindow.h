@@ -12,11 +12,11 @@
 //  appreciated but not required.
 //
 
-#import <Cocoa/Cocoa.h>
+#include "app/appseed/ca2/user/user_key_enum.h"
 
-#include "round_window.h"
+::user::e_key event_key(NSEvent * event);
 
-@class RoundWindowFrameView;
+class round_window;
 
 @interface RoundWindow : NSWindow
 {

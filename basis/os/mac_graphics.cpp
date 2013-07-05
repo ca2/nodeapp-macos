@@ -1348,9 +1348,42 @@ namespace mac
       try
       {
          
-//         if(pgraphicsSrc == NULL)
-//            return false;
-//         
+         if(pgraphicsSrc == NULL)
+            return false;
+
+         CGImageRef image = CGBitmapContextCreateImage((CGContextRef) pgraphicsSrc->get_os_data());
+         
+         if(image == NULL)
+            return false;
+         
+         CGRect rect;
+            
+         rect.origin.x = x;
+         rect.origin.y = y;
+         rect.size.width = min(nWidth, CGImageGetWidth(image) - xSrc);
+         rect.size.height = min(nHeight, CGImageGetHeight(image) - ySrc);
+            
+         CGRect rectSub;
+            
+         rectSub.origin.x = xSrc;
+         rectSub.origin.y = ySrc;
+         rectSub.size.width = rect.size.width;
+         rectSub.size.height = rect.size.height;
+            
+         CGImageRef imageSub = CGImageCreateWithImageInRect(image, rectSub);
+            
+         if(imageSub != NULL)
+         {
+            
+            CGContextDrawImage(m_pdc, rect, imageSub);
+            
+            CGImageRelease(imageSub);
+               
+         }
+         
+         CGImageRelease(image);
+                                    
+//
 //         cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
 //         
 //         if(ppattern == NULL)
@@ -4823,16 +4856,26 @@ namespace mac
    bool graphics::GetTextExtent(sized & size, const char * lpszString, strsize nCount, int32_t iIndex) const
    {
       
-      const_cast < graphics * > (this)->internal_show_text(0, 0, &lpszString[iIndex], (int32_t) nCount, kCGTextInvisible);
+      CGFloat ascent, descent, leading, width;
       
-      CGPoint pt = CGContextGetTextPosition(m_pdc);
+      const_cast < graphics * > (this)->internal_show_text(0, 0, &lpszString[iIndex], (int32_t) nCount, kCGTextInvisible, false, &ascent, &descent, &leading, &width);
+      
+//      CGPoint pt = CGContextGetTextPosition(m_pdc);
 
-      size.cx = pt.x;
+//      size.cx = pt.x;
       
-      size.cy = pt.y;
+//      size.cy = pt.y;
       
-      if(size.cy < m_fontxyz.m_dFontSize)
-         size.cy = m_fontxyz.m_dFontSize;
+      size.cy = ascent + descent + leading;
+      
+//      double dRate = m_spfont->m_dFontSize / size.cy;
+      
+      size.cx = width;
+      
+  //    size.cy *= dRate;
+      
+      //if(size.cy < m_spfont->m_dFontSize)
+      //   size.cy = m_spfont->m_dFontSize;
       
       return true;
       
@@ -4954,7 +4997,7 @@ namespace mac
    }
 
    
-   bool graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode)
+   bool graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)
    {
       
       string str(lpszString, nCount);
@@ -5004,7 +5047,7 @@ namespace mac
          
       }
       
-      CTFontDescriptorRef fontD = CTFontDescriptorCreateWithNameAndSize(fontName, m_spfont->m_dFontSize);
+      CTFontDescriptorRef fontD = CTFontDescriptorCreateWithNameAndSize(fontName, 0.f);
       
       CTFontRef font =  CTFontCreateWithFontDescriptor(fontD, dFontSize, NULL);
       
@@ -5012,20 +5055,20 @@ namespace mac
       
       CGColorRef cr = NULL;
       
-      if(emode == kCGTextInvisible)
+      if(emode != kCGTextInvisible && bDraw)
       {
       
          CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
       
          CGFloat components[4];
       
-         components[0] = GetRValue(m_crColor);
+         components[0] = GetRValue(m_crColor) / 255.f;
       
-         components[1] = GetGValue(m_crColor);
+         components[1] = GetGValue(m_crColor) / 255.f;
       
-         components[2] = GetBValue(m_crColor);
+         components[2] = GetBValue(m_crColor) / 255.f;
       
-         components[3] = GetAValue(m_crColor);
+         components[3] = GetAValue(m_crColor) / 255.f;
       
          cr = CGColorCreate(rgbColorSpace, components);
       
@@ -5040,7 +5083,7 @@ namespace mac
                             kCFAllocatorDefault,
                             (const void**) &keys,
                             (const void**)&values,
-                            emode == kCGTextInvisible ? 1 : 0,
+                            (emode != kCGTextInvisible && bDraw) ? 2 : 1,
                             &kCFTypeDictionaryKeyCallBacks,
                             &kCFTypeDictionaryValueCallBacks);
       
@@ -5055,15 +5098,26 @@ namespace mac
       
       CTLineRef line = CTLineCreateWithAttributedString(attrString);
       
-      CGContextSetTextDrawingMode(m_pdc, emode);
+      CGFloat ascent, descent, leading, width;
       
-      CGContextSetTextMatrix(m_pdc, CGAffineTransformScale(CGAffineTransformMakeTranslation(x, y + dFontSize * 0.67), 1.f, -1.f));
+      width = CTLineGetTypographicBounds(line, &ascent,  &descent, &leading);
       
-      CTLineDraw(line, m_pdc);
+//      double dRate = dFontSize / (ascent + descent + leading);
+      
+      if(bDraw)
+      {
+      
+         CGContextSetTextDrawingMode(m_pdc, emode);
+      
+         CGContextSetTextMatrix(m_pdc, CGAffineTransformScale(CGAffineTransformMakeTranslation(x, y + dFontSize), 1.f, -1.f));
+      
+         CTLineDraw(line, m_pdc);
+         
+      }
       
       CFRelease(line);
       
-      if(emode != kCGTextInvisible)
+      if(emode != kCGTextInvisible && bDraw)
       {
       
          CGColorRelease(cr);
@@ -5076,6 +5130,34 @@ namespace mac
       
       CFRelease(font);
       
+      if(pascent != NULL)
+      {
+         
+         *pascent = ascent;
+         
+      }
+      
+      if(pdescent != NULL)
+      {
+         
+         *pdescent = descent;
+         
+      }
+      
+      if(pleading != NULL)
+      {
+         
+         *pleading = leading;
+         
+      }
+      
+      if(pwidth != NULL)
+      {
+         
+         *pwidth = width;
+         
+      }
+      
       return true;
       
    }
@@ -5086,15 +5168,17 @@ namespace mac
       
       CGContextBeginPath(m_pdc);
       
+      CGContextMoveToPoint(m_pdc, m_x, m_y);
+
       CGContextAddLineToPoint(m_pdc, x, y);
       
       draw();
       
-      
       m_x = x;
+
       m_y = y;
       
-      return TRUE;
+      return true;
       
    }
    

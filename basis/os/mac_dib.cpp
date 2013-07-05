@@ -36,6 +36,7 @@ namespace mac
    {
       m_pcolorref          = NULL;
       m_size               = ::size(0, 0);
+      m_bMapped            = false;
    }
    
    COLORREF * dib::get_data()
@@ -92,23 +93,28 @@ namespace mac
       //      Destroy ();
    }
    
+   
    bool dib::create(class size size)
    {
+      
       return create(size.cx, size.cy);
+      
    }
+   
    
    bool dib::create(int32_t width, int32_t height)
    {
+      
       if(m_spbitmap.is_set()
          && m_spbitmap->get_os_data() != NULL
          && width == m_size.cx
          && height == m_size.cy)
-         return TRUE;
+         return true;
       
       Destroy();
       
       if(width <= 0 || height <= 0)
-         return FALSE;
+         return false;
       
       memset(&m_info, 0, sizeof (BITMAPINFO));
       
@@ -126,34 +132,32 @@ namespace mac
       if(m_spbitmap.m_p == NULL)
       {
          m_size = ::size(0, 0);
-         return FALSE;
+         return false;
       }
       
       if(!m_spbitmap->CreateDIBSection(NULL, &m_info, DIB_RGB_COLORS, (void **) &m_pcolorref, &scan, NULL,  0))
       {
          m_size = ::size(0, 0);
-         return FALSE;
+         return false;
       }
       
       if(m_spbitmap->get_os_data() != NULL)
       {
-         //m_spgraphics->CreateCompatibleDC(NULL);
-//         ::ca2::bitmap * pbitmap = m_spgraphics->SelectObject(m_spbitmap);
-         //m_hbitmapOriginal
-         /*if(pbitmap == NULL || pbitmap->get_os_data() == NULL)
-          {
-          Destroy();
-          return FALSE;
-          }
-          ((Gdiplus::Bitmap *)pbitmap->get_os_data())->GetHBITMAP(Gdiplus::Color(0, 0, 0, 0), &m_hbitmapOriginal);*/
+
+         m_spgraphics->attach(m_spbitmap->get_os_data());
+
          m_size = ::size(width, height);
-         return TRUE;
+         
+         return true;
+         
       }
       else
       {
          Destroy();
-         return FALSE;
+         return false;
+         
       }
+      
    }
    
    bool dib::dc_select(bool bSelect)
@@ -169,34 +173,49 @@ namespace mac
       return true;
    }
    
+   
    bool dib::create(::ca2::graphics * pdc)
    {
+      
       ::ca2::bitmap * pbitmap = & (dynamic_cast < ::mac::graphics * > (pdc))->GetCurrentBitmap();
+      
       if(pbitmap == NULL)
-         return FALSE;
+         return false;
+      
       ::size size = pbitmap->get_size();
+      
       if(!create(size.cx, size.cy))
       {
-         return FALSE;
+         
+         return false;
+         
       }
+      
       from(pdc);
-      return TRUE;
+      
+      return true;
+      
    }
+   
    
    bool dib::Destroy ()
    {
-
-      m_spbitmap.release();
       
+      if(m_spgraphics.is_set())
+         m_spgraphics->detach();
+         
+      m_spbitmap.release();
       
       m_spgraphics.release();
       
-      
       m_size         = ::size(0, 0);
+
       m_pcolorref    = NULL;
       
-      return TRUE;
+      return true;
+      
    }
+   
    
    bool dib::to(::ca2::graphics * pgraphics, point pt, ::size size, point ptSrc)
    {
@@ -2391,6 +2410,7 @@ namespace mac
    
    ::ca2::graphics * dib::get_graphics()
    {
+      unmap();
       return m_spgraphics;
    }
    
@@ -2562,6 +2582,59 @@ namespace mac
    
    
 #define new DEBUG_NEW
+   
+   
+   void dib::map()
+   {
+      
+      if(m_bMapped)
+         return;
+      
+      
+      
+      byte * pdata = (byte *) m_pcolorref;
+      
+      int size = scan * cy / sizeof(COLORREF);
+      while(size > 0)
+      {
+         if(pdata[3] != 0)
+         {
+            pdata[0] = pdata[0] * 255 / pdata[3];
+            pdata[1] = pdata[1] * 255 / pdata[3];
+            pdata[2] = pdata[2] * 255 / pdata[3];
+         }
+         pdata += 4;
+         size--;
+      }
+      
+      m_bMapped = true;
+      
+      
+   }
+   
+   void dib::unmap()
+   {
+      
+      if(!m_bMapped)
+         return;
+      
+      
+      byte * pdata =  (byte *) m_pcolorref;
+      int size = scan * cy / sizeof(COLORREF);
+      while(size > 0)
+      {
+         pdata[0] = pdata[0] * pdata[3] / 255;
+         pdata[1] = pdata[1] * pdata[3] / 255;
+         pdata[2] = pdata[2] * pdata[3] / 255;
+         pdata += 4;
+         size--;
+      }
+      
+      m_bMapped = false;
+
+         
+   }
+
    
    
 } // namespace mac
