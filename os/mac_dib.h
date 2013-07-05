@@ -22,12 +22,13 @@ namespace mac
       static int64_t Sin10N[10]; // more precision * 1 << 34
       static double dPi;
       
-      COLORREF *           m_pcolorref;
-      BITMAPINFO           m_info;
-      ::ca2::bitmap_sp      m_spbitmap;
-      ::ca2::graphics_sp    m_spgraphics;
-      class size           m_size;
-      //HBITMAP              m_hbitmapOriginal;
+      COLORREF *              m_pcolorref;
+      BITMAPINFO              m_info;
+      ::ca2::bitmap_sp        m_spbitmap;
+      ::ca2::graphics_sp      m_spgraphics;
+      class size              m_size;
+      bool                    m_bMapped;
+      //HBITMAP               m_hbitmapOriginal;
       
       virtual ::ca2::graphics * get_graphics();
       virtual ::ca2::bitmap_sp get_bitmap();
@@ -148,6 +149,9 @@ namespace mac
       double pi();
       
       virtual bool from(::ca2::graphics * pgraphics, FIBITMAP *pfibitmap, bool bUnloadFI);
+      
+      virtual void map();
+      virtual void unmap();
       
       
    };

@@ -16,8 +16,12 @@ class round_window
 {
 public:
    
+#ifdef __OBJC__
+   RoundWindow * m_proundwindow;
+#else
+   void * m_proundwindow;
+#endif
    
-   NSWindow * m_nswindow;
    
    virtual void round_window_draw(CGContextRef cgc) = 0;
    virtual void round_window_mouse_down(double x, double y) = 0;
@@ -26,6 +30,10 @@ public:
    virtual void round_window_mouse_dragged(double x, double y) = 0;
    virtual bool round_window_key_down(::user::e_key ekey) = 0;
    virtual bool round_window_key_up(::user::e_key ekey) = 0;
+   
+   
+   virtual void round_window_show();
+   
    
    
 };

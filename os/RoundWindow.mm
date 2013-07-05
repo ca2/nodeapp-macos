@@ -11,11 +11,11 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 //
+#import "mac_mm.h"
 
-#import "RoundWindow.h"
-#import "RoundWindowFrameView.h"
 
 @implementation RoundWindow
+
 
 //
 // initWithContentRect:styleMask:backing:defer:screen:

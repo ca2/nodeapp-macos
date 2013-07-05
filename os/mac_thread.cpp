@@ -865,7 +865,7 @@ namespace mac
    }
    
    
-   bool thread::begin(::ca2::e_thread_priority epriority, uint_ptr nStackSize, uint32_t dwCreateFlags, LPSECURITY_ATTRIBUTES lpSecurityAttrs)
+   bool thread::begin(int32_t epriority, uint_ptr nStackSize, uint32_t dwCreateFlags, LPSECURITY_ATTRIBUTES lpSecurityAttrs)
    {
       if(!create_thread(epriority, dwCreateFlags, nStackSize, lpSecurityAttrs))
       {
@@ -881,12 +881,12 @@ namespace mac
    }
    
    
-   bool thread::create_thread(::ca2::e_thread_priority epriority, uint32_t dwCreateFlagsParam, uint_ptr nStackSize, LPSECURITY_ATTRIBUTES lpSecurityAttrs)
+   bool thread::create_thread(int32_t epriority, uint32_t dwCreateFlagsParam, uint_ptr nStackSize, LPSECURITY_ATTRIBUTES lpSecurityAttrs)
    {
       
       uint32_t dwCreateFlags = dwCreateFlagsParam;
       
-      if(epriority != ::ca2::thread_priority_normal)
+      if(epriority != ::ca2::scheduling_priority_normal)
       {
          dwCreateFlags |= CREATE_SUSPENDED;
       }
@@ -938,7 +938,7 @@ namespace mac
       // allow thread to continue, once resumed (it may already be resumed)
       pstartup->hEvent2.set_event();
       
-      if(epriority != ::ca2::thread_priority_normal)
+      if(epriority != ::ca2::scheduling_priority_normal)
       {
          
          //VERIFY(set_thread_priority(epriority));
@@ -1672,18 +1672,18 @@ namespace mac
    }
    
    
-   bool thread::set_thread_priority(::ca2::e_thread_priority epriority)
+   bool thread::set_thread_priority(int32_t epriority)
    {
 
-      return ::SetThreadPriority(m_hThread, ::get_thread_priority_normal()) != FALSE;
+      return ::SetThreadPriority(m_hThread, ::get_scheduling_priority_normal()) != FALSE;
       
    }
    
    
-   ::ca2::e_thread_priority thread::get_thread_priority()
+   int32_t thread::get_thread_priority()
    {
       ::GetThreadPriority(m_hThread);
-      return ::get_thread_priority_normal();
+      return ::get_scheduling_priority_normal();
       
    }
    
@@ -2146,7 +2146,7 @@ namespace mac
    //
    //		 Scheduling policy is set to round robin and priority to normal
    //		struct sched_param param = {0};
-   //		param.sched_priority = pal::thread_priority_normal;
+   //		param.sched_priority = pal::scheduling_priority_normal;
    //		pthread_setschedparam( thread_, SCHED_RR, &param );
    //
    //		internal::g_globals.mutex_.lock();
