@@ -2110,6 +2110,15 @@ namespace mac
          m_pcolorref[i]=color;
       }
       
+      
+      set_mapped();
+      
+   }
+   
+   
+   void dib::set_mapped()
+   {
+      m_bMapped = true;
    }
    
    COLORREF dib::GetAverageColor()

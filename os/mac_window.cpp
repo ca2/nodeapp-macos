@@ -3870,11 +3870,13 @@ namespace mac
             MESSAGE msg;
             for (;;)
             {
-               ASSERT(ContinueModal(iLevel));
+               if (!ContinueModal(iLevel))
+                  goto ExitModal;
                      // phase1: check to see if we can do idle work
                while (bIdle && !::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE))
                {
-                  ASSERT(ContinueModal(iLevel));
+                  if (!ContinueModal(iLevel))
+                     goto ExitModal;
                         // show the dialog when the message queue goes idle
                   if (bShowIdle)
                   {
