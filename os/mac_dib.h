@@ -152,6 +152,7 @@ namespace mac
       
       virtual void map();
       virtual void unmap();
+      virtual void set_mapped();
       
       
    };
