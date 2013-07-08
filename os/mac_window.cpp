@@ -3887,7 +3887,7 @@ namespace mac
                         // call on_idle while in bIdle state
                   if (!(dwFlags & MLF_NOIDLEMSG) && hWndParent != NULL && lIdleCount == 0)
                   {
-                     // send WM_ENTERIDLE to the parent
+                     // send WM_ENTERIDLE to the parentpbrush
 //                     hWndParent->get_user_interaction()->send_message(WM_ENTERIDLE, MESSAGEF_DIALOGBOX, (LPARAM)get_handle());
                   }
 //                  if ((dwFlags & MLF_NOKICKIDLE) ||

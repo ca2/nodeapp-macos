@@ -37,6 +37,8 @@
 //	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mainWindowChanged:) name:NSWindowDidBecomeMainNotification object:self];
 		
 //	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mainWindowChanged:) name:NSWindowDidResignMainNotification object:self];
+   
+   [self setAcceptsMouseMovedEvents : YES];
       
    m_controller = [[NSWindowController alloc] initWithWindow:self];
  

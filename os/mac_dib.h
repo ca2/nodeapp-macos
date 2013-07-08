@@ -26,7 +26,7 @@ namespace mac
       BITMAPINFO              m_info;
       ::ca2::bitmap_sp        m_spbitmap;
       ::ca2::graphics_sp      m_spgraphics;
-      class size              m_size;
+//      class size              m_size;
       bool                    m_bMapped;
       //HBITMAP               m_hbitmapOriginal;
       

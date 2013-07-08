@@ -153,7 +153,7 @@ namespace mac
    void * graphics_object::get_os_data() const
    {
       
-      return NULL;
+      return const_cast < graphics_object * >(this);
       
    }
    

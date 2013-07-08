@@ -997,20 +997,34 @@ namespace mac
 //      
 //      cairo_translate(m_pdc, -centerx,  -centery);
       
+      CGRect rect;
+      
+      rect.origin.x     = x1;
+      rect.origin.y     = y1;
+      rect.size.width   = x2 - x1;
+      rect.size.height  = y2 - y1;
+
+      set(m_sppen);
+
+      CGContextStrokeEllipseInRect(m_pdc, rect);
+      
       return true;
       
    }
    
+   
    bool graphics::DrawEllipse(LPCRECT lprect)
    {
+
       
       return DrawEllipse(lprect->left, lprect->top, lprect->right, lprect->bottom);
+      
       
       /*return ::Ellipse(get_handle1(), lpRect->left, lpRect->top,
        lpRect->right, lpRect->bottom); */
       
-      
    }
+   
    
    bool graphics::FillEllipse(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
    {
@@ -1038,8 +1052,21 @@ namespace mac
 //      
 //      cairo_translate(m_pdc, -centerx,  -centery);
       
+      CGRect rect;
+      
+      rect.origin.x     = x1;
+      rect.origin.y     = y1;
+      rect.size.width   = x2 - x1;
+      rect.size.height  = y2 - y1;
+      
+      set(m_spbrush);
+      
+      CGContextFillEllipseInRect(m_pdc, rect);
+      
       return true;
+      
    }
+   
    
    bool graphics::FillEllipse(LPCRECT lpRect)
    {
@@ -1834,8 +1861,25 @@ namespace mac
 //      
 //      lpMetrics->tmAveCharWidth        = (LONG) (size.cx * m_fontxyz.m_dFontWidth / (double) str.get_length());
 //      
-//      
-      return TRUE;
+//
+      
+      string str(L"123AWZwmc123AWZwmcpQçg");
+      
+      CGFloat ascent, descent, leading, width;
+      
+      const_cast < graphics * > (this)->internal_show_text(0, 0, str, (int) str.get_length(), kCGTextInvisible, false, &ascent, &descent, &leading, &width);
+      
+      lpMetrics->tmAscent              = ascent;
+      lpMetrics->tmDescent             = descent;
+      lpMetrics->tmHeight              = ascent + descent + leading;
+      
+      lpMetrics->tmInternalLeading     = leading;
+      lpMetrics->tmExternalLeading     = 0;
+      
+      lpMetrics->tmAveCharWidth        = (LONG) (width * m_spfont->m_dFontWidth / (double) str.get_length());
+
+      return true;
+      
    }
    
    
@@ -5280,6 +5324,9 @@ namespace mac
    {
       
 //      cairo_set_source_rgba(m_pdc, GetRValue(pbrush->m_cr) / 255.0, GetGValue(pbrush->m_cr) / 255.0, GetBValue(pbrush->m_cr) / 255.0, GetAValue(pbrush->m_cr) / 255.0);
+
+      CGContextSetRGBFillColor(m_pdc, GetRValue(pbrush->m_cr) / 255.0, GetGValue(pbrush->m_cr) / 255.0, GetBValue(pbrush->m_cr) / 255.0, GetAValue(pbrush->m_cr) / 255.0);
+      
       return true;
       
    }
@@ -5291,7 +5338,13 @@ namespace mac
 //      cairo_set_source_rgba(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
 //      
 //      cairo_set_line_width(m_pdc, ppen->m_dWidth);
+      
+      CGContextSetRGBStrokeColor(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
+      
+      CGContextSetLineWidth(m_pdc, ppen->m_dWidth);
+      
       return true;
+      
    }
    
    bool graphics::SelectFont(::ca2::font * pfont)
