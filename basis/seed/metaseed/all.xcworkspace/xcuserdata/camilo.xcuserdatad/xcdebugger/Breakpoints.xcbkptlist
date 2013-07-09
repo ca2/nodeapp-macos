@@ -7,19 +7,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../../../app/appseed/ca2/user/user_button.cpp"
-         timestampString = "395000436.797271"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "138"
-         endingLineNumber = "138"
-         landmarkName = "button::_001OnLButtonUp(::ca2::signal_object * pobj)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "../../../app/appseed/ca2/user/simple/simple_frame_window.cpp"
          timestampString = "395003327.245804"
          startingColumnNumber = "9223372036854775807"
