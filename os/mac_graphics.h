@@ -507,6 +507,7 @@ namespace mac
       //  virtual HDC get_handle2() const;
       
       virtual bool attach(void * pdata);
+      virtual void * detach();
       
       
       //xxx      virtual Gdiplus::FillMode gdiplus_get_fill_mode();

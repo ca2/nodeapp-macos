@@ -5288,6 +5288,17 @@ namespace mac
       
    }
    
+   void * graphics::detach()
+   {
+      
+      CGContextRef pdc = m_pdc;
+      
+      m_pdc = NULL;
+      
+      return pdc;
+      
+   }
+   
    
    
    bool graphics::blur(bool bExpand, double dRadius, LPCRECT lpcrect)
@@ -5324,6 +5335,9 @@ namespace mac
    {
       
 //      cairo_set_source_rgba(m_pdc, GetRValue(pbrush->m_cr) / 255.0, GetGValue(pbrush->m_cr) / 255.0, GetBValue(pbrush->m_cr) / 255.0, GetAValue(pbrush->m_cr) / 255.0);
+      
+      if(pbrush == NULL)
+         return false;
 
       CGContextSetRGBFillColor(m_pdc, GetRValue(pbrush->m_cr) / 255.0, GetGValue(pbrush->m_cr) / 255.0, GetBValue(pbrush->m_cr) / 255.0, GetAValue(pbrush->m_cr) / 255.0);
       
@@ -5338,6 +5352,9 @@ namespace mac
 //      cairo_set_source_rgba(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
 //      
 //      cairo_set_line_width(m_pdc, ppen->m_dWidth);
+      
+      if(ppen == NULL)
+         return false;
       
       CGContextSetRGBStrokeColor(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
       
