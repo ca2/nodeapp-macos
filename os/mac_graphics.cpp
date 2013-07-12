@@ -1460,6 +1460,80 @@ namespace mac
 //      cairo_scale(m_pdc, (double) nSrcWidth / (double) nDstWidth, (double) nSrcHeight / (double) nDstHeight);
 //      
 //      cairo_translate(m_pdc, -xDst, -yDst);
+       
+       
+       if(nDstWidth <= 0
+       || nDstHeight <= 0
+       || nSrcWidth <= 0
+       || nSrcHeight <= 0)
+           return false;
+       
+       
+       try
+       {
+           
+           if(pgraphicsSrc == NULL)
+               return false;
+           
+           CGImageRef image = CGBitmapContextCreateImage((CGContextRef) pgraphicsSrc->get_os_data());
+           
+           if(image == NULL)
+               return false;
+           
+           CGRect rect;
+           
+           rect.origin.x = 0;
+           rect.origin.y = 0;
+           rect.size.width = nSrcWidth;
+           rect.size.height = nSrcHeight;
+           
+           CGRect rectSub;
+           
+           rectSub.origin.x = xSrc;
+           rectSub.origin.y = ySrc;
+           rectSub.size.width = nSrcWidth;
+           rectSub.size.height = nSrcHeight;
+           
+           CGImageRef imageSub = CGImageCreateWithImageInRect(image, rectSub);
+           
+           if(imageSub != NULL)
+           {
+               
+               CGContextSaveGState(m_pdc);
+               
+               CGContextTranslateCTM(m_pdc, xDst, yDst);
+               
+               CGContextScaleCTM(m_pdc, (CGFloat) nDstWidth / (CGFloat) nSrcWidth, (CGFloat) nDstHeight / (CGFloat) nSrcHeight);
+               
+               CGContextDrawImage(m_pdc, rect, imageSub);
+               
+               CGContextRestoreGState(m_pdc);
+               
+               CGImageRelease(imageSub);
+               
+           }
+           
+           CGImageRelease(image);
+           
+           //
+           //         cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
+           //
+           //         if(ppattern == NULL)
+           //            return false;
+           //
+           //         cairo_set_source(m_pdc, ppattern);
+           //
+           //         cairo_paint(m_pdc);
+           
+           return true;
+           
+       }
+       catch(...)
+       {
+           
+           return false;
+           
+       }
       
       return true;
       
