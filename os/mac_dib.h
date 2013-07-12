@@ -154,6 +154,7 @@ namespace mac
       virtual void unmap();
       virtual void set_mapped();
       
+      virtual void draw_bitmap(int32_t dx, int32_t dy, FT_Bitmap * bitmap, FT_Int x, FT_Int y);
       
    };
 
