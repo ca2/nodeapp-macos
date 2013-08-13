@@ -26,15 +26,18 @@
       location = "group:../../../app-core/appseed/uinteraction/app_core_uinteraction.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../appseed/app/app.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/appseed/ca/ca.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/ca2/ca2.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../appseed/draw2d_cocoa/draw2d_cocoa.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../os/os.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../appseed/app/app.xcodeproj">
    </FileRef>
 </Workspace>

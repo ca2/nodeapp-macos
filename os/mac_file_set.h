@@ -5,7 +5,7 @@ namespace mac
 {
    
    
-   class CLASS_DECL_mac file_set :
+   class CLASS_DECL_DRAW2D_COCOA file_set :
    public ::ca2::file_set
    {
    public:

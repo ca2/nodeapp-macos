@@ -21,7 +21,7 @@ struct thread_data; // private to implementation
 struct slot_data;   // private to implementation
 
 
-class CLASS_DECL_mac thread_slot_data
+class CLASS_DECL_DRAW2D_COCOA thread_slot_data
 {
 public:
    
@@ -35,7 +35,7 @@ public:
 };
 
 
-class CLASS_DECL_mac thread_local_storage
+class CLASS_DECL_DRAW2D_COCOA thread_local_storage
 {
 public:
    
@@ -59,7 +59,7 @@ extern BYTE _gen_ThreadData[sizeof(thread_local_storage)];
 extern thread_local_storage * __thread_data;
 
 
-class CLASS_DECL_mac no_track_object
+class CLASS_DECL_DRAW2D_COCOA no_track_object
 {
 public:
 #undef new
@@ -133,7 +133,7 @@ thread_local_object < iSlot > ::~thread_local_object()
 }
 
 
-class CLASS_DECL_mac process_local_object
+class CLASS_DECL_DRAW2D_COCOA process_local_object
 {
 public:
    
@@ -189,7 +189,7 @@ public:
 #define THREAD_LOCAL(class_name, ident_name, slot) \
 thread_slot < class_name, slot > ident_name;
 #define EXTERN_THREAD_LOCAL(class_name, ident_name, slot) \
-extern CLASS_DECL_mac thread_slot<class_name, slot> ident_name;
+extern CLASS_DECL_DRAW2D_COCOA thread_slot<class_name, slot> ident_name;
 
 template<class TYPE>
 class process_local : public process_local_object
@@ -222,8 +222,8 @@ extern process_local < class_name > ident_name;
 
 /////////////////////////////////////////////////////////////////////////////
 
-void CLASS_DECL_mac __init_local_data(HINSTANCE hInstInit);
-void CLASS_DECL_mac __term_local_data(HINSTANCE hInstTerm, bool bAll = FALSE);
-void CLASS_DECL_mac __tls_add_ref();
-void CLASS_DECL_mac __tls_release();
+void CLASS_DECL_DRAW2D_COCOA __init_local_data(HINSTANCE hInstInit);
+void CLASS_DECL_DRAW2D_COCOA __term_local_data(HINSTANCE hInstTerm, bool bAll = FALSE);
+void CLASS_DECL_DRAW2D_COCOA __tls_add_ref();
+void CLASS_DECL_DRAW2D_COCOA __tls_release();
 

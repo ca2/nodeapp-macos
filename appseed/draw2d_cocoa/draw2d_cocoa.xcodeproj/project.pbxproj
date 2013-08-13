@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A16FCAB1770D70600759432 /* libca2ca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A16FCAA1770D70600759432 /* libca2ca.dylib */; };
+		9A1B496416A494A600875A94 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496316A494A600875A94 /* framework.h */; };
+		9A1B496716A4A10100875A94 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B496616A4A10100875A94 /* framework.cpp */; };
+		9A574B8C16AAB7B9000CC4EF /* draw2d_cocoa_brush.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B8B16AAB7B8000CC4EF /* draw2d_cocoa_brush.cpp */; };
+		9A81FC2817B99944009E0FB3 /* draw2d_cocoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A81FC2717B99942009E0FB3 /* draw2d_cocoa.h */; };
+		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
+		9A98A6271771D78C000AE16E /* lib_ca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A98A6261771D78C000AE16E /* lib_ca2c.dylib */; };
+		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
+		9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */; };
+		9ADEA4761766691300D4CF1F /* libca2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADEA4751766691300D4CF1F /* libca2.dylib */; };
+		9ADEA48417666C5800D4CF1F /* draw2d_cocoa_path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9ADEA48317666C5800D4CF1F /* draw2d_cocoa_path.cpp */; };
+		A1CFD91A154FB715007447E2 /* draw2d_cocoa_bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8A1154FB715007447E2 /* draw2d_cocoa_bitmap.cpp */; };
+		A1CFD91B154FB715007447E2 /* draw2d_cocoa_bitmap.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8A2154FB715007447E2 /* draw2d_cocoa_bitmap.h */; };
+		A1CFD91D154FB715007447E2 /* draw2d_cocoa_brush.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8A4154FB715007447E2 /* draw2d_cocoa_brush.h */; };
+		A1CFD91E154FB715007447E2 /* draw2d_cocoa_dib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8A5154FB715007447E2 /* draw2d_cocoa_dib.cpp */; };
+		A1CFD91F154FB715007447E2 /* draw2d_cocoa_dib.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8A6154FB715007447E2 /* draw2d_cocoa_dib.h */; };
+		A1CFD926154FB715007447E2 /* draw2d_cocoa_factory_exchange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8AE154FB715007447E2 /* draw2d_cocoa_factory_exchange.cpp */; };
+		A1CFD927154FB715007447E2 /* draw2d_cocoa_factory_exchange.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8AF154FB715007447E2 /* draw2d_cocoa_factory_exchange.h */; };
+		A1CFD92A154FB715007447E2 /* draw2d_cocoa_font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8B2154FB715007447E2 /* draw2d_cocoa_font.cpp */; };
+		A1CFD92B154FB715007447E2 /* draw2d_cocoa_font.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8B3154FB715007447E2 /* draw2d_cocoa_font.h */; };
+		A1CFD92E154FB715007447E2 /* draw2d_cocoa_graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8B6154FB715007447E2 /* draw2d_cocoa_graphics.cpp */; };
+		A1CFD92F154FB715007447E2 /* draw2d_cocoa_graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8B7154FB715007447E2 /* draw2d_cocoa_graphics.h */; };
+		A1CFD930154FB715007447E2 /* draw2d_cocoa_object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8B8154FB715007447E2 /* draw2d_cocoa_object.cpp */; };
+		A1CFD931154FB715007447E2 /* draw2d_cocoa_object.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8B9154FB715007447E2 /* draw2d_cocoa_object.h */; };
+		A1CFD94E154FB715007447E2 /* draw2d_cocoa_palette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8DD154FB715007447E2 /* draw2d_cocoa_palette.cpp */; };
+		A1CFD94F154FB715007447E2 /* draw2d_cocoa_palette.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8DE154FB715007447E2 /* draw2d_cocoa_palette.h */; };
+		A1CFD950154FB715007447E2 /* draw2d_cocoa_pen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8DF154FB715007447E2 /* draw2d_cocoa_pen.cpp */; };
+		A1CFD951154FB715007447E2 /* draw2d_cocoa_pen.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8E0154FB715007447E2 /* draw2d_cocoa_pen.h */; };
+		A1CFD954154FB715007447E2 /* draw2d_cocoa_preview_dc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8E3154FB715007447E2 /* draw2d_cocoa_preview_dc.cpp */; };
+		A1CFD955154FB715007447E2 /* draw2d_cocoa_region.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8E4154FB715007447E2 /* draw2d_cocoa_region.cpp */; };
+		A1CFD956154FB715007447E2 /* draw2d_cocoa_region.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8E5154FB715007447E2 /* draw2d_cocoa_region.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9A16FCAA1770D70600759432 /* libca2ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2ca.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2ca.dylib"; sourceTree = "<group>"; };
+		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
+		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		9A574B8B16AAB7B8000CC4EF /* draw2d_cocoa_brush.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_brush.cpp; sourceTree = "<group>"; };
+		9A81FC2717B99942009E0FB3 /* draw2d_cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = draw2d_cocoa.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		9A98A6261771D78C000AE16E /* lib_ca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2c.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2c.dylib"; sourceTree = "<group>"; };
+		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		9ABBC6DB16A568FC009CA32E /* draw2d_cocoa_path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_path.h; sourceTree = "<group>"; };
+		9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freeimage.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freeimage.dylib"; sourceTree = "<group>"; };
+		9ADEA4751766691300D4CF1F /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2.dylib"; sourceTree = "<group>"; };
+		9ADEA48317666C5800D4CF1F /* draw2d_cocoa_path.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_path.cpp; sourceTree = "<group>"; };
+		A1CFD778154F5EAA007447E2 /* libdraw2d_cocoa.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libdraw2d_cocoa.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1CFD8A1154FB715007447E2 /* draw2d_cocoa_bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_bitmap.cpp; sourceTree = "<group>"; };
+		A1CFD8A2154FB715007447E2 /* draw2d_cocoa_bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_bitmap.h; sourceTree = "<group>"; };
+		A1CFD8A4154FB715007447E2 /* draw2d_cocoa_brush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_brush.h; sourceTree = "<group>"; };
+		A1CFD8A5154FB715007447E2 /* draw2d_cocoa_dib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_dib.cpp; sourceTree = "<group>"; };
+		A1CFD8A6154FB715007447E2 /* draw2d_cocoa_dib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_dib.h; sourceTree = "<group>"; };
+		A1CFD8AE154FB715007447E2 /* draw2d_cocoa_factory_exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_factory_exchange.cpp; sourceTree = "<group>"; };
+		A1CFD8AF154FB715007447E2 /* draw2d_cocoa_factory_exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_factory_exchange.h; sourceTree = "<group>"; };
+		A1CFD8B2154FB715007447E2 /* draw2d_cocoa_font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_font.cpp; sourceTree = "<group>"; };
+		A1CFD8B3154FB715007447E2 /* draw2d_cocoa_font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_font.h; sourceTree = "<group>"; };
+		A1CFD8B6154FB715007447E2 /* draw2d_cocoa_graphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_graphics.cpp; sourceTree = "<group>"; };
+		A1CFD8B7154FB715007447E2 /* draw2d_cocoa_graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_graphics.h; sourceTree = "<group>"; };
+		A1CFD8B8154FB715007447E2 /* draw2d_cocoa_object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_object.cpp; sourceTree = "<group>"; };
+		A1CFD8B9154FB715007447E2 /* draw2d_cocoa_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_object.h; sourceTree = "<group>"; };
+		A1CFD8DD154FB715007447E2 /* draw2d_cocoa_palette.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_palette.cpp; sourceTree = "<group>"; };
+		A1CFD8DE154FB715007447E2 /* draw2d_cocoa_palette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_palette.h; sourceTree = "<group>"; };
+		A1CFD8DF154FB715007447E2 /* draw2d_cocoa_pen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_pen.cpp; sourceTree = "<group>"; };
+		A1CFD8E0154FB715007447E2 /* draw2d_cocoa_pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_pen.h; sourceTree = "<group>"; };
+		A1CFD8E3154FB715007447E2 /* draw2d_cocoa_preview_dc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_preview_dc.cpp; sourceTree = "<group>"; };
+		A1CFD8E4154FB715007447E2 /* draw2d_cocoa_region.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_cocoa_region.cpp; sourceTree = "<group>"; };
+		A1CFD8E5154FB715007447E2 /* draw2d_cocoa_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_cocoa_region.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1CFD775154F5EAA007447E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
+				9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */,
+				9A98A6271771D78C000AE16E /* lib_ca2c.dylib in Frameworks */,
+				9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */,
+				9A16FCAB1770D70600759432 /* libca2ca.dylib in Frameworks */,
+				9ADEA4761766691300D4CF1F /* libca2.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1CFD76D154F5EA7007447E2 = {
+			isa = PBXGroup;
+			children = (
+				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
+				9AA1B449176361950019E812 /* Cocoa.framework */,
+				9A98A6261771D78C000AE16E /* lib_ca2c.dylib */,
+				9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */,
+				9A16FCAA1770D70600759432 /* libca2ca.dylib */,
+				9ADEA4751766691300D4CF1F /* libca2.dylib */,
+				A1CFD896154FB715007447E2 /* draw2d_cairo */,
+				A1CFD779154F5EAA007447E2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1CFD779154F5EAA007447E2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1CFD778154F5EAA007447E2 /* libdraw2d_cocoa.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1CFD896154FB715007447E2 /* draw2d_cairo */ = {
+			isa = PBXGroup;
+			children = (
+				9A1B496316A494A600875A94 /* framework.h */,
+				9A81FC2717B99942009E0FB3 /* draw2d_cocoa.h */,
+				A1CFD8A1154FB715007447E2 /* draw2d_cocoa_bitmap.cpp */,
+				A1CFD8A2154FB715007447E2 /* draw2d_cocoa_bitmap.h */,
+				9A574B8B16AAB7B8000CC4EF /* draw2d_cocoa_brush.cpp */,
+				A1CFD8A4154FB715007447E2 /* draw2d_cocoa_brush.h */,
+				A1CFD8A5154FB715007447E2 /* draw2d_cocoa_dib.cpp */,
+				A1CFD8A6154FB715007447E2 /* draw2d_cocoa_dib.h */,
+				A1CFD8AE154FB715007447E2 /* draw2d_cocoa_factory_exchange.cpp */,
+				A1CFD8AF154FB715007447E2 /* draw2d_cocoa_factory_exchange.h */,
+				A1CFD8B2154FB715007447E2 /* draw2d_cocoa_font.cpp */,
+				A1CFD8B3154FB715007447E2 /* draw2d_cocoa_font.h */,
+				A1CFD8B6154FB715007447E2 /* draw2d_cocoa_graphics.cpp */,
+				A1CFD8B7154FB715007447E2 /* draw2d_cocoa_graphics.h */,
+				A1CFD8B8154FB715007447E2 /* draw2d_cocoa_object.cpp */,
+				A1CFD8B9154FB715007447E2 /* draw2d_cocoa_object.h */,
+				9ADEA48317666C5800D4CF1F /* draw2d_cocoa_path.cpp */,
+				9ABBC6DB16A568FC009CA32E /* draw2d_cocoa_path.h */,
+				A1CFD8DD154FB715007447E2 /* draw2d_cocoa_palette.cpp */,
+				A1CFD8DE154FB715007447E2 /* draw2d_cocoa_palette.h */,
+				A1CFD8DF154FB715007447E2 /* draw2d_cocoa_pen.cpp */,
+				A1CFD8E0154FB715007447E2 /* draw2d_cocoa_pen.h */,
+				A1CFD8E3154FB715007447E2 /* draw2d_cocoa_preview_dc.cpp */,
+				A1CFD8E4154FB715007447E2 /* draw2d_cocoa_region.cpp */,
+				A1CFD8E5154FB715007447E2 /* draw2d_cocoa_region.h */,
+				9A1B496616A4A10100875A94 /* framework.cpp */,
+			);
+			name = draw2d_cairo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A1CFD776154F5EAA007447E2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1CFD91B154FB715007447E2 /* draw2d_cocoa_bitmap.h in Headers */,
+				A1CFD91D154FB715007447E2 /* draw2d_cocoa_brush.h in Headers */,
+				A1CFD91F154FB715007447E2 /* draw2d_cocoa_dib.h in Headers */,
+				A1CFD927154FB715007447E2 /* draw2d_cocoa_factory_exchange.h in Headers */,
+				A1CFD92B154FB715007447E2 /* draw2d_cocoa_font.h in Headers */,
+				A1CFD92F154FB715007447E2 /* draw2d_cocoa_graphics.h in Headers */,
+				A1CFD931154FB715007447E2 /* draw2d_cocoa_object.h in Headers */,
+				A1CFD94F154FB715007447E2 /* draw2d_cocoa_palette.h in Headers */,
+				A1CFD951154FB715007447E2 /* draw2d_cocoa_pen.h in Headers */,
+				A1CFD956154FB715007447E2 /* draw2d_cocoa_region.h in Headers */,
+				9A1B496416A494A600875A94 /* framework.h in Headers */,
+				9A81FC2817B99944009E0FB3 /* draw2d_cocoa.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A1CFD777154F5EAA007447E2 /* draw2d_cocoa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "draw2d_cocoa" */;
+			buildPhases = (
+				A1CFD774154F5EAA007447E2 /* Sources */,
+				A1CFD775154F5EAA007447E2 /* Frameworks */,
+				A1CFD776154F5EAA007447E2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = draw2d_cocoa;
+			productName = os;
+			productReference = A1CFD778154F5EAA007447E2 /* libdraw2d_cocoa.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1CFD76F154F5EA7007447E2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "ca2 Desenvolvimento de Sofware Ltda.";
+			};
+			buildConfigurationList = A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "draw2d_cocoa" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A1CFD76D154F5EA7007447E2;
+			productRefGroup = A1CFD779154F5EAA007447E2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1CFD777154F5EAA007447E2 /* draw2d_cocoa */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1CFD774154F5EAA007447E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1CFD91A154FB715007447E2 /* draw2d_cocoa_bitmap.cpp in Sources */,
+				A1CFD91E154FB715007447E2 /* draw2d_cocoa_dib.cpp in Sources */,
+				A1CFD926154FB715007447E2 /* draw2d_cocoa_factory_exchange.cpp in Sources */,
+				A1CFD92A154FB715007447E2 /* draw2d_cocoa_font.cpp in Sources */,
+				A1CFD92E154FB715007447E2 /* draw2d_cocoa_graphics.cpp in Sources */,
+				A1CFD930154FB715007447E2 /* draw2d_cocoa_object.cpp in Sources */,
+				A1CFD94E154FB715007447E2 /* draw2d_cocoa_palette.cpp in Sources */,
+				A1CFD950154FB715007447E2 /* draw2d_cocoa_pen.cpp in Sources */,
+				A1CFD954154FB715007447E2 /* draw2d_cocoa_preview_dc.cpp in Sources */,
+				A1CFD955154FB715007447E2 /* draw2d_cocoa_region.cpp in Sources */,
+				9A1B496716A4A10100875A94 /* framework.cpp in Sources */,
+				9A574B8C16AAB7B9000CC4EF /* draw2d_cocoa_brush.cpp in Sources */,
+				9ADEA48417666C5800D4CF1F /* draw2d_cocoa_path.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A1CFD77A154F5EAA007447E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(WorkspaceDir)/../../../app/thirdparty/include",
+					"$(WorkspaceDir)/../../../nodeapp/thirdparty/include",
+				);
+				LIBRARY_SEARCH_PATHS = "$(WorkspaceDir)/../../../nodeapp/thirdparty/library";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/ca $(WorkspaceDir)/../../../app/appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				WorkspaceDir = "$(SRCROOT)/../../seed/metaseed";
+			};
+			name = Debug;
+		};
+		A1CFD77B154F5EAA007447E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(WorkspaceDir)/../../../app/thirdparty/include",
+					"$(WorkspaceDir)/../../../nodeapp/thirdparty/include",
+				);
+				LIBRARY_SEARCH_PATHS = "$(WorkspaceDir)/../../../nodeapp/thirdparty/library";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/ca $(WorkspaceDir)/../../../app/appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				WorkspaceDir = "$(SRCROOT)/../../seed/metaseed";
+			};
+			name = Release;
+		};
+		A1CFD77D154F5EAA007447E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = framework.h;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = draw2d_cocoa;
+			};
+			name = Debug;
+		};
+		A1CFD77E154F5EAA007447E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = framework.h;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = draw2d_cocoa;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "draw2d_cocoa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1CFD77A154F5EAA007447E2 /* Debug */,
+				A1CFD77B154F5EAA007447E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "draw2d_cocoa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1CFD77D154F5EAA007447E2 /* Debug */,
+				A1CFD77E154F5EAA007447E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1CFD76F154F5EA7007447E2 /* Project object */;
+}

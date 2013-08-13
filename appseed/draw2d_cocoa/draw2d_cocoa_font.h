@@ -1,0 +1,29 @@
+#pragma once
+
+
+namespace draw2d_cocoa
+{
+   
+   
+   class CLASS_DECL_DRAW2D_COCOA font :
+      virtual public ::draw2d::font
+   {
+   public:
+      
+      
+      font(::ca2::application * papp);
+      virtual ~font();
+      
+      
+      virtual void * get_os_data() const;
+      
+      virtual void dump(dump_context & dumpcontext) const;
+      
+      
+   };
+   
+   
+} // namespace draw2d_cocoa
+
+
+

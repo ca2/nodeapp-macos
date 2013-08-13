@@ -1,28 +1,28 @@
 #include "framework.h"
 
 // Global helper functions
-CLASS_DECL_mac ::ca2::application * __get_app()
+CLASS_DECL_DRAW2D_COCOA ::ca2::application * __get_app()
 { return dynamic_cast < ::ca2::application * > (afxCurrentWinApp); }
 
-CLASS_DECL_mac HINSTANCE __get_instance_handle()
+CLASS_DECL_DRAW2D_COCOA HINSTANCE __get_instance_handle()
 { ASSERT(afxCurrentInstanceHandle != NULL);
    return afxCurrentInstanceHandle; }
-CLASS_DECL_mac HINSTANCE __get_resource_handle()
+CLASS_DECL_DRAW2D_COCOA HINSTANCE __get_resource_handle()
 { ASSERT(afxCurrentResourceHandle != NULL);
    return afxCurrentResourceHandle; }
-CLASS_DECL_mac void __set_resource_handle(HINSTANCE hInstResource)
+CLASS_DECL_DRAW2D_COCOA void __set_resource_handle(HINSTANCE hInstResource)
 { ASSERT(hInstResource != NULL); afxCurrentResourceHandle = hInstResource; }
-CLASS_DECL_mac const char * __get_app_name()
+CLASS_DECL_DRAW2D_COCOA const char * __get_app_name()
 { ASSERT(afxCurrentAppName != NULL); return afxCurrentAppName; }
-CLASS_DECL_mac sp(::user::interaction) __get_main_window()
+CLASS_DECL_DRAW2D_COCOA sp(::user::interaction) __get_main_window()
 {
    ::ca2::thread* pThread = dynamic_cast < ::ca2::thread * > (::mac::get_thread());
    return pThread != NULL ? pThread->GetMainWnd() : NULL;
 }
 
-CLASS_DECL_mac bool __gen_get_ambient_act_ctx()
+CLASS_DECL_DRAW2D_COCOA bool __gen_get_ambient_act_ctx()
 {    return afxAmbientActCtx; }
-CLASS_DECL_mac void __set_ambient_act_ctx(bool bSet)
+CLASS_DECL_DRAW2D_COCOA void __set_ambient_act_ctx(bool bSet)
 {  afxAmbientActCtx = bSet; }
 
 

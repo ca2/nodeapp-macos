@@ -4,7 +4,7 @@
 class FileException;
 struct FileStatus;
 
-void CLASS_DECL_mac vfxGetRoot(const wchar_t * lpszPath, string& wstrRoot);
+void CLASS_DECL_DRAW2D_COCOA vfxGetRoot(const wchar_t * lpszPath, string& wstrRoot);
 
 namespace mac
 {
@@ -12,7 +12,7 @@ namespace mac
    /////////////////////////////////////////////////////////////////////////////
    // File - raw unbuffered disk file I/O
 
-   class CLASS_DECL_mac file :
+   class CLASS_DECL_DRAW2D_COCOA file :
       virtual public ::ca2::file
    {
    public:

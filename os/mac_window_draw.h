@@ -5,7 +5,7 @@ namespace mac
 {
    
    
-   class CLASS_DECL_mac window_draw :
+   class CLASS_DECL_DRAW2D_COCOA window_draw :
    virtual public ::ca2::window_draw,
    virtual public ::ca2::message_window_simple_callback
    {
@@ -48,7 +48,7 @@ namespace mac
       // Bit blitting spread functions
       virtual bool ScreenOutput(
                                 user::buffer *,
-                                ::ca2::region & rgnUpdate);
+                                ::draw2d::region & rgnUpdate);
       
       virtual bool ScreenOutput();
       
@@ -59,14 +59,14 @@ namespace mac
       virtual bool UpdateBuffer();
       
       virtual bool to(
-                      ::ca2::graphics *       pdc,
+                      ::draw2d::graphics *       pdc,
                       LPCRECT     lprectUpdate,
                       user::oswindow_tree & hwndtree,
                       bool        bGdiLocked,
                       bool        bExcludeParamWnd);
       
       virtual bool to(
-                      ::ca2::graphics *       pdc,
+                      ::draw2d::graphics *       pdc,
                       LPCRECT     lprectUpdate,
                       user::oswindow_tree::Array & hwndtreea,
                       bool        bGdiLocked,

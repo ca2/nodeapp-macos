@@ -540,7 +540,7 @@ namespace mac
    return ::win::thread::DispatchThreadMessageEx(msg);
    }*/
 
-   /*   ::ca2::graphics * application::graphics_from_os_data(void * pdata)
+   /*   ::draw2d::graphics * application::graphics_from_os_data(void * pdata)
    {
    return ::win::graphics::from_handle((HDC) pdata);
    }*/
@@ -854,6 +854,14 @@ namespace mac
       
    }
    
+    
+    
+    string application::draw2d_get_default_library_name()
+    {
+        
+        return "draw2d_cocoa";
+        
+    }
 
 
 } // namespace mac

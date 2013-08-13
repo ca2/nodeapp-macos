@@ -8,7 +8,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // Standard cleanup called by WinMain and __abort
 
-void CLASS_DECL_mac __gen_unregister_window_classes()
+void CLASS_DECL_DRAW2D_COCOA __gen_unregister_window_classes()
 {
    
    // unregister Window classes
@@ -30,7 +30,7 @@ void CLASS_DECL_mac __gen_unregister_window_classes()
    }
    
 }
-void CLASS_DECL_mac __mac_term()
+void CLASS_DECL_DRAW2D_COCOA __mac_term()
 {
    __gen_unregister_window_classes();
    // cleanup OLE if required

@@ -60,12 +60,12 @@ namespace mac
    class thread;
 } // namespace mac
 
-WINBOOL CLASS_DECL_mac AfxInternalPumpMessage();
-LRESULT CLASS_DECL_mac AfxInternalProcessWndProcException(base_exception*, const MESSAGE* pMsg);
+WINBOOL CLASS_DECL_DRAW2D_COCOA AfxInternalPumpMessage();
+LRESULT CLASS_DECL_DRAW2D_COCOA AfxInternalProcessWndProcException(base_exception*, const MESSAGE* pMsg);
 WINBOOL AfxInternalPreTranslateMessage(MESSAGE* pMsg);
 WINBOOL AfxInternalIsIdleMessage(MESSAGE* pMsg);
-__STATIC void CLASS_DECL_mac __pre_init_dialog(::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld);
-__STATIC void CLASS_DECL_mac __post_init_dialog(::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld);
+__STATIC void CLASS_DECL_DRAW2D_COCOA __pre_init_dialog(::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld);
+__STATIC void CLASS_DECL_DRAW2D_COCOA __post_init_dialog(::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld);
 
 namespace ca2
 {
@@ -178,7 +178,7 @@ UINT APIENTRY __thread_entry(void * pParam)
 }
 
 
-CLASS_DECL_mac ::mac::thread * __get_thread()
+CLASS_DECL_DRAW2D_COCOA ::mac::thread * __get_thread()
 {
    // check for current thread in module thread state
    ___THREAD_STATE* pState = __get_thread_state();
@@ -189,7 +189,7 @@ CLASS_DECL_mac ::mac::thread * __get_thread()
 namespace mac
 {
 
-   CLASS_DECL_mac ::ca2::thread * __get_thread()
+   CLASS_DECL_DRAW2D_COCOA ::ca2::thread * __get_thread()
    {
       // check for current thread in module thread state
       ___THREAD_STATE* pState = __get_thread_state();
@@ -200,7 +200,7 @@ namespace mac
 }
 
 
-CLASS_DECL_mac void __set_thread(::ca2::thread * pthread)
+CLASS_DECL_DRAW2D_COCOA void __set_thread(::ca2::thread * pthread)
 {
    // check for current thread in module thread state
    ___THREAD_STATE* pState = __get_thread_state();
@@ -209,7 +209,7 @@ CLASS_DECL_mac void __set_thread(::ca2::thread * pthread)
 
 
 
-CLASS_DECL_mac MESSAGE * AfxGetCurrentMessage()
+CLASS_DECL_DRAW2D_COCOA MESSAGE * AfxGetCurrentMessage()
 {
    ___THREAD_STATE* pState = __get_thread_state();
    ASSERT(pState);
@@ -218,7 +218,7 @@ CLASS_DECL_mac MESSAGE * AfxGetCurrentMessage()
 
 
 
-CLASS_DECL_mac void AfxInternalProcessWndProcException(base_exception*, ::ca2::signal_object * pobj)
+CLASS_DECL_DRAW2D_COCOA void AfxInternalProcessWndProcException(base_exception*, ::ca2::signal_object * pobj)
 {
    SCAST_PTR(::ca2::message::base, pbase, pobj);
    if (pbase->m_uiMessage == WM_CREATE)
@@ -236,7 +236,7 @@ CLASS_DECL_mac void AfxInternalProcessWndProcException(base_exception*, ::ca2::s
    return;   // sensible default for rest of commands
 }
 
-CLASS_DECL_mac void AfxProcessWndProcException(base_exception* e, ::ca2::signal_object * pobj)
+CLASS_DECL_DRAW2D_COCOA void AfxProcessWndProcException(base_exception* e, ::ca2::signal_object * pobj)
 {
    ::ca2::thread *pThread = App(pobj->get_app()).GetThread();
    if( pThread )
@@ -414,7 +414,7 @@ WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg)
 }
 
 
-/*thread* CLASS_DECL_mac AfxBeginThread(::ca2::application * papp, __THREADPROC pfnThreadProc, LPVOID pParam,
+/*thread* CLASS_DECL_DRAW2D_COCOA AfxBeginThread(::ca2::application * papp, __THREADPROC pfnThreadProc, LPVOID pParam,
  int32_t nPriority, UINT nStackSize, DWORD dwCreateFlags,
  LPSECURITY_ATTRIBUTES lpSecurityAttrs)
  {
@@ -435,7 +435,7 @@ WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg)
  
  return pThread;
  }*/
-void CLASS_DECL_mac __end_thread(::ca2::application * papp, UINT nExitCode, bool bDelete)
+void CLASS_DECL_DRAW2D_COCOA __end_thread(::ca2::application * papp, UINT nExitCode, bool bDelete)
 {
    // remove current thread object from primitive::memory
 //   __MODULE_THREAD_STATE* pState = __get_module_thread_state();
@@ -461,7 +461,7 @@ void CLASS_DECL_mac __end_thread(::ca2::application * papp, UINT nExitCode, bool
 }
 
 extern thread_local_storage * __thread_data;
-void CLASS_DECL_mac __term_thread(::ca2::application * papp, HINSTANCE hInstTerm)
+void CLASS_DECL_DRAW2D_COCOA __term_thread(::ca2::application * papp, HINSTANCE hInstTerm)
 {
    
    try
@@ -496,7 +496,7 @@ void CLASS_DECL_mac __term_thread(::ca2::application * papp, HINSTANCE hInstTerm
 
 LRESULT CALLBACK _AfxMsgFilterHook(int32_t code, WPARAM wParam, LPARAM lParam);
 
-void CLASS_DECL_mac AfxInitThread()
+void CLASS_DECL_DRAW2D_COCOA AfxInitThread()
 {
    if (!afxContextIsDLL)
    {
@@ -1730,7 +1730,7 @@ namespace mac
    }
    
    
-   CLASS_DECL_mac ::ca2::thread * get_thread()
+   CLASS_DECL_DRAW2D_COCOA ::ca2::thread * get_thread()
    {
       ::mac::thread * pwinthread = ::__get_thread();
       if(pwinthread == NULL)
@@ -2417,14 +2417,14 @@ namespace mac
 
 
 
-WINBOOL CLASS_DECL_mac AfxInternalPumpMessage();
-LRESULT CLASS_DECL_mac AfxInternalProcessWndProcException(base_exception*, const MESSAGE* pMsg);
+WINBOOL CLASS_DECL_DRAW2D_COCOA AfxInternalPumpMessage();
+LRESULT CLASS_DECL_DRAW2D_COCOA AfxInternalProcessWndProcException(base_exception*, const MESSAGE* pMsg);
 void AfxInternalPreTranslateMessage(::ca2::signal_object * pobj);
 WINBOOL AfxInternalIsIdleMessage(::ca2::signal_object * pobj);
 WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
 
 
-/*thread* CLASS_DECL_mac System.GetThread()
+/*thread* CLASS_DECL_DRAW2D_COCOA System.GetThread()
  {
  // check for current thread in module thread state
  __MODULE_THREAD_STATE* pState = __get_module_thread_state();
@@ -2432,14 +2432,14 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  return pThread;
  }
  
- MESSAGE* CLASS_DECL_mac AfxGetCurrentMessage()
+ MESSAGE* CLASS_DECL_DRAW2D_COCOA AfxGetCurrentMessage()
  {
  ___THREAD_STATE* pState = __get_thread_state();
  ASSERT(pState);
  return &(pState->m_msgCur);
  }
  
- WINBOOL CLASS_DECL_mac AfxInternalPumpMessage()
+ WINBOOL CLASS_DECL_DRAW2D_COCOA AfxInternalPumpMessage()
  {
  ___THREAD_STATE *pState = __get_thread_state();
  
@@ -2476,7 +2476,7 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  return TRUE;
  }
  
- WINBOOL CLASS_DECL_mac AfxPumpMessage()
+ WINBOOL CLASS_DECL_DRAW2D_COCOA AfxPumpMessage()
  {
  thread *pThread = System.GetThread();
  if( pThread )
@@ -2485,7 +2485,7 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  return AfxInternalPumpMessage();
  }
  
- LRESULT CLASS_DECL_mac AfxInternalProcessWndProcException(base_exception*, const MESSAGE* pMsg)
+ LRESULT CLASS_DECL_DRAW2D_COCOA AfxInternalProcessWndProcException(base_exception*, const MESSAGE* pMsg)
  {
  if (pMsg->message == WM_CREATE)
  {
@@ -2500,7 +2500,7 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  return 0;   // sensible default for rest of commands
  }
  
- LRESULT CLASS_DECL_mac AfxProcessWndProcException(base_exception* e, const MESSAGE* pMsg)
+ LRESULT CLASS_DECL_DRAW2D_COCOA AfxProcessWndProcException(base_exception* e, const MESSAGE* pMsg)
  {
  thread *pThread = System.GetThread();
  if( pThread )
@@ -2579,7 +2579,7 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  return AfxInternalIsIdleMessage( pMsg );
  }
  
- thread* CLASS_DECL_mac AfxBeginThread(::ca2::type_info pThreadClass,
+ thread* CLASS_DECL_DRAW2D_COCOA AfxBeginThread(::ca2::type_info pThreadClass,
  int32_t nPriority, UINT nStackSize, DWORD dwCreateFlags,
  LPSECURITY_ATTRIBUTES lpSecurityAttrs)
  {
@@ -2613,7 +2613,7 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  }*/
 
 /*
- void CLASS_DECL_mac __end_thread(UINT nExitCode, bool bDelete)
+ void CLASS_DECL_DRAW2D_COCOA __end_thread(UINT nExitCode, bool bDelete)
  {
  #ifndef _MT
  nExitCode;
@@ -2647,7 +2647,7 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
 
 //LRESULT CALLBACK _AfxMsgFilterHook(int32_t code, WPARAM wParam, LPARAM lParam);
 
-void CLASS_DECL_mac __init_thread()
+void CLASS_DECL_DRAW2D_COCOA __init_thread()
 {
    
    /*if (!afxContextIsDLL)
@@ -3024,7 +3024,7 @@ namespace mac
  return lresult;
  }
  
- __STATIC WINBOOL CLASS_DECL_mac IsHelpKey(LPMESSAGE lpMsg)
+ __STATIC WINBOOL CLASS_DECL_DRAW2D_COCOA IsHelpKey(LPMESSAGE lpMsg)
  // return TRUE only for non-repeat F1 keydowns.
  {
  return lpMsg->message == WM_KEYDOWN &&

@@ -142,7 +142,7 @@ ___DEBUG_STATE::~___DEBUG_STATE()
 
 PROCESS_LOCAL(___DEBUG_STATE, afxDebugState)
 
-bool CLASS_DECL_mac __diagnostic_init()
+bool CLASS_DECL_DRAW2D_COCOA __diagnostic_init()
 {
 //   // just get the debug state to cause initialization
 //   ___DEBUG_STATE* pState = afxDebugState.get_data();

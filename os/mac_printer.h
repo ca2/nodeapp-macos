@@ -5,13 +5,13 @@ namespace mac2
 {
 
 
-   class CLASS_DECL_mac printer :
+   class CLASS_DECL_DRAW2D_COCOA printer :
       virtual public ::user::printer
    {
    public:
 
 
-      class CLASS_DECL_mac document_properties :
+      class CLASS_DECL_DRAW2D_COCOA document_properties :
          virtual public ::ca2::object
       {
       public:
@@ -28,7 +28,7 @@ namespace mac2
   //       virtual bool initialize(::win2::printer * pprinter, DEVMODE * pdevmode = NULL);
          virtual bool initialize(::mac2::printer * pprinter);
          virtual bool close();
-         virtual ::ca2::graphics * create_graphics();
+         virtual ::draw2d::graphics * create_graphics();
 
       };
 
@@ -42,7 +42,7 @@ namespace mac2
 
 
       virtual bool open(const char * pszDeviceName);
-      virtual ::ca2::graphics * create_graphics();
+      virtual ::draw2d::graphics * create_graphics();
       virtual bool is_opened();
       virtual bool close();
 

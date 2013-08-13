@@ -3,7 +3,7 @@
 namespace mac
 {
    
-   class CLASS_DECL_mac os :
+   class CLASS_DECL_DRAW2D_COCOA os :
    public ::ca2::os
    {
    public:

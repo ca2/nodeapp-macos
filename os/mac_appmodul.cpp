@@ -2,13 +2,13 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // export WinMain to force linkage to this module
-extern int32_t CLASS_DECL_mac __win_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int32_t nCmdShow);
+extern int32_t CLASS_DECL_DRAW2D_COCOA __win_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int32_t nCmdShow);
 
 
 /////////////////////////////////////////////////////////////////////////////
 // initialize cast state such that it points to this module's core state
 
-CLASS_DECL_mac bool __initialize(bool bDLL, DWORD dwVersion)
+CLASS_DECL_DRAW2D_COCOA bool __initialize(bool bDLL, DWORD dwVersion)
 {
    __MODULE_STATE* pModuleState = __get_module_state();
    pModuleState->m_bDLL = (BYTE)bDLL;

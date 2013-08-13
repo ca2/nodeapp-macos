@@ -6,7 +6,7 @@
 #pragma init_seg(compiler)
 
 
-CLASS_DECL_mac __MODULE_STATE * __set_module_state(__MODULE_STATE* pNewState)
+CLASS_DECL_DRAW2D_COCOA __MODULE_STATE * __set_module_state(__MODULE_STATE* pNewState)
 {
    ___THREAD_STATE* pState = gen_ThreadState;
    ASSERT(pState);
@@ -98,7 +98,7 @@ ___THREAD_STATE::~___THREAD_STATE()
    
 }
 
-CLASS_DECL_mac ___THREAD_STATE * __get_thread_state()
+CLASS_DECL_DRAW2D_COCOA ___THREAD_STATE * __get_thread_state()
 {
    ___THREAD_STATE *pState =gen_ThreadState.get_data();
    ENSURE(pState != NULL);
@@ -219,7 +219,7 @@ PFN_##name pfn##name = NULL;
  __ACTCTX_API_PTR_DEFINE(ActivateActCtx, bool, (HANDLE, ulong_ptr*));
  __ACTCTX_API_PTR_DEFINE(DeactivateActCtx, bool, (DWORD, ulong_ptr));
  
- __STATIC void CLASS_DECL_mac __init_context_api()
+ __STATIC void CLASS_DECL_DRAW2D_COCOA __init_context_api()
  {
  static HMODULE hKernel = NULL;
  if (hKernel == NULL)
@@ -234,20 +234,20 @@ PFN_##name pfn##name = NULL;
  }
  
  #if (_WIN32_WINNT >= 0x0500) || (_WIN32_FUSION >= 0x0100)
- HANDLE CLASS_DECL_mac __create_act_ctx_w(PCACTCTXW pActCtx)
+ HANDLE CLASS_DECL_DRAW2D_COCOA __create_act_ctx_w(PCACTCTXW pActCtx)
  {
  HANDLE hCtx = pfnCreateActCtxW != 0 ? pfnCreateActCtxW(pActCtx) : INVALID_HANDLE_VALUE;
  return hCtx;
  }
  #else
- HANDLE CLASS_DECL_mac __create_act_ctx_w(void *pActCtx)
+ HANDLE CLASS_DECL_DRAW2D_COCOA __create_act_ctx_w(void *pActCtx)
  {
  HANDLE hCtx = pfnCreateActCtxW != 0 ? pfnCreateActCtxW(pActCtx) : INVALID_HANDLE_VALUE;
  return hCtx;
  }
  #endif
  
- void CLASS_DECL_mac __release_act_ctx(HANDLE hActCtx)
+ void CLASS_DECL_DRAW2D_COCOA __release_act_ctx(HANDLE hActCtx)
  {
  if (pfnReleaseActCtx != 0)
  {
@@ -255,13 +255,13 @@ PFN_##name pfn##name = NULL;
  }
  }
  
- CLASS_DECL_mac bool __activate_act_ctx(HANDLE hActCtx, ulong_ptr *lpCookie)
+ CLASS_DECL_DRAW2D_COCOA bool __activate_act_ctx(HANDLE hActCtx, ulong_ptr *lpCookie)
  {
  bool rc = pfnActivateActCtx != 0 ? pfnActivateActCtx(hActCtx, lpCookie) : FALSE;
  return rc;
  }
  
- CLASS_DECL_mac bool __deactivate_act_ctx(DWORD dwFlags, ulong_ptr ulCookie)
+ CLASS_DECL_DRAW2D_COCOA bool __deactivate_act_ctx(DWORD dwFlags, ulong_ptr ulCookie)
  {
  bool rc = pfnDeactivateActCtx != 0 ? pfnDeactivateActCtx(dwFlags, ulCookie) : FALSE;
  return rc;
@@ -366,12 +366,12 @@ __window_procedure_base(oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
 /////////////////////////////////////////////////////////////////////////////
 // helper functions for module state
 
-CLASS_DECL_mac __MODULE_STATE * __get_app_module_state()
+CLASS_DECL_DRAW2D_COCOA __MODULE_STATE * __get_app_module_state()
 {
    return gen_BaseModuleState.get_data();
 }
 
-CLASS_DECL_mac __MODULE_STATE * __get_module_state()
+CLASS_DECL_DRAW2D_COCOA __MODULE_STATE * __get_module_state()
 {
    ___THREAD_STATE* pState = gen_ThreadState;
    ENSURE(pState);
@@ -390,17 +390,17 @@ CLASS_DECL_mac __MODULE_STATE * __get_module_state()
    return pResult;
 }
 
-HINSTANCE CLASS_DECL_mac __get_instance_handle_helper()
+HINSTANCE CLASS_DECL_DRAW2D_COCOA __get_instance_handle_helper()
 {
    return __get_module_state()->m_hCurrentInstanceHandle;
 }
 
-bool CLASS_DECL_mac __is_module_dll()
+bool CLASS_DECL_DRAW2D_COCOA __is_module_dll()
 {
    return __get_module_state()->m_bDLL;
 }
 
-bool CLASS_DECL_mac __init_current_state_app()
+bool CLASS_DECL_DRAW2D_COCOA __init_current_state_app()
 {
    ::ca2::application* pApp = __get_module_state()->m_pCurrentWinApp;
    if (pApp != NULL && !pApp->initialize_instance())
@@ -419,7 +419,7 @@ bool CLASS_DECL_mac __init_current_state_app()
    return TRUE;
 }
 
-CLASS_DECL_mac __MODULE_THREAD_STATE * __get_module_thread_state()
+CLASS_DECL_DRAW2D_COCOA __MODULE_THREAD_STATE * __get_module_thread_state()
 {
    __MODULE_THREAD_STATE* pResult=__get_module_state()->m_thread.get_data();
    ENSURE(pResult != NULL);

@@ -5,7 +5,7 @@ namespace mac
 {
 
 
-   class CLASS_DECL_mac crypt :
+   class CLASS_DECL_DRAW2D_COCOA crypt :
       virtual public ::ca2::crypt
    {
    public:

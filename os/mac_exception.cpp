@@ -29,7 +29,7 @@ __exception_link::__exception_link()
 
 
 // out-of-line cleanup called from inline __exception_link destructor
-CLASS_DECL_mac void __try_cleanup()
+CLASS_DECL_DRAW2D_COCOA void __try_cleanup()
 {
    __EXCEPTION_CONTEXT* pContext = __get_exception_context();
    __exception_link* pLinkTop = pContext->m_pLinkTop;
@@ -46,7 +46,7 @@ CLASS_DECL_mac void __try_cleanup()
 }
 
 // special out-of-line implementation of THROW_LAST (for auto-delete behavior)
-void CLASS_DECL_mac __throw_last_cleanup()
+void CLASS_DECL_DRAW2D_COCOA __throw_last_cleanup()
 {
    __EXCEPTION_CONTEXT* pContext = __get_exception_context();
    __exception_link* pLinkTop = pContext->m_pLinkTop;
