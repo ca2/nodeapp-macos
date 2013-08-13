@@ -6,7 +6,7 @@
 namespace mac
 {
    
-   class CLASS_DECL_mac shell
+   class CLASS_DECL_DRAW2D_COCOA shell
    {
    public:
       shell();

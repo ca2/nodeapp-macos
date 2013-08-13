@@ -221,7 +221,7 @@ namespace mac
 */
    }
 
-   bool copydesk::desk_to_dib(::ca2::dib * pdib)
+   bool copydesk::desk_to_dib(::draw2d::dib * pdib)
    {
       if(!m_p->OpenClipboard())
          return false;
@@ -231,18 +231,18 @@ namespace mac
       HBITMAP hbitmap = (HBITMAP) ::GetClipboardData(CF_BITMAP);
       try
       {
-         ::ca2::bitmap_sp bitmap(get_app());
+         ::draw2d::bitmap_sp bitmap(get_app());
          bitmap->Attach(hbitmap);
          //HDC hdc = ::CreateCompatibleDC(NULL);
-         //::ca2::graphics_sp g(get_app());
+         //::draw2d::graphics_sp g(get_app());
          //g->Attach(hdc);
-         //::ca2::graphics * pgraphics = Application.graphics_from_os_data(hdc);
+         //::draw2d::graphics * pgraphics = Application.graphics_from_os_data(hdc);
          //g->SelectObject(hbitmap);
        //  BITMAP bm;
          //::GetObjectA(hbitmap, sizeof(bm), &bm);
          //if(!pdib->create(bm.bmWidth, bm.bmHeight))
            // return false;
-         ::ca2::graphics_sp g(get_app());
+         ::draw2d::graphics_sp g(get_app());
          g->SelectObject(bitmap);
          size sz = bitmap->GetBitmapDimension();
          if(pdib->create(sz))

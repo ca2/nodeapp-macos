@@ -5,13 +5,13 @@ namespace mac
 {
    
    
-   class CLASS_DECL_mac file_system :
+   class CLASS_DECL_DRAW2D_COCOA file_system :
       public ::ca2::file_system
    {
    public:
       
       
-      class CLASS_DECL_mac path :
+      class CLASS_DECL_DRAW2D_COCOA path :
          public ::ca2::file_system::path
       {
       public:
