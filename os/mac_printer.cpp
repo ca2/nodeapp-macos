@@ -29,7 +29,7 @@ namespace mac2
       return m_hPrinter != NULL;
    }
 
-   ::ca2::graphics * printer::create_graphics()
+   ::draw2d::graphics * printer::create_graphics()
    {
       if(!m_documentproperties.initialize(this))
          return NULL;
@@ -99,14 +99,14 @@ namespace mac2
 
 
 
-   ::ca2::graphics * printer::document_properties::create_graphics()
+   ::draw2d::graphics * printer::document_properties::create_graphics()
    {
       //if(m_pdevmode == NULL)
         // return NULL;
       if(m_hdc != NULL)
          return NULL;
 //      m_hdc = ::CreateDC("WINSPOOL", (LPCSTR) m_pdevmode->dmDeviceName, NULL, m_pdevmode);
-  //    ::ca2::graphics_sp g(get_app());
+  //    ::draw2d::graphics_sp g(get_app());
     //  g->Attach(m_hdc);
 //      return g.detach();
 return NULL;

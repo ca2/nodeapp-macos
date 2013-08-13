@@ -29,5 +29,57 @@
          landmarkName = "simple_frame_window::_001OnClose(::ca2::signal_object * pobj)"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca2/plane/plane_application.cpp"
+         timestampString = "398066356.646164"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "987"
+         endingLineNumber = "987"
+         landmarkName = "application::main_start()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca2/base/ca2/ca2_application.cpp"
+         timestampString = "398066619.256559"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "746"
+         endingLineNumber = "746"
+         landmarkName = "application::initialize_instance()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../os/mac_window.cpp"
+         timestampString = "398068290.040653"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "6388"
+         endingLineNumber = "6388"
+         landmarkName = "window::round_window_draw(CGContextRef cgc)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca2/plane/plane_application.cpp"
+         timestampString = "398068643.882095"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1916"
+         endingLineNumber = "1916"
+         landmarkName = "application::initialize1()"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

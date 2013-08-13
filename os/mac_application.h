@@ -8,7 +8,7 @@ namespace gen
 namespace mac
 {
 
-   class CLASS_DECL_mac main_init_data :
+   class CLASS_DECL_DRAW2D_COCOA main_init_data :
    
 public    ::ca2::main_init_data
    {
@@ -19,7 +19,7 @@ public    ::ca2::main_init_data
       int         m_nCmdShow;
    };
 
-   class CLASS_DECL_mac application :
+   class CLASS_DECL_DRAW2D_COCOA application :
       virtual public ::ca2::application
    {
    public:
@@ -181,7 +181,7 @@ public    ::ca2::main_init_data
        
        bool DispatchThreadMessageEx(MESSAGE* msg);  // helper*/
       
-      //::ca2::graphics * graphics_from_os_data(void * pdata);
+      //::draw2d::graphics * graphics_from_os_data(void * pdata);
       
       sp(::ca2::window) window_from_os_data(void * pdata);
       sp(::ca2::window) window_from_os_data_permanent(void * pdata);
@@ -198,6 +198,8 @@ public    ::ca2::main_init_data
       
       
       virtual ::user::printer * get_printer(const char * pszDeviceName);
+
+       string draw2d_get_default_library_name();
 
    
    };
