@@ -2576,57 +2576,64 @@ namespace draw2d_quartz2d
    {
       
       if(pfibitmap == NULL)
-         return false;
-      
-      BITMAPINFO * pbi = FreeImage_GetInfo(pfibitmap);
-//      void * pdata = FreeImage_GetBits(pfibitmap);
-      
+           return false;
+
+
+      FIBITMAP * pfi = FreeImage_ConvertTo32Bits(pfibitmap);
+
+      BITMAPINFO * pbi = FreeImage_GetInfo(pfi);
+      void * pdata = FreeImage_GetBits(pfi);
+
       if(!create(pbi->bmiHeader.biWidth, pbi->bmiHeader.biHeight))
          return false;
-      
-      
-      COLORREF * pcolorref = NULL;
-      
-      HBITMAP hbitmap;
-      
-      throw todo(get_app());
-      
-      //HBITMAP hbitmap = ::CreateDIBSection(NULL, &m_info, DIB_RGB_COLORS, (void **) &pcolorref, NULL, 0);
-      
-      if(hbitmap == NULL)
+
+
+      map();
+
+      int bx = cx * sizeof(COLORREF); // byte width - band width
+
+
+      //if(pbi->bmiHeader.biHeight < 0)
       {
-         Destroy();
-         return false;
+
+         for(int i = 0; i < cy; i++)
+         {
+            memcpy((COLORREF *)&(((byte *)m_pcolorref)[scan * i]), &(((byte *) pdata)[bx * (cy - i - 1)]),  bx);
+         }
+
       }
-      
-      throw todo(get_app());
-      
-      //      HDC hdc = ::CreateCompatibleDC(NULL);
-      
-      
-      
-      /*   xxx   if(pbi->bmiHeader.biHeight != SetDIBits(
-       hdc,
-       hbitmap,
-       0,
-       pbi->bmiHeader.biHeight,
-       pdata,
-       pbi,
-       DIB_RGB_COLORS))
-       {
-       Destroy();
-       if(bUnloadFI)
-       {
-       FreeImage_Unload(pfibitmap);
-       }
-       return false;
-       } */
-      
-      memcpy(m_pcolorref, pcolorref, (size_t) (area() * sizeof(COLORREF)));
-      
-      
+      /*else
+      {
+         for(int i = 0; i < cy; i++)
+         {
+            memcpy((COLORREF *)&(((byte *)m_pcolorref)[scan * i]), &(((byte *) pdata)[bx * i]),  bx);
+         }
+
+      }
+
+
+      //memset(m_pcolorref, 0x7f, cy * bx);
+      /*cairo_surface_t * surface = dynamic_cast < ::draw2d_cairo::bitmap * > (m_spbitmap.m_p)->m_psurface;
+
+     cairo_surface_flush (surface);
+
+     // modify the image
+     void * data = cairo_image_surface_get_data (surface);
+     int width = cairo_image_surface_get_width (surface);
+     int height = cairo_image_surface_get_height (surface);
+     int stride = cairo_image_surface_get_stride (surface);
+     memcpy(data, m_pcolorref, height * stride);
+
+     // mark the image dirty so cairo clears its caches.
+     cairo_surface_mark_dirty (surface);*/
+
+
+
+      pfi = NULL;
+
+
       RGBQUAD bkcolor;
-      
+
       if(pbi->bmiHeader.biBitCount == 32)
       {
       }
@@ -2638,13 +2645,15 @@ namespace draw2d_quartz2d
       {
          transparent_color(bkcolor);
       }
-      
+
+      FreeImage_Unload (pfi);
+
+
       if(bUnloadFI)
       {
          FreeImage_Unload(pfibitmap);
       }
-      
-      
+
       return true;
    }
    
