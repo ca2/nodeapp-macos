@@ -2,12 +2,12 @@
 
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
    
    
-   class CLASS_DECL_DRAW2D_COCOA pen :
-      virtual public ::draw2d_cocoa::object,
+   class CLASS_DECL_DRAW2D_QUARTZ2D pen :
+      virtual public ::draw2d_quartz2d::object,
       virtual public ::draw2d::pen
    {
    public:
@@ -36,7 +36,7 @@ namespace draw2d_cocoa
    };
    
    
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d
 
 
 

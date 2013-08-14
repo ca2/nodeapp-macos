@@ -8,7 +8,7 @@ namespace gen
 namespace mac
 {
 
-   class CLASS_DECL_DRAW2D_COCOA main_init_data :
+   class CLASS_DECL_mac main_init_data :
    
 public    ::ca2::main_init_data
    {
@@ -19,7 +19,7 @@ public    ::ca2::main_init_data
       int         m_nCmdShow;
    };
 
-   class CLASS_DECL_DRAW2D_COCOA application :
+   class CLASS_DECL_mac application :
       virtual public ::ca2::application
    {
    public:

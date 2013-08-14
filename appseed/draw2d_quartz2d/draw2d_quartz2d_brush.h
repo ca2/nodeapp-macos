@@ -1,12 +1,12 @@
 #pragma once
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
 
    
-   class CLASS_DECL_DRAW2D_COCOA brush : 
-      virtual public ::draw2d_cocoa::object,
+   class CLASS_DECL_DRAW2D_QUARTZ2D brush : 
+      virtual public ::draw2d_quartz2d::object,
       virtual public ::draw2d::brush
    {
    public:
@@ -33,7 +33,7 @@ namespace draw2d_cocoa
    };
 
 
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d
 
 
 
