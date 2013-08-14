@@ -5,7 +5,7 @@ namespace draw2d_cocoa
 {
    
    
-   font::font(::ca2::application * papp) :
+   font::font(sp(::ca2::application) papp) :
    ca2(papp)
    {
       

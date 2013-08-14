@@ -29,10 +29,10 @@ namespace draw2d_cocoa
    double dib::dPi;
    
    
-   dib::dib(::ca2::application * papp) :
+   dib::dib(sp(::ca2::application) papp) :
    ca2(papp),
-   m_spbitmap(papp),
-   m_spgraphics(papp)
+   m_spbitmap(allocer()),
+   m_spgraphics(allocer())
    {
       m_pcolorref          = NULL;
       cx = 0;
@@ -153,6 +153,8 @@ namespace draw2d_cocoa
       {
 
          m_spgraphics->attach(m_spbitmap->get_os_data());
+         
+         m_spgraphics->m_pdib = this;
 
          cx = width;
          
@@ -326,6 +328,8 @@ namespace draw2d_cocoa
    
    void dib::set_rgb(int32_t R, int32_t G, int32_t B)
    {
+      
+      map();
       
       int32_t size = cx * cy;
       
@@ -711,6 +715,7 @@ namespace draw2d_cocoa
          pdib->create(cx, cy);
       // do Paste
       memcpy(m_pcolorref, pdib->m_pcolorref, cx * cy * 4);
+      m_bMapped = pdib->m_bMapped;
    }
    
    bool dib::color_blend(COLORREF cr, BYTE bAlpha)
@@ -2654,7 +2659,6 @@ namespace draw2d_cocoa
          return;
       
       
-      
       byte * pdata = (byte *) m_pcolorref;
       
       int size = scan * cy / sizeof(COLORREF);
@@ -2680,7 +2684,6 @@ namespace draw2d_cocoa
       
       if(!m_bMapped)
          return;
-      
       
       byte * pdata =  (byte *) m_pcolorref;
       int size = scan * cy / sizeof(COLORREF);

@@ -17,7 +17,7 @@ namespace draw2d_cocoa
       CGColorSpaceRef   m_colorspace;
       
       
-      brush(::ca2::application * papp);
+      brush(sp(::ca2::application) papp);
       virtual ~brush();
       
       

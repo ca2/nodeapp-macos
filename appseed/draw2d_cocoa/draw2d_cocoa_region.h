@@ -18,7 +18,7 @@ namespace draw2d_cocoa
       //static region * PASCAL from_handle(::ca2::application * papp, HRGN hRgn);
       //operator HRGN() const;
       
-      region(::ca2::application * papp);
+      region(sp(::ca2::application) papp);
       virtual ~region();
       
       

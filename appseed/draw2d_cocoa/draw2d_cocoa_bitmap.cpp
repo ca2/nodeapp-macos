@@ -5,7 +5,7 @@ namespace draw2d_cocoa
 {
    
    
-   bitmap::bitmap(::ca2::application * papp) :
+   bitmap::bitmap(sp(::ca2::application) papp) :
       ca2(papp)
    {
       

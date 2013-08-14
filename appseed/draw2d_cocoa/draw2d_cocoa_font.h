@@ -11,7 +11,7 @@ namespace draw2d_cocoa
    public:
       
       
-      font(::ca2::application * papp);
+      font(sp(::ca2::application) papp);
       virtual ~font();
       
       

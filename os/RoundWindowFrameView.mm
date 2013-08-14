@@ -229,8 +229,8 @@
 - (void)drawRect:(NSRect)rect
 {
    
-	[[NSColor clearColor] set];
-	NSRectFill(rect);
+   //	[[NSColor clearColor] set];
+	//NSRectFill(rect);
 
 /*
 	NSBezierPath * rectPath = [NSBezierPath bezierPathWithRect : [self bounds]];
@@ -273,9 +273,17 @@
   
    round_window * p = m_roundwindow->m_pwindow;
    
+   //   [m_roundwindow disableScreenUpdatesUntilFlush];
+   
+//   [m_roundwindow disableFlushWindow];
+   
    CGContextRef cgc = (CGContextRef) [[NSGraphicsContext currentContext] graphicsPort];
    
    p->round_window_draw(cgc);
+   
+  // [m_roundwindow enableFlushWindow];
+   
+//   [m_roundwindow flushWindow];
    
 }
 

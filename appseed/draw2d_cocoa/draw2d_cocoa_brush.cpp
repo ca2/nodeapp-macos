@@ -5,8 +5,8 @@ namespace draw2d_cocoa
 {
    
    
-   brush::brush(::ca2::application * papp) :
-   ca2(papp)
+   brush::brush(sp(::ca2::application) papp) :
+      ca2(papp)
    {
       
       m_colorspace = NULL;
