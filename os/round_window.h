@@ -32,6 +32,7 @@ public:
    virtual bool round_window_key_up(::user::e_key ekey) = 0;
    
    
+   virtual void round_window_invalidate();
    virtual void round_window_show();
    
    

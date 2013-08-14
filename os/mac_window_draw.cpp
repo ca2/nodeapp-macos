@@ -29,6 +29,7 @@ namespace mac
    
    window_draw::window_draw(::ca2::application * papp) :
    ca2(papp),
+   ::ca2::thread(papp),
    ::ca2::window_draw(papp),
    message_window_simple_callback(papp),
    m_mutexRendering(papp),
@@ -42,7 +43,7 @@ namespace mac
       m_pbuffer = new user::buffer(papp);
       m_pbuffer->m_spdib.create(allocer());
       m_dwLastUpdate = false;
-      m_bProDevianMode = false;
+      m_bProDevianMode = true;
       
    }
    

@@ -52,8 +52,7 @@ namespace draw2d_cocoa
       
       
       
-      graphics();
-      graphics(::ca2::application * papp);
+      graphics(sp(::ca2::application) papp);
       virtual ~graphics();
       
       

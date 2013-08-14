@@ -3,13 +3,12 @@
 
 #define MATH_PI 3.14159265359
 
+
 namespace draw2d_cocoa
 {
    
    
-   
-   
-   path::path(::ca2::application * papp) :
+   path::path(sp(::ca2::application) papp) :
    ca2(papp)
    {
       
@@ -18,6 +17,7 @@ namespace draw2d_cocoa
       m_bBegin = true;
       
    }
+   
    
    path::~path()
    {

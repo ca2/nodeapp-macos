@@ -18,7 +18,7 @@ namespace draw2d_cocoa
       int32_t                 scan;
       
       
-      bitmap(::ca2::application * papp);
+      bitmap(sp(::ca2::application) papp);
       virtual ~bitmap();
       
       

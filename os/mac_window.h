@@ -27,6 +27,7 @@ namespace mac
       oswindow                      m_oswindow;
       ::user::window_interface *    m_pbasewnd;
       sp(::user::interaction)       m_pguieCapture;
+      bool                          m_bNeedsUpdate;
       
       //visual::dib_sp              m_spdib;
       //visual::dib_sp              m_spdibMultAlphaWork;
@@ -715,6 +716,9 @@ namespace mac
       void _001OnTriggerMouseInside();
       
       DECL_GEN_SIGNAL(_001OnTimer);
+      
+      void _001RedrawWindow();
+      
       
       
    };

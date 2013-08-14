@@ -7,8 +7,8 @@ namespace draw2d_cocoa
    
    
    class CLASS_DECL_DRAW2D_COCOA pen :
-   virtual public ::draw2d_cocoa::object,
-   virtual public ::draw2d::pen
+      virtual public ::draw2d_cocoa::object,
+      virtual public ::draw2d::pen
    {
    public:
       
@@ -20,7 +20,7 @@ namespace draw2d_cocoa
       //COLORREF             m_cr;
       
       
-      pen(::ca2::application * papp);
+      pen(sp(::ca2::application) papp);
       virtual ~pen();
       /*virtual void construct(int32_t nPenStyle, double nWidth, COLORREF crColor);
        virtual void construct(int32_t nPenStyle, double nWidth, const LOGBRUSH* pLogBrush, int32_t nStyleCount = 0, const DWORD* lpStyle = NULL);

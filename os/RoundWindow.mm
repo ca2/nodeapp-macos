@@ -42,8 +42,10 @@
       
    m_controller = [[NSWindowController alloc] initWithWindow:self];
  
+
    [self create_view];
-      
+   
+   
 	return self;
    
 }

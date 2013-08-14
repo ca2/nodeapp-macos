@@ -5,8 +5,8 @@ namespace draw2d_cocoa
 {
    
    
-   region::region(::ca2::application * papp) :
-   ca2(papp)
+   region::region(sp(::ca2::application) papp) :
+      ca2(papp)
    {
       
    }

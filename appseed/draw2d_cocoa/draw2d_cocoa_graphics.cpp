@@ -7,7 +7,7 @@ namespace draw2d_cocoa
 {
    
    
-   graphics::graphics(::ca2::application * papp) :
+   graphics::graphics(sp(::ca2::application) papp) :
    ca2(papp)
    {
       
@@ -24,22 +24,23 @@ namespace draw2d_cocoa
       m_layer           = NULL;
       
    }
-   
+
+   /*
    graphics::graphics()
    {
       
       m_bPrinting       = FALSE;
 //      m_pdc             = NULL;
-      /*      m_pgraphics       = NULL;
+            m_pgraphics       = NULL;
        m_hdc             = NULL;
        m_ppath           = NULL;
        m_ppathPaint      = NULL;*/
-      m_etextrendering  = ::draw2d::text_rendering_anti_alias_grid_fit;
+/*      m_etextrendering  = ::draw2d::text_rendering_anti_alias_grid_fit;
       m_pdc             = NULL;
       m_layer           = NULL;
       
    }
-   
+   */
    
    void graphics::assert_valid() const
    {
@@ -1377,11 +1378,29 @@ namespace draw2d_cocoa
          
          if(pgraphicsSrc == NULL)
             return false;
+         
+         if(pgraphicsSrc->m_pdib != NULL)
+         {
+    
+            pgraphicsSrc->m_pdib->unmap();
+        
+         }
 
          CGImageRef image = CGBitmapContextCreateImage((CGContextRef) pgraphicsSrc->get_os_data());
          
          if(image == NULL)
+         {
+
             return false;
+            
+         }
+         
+         if(m_pdib != NULL)
+         {
+
+            m_pdib->unmap();
+            
+         }
          
          CGRect rect;
             
@@ -1409,6 +1428,8 @@ namespace draw2d_cocoa
          }
          
          CGImageRelease(image);
+         
+         
                                     
 //
 //         cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
@@ -5180,13 +5201,13 @@ namespace draw2d_cocoa
       
          CGFloat components[4];
       
-         components[0] = GetRValue(m_crColor) / 255.f;
+         components[0] = GetRValue(m_spbrush->m_cr) / 255.f;
       
-         components[1] = GetGValue(m_crColor) / 255.f;
+         components[1] = GetGValue(m_spbrush->m_cr) / 255.f;
       
-         components[2] = GetBValue(m_crColor) / 255.f;
+         components[2] = GetBValue(m_spbrush->m_cr) / 255.f;
       
-         components[3] = GetAValue(m_crColor) / 255.f;
+         components[3] = GetAValue(m_spbrush->m_cr) / 255.f;
       
          cr = CGColorCreate(rgbColorSpace, components);
       

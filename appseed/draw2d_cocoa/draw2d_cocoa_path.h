@@ -16,7 +16,7 @@ namespace draw2d_cocoa
       bool                    m_bBegin;
       
       
-      path(::ca2::application * papp);
+      path(sp(::ca2::application) papp);
       virtual ~path();
       
       

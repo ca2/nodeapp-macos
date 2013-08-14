@@ -1,15 +1,18 @@
 #pragma once
 
+
 namespace draw2d_cocoa
 {
 
+    
    class CLASS_DECL_DRAW2D_COCOA palette : 
       virtual public ::draw2d_cocoa::object,
       virtual public ::draw2d::palette
    {
    public:
       
-      palette(::ca2::application * papp);
+       
+      palette(sp(::ca2::application) papp);
       virtual ~palette();
       
       
@@ -33,4 +36,9 @@ namespace draw2d_cocoa
       // Implementation
    };
 
+    
 } // namespace draw2d_cocoa
+
+
+
+

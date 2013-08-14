@@ -1302,6 +1302,10 @@ namespace mac
       {
          g_pwndLastLButtonDown = this;
       }
+      else if(pbase->m_uiMessage == WM_SIZE)
+      {
+         m_bUpdateGraphics = true;
+      }
       /*      else if(pbase->m_uiMessage == CA2M_BERGEDGE)
        {
        if(pbase->m_wparam == BERGEDGE_GETAPP)
@@ -3039,7 +3043,7 @@ namespace mac
       
       Default();
       
-      if(!System.get_twf()->m_bProDevianMode)
+//      if(!System.get_twf()->m_bProDevianMode)
       {
          SetTimer(2049, 1000, NULL);
       }
@@ -3058,6 +3062,15 @@ namespace mac
       }
       
    }
+   
+   
+   void window::_001RedrawWindow()
+   {
+      
+      RedrawWindow();
+      
+   }
+
 
    
    void window::OnHScroll(UINT, UINT, CScrollBar* pScrollBar)
@@ -4301,7 +4314,7 @@ namespace mac
        }
        }*/
       
-      RedrawWindow();
+      Invalidate();
       
       return true;
       
@@ -4950,7 +4963,9 @@ namespace mac
    
    void window::Invalidate(bool bErase)
    {
-      throw not_implemented(get_app());
+      m_bNeedsUpdate = true;
+      //      round_window_invalidate();
+//      throw not_implemented(get_app());
       //ASSERT(::IsWindow(get_handle()));
       //::InvalidateRect(get_handle(), NULL, bErase);
    }
@@ -6385,13 +6400,26 @@ namespace mac
    void window::round_window_draw(CGContextRef cgc)
    {
       
+      if(m_bUpdateGraphics)
+      {
+         
+         update_graphics_resources();
+         
+      }
+
+      single_lock sl(mutex_display(), true);
+      
+      if(m_spdibFlip.is_null())
+         return;
+      
+      if(m_spdibFlip->get_data() == NULL)
+         return;
+
       ::draw2d::graphics_sp g(allocer());
       
       g->attach(cgc);
-      
-      _000OnDraw(g);
-      
-      //g->FillSolidRect(10, 10, 100, 100, ARGB(128, 84, 184, 77));
+ 
+      g->BitBlt(0, 0, m_spdibFlip->cx, m_spdibFlip->cy, m_spdibFlip->get_graphics(), 0, 0, SRCCOPY);
       
    }
    
@@ -7127,7 +7155,9 @@ namespace mac
    void window::_001UpdateWindow()
    {
       
-      throw not_implemented(get_app());
+      ::ca2::window::_001UpdateWindow();
+      
+//      throw not_implemented(get_app());
       
       //
       //
