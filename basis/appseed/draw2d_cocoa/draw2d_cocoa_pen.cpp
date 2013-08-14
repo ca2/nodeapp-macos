@@ -5,13 +5,19 @@ namespace draw2d_cocoa
 {
    
    
-   pen::pen(::ca2::application * papp) :
-   ca2(papp)
+   pen::pen(sp(::ca2::application) papp) :
+      ca2(papp)
    {
+      
    }
+   
+   
    pen::~pen()
    {
+      
    }
+   
+   
    /*   pen::operator HPEN() const
     {
     return (HPEN)(this == NULL ? NULL : get_handle());

@@ -5,7 +5,7 @@ namespace draw2d_cocoa
 {
    
    
-   palette::palette(::ca2::application * papp) :
+   palette::palette(sp(::ca2::application) papp) :
    ca2(papp)
    {
       
