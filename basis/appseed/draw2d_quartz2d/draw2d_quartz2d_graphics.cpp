@@ -3,7 +3,7 @@
 #include <memory.h>
 #include <CoreFoundation/CFDictionary.h>
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
    
    
@@ -5597,7 +5597,7 @@ namespace draw2d_cocoa
    }
    
    
-   bool graphics::set(const ::draw2d_cocoa::path::element & e)
+   bool graphics::set(const ::draw2d_quartz2d::path::element & e)
    {
       
       switch(e.m_etype)
@@ -5619,7 +5619,7 @@ namespace draw2d_cocoa
       
    }
    
-   bool graphics::set(const ::draw2d_cocoa::path::arc & a)
+   bool graphics::set(const ::draw2d_quartz2d::path::arc & a)
    {
       
 //      cairo_translate(m_pdc, a.m_xCenter, a.m_yCenter);
@@ -5636,7 +5636,7 @@ namespace draw2d_cocoa
       
    }
    
-   bool graphics::set(const ::draw2d_cocoa::path::line & l)
+   bool graphics::set(const ::draw2d_quartz2d::path::line & l)
    {
       
 //      if(!cairo_has_current_point(m_pdc))
@@ -5657,7 +5657,7 @@ namespace draw2d_cocoa
    }
    
    
-   bool graphics::set(const ::draw2d_cocoa::path::move & p)
+   bool graphics::set(const ::draw2d_quartz2d::path::move & p)
    {
       
 //      cairo_move_to(m_pdc, p.m_x, p.m_y);
@@ -5694,7 +5694,7 @@ namespace draw2d_cocoa
    }
    
    
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d
 
 
 

@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // Build data tables by including data file three times
 
-struct CLASS_DECL_DRAW2D_COCOA __MAP_MESSAGE
+struct CLASS_DECL_mac __MAP_MESSAGE
 {
    UINT    nMsg;
    const char *  lpszMsg;

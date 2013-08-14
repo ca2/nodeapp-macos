@@ -187,12 +187,12 @@ process_local_object::~process_local_object()
 
 long gen_TlsRef = 0;
 
-void CLASS_DECL_DRAW2D_COCOA __tls_add_ref()
+void CLASS_DECL_mac __tls_add_ref()
 {
    ++gen_TlsRef;
 }
 
-void CLASS_DECL_DRAW2D_COCOA __tls_release()
+void CLASS_DECL_mac __tls_release()
 {
    if (gen_TlsRef == 0 || --gen_TlsRef == 0)
    {

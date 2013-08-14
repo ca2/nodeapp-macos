@@ -4,7 +4,7 @@
 
 // Note: in separate module so it can be replaced if needed
 
-void CLASS_DECL_DRAW2D_COCOA __abort()
+void CLASS_DECL_mac __abort()
 {
    //   TRACE(::ca2::trace::category_AppMsg, 0, "__abort called.\n");
    

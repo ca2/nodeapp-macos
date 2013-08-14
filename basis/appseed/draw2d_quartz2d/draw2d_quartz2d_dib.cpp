@@ -3,7 +3,7 @@
 #include "include/freeimage.h"
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
    
    
@@ -56,7 +56,7 @@ namespace draw2d_cocoa
    }
    
    
-   CLASS_DECL_DRAW2D_COCOA void dib::s_initialize()
+   CLASS_DECL_DRAW2D_QUARTZ2D void dib::s_initialize()
    {
       double dCos;
       double dSin;
@@ -191,7 +191,7 @@ namespace draw2d_cocoa
    bool dib::create(::draw2d::graphics * pdc)
    {
       
-      ::draw2d::bitmap * pbitmap = & (dynamic_cast < ::draw2d_cocoa::graphics * > (pdc))->GetCurrentBitmap();
+      ::draw2d::bitmap * pbitmap = & (dynamic_cast < ::draw2d_quartz2d::graphics * > (pdc))->GetCurrentBitmap();
       
       if(pbitmap == NULL)
          return false;
@@ -2728,7 +2728,7 @@ namespace draw2d_cocoa
     }
     
    
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d
 
 
 

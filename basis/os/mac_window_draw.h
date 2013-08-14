@@ -5,7 +5,7 @@ namespace mac
 {
    
    
-   class CLASS_DECL_DRAW2D_COCOA window_draw :
+   class CLASS_DECL_mac window_draw :
    virtual public ::ca2::window_draw,
    virtual public ::ca2::message_window_simple_callback
    {

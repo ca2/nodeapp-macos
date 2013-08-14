@@ -5,7 +5,7 @@
 #ifdef __OBJC__
 #import "mac_mm.h"
 #else
-#include "draw2d_cocoa.h"
+#include "draw2d_quartz2d.h"
 #endif
 
 

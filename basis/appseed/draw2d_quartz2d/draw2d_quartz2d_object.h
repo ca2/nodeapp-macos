@@ -1,11 +1,11 @@
 #pragma once
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
    
    
-   class CLASS_DECL_DRAW2D_COCOA object :
+   class CLASS_DECL_DRAW2D_QUARTZ2D object :
    virtual public ::draw2d::object
    {
    public:
@@ -34,4 +34,4 @@ namespace draw2d_cocoa
    };
    
    
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d

@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
    
    
@@ -11,7 +11,7 @@ namespace draw2d_cocoa
    class path;
    
    
-   class CLASS_DECL_DRAW2D_COCOA graphics :
+   class CLASS_DECL_DRAW2D_QUARTZ2D graphics :
       virtual public ::draw2d::graphics
    {
       // // DECLARE_DYNCREATE(::draw2d::graphics_sp)
@@ -540,7 +540,7 @@ namespace draw2d_cocoa
    };
    
    
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d
 
 
 

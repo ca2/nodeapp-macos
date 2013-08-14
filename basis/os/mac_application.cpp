@@ -859,7 +859,7 @@ namespace mac
     string application::draw2d_get_default_library_name()
     {
         
-        return "draw2d_cocoa";
+        return "draw2d_quartz2d";
         
     }
 

@@ -4,7 +4,7 @@
 #define MATH_PI 3.14159265359
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
    
    
