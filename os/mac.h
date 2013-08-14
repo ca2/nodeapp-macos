@@ -7,7 +7,7 @@
 #include "app/appseed/ca2/ca2.h"
 
 
-#define CLASS_DECL_DRAW2D_COCOA
+#define CLASS_DECL_mac
 
 
 string get_error_message(DWORD dwError);
@@ -17,37 +17,37 @@ string get_error_message(DWORD dwError);
 /////////////////////////////////////////////////////////////////////////////
 // explicit initialization for general purpose classes
 
-//CLASS_DECL_DRAW2D_COCOA WINBOOL AfxInitialize(WINBOOL bDLL = FALSE, DWORD dwVersion = _MFC_VER);
-CLASS_DECL_DRAW2D_COCOA WINBOOL AfxInitialize(WINBOOL bDLL = FALSE, DWORD dwVersion = 0);
+//CLASS_DECL_mac WINBOOL AfxInitialize(WINBOOL bDLL = FALSE, DWORD dwVersion = _MFC_VER);
+CLASS_DECL_mac WINBOOL AfxInitialize(WINBOOL bDLL = FALSE, DWORD dwVersion = 0);
 
 /////////////////////////////////////////////////////////////////////////////
 // stop on a specific primitive::memory request
 
 // Debugger hook on specified allocation request - Obsolete
-CLASS_DECL_DRAW2D_COCOA void AfxSetAllocStop(LONG lRequestNumber);
+CLASS_DECL_mac void AfxSetAllocStop(LONG lRequestNumber);
 
 // Return TRUE if primitive::memory is sane or print out what is wrong
-CLASS_DECL_DRAW2D_COCOA bool __check_memory();
+CLASS_DECL_mac bool __check_memory();
 
 // Return TRUE if valid primitive::memory block of nBytes
-CLASS_DECL_DRAW2D_COCOA WINBOOL AfxIsMemoryBlock(const void * p, UINT nBytes,
+CLASS_DECL_mac WINBOOL AfxIsMemoryBlock(const void * p, UINT nBytes,
                                         LONG* plRequestNumber = NULL);
 
 // helper routines for non-C++ EH implementations
 // for THROW_LAST auto-delete backward compatiblity
-CLASS_DECL_DRAW2D_COCOA void AfxThrowLastCleanup();
+CLASS_DECL_mac void AfxThrowLastCleanup();
 
 // other out-of-line helper functions
-CLASS_DECL_DRAW2D_COCOA void AfxTryCleanup();
+CLASS_DECL_mac void AfxTryCleanup();
 
 
 /////////////////////////////////////////////////////////////////////////////
 // Global implementation helpers
 
 // window creation hooking
-CLASS_DECL_DRAW2D_COCOA void AfxHookWindowCreate(::user::interaction * pWnd);
-CLASS_DECL_DRAW2D_COCOA WINBOOL AfxUnhookWindowCreate();
-CLASS_DECL_DRAW2D_COCOA void AfxResetMsgCache();
+CLASS_DECL_mac void AfxHookWindowCreate(::user::interaction * pWnd);
+CLASS_DECL_mac WINBOOL AfxUnhookWindowCreate();
+CLASS_DECL_mac void AfxResetMsgCache();
 
 // for backward compatibility to previous versions
 #define _AfxHookWindowCreate    AfxHookWindowCreate
@@ -71,7 +71,7 @@ CLASS_DECL_DRAW2D_COCOA void AfxResetMsgCache();
 #include "mac_ip_enum.h"
 
 #define NULL_REF(class) (*((class *) NULL))
-// xxx CLASS_DECL_DRAW2D_COCOA WNDPROC AfxGetAfxWndProc();
+// xxx CLASS_DECL_mac WNDPROC AfxGetAfxWndProc();
 #define AfxWndProc (*AfxGetAfxWndProc())
 
 #define MAC_THREAD(pthread) (dynamic_cast < ::mac::thread * > (dynamic_cast < ::ca2::thread * >(pthread)))
@@ -79,15 +79,15 @@ CLASS_DECL_DRAW2D_COCOA void AfxResetMsgCache();
 
 #include "mac_shell.h"
 
-CLASS_DECL_DRAW2D_COCOA void __trace_message(const char * lpszPrefix, ::ca2::signal_object * pobj);
-CLASS_DECL_DRAW2D_COCOA void __trace_message(const char * lpszPrefix, LPMESSAGE lpmsg);
+CLASS_DECL_mac void __trace_message(const char * lpszPrefix, ::ca2::signal_object * pobj);
+CLASS_DECL_mac void __trace_message(const char * lpszPrefix, LPMESSAGE lpmsg);
 
-CLASS_DECL_DRAW2D_COCOA WINBOOL __cdecl __is_idle_message(::ca2::signal_object * pobj);
-CLASS_DECL_DRAW2D_COCOA WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg);
+CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(::ca2::signal_object * pobj);
+CLASS_DECL_mac WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg);
 
 
-CLASS_DECL_DRAW2D_COCOA void AfxProcessWndProcException(base_exception*, ::ca2::signal_object * pobj);
-CLASS_DECL_DRAW2D_COCOA void __cdecl __pre_translate_message(::ca2::signal_object * pobj);
+CLASS_DECL_mac void AfxProcessWndProcException(base_exception*, ::ca2::signal_object * pobj);
+CLASS_DECL_mac void __cdecl __pre_translate_message(::ca2::signal_object * pobj);
 #include "mac_printer.h"
 
 #include "mac_application.h"
@@ -109,7 +109,7 @@ WINBOOL GetMessage(
 
 
 
-int32_t CLASS_DECL_DRAW2D_COCOA __mac_main(int32_t argc, char * argv[]);
+int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[]);
 
 
-CLASS_DECL_DRAW2D_COCOA void vfxThrowFileException(::ca2::application * papp, int32_t cause, LONG lOsError, const char * lpszFileName = NULL);
+CLASS_DECL_mac void vfxThrowFileException(::ca2::application * papp, int32_t cause, LONG lOsError, const char * lpszFileName = NULL);

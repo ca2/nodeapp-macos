@@ -1,6 +1,6 @@
 #pragma once
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
 
    //////////////////////////////////////////////////////////////////////
@@ -9,7 +9,7 @@ namespace draw2d_cocoa
    //   Date : 09-04-98
    //////////////////////////////////////////////////////////////////////
 
-   class CLASS_DECL_DRAW2D_COCOA dib :
+   class CLASS_DECL_DRAW2D_QUARTZ2D dib :
       virtual public ::draw2d::dib
    {
    public:
@@ -157,4 +157,4 @@ namespace draw2d_cocoa
       
    };
 
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d

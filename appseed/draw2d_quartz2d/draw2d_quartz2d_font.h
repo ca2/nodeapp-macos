@@ -1,11 +1,11 @@
 #pragma once
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
    
    
-   class CLASS_DECL_DRAW2D_COCOA font :
+   class CLASS_DECL_DRAW2D_QUARTZ2D font :
       virtual public ::draw2d::font
    {
    public:
@@ -23,7 +23,7 @@ namespace draw2d_cocoa
    };
    
    
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d
 
 
 

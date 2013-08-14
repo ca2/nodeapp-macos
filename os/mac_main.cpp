@@ -1,13 +1,13 @@
 #include "framework.h"
 
 #include <crt_externs.h>
-CLASS_DECL_DRAW2D_COCOA int32_t ca2_main();
+CLASS_DECL_mac int32_t ca2_main();
 
 //CLASS_DECL_ca extern fixed_alloc_array * g_pfixedallocaWstring;
 
 //CLASS_DECL_ca fixed_alloc_array * new_wstring_manager();
 
-void CLASS_DECL_DRAW2D_COCOA __cdecl _ca2_purecall()
+void CLASS_DECL_mac __cdecl _ca2_purecall()
 {
    throw simple_exception(::ca2::get_thread_app());
 }
@@ -26,7 +26,7 @@ uint32_t __run_system(void * p);
 // Standard WinMain implementation
 //  Can be replaced as long as '::ca2::WinInit' is called first
 
-int32_t CLASS_DECL_DRAW2D_COCOA __mac_main(int32_t argc, char * argv[])
+int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
 {
    
    ns_shared_application();
@@ -42,7 +42,7 @@ int32_t CLASS_DECL_DRAW2D_COCOA __mac_main(int32_t argc, char * argv[])
 }
 
 
-int32_t CLASS_DECL_DRAW2D_COCOA ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, const char * lpCmdLine, int32_t nCmdShow)
+int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, const char * lpCmdLine, int32_t nCmdShow)
 {
    try
    {

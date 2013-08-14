@@ -1,12 +1,12 @@
 #pragma once
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
 
    
-   class CLASS_DECL_DRAW2D_COCOA bitmap : 
-      virtual public ::draw2d_cocoa::object,
+   class CLASS_DECL_DRAW2D_QUARTZ2D bitmap : 
+      virtual public ::draw2d_quartz2d::object,
       virtual public ::draw2d::bitmap
    {
    public:
@@ -55,7 +55,7 @@ namespace draw2d_cocoa
    };
 
    
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d
 
 
 

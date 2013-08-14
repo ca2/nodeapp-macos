@@ -4,7 +4,7 @@
 namespace mac
 {
    
-   class CLASS_DECL_DRAW2D_COCOA path :
+   class CLASS_DECL_mac path :
    virtual public ::ca2::path
    {
    public:
@@ -12,7 +12,7 @@ namespace mac
       virtual bool  is_equal(const char * lpszFilPathA, const char * lpszFilPathB);
    };
    
-   class CLASS_DECL_DRAW2D_COCOA dir :
+   class CLASS_DECL_mac dir :
    virtual public ::ca2::dir::system
    {
    public:

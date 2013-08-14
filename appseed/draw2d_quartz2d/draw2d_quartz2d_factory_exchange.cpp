@@ -1,7 +1,7 @@
 #include "framework.h"
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
 
    
@@ -19,7 +19,7 @@ namespace draw2d_cocoa
       System.factory().cloneable_large < font                  >   (System.type_info < ::draw2d::font                > ());
       System.factory().creatable < path                        >   (System.type_info < ::draw2d::path                > (), 1);
       
-      ::draw2d_cocoa::dib::s_initialize();
+      ::draw2d_quartz2d::dib::s_initialize();
       
    }
 
@@ -27,11 +27,11 @@ namespace draw2d_cocoa
    {
    }
 
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d
 
 
 
 extern "C" void ca2_factory_exchange(sp(::ca2::application) papp)
 {
-   draw2d_cocoa::factory_exchange factoryexchange(papp);
+   draw2d_quartz2d::factory_exchange factoryexchange(papp);
 }

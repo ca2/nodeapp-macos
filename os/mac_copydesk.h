@@ -5,7 +5,7 @@ namespace mac
 {
 
 
-   class CLASS_DECL_DRAW2D_COCOA copydesk :
+   class CLASS_DECL_mac copydesk :
       virtual public ::ca2::copydesk,
       virtual public ::ca2::window_sp
    {

@@ -14,7 +14,7 @@ namespace mac
 {
 
 
-   class CLASS_DECL_DRAW2D_COCOA ip_enum :
+   class CLASS_DECL_mac ip_enum :
       virtual public ::ca2::ip_enum
    {
    public:

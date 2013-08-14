@@ -31,7 +31,7 @@ namespace mac
 {
 
    
-   class CLASS_DECL_DRAW2D_COCOA thread :
+   class CLASS_DECL_mac thread :
       virtual public ::ca2::thread,
       virtual public ::ca2::message_window_simple_callback
    {
@@ -204,7 +204,7 @@ namespace mac
    };
    
    
-   CLASS_DECL_DRAW2D_COCOA ::ca2::thread * get_thread();
+   CLASS_DECL_mac ::ca2::thread * get_thread();
    
    
 } // namespace mac

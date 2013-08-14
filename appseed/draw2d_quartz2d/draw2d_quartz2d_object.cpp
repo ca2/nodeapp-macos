@@ -1,7 +1,7 @@
 #include "framework.h"
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
    
    
@@ -158,7 +158,7 @@ namespace draw2d_cocoa
    }
    
    
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d
 
 
 /*hgdiobj_map * PASCAL afxMapHGDIOBJ(bool bCreate)

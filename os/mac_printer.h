@@ -5,13 +5,13 @@ namespace mac2
 {
 
 
-   class CLASS_DECL_DRAW2D_COCOA printer :
+   class CLASS_DECL_mac printer :
       virtual public ::user::printer
    {
    public:
 
 
-      class CLASS_DECL_DRAW2D_COCOA document_properties :
+      class CLASS_DECL_mac document_properties :
          virtual public ::ca2::object
       {
       public:

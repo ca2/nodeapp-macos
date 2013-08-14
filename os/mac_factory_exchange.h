@@ -3,7 +3,7 @@
 namespace mac
 {
 
-   class CLASS_DECL_DRAW2D_COCOA factory_exchange :
+   class CLASS_DECL_mac factory_exchange :
       virtual public ::ca2::object
    {
    public:

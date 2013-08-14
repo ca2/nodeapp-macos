@@ -8,13 +8,13 @@ namespace mac
 {
    
    
-   CLASS_DECL_DRAW2D_COCOA LRESULT CALLBACK __send_message_hook(int32_t, WPARAM, LPARAM);
+   CLASS_DECL_mac LRESULT CALLBACK __send_message_hook(int32_t, WPARAM, LPARAM);
    //CLASS_DECL_lnx void _gen::StandardSubclass(oswindow);
-   CLASS_DECL_DRAW2D_COCOA LRESULT CALLBACK __cbt_filter_hook(int32_t, WPARAM, LPARAM);
-   CLASS_DECL_DRAW2D_COCOA LRESULT __call_window_procedure(sp(::user::interaction)  pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
+   CLASS_DECL_mac LRESULT CALLBACK __cbt_filter_hook(int32_t, WPARAM, LPARAM);
+   CLASS_DECL_mac LRESULT __call_window_procedure(sp(::user::interaction)  pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
    
    
-   class CLASS_DECL_DRAW2D_COCOA window :
+   class CLASS_DECL_mac window :
       virtual public ::ca2::window,
       virtual public ::round_window
    {
@@ -687,10 +687,10 @@ namespace mac
       
       
       // implementation of message dispatch/hooking
-      CLASS_DECL_DRAW2D_COCOA friend LRESULT CALLBACK __send_message_hook(int32_t, WPARAM, LPARAM);
-      //CLASS_DECL_DRAW2D_COCOA friend void _gen::StandardSubclass(oswindow);
-      CLASS_DECL_DRAW2D_COCOA friend LRESULT CALLBACK __cbt_filter_hook(int32_t, WPARAM, LPARAM);
-      CLASS_DECL_DRAW2D_COCOA friend LRESULT __call_window_procedure(sp(::user::interaction)  pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
+      CLASS_DECL_mac friend LRESULT CALLBACK __send_message_hook(int32_t, WPARAM, LPARAM);
+      //CLASS_DECL_mac friend void _gen::StandardSubclass(oswindow);
+      CLASS_DECL_mac friend LRESULT CALLBACK __cbt_filter_hook(int32_t, WPARAM, LPARAM);
+      CLASS_DECL_mac friend LRESULT __call_window_procedure(sp(::user::interaction)  pWnd, oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
       
       // standard message implementation
       LRESULT OnNTCtlColor(WPARAM wParam, LPARAM lParam);

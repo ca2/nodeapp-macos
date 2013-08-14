@@ -6,11 +6,11 @@
 
 //#include "sal.h"
 
-CLASS_DECL_DRAW2D_COCOA void hook_window_create(::user::interaction * pWnd);
-CLASS_DECL_DRAW2D_COCOA bool unhook_window_create();
-void CLASS_DECL_DRAW2D_COCOA __pre_init_dialog(
+CLASS_DECL_mac void hook_window_create(::user::interaction * pWnd);
+CLASS_DECL_mac bool unhook_window_create();
+void CLASS_DECL_mac __pre_init_dialog(
                                       ::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld);
-void CLASS_DECL_DRAW2D_COCOA __post_init_dialog(
+void CLASS_DECL_mac __post_init_dialog(
                                        ::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld);
 LRESULT CALLBACK
 __activation_window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lparam);
@@ -135,7 +135,7 @@ namespace mac
    
    // Change a window's style
    
-   /*__STATIC bool CLASS_DECL_DRAW2D_COCOA __modify_style(oswindow hWnd, int32_t nStyleOffset,
+   /*__STATIC bool CLASS_DECL_mac __modify_style(oswindow hWnd, int32_t nStyleOffset,
     DWORD dwRemove, DWORD dwAdd, UINT nFlags)
     {
     ASSERT(hWnd != NULL);
@@ -1112,7 +1112,7 @@ namespace mac
     bool window::PrintWindow(::draw2d::graphics * pgraphics, UINT nFlags) const
     {
     ASSERT(::IsWindow((oswindow)get_handle()));
-    return ::PrintWindow((oswindow)get_handle(), (HDC)(dynamic_cast<::draw2d_cocoa::graphics * >(pgraphics))->get_handle(), nFlags) != FALSE;
+    return ::PrintWindow((oswindow)get_handle(), (HDC)(dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->get_handle(), nFlags) != FALSE;
     }
     
     */
@@ -1270,7 +1270,7 @@ namespace mac
    void window::_002OnDraw(::draw2d::graphics * pdc)
    {
       
-      //      ::CallWindowProc(*GetSuperWndProcAddr(), get_handle(), WM_PRINT, (WPARAM)((dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->get_handle()), (LPARAM)(PRF_CHILDREN | PRF_CLIENT));
+      //      ::CallWindowProc(*GetSuperWndProcAddr(), get_handle(), WM_PRINT, (WPARAM)((dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->get_handle()), (LPARAM)(PRF_CHILDREN | PRF_CLIENT));
       
    }
    
@@ -1703,7 +1703,7 @@ namespace mac
                                             break;
                                             }
                                             case ::ca2::Sig_b_D_v:
-                                            lResult = (this->*mmf.pfn_b_D)(::draw2d_cocoa::graphics::from_handle(reinterpret_cast<HDC>(wparam)));
+                                            lResult = (this->*mmf.pfn_b_D)(::draw2d_quartz2d::graphics::from_handle(reinterpret_cast<HDC>(wparam)));
                                             break;
                                             
                                             case ::ca2::Sig_b_b_v:
@@ -1870,7 +1870,7 @@ namespace mac
                                             break;
                                             
                                             case ::ca2::Sig_v_D_v:
-                                            (this->*mmf.pfn_v_D)(::draw2d_cocoa::graphics::from_handle(reinterpret_cast<HDC>(wparam)));
+                                            (this->*mmf.pfn_v_D)(::draw2d_quartz2d::graphics::from_handle(reinterpret_cast<HDC>(wparam)));
                                             break;
                                             
                                             
@@ -2112,7 +2112,7 @@ namespace mac
       return NULL;
    }
    
-   /* trans oswindow CLASS_DECL_DRAW2D_COCOA __get_parent_owner(::user::interaction * hWnd)
+   /* trans oswindow CLASS_DECL_mac __get_parent_owner(::user::interaction * hWnd)
     {
     // check for permanent-owned window first
     ::ca2::window * pWnd = ::mac::window::FromHandlePermanent(hWnd);
@@ -3045,7 +3045,7 @@ namespace mac
       
 //      if(!System.get_twf()->m_bProDevianMode)
       {
-         SetTimer(2049, 1000, NULL);
+         SetTimer(2049, 184, NULL);
       }
       
    }
@@ -3058,7 +3058,9 @@ namespace mac
       
       if(ptimer->m_nIDEvent == 2049)
       {
+         
          _001RedrawWindow();
+         
       }
       
    }
@@ -3362,8 +3364,8 @@ namespace mac
       //
       //         ::draw2d::graphics * pdc = dib->get_graphics();
       //
-      //         if((dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->get_handle() == NULL
-      //            || (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->get_os_data2() == NULL)
+      //         if((dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->get_handle() == NULL
+      //            || (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->get_os_data2() == NULL)
       //            return;
       //
       //         rect rectPaint;
@@ -3380,7 +3382,7 @@ namespace mac
       //            rectUpdate = rectPaint;
       //            ClientToScreen(rectUpdate);
       //         }
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SelectClipRgn(NULL);
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SelectClipRgn(NULL);
       //         if(m_pguie != NULL && m_pguie != this)
       //         {
       //            m_pguie->_001OnDeferPaintLayeredWindowBackground(pdc);
@@ -3389,13 +3391,13 @@ namespace mac
       //         {
       //            _001OnDeferPaintLayeredWindowBackground(pdc);
       //         }
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SelectClipRgn(NULL);
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SetViewportOrg(point(0, 0));
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SelectClipRgn(NULL);
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SetViewportOrg(point(0, 0));
       //         _000OnDraw(pdc);
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SetViewportOrg(point(0, 0));
-      //         //(dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->FillSolidRect(rectUpdate.left, rectUpdate.top, 100, 100, 255);
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SelectClipRgn(NULL);
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SetViewportOrg(point(0, 0));
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SetViewportOrg(point(0, 0));
+      //         //(dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->FillSolidRect(rectUpdate.left, rectUpdate.top, 100, 100, 255);
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SelectClipRgn(NULL);
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SetViewportOrg(point(0, 0));
       //         BitBlt(hdc, rectPaint.left, rectPaint.top,
       //            rectPaint.width(), rectPaint.height(),
       //            (HDC) pdc->get_handle(), rectUpdate.left, rectUpdate.top,
@@ -3450,7 +3452,7 @@ namespace mac
       //         rectUpdate = rectWindow;
       //         rectPaint = rectWindow;
       //         rectPaint.offset(-rectPaint.top_left());
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SelectClipRgn(NULL);
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SelectClipRgn(NULL);
       //         if(m_pguie != NULL && m_pguie != this)
       //         {
       //            m_pguie->_001OnDeferPaintLayeredWindowBackground(pdc);
@@ -3459,13 +3461,13 @@ namespace mac
       //         {
       //            _001OnDeferPaintLayeredWindowBackground(pdc);
       //         }
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SelectClipRgn(NULL);
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SetViewportOrg(point(0, 0));
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SelectClipRgn(NULL);
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SetViewportOrg(point(0, 0));
       //         _000OnDraw(pdc);
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SetViewportOrg(point(0, 0));
-      //         //(dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->FillSolidRect(rectUpdate.left, rectUpdate.top, 100, 100, 255);
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SelectClipRgn(NULL);
-      //         (dynamic_cast<::draw2d_cocoa::graphics * >(pdc))->SetViewportOrg(point(0, 0));
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SetViewportOrg(point(0, 0));
+      //         //(dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->FillSolidRect(rectUpdate.left, rectUpdate.top, 100, 100, 255);
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SelectClipRgn(NULL);
+      //         (dynamic_cast<::draw2d_quartz2d::graphics * >(pdc))->SetViewportOrg(point(0, 0));
       //
       //         graphics->SelectClipRgn( NULL);
       //         graphics->BitBlt(rectPaint.left, rectPaint.top,
@@ -4237,7 +4239,7 @@ namespace mac
                      (int) m_rectParentClient.top,
                      (int) m_rectParentClient.width(),
                      (int) m_rectParentClient.height(),
-                     SWP_SHOWWINDOW);
+                     0);
       
       if(rectWindowOld.top_left() != m_rectParentClient.top_left())
       {
@@ -4256,7 +4258,14 @@ namespace mac
       
       if(nFlags & SWP_SHOWWINDOW)
       {
-         round_window_show();
+         
+         if(!IsWindowVisible())
+         {
+            
+            round_window_show();
+            
+         }
+         
       }
       
       
@@ -4314,7 +4323,12 @@ namespace mac
        }
        }*/
       
-      Invalidate();
+      //      if(nFlags & SWP_REDRAWWINDOW)
+      {
+         
+         _001RedrawWindow();
+
+      }
       
       return true;
       
@@ -4895,7 +4909,7 @@ namespace mac
       rectClient.top = 0;
       rectClient.right = 500;
       rectClient.bottom = 500;
-//      (dynamic_cast < ::draw2d_cocoa::graphics * >(g.m_p))->attach(cairo_create(cairo_xlib_surface_create(oswindow.display(), oswindow.window(), DefaultVisual(oswindow.display(), 0), rectClient.width(), rectClient.height())));
+//      (dynamic_cast < ::draw2d_quartz2d::graphics * >(g.m_p))->attach(cairo_create(cairo_xlib_surface_create(oswindow.display(), oswindow.window(), DefaultVisual(oswindow.display(), 0), rectClient.width(), rectClient.height())));
       return g.detach();
    }
    
@@ -4921,12 +4935,12 @@ namespace mac
 //      
 //      cairo_surface_destroy(psurface);
       
-      //      if(((Gdiplus::Graphics *)(dynamic_cast<::draw2d_cocoa::graphics * >(pgraphics))->get_handle()) == NULL)
+      //      if(((Gdiplus::Graphics *)(dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->get_handle()) == NULL)
       //       return false;
       
-      //::ReleaseDC(get_handle(), (dynamic_cast < ::draw2d_cocoa::graphics * > (pgraphics))->detach());
+      //::ReleaseDC(get_handle(), (dynamic_cast < ::draw2d_quartz2d::graphics * > (pgraphics))->detach());
       
-      //      (dynamic_cast<::draw2d_cocoa::graphics * >(pgraphics))->m_hdc = NULL;
+      //      (dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->m_hdc = NULL;
       
       //      pgraphics->release();
       
@@ -5167,7 +5181,7 @@ namespace mac
       
       throw not_implemented(get_app());
       //ASSERT(::IsWindow(get_handle()));
-      //return ::DrawCaption(get_handle(), (HDC)(dynamic_cast<::draw2d_cocoa::graphics * >(pgraphics))->get_handle(), lprc, uFlags) != FALSE;
+      //return ::DrawCaption(get_handle(), (HDC)(dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->get_handle(), lprc, uFlags) != FALSE;
       
    }
    
@@ -5721,7 +5735,7 @@ namespace mac
       
       throw not_implemented(get_app());
       //      ASSERT(::IsWindow(get_handle()));
-      //      const_cast < window * > (this)->send_message(WM_PRINT, (WPARAM)(dynamic_cast<::draw2d_cocoa::graphics * >(pgraphics))->get_handle(), dwFlags);
+      //      const_cast < window * > (this)->send_message(WM_PRINT, (WPARAM)(dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->get_handle(), dwFlags);
       
    }
    
@@ -5730,7 +5744,7 @@ namespace mac
       
       throw not_implemented(get_app());
       //      ASSERT(::IsWindow(get_handle()));
-      //      const_cast < window * > (this)->send_message(WM_PRINTCLIENT, (WPARAM)(dynamic_cast<::draw2d_cocoa::graphics * >(pgraphics))->get_handle(), dwFlags);
+      //      const_cast < window * > (this)->send_message(WM_PRINTCLIENT, (WPARAM)(dynamic_cast<::draw2d_quartz2d::graphics * >(pgraphics))->get_handle(), dwFlags);
       
    }
    
@@ -6144,7 +6158,7 @@ namespace mac
    /////////////////////////////////////////////////////////////////////////////
    // Official way to send message to a window
    
-   CLASS_DECL_DRAW2D_COCOA LRESULT __call_window_procedure(::user::interaction * pinteraction, oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lparam)
+   CLASS_DECL_mac LRESULT __call_window_procedure(::user::interaction * pinteraction, oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lparam)
    {
       ___THREAD_STATE* pThreadState = gen_ThreadState.get_data();
 //      MESSAGE oldState = pThreadState->m_lastSentMsg;   // save for nesting
@@ -6404,6 +6418,8 @@ namespace mac
       {
          
          update_graphics_resources();
+         
+         _001UpdateWindow();
          
       }
 
@@ -6671,14 +6687,14 @@ LRESULT CALLBACK __window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPA
 }
 
 // always indirectly accessed via __get_window_procedure
-//WNDPROC CLASS_DECL_DRAW2D_COCOA __get_window_procedure()
+//WNDPROC CLASS_DECL_mac __get_window_procedure()
 //{
 //   return __get_module_state()->m_pfn_window_procedure;
 //}
 /////////////////////////////////////////////////////////////////////////////
 // Special helpers for certain windows messages
 
-__STATIC void CLASS_DECL_DRAW2D_COCOA __pre_init_dialog(
+__STATIC void CLASS_DECL_mac __pre_init_dialog(
                                                ::user::interaction * pWnd, LPRECT lpRectOld, DWORD* pdwStyleOld)
 {
    ASSERT(lpRectOld != NULL);
@@ -6688,7 +6704,7 @@ __STATIC void CLASS_DECL_DRAW2D_COCOA __pre_init_dialog(
    *pdwStyleOld = MAC_WINDOW(pWnd)->GetStyle();
 }
 
-__STATIC void CLASS_DECL_DRAW2D_COCOA __post_init_dialog(
+__STATIC void CLASS_DECL_mac __post_init_dialog(
                                                 ::user::interaction * pWnd, const RECT& rectOld, DWORD dwStyleOld)
 {
    // must be hidden to start with
@@ -6719,7 +6735,7 @@ __STATIC void CLASS_DECL_DRAW2D_COCOA __post_init_dialog(
 
 
 
-CLASS_DECL_DRAW2D_COCOA void hook_window_create(::user::interaction * pWnd)
+CLASS_DECL_mac void hook_window_create(::user::interaction * pWnd)
 {
    
    //      throw not_implemented(::ca2::get_thread_app());
@@ -6743,7 +6759,7 @@ CLASS_DECL_DRAW2D_COCOA void hook_window_create(::user::interaction * pWnd)
 }
 
 
-CLASS_DECL_DRAW2D_COCOA bool unhook_window_create()
+CLASS_DECL_mac bool unhook_window_create()
 {
    ___THREAD_STATE* pThreadState = gen_ThreadState.get_data();
    if (pThreadState->m_pWndInit != NULL)
@@ -6756,7 +6772,7 @@ CLASS_DECL_DRAW2D_COCOA bool unhook_window_create()
 
 
 
-CLASS_DECL_DRAW2D_COCOA const char * __register_window_class(UINT nClassStyle,
+CLASS_DECL_mac const char * __register_window_class(UINT nClassStyle,
                                                     HCURSOR hCursor, HBRUSH hbrBackground, HICON hIcon)
 {
    
@@ -6814,7 +6830,7 @@ CLASS_DECL_DRAW2D_COCOA const char * __register_window_class(UINT nClassStyle,
 }
 
 
-__STATIC void CLASS_DECL_DRAW2D_COCOA
+__STATIC void CLASS_DECL_mac
 __handle_activate(::ca2::window * pWnd, WPARAM nState, ::ca2::window * pWndOther)
 {
    
@@ -6845,7 +6861,7 @@ __handle_activate(::ca2::window * pWnd, WPARAM nState, ::ca2::window * pWndOther
    //   }
 }
 
-__STATIC bool CLASS_DECL_DRAW2D_COCOA
+__STATIC bool CLASS_DECL_mac
 __handle_set_cursor(::ca2::window * pWnd, UINT nHitTest, UINT nMsg)
 {
    
@@ -6874,7 +6890,7 @@ __handle_set_cursor(::ca2::window * pWnd, UINT nHitTest, UINT nMsg)
 /////////////////////////////////////////////////////////////////////////////
 // Standard init called by WinMain
 
-//__STATIC bool CLASS_DECL_DRAW2D_COCOA __register_with_icon(WNDCLASS* pWndCls,
+//__STATIC bool CLASS_DECL_mac __register_with_icon(WNDCLASS* pWndCls,
 //                                                  const char * lpszClassName, UINT nIDIcon)
 //{
 //   pWndCls->lpszClassName = lpszClassName;
@@ -6883,7 +6899,7 @@ __handle_set_cursor(::ca2::window * pWnd, UINT nHitTest, UINT nMsg)
 //}
 
 
-//bool CLASS_DECL_DRAW2D_COCOA __end_defer_register_class(LONG fToRegisterParam, const char ** ppszClass)
+//bool CLASS_DECL_mac __end_defer_register_class(LONG fToRegisterParam, const char ** ppszClass)
 //{
 //   // mask off all classes that are already registered
 //   __MODULE_STATE* pModuleState = __get_module_state();
@@ -7095,7 +7111,7 @@ __activation_window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lp
 // Additional helpers for WNDCLASS init
 
 // like RegisterClass, except will automatically call UnregisterClass
-//bool CLASS_DECL_DRAW2D_COCOA __register_class(WNDCLASS* lpWndClass)
+//bool CLASS_DECL_mac __register_class(WNDCLASS* lpWndClass)
 //{
 //   WNDCLASS wndcls;
 //   if (GetClassInfo(lpWndClass->hInstance, lpWndClass->lpszClassName,
@@ -7203,7 +7219,7 @@ namespace mac
       //
       //         ::draw2d::graphics_sp spg(get_app());
       //
-      //         (dynamic_cast < ::draw2d_cocoa::graphics * > (spg.m_p))->attach(new Gdiplus::Graphics(&b));
+      //         (dynamic_cast < ::draw2d_quartz2d::graphics * > (spg.m_p))->attach(new Gdiplus::Graphics(&b));
       //
       //         _001Print(spg);
       //

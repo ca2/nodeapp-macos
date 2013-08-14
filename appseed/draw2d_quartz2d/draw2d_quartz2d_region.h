@@ -1,12 +1,12 @@
 #pragma once
 
 
-namespace draw2d_cocoa
+namespace draw2d_quartz2d
 {
 
 
    class region :
-      virtual public ::draw2d_cocoa::object,
+      virtual public ::draw2d_quartz2d::object,
       virtual public ::draw2d::region
    {
    public:
@@ -64,4 +64,4 @@ namespace draw2d_cocoa
 
    };
 
-} // namespace draw2d_cocoa
+} // namespace draw2d_quartz2d

@@ -32,7 +32,7 @@
       location = "group:../../../app/appseed/ca2/ca2.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../appseed/draw2d_cocoa/draw2d_cocoa.xcodeproj">
+      location = "group:../../appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../os/os.xcodeproj">

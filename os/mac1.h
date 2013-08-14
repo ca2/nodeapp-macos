@@ -19,7 +19,7 @@ namespace mac
 
 
 // Placed on frame for EXCEPTION linkage, or base_exception cleanup
-struct CLASS_DECL_DRAW2D_COCOA __exception_link
+struct CLASS_DECL_mac __exception_link
 {
    __exception_link* m_pLinkPrev;    // previous top, next in handler chain
    base_exception* m_pException;   // current exception (NULL in try block)
@@ -32,7 +32,7 @@ struct CLASS_DECL_DRAW2D_COCOA __exception_link
 };
 
 // Exception global state - never access directly
-struct CLASS_DECL_DRAW2D_COCOA __EXCEPTION_CONTEXT
+struct CLASS_DECL_mac __EXCEPTION_CONTEXT
 {
    __exception_link* m_pLinkTop;
    
@@ -44,21 +44,21 @@ typedef int32_t (__cdecl * _PNH)( size_t );
 #define _PNH_DEFINED
 #endif
 
-_PNH CLASS_DECL_DRAW2D_COCOA __get_new_handler();
-_PNH CLASS_DECL_DRAW2D_COCOA __set_new_handler(_PNH pfnNewHandler);
-CLASS_DECL_DRAW2D_COCOA int32_t c_cdecl __new_handler(size_t nSize);
+_PNH CLASS_DECL_mac __get_new_handler();
+_PNH CLASS_DECL_mac __set_new_handler(_PNH pfnNewHandler);
+CLASS_DECL_mac int32_t c_cdecl __new_handler(size_t nSize);
 
-void CLASS_DECL_DRAW2D_COCOA __abort();
+void CLASS_DECL_mac __abort();
 
 
 // helpers for registering your own WNDCLASSes
-CLASS_DECL_DRAW2D_COCOA const char * __register_window_class(UINT nClassStyle, HCURSOR hCursor = 0, HBRUSH hbrBackground = 0, HICON hIcon = 0);
+CLASS_DECL_mac const char * __register_window_class(UINT nClassStyle, HCURSOR hCursor = 0, HBRUSH hbrBackground = 0, HICON hIcon = 0);
 
-// xxx CLASS_DECL_DRAW2D_COCOA bool __register_class(WNDCLASS* lpWndClass);
+// xxx CLASS_DECL_mac bool __register_class(WNDCLASS* lpWndClass);
 
 
-CLASS_DECL_DRAW2D_COCOA LRESULT CALLBACK __window_procedure(oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
-// xxx CLASS_DECL_DRAW2D_COCOA WNDPROC __get_window_procedure();
+CLASS_DECL_mac LRESULT CALLBACK __window_procedure(oswindow hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
+// xxx CLASS_DECL_mac WNDPROC __get_window_procedure();
 // xxx #define __window_procedure (*__get_window_procedure())
 
 typedef void (__MSG_CALL ::ca2::window::*__PMSGW)();
@@ -70,21 +70,21 @@ typedef void (__MSG_CALL ::ca2::thread::*__PMSGT)();
 
 
 
-// xxx CLASS_DECL_DRAW2D_COCOA LONG delete_registry_tree_helper(HKEY hParentKey, const string & strKeyName);
+// xxx CLASS_DECL_mac LONG delete_registry_tree_helper(HKEY hParentKey, const string & strKeyName);
 
 
 // Advanced initialization: for overriding default diagnostics
-//CLASS_DECL_DRAW2D_COCOA bool __diagnostic_init();
+//CLASS_DECL_mac bool __diagnostic_init();
 
 
-CLASS_DECL_DRAW2D_COCOA ::mac::thread * __get_thread();
-CLASS_DECL_DRAW2D_COCOA void __set_thread(::ca2::thread * pthread);
-CLASS_DECL_DRAW2D_COCOA MESSAGE * __get_current_message();
+CLASS_DECL_mac ::mac::thread * __get_thread();
+CLASS_DECL_mac void __set_thread(::ca2::thread * pthread);
+CLASS_DECL_mac MESSAGE * __get_current_message();
 
-CLASS_DECL_DRAW2D_COCOA void __end_thread(::ca2::application * papp, UINT nExitCode, bool bDelete = TRUE);
+CLASS_DECL_mac void __end_thread(::ca2::application * papp, UINT nExitCode, bool bDelete = TRUE);
 
-CLASS_DECL_DRAW2D_COCOA void __init_thread();
-CLASS_DECL_DRAW2D_COCOA void __term_thread(::ca2::application * papp, HINSTANCE hInstTerm = NULL);
+CLASS_DECL_mac void __init_thread();
+CLASS_DECL_mac void __term_thread(::ca2::application * papp, HINSTANCE hInstTerm = NULL);
 
 /////////////////////////////////////////////////////////////////////////////
 // Global functions for access to the one and only application
@@ -99,20 +99,20 @@ CLASS_DECL_DRAW2D_COCOA void __term_thread(::ca2::application * papp, HINSTANCE 
 
 
 // Advanced initialization: for overriding default WinMain
-//CLASS_DECL_DRAW2D_COCOA bool ::ca2::WinInit(__in HINSTANCE hInstance, __in HINSTANCE hPrevInstance,
+//CLASS_DECL_mac bool ::ca2::WinInit(__in HINSTANCE hInstance, __in HINSTANCE hPrevInstance,
 // __in_z LPTSTR lpCmdLine, __in int32_t nCmdShow);
-CLASS_DECL_DRAW2D_COCOA void __mac_term();
+CLASS_DECL_mac void __mac_term();
 
-CLASS_DECL_DRAW2D_COCOA ::ca2::application* __get_app();
-CLASS_DECL_DRAW2D_COCOA sp(::user::interaction) __get_main_window();
-//CLASS_DECL_DRAW2D_COCOA HINSTANCE CLASS_DECL_DRAW2D_COCOA System.m_hInstance;
-CLASS_DECL_DRAW2D_COCOA HINSTANCE __get_resource_handle();
-CLASS_DECL_DRAW2D_COCOA void __set_resource_handle(HINSTANCE hInstResource);
-CLASS_DECL_DRAW2D_COCOA const char * __get_app_name();
+CLASS_DECL_mac ::ca2::application* __get_app();
+CLASS_DECL_mac sp(::user::interaction) __get_main_window();
+//CLASS_DECL_mac HINSTANCE CLASS_DECL_mac System.m_hInstance;
+CLASS_DECL_mac HINSTANCE __get_resource_handle();
+CLASS_DECL_mac void __set_resource_handle(HINSTANCE hInstResource);
+CLASS_DECL_mac const char * __get_app_name();
 
-CLASS_DECL_DRAW2D_COCOA HINSTANCE __get_resource_handle();
-CLASS_DECL_DRAW2D_COCOA HINSTANCE __find_string_resource_handle(UINT nID);
+CLASS_DECL_mac HINSTANCE __get_resource_handle();
+CLASS_DECL_mac HINSTANCE __find_string_resource_handle(UINT nID);
 
-CLASS_DECL_DRAW2D_COCOA void __delete_object(HGDIOBJ* pObject);
+CLASS_DECL_mac void __delete_object(HGDIOBJ* pObject);
 
-void CLASS_DECL_DRAW2D_COCOA __global_free(HGLOBAL hGlobal);
+void CLASS_DECL_mac __global_free(HGLOBAL hGlobal);
