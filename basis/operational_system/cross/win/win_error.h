@@ -15,7 +15,7 @@
 
 #ifndef FORCEINLINE
 #if (_MSC_VER >= 1200)
-#define FORCEINLINE __forceinline
+#define FORCEINLINE inline
 #else
 #define FORCEINLINE __inline
 #endif
