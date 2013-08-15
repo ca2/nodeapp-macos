@@ -2598,7 +2598,17 @@ namespace draw2d_quartz2d
 
          for(int i = 0; i < cy; i++)
          {
-            memcpy((COLORREF *)&(((byte *)m_pcolorref)[scan * i]), &(((byte *) pdata)[bx * (cy - i - 1)]),  bx);
+            byte * pdst = &(((byte *)m_pcolorref)[scan * i]);
+            byte * psrc = &(((byte *) pdata)[bx * (i)]);
+            for(int j = 0; j < cx; j++)
+            {
+               pdst[0] = psrc[2];
+               pdst[1] = psrc[1];
+               pdst[2] = psrc[0];
+               pdst[3] = psrc[3];
+               pdst += 4;
+               psrc += 4;
+            }
          }
 
       }

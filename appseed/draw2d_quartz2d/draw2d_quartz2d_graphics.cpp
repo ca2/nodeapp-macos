@@ -1104,19 +1104,24 @@ namespace draw2d_quartz2d
    
    bool graphics::fill_polygon(const POINTD * pa, int32_t nCount)
    {
-//      
-//      if(nCount <= 0)
-//         return TRUE;
-//      
-//      
-//      cairo_move_to(m_pdc, pa[0].x, pa[0].y);
-//      
-//      for(int32_t i = 1; i < nCount; i++)
-//      {
-//         cairo_line_to(m_pdc, pa[i].x, pa[i].y);
-//      }
-//      
-//      fill();
+      
+      if(nCount <= 0)
+         return TRUE;
+      
+      CGContextBeginPath(m_pdc);
+      
+      CGContextMoveToPoint(m_pdc, pa[0].x, pa[0].y);
+      
+      for(int32_t i = 1; i < nCount; i++)
+      {
+         
+         CGContextAddLineToPoint(m_pdc, pa[i].x, pa[i].y);
+         
+      }
+      
+      CGContextClosePath(m_pdc);
+      
+      fill();
       
       return true;
       
@@ -1124,19 +1129,24 @@ namespace draw2d_quartz2d
    
    bool graphics::fill_polygon(const POINT* pa, int32_t nCount)
    {
-//      
-//      if(nCount <= 0)
-//         return TRUE;
-//      
-//      
-//      cairo_move_to(m_pdc, pa[0].x, pa[0].y);
-//      
-//      for(int32_t i = 1; i < nCount; i++)
-//      {
-//         cairo_line_to(m_pdc, pa[i].x, pa[i].y);
-//      }
-//      
-//      fill();
+
+      if(nCount <= 0)
+         return TRUE;
+      
+      CGContextBeginPath(m_pdc);
+      
+      CGContextMoveToPoint(m_pdc, pa[0].x, pa[0].y);
+      
+      for(int32_t i = 1; i < nCount; i++)
+      {
+         
+         CGContextAddLineToPoint(m_pdc, pa[i].x, pa[i].y);
+         
+      }
+      
+      CGContextClosePath(m_pdc);
+
+      fill();
       
       return true;
       
@@ -1145,24 +1155,24 @@ namespace draw2d_quartz2d
    
    bool graphics::Polygon(const POINT* pa, int32_t nCount)
    {
-//      
-//      
-//      if(nCount <= 0)
-//         return TRUE;
-//      
-//      
-//      cairo_move_to(m_pdc, pa[0].x, pa[0].y);
-//      
-//      for(int32_t i = 1; i < nCount; i++)
-//      {
-//         
-//         cairo_line_to(m_pdc, pa[i].x, pa[i].y);
-//         
-//      }
+      
+      if(nCount <= 0)
+         return TRUE;
+      
+      CGContextBeginPath(m_pdc);
+
+      CGContextMoveToPoint(m_pdc, pa[0].x, pa[0].y);
+      
+      for(int32_t i = 1; i < nCount; i++)
+      {
+         
+         CGContextAddLineToPoint(m_pdc, pa[i].x, pa[i].y);
+         
+      }
+      
+      CGContextClosePath(m_pdc);
       
       return fill_and_draw();
-      
-      
       
    }
    
@@ -5200,14 +5210,16 @@ namespace draw2d_quartz2d
          CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
       
          CGFloat components[4];
+         
+         COLORREF crText = m_spbrush.is_null() ? ARGB(255, 0, 0, 0) : m_spbrush->m_cr;
       
-         components[0] = GetRValue(m_spbrush->m_cr) / 255.f;
+         components[0] = GetRValue(crText) / 255.f;
       
-         components[1] = GetGValue(m_spbrush->m_cr) / 255.f;
+         components[1] = GetGValue(crText) / 255.f;
       
-         components[2] = GetBValue(m_spbrush->m_cr) / 255.f;
+         components[2] = GetBValue(crText) / 255.f;
       
-         components[3] = GetAValue(m_spbrush->m_cr) / 255.f;
+         components[3] = GetAValue(crText) / 255.f;
       
          cr = CGColorCreate(rgbColorSpace, components);
       

@@ -88,14 +88,14 @@ namespace draw2d_quartz2d
          
          m_colorspace= CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
          
-         components[0] = GetRValue(m_cr1);
-         components[1] = GetGValue(m_cr1);
-         components[2] = GetBValue(m_cr1);
-         components[3] = GetAValue(m_cr1);
-         components[4] = GetRValue(m_cr2);
-         components[5] = GetGValue(m_cr2);
-         components[6] = GetBValue(m_cr2);
-         components[7] = GetAValue(m_cr2);
+         components[0] = GetRValue(m_cr1) / 255.f;
+         components[1] = GetGValue(m_cr1) / 255.f;
+         components[2] = GetBValue(m_cr1) / 255.f;
+         components[3] = GetAValue(m_cr1) / 255.f;
+         components[4] = GetRValue(m_cr2) / 255.f;
+         components[5] = GetGValue(m_cr2) / 255.f;
+         components[6] = GetBValue(m_cr2) / 255.f;
+         components[7] = GetAValue(m_cr2) / 255.f;
          
          locations[0] = 0.0;
          locations[1] = 1.0;
@@ -110,10 +110,10 @@ namespace draw2d_quartz2d
          
          m_colorspace= CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
          
-         components[0] = GetRValue(m_cr);
-         components[1] = GetGValue(m_cr);
-         components[2] = GetBValue(m_cr);
-         components[3] = GetAValue(m_cr);
+         components[0] = GetRValue(m_cr) / 255.f;
+         components[1] = GetGValue(m_cr) / 255.f;
+         components[2] = GetBValue(m_cr) / 255.f;
+         components[3] = GetAValue(m_cr) / 255.f;
          
          m_color = CGColorCreate(m_colorspace, components);
          
