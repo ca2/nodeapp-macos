@@ -2623,7 +2623,7 @@ namespace draw2d_quartz2d
 
 
       //memset(m_pcolorref, 0x7f, cy * bx);
-      /*cairo_surface_t * surface = dynamic_cast < ::draw2d_cairo::bitmap * > (m_spbitmap.m_p)->m_psurface;
+      //cairo_surface_t * surface = dynamic_cast < ::draw2d_cairo::bitmap * > (m_spbitmap.m_p)->m_psurface;
 
      cairo_surface_flush (surface);
 
