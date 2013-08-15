@@ -183,7 +183,10 @@ uint32_t __run_system(void * p)
    
    
    pinitmaindata->m_hInstance             = NULL;
+   
    pinitmaindata->m_hPrevInstance         = NULL;
+   
+   bool bColon = false;
    
    for(int32_t i = 0; i < *_NSGetArgc(); i++)
    {
@@ -195,7 +198,31 @@ uint32_t __run_system(void * p)
 
       }
       
-      pinitmaindata->m_strCommandLine     += (*_NSGetArgv())[i];
+      if(strcmp((*_NSGetArgv())[i], ":") == 0)
+      {
+      
+         pinitmaindata->m_strCommandLine     += ":";
+         
+         bColon = true;
+         
+      }
+      else if(bColon)
+      {
+
+         pinitmaindata->m_strCommandLine     += (*_NSGetArgv())[i];
+         
+         
+      }
+      else
+      {
+
+         pinitmaindata->m_strCommandLine     += "\"";
+         
+         pinitmaindata->m_strCommandLine     += (*_NSGetArgv())[i];
+         
+         pinitmaindata->m_strCommandLine     += "\"";
+         
+      }
       
    }
    pinitmaindata->m_vssCommandLine = pinitmaindata->m_strCommandLine;
