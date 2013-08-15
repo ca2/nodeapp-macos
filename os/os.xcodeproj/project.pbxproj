@@ -18,8 +18,6 @@
 		9A574B3716AA1AC7000CC4EF /* mac_copydesk.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B3516AA1AC4000CC4EF /* mac_copydesk.h */; };
 		9A574B3A16AA1E97000CC4EF /* mac_crypt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B3816AA1E90000CC4EF /* mac_crypt.cpp */; };
 		9A574B3B16AA1E97000CC4EF /* mac_crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B3916AA1E93000CC4EF /* mac_crypt.h */; };
-		9A574B5116AA2049000CC4EF /* kerr.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4316AA2031000CC4EF /* kerr.h */; };
-		9A574B5216AA2049000CC4EF /* LocalMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4416AA2031000CC4EF /* LocalMemory.h */; };
 		9A574B5716AA2049000CC4EF /* mac_ip_enum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B4916AA2042000CC4EF /* mac_ip_enum.cpp */; };
 		9A574B5816AA2049000CC4EF /* mac_ip_enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4A16AA2045000CC4EF /* mac_ip_enum.h */; };
 		9A574B5A16AA3B02000CC4EF /* mac_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */; };
@@ -85,7 +83,6 @@
 		A1CFD93F154FB715007447E2 /* mac_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8C8154FB715007447E2 /* mac_file.cpp */; };
 		A1CFD940154FB715007447E2 /* mac_file.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8C9154FB715007447E2 /* mac_file.h */; };
 		A1CFD941154FB715007447E2 /* mac_file_set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8CA154FB715007447E2 /* mac_file_set.cpp */; };
-		A1CFD942154FB715007447E2 /* mac_file_set.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8CC154FB715007447E2 /* mac_file_set.h */; };
 		A1CFD943154FB715007447E2 /* mac_file_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8CD154FB715007447E2 /* mac_file_system.cpp */; };
 		A1CFD944154FB715007447E2 /* mac_file_system.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8CE154FB715007447E2 /* mac_file_system.h */; };
 		A1CFD947154FB715007447E2 /* mac_stdio_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD8D1154FB715007447E2 /* mac_stdio_file.cpp */; };
@@ -122,10 +119,7 @@
 		9A574B3516AA1AC4000CC4EF /* mac_copydesk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_copydesk.h; sourceTree = "<group>"; };
 		9A574B3816AA1E90000CC4EF /* mac_crypt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_crypt.cpp; sourceTree = "<group>"; };
 		9A574B3916AA1E93000CC4EF /* mac_crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_crypt.h; sourceTree = "<group>"; };
-		9A574B4316AA2031000CC4EF /* kerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kerr.h; sourceTree = "<group>"; };
-		9A574B4416AA2031000CC4EF /* LocalMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalMemory.h; sourceTree = "<group>"; };
 		9A574B4516AA2031000CC4EF /* mac_afxImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_afxImpl.h; sourceTree = "<group>"; };
-		9A574B4716AA203B000CC4EF /* mac_file_set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_file_set.h; sourceTree = "<group>"; };
 		9A574B4816AA203E000CC4EF /* mac_genResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_genResource.cpp; sourceTree = "<group>"; };
 		9A574B4916AA2042000CC4EF /* mac_ip_enum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_ip_enum.cpp; sourceTree = "<group>"; };
 		9A574B4A16AA2045000CC4EF /* mac_ip_enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_ip_enum.h; sourceTree = "<group>"; };
@@ -193,7 +187,6 @@
 		A1CFD8C8154FB715007447E2 /* mac_file.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_file.cpp; sourceTree = "<group>"; };
 		A1CFD8C9154FB715007447E2 /* mac_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_file.h; sourceTree = "<group>"; };
 		A1CFD8CA154FB715007447E2 /* mac_file_set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_file_set.cpp; sourceTree = "<group>"; };
-		A1CFD8CC154FB715007447E2 /* mac_file_set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_file_set.h; sourceTree = "<group>"; };
 		A1CFD8CD154FB715007447E2 /* mac_file_system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_file_system.cpp; sourceTree = "<group>"; };
 		A1CFD8CE154FB715007447E2 /* mac_file_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_file_system.h; sourceTree = "<group>"; };
 		A1CFD8D1154FB715007447E2 /* mac_stdio_file.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_stdio_file.cpp; sourceTree = "<group>"; };
@@ -234,15 +227,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9A574B4216AA202E000CC4EF /* Kerr */ = {
-			isa = PBXGroup;
-			children = (
-				9A574B4316AA2031000CC4EF /* kerr.h */,
-				9A574B4416AA2031000CC4EF /* LocalMemory.h */,
-			);
-			path = Kerr;
-			sourceTree = "<group>";
-		};
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
@@ -319,19 +303,17 @@
 		A1CFD896154FB715007447E2 /* os */ = {
 			isa = PBXGroup;
 			children = (
-				9A574B4216AA202E000CC4EF /* Kerr */,
-				9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */,
+				9A1B496316A494A600875A94 /* framework.h */,
+				9A1B496616A4A10100875A94 /* framework.cpp */,
+				A1CFD8C1154FB715007447E2 /* mac.h */,
+				A1CFD8C2154FB715007447E2 /* mac1.cpp */,
+				9A1B496816A4A32500875A94 /* mac1.h */,
+				A1CFD8C4154FB715007447E2 /* mac2.cpp */,
 				9A574B4516AA2031000CC4EF /* mac_afxImpl.h */,
-				9A574B4716AA203B000CC4EF /* mac_file_set.h */,
-				9A574B4816AA203E000CC4EF /* mac_genResource.cpp */,
-				9A574B4916AA2042000CC4EF /* mac_ip_enum.cpp */,
-				9A574B4A16AA2045000CC4EF /* mac_ip_enum.h */,
 				9A574B3816AA1E90000CC4EF /* mac_crypt.cpp */,
 				9A574B3916AA1E93000CC4EF /* mac_crypt.h */,
 				9A574B3416AA1AC1000CC4EF /* mac_copydesk.cpp */,
 				9A574B3516AA1AC4000CC4EF /* mac_copydesk.h */,
-				9A1B496816A4A32500875A94 /* mac1.h */,
-				9A1B496316A494A600875A94 /* framework.h */,
 				A1CFD897154FB715007447E2 /* mac_afxabort.cpp */,
 				A1CFD898154FB715007447E2 /* mac_afxImpl.h */,
 				A1CFD899154FB715007447E2 /* mac_afxmem.cpp */,
@@ -344,25 +326,22 @@
 				A1CFD8A7154FB715007447E2 /* mac_dir.cpp */,
 				A1CFD8A9154FB715007447E2 /* mac_dir.h */,
 				A1CFD8AC154FB715007447E2 /* mac_dumpinit.cpp */,
+				A1CFD8C5154FB715007447E2 /* mac_error.cpp */,
+				9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */,
 				A1CFD8AE154FB715007447E2 /* mac_factory_exchange.cpp */,
 				A1CFD8AF154FB715007447E2 /* mac_factory_exchange.h */,
-				A1CFD8B4154FB715007447E2 /* mac_gen_1.h */,
-				A1CFD8B5154FB715007447E2 /* mac_genResource.cpp */,
-				A1CFD8BC154FB715007447E2 /* mac_implementation.h */,
-				A1CFD8C1154FB715007447E2 /* mac.h */,
-				A1CFD8C2154FB715007447E2 /* mac1.cpp */,
-				A1CFD8C4154FB715007447E2 /* mac2.cpp */,
-				A1CFD8C5154FB715007447E2 /* mac_error.cpp */,
-				A1CFD8C6154FB715007447E2 /* mac_internal.h */,
-				A1CFD8C8154FB715007447E2 /* mac_file.cpp */,
-				A1CFD8C9154FB715007447E2 /* mac_file.h */,
 				A1CFD8CA154FB715007447E2 /* mac_file_set.cpp */,
-				A1CFD8CC154FB715007447E2 /* mac_file_set.h */,
+				A1CFD8C9154FB715007447E2 /* mac_file.h */,
+				A1CFD8C8154FB715007447E2 /* mac_file.cpp */,
 				A1CFD8CD154FB715007447E2 /* mac_file_system.cpp */,
 				A1CFD8CE154FB715007447E2 /* mac_file_system.h */,
-				A1CFD8D1154FB715007447E2 /* mac_stdio_file.cpp */,
-				A1CFD8D2154FB715007447E2 /* mac_stdio_file.h */,
-				A1CFD8D3154FB715007447E2 /* mac_shell.cpp */,
+				A1CFD8B4154FB715007447E2 /* mac_gen_1.h */,
+				A1CFD8B5154FB715007447E2 /* mac_genResource.cpp */,
+				9A574B4816AA203E000CC4EF /* mac_genResource.cpp */,
+				A1CFD8BC154FB715007447E2 /* mac_implementation.h */,
+				A1CFD8C6154FB715007447E2 /* mac_internal.h */,
+				9A574B4916AA2042000CC4EF /* mac_ip_enum.cpp */,
+				9A574B4A16AA2045000CC4EF /* mac_ip_enum.h */,
 				A1CFD8D5154FB715007447E2 /* mac_main.cpp */,
 				A1CFD8DB154FB715007447E2 /* mac_os.cpp */,
 				A1CFD8DC154FB715007447E2 /* mac_os.h */,
@@ -370,6 +349,9 @@
 				A1CFD8E2154FB715007447E2 /* mac_port_forward.h */,
 				071B28A5173FD8E600610E30 /* mac_printer.cpp */,
 				071B28A6173FD8E600610E30 /* mac_printer.h */,
+				A1CFD8D2154FB715007447E2 /* mac_stdio_file.h */,
+				A1CFD8D1154FB715007447E2 /* mac_stdio_file.cpp */,
+				A1CFD8D3154FB715007447E2 /* mac_shell.cpp */,
 				071B28A7173FD8E600610E30 /* mac_shell.h */,
 				A1CFD8E6154FB715007447E2 /* mac_state.h */,
 				A1CFD8E9154FB715007447E2 /* mac_thread.cpp */,
@@ -382,7 +364,6 @@
 				A1CFD8F5154FB715007447E2 /* mac_window.h */,
 				A1CFD8F6154FB715007447E2 /* mac_window_draw.cpp */,
 				A1CFD8F8154FB715007447E2 /* mac_window_draw.h */,
-				9A1B496616A4A10100875A94 /* framework.cpp */,
 				9AA1B446176355610019E812 /* round_window.h */,
 				9AA1B445176355610019E812 /* round_window.mm */,
 				9AA1B3EA17634E520019E812 /* RoundWindow.h */,
@@ -433,7 +414,6 @@
 				A1CFD938154FB715007447E2 /* mac.h in Headers */,
 				A1CFD93D154FB715007447E2 /* mac_internal.h in Headers */,
 				A1CFD940154FB715007447E2 /* mac_file.h in Headers */,
-				A1CFD942154FB715007447E2 /* mac_file_set.h in Headers */,
 				A1CFD944154FB715007447E2 /* mac_file_system.h in Headers */,
 				A1CFD948154FB715007447E2 /* mac_stdio_file.h in Headers */,
 				A1CFD94D154FB715007447E2 /* mac_os.h in Headers */,
@@ -447,8 +427,6 @@
 				9A1B496916A4A32500875A94 /* mac1.h in Headers */,
 				9A574B3716AA1AC7000CC4EF /* mac_copydesk.h in Headers */,
 				9A574B3B16AA1E97000CC4EF /* mac_crypt.h in Headers */,
-				9A574B5116AA2049000CC4EF /* kerr.h in Headers */,
-				9A574B5216AA2049000CC4EF /* LocalMemory.h in Headers */,
 				9A574B5816AA2049000CC4EF /* mac_ip_enum.h in Headers */,
 				071B28A9173FD8E700610E30 /* mac_printer.h in Headers */,
 				071B28AA173FD8E700610E30 /* mac_shell.h in Headers */,
