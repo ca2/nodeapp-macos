@@ -6486,6 +6486,7 @@ namespace mac
       if(::GetActiveWindow() != get_handle())
       {
          
+         try
          {
             
             ::ca2::message::mouse_activate * pmouseactivate = canew(::ca2::message::mouse_activate(get_app()));
@@ -6496,22 +6497,25 @@ namespace mac
             
             send(spbase);
             
+            if(spbase->get_lresult() == MA_ACTIVATE || spbase->get_lresult() == MA_ACTIVATEANDEAT)
+            {
+            
+               ::ca2::message::activate * pactivate = canew(::ca2::message::activate(get_app()));
+            
+               pactivate->m_uiMessage = WM_ACTIVATE;
+               pactivate->m_wparam = WA_CLICKACTIVE;
+               pactivate->m_nState = WA_CLICKACTIVE;
+               pactivate->m_bMinimized = false;
+            
+               spbase = pactivate;
+            
+               send(spbase);
+            
+            }
+            
          }
-         
-         if(spbase->get_lresult() == MA_ACTIVATE || spbase->get_lresult() == MA_ACTIVATEANDEAT)
+         catch(...)
          {
-            
-            ::ca2::message::activate * pactivate = canew(::ca2::message::activate(get_app()));
-            
-            pactivate->m_uiMessage = WM_ACTIVATE;
-            pactivate->m_wparam = WA_CLICKACTIVE;
-            pactivate->m_nState = WA_CLICKACTIVE;
-            pactivate->m_bMinimized = false;
-            
-            spbase = pactivate;
-            
-            send(spbase);
-            
          }
          
       }

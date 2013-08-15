@@ -133,5 +133,109 @@
          landmarkName = "list::_001DrawItem(draw_list_item * pdrawitem)"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+         timestampString = "398222640.217606"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1175"
+         endingLineNumber = "1175"
+         landmarkName = "graphics::Polygon(const POINT* pa, int32_t nCount)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+         timestampString = "398222761.34897"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "5556"
+         endingLineNumber = "5556"
+         landmarkName = "graphics::fill(::draw2d::brush * pbrush)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+         timestampString = "398222891.456124"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "5557"
+         endingLineNumber = "5557"
+         landmarkName = "graphics::fill(::draw2d::brush * pbrush)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca2/base/ca2/ca2_application.cpp"
+         timestampString = "398223330.823877"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "5325"
+         endingLineNumber = "5325"
+         landmarkName = "openURL(const string &amp;url_str)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca2/base/ca2/ca2_application.cpp"
+         timestampString = "398223333.398344"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "5356"
+         endingLineNumber = "5356"
+         landmarkName = "application::open_link(const string &amp; strLink, const string &amp; pszTarget)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app-core/appseed/projection/projection_view.cpp"
+         timestampString = "398223391.872654"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
+         landmarkName = "view::_001OnLButtonDown(::ca2::signal_object * pobj)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../os/RoundWindowFrameView.mm"
+         timestampString = "398223585.973483"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "120"
+         endingLineNumber = "120"
+         landmarkName = "-mouseDown:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../app/appseed/ca2/base/ca2/ca2_application.cpp"
+         timestampString = "398259094.655681"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "5357"
+         endingLineNumber = "5357"
+         landmarkName = "application::open_link(const string &amp; strLink, const string &amp; pszTarget)"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

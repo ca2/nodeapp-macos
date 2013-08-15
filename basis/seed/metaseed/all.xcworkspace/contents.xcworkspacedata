@@ -26,6 +26,9 @@
       location = "group:../../../app-core/appseed/hellomultiverse/app_core_hellomultiverse.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/projection/app_core_projection.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-core/appseed/uinteraction/app_core_uinteraction.xcodeproj">
    </FileRef>
    <FileRef
