@@ -73,7 +73,7 @@
 // special include files
 
 #ifndef AFX_INLINE
-	#define AFX_INLINE inline /*__forceinline*/
+	#define AFX_INLINE inline /*inline*/
 #endif
 
 #include "v_w32.h"

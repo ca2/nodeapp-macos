@@ -29,10 +29,9 @@ typedef DWORD           FOURCC;         /* a four character code */
 #define mmioFOURCC(ch0, ch1, ch2, ch3)  MAKEFOURCC(ch0, ch1, ch2, ch3)
 
 
-struct music_midi_stream;
+//struct music_midi_stream;
 
-
-struct music_midi_out;
+//struct music_midi_out;
 
 
 /* MIDI data block header */
@@ -51,19 +50,19 @@ typedef struct midihdr_tag {
 } MIDIHDR, *PMIDIHDR, NEAR *NPMIDIHDR, FAR *LPMIDIHDR;
 
 
-typedef struct music_midi_stream *       HMIDISTRM;
+//typedef struct music_midi_stream *       HMIDISTRM;
 
 
-typedef struct music_midi_out *          HMIDIOUT;
+//typedef struct music_midi_out *          HMIDIOUT;
 
 
 
-struct audio_mixer;
+//struct audio_mixer;
 
-typedef struct audio_mixer FAR * LPAUDIOMIXER;
+//typedef struct audio_mixer FAR * LPAUDIOMIXER;
 
 
-typedef LPAUDIOMIXER HMIXER;
+//typedef LPAUDIOMIXER HMIXER;
 
 
 

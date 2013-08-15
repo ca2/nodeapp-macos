@@ -121,7 +121,7 @@ extern "C" {
 
 #ifndef FORCEINLINE
 # if defined(_MSC_VER) && (_MSC_VER >= 1200)
-#  define FORCEINLINE __forceinline
+#  define FORCEINLINE inline
 # elif defined(__GNUC__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 2)))
 #  define FORCEINLINE inline __attribute__((always_inline))
 # else
