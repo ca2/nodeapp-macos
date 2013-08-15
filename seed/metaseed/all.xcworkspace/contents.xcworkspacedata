@@ -35,6 +35,9 @@
       location = "group:../../../app-core/appseed/uinteraction/app_core_uinteraction.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/ca/ca.xcodeproj">
    </FileRef>
    <FileRef
@@ -44,10 +47,22 @@
       location = "group:../../appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/appseed/math/math.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../os/os.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/sphere/sphere.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/tesseract/tesseract.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../appseed/app/app.xcodeproj">

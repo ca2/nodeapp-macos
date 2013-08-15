@@ -32,7 +32,7 @@ typedef ::std::type_info std_type_info;
 // special include files
 
 #ifndef AFX_INLINE
-	#define AFX_INLINE inline /*__forceinline*/
+	#define AFX_INLINE inline /*inline*/
 #endif
 
 #include "version_macos.h"
