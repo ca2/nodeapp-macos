@@ -38,6 +38,12 @@
       location = "group:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
    </FileRef>
    <FileRef
+      location = "absolute:/ca2/app-veriwell/appseed/mplite/../../../nodeapp/appseed/audio_core_audio/audio_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../appseed/audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/ca/ca.xcodeproj">
    </FileRef>
    <FileRef
@@ -51,6 +57,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../appseed/music_midi_core_audio/music_midi_core_audio.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../os/os.xcodeproj">
