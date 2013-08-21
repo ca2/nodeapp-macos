@@ -1,4 +1,0 @@
-LIBRARY  "veriwell_multimedia"
-
-EXPORTS
-ca2_factory_exchange
