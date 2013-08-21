@@ -10,31 +10,17 @@
 		9A16FCAB1770D70600759432 /* libca2ca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A16FCAA1770D70600759432 /* libca2ca.dylib */; };
 		9A1B496416A494A600875A94 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496316A494A600875A94 /* framework.h */; };
 		9A1B496716A4A10100875A94 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B496616A4A10100875A94 /* framework.cpp */; };
-		9A6B40E417BBE291008391AD /* draw2d_quartz2d_bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40CC17BBE291008391AD /* draw2d_quartz2d_bitmap.cpp */; };
-		9A6B40E517BBE291008391AD /* draw2d_quartz2d_bitmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40CD17BBE291008391AD /* draw2d_quartz2d_bitmap.h */; };
-		9A6B40E617BBE291008391AD /* draw2d_quartz2d_brush.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40CE17BBE291008391AD /* draw2d_quartz2d_brush.cpp */; };
-		9A6B40E717BBE291008391AD /* draw2d_quartz2d_brush.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40CF17BBE291008391AD /* draw2d_quartz2d_brush.h */; };
-		9A6B40E817BBE291008391AD /* draw2d_quartz2d_dib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40D017BBE291008391AD /* draw2d_quartz2d_dib.cpp */; };
-		9A6B40E917BBE291008391AD /* draw2d_quartz2d_dib.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40D117BBE291008391AD /* draw2d_quartz2d_dib.h */; };
-		9A6B40EA17BBE291008391AD /* draw2d_quartz2d_factory_exchange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40D217BBE291008391AD /* draw2d_quartz2d_factory_exchange.cpp */; };
-		9A6B40EB17BBE291008391AD /* draw2d_quartz2d_factory_exchange.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40D317BBE291008391AD /* draw2d_quartz2d_factory_exchange.h */; };
-		9A6B40EC17BBE291008391AD /* draw2d_quartz2d_font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40D417BBE291008391AD /* draw2d_quartz2d_font.cpp */; };
-		9A6B40ED17BBE291008391AD /* draw2d_quartz2d_font.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40D517BBE291008391AD /* draw2d_quartz2d_font.h */; };
-		9A6B40EE17BBE291008391AD /* draw2d_quartz2d_graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40D617BBE291008391AD /* draw2d_quartz2d_graphics.cpp */; };
-		9A6B40EF17BBE291008391AD /* draw2d_quartz2d_graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40D717BBE291008391AD /* draw2d_quartz2d_graphics.h */; };
-		9A6B40F017BBE291008391AD /* draw2d_quartz2d_object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40D817BBE291008391AD /* draw2d_quartz2d_object.cpp */; };
-		9A6B40F117BBE291008391AD /* draw2d_quartz2d_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40D917BBE291008391AD /* draw2d_quartz2d_object.h */; };
-		9A6B40F217BBE291008391AD /* draw2d_quartz2d_palette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40DA17BBE291008391AD /* draw2d_quartz2d_palette.cpp */; };
-		9A6B40F317BBE291008391AD /* draw2d_quartz2d_palette.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40DB17BBE291008391AD /* draw2d_quartz2d_palette.h */; };
-		9A6B40F417BBE291008391AD /* draw2d_quartz2d_path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40DC17BBE291008391AD /* draw2d_quartz2d_path.cpp */; };
-		9A6B40F517BBE291008391AD /* draw2d_quartz2d_path.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40DD17BBE291008391AD /* draw2d_quartz2d_path.h */; };
-		9A6B40F617BBE291008391AD /* draw2d_quartz2d_pen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40DE17BBE291008391AD /* draw2d_quartz2d_pen.cpp */; };
-		9A6B40F717BBE291008391AD /* draw2d_quartz2d_pen.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40DF17BBE291008391AD /* draw2d_quartz2d_pen.h */; };
-		9A6B40F817BBE291008391AD /* draw2d_quartz2d_preview_dc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40E017BBE291008391AD /* draw2d_quartz2d_preview_dc.cpp */; };
-		9A6B40F917BBE291008391AD /* draw2d_quartz2d_region.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A6B40E117BBE291008391AD /* draw2d_quartz2d_region.cpp */; };
-		9A6B40FA17BBE291008391AD /* draw2d_quartz2d_region.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40E217BBE291008391AD /* draw2d_quartz2d_region.h */; };
-		9A6B40FB17BBE291008391AD /* draw2d_quartz2d.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40E317BBE291008391AD /* draw2d_quartz2d.h */; };
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
+		9A8EAF3317C563A300C458D1 /* audio_core_audio_command.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF2817C563A300C458D1 /* audio_core_audio_command.h */; };
+		9A8EAF3417C563A300C458D1 /* audio_core_audio_factory_exchange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF2917C563A300C458D1 /* audio_core_audio_factory_exchange.cpp */; };
+		9A8EAF3517C563A300C458D1 /* audio_core_audio_factory_exchange.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF2A17C563A300C458D1 /* audio_core_audio_factory_exchange.h */; };
+		9A8EAF3617C563A300C458D1 /* audio_core_audio_translation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF2B17C563A300C458D1 /* audio_core_audio_translation.cpp */; };
+		9A8EAF3717C563A300C458D1 /* audio_core_audio_translation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF2C17C563A300C458D1 /* audio_core_audio_translation.h */; };
+		9A8EAF3817C563A300C458D1 /* audio_core_audio_wave_in.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF2D17C563A300C458D1 /* audio_core_audio_wave_in.cpp */; };
+		9A8EAF3917C563A300C458D1 /* audio_core_audio_wave_in.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF2E17C563A300C458D1 /* audio_core_audio_wave_in.h */; };
+		9A8EAF3A17C563A300C458D1 /* audio_core_audio_wave_out.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF2F17C563A300C458D1 /* audio_core_audio_wave_out.cpp */; };
+		9A8EAF3B17C563A300C458D1 /* audio_core_audio_wave_out.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF3017C563A300C458D1 /* audio_core_audio_wave_out.h */; };
+		9A8EAF3C17C563A300C458D1 /* audio_core_audio.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF3217C563A300C458D1 /* audio_core_audio.h */; };
 		9A98A6271771D78C000AE16E /* lib_ca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A98A6261771D78C000AE16E /* lib_ca2c.dylib */; };
 		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
 		9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */; };
@@ -45,36 +31,22 @@
 		9A16FCAA1770D70600759432 /* libca2ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2ca.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2ca.dylib"; sourceTree = "<group>"; };
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
-		9A6B40CC17BBE291008391AD /* draw2d_quartz2d_bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_bitmap.cpp; sourceTree = "<group>"; };
-		9A6B40CD17BBE291008391AD /* draw2d_quartz2d_bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_bitmap.h; sourceTree = "<group>"; };
-		9A6B40CE17BBE291008391AD /* draw2d_quartz2d_brush.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_brush.cpp; sourceTree = "<group>"; };
-		9A6B40CF17BBE291008391AD /* draw2d_quartz2d_brush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_brush.h; sourceTree = "<group>"; };
-		9A6B40D017BBE291008391AD /* draw2d_quartz2d_dib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_dib.cpp; sourceTree = "<group>"; };
-		9A6B40D117BBE291008391AD /* draw2d_quartz2d_dib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_dib.h; sourceTree = "<group>"; };
-		9A6B40D217BBE291008391AD /* draw2d_quartz2d_factory_exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_factory_exchange.cpp; sourceTree = "<group>"; };
-		9A6B40D317BBE291008391AD /* draw2d_quartz2d_factory_exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_factory_exchange.h; sourceTree = "<group>"; };
-		9A6B40D417BBE291008391AD /* draw2d_quartz2d_font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_font.cpp; sourceTree = "<group>"; };
-		9A6B40D517BBE291008391AD /* draw2d_quartz2d_font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_font.h; sourceTree = "<group>"; };
-		9A6B40D617BBE291008391AD /* draw2d_quartz2d_graphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_graphics.cpp; sourceTree = "<group>"; };
-		9A6B40D717BBE291008391AD /* draw2d_quartz2d_graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_graphics.h; sourceTree = "<group>"; };
-		9A6B40D817BBE291008391AD /* draw2d_quartz2d_object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_object.cpp; sourceTree = "<group>"; };
-		9A6B40D917BBE291008391AD /* draw2d_quartz2d_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_object.h; sourceTree = "<group>"; };
-		9A6B40DA17BBE291008391AD /* draw2d_quartz2d_palette.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_palette.cpp; sourceTree = "<group>"; };
-		9A6B40DB17BBE291008391AD /* draw2d_quartz2d_palette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_palette.h; sourceTree = "<group>"; };
-		9A6B40DC17BBE291008391AD /* draw2d_quartz2d_path.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_path.cpp; sourceTree = "<group>"; };
-		9A6B40DD17BBE291008391AD /* draw2d_quartz2d_path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_path.h; sourceTree = "<group>"; };
-		9A6B40DE17BBE291008391AD /* draw2d_quartz2d_pen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_pen.cpp; sourceTree = "<group>"; };
-		9A6B40DF17BBE291008391AD /* draw2d_quartz2d_pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_pen.h; sourceTree = "<group>"; };
-		9A6B40E017BBE291008391AD /* draw2d_quartz2d_preview_dc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_preview_dc.cpp; sourceTree = "<group>"; };
-		9A6B40E117BBE291008391AD /* draw2d_quartz2d_region.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw2d_quartz2d_region.cpp; sourceTree = "<group>"; };
-		9A6B40E217BBE291008391AD /* draw2d_quartz2d_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_region.h; sourceTree = "<group>"; };
-		9A6B40E317BBE291008391AD /* draw2d_quartz2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d.h; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		9A8EAF2817C563A300C458D1 /* audio_core_audio_command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_command.h; sourceTree = "<group>"; };
+		9A8EAF2917C563A300C458D1 /* audio_core_audio_factory_exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_factory_exchange.cpp; sourceTree = "<group>"; };
+		9A8EAF2A17C563A300C458D1 /* audio_core_audio_factory_exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_factory_exchange.h; sourceTree = "<group>"; };
+		9A8EAF2B17C563A300C458D1 /* audio_core_audio_translation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_translation.cpp; sourceTree = "<group>"; };
+		9A8EAF2C17C563A300C458D1 /* audio_core_audio_translation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_translation.h; sourceTree = "<group>"; };
+		9A8EAF2D17C563A300C458D1 /* audio_core_audio_wave_in.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_wave_in.cpp; sourceTree = "<group>"; };
+		9A8EAF2E17C563A300C458D1 /* audio_core_audio_wave_in.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_wave_in.h; sourceTree = "<group>"; };
+		9A8EAF2F17C563A300C458D1 /* audio_core_audio_wave_out.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_wave_out.cpp; sourceTree = "<group>"; };
+		9A8EAF3017C563A300C458D1 /* audio_core_audio_wave_out.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_wave_out.h; sourceTree = "<group>"; };
+		9A8EAF3217C563A300C458D1 /* audio_core_audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio.h; sourceTree = "<group>"; };
 		9A98A6261771D78C000AE16E /* lib_ca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2c.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2c.dylib"; sourceTree = "<group>"; };
 		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freeimage.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freeimage.dylib"; sourceTree = "<group>"; };
 		9ADEA4751766691300D4CF1F /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2.dylib"; sourceTree = "<group>"; };
-		A1CFD778154F5EAA007447E2 /* libdraw2d_quartz2d.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libdraw2d_quartz2d.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1CFD778154F5EAA007447E2 /* libaudio_core_audio.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libaudio_core_audio.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +75,7 @@
 				9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */,
 				9A16FCAA1770D70600759432 /* libca2ca.dylib */,
 				9ADEA4751766691300D4CF1F /* libca2.dylib */,
-				A1CFD896154FB715007447E2 /* draw2d_quartz2d */,
+				A1CFD896154FB715007447E2 /* audio_core_audio */,
 				A1CFD779154F5EAA007447E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,42 +83,28 @@
 		A1CFD779154F5EAA007447E2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1CFD778154F5EAA007447E2 /* libdraw2d_quartz2d.dylib */,
+				A1CFD778154F5EAA007447E2 /* libaudio_core_audio.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A1CFD896154FB715007447E2 /* draw2d_quartz2d */ = {
+		A1CFD896154FB715007447E2 /* audio_core_audio */ = {
 			isa = PBXGroup;
 			children = (
-				9A6B40CC17BBE291008391AD /* draw2d_quartz2d_bitmap.cpp */,
-				9A6B40CD17BBE291008391AD /* draw2d_quartz2d_bitmap.h */,
-				9A6B40CE17BBE291008391AD /* draw2d_quartz2d_brush.cpp */,
-				9A6B40CF17BBE291008391AD /* draw2d_quartz2d_brush.h */,
-				9A6B40D017BBE291008391AD /* draw2d_quartz2d_dib.cpp */,
-				9A6B40D117BBE291008391AD /* draw2d_quartz2d_dib.h */,
-				9A6B40D217BBE291008391AD /* draw2d_quartz2d_factory_exchange.cpp */,
-				9A6B40D317BBE291008391AD /* draw2d_quartz2d_factory_exchange.h */,
-				9A6B40D417BBE291008391AD /* draw2d_quartz2d_font.cpp */,
-				9A6B40D517BBE291008391AD /* draw2d_quartz2d_font.h */,
-				9A6B40D617BBE291008391AD /* draw2d_quartz2d_graphics.cpp */,
-				9A6B40D717BBE291008391AD /* draw2d_quartz2d_graphics.h */,
-				9A6B40D817BBE291008391AD /* draw2d_quartz2d_object.cpp */,
-				9A6B40D917BBE291008391AD /* draw2d_quartz2d_object.h */,
-				9A6B40DA17BBE291008391AD /* draw2d_quartz2d_palette.cpp */,
-				9A6B40DB17BBE291008391AD /* draw2d_quartz2d_palette.h */,
-				9A6B40DC17BBE291008391AD /* draw2d_quartz2d_path.cpp */,
-				9A6B40DD17BBE291008391AD /* draw2d_quartz2d_path.h */,
-				9A6B40DE17BBE291008391AD /* draw2d_quartz2d_pen.cpp */,
-				9A6B40DF17BBE291008391AD /* draw2d_quartz2d_pen.h */,
-				9A6B40E017BBE291008391AD /* draw2d_quartz2d_preview_dc.cpp */,
-				9A6B40E117BBE291008391AD /* draw2d_quartz2d_region.cpp */,
-				9A6B40E217BBE291008391AD /* draw2d_quartz2d_region.h */,
-				9A6B40E317BBE291008391AD /* draw2d_quartz2d.h */,
+				9A8EAF2817C563A300C458D1 /* audio_core_audio_command.h */,
+				9A8EAF2917C563A300C458D1 /* audio_core_audio_factory_exchange.cpp */,
+				9A8EAF2A17C563A300C458D1 /* audio_core_audio_factory_exchange.h */,
+				9A8EAF2B17C563A300C458D1 /* audio_core_audio_translation.cpp */,
+				9A8EAF2C17C563A300C458D1 /* audio_core_audio_translation.h */,
+				9A8EAF2D17C563A300C458D1 /* audio_core_audio_wave_in.cpp */,
+				9A8EAF2E17C563A300C458D1 /* audio_core_audio_wave_in.h */,
+				9A8EAF2F17C563A300C458D1 /* audio_core_audio_wave_out.cpp */,
+				9A8EAF3017C563A300C458D1 /* audio_core_audio_wave_out.h */,
+				9A8EAF3217C563A300C458D1 /* audio_core_audio.h */,
 				9A1B496316A494A600875A94 /* framework.h */,
 				9A1B496616A4A10100875A94 /* framework.cpp */,
 			);
-			name = draw2d_quartz2d;
+			name = audio_core_audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,27 +115,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A1B496416A494A600875A94 /* framework.h in Headers */,
-				9A6B40E517BBE291008391AD /* draw2d_quartz2d_bitmap.h in Headers */,
-				9A6B40E717BBE291008391AD /* draw2d_quartz2d_brush.h in Headers */,
-				9A6B40E917BBE291008391AD /* draw2d_quartz2d_dib.h in Headers */,
-				9A6B40EB17BBE291008391AD /* draw2d_quartz2d_factory_exchange.h in Headers */,
-				9A6B40ED17BBE291008391AD /* draw2d_quartz2d_font.h in Headers */,
-				9A6B40EF17BBE291008391AD /* draw2d_quartz2d_graphics.h in Headers */,
-				9A6B40F117BBE291008391AD /* draw2d_quartz2d_object.h in Headers */,
-				9A6B40F317BBE291008391AD /* draw2d_quartz2d_palette.h in Headers */,
-				9A6B40F517BBE291008391AD /* draw2d_quartz2d_path.h in Headers */,
-				9A6B40F717BBE291008391AD /* draw2d_quartz2d_pen.h in Headers */,
-				9A6B40FA17BBE291008391AD /* draw2d_quartz2d_region.h in Headers */,
-				9A6B40FB17BBE291008391AD /* draw2d_quartz2d.h in Headers */,
+				9A8EAF3317C563A300C458D1 /* audio_core_audio_command.h in Headers */,
+				9A8EAF3517C563A300C458D1 /* audio_core_audio_factory_exchange.h in Headers */,
+				9A8EAF3717C563A300C458D1 /* audio_core_audio_translation.h in Headers */,
+				9A8EAF3917C563A300C458D1 /* audio_core_audio_wave_in.h in Headers */,
+				9A8EAF3B17C563A300C458D1 /* audio_core_audio_wave_out.h in Headers */,
+				9A8EAF3C17C563A300C458D1 /* audio_core_audio.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A1CFD777154F5EAA007447E2 /* draw2d_quartz2d */ = {
+		A1CFD777154F5EAA007447E2 /* audio_core_audio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "draw2d_quartz2d" */;
+			buildConfigurationList = A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "audio_core_audio" */;
 			buildPhases = (
 				A1CFD774154F5EAA007447E2 /* Sources */,
 				A1CFD775154F5EAA007447E2 /* Frameworks */,
@@ -187,9 +139,9 @@
 			);
 			dependencies = (
 			);
-			name = draw2d_quartz2d;
+			name = audio_core_audio;
 			productName = os;
-			productReference = A1CFD778154F5EAA007447E2 /* libdraw2d_quartz2d.dylib */;
+			productReference = A1CFD778154F5EAA007447E2 /* libaudio_core_audio.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +153,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "ca2 Desenvolvimento de Sofware Ltda.";
 			};
-			buildConfigurationList = A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "draw2d_quartz2d" */;
+			buildConfigurationList = A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "audio_core_audio" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -213,7 +165,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1CFD777154F5EAA007447E2 /* draw2d_quartz2d */,
+				A1CFD777154F5EAA007447E2 /* audio_core_audio */,
 			);
 		};
 /* End PBXProject section */
@@ -224,18 +176,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A1B496716A4A10100875A94 /* framework.cpp in Sources */,
-				9A6B40E417BBE291008391AD /* draw2d_quartz2d_bitmap.cpp in Sources */,
-				9A6B40E617BBE291008391AD /* draw2d_quartz2d_brush.cpp in Sources */,
-				9A6B40E817BBE291008391AD /* draw2d_quartz2d_dib.cpp in Sources */,
-				9A6B40EA17BBE291008391AD /* draw2d_quartz2d_factory_exchange.cpp in Sources */,
-				9A6B40EC17BBE291008391AD /* draw2d_quartz2d_font.cpp in Sources */,
-				9A6B40EE17BBE291008391AD /* draw2d_quartz2d_graphics.cpp in Sources */,
-				9A6B40F017BBE291008391AD /* draw2d_quartz2d_object.cpp in Sources */,
-				9A6B40F217BBE291008391AD /* draw2d_quartz2d_palette.cpp in Sources */,
-				9A6B40F417BBE291008391AD /* draw2d_quartz2d_path.cpp in Sources */,
-				9A6B40F617BBE291008391AD /* draw2d_quartz2d_pen.cpp in Sources */,
-				9A6B40F817BBE291008391AD /* draw2d_quartz2d_preview_dc.cpp in Sources */,
-				9A6B40F917BBE291008391AD /* draw2d_quartz2d_region.cpp in Sources */,
+				9A8EAF3417C563A300C458D1 /* audio_core_audio_factory_exchange.cpp in Sources */,
+				9A8EAF3617C563A300C458D1 /* audio_core_audio_translation.cpp in Sources */,
+				9A8EAF3817C563A300C458D1 /* audio_core_audio_wave_in.cpp in Sources */,
+				9A8EAF3A17C563A300C458D1 /* audio_core_audio_wave_out.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +269,7 @@
 					"$(inherited)",
 					"\"/Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug\"",
 				);
-				PRODUCT_NAME = draw2d_quartz2d;
+				PRODUCT_NAME = audio_core_audio;
 			};
 			name = Debug;
 		};
@@ -339,14 +283,14 @@
 					"$(inherited)",
 					"\"/Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug\"",
 				);
-				PRODUCT_NAME = draw2d_quartz2d;
+				PRODUCT_NAME = audio_core_audio;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "draw2d_quartz2d" */ = {
+		A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "audio_core_audio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1CFD77A154F5EAA007447E2 /* Debug */,
@@ -355,7 +299,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "draw2d_quartz2d" */ = {
+		A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "audio_core_audio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1CFD77D154F5EAA007447E2 /* Debug */,
