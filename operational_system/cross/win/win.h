@@ -223,6 +223,7 @@ MY_EXTERN_C DWORD SetLastError(DWORD dw);
 
 
 #define MAKELPARAM(x, y)            ((x & 0xffff) |((y & 0xffff) << 16))
+#define MAKEWPARAM(x, y)            ((x & 0xffff) |((y & 0xffff) << 16))
 
 
 #include "win_error.h"
