@@ -52,6 +52,13 @@ void round_window::round_window_show()
    
 }
 
+void round_window::round_window_redraw()
+{
+   
+   [[m_proundwindow dd_invokeOnMainThread] display ];
+   
+}
+
 
 void round_window::round_window_invalidate()
 {
