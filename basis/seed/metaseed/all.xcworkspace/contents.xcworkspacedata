@@ -2,19 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../app/appseed/c/_c.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/thirdparty/appseed/FreeImage/_ca2freeimage.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/thirdparty/appseed/freetype/_ca2freetype.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/thirdparty/appseed/openssl/_ca2openssl.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/thirdparty/appseed/zlib/_ca2zlib.xcodeproj">
+      location = "group:../../appseed/app/app.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-cidadedecuritiba/appseed/alphaclock/app_cidadedecuritiba_alphaclock.xcodeproj">
@@ -44,10 +32,25 @@
       location = "group:../../appseed/audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/appseed/ca/ca.xcodeproj">
+      location = "group:../../../app/appseed/base/base.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/appseed/ca2/ca2.xcodeproj">
+      location = "group:../../../app/thirdparty/appseed/freetype/basefreetype.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/thirdparty/appseed/freeimage/basefreeimage.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/thirdparty/appseed/openssl/baseopenssl.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/thirdparty/appseed/zlib/basezlib.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/boot/boot.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/core/core.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
@@ -72,8 +75,5 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../appseed/app/app.xcodeproj">
    </FileRef>
 </Workspace>

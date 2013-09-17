@@ -147,8 +147,6 @@ typedef CIEXYZTRIPLE    FAR *LPCIEXYZTRIPLE;
 
 
 
-typedef DWORD   COLORREF;
-typedef DWORD   *LPCOLORREF;
 
 
 
@@ -624,7 +622,7 @@ typedef struct tagBITMAPINFO {
 struct tagBITMAPINFO;
 
 
-typedef struct tagBITMAPINFO  BITMAPINFO, FAR *LPBITMAPINFO, *PBITMAPINFO;
+typedef struct tagBITMAPINFO  FAR *LPBITMAPINFO;
 
 
 typedef LPBITMAPINFO HBITMAP;
