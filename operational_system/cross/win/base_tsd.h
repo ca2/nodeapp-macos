@@ -133,6 +133,12 @@ typedef unsigned long ULONG_PTR, *PULONG_PTR;
 typedef ULONG_PTR     DWORD_PTR, *PDWORD_PTR;
 
 #endif
+   
+   //   typedef INT_PTR int_ptr;
+   //typedef UINT_PTR uint_ptr;
+   typedef LONG_PTR long_ptr;
+   typedef ULONG_PTR ulong_ptr;
+   typedef DWORD_PTR dword_ptr;
 
 /* Win32 or Win64 dependent typedef/defines. */
 

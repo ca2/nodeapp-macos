@@ -38,14 +38,15 @@ typedef struct oswindow_data * oswindow;
 
 #define MESSAGE_WINDOW_PARENT (::oswindow((void *) (int_ptr) 1))
 
-#ifdef __cplusplus
+/*
+ #ifdef __cplusplus
 
 template < class KEY, class VALUE > class simple_map;
 
 
-typedef simple_map < int32_t, int32_t > simple_long_map;
+typedef int_to_int simple_long_map;
 
-#endif
+#endif*/
 //class oswindow_data;
 
    

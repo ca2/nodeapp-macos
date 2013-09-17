@@ -41,6 +41,9 @@
       location = "group:../../../app/thirdparty/appseed/freeimage/basefreeimage.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/thirdparty/appseed/mysql/basemysql.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/thirdparty/appseed/openssl/baseopenssl.xcodeproj">
    </FileRef>
    <FileRef
