@@ -26,10 +26,6 @@
 #define THROWS // gnucc null throw statement means that the function can throw any exception
 
 
-#ifdef _DEBUG
-#define DEBUG 1
-#endif // _DEBUG
-
 
 #ifdef DEBUG
 
@@ -54,8 +50,6 @@
 
 #include <stdlib.h>
 
-
-typedef uint8_t byte;
 
 #ifdef _LP64
 

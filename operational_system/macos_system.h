@@ -31,15 +31,15 @@
 */
 
 /* Types use for passing & returning polymorphic values */
-typedef uint_ptr            WPARAM;
-typedef int_ptr            LPARAM;
-typedef int_ptr            LRESULT;
+//typedef uint_ptr            WPARAM;
+//typedef int_ptr            LPARAM;
+//typedef int_ptr            LRESULT;
 
 
 //typedef void * HANDLE;
 //typedef void * HDC;
-typedef unsigned char BYTE;
-typedef unsigned int UINT;
+//typedef unsigned char BYTE;
+//typedef unsigned int UINT;
 //typedef int_ptr WPARAM;
 //typedef int_ptr LPARAM;
 

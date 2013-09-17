@@ -169,7 +169,7 @@ typedef __time64_t time_t;
 
 #ifndef _WCHAR_T_DEFINED
 #ifndef __cplusplus
-typedef unsigned short wchar_t;
+//typedef unsigned short wchar_t;
 #endif
 #define _WCHAR_T_DEFINED
 #endif
@@ -181,7 +181,7 @@ typedef unsigned short  wctype_t;
 #endif
 
 #ifndef _ERRNO_T_DEFINED
-typedef int errno_t;
+//typedef int errno_t;
 #define _ERRNO_T_DEFINED
 #endif
 

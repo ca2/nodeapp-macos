@@ -372,7 +372,6 @@ extern "C++" { \
 #ifndef VOID
 #define VOID void
 #endif
-typedef VOID           *PVOID;
 typedef VOID           *PVOID64;
 typedef BYTE            WINBOOLEAN,    *PBOOLEAN;
 typedef char            CHAR,       *PCHAR;
