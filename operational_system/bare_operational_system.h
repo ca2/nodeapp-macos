@@ -305,7 +305,7 @@ inline void __debug_break() { __asm("int $3"); }
 
 // str
 //void strncpy(char * dest, const char * cat, int iLen);
-
+/*
 const char * stristr(const char * src, const char * find);
 char to_lower(int ch);
 char to_upper(int ch);
@@ -348,7 +348,7 @@ void zero_pad(wchar_t * sz, int iPad);
 void wcslwr(wchar_t * psz);
 void wcsupr(wchar_t * psz);
 
-
+*/
 /*
  #ifndef HWND_DEF
 #define HWND_DEF

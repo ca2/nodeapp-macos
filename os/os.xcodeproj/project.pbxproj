@@ -138,6 +138,7 @@
 		9AC444071770AAB100DC2349 /* _ca.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ca.h; sourceTree = "<group>"; };
 		9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freeimage.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freeimage.dylib"; sourceTree = "<group>"; };
 		9ADEA4751766691300D4CF1F /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2.dylib"; sourceTree = "<group>"; };
+		9AE725FE17E83C65003E47F9 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libca2os.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libca2os.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CFD87D154FB715007447E2 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
 		A1CFD87E154FB715007447E2 /* bare_operational_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bare_operational_system.h; sourceTree = "<group>"; };
@@ -258,6 +259,7 @@
 				9AC444071770AAB100DC2349 /* _ca.h */,
 				A1CFD87E154FB715007447E2 /* bare_operational_system.h */,
 				A1CFD87F154FB715007447E2 /* ca2.h */,
+				9AE725FE17E83C65003E47F9 /* config.h */,
 				A1CFD880154FB715007447E2 /* cross */,
 				A1CFD88E154FB715007447E2 /* get_platform.h */,
 				A1CFD88F154FB715007447E2 /* macos_system.h */,
