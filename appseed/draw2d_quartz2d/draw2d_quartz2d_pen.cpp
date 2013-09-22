@@ -5,8 +5,8 @@ namespace draw2d_quartz2d
 {
    
    
-   pen::pen(sp(::ca2::application) papp) :
-      ca2(papp)
+   pen::pen(sp(base_application) papp) :
+      ::element(papp)
    {
       
    }
@@ -22,7 +22,7 @@ namespace draw2d_quartz2d
     {
     return (HPEN)(this == NULL ? NULL : get_handle());
     }*/
-   /*   pen* PASCAL pen::from_handle(::ca2::application * papp, HPEN hPen)
+   /*   pen* PASCAL pen::from_handle(base_application * papp, HPEN hPen)
     {
     return dynamic_cast < pen* > (::win::object::from_handle(papp, hPen));
     }*/
@@ -96,10 +96,10 @@ namespace draw2d_quartz2d
    
    
    
-   // IMPLEMENT_DYNAMIC(resource_exception, base_exception)
+   // IMPLEMENT_DYNAMIC(resource_exception, ::exception::base)
    //resource_exception _simpleResourceException(FALSE, __IDS_RESOURCE_EXCEPTION);
    
-   // IMPLEMENT_DYNAMIC(user_exception, base_exception)
+   // IMPLEMENT_DYNAMIC(user_exception, ::exception::base)
    //user_exception _simpleUserException(FALSE, __IDS_USER_EXCEPTION);
    
    // IMPLEMENT_DYNCREATE(::draw2d::graphics_sp, ::ca2::object)

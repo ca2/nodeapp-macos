@@ -10,7 +10,7 @@ namespace multimedia
 
 
       class CLASS_DECL_AUDIO_MIXER_MMSYSTEM thread :
-         public ::ca2::thread,
+         public ::thread,
          public ::database::client
       {
       public:
@@ -26,7 +26,7 @@ namespace multimedia
          sp(::multimedia::audio_mixer::section) m_psection;
 
 
-         thread(sp(::ca2::application) papp);
+         thread(sp(base_application) papp);
          virtual ~thread();
 
 
@@ -37,12 +37,12 @@ namespace multimedia
             );
 
 
-         void install_message_handling(::ca2::message::dispatch * pinterface);
+         void install_message_handling(::message::dispatch * pinterface);
 
          virtual bool initialize_instance();
          virtual int32_t exit_instance();
          virtual bool on_idle(LONG lCount);
-         virtual void pre_translate_message(::ca2::signal_object * pobj);
+         virtual void pre_translate_message(signal_details * pobj);
 
 
          DECL_GEN_SIGNAL(OnMixerMessage)

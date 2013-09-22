@@ -12,7 +12,7 @@ namespace mac2
 
 
       class CLASS_DECL_mac document_properties :
-         virtual public ::ca2::object
+         virtual public ::object
       {
       public:
 
@@ -21,7 +21,7 @@ namespace mac2
          HDC            m_hdc;
 
 
-         document_properties(::ca2::application * papp);
+         document_properties(base_application * papp);
          virtual ~document_properties();
 
 
@@ -37,7 +37,7 @@ namespace mac2
       document_properties     m_documentproperties;
 
 
-      printer(::ca2::application * papp);
+      printer(base_application * papp);
       virtual ~printer();
 
 

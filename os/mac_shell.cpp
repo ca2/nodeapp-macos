@@ -332,21 +332,21 @@ namespace mac{
     CHAR pszPathA[MAX_PATH * 2];
     if(!::SHGetPathFromIDListA(pidl, pszPathA))
     return FALSE;
-    return ::ca2::international::ACPToUnicode(pszPath, MAX_PATH * 2, pszPathA) ? TRUE : FALSE;
+    return ::str::international::ACPToUnicode(pszPath, MAX_PATH * 2, pszPathA) ? TRUE : FALSE;
     }
     
     WINBOOL shell::_MoveFile(const wchar_t * lpExistingFileName, const wchar_t * lpNewFileName)
     {
     string str1, str2;
-    ::ca2::international::UnicodeToACP(str1, lpExistingFileName);
-    ::ca2::international::UnicodeToACP(str2, lpNewFileName);
+    ::str::international::UnicodeToACP(str1, lpExistingFileName);
+    ::str::international::UnicodeToACP(str2, lpNewFileName);
     return ::MoveFileA(str1, str2);
     }
     
     HANDLE shell::_FindFirstFile(const wchar_t * lpcsz, WIN32_FIND_DATAW * lpdata)
     {
     CHAR pszPathA[MAX_PATH * 2];
-    ::ca2::international::UnicodeToACP(pszPathA, MAX_PATH * 2, lpcsz);
+    ::str::international::UnicodeToACP(pszPathA, MAX_PATH * 2, lpcsz);
     WIN32_FIND_DATAA data;
     HANDLE handle = ::FindFirstFileA(pszPathA, &data);
     if(handle == INVALID_HANDLE_VALUE)
@@ -360,8 +360,8 @@ namespace mac{
     lpdata->nFileSizeLow = data.nFileSizeLow;
     lpdata->dwReserved0 = data.dwReserved0;
     lpdata->dwReserved1 = data.dwReserved1;
-    ::ca2::international::ACPToUnicode(lpdata->cFileName, MAX_PATH, data.cFileName);
-    ::ca2::international::ACPToUnicode(lpdata->cAlternateFileName, MAX_PATH, data.cAlternateFileName);
+    ::str::international::ACPToUnicode(lpdata->cFileName, MAX_PATH, data.cFileName);
+    ::str::international::ACPToUnicode(lpdata->cAlternateFileName, MAX_PATH, data.cAlternateFileName);
     
     return handle;
     }
@@ -381,8 +381,8 @@ namespace mac{
     lpdata->nFileSizeLow = data.nFileSizeLow;
     lpdata->dwReserved0 = data.dwReserved0;
     lpdata->dwReserved1 = data.dwReserved1;
-    ::ca2::international::ACPToUnicode(lpdata->cFileName, MAX_PATH, data.cFileName);
-    ::ca2::international::ACPToUnicode(lpdata->cAlternateFileName, MAX_PATH, data.cAlternateFileName);
+    ::str::international::ACPToUnicode(lpdata->cFileName, MAX_PATH, data.cFileName);
+    ::str::international::ACPToUnicode(lpdata->cAlternateFileName, MAX_PATH, data.cAlternateFileName);
     
     return b;
     }
@@ -444,13 +444,13 @@ namespace mac{
     wchar_t ** lpFilePart)
     {
     CHAR pszPathA[MAX_PATH * 2];
-    ::ca2::international::UnicodeToACP(pszPathA, MAX_PATH * 2, lpFileName);
+    ::str::international::UnicodeToACP(pszPathA, MAX_PATH * 2, lpFileName);
     string str;
     LPTSTR lpsz = str.GetBuffer(nBufferLength * 2);
     LPTSTR lpszFilePart;
     DWORD dw = ::GetFullPathName(pszPathA, nBufferLength, lpsz, &lpszFilePart);
     str.ReleaseBuffer();
-    ::ca2::international::ACPToUnicode(lpBuffer, nBufferLength, str);
+    ::str::international::ACPToUnicode(lpBuffer, nBufferLength, str);
     *lpFilePart = lpBuffer + ((int32_t) (lpszFilePart - lpsz));
     return dw;
     }
@@ -468,7 +468,7 @@ namespace mac{
     string strRootPathName;
     string strVolumeNameBuffer;
     string strFileSystemNameBuffer;
-    ::ca2::international::UnicodeToACP(strRootPathName, lpRootPathName);
+    ::str::international::UnicodeToACP(strRootPathName, lpRootPathName);
     WINBOOL b = ::GetVolumeInformation(
     strRootPathName,
     strVolumeNameBuffer.GetBuffer(nVolumeNameSize),
@@ -481,11 +481,11 @@ namespace mac{
     
     strVolumeNameBuffer.ReleaseBuffer();
     strFileSystemNameBuffer.ReleaseBuffer();
-    ::ca2::international::ACPToUnicode(
+    ::str::international::ACPToUnicode(
     lpVolumeNameBuffer,
     nVolumeNameSize,
     strVolumeNameBuffer);
-    ::ca2::international::ACPToUnicode(
+    ::str::international::ACPToUnicode(
     lpFileSystemNameBuffer,
     nFileSystemNameSize,
     strFileSystemNameBuffer);
@@ -501,18 +501,18 @@ namespace mac{
     {
     UNREFERENCED_PARAMETER(cbFileInfo);
     string strPath;
-    ::ca2::international::UnicodeToACP(strPath, pszPath);
+    ::str::international::UnicodeToACP(strPath, pszPath);
     SHFILEINFOA shia;
     if(!::SHGetFileInfoA(strPath, dwFileAttributes,
     &shia,
     sizeof(shia),
     uFlags))
     return FALSE;
-    ::ca2::international::ACPToUnicode(
+    ::str::international::ACPToUnicode(
     psfi->szDisplayName,
     sizeof(psfi->szDisplayName) / sizeof(WCHAR),
     shia.szDisplayName);
-    ::ca2::international::ACPToUnicode(
+    ::str::international::ACPToUnicode(
     psfi->szTypeName,
     sizeof(psfi->szTypeName) / sizeof(WCHAR),
     shia.szTypeName);
@@ -529,10 +529,10 @@ namespace mac{
     {
     int32_t iCount = cchSrc;
     if(iCount < 0)
-    iCount = ::ca2::international::UnicodeToMultiByteCount(uiCodePage, lpSrcStr);
+    iCount = ::str::international::UnicodeToMultiByteCount(uiCodePage, lpSrcStr);
     string str;
     LPTSTR lpsz = str.GetBuffer(iCount);
-    if(::ca2::international::UnicodeToMultiByte(uiCodePage, lpsz, iCount, lpSrcStr))
+    if(::str::international::UnicodeToMultiByte(uiCodePage, lpsz, iCount, lpSrcStr))
     {
     //str.ReleaseBuffer();
     //return true;
@@ -556,7 +556,7 @@ namespace mac{
     string str;
     DWORD dw = ::GetTempPathA(nBufferLength, str.GetBuffer(nBufferLength * 2));
     str.ReleaseBuffer();
-    ::ca2::international::ACPToUnicode(lpBuffer, nBufferLength, str);
+    ::str::international::ACPToUnicode(lpBuffer, nBufferLength, str);
     return dw;
     }
     
@@ -569,8 +569,8 @@ namespace mac{
     string strPathName;
     string strPrefixString;
     string strTempFileName;
-    ::ca2::international::UnicodeToACP(strPathName, lpPathName);
-    ::ca2::international::UnicodeToACP(strPrefixString, lpPrefixString);
+    ::str::international::UnicodeToACP(strPathName, lpPathName);
+    ::str::international::UnicodeToACP(strPrefixString, lpPrefixString);
     UINT user = ::GetTempFileNameA(
     strPathName,
     strPrefixString,
@@ -581,7 +581,7 @@ namespace mac{
     return 0;
     }
     strTempFileName.ReleaseBuffer();
-    ::ca2::international::ACPToUnicode(
+    ::str::international::ACPToUnicode(
     lpTempFileName,
     MAX_PATH,
     strTempFileName);
@@ -600,7 +600,7 @@ namespace mac{
     )
     {
     string strFileName;
-    ::ca2::international::UnicodeToACP(strFileName, lpFileName);
+    ::str::international::UnicodeToACP(strFileName, lpFileName);
     HANDLE handle = ::CreateFileA(
     strFileName,
     dwDesiredAccess,
@@ -622,7 +622,7 @@ namespace mac{
     string str;
     DWORD dw = ::GetModuleFileNameA(hModule, str.GetBuffer(nSize * 2), nSize * 2);
     str.ReleaseBuffer();
-    ::ca2::international::ACPToUnicode(lpFilename, nSize, str);
+    ::str::international::ACPToUnicode(lpFilename, nSize, str);
     return dw;
     }
     

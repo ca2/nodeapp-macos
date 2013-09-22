@@ -663,7 +663,7 @@
  pDeltas = new int32_t[nCount];
  pOutputString = new char[nCount];
  }
- catch(base_exception * pe)
+ catch(::exception::base * pe)
  {
  delete[] pDeltas;  // in case it was allocated
  // Note: DELETE_EXCEPTION(e) not required
@@ -715,7 +715,7 @@
  pDeltas = new int32_t[nCount];
  pOutputString = new char[nCount];
  }
- catch(base_exception * pe)
+ catch(::exception::base * pe)
  {
  delete[] pDeltas;
  // Note: DELETE_EXCEPTION(e) not required

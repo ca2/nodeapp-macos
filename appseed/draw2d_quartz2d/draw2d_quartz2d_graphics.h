@@ -52,7 +52,7 @@ namespace draw2d_quartz2d
       
       
       
-      graphics(sp(::ca2::application) papp);
+      graphics(sp(base_application) papp);
       virtual ~graphics();
       
       
@@ -65,7 +65,7 @@ namespace draw2d_quartz2d
        return *m_pgraphics;
        }*/
       
-      //::ca2::window * GetWindow() const;
+      //::user::window * GetWindow() const;
       
       //static ::draw2d::graphics * PASCAL from_handle(HDC hDC);
       //static void PASCAL DeleteTempMap();
@@ -231,7 +231,7 @@ namespace draw2d_quartz2d
       int32_t SelectClipRgn(::draw2d::region* pRgn);
       int32_t ExcludeClipRect(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
       int32_t ExcludeClipRect(LPCRECT lpRect);
-      int32_t ExcludeUpdateRgn(::ca2::window * pWnd);
+      int32_t ExcludeUpdateRgn(::user::window * pWnd);
       int32_t IntersectClipRect(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
       int32_t IntersectClipRect(LPCRECT lpRect);
       int32_t OffsetClipRgn(int32_t x, int32_t y);
@@ -475,7 +475,7 @@ namespace draw2d_quartz2d
       bool SelectClipPath(int32_t nMode);
       
       // Misc Helper Functions
-      static ::draw2d::brush* PASCAL GetHalftoneBrush(::ca2::application * papp);
+      static ::draw2d::brush* PASCAL GetHalftoneBrush(base_application * papp);
       void DrawDragRect(LPCRECT lpRect, SIZE size,
                         LPCRECT lpRectLast, SIZE sizeLast,
                         ::draw2d::brush* pBrush = NULL, ::draw2d::brush* pBrushLast = NULL);
@@ -515,7 +515,7 @@ namespace draw2d_quartz2d
       
       //protected:
       // used for implementation of non-virtual SelectObject calls
-      //static ::draw2d::object* PASCAL SelectGdiObject(::ca2::application * papp, HDC hDC, HGDIOBJ h);
+      //static ::draw2d::object* PASCAL SelectGdiObject(base_application * papp, HDC hDC, HGDIOBJ h);
       
       
       // platform-specific or platform-internals

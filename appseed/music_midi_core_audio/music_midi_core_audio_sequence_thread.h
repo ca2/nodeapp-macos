@@ -15,11 +15,11 @@ namespace music
       public:
 
 
-         sequence_thread(sp(::ca2::application) papp);
+         sequence_thread(sp(base_application) papp);
          virtual ~sequence_thread();
 
 
-         void install_message_handling(::ca2::message::dispatch * pinterface);
+         void install_message_handling(::message::dispatch * pinterface);
 
          ::music::midi::sequence * get_sequence();
          void Stop(imedia::time msEllapse);
@@ -38,8 +38,8 @@ namespace music
          void PostTempoChange();
          void SendTempoChange();
 
-         void ExecuteCommand(::ca::smart_pointer < ::music::midi::player::command > pcommand);
-         void _ExecuteCommand(::ca::smart_pointer < ::music::midi::player::command > pcommand);
+         void ExecuteCommand(::smart_pointer < ::music::midi::player::command > pcommand);
+         void _ExecuteCommand(::smart_pointer < ::music::midi::player::command > pcommand);
 
          virtual bool initialize_instance();
          virtual int32_t exit_instance();

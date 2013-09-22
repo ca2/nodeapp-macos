@@ -24,7 +24,7 @@ void * PASCAL no_track_object::operator new(size_t nSize)
 {
    void * p = ::malloc(nSize);
    if (p == NULL)
-      throw memory_exception(::ca2::get_thread_app());
+      throw memory_exception(::get_thread_app());
    return p;
 }
 #define new DEBUG_NEW
@@ -150,9 +150,9 @@ no_track_object* process_local_object::get_data(
          if (m_pObject == NULL)
             m_pObject = (*pfnCreateObject)();
       }
-      catch(base_exception * pe)
+      catch(::exception::base * pe)
       {
-         ::ca2::rethrow(pe);
+         ::exception::rethrow(pe);
       }
       
    }

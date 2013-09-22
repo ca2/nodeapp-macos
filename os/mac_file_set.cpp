@@ -5,8 +5,8 @@ namespace mac
 {
    
    
-   file_set::file_set(::ca2::application * papp) :
-   ca2(papp)
+   file_set::file_set(base_application * papp) :
+   element(papp)
    {
       
    }

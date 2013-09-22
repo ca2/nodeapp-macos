@@ -18,7 +18,7 @@ namespace multimedia
          MIXERLINE       m_mixerLine;
 
 
-         line_info(sp(::ca2::application) papp);
+         line_info(sp(base_application) papp);
          virtual ~line_info();
 
 

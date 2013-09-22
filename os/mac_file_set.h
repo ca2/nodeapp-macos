@@ -6,7 +6,7 @@ namespace mac
    
    
    class CLASS_DECL_mac file_set :
-   public ::ca2::file_set
+      public ::file::set
    {
    public:
       
@@ -17,7 +17,7 @@ namespace mac
       stringa        m_straFile;
       
       
-      file_set(::ca2::application * papp);
+      file_set(base_application * papp);
       virtual ~file_set();
       
       
