@@ -15,12 +15,12 @@ namespace mac
 
 
    class CLASS_DECL_mac ip_enum :
-      virtual public ::ca2::ip_enum
+      virtual public ::net::ip_enum
    {
    public:
 
 
-      ip_enum(::ca2::application * papp);
+      ip_enum(base_application * papp);
       virtual ~ip_enum();
 
 

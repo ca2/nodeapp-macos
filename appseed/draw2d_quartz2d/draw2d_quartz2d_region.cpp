@@ -5,8 +5,8 @@ namespace draw2d_quartz2d
 {
    
    
-   region::region(sp(::ca2::application) papp) :
-      ca2(papp)
+   region::region(sp(base_application) papp) :
+      ::element(papp)
    {
       
    }
@@ -23,7 +23,7 @@ namespace draw2d_quartz2d
     {
     return (HRGN)(this == NULL ? NULL : get_os_data());
     }
-    region* PASCAL region::from_handle(::ca2::application * papp, HRGN hRgn)
+    region* PASCAL region::from_handle(base_application * papp, HRGN hRgn)
     {
     return dynamic_cast < region * > (::win::object::from_handle(papp, hRgn));
     }

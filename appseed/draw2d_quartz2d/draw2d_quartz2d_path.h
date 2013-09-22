@@ -16,7 +16,7 @@ namespace draw2d_quartz2d
       bool                    m_bBegin;
       
       
-      path(sp(::ca2::application) papp);
+      path(sp(base_application) papp);
       virtual ~path();
       
       

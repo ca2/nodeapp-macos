@@ -9,8 +9,8 @@ namespace multimedia
    {
 
 
-      section::section(sp(::ca2::application) papp) :
-         ca2(papp),
+      section::section(sp(base_application) papp) :
+         element(papp),
          ::ca2::section(papp)
       {
 

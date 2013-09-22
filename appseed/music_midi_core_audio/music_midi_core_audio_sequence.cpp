@@ -9,8 +9,8 @@ namespace music
    {
 
 
-      sequence::sequence(sp(::ca2::application) papp) :
-         ca2(papp),
+      sequence::sequence(sp(base_application) papp) :
+         element(papp),
          ::ikaraoke::karaoke(papp),
          ::music::midi::sequence(papp)
       {
@@ -220,9 +220,9 @@ Seq_Open_File_Cleanup:
          ::ca2::filesp file(
             get_app());
          file->open(lpFileName,
-            ::ca2::file::mode_read |
-            ::ca2::file::shareDenyWrite |
-            ::ca2::file::type_binary);
+            ::file::mode_read |
+            ::file::shareDenyWrite |
+            ::file::type_binary);
          return OpenFile(file, openMode);
       }
 
@@ -433,7 +433,7 @@ Seq_Open_File_Cleanup:
       *
       *
       ****************************************************************************/
-      ::multimedia::result sequence::Preroll(::ca2::thread * pthread, ::music::midi::LPPREROLL lpPreroll, bool bThrow)
+      ::multimedia::result sequence::Preroll(::thread * pthread, ::music::midi::LPPREROLL lpPreroll, bool bThrow)
       {
          UNREFERENCED_PARAMETER(pthread);
          single_lock sl(&m_mutex, TRUE);
@@ -1186,7 +1186,7 @@ seq_Preroll_Cleanup:
                         {
                            plyriceventa = new array <::ikaraoke::lyric_event_v1, ::ikaraoke::lyric_event_v1 &>;
                         }
-                        ::primitive::memory_file memFile(get_app(), (LPBYTE) &lpdwParam[1], pheader->m_dwLength - sizeof(uint32_t));
+                        ::file::memory_buffer memFile(get_app(), (LPBYTE) &lpdwParam[1], pheader->m_dwLength - sizeof(uint32_t));
                         /* x2x                  CArchive ar(&memFile, CArchive::load);
                         lyriceventa.Serialize(ar);
                         plyriceventa->append(lyriceventa); */

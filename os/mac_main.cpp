@@ -9,7 +9,7 @@ CLASS_DECL_mac int32_t ca2_main();
 
 void CLASS_DECL_mac __cdecl _ca2_purecall()
 {
-   throw simple_exception(::ca2::get_thread_app());
+   throw simple_exception(::get_thread_app());
 }
 
 
@@ -18,9 +18,9 @@ void __cdecl _null_se_translator(uint32_t uiCode, EXCEPTION_POINTERS * ppointers
 
 uint32_t __run_system(void * p);
 
-//::ca2::application *     win_application_create(::ca2::application * pappSystem, const char * pszId);
-//::ca2::application *     win_instantiate_application(::ca2::application * pappSystem, const char * pszId);
-//int32_t                     win_application_procedure(::ca2::application * pappSystem)
+//base_application *     win_application_create(::application * pappSystem, const char * pszId);
+//::application *     win_instantiate_application(::application * pappSystem, const char * pszId);
+//int32_t                     win_application_procedure(::application * pappSystem)
 //UINT c_cdecl          win_application_thread_proc(LPVOID);
 /////////////////////////////////////////////////////////////////////////////
 // Standard WinMain implementation
@@ -167,10 +167,10 @@ uint32_t __run_system(void * p)
    //   ::CoInitialize(NULL);
    
    
-   //throw todo(::ca2::get_thread_app());
+   //throw todo(::get_thread_app());
    
-   if(!main_initialize())
-      return -1;
+//   if(!main_initialize())
+  //    return -1;
    
    
    //   _set_purecall_handler(_ca2_purecall);
@@ -240,7 +240,7 @@ uint32_t __run_system(void * p)
    
    try
    {
-      main_finalize();
+//      main_finalize();
    }
    catch(...)
    {

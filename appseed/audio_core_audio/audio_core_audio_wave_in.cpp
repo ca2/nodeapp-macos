@@ -9,9 +9,9 @@ namespace multimedia
    {
 
 
-      wave_in::wave_in(sp(::ca2::application) papp) :
-         ca2(papp),
-         ::ca2::thread(papp),
+      wave_in::wave_in(sp(base_application) papp) :
+         element(papp),
+         ::thread(papp),
          ::multimedia::audio::wave_in(papp)
       {
          m_pencoder = NULL;
@@ -42,9 +42,9 @@ namespace multimedia
          return thread::exit_instance();
       }
 
-      void wave_in::pre_translate_message(::ca2::signal_object * pobj)
+      void wave_in::pre_translate_message(signal_details * pobj)
       {
-         SCAST_PTR(::ca2::message::base, pbase, pobj);
+         SCAST_PTR(::message::base, pbase, pobj);
          //ASSERT(GetMainWnd() == NULL);
          if(pbase->m_uiMessage == MM_WIM_OPEN ||
             pbase->m_uiMessage == MM_WIM_CLOSE ||
@@ -372,10 +372,10 @@ Opened:
       }
 
 
-      void wave_in::translate_wave_in_message(::ca2::signal_object * pobj)
+      void wave_in::translate_wave_in_message(signal_details * pobj)
       {
 
-         SCAST_PTR(::ca2::message::base, pbase, pobj);
+         SCAST_PTR(::message::base, pbase, pobj);
 
          ASSERT(
             pbase->m_uiMessage == MM_WIM_OPEN ||

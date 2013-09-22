@@ -8,8 +8,8 @@ namespace draw2d_quartz2d
 {
    
    
-   path::path(sp(::ca2::application) papp) :
-   ca2(papp)
+   path::path(sp(base_application) papp) :
+      ::element(papp)
    {
       
       m_path = NULL;

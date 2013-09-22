@@ -27,10 +27,10 @@ namespace mac
 {
 
    
-   window_draw::window_draw(::ca2::application * papp) :
-   ca2(papp),
-   ::ca2::thread(papp),
-   ::ca2::window_draw(papp),
+   window_draw::window_draw(base_application * papp) :
+   element(papp),
+   ::thread(papp),
+   ::user::window_draw(papp),
    message_window_simple_callback(papp),
    m_mutexRendering(papp),
    m_mutexRgnUpdate(papp),
@@ -38,7 +38,7 @@ namespace mac
    m_mutexRender(papp),
    m_wndpaOut(papp)
    {
-      m_dwLastRedrawRequest = ::GetTickCount();
+      m_dwLastRedrawRequest = ::get_tick_count();
       m_bRender = false;
       m_pbuffer = new user::buffer(papp);
       m_pbuffer->m_spdib.create(allocer());
@@ -65,9 +65,9 @@ namespace mac
     }
     */
    
-   void window_draw::message_window_message_handler(::ca2::signal_object * pobj)
+   void window_draw::message_window_message_handler(signal_details * pobj)
    {
-      SCAST_PTR(::ca2::message::base, pbase, pobj);
+      SCAST_PTR(::message::base, pbase, pobj);
       if(pbase->m_uiMessage == (WM_USER + 1984 + 1977))
       {
          _synch_redraw();
@@ -76,7 +76,7 @@ namespace mac
    
    void window_draw::asynch_redraw()
    {
-      DWORD dwTick = ::GetTickCount();
+      DWORD dwTick = ::get_tick_count();
       if(m_iFramesPerSecond == 0)
       {
          if(dwTick - m_dwLastUpdate < 1000)
@@ -125,7 +125,7 @@ namespace mac
       {
          iFailureTime = 1000 / m_iFramesPerSecond;
       }
-      m_dwLastUpdate = ::GetTickCount();
+      m_dwLastUpdate = ::get_tick_count();
       UpdateBuffer();
       return;
       if(m_pbuffer->GetBuffer()->get_os_data() != NULL)
@@ -133,7 +133,7 @@ namespace mac
          //m_pbuffer->m_spdib->fill_channel(255, visual::rgba::channel_alpha);
          //ScreenOutput();
       }
-      DWORD dwTakeTime = ::GetTickCount() - m_dwLastUpdate;
+      DWORD dwTakeTime = ::get_tick_count() - m_dwLastUpdate;
       m_dwLastDelay = dwTakeTime;
       if(dwTakeTime > iFailureTime)
       {
@@ -165,29 +165,29 @@ namespace mac
                TRACE("window_draw::_synch_redraw :: during prodevian Performance Analysis Time Frame - %d milliseconds -,", iTimeFrame);
                TRACE("window_draw::_synch_redraw :: failure count has exceeded the maximum count - %d", iMaxFailureCount);
                TRACE("window_draw::_synch_redraw :: Going to try to save some resource that may favor drawing perfomance");
-               if(!System.savings().is_trying_to_save(::ca2::resource_blur_background))
+               if(!System.savings().is_trying_to_save(::core::resource_blur_background))
                {
                   TRACE("window_draw::_synch_redraw :: System is not trying to save \"blur background\" resource");
                   TRACE("window_draw::_synch_redraw :: Going to try to save \"blur background\" resource");
-                  System.savings().try_to_save(::ca2::resource_blur_background);
+                  System.savings().try_to_save(::core::resource_blur_background);
                }
-               else if(!System.savings().is_trying_to_save(::ca2::resource_blurred_text_embossing))
+               else if(!System.savings().is_trying_to_save(::core::resource_blurred_text_embossing))
                {
                   TRACE("window_draw::_synch_redraw :: System is not trying to save \"blurred text embossing\" resource");
                   TRACE("window_draw::_synch_redraw :: Going to try to save \"blurred text embossing\" resource");
-                  System.savings().try_to_save(::ca2::resource_blurred_text_embossing);
+                  System.savings().try_to_save(::core::resource_blurred_text_embossing);
                }
-               else if(!System.savings().is_warning(::ca2::resource_processing))
+               else if(!System.savings().is_warning(::core::resource_processing))
                {
                   TRACE("window_draw::_synch_redraw :: System is not warning to save \"processing\" resource");
                   TRACE("window_draw::_synch_redraw :: Going to warn to save \"processing\" resource");
-                  System.savings().warn(::ca2::resource_processing);
+                  System.savings().warn(::core::resource_processing);
                }
-               else if(!System.savings().is_trying_to_save(::ca2::resource_processing))
+               else if(!System.savings().is_trying_to_save(::core::resource_processing))
                {
                   TRACE("window_draw::_synch_redraw :: System is not trying to save \"processing\" resource");
                   TRACE("window_draw::_synch_redraw :: Going to try to save \"processing\" resource");
-                  System.savings().try_to_save(::ca2::resource_blur_background);
+                  System.savings().try_to_save(::core::resource_blur_background);
                }
             }
             s_iFrameFailureCount = 0;
@@ -236,7 +236,7 @@ namespace mac
       single_lock sl(&m_mutexRender, TRUE);
       rect rectUpdate(*lpcrectUpdate);
       
-      //      DWORD dwTimeIn = GetTickCount();
+      //      DWORD dwTimeIn = get_tick_count();
       
       void * hwndParam = hwndtree.m_oswindow;
       
@@ -307,7 +307,7 @@ namespace mac
       
       
       
-      //      DWORD dwTimeOut = GetTickCount();
+      //      DWORD dwTimeOut = get_tick_count();
       //   TRACE("// Average Window Rendering time\n");
       //   TRACE("// Window Class: %s\n", (pwnd!=NULL) ? pwnd->GetRuntimeClass()->m_lpszClassName : "(Not available)");
       //   TRACE("// TickCount: %d \n", dwTimeOut - dwTimeIn);
@@ -334,7 +334,7 @@ namespace mac
       //      ::AttachThreadInput(::GetCurrentThreadId(), WIN_THREAD(System.::ca2::thread_sp::m_p)->m_nThreadID, TRUE);
       MESSAGE msg;
       s_bRunning = true;
-      while(m_bRun && ::ca2::get_thread()->m_bRun)
+      while(m_bRun && ::get_thread()->m_pthread->m_bRun)
       {
          try
          {
@@ -349,7 +349,7 @@ namespace mac
          //         while(::PeekMessage(&msg, ::caNULL, NULL, NULL, PM_NOREMOVE))
          while(::PeekMessage(&msg, NULL, 0, 0, 0))
          {
-            __get_thread()->pump_message();
+            __get_thread()->m_pthread->pump_message();
          }
          int32_t iUiDataWriteWindowTimeForTheApplicationInThisMachine = 8;
          if(m_iFramesPerSecond == 0)
@@ -390,7 +390,7 @@ namespace mac
       //   TRACE("// window_draw::TwfRender\n");
       //   TRACE("//\n");
       
-      //      DWORD dwTimeIn = GetTickCount();
+      //      DWORD dwTimeIn = get_tick_count();
       
 //      static bool bTest = false;
       semaphore * psemaphore = TwfGetBufferSemaphore();
@@ -516,7 +516,7 @@ namespace mac
          {
             if(wndpa[l].oprop("session").is_new())
             {
-               dynamic_cast < ::ca2::window * > (wndpa[l].m_pimpl.m_p)->_001UpdateWindow();
+               dynamic_cast < ::user::window * > (wndpa[l].m_pimpl.m_p)->_001UpdateWindow();
             }
             l++;
          }
@@ -541,15 +541,15 @@ namespace mac
       {
          oswindow hwndTopic = wndaApp[j];
          
-         ::ca2::window * pwnd = NULL;
-         //::ca2::window * pwnd = dynamic_cast < ::ca2::window * > (System.window_map().get((int_ptr) hwndTopic));
+         ::user::window * pwnd = NULL;
+         //::user::window * pwnd = dynamic_cast < ::user::window * > (System.window_map().get((int_ptr) hwndTopic));
          //if(pwnd == NULL)
          //{
          for(int32_t l = 0; l < wndpa.get_count(); l++)
          {
             if(wndpa[l].get_safe_handle() == hwndTopic)
             {
-               pwnd = dynamic_cast < ::ca2::window * > (wndpa[l].m_pimpl.m_p);
+               pwnd = dynamic_cast < ::user::window * > (wndpa[l].m_pimpl.m_p);
                break;
             }
          }
@@ -628,7 +628,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       
       //    TwfReleaseDC(pdc);
       
-      //      DWORD dwTimeOut = GetTickCount();
+      //      DWORD dwTimeOut = get_tick_count();
       //   TRACE("//\n");
       //   TRACE("// Rendering Finished\n");
       //   TRACE("// TickCount: %d \n", dwTimeOut - dwTimeIn);
@@ -670,8 +670,8 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       return &m_semaphoreBuffer;
    }
    
-   // The first ::ca2::window handle in the array must belong
-   // to the higher z order ::ca2::window.
+   // The first ::user::window handle in the array must belong
+   // to the higher z order ::user::window.
    // The rectangle must contain all update region.
    // It must be in screen coordinates.
    
@@ -679,7 +679,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    
    // Remark: this optimization eliminates top level lnxdows
    // that are lower z order siblings of a higher z order
-   // top level ::ca2::window that contains all
+   // top level ::user::window that contains all
    // the update region in a opaque area.
    // It doesn´t eliminates from the update parent lnxdows
    // obscured by opaque children.
@@ -744,7 +744,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
          ::oswindow oswindow = hwndtree.m_oswindow;
          rect rect;
          ::GetClientRect((::oswindow) oswindow, rect);
-         throw todo(::ca2::get_thread_app());
+         throw todo(::get_thread_app());
 //         ::ClientToScreen((::oswindow) oswindow, &rect.top_left());
   //       ::ClientToScreen((::oswindow) oswindow, &rect.bottom_right());
          if(rectOptimize.contains(rect))
@@ -806,7 +806,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
          return OptimizeNone;
       }
       
-      //    ::ca2::window * pwnd = window::FromHandlePermanent(hwnd);
+      //    ::user::window * pwnd = window::FromHandlePermanent(hwnd);
       
       
       if(ptwi == NULL)
@@ -897,7 +897,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       ::GetWindowRect((::oswindow) oswindow, rectWindow);
       
       
-      //   ::ca2::window * pwnd = ::lnx::window::from_handle(oswindow);
+      //   ::user::window * pwnd = ::lnx::window::from_handle(oswindow);
       
       if(!TwfGetTopWindow(
                           hwndParam,
@@ -1003,7 +1003,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    {
       rect rectWindow;
       
-      //   ::ca2::window * pwndOpaque = window::FromHandlePermanent(hwndOpaque);
+      //   ::user::window * pwndOpaque = window::FromHandlePermanent(hwndOpaque);
       
       ::GetWindowRect((oswindow) hwndOpaque, rectWindow);
       
@@ -1060,7 +1060,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       //   TRACE("window_draw::TwfScreenOutput\n");
       //   TRACE("//\n");
       
-      //      DWORD dwTimeIn = GetTickCount();
+      //      DWORD dwTimeIn = get_tick_count();
       
       user::oswindow_array hwnda;
       
@@ -1077,7 +1077,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
        hwnd,
        rgnUpdate);
        }*/
-      //      DWORD dwTimeOut = GetTickCount();
+      //      DWORD dwTimeOut = get_tick_count();
       //   TRACE("//\n");
       //   TRACE("// window_draw::TwfRender\n");
       //   TRACE("// TickCount = %d \n", dwTimeOut - dwTimeIn);
@@ -1092,7 +1092,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
                                   // pdc is the source primitive::memory device context
                                   // from which bitmap the screen is updated.
                                   user::buffer * pbuffer,
-                                  // hwndParam ::ca2::window device context
+                                  // hwndParam ::user::window device context
                                   // is used from screen output
                                   ::user::interaction* pwnd)
    {
@@ -1127,7 +1127,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       //
       //      if(hdcScreen == NULL)
       //      {
-      //         // If it has failed to get ::ca2::window
+      //         // If it has failed to get ::user::window
       //         // owned device context, try to get
       //         // a device context from the cache.
       //         hdcScreen = ::GetDCEx((oswindow) hwndParam, NULL, DCX_CACHE | DCX_CLIPSIBLINGS | DCX_WINDOW);
@@ -1155,13 +1155,13 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       //      // rect rectUpdate;
       //      // rgnUpdate.get_bounding_box(rectUpdate);
       //
-      //      // get the ::ca2::window client area box
+      //      // get the ::user::window client area box
       //      // in screen coordinates.
       //      rect64 rectWindow;
       //      rectWindow = pwnd->m_rectParentClient;
       //
       //      // Output rectangle receive the intersection
-      //      // of ::ca2::window box and update box.
+      //      // of ::user::window box and update box.
       //      //rect rectOutput;
       //      //rectOutput.intersect(rectWnd, rectUpdate);
       //
@@ -1175,9 +1175,9 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       //      rect64 rectOutputClient(rectWindow);
       //      rectOutputClient -= rectWindow.top_left();
       //
-      //      // The ::ca2::window owned device context is clipped
+      //      // The ::user::window owned device context is clipped
       //      // with the update region in screen coordinates
-      //      // translated to ::ca2::window client coordinates.
+      //      // translated to ::user::window client coordinates.
       //      //::draw2d::region_sp rgnClip(get_app());
       //      //rgnClip->create_rect(0, 0, 0, 0);
       //      //rgnClip->CopyRgn(&rgnUpdate);
@@ -1310,7 +1310,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       //
       //      ::ReleaseDC((oswindow) hwndParam, hdcScreen);
       //
-      ////      DWORD dwTimeOut = GetTickCount();
+      ////      DWORD dwTimeOut = get_tick_count();
       //   //   TRACE("//\n");
       //   //   TRACE("// window_draw::TwfOuputScreen\n");
       //   //   TRACE("// TickCount = %d \n", dwTimeOut - dwTimeIn);
@@ -1322,8 +1322,8 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    
    
    
-   // The first ::ca2::window handle in the array must belong
-   // to the higher z order ::ca2::window.
+   // The first ::user::window handle in the array must belong
+   // to the higher z order ::user::window.
    // The rectangle must contain all update region.
    // It must be in screen coordinates.
    
@@ -1331,7 +1331,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    
    // Remark: this optimization eliminates top level lnxdows
    // that are lower z order siblings of a higher z order
-   // top level ::ca2::window that contains all
+   // top level ::user::window that contains all
    // the update region in a opaque area.
    // It doesn´t eliminates from the update parent lnxdows
    // obscured by opaque children.

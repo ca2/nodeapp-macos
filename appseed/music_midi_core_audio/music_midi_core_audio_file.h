@@ -18,7 +18,7 @@ namespace music
 
 
 
-         file(sp(::ca2::application) papp);
+         file(sp(base_application) papp);
          virtual ~file();
 
 

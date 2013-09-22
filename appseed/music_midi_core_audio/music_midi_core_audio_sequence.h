@@ -103,7 +103,7 @@ namespace music
 
 
 
-         sequence(sp(::ca2::application) papp);
+         sequence(sp(base_application) papp);
          virtual ~sequence();
 
 
@@ -178,7 +178,7 @@ namespace music
          ::multimedia::result SaveFile(const char * lpFileName);
          ::multimedia::result SaveFile();
          ::multimedia::result SaveFile(::ca2::filesp &ar);
-         ::multimedia::result Preroll(::ca2::thread * pthread, ::music::midi::LPPREROLL lpPreroll, bool bThrow);
+         ::multimedia::result Preroll(::thread * pthread, ::music::midi::LPPREROLL lpPreroll, bool bThrow);
          ::multimedia::result Start();
 
          ::multimedia::result Pause();

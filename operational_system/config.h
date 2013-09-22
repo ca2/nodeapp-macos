@@ -17,3 +17,4 @@
 #define MACOS
 #endif
 #define BSD_STYLE_SOCKETS
+#define HAVE_OPENSSL

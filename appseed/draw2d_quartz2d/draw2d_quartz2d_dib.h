@@ -36,7 +36,7 @@ namespace draw2d_quartz2d
       
       virtual COLORREF * get_data();
       
-      dib(sp(::ca2::application) papp);
+      dib(sp(base_application) papp);
       virtual void construct(int32_t cx, int32_t cy);
       virtual ~dib();
       

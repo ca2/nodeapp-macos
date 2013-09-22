@@ -26,7 +26,7 @@ namespace multimedia
          };
 
 
-         section(sp(::ca2::application) papp);
+         section(sp(base_application) papp);
          virtual ~section();
 
 

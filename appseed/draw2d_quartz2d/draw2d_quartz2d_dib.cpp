@@ -1,6 +1,6 @@
 #include "framework.h"
 #include <math.h>
-#include "include/freeimage.h"
+#include "freeimage/freeimage.h"
 
 
 namespace draw2d_quartz2d
@@ -29,10 +29,10 @@ namespace draw2d_quartz2d
    double dib::dPi;
    
    
-   dib::dib(sp(::ca2::application) papp) :
-   ca2(papp),
-   m_spbitmap(allocer()),
-   m_spgraphics(allocer())
+   dib::dib(sp(base_application) papp) :
+      element(papp),
+      m_spbitmap(allocer()),
+      m_spgraphics(allocer())
    {
       m_pcolorref          = NULL;
       cx = 0;

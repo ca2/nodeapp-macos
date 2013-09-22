@@ -26,10 +26,6 @@ typedef struct tagPOINT
 } // namespace user
 */
 
-struct oswindow_dataptra;
-
-
-
 struct oswindow_data;
 
 

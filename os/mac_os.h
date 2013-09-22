@@ -1,15 +1,17 @@
 #pragma once
 
+
 namespace mac
 {
    
+   
    class CLASS_DECL_mac os :
-   public ::ca2::os
+   public ::core::os
    {
    public:
       
       
-      os(::ca2::application * papp);
+      os(base_application * papp);
       virtual ~os();
       
       
@@ -59,4 +61,11 @@ namespace mac
       
       
    };
+   
+   
+   
 } // namespace mac
+
+
+
+

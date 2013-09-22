@@ -11,12 +11,12 @@ namespace mac
    
    
    class port_forward :
-   virtual public ::ca2::port_forward
+   virtual public ::net::port_forward
    {
    public:
       
       
-	   port_forward(::ca2::application * papp);
+	   port_forward(base_application * papp);
 	   virtual ~port_forward();
       
       

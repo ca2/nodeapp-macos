@@ -9,8 +9,8 @@ namespace multimedia
    {
 
 
-      control::control(sp(::ca2::application) papp) :
-         ca2(papp),
+      control::control(sp(base_application) papp) :
+         element(papp),
          ::multimedia::audio_mixer::control(papp)
       {
 

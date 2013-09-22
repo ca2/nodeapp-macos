@@ -5,9 +5,9 @@ namespace mac
 {
    
    
-   dir::dir(sp(::ca2::application)  papp) :
-   ::ca2::ca2(papp),
-   ::ca2::dir::system(papp),
+   dir::dir(sp(base_application)  papp) :
+      ::element(papp),
+      ::file::dir::system(papp),
    m_path(papp)
    {
       
@@ -19,8 +19,8 @@ namespace mac
       
    }
    
-   path::path(sp(::ca2::application)  papp) :
-   ca2(papp)
+   path::path(sp(base_application)  papp) :
+   element(papp)
    {
    }
    
@@ -156,13 +156,13 @@ namespace mac
    string dir::relpath(const char * lpcszSource, const char * lpcszRelative, const char * psz2)
    {
       const char * pszRequest;
-      if(::ca2::is_url(lpcszSource, &pszRequest))
+      if(::url::is_url(lpcszSource, &pszRequest))
       {
-         if(::ca2::str::begins(lpcszRelative, "/"))
+         if(::str::begins(lpcszRelative, "/"))
          {
             return path((const char *) string(lpcszSource, pszRequest - lpcszSource), lpcszRelative);
          }
-         else if(*pszRequest == '\0' || ::ca2::str::ends(lpcszSource, "/"))
+         else if(*pszRequest == '\0' || ::str::ends(lpcszSource, "/"))
          {
             return path(lpcszSource, lpcszRelative, psz2);
          }
@@ -173,7 +173,7 @@ namespace mac
       }
       else
       {
-         if(::ca2::str::ends(lpcszSource, "\\") || ::ca2::str::ends(lpcszSource, "/"))
+         if(::str::ends(lpcszSource, "\\") || ::str::ends(lpcszSource, "/"))
          {
             return path(lpcszSource, lpcszRelative, psz2);
          }
@@ -189,7 +189,7 @@ namespace mac
       return strcmp(lpcsz1, lpcsz2) == 0;
    }
    
-   void dir::root_ones(stringa & stra, sp(::ca2::application)  papp)
+   void dir::root_ones(stringa & stra, sp(base_application)  papp)
    {
       stra.add("/");
       /*      DWORD dwSize = ::GetLogicalDriveStrings(0, NULL);
@@ -213,26 +213,26 @@ namespace mac
        free(lpszAlloc);*/
    }
    
-   void dir::ls_pattern(sp(::ca2::application)  papp, const char * lpcsz, const char * pszPattern, stringa * pstraPath, stringa * pstraTitle, array < bool, bool > * pbaIsDir, array < int64_t, int64_t > * piaSize)
+   void dir::ls_pattern(sp(base_application)  papp, const char * lpcsz, const char * pszPattern, stringa * pstraPath, stringa * pstraTitle, bool_array * pbaIsDir, int64_array * piaSize)
    {
       
-      if(::ca2::dir::system::is(lpcsz, papp)) // if base class "already" "says" it is a dir, let it handle it: may be not a operational system dir, e.g., zip or compressed directory...
+      if(::file::dir::system::is(lpcsz, papp)) // if base class "already" "says" it is a dir, let it handle it: may be not a operational system dir, e.g., zip or compressed directory...
       {
          
-         return ::ca2::dir::system::ls_pattern(papp, lpcsz, pszPattern, pstraPath, pstraTitle, pbaIsDir, piaSize);
+         return ::file::dir::system::ls_pattern(papp, lpcsz, pszPattern, pstraPath, pstraTitle, pbaIsDir, piaSize);
          
       }
       
       string strDir(lpcsz);
       
-      if(!::ca2::str::ends(strDir, "/"))
+      if(!::str::ends(strDir, "/"))
       {
          
          strDir += "/";
          
       }
       
-      stra_dup stra;
+      stringa stra;
       
       ::dir::ls(stra, lpcsz);
       
@@ -243,7 +243,7 @@ namespace mac
          
          string strName = strPath;
          
-         if(!::ca2::str::begins_eat(strName, strDir))
+         if(!::str::begins_eat(strName, strDir))
             continue;
          
          if(!matches_wildcard_criteria(pszPattern, strName))
@@ -301,15 +301,15 @@ namespace mac
       
    }
    
-   void dir::rls(sp(::ca2::application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle, stringa * pstraRelative, e_extract eextract)
+   void dir::rls(sp(base_application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle, stringa * pstraRelative, e_extract eextract)
    {
       rls_pattern(papp, lpcsz, "*.*", pstraPath, pstraTitle, pstraRelative, NULL, NULL, eextract);
    }
    
-   void dir::rls_pattern(sp(::ca2::application)  papp, const char * lpcsz, const char * pszPattern, stringa * pstraPath, stringa * pstraTitle, stringa * pstraRelative, array < bool, bool > * pbaIsDir, array < int64_t, int64_t > * piaSize, e_extract eextract)
+   void dir::rls_pattern(sp(base_application)  papp, const char * lpcsz, const char * pszPattern, stringa * pstraPath, stringa * pstraTitle, stringa * pstraRelative, bool_array * pbaIsDir, int64_array * piaSize, e_extract eextract)
    {
       
-      stra_dup straDir;
+      stringa straDir;
       
       ::dir::ls_dir(straDir, lpcsz);
       
@@ -346,14 +346,14 @@ namespace mac
       
       string strDir(lpcsz);
       
-      if(!::ca2::str::ends(strDir, "/"))
+      if(!::str::ends(strDir, "/"))
       {
          
          strDir += "/";
          
       }
       
-      stra_dup stra;
+      stringa stra;
       
       ::dir::ls(stra, lpcsz);
       
@@ -364,7 +364,7 @@ namespace mac
          
          string strName = strPath;
          
-         if(!::ca2::str::begins_eat(strName, strDir))
+         if(!::str::begins_eat(strName, strDir))
             continue;
          
          if(!matches_wildcard_criteria(pszPattern, strName))
@@ -422,16 +422,16 @@ namespace mac
       
    }
    
-   void dir::rls_dir(sp(::ca2::application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle, stringa * pstraRelative)
+   void dir::rls_dir(sp(base_application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle, stringa * pstraRelative)
    {
       
-      stra_dup stra;
+      stringa stra;
       
       ::dir::ls(stra, lpcsz);
       
       string strDir(lpcsz);
       
-      if(!::ca2::str::ends(strDir, "/"))
+      if(!::str::ends(strDir, "/"))
       {
          
          strDir += "/";
@@ -446,7 +446,7 @@ namespace mac
          
          string strName = strPath;
          
-         if(!::ca2::str::begins_eat(strName, strDir))
+         if(!::str::begins_eat(strName, strDir))
             continue;
          
          if(!System.dir().is(strPath, papp))
@@ -501,16 +501,16 @@ namespace mac
    }
    
    
-   void dir::ls_dir(sp(::ca2::application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle)
+   void dir::ls_dir(sp(base_application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle)
    {
       
-      stra_dup stra;
+      stringa stra;
       
       ::dir::ls(stra, lpcsz);
       
       string strDir(lpcsz);
       
-      if(!::ca2::str::ends(strDir, "/"))
+      if(!::str::ends(strDir, "/"))
       {
          
          strDir += "/";
@@ -525,7 +525,7 @@ namespace mac
          
          string strName = strPath;
          
-         if(!::ca2::str::begins_eat(strName, strDir))
+         if(!::str::begins_eat(strName, strDir))
             continue;
          
          if(!System.dir().is(strPath, papp))
@@ -549,16 +549,16 @@ namespace mac
       
    }
    
-   void dir::ls_file(sp(::ca2::application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle)
+   void dir::ls_file(sp(base_application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle)
    {
       
-      stra_dup stra;
+      stringa stra;
       
       ::dir::ls(stra, lpcsz);
       
       string strDir(lpcsz);
       
-      if(!::ca2::str::ends(strDir, "/"))
+      if(!::str::ends(strDir, "/"))
       {
          
          strDir += "/";
@@ -573,7 +573,7 @@ namespace mac
          
          string strName = strPath;
          
-         if(!::ca2::str::begins_eat(strName, strDir))
+         if(!::str::begins_eat(strName, strDir))
             continue;
          
          if(System.dir().is(strPath, papp))
@@ -598,16 +598,16 @@ namespace mac
       
    }
    
-   void dir::ls(sp(::ca2::application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle, array < bool, bool > * pbaIsDir, array < int64_t, int64_t > * piaSize)
+   void dir::ls(sp(base_application)  papp, const char * lpcsz, stringa * pstraPath, stringa * pstraTitle, bool_array * pbaIsDir, int64_array * piaSize)
    {
       
-      stra_dup stra;
+      stringa stra;
       
       ::dir::ls(stra, lpcsz);
       
       string strDir(lpcsz);
       
-      if(!::ca2::str::ends(strDir, "/"))
+      if(!::str::ends(strDir, "/"))
       {
          
          strDir += "/";
@@ -622,7 +622,7 @@ namespace mac
          
          string strName = strPath;
          
-         if(!::ca2::str::begins_eat(strName, strDir))
+         if(!::str::begins_eat(strName, strDir))
             continue;
          
          if(pstraPath != NULL)
@@ -679,7 +679,7 @@ namespace mac
       
    }
    
-   bool dir::is(const char * lpcszPath, sp(::ca2::application)  papp)
+   bool dir::is(const char * lpcszPath, sp(base_application)  papp)
    {
       
       bool bIsDir;
@@ -701,14 +701,14 @@ namespace mac
       }
       
       
-      if(::ca2::dir::system::is(lpcszPath, papp))
+      if(::file::dir::system::is(lpcszPath, papp))
          return true;
       
       
       string strPath(lpcszPath);
       if(strPath.get_length() >= MAX_PATH)
       {
-         if(::ca2::str::begins(strPath, "\\\\"))
+         if(::str::begins(strPath, "\\\\"))
          {
             strPath = "\\\\?\\UNC" + strPath.Mid(1);
          }
@@ -725,10 +725,10 @@ namespace mac
       return bIsDir;
    }
    
-   bool dir::is(const string & strPath, sp(::ca2::application)  papp)
+   bool dir::is(const string & strPath, sp(base_application)  papp)
    {
       
-      if(::ca2::dir::system::is(strPath, papp))
+      if(::file::dir::system::is(strPath, papp))
          return true;
       
       bool bIsDir;
@@ -752,29 +752,29 @@ namespace mac
       
       wstring wstrPath;
       
-      //strsize iLen = ::ca2::international::utf8_to_unicode_count(strPath);
+      //strsize iLen = ::str::international::utf8_to_unicode_count(strPath);
       //wstrPath.alloc(iLen + 32);
-      wstrPath = ::ca2::international::utf8_to_unicode(strPath);
+      wstrPath = ::str::international::utf8_to_unicode(strPath);
       if(wstrPath.get_length() >= MAX_PATH)
       {
-         if(::ca2::str::begins(wstrPath, L"\\\\"))
+         if(::str::begins(wstrPath, L"\\\\"))
          {
-            ::ca2::str::begin(wstrPath, L"\\\\?\\UNC");
+            ::str::begin(wstrPath, L"\\\\?\\UNC");
          }
          else
          {
-            ::ca2::str::begin(wstrPath, L"\\\\?\\");
+            ::str::begin(wstrPath, L"\\\\?\\");
          }
       }
       
-      bIsDir = ::dir::is(::ca2::international::unicode_to_utf8(wstrPath));
+      bIsDir = ::dir::is(::str::international::unicode_to_utf8(wstrPath));
       
       m_isdirmap.set(strPath, bIsDir, bIsDir ? 0 : ::GetLastError());
       
       return bIsDir;
    }
    
-   bool dir::name_is(const string & str, sp(::ca2::application)  papp)
+   bool dir::name_is(const string & str, sp(base_application)  papp)
    {
       //OutputDebugString(str);
       strsize iLast = str.get_length() - 1;
@@ -816,15 +816,15 @@ namespace mac
          return bIsDir;
       
       
-      if(papp->m_bZipIsDir && iLast >= 3  && !strnicmp_dup(&((const char *) str)[iLast - 3], ".zip", 4))
+      if(papp->m_pplaneapp->m_bZipIsDir && iLast >= 3  && !strnicmp_dup(&((const char *) str)[iLast - 3], ".zip", 4))
       {
          m_isdirmap.set(str.Left(iLast + 1), true, 0);
          return true;
       }
       
-      strsize iFind = ::ca2::str::find_ci(".zip:", str);
+      strsize iFind = ::str::find_ci(".zip:", str);
       
-      if(papp->m_bZipIsDir && iFind >= 0 && iFind < iLast)
+      if(papp->m_pplaneapp->m_bZipIsDir && iFind >= 0 && iFind < iLast)
       {
          bool bHasSubFolder;
          if(m_isdirmap.lookup(str, bHasSubFolder, dwLastError))
@@ -837,27 +837,27 @@ namespace mac
       
       wstring wstrPath;
       
-      //strsize iLen = ::ca2::international::utf8_to_unicode_count(str, iLast + 1);
+      //strsize iLen = ::str::international::utf8_to_unicode_count(str, iLast + 1);
       
       //wstrPath.alloc(iLen + 32);
       
-      wstrPath = ::ca2::international::utf8_to_unicode(str, iLast + 1);
+      wstrPath = ::str::international::utf8_to_unicode(str, iLast + 1);
       
       //OutputDebugStringW(wstrPath);
       
       if(wstrPath.get_length() >= MAX_PATH)
       {
-         if(::ca2::str::begins(wstrPath, L"\\\\"))
+         if(::str::begins(wstrPath, L"\\\\"))
          {
-            ::ca2::str::begin(wstrPath, L"\\\\?\\UNC");
+            ::str::begin(wstrPath, L"\\\\?\\UNC");
          }
          else
          {
-            ::ca2::str::begin(wstrPath, L"\\\\?\\");
+            ::str::begin(wstrPath, L"\\\\?\\");
          }
       }
       
-      bIsDir = ::dir::is(::ca2::international::unicode_to_utf8(wstrPath));
+      bIsDir = ::dir::is(::str::international::unicode_to_utf8(wstrPath));
       
       m_isdirmap.set(str.Left(iLast + 1), bIsDir, bIsDir ? 0 : ::GetLastError());
       
@@ -878,7 +878,7 @@ namespace mac
    
    string dir::stage(const char * lpcsz, const char * lpcsz2)
    {
-      return dir::path(ca2("stage"), lpcsz, lpcsz2);
+      return dir::path(element("stage"), lpcsz, lpcsz2);
    }
    
    string dir::stageapp(const char * lpcsz, const char * lpcsz2)
@@ -892,7 +892,7 @@ namespace mac
    }
    
    // stage in ccvotagus spalib
-   string dir::ca2(const char * lpcsz, const char * lpcsz2)
+   string dir::element(const char * lpcsz, const char * lpcsz2)
    {
       
       single_lock sl(&m_mutex, true);
@@ -901,7 +901,7 @@ namespace mac
       
    }
    
-   string dir::ca2(const string & str, const char * lpcsz2)
+   string dir::element(const string & str, const char * lpcsz2)
    {
       
       single_lock sl(&m_mutex, true);
@@ -910,7 +910,7 @@ namespace mac
       
    }
    
-   string dir::ca2(const char * lpcsz, const string & str2)
+   string dir::element(const char * lpcsz, const string & str2)
    {
       
       single_lock sl(&m_mutex, true);
@@ -919,7 +919,7 @@ namespace mac
       
    }
    
-   string dir::ca2(const string & str, const string & str2)
+   string dir::element(const string & str, const string & str2)
    {
       
       single_lock sl(&m_mutex, true);
@@ -928,7 +928,7 @@ namespace mac
       
    }
    
-   string dir::ca2(const string & str)
+   string dir::element(const string & str)
    {
       
       single_lock sl(&m_mutex, true);
@@ -937,7 +937,7 @@ namespace mac
       
    }
    
-   string dir::ca2()
+   string dir::element()
    {
       
       single_lock sl(&m_mutex, true);
@@ -972,7 +972,7 @@ namespace mac
       return path(strLogBaseDir, pszId);
    }
    
-   bool dir::mk(const char * lpcsz, sp(::ca2::application)  papp)
+   bool dir::mk(const char * lpcsz, sp(base_application)  papp)
    {
       
       if(is(lpcsz, papp))
@@ -1009,7 +1009,7 @@ namespace mac
                   catch(...)
                   {
                   }
-                  //if(::CreateDirectory(::ca2::international::utf8_to_unicode("\\\\?\\" + stra[i]), NULL))
+                  //if(::CreateDirectory(::str::international::utf8_to_unicode("\\\\?\\" + stra[i]), NULL))
                   if(::dir::mk("\\\\?\\" + stra[i]))
                   {
                      m_isdirmap.set(stra[i], true, 0);
@@ -1043,7 +1043,7 @@ namespace mac
       return true;
    }
    
-   bool dir::rm(sp(::ca2::application)  papp, const char * psz, bool bRecursive)
+   bool dir::rm(sp(base_application)  papp, const char * psz, bool bRecursive)
    {
       if(bRecursive)
       {
@@ -1132,7 +1132,7 @@ namespace mac
    }
    
    
-   class ::ca2::path & dir::path()
+   class ::file::path & dir::path()
    {
       return m_path;
    }
@@ -1173,7 +1173,7 @@ namespace mac
 #endif
       
       if(m_strNetSeedFolder.is_empty())
-         m_strNetSeedFolder = ca2("net/netseed");
+         m_strNetSeedFolder = element("net/netseed");
       
       mk(m_strTimeFolder, get_app());
       
@@ -1232,7 +1232,7 @@ namespace mac
       
       str = path(getenv("HOME"), ".ca2/appdata");
       string strRelative;
-      strRelative = ca2();
+      strRelative = element();
       //index iFind = strRelative.find(':');
       //if(iFind >= 0)
       {
@@ -1245,23 +1245,23 @@ namespace mac
       return path(path(str, "ca2", strRelative), lpcsz, lpcsz2);
    }
    
-   string dir::usersystemappdata(sp(::ca2::application)  papp, const char * lpcszPrefix, const char * lpcsz, const char * lpcsz2)
+   string dir::usersystemappdata(sp(base_application)  papp, const char * lpcszPrefix, const char * lpcsz, const char * lpcsz2)
    {
       UNREFERENCED_PARAMETER(papp);
       return path(appdata(lpcszPrefix), lpcsz, lpcsz2);
    }
    
-   string dir::userappdata(sp(::ca2::application)  papp, const char * lpcsz, const char * lpcsz2)
+   string dir::userappdata(sp(base_application)  papp, const char * lpcsz, const char * lpcsz2)
    {
       return path(userfolder(papp, "appdata"), lpcsz, lpcsz2);
    }
    
-   string dir::userdata(sp(::ca2::application)  papp, const char * lpcsz, const char * lpcsz2)
+   string dir::userdata(sp(base_application)  papp, const char * lpcsz, const char * lpcsz2)
    {
       return path(userfolder(papp, "data"), lpcsz, lpcsz2);
    }
    
-   string dir::userfolder(sp(::ca2::application)  papp, const char * lpcsz, const char * lpcsz2)
+   string dir::userfolder(sp(base_application)  papp, const char * lpcsz, const char * lpcsz2)
    {
       
       string str;
@@ -1274,7 +1274,7 @@ namespace mac
       str = getenv("HOME");
       
       string strRelative;
-      strRelative = ca2();
+      strRelative = element();
       index iFind = strRelative.find(':');
       if(iFind >= 0)
       {
@@ -1314,7 +1314,7 @@ namespace mac
        }*/
    }
    
-   string dir::default_os_user_path_prefix(sp(::ca2::application)  papp)
+   string dir::default_os_user_path_prefix(sp(base_application)  papp)
    {
       /*UNREFERENCED_PARAMETER(papp);
        wchar_t buf[MAX_PATH];
@@ -1326,21 +1326,21 @@ namespace mac
        memset(buf, 0, sizeof(buf));
        }
        }*/
-      /*return ::ca2::international::unicode_to_utf8(buf);*/
+      /*return ::str::international::unicode_to_utf8(buf);*/
       return ::getlogin();
    }
    
-   string dir::default_userappdata(sp(::ca2::application)  papp, const char * lpcszPrefix, const char * lpcszLogin, const char * pszRelativePath)
+   string dir::default_userappdata(sp(base_application)  papp, const char * lpcszPrefix, const char * lpcszLogin, const char * pszRelativePath)
    {
       return path(default_userfolder(papp, lpcszPrefix, lpcszLogin, "appdata"), pszRelativePath);
    }
    
-   string dir::default_userdata(sp(::ca2::application)  papp, const char * lpcszPrefix, const char * lpcszLogin, const char * pszRelativePath)
+   string dir::default_userdata(sp(base_application)  papp, const char * lpcszPrefix, const char * lpcszLogin, const char * pszRelativePath)
    {
       return path(default_userfolder(papp, lpcszPrefix, lpcszLogin, "data"), pszRelativePath);
    }
    
-   string dir::default_userfolder(sp(::ca2::application)  papp, const char * lpcszPrefix, const char * lpcszLogin, const char * pszRelativePath)
+   string dir::default_userfolder(sp(base_application)  papp, const char * lpcszPrefix, const char * lpcszLogin, const char * pszRelativePath)
    {
       
       return userfolder(papp, pszRelativePath);
@@ -1355,7 +1355,7 @@ namespace mac
        return path(path(str, "ca2\\user", lpcszPrefix), lpcszLogin, pszRelativePath);*/
    }
    
-   string dir::userquicklaunch(sp(::ca2::application)  papp, const char * lpcszRelativePath, const char * lpcsz2)
+   string dir::userquicklaunch(sp(base_application)  papp, const char * lpcszRelativePath, const char * lpcsz2)
    {
       UNREFERENCED_PARAMETER(papp);
       string str;
@@ -1368,7 +1368,7 @@ namespace mac
       return path(str, lpcszRelativePath, lpcsz2);
    }
    
-   string dir::userprograms(sp(::ca2::application)  papp, const char * lpcszRelativePath, const char * lpcsz2)
+   string dir::userprograms(sp(base_application)  papp, const char * lpcszRelativePath, const char * lpcsz2)
    {
       UNREFERENCED_PARAMETER(papp);
       string str;
@@ -1394,17 +1394,17 @@ namespace mac
       return path(str, lpcszRelativePath, lpcsz2);
    }
    
-   bool dir::is_inside_time(const char * pszPath, sp(::ca2::application)  papp)
+   bool dir::is_inside_time(const char * pszPath, sp(base_application)  papp)
    {
       return is_inside(time(), pszPath, papp);
    }
    
-   bool dir::is_inside(const char * pszDir, const char * pszPath, sp(::ca2::application)  papp)
+   bool dir::is_inside(const char * pszDir, const char * pszPath, sp(base_application)  papp)
    {
-      return ::ca2::str::begins_ci(pszDir, pszPath);
+      return ::str::begins_ci(pszDir, pszPath);
    }
    
-   bool dir::has_subdir(sp(::ca2::application)  papp, const char * pszDir)
+   bool dir::has_subdir(sp(base_application)  papp, const char * pszDir)
    {
       stringa stra;
       ls_dir(papp, pszDir, &stra);

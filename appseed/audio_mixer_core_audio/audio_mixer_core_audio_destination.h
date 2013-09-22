@@ -16,7 +16,7 @@ namespace multimedia
       public:
 
 
-         destination(sp(::ca2::application) papp);
+         destination(sp(base_application) papp);
          destination(const destination & destination);
          virtual ~destination();
 

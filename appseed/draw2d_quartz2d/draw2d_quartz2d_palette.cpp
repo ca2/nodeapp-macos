@@ -5,8 +5,8 @@ namespace draw2d_quartz2d
 {
    
    
-   palette::palette(sp(::ca2::application) papp) :
-   ca2(papp)
+   palette::palette(sp(base_application) papp) :
+   element(papp)
    {
       
    }
@@ -31,7 +31,7 @@ namespace draw2d_quartz2d
    
    /*
     
-    palette* PASCAL palette::from_handle(::ca2::application * papp, HPALETTE hPalette)
+    palette* PASCAL palette::from_handle(base_application * papp, HPALETTE hPalette)
     {
     
     //return dynamic_cast < palette * > (::win::object::from_handle(papp, hPalette));

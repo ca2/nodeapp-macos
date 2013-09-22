@@ -5,8 +5,8 @@ namespace draw2d_quartz2d
 {
    
    
-   bitmap::bitmap(sp(::ca2::application) papp) :
-      ca2(papp)
+   bitmap::bitmap(sp(base_application) papp) :
+      element(papp)
    {
       
       m_context = NULL;

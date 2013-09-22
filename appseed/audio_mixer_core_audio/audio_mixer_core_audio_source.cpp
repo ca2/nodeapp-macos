@@ -9,8 +9,8 @@ namespace multimedia
    {
 
 
-      source::source(sp(::ca2::application) papp) :
-         ca2(papp),
+      source::source(sp(base_application) papp) :
+         element(papp),
          ::multimedia::audio_mixer::source(papp)
       {
          m_mixercontrola.set_app(papp);

@@ -1,8 +1,8 @@
 #include "framework.h"
 
 // Global helper functions
-CLASS_DECL_mac ::ca2::application * __get_app()
-{ return dynamic_cast < ::ca2::application * > (afxCurrentWinApp); }
+CLASS_DECL_mac base_application * __get_app()
+{ return dynamic_cast < base_application * > (afxCurrentWinApp); }
 
 CLASS_DECL_mac HINSTANCE __get_instance_handle()
 { ASSERT(afxCurrentInstanceHandle != NULL);
@@ -16,7 +16,7 @@ CLASS_DECL_mac const char * __get_app_name()
 { ASSERT(afxCurrentAppName != NULL); return afxCurrentAppName; }
 CLASS_DECL_mac sp(::user::interaction) __get_main_window()
 {
-   ::ca2::thread* pThread = dynamic_cast < ::ca2::thread * > (::mac::get_thread());
+   ::thread* pThread = dynamic_cast < ::thread * > (::mac::get_thread());
    return pThread != NULL ? pThread->GetMainWnd() : NULL;
 }
 

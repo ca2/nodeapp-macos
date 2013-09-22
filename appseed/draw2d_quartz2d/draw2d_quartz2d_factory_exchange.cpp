@@ -5,8 +5,8 @@ namespace draw2d_quartz2d
 {
 
    
-   factory_exchange::factory_exchange(sp(::ca2::application) papp) :
-      ca2(papp)
+   factory_exchange::factory_exchange(sp(base_application) papp) :
+      ::element(papp)
    {
       
       System.factory().cloneable_large < dib                   >   (System.type_info < ::draw2d::dib                 > ());
@@ -31,7 +31,7 @@ namespace draw2d_quartz2d
 
 
 
-extern "C" void ca2_factory_exchange(sp(::ca2::application) papp)
+extern "C" void ca2_factory_exchange(sp(base_application) papp)
 {
    draw2d_quartz2d::factory_exchange factoryexchange(papp);
 }

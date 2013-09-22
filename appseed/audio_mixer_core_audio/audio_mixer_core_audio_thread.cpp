@@ -9,9 +9,9 @@ namespace multimedia
    {
 
 
-      thread::thread(sp(::ca2::application) papp) :
-         ca2(papp),
-         ::ca2::thread(papp)
+      thread::thread(sp(base_application) papp) :
+         element(papp),
+         ::thread(papp)
       {
          SetMainWnd(NULL);
          m_bPendingShowCommand = false;
@@ -56,10 +56,10 @@ namespace multimedia
          //pmfmh->MessageFilterUnhook();
 
          CoUninitialize();
-         return ::ca2::thread::exit_instance();
+         return ::thread::exit_instance();
       }
 
-      void thread::install_message_handling(::ca2::message::dispatch * pinterface)
+      void thread::install_message_handling(::message::dispatch * pinterface)
       {
          IGUI_WIN_MSG_LINK(thread::MessageMixerThread, pinterface, this, &thread::OnMixerMessage);
          IGUI_WIN_MSG_LINK(WM_USER, pinterface, this, &thread::OnUserMessage);
@@ -79,9 +79,9 @@ namespace multimedia
       // thread message handlers
 
 
-      void thread::OnMixerMessage(::ca2::signal_object * pobj)
+      void thread::OnMixerMessage(signal_details * pobj)
       {
-         SCAST_PTR(::ca2::message::base, pbase, pobj);
+         SCAST_PTR(::message::base, pbase, pobj);
 
          if(pbase->m_wparam ==  23)
          {
@@ -146,20 +146,20 @@ namespace multimedia
       bool thread::on_idle(LONG lCount)
       {
          // TODO: add your specialized code here and/or call the base class
-         return ::ca2::thread::on_idle(lCount);
+         return ::thread::on_idle(lCount);
       }
 
-      void thread::OnVmsmException(::ca2::signal_object * pobj)
+      void thread::OnVmsmException(signal_details * pobj)
       {
          UNREFERENCED_PARAMETER(pobj);
-         //sp(::ca2::application) pApp = (sp(::ca2::application)) &System;
+         //sp(base_application) pApp = (sp(base_application)) &System;
          //pApp->post_thread_message(VMSM_EXCEPTION, wParam, lParam);
       }
 
 
-      void thread::OnUserMessage(::ca2::signal_object * pobj)
+      void thread::OnUserMessage(signal_details * pobj)
       {
-         SCAST_PTR(::ca2::message::base, pbase, pobj);
+         SCAST_PTR(::message::base, pbase, pobj);
 
          switch(pbase->m_wparam)
          {
@@ -300,10 +300,10 @@ namespace multimedia
       }
 
 
-      void thread::pre_translate_message(::ca2::signal_object * pobj)
+      void thread::pre_translate_message(signal_details * pobj)
       {
 
-         return ::ca2::thread::pre_translate_message(pobj);
+         return ::thread::pre_translate_message(pobj);
 
       }
 

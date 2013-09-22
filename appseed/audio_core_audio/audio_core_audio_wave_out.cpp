@@ -9,9 +9,9 @@ namespace multimedia
    {
 
 
-      wave_out::wave_out(sp(::ca2::application) papp) :
-         ca2(papp),
-         ::ca2::thread(papp),
+      wave_out::wave_out(sp(base_application) papp) :
+         element(papp),
+         ::thread(papp),
          ::multimedia::audio::wave_out(papp)
       {
          m_estate             = state_initial;
@@ -28,7 +28,7 @@ namespace multimedia
 
       }
 
-      void wave_out::install_message_handling(::ca2::message::dispatch * pinterface)
+      void wave_out::install_message_handling(::message::dispatch * pinterface)
       {
 
          ::multimedia::audio::wave_out::install_message_handling(pinterface);
@@ -225,7 +225,7 @@ Opened:
                CALLBACK_THREAD)))
                goto Opened;
          }
-         catch(const ::ca2::exception &)
+         catch(const ::exception::exception &)
          {
             return MMSYSERR_ERROR;
          }
@@ -372,16 +372,16 @@ Opened:
       }
 
 
-      void wave_out::OnMultimediaOpen(::ca2::signal_object * pobj)
+      void wave_out::OnMultimediaOpen(signal_details * pobj)
       {
          UNREFERENCED_PARAMETER(pobj);
       }
 
 
-      void wave_out::OnMultimediaDone(::ca2::signal_object * pobj)
+      void wave_out::OnMultimediaDone(signal_details * pobj)
       {
          
-         SCAST_PTR(::ca2::message::base, pbase, pobj);
+         SCAST_PTR(::message::base, pbase, pobj);
          
          m_iBufferedCount--;
 
@@ -391,12 +391,12 @@ Opened:
 
       }
 
-      void wave_out::OnMultimediaClose(::ca2::signal_object * pobj)
+      void wave_out::OnMultimediaClose(signal_details * pobj)
       {
          UNREFERENCED_PARAMETER(pobj);
       }
 
-      /*void wave_out::wave_out_on_buffer_ready(::ca2::signal_object * pobj)
+      /*void wave_out::wave_out_on_buffer_ready(signal_details * pobj)
       {
          UNREFERENCED_PARAMETER(pobj);
       }*/

@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A16FCAB1770D70600759432 /* libca2ca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A16FCAA1770D70600759432 /* libca2ca.dylib */; };
 		9A1B496416A494A600875A94 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496316A494A600875A94 /* framework.h */; };
 		9A1B496716A4A10100875A94 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B496616A4A10100875A94 /* framework.cpp */; };
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
+		9A8CCB0117EA063800F87A02 /* libbase.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAF917EA063800F87A02 /* libbase.dylib */; };
+		9A8CCB0217EA063800F87A02 /* libbasefreeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAFA17EA063800F87A02 /* libbasefreeimage.dylib */; };
+		9A8CCB0317EA063800F87A02 /* libbasefreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAFB17EA063800F87A02 /* libbasefreetype.dylib */; };
+		9A8CCB0417EA063800F87A02 /* libbasemysql.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAFC17EA063800F87A02 /* libbasemysql.dylib */; };
+		9A8CCB0517EA063800F87A02 /* libbaseopenssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAFD17EA063800F87A02 /* libbaseopenssl.dylib */; };
+		9A8CCB0617EA063800F87A02 /* libbasezlib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAFE17EA063800F87A02 /* libbasezlib.dylib */; };
+		9A8CCB0717EA063800F87A02 /* libboot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAFF17EA063800F87A02 /* libboot.dylib */; };
+		9A8CCB0817EA063800F87A02 /* libcore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCB0017EA063800F87A02 /* libcore.dylib */; };
 		9A8EAF7B17C5640300C458D1 /* music_midi_core_audio_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF6C17C5640300C458D1 /* music_midi_core_audio_exception.cpp */; };
 		9A8EAF7C17C5640300C458D1 /* music_midi_core_audio_exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF6D17C5640300C458D1 /* music_midi_core_audio_exception.h */; };
 		9A8EAF7D17C5640300C458D1 /* music_midi_core_audio_factory_exchange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF6E17C5640300C458D1 /* music_midi_core_audio_factory_exchange.cpp */; };
@@ -25,10 +32,7 @@
 		9A8EAF8617C5640300C458D1 /* music_midi_core_audio_translation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF7717C5640300C458D1 /* music_midi_core_audio_translation.h */; };
 		9A8EAF8717C5640300C458D1 /* music_midi_core_audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF7817C5640300C458D1 /* music_midi_core_audio.cpp */; };
 		9A8EAF8817C5640300C458D1 /* music_midi_core_audio.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF7A17C5640300C458D1 /* music_midi_core_audio.h */; };
-		9A98A6271771D78C000AE16E /* lib_ca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A98A6261771D78C000AE16E /* lib_ca2c.dylib */; };
 		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
-		9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */; };
-		9ADEA4761766691300D4CF1F /* libca2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADEA4751766691300D4CF1F /* libca2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,14 @@
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		9A8CCAF917EA063800F87A02 /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbase.dylib"; sourceTree = "<group>"; };
+		9A8CCAFA17EA063800F87A02 /* libbasefreeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasefreeimage.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasefreeimage.dylib"; sourceTree = "<group>"; };
+		9A8CCAFB17EA063800F87A02 /* libbasefreetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasefreetype.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasefreetype.dylib"; sourceTree = "<group>"; };
+		9A8CCAFC17EA063800F87A02 /* libbasemysql.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasemysql.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasemysql.dylib"; sourceTree = "<group>"; };
+		9A8CCAFD17EA063800F87A02 /* libbaseopenssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbaseopenssl.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbaseopenssl.dylib"; sourceTree = "<group>"; };
+		9A8CCAFE17EA063800F87A02 /* libbasezlib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasezlib.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasezlib.dylib"; sourceTree = "<group>"; };
+		9A8CCAFF17EA063800F87A02 /* libboot.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboot.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libboot.dylib"; sourceTree = "<group>"; };
+		9A8CCB0017EA063800F87A02 /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libcore.dylib"; sourceTree = "<group>"; };
 		9A8EAF6C17C5640300C458D1 /* music_midi_core_audio_exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = music_midi_core_audio_exception.cpp; sourceTree = "<group>"; };
 		9A8EAF6D17C5640300C458D1 /* music_midi_core_audio_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = music_midi_core_audio_exception.h; sourceTree = "<group>"; };
 		9A8EAF6E17C5640300C458D1 /* music_midi_core_audio_factory_exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = music_midi_core_audio_factory_exchange.cpp; sourceTree = "<group>"; };
@@ -62,12 +74,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8CCB0117EA063800F87A02 /* libbase.dylib in Frameworks */,
+				9A8CCB0217EA063800F87A02 /* libbasefreeimage.dylib in Frameworks */,
+				9A8CCB0317EA063800F87A02 /* libbasefreetype.dylib in Frameworks */,
+				9A8CCB0417EA063800F87A02 /* libbasemysql.dylib in Frameworks */,
+				9A8CCB0517EA063800F87A02 /* libbaseopenssl.dylib in Frameworks */,
+				9A8CCB0617EA063800F87A02 /* libbasezlib.dylib in Frameworks */,
+				9A8CCB0717EA063800F87A02 /* libboot.dylib in Frameworks */,
+				9A8CCB0817EA063800F87A02 /* libcore.dylib in Frameworks */,
 				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
 				9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */,
-				9A98A6271771D78C000AE16E /* lib_ca2c.dylib in Frameworks */,
-				9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */,
-				9A16FCAB1770D70600759432 /* libca2ca.dylib in Frameworks */,
-				9ADEA4761766691300D4CF1F /* libca2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +93,14 @@
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				9A8CCAF917EA063800F87A02 /* libbase.dylib */,
+				9A8CCAFA17EA063800F87A02 /* libbasefreeimage.dylib */,
+				9A8CCAFB17EA063800F87A02 /* libbasefreetype.dylib */,
+				9A8CCAFC17EA063800F87A02 /* libbasemysql.dylib */,
+				9A8CCAFD17EA063800F87A02 /* libbaseopenssl.dylib */,
+				9A8CCAFE17EA063800F87A02 /* libbasezlib.dylib */,
+				9A8CCAFF17EA063800F87A02 /* libboot.dylib */,
+				9A8CCB0017EA063800F87A02 /* libcore.dylib */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
 				9A98A6261771D78C000AE16E /* lib_ca2c.dylib */,

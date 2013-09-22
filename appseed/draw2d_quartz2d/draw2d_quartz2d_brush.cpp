@@ -5,8 +5,8 @@ namespace draw2d_quartz2d
 {
    
    
-   brush::brush(sp(::ca2::application) papp) :
-      ca2(papp)
+   brush::brush(sp(base_application) papp) :
+      ::element(papp)
    {
       
       m_colorspace = NULL;

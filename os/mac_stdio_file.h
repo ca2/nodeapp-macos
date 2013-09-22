@@ -10,8 +10,8 @@ namespace mac
    
    
    class stdio_file :
-   virtual public ::mac::file,
-   virtual public ::ca2::text_file
+      virtual public ::mac::file,
+      virtual public ::file::text_buffer
    {
    public:
       
@@ -21,12 +21,12 @@ namespace mac
       
       
       
-      stdio_file(::ca2::application * papp);
+      stdio_file(base_application * papp);
       virtual ~stdio_file();
       
       virtual void write_string(const char * lpsz);
       virtual char * read_string(char * lpsz, UINT nMax);
-      virtual UINT read_string(string & rString);
+      virtual bool read_string(string & rString);
       
       
       void dump(dump_context & dumpcontext) const;
@@ -34,14 +34,14 @@ namespace mac
       virtual bool open(const char * lpszFileName, UINT nOpenFlags);
       virtual ::primitive::memory_size read(void * lpBuf, ::primitive::memory_size nCount);
       virtual void write(const void * lpBuf, ::primitive::memory_size nCount);
-      virtual file_position seek(file_offset lOff, ::ca2::e_seek nFrom);
+      virtual file_position seek(file_offset lOff, ::file::e_seek nFrom);
       virtual void Abort();
       virtual void Flush();
       virtual void close();
       virtual file_size get_length() const;
       
       // Unsupported APIs
-      virtual sp(::ca2::file) Duplicate() const;
+      virtual sp(::file::stream_buffer) Duplicate() const;
       virtual void LockRange(file_position dwPos, file_size dwCount);
       virtual void UnlockRange(file_position dwPos, file_size dwCount);
       

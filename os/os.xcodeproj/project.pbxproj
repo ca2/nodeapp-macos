@@ -10,7 +10,6 @@
 		071B28A8173FD8E700610E30 /* mac_printer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 071B28A5173FD8E600610E30 /* mac_printer.cpp */; };
 		071B28A9173FD8E700610E30 /* mac_printer.h in Headers */ = {isa = PBXBuildFile; fileRef = 071B28A6173FD8E600610E30 /* mac_printer.h */; };
 		071B28AA173FD8E700610E30 /* mac_shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 071B28A7173FD8E600610E30 /* mac_shell.h */; };
-		9A16FCAB1770D70600759432 /* libca2ca.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A16FCAA1770D70600759432 /* libca2ca.dylib */; };
 		9A1B496416A494A600875A94 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496316A494A600875A94 /* framework.h */; };
 		9A1B496716A4A10100875A94 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B496616A4A10100875A94 /* framework.cpp */; };
 		9A1B496916A4A32500875A94 /* mac1.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496816A4A32500875A94 /* mac1.h */; };
@@ -23,7 +22,14 @@
 		9A574B5A16AA3B02000CC4EF /* mac_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */; };
 		9A8997B7177CFA3300C7761E /* mac_mm.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8997B6177CFA3200C7761E /* mac_mm.h */; };
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
-		9A98A6271771D78C000AE16E /* lib_ca2c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A98A6261771D78C000AE16E /* lib_ca2c.dylib */; };
+		9A8CCAD017E9E47900F87A02 /* libbase.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAC817E9E47900F87A02 /* libbase.dylib */; };
+		9A8CCAD117E9E47900F87A02 /* libbasefreeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAC917E9E47900F87A02 /* libbasefreeimage.dylib */; };
+		9A8CCAD217E9E47900F87A02 /* libbasefreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCACA17E9E47900F87A02 /* libbasefreetype.dylib */; };
+		9A8CCAD317E9E47900F87A02 /* libbasemysql.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCACB17E9E47900F87A02 /* libbasemysql.dylib */; };
+		9A8CCAD417E9E47900F87A02 /* libbaseopenssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCACC17E9E47900F87A02 /* libbaseopenssl.dylib */; };
+		9A8CCAD517E9E47900F87A02 /* libbasezlib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCACD17E9E47900F87A02 /* libbasezlib.dylib */; };
+		9A8CCAD617E9E47900F87A02 /* libboot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCACE17E9E47900F87A02 /* libboot.dylib */; };
+		9A8CCAD717E9E47900F87A02 /* libcore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCACF17E9E47900F87A02 /* libcore.dylib */; };
 		9AA1B44117634E520019E812 /* RoundWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA1B3EA17634E520019E812 /* RoundWindow.h */; };
 		9AA1B44217634E520019E812 /* RoundWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B3EB17634E520019E812 /* RoundWindow.mm */; };
 		9AA1B44317634E520019E812 /* RoundWindowFrameView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */; };
@@ -33,8 +39,6 @@
 		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
 		9AC444061770AA7C00DC2349 /* _c.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC444051770AA7C00DC2349 /* _c.h */; };
 		9AC444081770AAB100DC2349 /* _ca.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC444071770AAB100DC2349 /* _ca.h */; };
-		9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */; };
-		9ADEA4761766691300D4CF1F /* libca2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADEA4751766691300D4CF1F /* libca2.dylib */; };
 		A1CFD8F9154FB715007447E2 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87D154FB715007447E2 /* _.h */; };
 		A1CFD8FA154FB715007447E2 /* bare_operational_system.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87E154FB715007447E2 /* bare_operational_system.h */; };
 		A1CFD8FB154FB715007447E2 /* ca2.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87F154FB715007447E2 /* ca2.h */; };
@@ -126,6 +130,14 @@
 		9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_exception.cpp; sourceTree = "<group>"; };
 		9A8997B6177CFA3200C7761E /* mac_mm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_mm.h; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		9A8CCAC817E9E47900F87A02 /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbase.dylib"; sourceTree = "<group>"; };
+		9A8CCAC917E9E47900F87A02 /* libbasefreeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasefreeimage.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasefreeimage.dylib"; sourceTree = "<group>"; };
+		9A8CCACA17E9E47900F87A02 /* libbasefreetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasefreetype.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasefreetype.dylib"; sourceTree = "<group>"; };
+		9A8CCACB17E9E47900F87A02 /* libbasemysql.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasemysql.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasemysql.dylib"; sourceTree = "<group>"; };
+		9A8CCACC17E9E47900F87A02 /* libbaseopenssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbaseopenssl.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbaseopenssl.dylib"; sourceTree = "<group>"; };
+		9A8CCACD17E9E47900F87A02 /* libbasezlib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasezlib.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasezlib.dylib"; sourceTree = "<group>"; };
+		9A8CCACE17E9E47900F87A02 /* libboot.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboot.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libboot.dylib"; sourceTree = "<group>"; };
+		9A8CCACF17E9E47900F87A02 /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libcore.dylib"; sourceTree = "<group>"; };
 		9A98A6261771D78C000AE16E /* lib_ca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2c.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2c.dylib"; sourceTree = "<group>"; };
 		9AA1B3EA17634E520019E812 /* RoundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundWindow.h; sourceTree = "<group>"; };
 		9AA1B3EB17634E520019E812 /* RoundWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RoundWindow.mm; sourceTree = "<group>"; };
@@ -216,12 +228,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8CCAD017E9E47900F87A02 /* libbase.dylib in Frameworks */,
+				9A8CCAD117E9E47900F87A02 /* libbasefreeimage.dylib in Frameworks */,
+				9A8CCAD217E9E47900F87A02 /* libbasefreetype.dylib in Frameworks */,
+				9A8CCAD317E9E47900F87A02 /* libbasemysql.dylib in Frameworks */,
+				9A8CCAD417E9E47900F87A02 /* libbaseopenssl.dylib in Frameworks */,
+				9A8CCAD517E9E47900F87A02 /* libbasezlib.dylib in Frameworks */,
+				9A8CCAD617E9E47900F87A02 /* libboot.dylib in Frameworks */,
+				9A8CCAD717E9E47900F87A02 /* libcore.dylib in Frameworks */,
 				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
 				9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */,
-				9A98A6271771D78C000AE16E /* lib_ca2c.dylib in Frameworks */,
-				9ACA7CE816F7D3E600AA1CEE /* lib_ca2freeimage.dylib in Frameworks */,
-				9A16FCAB1770D70600759432 /* libca2ca.dylib in Frameworks */,
-				9ADEA4761766691300D4CF1F /* libca2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +247,14 @@
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				9A8CCAC817E9E47900F87A02 /* libbase.dylib */,
+				9A8CCAC917E9E47900F87A02 /* libbasefreeimage.dylib */,
+				9A8CCACA17E9E47900F87A02 /* libbasefreetype.dylib */,
+				9A8CCACB17E9E47900F87A02 /* libbasemysql.dylib */,
+				9A8CCACC17E9E47900F87A02 /* libbaseopenssl.dylib */,
+				9A8CCACD17E9E47900F87A02 /* libbasezlib.dylib */,
+				9A8CCACE17E9E47900F87A02 /* libboot.dylib */,
+				9A8CCACF17E9E47900F87A02 /* libcore.dylib */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
 				9A98A6261771D78C000AE16E /* lib_ca2c.dylib */,
@@ -308,6 +332,7 @@
 				9A1B496316A494A600875A94 /* framework.h */,
 				9A1B496616A4A10100875A94 /* framework.cpp */,
 				A1CFD8C1154FB715007447E2 /* mac.h */,
+				9A8997B6177CFA3200C7761E /* mac_mm.h */,
 				A1CFD8C2154FB715007447E2 /* mac1.cpp */,
 				9A1B496816A4A32500875A94 /* mac1.h */,
 				A1CFD8C4154FB715007447E2 /* mac2.cpp */,
@@ -372,7 +397,6 @@
 				9AA1B3EB17634E520019E812 /* RoundWindow.mm */,
 				9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */,
 				9AA1B3ED17634E520019E812 /* RoundWindowFrameView.mm */,
-				9A8997B6177CFA3200C7761E /* mac_mm.h */,
 			);
 			name = os;
 			sourceTree = "<group>";
@@ -570,7 +594,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/ca $(WorkspaceDir)/../../../app/appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/boot $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
 				WorkspaceDir = "$(SRCROOT)/../seed/metaseed";
 			};
 			name = Debug;
@@ -603,7 +627,7 @@
 				LIBRARY_SEARCH_PATHS = "$(WorkspaceDir)/../../../nodeapp/thirdparty/library";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/ca $(WorkspaceDir)/../../../app/appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/boot $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
 				WorkspaceDir = "$(SRCROOT)/../seed/metaseed";
 			};
 			name = Release;

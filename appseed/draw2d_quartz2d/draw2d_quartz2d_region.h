@@ -15,10 +15,10 @@ namespace draw2d_quartz2d
       
       // xxx     Gdiplus::Region *       m_pregion;
       
-      //static region * PASCAL from_handle(::ca2::application * papp, HRGN hRgn);
+      //static region * PASCAL from_handle(base_application * papp, HRGN hRgn);
       //operator HRGN() const;
       
-      region(sp(::ca2::application) papp);
+      region(sp(base_application) papp);
       virtual ~region();
       
       
