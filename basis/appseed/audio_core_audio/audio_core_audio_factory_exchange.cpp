@@ -9,8 +9,8 @@ namespace multimedia
    {
 
 
-      factory_exchange::factory_exchange(sp(::ca2::application) papp) :
-         ca2(papp)
+      factory_exchange::factory_exchange(sp(base_application) papp) :
+         element(papp)
       {
 
          System.factory().cloneable_large < wave_in               >  (System.type_info < ::multimedia::audio::wave_in                  > ());
@@ -30,7 +30,7 @@ namespace multimedia
 } // namespace multimedia
 
 
-void ca2_factory_exchange(sp(::ca2::application) papp)
+void ca2_factory_exchange(sp(base_application) papp)
 {
 
    ::multimedia::audio_mmsystem::factory_exchange factoryexchange(papp);

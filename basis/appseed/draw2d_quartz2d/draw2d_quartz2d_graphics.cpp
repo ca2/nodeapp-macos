@@ -7,8 +7,8 @@ namespace draw2d_quartz2d
 {
    
    
-   graphics::graphics(sp(::ca2::application) papp) :
-   ca2(papp)
+   graphics::graphics(sp(base_application) papp) :
+      ::element(papp)
    {
       
       m_bPrinting       = FALSE;
@@ -44,12 +44,12 @@ namespace draw2d_quartz2d
    
    void graphics::assert_valid() const
    {
-      ::ca2::object::assert_valid();
+      ::object::assert_valid();
    }
    
    void graphics::dump(dump_context & dumpcontext) const
    {
-      ::ca2::object::dump(dumpcontext);
+      ::object::dump(dumpcontext);
       
       //      dumpcontext << "get_handle1() = " << get_handle1();
       //    dumpcontext << "\nm_hAttribDC = " << get_handle2();
@@ -94,7 +94,7 @@ namespace draw2d_quartz2d
    }
    
    
-   /*   ::ca2::window * graphics::GetWindow() const
+   /*   ::user::window * graphics::GetWindow() const
     {
     ASSERT(get_handle1() != NULL); return ::win::window::from_handle(::WindowFromDC(get_handle1()));
     }
@@ -294,7 +294,7 @@ namespace draw2d_quartz2d
 //      
    }
    
-   int32_t graphics::ExcludeUpdateRgn(::ca2::window * pWnd)
+   int32_t graphics::ExcludeUpdateRgn(::user::window * pWnd)
    {
       //    ASSERT(get_handle1() != NULL);
       //      return ::ExcludeUpdateRgn(get_handle1(), WIN_WINDOW(pWnd)->get_handle());
@@ -1704,7 +1704,7 @@ namespace draw2d_quartz2d
       }
       
       //ASSERT(get_handle1() != NULL);
-      //wstring wstr = ::ca2::international::utf8_to_unicode(str);
+      //wstring wstr = ::str::international::utf8_to_unicode(str);
       return TextOut(x, y, str, (int32_t) str.get_length());
       
    } // call virtual
@@ -1760,7 +1760,7 @@ namespace draw2d_quartz2d
       }
       
       //ASSERT(get_handle1() != NULL);
-      //wstring wstr = ::ca2::international::utf8_to_unicode(str);
+      //wstring wstr = ::str::international::utf8_to_unicode(str);
       return TextOut(x, y, str, (int32_t) str.get_length());
       
    } // call virtual
@@ -3156,7 +3156,7 @@ namespace draw2d_quartz2d
    /////////////////////////////////////////////////////////////////////////////
    // special graphics drawing primitives/helpers
    
-   ::draw2d::brush* PASCAL graphics::GetHalftoneBrush(::ca2::application * papp)
+   ::draw2d::brush* PASCAL graphics::GetHalftoneBrush(base_application * papp)
    {
       /*      ::ca2::LockGlobals(CRIT_HALFTONEBRUSH);
        if (gen_HalftoneBrush == NULL)
@@ -3499,7 +3499,7 @@ namespace draw2d_quartz2d
       
    }
    
-   //   ::draw2d::object* PASCAL graphics::SelectGdiObject(::ca2::application * papp, HDC hDC, HGDIOBJ h)
+   //   ::draw2d::object* PASCAL graphics::SelectGdiObject(base_application * papp, HDC hDC, HGDIOBJ h)
    // {
    //      return ::win::object::from_handle(papp, ::SelectObject(hDC, h));
    //}
@@ -4500,7 +4500,7 @@ namespace draw2d_quartz2d
     if (hObjOld == hStockFont)
     {
     // got the stock object back, so must be selecting a font
-    throw not_implemented(::ca2::get_thread_app());
+    throw not_implemented(::get_thread_app());
     //                  (dynamic_cast<::win::graphics * >(pgraphics))->SelectObject(::win::font::from_handle(pgraphics->get_app(), (HFONT)hObject));
     break;  // don't play the default record
     }
@@ -4516,7 +4516,7 @@ namespace draw2d_quartz2d
     {
     // play back as graphics::SelectObject(::draw2d::font*)
     //               (dynamic_cast<::win::graphics * >(pgraphics))->SelectObject(::win::font::from_handle(pgraphics->get_app(), (HFONT)hObject));
-    throw not_implemented(::ca2::get_thread_app());
+    throw not_implemented(::get_thread_app());
     break;  // don't play the default record
     }
     }
@@ -4597,7 +4597,7 @@ namespace draw2d_quartz2d
        // these flags would modify the string
        ASSERT((nFormat & (DT_END_ELLIPSIS | DT_MODIFYSTRING)) != (DT_END_ELLIPSIS | DT_MODIFYSTRING));
        ASSERT((nFormat & (DT_PATH_ELLIPSIS | DT_MODIFYSTRING)) != (DT_PATH_ELLIPSIS | DT_MODIFYSTRING));
-       wstring wstr = ::ca2::international::utf8_to_unicode(string(lpszString, nCount));
+       wstring wstr = ::str::international::utf8_to_unicode(string(lpszString, nCount));
        return ::DrawTextW(get_handle1(), wstr, (int32_t) wcslen(wstr), lpRect, nFormat); */
       
       return draw_text(string(lpszString, nCount), lpRect, nFormat);
@@ -4612,7 +4612,7 @@ namespace draw2d_quartz2d
        // these flags would modify the string
        ASSERT((nFormat & (DT_END_ELLIPSIS | DT_MODIFYSTRING)) != (DT_END_ELLIPSIS | DT_MODIFYSTRING));
        ASSERT((nFormat & (DT_PATH_ELLIPSIS | DT_MODIFYSTRING)) != (DT_PATH_ELLIPSIS | DT_MODIFYSTRING));
-       wstring wstr = ::ca2::international::utf8_to_unicode(str);
+       wstring wstr = ::str::international::utf8_to_unicode(str);
        return ::DrawTextW(get_handle1(), (const wchar_t *)wstr, (int32_t)wcslen(wstr), lpRect, nFormat); */
       
       /*
@@ -4710,7 +4710,7 @@ namespace draw2d_quartz2d
        
        m_pgraphics->SetTransform(pmNew);
        
-       m_pgraphics->DrawString(::ca2::international::utf8_to_unicode(str), -1, gdiplus_font(), rectf, &format, gdiplus_brush());
+       m_pgraphics->DrawString(::str::international::utf8_to_unicode(str), -1, gdiplus_font(), rectf, &format, gdiplus_brush());
        
        m_pgraphics->SetTransform(&m);
        
@@ -4745,7 +4745,7 @@ namespace draw2d_quartz2d
        // these flags would modify the string
        ASSERT((nFormat & (DT_END_ELLIPSIS | DT_MODIFYSTRING)) != (DT_END_ELLIPSIS | DT_MODIFYSTRING));
        ASSERT((nFormat & (DT_PATH_ELLIPSIS | DT_MODIFYSTRING)) != (DT_PATH_ELLIPSIS | DT_MODIFYSTRING));
-       wstring wstr = ::ca2::international::utf8_to_unicode(string(lpszString, nCount));
+       wstring wstr = ::str::international::utf8_to_unicode(string(lpszString, nCount));
        return ::DrawTextExW(get_handle1(), const_cast<wchar_t *>((const wchar_t *)wstr), (int32_t)wcslen(wstr), lpRect, nFormat, lpDTParams);
        */
    }
@@ -4761,7 +4761,7 @@ namespace draw2d_quartz2d
        // these flags would modify the string
        ASSERT((nFormat & (DT_END_ELLIPSIS | DT_MODIFYSTRING)) != (DT_END_ELLIPSIS | DT_MODIFYSTRING));
        ASSERT((nFormat & (DT_PATH_ELLIPSIS | DT_MODIFYSTRING)) != (DT_PATH_ELLIPSIS | DT_MODIFYSTRING));
-       wstring wstr = ::ca2::international::utf8_to_unicode(str);
+       wstring wstr = ::str::international::utf8_to_unicode(str);
        return ::DrawTextExW(get_handle1(), const_cast<wchar_t *>((const wchar_t *)wstr), (int32_t)wcslen(wstr), lpRect, nFormat, lpDTParams);
        */
       
@@ -4805,7 +4805,7 @@ namespace draw2d_quartz2d
        if(iIndex < 0)
        return size(0, 0);
        
-       wstring wstr = ::ca2::international::utf8_to_unicode(lpszString, nCount);
+       wstring wstr = ::str::international::utf8_to_unicode(lpszString, nCount);
        
        strsize iRange = 0;
        strsize i = 0;
@@ -4813,10 +4813,10 @@ namespace draw2d_quartz2d
        const char * psz = lpszString;
        while(i < iIndex)
        {
-       iLen = ::ca2::str::utf8_char(psz).length();
+       iLen = ::str::utf8_char(psz).length();
        iRange++;
        i += iLen;
-       psz = ::ca2::str::utf8_inc(psz);
+       psz = ::str::utf8_inc(psz);
        if(psz == NULL)
        break;
        if(*psz == '\0')
@@ -4896,7 +4896,7 @@ namespace draw2d_quartz2d
       
       return ::size(sized.cx, sized.cy);
       
-      /*wstring wstr = ::ca2::international::utf8_to_unicode(lpszString, nCount);
+      /*wstring wstr = ::str::international::utf8_to_unicode(lpszString, nCount);
        
        Gdiplus::RectF box;
        
@@ -4916,7 +4916,7 @@ namespace draw2d_quartz2d
        return size(0, 0);
        SIZE size;
        string str(lpszString, nCount);
-       wstring wstr = ::ca2::international::utf8_to_unicode(str);
+       wstring wstr = ::str::international::utf8_to_unicode(str);
        if(!::GetTextExtentPoint32W(get_handle2(), wstr, (int32_t)wstr.get_length(), &size))
        {
        return class size(0, 0);
@@ -4929,7 +4929,7 @@ namespace draw2d_quartz2d
       /*      if(get_handle2() == NULL)
        return size(0, 0);
        SIZE size;
-       wstring wstr = ::ca2::international::utf8_to_unicode(str);
+       wstring wstr = ::str::international::utf8_to_unicode(str);
        if(!::GetTextExtentPoint32W(get_handle2(), wstr, (int32_t)wstr.get_length(), &size))
        {
        return class size(0, 0);
@@ -4946,7 +4946,7 @@ namespace draw2d_quartz2d
       /*if(m_pgraphics == NULL)
        return size(0, 0);
        
-       wstring wstr = ::ca2::international::utf8_to_unicode(str);
+       wstring wstr = ::str::international::utf8_to_unicode(str);
        
        Gdiplus::RectF box;
        
@@ -4979,7 +4979,7 @@ namespace draw2d_quartz2d
        ASSERT(get_handle1() != NULL);
        SIZE size;
        string str(lpszString, nCount);
-       wstring wstr = ::ca2::international::utf8_to_unicode(str);
+       wstring wstr = ::str::international::utf8_to_unicode(str);
        VERIFY(::GetTextExtentPoint32W(get_handle1(), wstr, (int32_t)wstr.get_length(), &size));
        return size;
        */
@@ -4995,7 +4995,7 @@ namespace draw2d_quartz2d
       /*
        ASSERT(get_handle1() != NULL);
        SIZE size;
-       wstring wstr = ::ca2::international::utf8_to_unicode(str);
+       wstring wstr = ::str::international::utf8_to_unicode(str);
        VERIFY(::GetTextExtentPoint32W(get_handle1(), wstr, (int32_t)wstr.get_length(), &size));
        return size;
        */
@@ -5053,7 +5053,7 @@ namespace draw2d_quartz2d
       return size;
       
       
-      /*      wstring wstr = ::ca2::international::utf8_to_unicode(lpszString, nCount);
+      /*      wstring wstr = ::str::international::utf8_to_unicode(lpszString, nCount);
        
        Gdiplus::RectF box;
        

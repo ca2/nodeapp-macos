@@ -49,7 +49,7 @@ namespace draw2d_quartz2d
    }
    
    
-   object * graphics_object_allocator(::ca2::application * papp, HANDLE h)
+   object * graphics_object_allocator(base_application * papp, HANDLE h)
    {
       /*switch(::GetObjectType(h))
        {
@@ -70,7 +70,7 @@ namespace draw2d_quartz2d
       return NULL;
    }
    
-   /*object* PASCAL object::from_handle(::ca2::application * papp, HGDIOBJ h)
+   /*object* PASCAL object::from_handle(base_application * papp, HGDIOBJ h)
     {
     hgdiobj_map* pMap = afxMapHGDIOBJ(TRUE); //create ::collection::map if not exist
     ASSERT(pMap != NULL);
@@ -125,7 +125,7 @@ namespace draw2d_quartz2d
    
    void object::dump(dump_context & dumpcontext) const
    {
-      ::ca2::object::dump(dumpcontext);
+      ::object::dump(dumpcontext);
       
       //      dumpcontext << "get_handle() = " << get_handle();
       //    dumpcontext << "\n";
@@ -133,7 +133,7 @@ namespace draw2d_quartz2d
    
    void object::assert_valid() const
    {
-      ::ca2::object::assert_valid();
+      ::object::assert_valid();
       //ASSERT(get_handle() == NULL ||
       // (afxData.bWin95 || ::GetObjectType(get_handle()) != 0));
    }

@@ -17,7 +17,7 @@ namespace draw2d_quartz2d
       CGColorSpaceRef   m_colorspace;
       
       
-      brush(sp(::ca2::application) papp);
+      brush(sp(base_application) papp);
       virtual ~brush();
       
       

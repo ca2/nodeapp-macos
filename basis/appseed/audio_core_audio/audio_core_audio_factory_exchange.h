@@ -15,7 +15,7 @@ namespace multimedia
       public:
 
 
-         factory_exchange(sp(::ca2::application) papp);
+         factory_exchange(sp(base_application) papp);
          virtual ~factory_exchange();
 
       };
