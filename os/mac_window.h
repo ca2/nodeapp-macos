@@ -22,7 +22,7 @@ namespace mac
       
       
       spa(::user::interaction)      m_guieptraMouseHover;
-      ::message_window_callback *   m_pcallback;
+      ::message_queue_listener *   m_pcallback;
       string                        m_strWindowText;
       oswindow                      m_oswindow;
       ::user::window_interface *    m_pbasewnd;
@@ -42,7 +42,7 @@ namespace mac
       virtual void mouse_hover_add(sp(::user::interaction)  pinterface);
       virtual void mouse_hover_remove(sp(::user::interaction)  pinterface);
       
-      bool create_message_window(const char * pszName, ::message_window_callback * pcallback = NULL);
+      bool create_message_window(const char * pszName, ::message_queue_listener * pcallback = NULL);
       
       static const MESSAGE* PASCAL GetCurrentMessage();
       
