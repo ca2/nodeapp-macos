@@ -31,7 +31,7 @@ namespace mac
    element(papp),
    ::thread(papp),
    ::user::window_draw(papp),
-   message_window_simple_callback(papp),
+   message_queue(papp),
    m_mutexRendering(papp),
    m_mutexRgnUpdate(papp),
    m_semaphoreBuffer(papp),
@@ -65,7 +65,7 @@ namespace mac
     }
     */
    
-   void window_draw::message_window_message_handler(signal_details * pobj)
+   void window_draw::message_queue_message_handler(signal_details * pobj)
    {
       SCAST_PTR(::message::base, pbase, pobj);
       if(pbase->m_uiMessage == (WM_USER + 1984 + 1977))
@@ -326,7 +326,7 @@ namespace mac
    
    UINT window_draw::RedrawProc()
    {
-      if(!initialize_message_window("ca2::twf - ca2 Transparent Window Framework"))
+      if(!create_message_queue("ca2::twf - ca2 Transparent Window Framework"))
       {
          TRACE("Could not initialize ca2::twf - ca2 Transparent Window Framework!");
          return 0;

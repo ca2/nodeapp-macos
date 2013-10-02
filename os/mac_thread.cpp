@@ -558,7 +558,7 @@ namespace mac
    
    thread::thread(base_application * papp) :
    element(papp),
-   message_window_simple_callback(papp),//,
+   message_queue(papp),//,
    m_evFinish(papp, FALSE, TRUE),
    ::thread(NULL),
    m_mutexUiPtra(papp)
@@ -1729,7 +1729,7 @@ namespace mac
       //m_nThreadID = (dword_ptr) iData;
    }
    
-   void thread::message_window_message_handler(signal_details * pobj)
+   void thread::message_queue_message_handler(signal_details * pobj)
    {
    }
    
@@ -1837,7 +1837,7 @@ namespace mac
       m_puiptra->m_pbaseapp    = m_pbaseapp;
       
       
-      if(!initialize_message_window(get_app(), ""))
+      if(!create_message_queue(get_app(), ""))
          return -1;
       
       
@@ -1926,7 +1926,7 @@ namespace mac
    {
       try
       {
-         finalize_message_window();
+         destroy_message_queue();
       }
       catch(...)
       {

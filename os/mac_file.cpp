@@ -686,7 +686,7 @@ namespace mac
             return ::file::exception::accessDenied;
          case ERROR_FILE_EXISTS:
             return ::file::exception::accessDenied;
-         case ERROR_caNNOT_MAKE:
+         case ERROR_CANNOT_MAKE:
             return ::file::exception::accessDenied;
          case ERROR_ALREADY_ASSIGNED:
             return ::file::exception::badPath;
@@ -706,7 +706,7 @@ namespace mac
             return ::file::exception::tooManyOpenFiles;
          case ERROR_INVALID_TARGET_HANDLE:
             return ::file::exception::invalidFile;
-         case ERROR_INVALID_caTEGORY:
+         case ERROR_INVALID_CATEGORY:
             return ::file::exception::hardIO;
          case ERROR_INVALID_NAME:
             return ::file::exception::badPath;
