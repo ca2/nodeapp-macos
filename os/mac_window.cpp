@@ -523,7 +523,7 @@ namespace mac
                       pParentWnd->get_handle(), id, (LPVOID)pContext);
    }
    
-   bool window::create_message_window(const char * pszName, ::message_queue_listener * pcallback)
+   bool window::create_message_queue(const char * pszName, ::message_queue_listener * pcallback)
    {
       m_pcallback = pcallback;
       if(IsWindow())
