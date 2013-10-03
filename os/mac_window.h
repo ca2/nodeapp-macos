@@ -42,7 +42,7 @@ namespace mac
       virtual void mouse_hover_add(sp(::user::interaction)  pinterface);
       virtual void mouse_hover_remove(sp(::user::interaction)  pinterface);
       
-      bool create_message_window(const char * pszName, ::message_queue_listener * pcallback = NULL);
+      virtual bool create_message_queue(const char * pszName, ::message_queue_listener * pcallback = NULL);
       
       static const MESSAGE* PASCAL GetCurrentMessage();
       
