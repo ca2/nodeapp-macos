@@ -79,15 +79,21 @@ namespace mac
       return FALSE;
    }
 
+   
    HINSTANCE application::GetHinstance()
    {
+      
       return NULL;
+      
    }
 
+   
    string application::get_version()
    {
+      
+      return "";
 
-      throw todo(get_app());
+//      throw todo(get_app());
 
       /*      char lpszModuleFilePath[MAX_PATH + 1];
       GetModuleFileName(NULL, lpszModuleFilePath, MAX_PATH + 1);
@@ -867,8 +873,27 @@ namespace mac
         return "draw2d_quartz2d";
         
     }
+   string application::multimedia_audio_get_default_library_name()
+   {
+      
+      return "audio_core_audio";
+      
+   }
 
-
+   string application::multimedia_audio_mixer_get_default_library_name()
+   {
+      
+      return "audio_mixer_core_audio";
+   
+   }
+   string application::veriwell_multimedia_music_midi_get_default_library_name()
+   {
+      
+      return "music_midi_core_audio";
+      
+   }
+   
+   
 } // namespace mac
 
 

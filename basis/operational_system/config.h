@@ -18,3 +18,4 @@
 #endif
 #define BSD_STYLE_SOCKETS
 #define HAVE_OPENSSL
+#define VARIADIC_TEMPLATE

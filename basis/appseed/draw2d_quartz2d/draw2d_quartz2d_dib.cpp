@@ -2668,7 +2668,7 @@ namespace draw2d_quartz2d
    }
    
    
-#define new DEBUG_NEW
+#define new BASE_NEW
    
    
    void dib::map()

@@ -3,4 +3,4 @@
 #endif
 
 
-#include "music_midi_mmsystem.h"
+#include "music_midi_core_audio.h"

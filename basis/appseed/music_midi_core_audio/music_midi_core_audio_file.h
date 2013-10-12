@@ -8,7 +8,7 @@ namespace music
 {
 
 
-   namespace midi_mmsystem
+   namespace midi_core_audio
    {
 
       class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_MMSYSTEM file :
@@ -184,7 +184,7 @@ namespace music
       };
 
 
-   } // namespace midi_mmsystem
+   } // namespace midi_core_audio
 
 
 } // namespace music

@@ -1,4 +1,6 @@
+#ifndef __GNUC__
 #pragma once
+#endif
 
 
-#include "audio_mmsystem/audio_mmsystem.h"
+#include "audio_core_audio/audio_core_audio.h"
