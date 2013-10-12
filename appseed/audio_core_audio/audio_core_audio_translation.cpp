@@ -4,24 +4,28 @@
 namespace multimedia
 {
 
-   namespace audio_mmsystem
+   
+   namespace audio_core_audio
    {
-
-      void translate(WAVEFORMATEX & waveformatex, ::multimedia::audio::wave_format * pwaveformat)
+      
+      
+      void translate(AudioStreamBasicDescription & waveformatex, ::multimedia::audio::wave_format * pwaveformat)
       {
 
 
-         waveformatex.wFormatTag        = pwaveformat->wFormatTag;           /* format type */
-         waveformatex.nChannels         = pwaveformat->nChannels;            /* number of channels (i.e. mono, stereo...) */
-         waveformatex.nSamplesPerSec    = pwaveformat->nSamplesPerSec;       /* sample rate */
-         waveformatex.nAvgBytesPerSec   = pwaveformat->nAvgBytesPerSec;      /* for buffer estimation */
-         waveformatex.nBlockAlign       = pwaveformat->nBlockAlign;          /* block size of data */
-         waveformatex.wBitsPerSample    = pwaveformat->wBitsPerSample;       /* number of bits per sample of mono data */
-         waveformatex.cbSize            = pwaveformat->cbSize;               /* the count in bytes of the size of */
-                                                                                 /* extra information (after cbSize) */
-
+         waveformatex.mSampleRate       = pwaveformat->nSamplesPerSec;
+         waveformatex.mFormatID         = kAudioFormatLinearPCM;
+         waveformatex.mFormatFlags      = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;;
+         waveformatex.mChannelsPerFrame = pwaveformat->nChannels;
+         waveformatex.mBytesPerFrame    = waveformatex.mChannelsPerFrame * sizeof(::multimedia::audio::WAVEBUFFERDATA);
+         waveformatex.mFramesPerPacket  = 1;
+         waveformatex.mBytesPerPacket   = waveformatex.mBytesPerFrame * waveformatex.mFramesPerPacket;
+         waveformatex.mBitsPerChannel   = 8 * sizeof(::multimedia::audio::WAVEBUFFERDATA);
+         waveformatex.mReserved         = 0;
+         
       }
 
+      /*
 
       void translate(WAVEHDR & wavehdr, ::multimedia::audio::wave_buffer * pwavebuffer, int iBuffer)
       {
@@ -60,9 +64,15 @@ namespace multimedia
          return pwavehdr;
 
       }
+       
+*/
 
 
-   }
+   } // namespace audio_core_audio
 
-}
+
+} // namespace multimedia
+
+
+
 

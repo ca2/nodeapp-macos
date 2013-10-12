@@ -5,12 +5,12 @@ namespace multimedia
 {
 
 
-   namespace audio_mmsystem
+   namespace audio_core_audio
    {
 
 
-      class CLASS_DECL_AUDIO_MMSYSTEM factory_exchange :
-         virtual public ::ca2::object
+      class CLASS_DECL_AUDIO_CORE_AUDIO factory_exchange :
+         virtual public ::object
       {
       public:
 
@@ -21,7 +21,7 @@ namespace multimedia
       };
 
 
-   } // namespace audio_mmsystem
+   } // namespace audio_core_audio
 
 
 } // namespace multimedia

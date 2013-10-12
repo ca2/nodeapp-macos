@@ -5,12 +5,12 @@ namespace multimedia
 {
 
 
-   namespace audio_mixer_mmsystem
+   namespace audio_mixer_audio_core
    {
 
 
       class CLASS_DECL_AUDIO_MIXER_MMSYSTEM destination :
-         virtual public ::multimedia::audio_mixer_mmsystem::source,
+         virtual public ::multimedia::audio_mixer_audio_core::source,
          virtual public ::multimedia::audio_mixer::destination
       {
       public:
@@ -40,7 +40,7 @@ namespace multimedia
       };
 
 
-   } // namespace audio_mixer_mmsystem
+   } // namespace audio_mixer_audio_core
 
 
 

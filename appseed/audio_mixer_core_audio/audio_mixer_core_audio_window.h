@@ -5,7 +5,7 @@ namespace multimedia
 {
 
 
-   namespace audio_mixer_mmsystem
+   namespace audio_mixer_audio_core
    {
 
 
@@ -35,7 +35,7 @@ namespace multimedia
       };
 
 
-   } // namespace audio_mixer_mmsystem
+   } // namespace audio_mixer_audio_core
 
 
 } // namespace multimedia

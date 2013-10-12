@@ -20,7 +20,7 @@ namespace multimedia
 {
 
 
-   namespace audio_mixer_mmsystem
+   namespace audio_mixer_audio_core
    {
 
 
@@ -33,32 +33,32 @@ namespace multimedia
       class section;
 
 
-   } // namespace audio_mixer_mmsystem
+   } // namespace audio_mixer_audio_core
 
 
 } // namespace multimedia
 
 
-#include "audio_mixer_mmsystem_window.h"
-#include "audio_mixer_mmsystem_mixer.h"
-#include "audio_mixer_mmsystem_control.h"
-#include "audio_mixer_mmsystem_source.h"
-#include "audio_mixer_mmsystem_destination.h"
-#include "audio_mixer_mmsystem_device.h"
-#include "audio_mixer_mmsystem_line_info.h"
+#include "audio_mixer_audio_core_window.h"
+#include "audio_mixer_audio_core_mixer.h"
+#include "audio_mixer_audio_core_control.h"
+#include "audio_mixer_audio_core_source.h"
+#include "audio_mixer_audio_core_destination.h"
+#include "audio_mixer_audio_core_device.h"
+#include "audio_mixer_audio_core_line_info.h"
 
 
-#include "audio_mixer_mmsystem_callback.h"
+#include "audio_mixer_audio_core_callback.h"
 
 
-#include "audio_mixer_mmsystem_thread.h"          
+#include "audio_mixer_audio_core_thread.h"          
 
 
-#include "audio_mixer_mmsystem_section.h"
+#include "audio_mixer_audio_core_section.h"
 
 
 
-#include "audio_mixer_mmsystem_factory_exchange.h"
+#include "audio_mixer_audio_core_factory_exchange.h"
 
 
 

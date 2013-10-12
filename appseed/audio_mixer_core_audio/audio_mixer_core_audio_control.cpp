@@ -5,7 +5,7 @@ namespace multimedia
 {
 
 
-   namespace audio_mixer_mmsystem
+   namespace audio_mixer_audio_core
    {
 
 
@@ -77,7 +77,7 @@ namespace multimedia
          int32_t                         nRange;
          int32_t                         nPageInc;
 
-         sp(::multimedia::audio_mixer_mmsystem::source) source = m_pmixersource;
+         sp(::multimedia::audio_mixer_audio_core::source) source = m_pmixersource;
 
          ASSERT(source != NULL);
 
@@ -227,7 +227,7 @@ namespace multimedia
 
          ASSERT(m_pmixersource != NULL);
 
-         sp(::multimedia::audio_mixer_mmsystem::source) source = m_pmixersource;
+         sp(::multimedia::audio_mixer_audio_core::source) source = m_pmixersource;
 
          lcChannels = (uint32_t)source->m_mixerline.cChannels;
          if (MIXERCONTROL_CONTROLF_UNIFORM & m_mixercontrol.fdwControl)
@@ -362,8 +362,8 @@ namespace multimedia
          //    pmxcd_u     = &pmaci_fader->pmxcd_u[0];
          //    nRange      = pmaci_fader->nRange;
 
-         sp(::multimedia::audio_mixer_mmsystem::source) source = m_pmixersource;
-         sp(::multimedia::audio_mixer_mmsystem::device) device = source->get_device();
+         sp(::multimedia::audio_mixer_audio_core::source) source = m_pmixersource;
+         sp(::multimedia::audio_mixer_audio_core::device) device = source->get_device();
 
          cChannels = (uint32_t)source->m_mixerline.cChannels;
          if (MIXERCONTROL_CONTROLF_UNIFORM & m_mixercontrol.fdwControl)
@@ -683,8 +683,8 @@ namespace multimedia
                      if(pData->get_type() == ::multimedia::audio_mixer::control_data::TypeStereoBalance ||
                         pData->get_type() == ::multimedia::audio_mixer::control_data::TypeStereoVolume)
                      {
-                        sp(::multimedia::audio_mixer_mmsystem::source) source = m_pmixersource;
-                        sp(::multimedia::audio_mixer_mmsystem::device) device = source->get_device();
+                        sp(::multimedia::audio_mixer_audio_core::source) source = m_pmixersource;
+                        sp(::multimedia::audio_mixer_audio_core::device) device = source->get_device();
                         ::multimedia::audio_mixer::user::level_control * pslBalance;
                         ::multimedia::audio_mixer::user::level_control * pslVolume;
                         if(pData->get_type() == ::multimedia::audio_mixer::control_data::TypeStereoBalance)
@@ -814,8 +814,8 @@ namespace multimedia
                   if(wNotifyCode == BN_CLICKED)
                   {
 
-                     sp(::multimedia::audio_mixer_mmsystem::source) source = m_pmixersource;
-                     sp(::multimedia::audio_mixer_mmsystem::device) device = source->get_device();
+                     sp(::multimedia::audio_mixer_audio_core::source) source = m_pmixersource;
+                     sp(::multimedia::audio_mixer_audio_core::device) device = source->get_device();
 
                      m_mixercontroldetails.cChannels = (uint32_t)source->m_mixerline.cChannels;
                      if(MIXERCONTROL_CONTROLF_UNIFORM & m_mixercontrol.fdwControl)
@@ -898,7 +898,7 @@ namespace multimedia
       }
 
       
-   } // namespace audio_mixer_mmsystem
+   } // namespace audio_mixer_audio_core
 
 
 } // namespace multimedia

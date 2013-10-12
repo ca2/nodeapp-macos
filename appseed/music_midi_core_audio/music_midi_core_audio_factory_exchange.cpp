@@ -5,7 +5,7 @@ namespace music
 {
 
 
-   namespace midi_mmsystem
+   namespace midi_core_audio
    {
 
 
@@ -16,8 +16,8 @@ namespace music
          System.factory().cloneable_large < sequence               >  (System.type_info < ::music::midi::sequence                  > ());
          System.factory().cloneable_large < file              >  (System.type_info < ::music::midi::file                 > ());
          System.factory().cloneable_large < sequence_thread              >  (System.type_info < ::music::midi::sequence_thread                 > ());
-         System.factory().cloneable_large < ::music::midi_mmsystem::player::player              >  (System.type_info < ::music::midi::player::player                 > ());
-         System.factory().cloneable_large < ::music::midi_mmsystem::player:: player_interface              >  (System.type_info < ::music::midi::player::player_interface                 > ());
+         System.factory().cloneable_large < ::music::midi_core_audio::player::player              >  (System.type_info < ::music::midi::player::player                 > ());
+         System.factory().cloneable_large < ::music::midi_core_audio::player:: player_interface              >  (System.type_info < ::music::midi::player::player_interface                 > ());
 
       }
 
@@ -27,16 +27,17 @@ namespace music
       }
 
 
-   } // namespace midi_mmsystem
+   } // namespace midi_core_audio
 
 
 } // namespace music
 
 
+extern "C"
 void ca2_factory_exchange(sp(base_application) papp)
 {
 
-   ::music::midi_mmsystem::factory_exchange factoryexchange(papp);
+   ::music::midi_core_audio::factory_exchange factoryexchange(papp);
 
 }
 

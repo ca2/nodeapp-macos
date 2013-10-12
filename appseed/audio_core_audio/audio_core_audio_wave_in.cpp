@@ -5,17 +5,19 @@ namespace multimedia
 {
 
 
-   namespace audio_mmsystem
+   namespace audio_core_audio
    {
 
 
       wave_in::wave_in(sp(base_application) papp) :
          element(papp),
          ::thread(papp),
+         wave_base(papp),
+         toolbox(papp),
          ::multimedia::audio::wave_in(papp)
       {
+
          m_pencoder = NULL;
-         m_hwavein = NULL;
          m_estate = state_initial;
          m_bResetting = false;
 
@@ -31,7 +33,7 @@ namespace multimedia
          TRACE("wave_in::initialize_instance %X\n", get_os_int());
          //SetMainWnd(NULL);
          //ASSERT(GetMainWnd() == NULL);
-         set_thread_priority(::ca2::scheduling_priority_highest);
+         ::core::set_thread_priority(::core::scheduling_priority_highest);
          m_evInitialized.SetEvent();
          return true;
       }
@@ -46,31 +48,35 @@ namespace multimedia
       {
          SCAST_PTR(::message::base, pbase, pobj);
          //ASSERT(GetMainWnd() == NULL);
-         if(pbase->m_uiMessage == MM_WIM_OPEN ||
+/*         if(pbase->m_uiMessage == MM_WIM_OPEN ||
             pbase->m_uiMessage == MM_WIM_CLOSE ||
             pbase->m_uiMessage == MM_WIM_DATA)
          {
             translate_wave_in_message(pbase);
             if(pbase->m_bRet)
                return;
-         }
+         }*/
          return thread::pre_translate_message(pbase);
       }
 
       ::multimedia::result wave_in::wave_in_open(int32_t iBufferCount, int32_t iBufferSampleCount)
       {
-         if(m_hwavein != NULL && m_estate != state_initial)
+         if(m_Queue != NULL && m_estate != state_initial)
          {
             wave_in_initialize_encoder();
             return MMSYSERR_NOERROR;
          }
+         
+         
+         return MMSYSERR_ERROR;
 
          single_lock sLock(&m_mutex, TRUE);
-         ::multimedia::result mmr;
-         ASSERT(m_hwavein == NULL);
+         OSStatus status;
+         ASSERT(m_Queue == NULL);
          ASSERT(m_estate == state_initial);
 
-         m_pwaveformat->wFormatTag = WAVE_FORMAT_PCM;
+//         m_pwaveformat->wFormatTag = WAVE_FORMAT_PCM;
+         m_pwaveformat->wFormatTag = 0;
          m_pwaveformat->nChannels = 2;
          m_pwaveformat->nSamplesPerSec = 44100;
          m_pwaveformat->wBitsPerSample = sizeof(::multimedia::audio::WAVEBUFFERDATA) * 8;
@@ -80,38 +86,44 @@ namespace multimedia
          sp(::multimedia::audio::wave) audiowave = Application.audiowave();
          m_iBuffer = 0;
 
-         if(MMSYSERR_NOERROR == (mmr = waveInOpen(
-            &m_hwavein,
-            audiowave->m_uiWaveInDevice,
-            wave_format(),
-            get_os_int(),
-            (uint32_t) 0,
-            CALLBACK_THREAD)))
+         if(MMSYSERR_NOERROR == (status =AudioQueueNewInput(                              // 1
+                                                          &m_DataFormat,                          // 2
+                                                          &HandleInputBuffer,                            // 3
+                                                          this,                                      // 4
+                                                          NULL,                                         // 5
+                                                          kCFRunLoopCommonModes,                        // 6
+                                                          0,                                            // 7
+                                                          &m_Queue                                // 8
+                                                          )))
             goto Opened;
          m_pwaveformat->nSamplesPerSec = 22050;
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
-         if(MMSYSERR_NOERROR == (mmr = waveInOpen(
-            &m_hwavein,
-            WAVE_MAPPER,
-            wave_format(),
-            (uint32_t) get_os_int(),
-            (uint32_t) 0,
-            CALLBACK_THREAD)))
+         if(MMSYSERR_NOERROR == (status =AudioQueueNewInput(                              // 1
+                                                            &m_DataFormat,                          // 2
+                                                            &HandleInputBuffer,                            // 3
+                                                            this,                                      // 4
+                                                            NULL,                                         // 5
+                                                            kCFRunLoopCommonModes,                        // 6
+                                                            0,                                            // 7
+                                                            &m_Queue                                // 8
+                                                            )))
             goto Opened;
          m_pwaveformat->nSamplesPerSec = 11025;
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
-         if(MMSYSERR_NOERROR == (mmr = waveInOpen(
-            &m_hwavein,
-            WAVE_MAPPER,
-            wave_format(),
-            (uint32_t) get_os_int(),
-            (uint32_t) 0,
-            CALLBACK_THREAD)))
+         if(MMSYSERR_NOERROR == (status =AudioQueueNewInput(                              // 1
+                                                            &m_DataFormat,                          // 2
+                                                            &HandleInputBuffer,                            // 3
+                                                            this,                                      // 4
+                                                            NULL,                                         // 5
+                                                            kCFRunLoopCommonModes,                        // 6
+                                                            0,                                            // 7
+                                                            &m_Queue                                // 8
+                                                            )))
             goto Opened;
 
-         if(mmr !=MMSYSERR_NOERROR)
+         if(status != 0)
          {
-            if(mmr == MMSYSERR_ALLOCATED)
+/*            if(mmr == MMSYSERR_ALLOCATED)
             {
                TRACE("Specified resource is already allocated.");
             }
@@ -121,10 +133,10 @@ namespace multimedia
             }
             else if(mmr == WAVERR_BADFORMAT)
             {
-               TRACE("Attempted to open with an unsupported waveform-audio_mmsystem format.");
-            }
+               TRACE("Attempted to open with an unsupported waveform-audio_core_audio format.");
+            }*/
             TRACE("ERROR OPENING WAVE INPUT DEVICE");
-            return mmr;
+            return MMSYSERR_ERROR;
          }
 
 Opened:
@@ -160,7 +172,8 @@ Opened:
             uiInterestSize = 600;
             uiSkippedSamplesCount = 1;
          }
-         else if(m_pwaveformat->nSamplesPerSec == 11025)
+//         else if(m_pwaveformat->nSamplesPerSec == 11025)
+         else
          {
             uiBufferSizeLog2 = 9;
             uiBufferSize = 2 * 1 << uiBufferSizeLog2;
@@ -176,14 +189,14 @@ Opened:
             uiInterestSize,
             uiSkippedSamplesCount);
          
-         int32_t i, iSize;
+/*         int32_t i, iSize;
          
          iSize = (int32_t) wave_in_get_buffer()->GetBufferCount();
 
          for(i = 0; i < iSize; i++)
          {
             
-            if(MMSYSERR_NOERROR != (mmr =  waveInPrepareHeader(m_hwavein, create_new_WAVEHDR(wave_in_get_buffer(), i), sizeof(WAVEHDR))))
+            if(MMSYSERR_NOERROR != (mmr =  waveInPrepareHeader(m_Queue, create_new_WAVEHDR(wave_in_get_buffer(), i), sizeof(WAVEHDR))))
             {
                TRACE("ERROR OPENING Preparing INPUT DEVICE buffer");
                return mmr;
@@ -191,7 +204,7 @@ Opened:
 
             wave_in_add_buffer(i);
 
-         }
+         }*/
 
          if(m_pencoder != NULL && !wave_in_initialize_encoder())
          {
@@ -222,15 +235,18 @@ Opened:
             return MMSYSERR_NOERROR;
 
          mmr = wave_in_reset();
+         
+         
+         free_buffers();
 
-         int32_t i, iSize;
+/*         int32_t i, iSize;
 
          iSize = (int32_t) wave_in_get_buffer()->GetBufferCount();
 
          for(i = 0; i < iSize; i++)
          {
 
-            if(MMSYSERR_NOERROR != (mmr = waveInUnprepareHeader(m_hwavein, wave_hdr(i), sizeof(WAVEHDR))))
+            if(MMSYSERR_NOERROR != (mmr = waveInUnprepareHeader(m_Queue, wave_hdr(i), sizeof(WAVEHDR))))
             {
                TRACE("ERROR OPENING Unpreparing INPUT DEVICE buffer");
                //return mmr;
@@ -238,11 +254,11 @@ Opened:
 
             delete wave_hdr(i);
 
-         }
+         }*/
 
-         mmr = waveInClose(m_hwavein);
+         mmr = AudioQueueDispose(m_Queue, 1);
 
-         m_hwavein = NULL;
+         m_Queue = NULL;
 
          m_estate = state_initial;
 
@@ -259,12 +275,11 @@ Opened:
          if(m_estate != state_opened &&
             m_estate != state_stopped)
             return MMSYSERR_NOERROR;
-         ::multimedia::result mmr;
-         if(MMSYSERR_NOERROR != (mmr = waveInStart(
-            m_hwavein)))
+         OSStatus status;
+         if(0 != (status = AudioQueueStart(m_Queue, NULL)))
          {
             TRACE("ERROR starting INPUT DEVICE ");
-            return mmr;
+            return MMSYSERR_ERROR;
          }
          m_estate = state_recording;
          return MMSYSERR_NOERROR;
@@ -279,13 +294,13 @@ Opened:
          if(m_estate != state_recording)
             return MMSYSERR_ERROR;
 
-         ::multimedia::result mmr;
+         OSStatus status;
 
          m_estate = state_stopping;
 
          try
          {
-            if(MMSYSERR_NOERROR != (mmr = waveInStop(m_hwavein)))
+            if(0 != (status = AudioQueueStop(m_Queue, 1)))
             {
                TRACE("wave_in::wave_in_stop : ERROR OPENING stopping INPUT DEVICE ");
             }
@@ -302,7 +317,7 @@ Opened:
 
       }
 
-
+/*
       void CALLBACK wave_in::wave_in_proc(HWAVEIN hwi, UINT uMsg, DWORD dwInstance, DWORD dwParam1, DWORD dwParam2)
       {
 
@@ -313,7 +328,7 @@ Opened:
          if(uMsg == WIM_DATA)
          {
             ASSERT(FALSE);
-            /*      uint32_t msSampleTime = timeGetTime();
+                 uint32_t msSampleTime = timeGetTime();
             thread * pthread = (thread *) dwInstance;
             ASSERT(pthread != NULL);
             LPWAVEHDR lpWaveHdr = (LPWAVEHDR) dwParam1;
@@ -328,15 +343,15 @@ Opened:
             (LPARAM) lpxfwm);
             //      i++;
             //      if( i > 2)
-            //         i = 0;*/
-         }
-      }
+            //         i = 0;
+//         }
+  //    }*/
 
       ::multimedia::result wave_in::wave_in_reset()
       {
          single_lock sLock(&m_mutex, TRUE);
          m_bResetting = true;
-         if(m_hwavein == NULL)
+         if(m_Queue == NULL)
          {
             return MMSYSERR_ERROR;
          }
@@ -352,8 +367,7 @@ Opened:
          }
          try
          {
-            if(MMSYSERR_NOERROR != (mmr = waveInReset(
-               m_hwavein)))
+            if(MMSYSERR_NOERROR != (mmr = AudioQueueReset(m_Queue)))
             {
                TRACE("wave_in::Reset error resetting input device");
                return mmr;
@@ -372,69 +386,20 @@ Opened:
       }
 
 
-      void wave_in::translate_wave_in_message(signal_details * pobj)
-      {
-
-         SCAST_PTR(::message::base, pbase, pobj);
-
-         ASSERT(
-            pbase->m_uiMessage == MM_WIM_OPEN ||
-            pbase->m_uiMessage == MM_WIM_CLOSE ||
-            pbase->m_uiMessage == MM_WIM_DATA);
-
-         if(pbase->m_uiMessage == MM_WIM_DATA)
-         {
-            
-            m_iBuffer--;
-            
-            uint32_t msSampleTime = timeGetTime();
-            
-            LPWAVEHDR lpwavehdr = (LPWAVEHDR) pbase->m_lparam.m_lparam;
-
-            wave_in_get_buffer()->get_buffer((int32_t) lpwavehdr->dwUser)->OnMultimediaDone();
-
-            m_listenerset.wave_in_data_proc(this, msSampleTime, lpwavehdr->dwUser);
-
-            if(m_pencoder != NULL)
-            {
-               m_pencoder->EncoderWriteBuffer(lpwavehdr->lpData, lpwavehdr->dwBytesRecorded);
-            }
-
-            if(!wave_in_is_resetting() && wave_in_is_recording())
-            {
-               wave_in_add_buffer((int32_t) lpwavehdr->dwUser);
-            }
-
-         }
-         pbase->m_bRet = true;
-      }
-
 
       ::multimedia::result wave_in::wave_in_add_buffer(int32_t iBuffer)
       {
          
-         return wave_in_add_buffer(wave_hdr(iBuffer));
+         AudioQueueBufferRef buf = audio_buffer(iBuffer);
+         
+         AudioQueueEnqueueBuffer(m_Queue, buf, 0, NULL);
+         
+         return MMSYSERR_NOERROR;
 
       }
 
 
-      ::multimedia::result wave_in::wave_in_add_buffer(LPWAVEHDR lpwavehdr)
-      {
 
-         ::multimedia::result mmr;
-
-         if(MMSYSERR_NOERROR != (mmr = waveInAddBuffer(m_hwavein, lpwavehdr, sizeof(WAVEHDR))))
-         {
-
-            TRACE("ERROR OPENING Adding INPUT DEVICE buffer");
-
-         }
-
-         m_iBuffer++;
-
-         return mmr;
-
-      }
 
 
       bool wave_in::wave_in_initialize_encoder()
@@ -450,37 +415,82 @@ Opened:
 
       }
 
-      WAVEFORMATEX * wave_in::wave_format()
-      {
-
-         translate(m_waveformatex, m_pwaveformat);
-
-         return &m_waveformatex;
-
-      }
-
-      HWAVEIN wave_in::wave_in_get_safe_HWAVEIN()
+     
+      AudioQueueRef wave_in::wave_in_get_safe_AudioQueueRef()
       {
          
          if(this == NULL)
             return NULL;
 
-         return m_hwavein;
+         return m_Queue;
 
       }
 
+      
       void * wave_in::get_os_data()
       {
-         return m_hwavein;
+         
+         return m_Queue;
+         
       }
 
-      LPWAVEHDR wave_in::wave_hdr(int iBuffer)
+      
+      void wave_in::HandleInputBuffer(void                                 *aqData,
+                                     AudioQueueRef                        inAQ,
+                                     AudioQueueBufferRef                  inBuffer,
+                                     const AudioTimeStamp                 *inStartTime,
+                                     UInt32                               inNumPackets,
+                                     const AudioStreamPacketDescription   *inPacketDesc)
       {
-         return ::multimedia::audio_mmsystem::get_os_data(wave_in_get_buffer(), iBuffer);
+         
+         wave_in * pwavein = (wave_in *) aqData;               // 1
+         
+         pwavein->HandleInputBuffer(inAQ, inBuffer, inStartTime, inNumPackets, inPacketDesc);
+         
       }
+      
+      
+      void wave_in::HandleInputBuffer( AudioQueueRef                        inAQ,
+                                       AudioQueueBufferRef                  inBuffer,
+                                       const AudioTimeStamp                 *inStartTime,
+                                       UInt32                               inNumPackets,
+                                       const AudioStreamPacketDescription   *inPacketDesc)
+      {
 
+         if(inNumPackets == 0 && m_DataFormat.mBytesPerPacket != 0)
+            inNumPackets = inBuffer->mAudioDataByteSize / m_DataFormat.mBytesPerPacket;
+         
+         m_iBuffer--;
+            
+         uint32_t msSampleTime = get_tick_count();
+         
+         int iBuffer = (int) m_Buffers.find_first(inBuffer);
+            
+         m_listenerset.wave_in_data_proc(this, msSampleTime, iBuffer);
+            
+         if(m_pencoder != NULL)
+         {
+         
+            m_pencoder->EncoderWriteBuffer(inBuffer->mAudioData, inBuffer->mAudioDataByteSize);
+            
+         }
+            
+         if(!wave_in_is_resetting() && wave_in_is_recording())
+         {
+         
+            wave_in_add_buffer(iBuffer);
+         
+         }
+         
+         
+         if (m_bIsRunning == 0)                                         // 5
+            return;
+         
+         
+      }
+      
 
-   } // namespace audio_mmsystem
+   } // namespace audio_core_audio
 
 
 } // namespace multimedia

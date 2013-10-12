@@ -5,7 +5,7 @@ namespace multimedia
 {
 
 
-   namespace audio_mixer_mmsystem
+   namespace audio_mixer_audio_core
    {
 
 
@@ -305,7 +305,7 @@ namespace multimedia
       void audio_mixer::OnMixerLineChange(HMIXER hMixer, uint32_t dwLineID)
       {
 
-         sp(::multimedia::audio_mixer_mmsystem::device) device = m_pdevice;
+         sp(::multimedia::audio_mixer_audio_core::device) device = m_pdevice;
 
          if(hMixer == device->m_hMixer)
          {
@@ -326,7 +326,7 @@ namespace multimedia
       void audio_mixer::OnMixerControlChange(HMIXER hMixer, uint32_t dwControlID)
       {
 
-         sp(::multimedia::audio_mixer_mmsystem::device) device = m_pdevice;
+         sp(::multimedia::audio_mixer_audio_core::device) device = m_pdevice;
 
          if(hMixer == device->m_hMixer)
          {
@@ -346,7 +346,7 @@ namespace multimedia
       bool audio_mixer::OnCommand(WPARAM wparam, LPARAM lparam)
       {
 
-         sp(::multimedia::audio_mixer_mmsystem::device) device = m_pdevice;
+         sp(::multimedia::audio_mixer_audio_core::device) device = m_pdevice;
 
          if(device != NULL && device->OnCommand(wparam, lparam))
             return TRUE;
@@ -372,7 +372,7 @@ namespace multimedia
       }
 
 
-   } // namespace audio_mixer_mmsystem
+   } // namespace audio_mixer_audio_core
 
 
 } // namespace multimedia

@@ -115,7 +115,7 @@
 		071B28A6173FD8E600610E30 /* mac_printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_printer.h; sourceTree = "<group>"; };
 		071B28A7173FD8E600610E30 /* mac_shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_shell.h; sourceTree = "<group>"; };
 		07401ECC164632BB00F5D0F3 /* oswindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oswindow.h; sourceTree = "<group>"; };
-		9A16FCAA1770D70600759432 /* libca2ca.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2ca.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2ca.dylib"; sourceTree = "<group>"; };
+		07926B551809949300968303 /* win_common_controls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = win_common_controls.h; sourceTree = "<group>"; };
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9A1B496816A4A32500875A94 /* mac1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac1.h; sourceTree = "<group>"; };
@@ -138,7 +138,6 @@
 		9A8CCACD17E9E47900F87A02 /* libbasezlib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasezlib.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasezlib.dylib"; sourceTree = "<group>"; };
 		9A8CCACE17E9E47900F87A02 /* libboot.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboot.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libboot.dylib"; sourceTree = "<group>"; };
 		9A8CCACF17E9E47900F87A02 /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libcore.dylib"; sourceTree = "<group>"; };
-		9A98A6261771D78C000AE16E /* lib_ca2c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2c.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2c.dylib"; sourceTree = "<group>"; };
 		9AA1B3EA17634E520019E812 /* RoundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundWindow.h; sourceTree = "<group>"; };
 		9AA1B3EB17634E520019E812 /* RoundWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RoundWindow.mm; sourceTree = "<group>"; };
 		9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundWindowFrameView.h; sourceTree = "<group>"; };
@@ -148,8 +147,6 @@
 		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AC444051770AA7C00DC2349 /* _c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _c.h; sourceTree = "<group>"; };
 		9AC444071770AAB100DC2349 /* _ca.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ca.h; sourceTree = "<group>"; };
-		9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = lib_ca2freeimage.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/lib_ca2freeimage.dylib"; sourceTree = "<group>"; };
-		9ADEA4751766691300D4CF1F /* libca2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2.dylib"; sourceTree = "<group>"; };
 		9AE725FE17E83C65003E47F9 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libca2os.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libca2os.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CFD87D154FB715007447E2 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
@@ -247,6 +244,8 @@
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
+				9AA1B449176361950019E812 /* Cocoa.framework */,
 				9A8CCAC817E9E47900F87A02 /* libbase.dylib */,
 				9A8CCAC917E9E47900F87A02 /* libbasefreeimage.dylib */,
 				9A8CCACA17E9E47900F87A02 /* libbasefreetype.dylib */,
@@ -255,12 +254,6 @@
 				9A8CCACD17E9E47900F87A02 /* libbasezlib.dylib */,
 				9A8CCACE17E9E47900F87A02 /* libboot.dylib */,
 				9A8CCACF17E9E47900F87A02 /* libcore.dylib */,
-				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
-				9AA1B449176361950019E812 /* Cocoa.framework */,
-				9A98A6261771D78C000AE16E /* lib_ca2c.dylib */,
-				9ACA7CE716F7D3E600AA1CEE /* lib_ca2freeimage.dylib */,
-				9A16FCAA1770D70600759432 /* libca2ca.dylib */,
-				9ADEA4751766691300D4CF1F /* libca2.dylib */,
 				A1CFD87C154FB715007447E2 /* operational_system */,
 				A1CFD896154FB715007447E2 /* os */,
 				A1CFD779154F5EAA007447E2 /* Products */,
@@ -322,6 +315,7 @@
 				A1CFD88B154FB715007447E2 /* win_nls.h */,
 				A1CFD88C154FB715007447E2 /* win_nt.h */,
 				A1CFD88D154FB715007447E2 /* win_user.h */,
+				07926B551809949300968303 /* win_common_controls.h */,
 			);
 			path = win;
 			sourceTree = "<group>";

@@ -9,3 +9,12 @@
 
 
 #include <math.h>
+
+
+#ifdef __cplusplus
+
+
+#include <new>
+
+
+#endif
