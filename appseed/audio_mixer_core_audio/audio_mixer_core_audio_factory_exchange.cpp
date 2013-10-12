@@ -5,7 +5,7 @@ namespace multimedia
 {
 
 
-   namespace audio_mixer_mmsystem
+   namespace audio_mixer_audio_core
    {
 
 
@@ -37,15 +37,16 @@ namespace multimedia
       }
 
 
-   } // namespace audio_mmsystem
+   } // namespace audio_core_audio
 
 
 } // namespace multimedia
 
 
+extern "C"
 void ca2_factory_exchange(sp(base_application) papp)
 {
-   ::multimedia::audio_mixer_mmsystem::factory_exchange factoryexchange(papp);
+   ::multimedia::audio_mixer_audio_core::factory_exchange factoryexchange(papp);
 }
 
 

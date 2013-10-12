@@ -219,3 +219,7 @@ MY_EXTERN_C DWORD SetLastError(DWORD dw);
 
 
 #include "ntstatus.h"
+
+
+#include "win_common_controls.h"
+

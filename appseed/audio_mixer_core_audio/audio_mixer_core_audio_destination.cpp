@@ -5,13 +5,13 @@ namespace multimedia
 {
 
 
-   namespace audio_mixer_mmsystem
+   namespace audio_mixer_audio_core
    {
 
       destination::destination(sp(base_application) papp) :
          element(papp),
          ::multimedia::audio_mixer::source(papp),
-         ::multimedia::audio_mixer_mmsystem::source(papp),
+         ::multimedia::audio_mixer_audio_core::source(papp),
          ::multimedia::audio_mixer::destination(papp)
       {
 
@@ -24,7 +24,7 @@ namespace multimedia
       destination::destination(const destination & destination) :
          ::ca2::ca2(((class destination &) destination).get_app()),
          ::multimedia::audio_mixer::source(((class destination &)destination).get_app()),
-         ::multimedia::audio_mixer_mmsystem::source(((class destination &)destination).get_app()),
+         ::multimedia::audio_mixer_audio_core::source(((class destination &)destination).get_app()),
          ::multimedia::audio_mixer::destination(((class destination &)destination).get_app())
       {
 
@@ -51,7 +51,7 @@ namespace multimedia
       ::multimedia::result destination::initialize_source_info()
       {
 
-         sp(::multimedia::audio_mixer_mmsystem::source)     lpSource;
+         sp(::multimedia::audio_mixer_audio_core::source)     lpSource;
 
          int32_t iConnections = (int32_t) m_mixerline.cConnections;
 
@@ -144,7 +144,7 @@ namespace multimedia
          return m_mixerline.dwLineID;
       }
 
-   } // namespace audio_mixer_mmsystem
+   } // namespace audio_mixer_audio_core
 
 
 } // namespace multimedia

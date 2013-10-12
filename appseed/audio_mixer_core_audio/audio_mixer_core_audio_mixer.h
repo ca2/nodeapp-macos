@@ -5,7 +5,7 @@ namespace multimedia
 {
 
 
-   namespace audio_mixer_mmsystem
+   namespace audio_mixer_audio_core
    {
 
 
@@ -15,7 +15,7 @@ namespace multimedia
       public:
 
 
-         ::multimedia::audio_mixer_mmsystem::window            m_window;
+         ::multimedia::audio_mixer_audio_core::window            m_window;
 
 
          audio_mixer(sp(base_application) papp);
@@ -43,7 +43,7 @@ namespace multimedia
       };
 
 
-   } // namespace audio_mixer_mmsystem
+   } // namespace audio_mixer_audio_core
 
 
 } // namespace multimedia

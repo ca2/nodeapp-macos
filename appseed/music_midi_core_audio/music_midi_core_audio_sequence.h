@@ -12,7 +12,7 @@ namespace music
 {
 
    
-   namespace midi_mmsystem
+   namespace midi_core_audio
    {
       
 
@@ -210,12 +210,12 @@ namespace music
          imedia::position GetQuarterNote();
 
 
-         inline sp(::music::midi_mmsystem::file) file()
+         inline sp(::music::midi_core_audio::file) file()
          {
             return get_file();
          }
 
-         inline sp(::music::midi_mmsystem::sequence_thread) thread()
+         inline sp(::music::midi_core_audio::sequence_thread) thread()
          {
             return m_pthread;
          }
@@ -227,7 +227,7 @@ namespace music
 
 
 
-   } // namespace midi_mmsystem
+   } // namespace midi_core_audio
 
 
 } // namespace music
