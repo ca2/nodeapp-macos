@@ -26,6 +26,9 @@
       location = "group:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "absolute:/ca2/app-veriwell/appseed/mplite/../../../nodeapp/appseed/audio_core_audio/audio_core_audio.xcodeproj">
    </FileRef>
    <FileRef
@@ -39,6 +42,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../app/thirdparty/appseed/freeimage/basefreeimage.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/libmpg123/basempg123.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/thirdparty/appseed/mysql/basemysql.xcodeproj">

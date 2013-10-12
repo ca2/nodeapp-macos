@@ -116,6 +116,7 @@
 		071B28A7173FD8E600610E30 /* mac_shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_shell.h; sourceTree = "<group>"; };
 		07401ECC164632BB00F5D0F3 /* oswindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oswindow.h; sourceTree = "<group>"; };
 		07926B551809949300968303 /* win_common_controls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = win_common_controls.h; sourceTree = "<group>"; };
+		07BB57871809BC4000124367 /* mpg123_asm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mpg123_asm.h; path = ../thirdparty/include/mpg123_asm.h; sourceTree = "<group>"; };
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9A1B496816A4A32500875A94 /* mac1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac1.h; sourceTree = "<group>"; };
@@ -241,6 +242,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07BB57851809BBEE00124367 /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				07BB57861809BC1100124367 /* include */,
+			);
+			name = thirdparty;
+			path = ../operational_system;
+			sourceTree = "<group>";
+		};
+		07BB57861809BC1100124367 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				07BB57871809BC4000124367 /* mpg123_asm.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +274,7 @@
 				9A8CCACF17E9E47900F87A02 /* libcore.dylib */,
 				A1CFD87C154FB715007447E2 /* operational_system */,
 				A1CFD896154FB715007447E2 /* os */,
+				07BB57851809BBEE00124367 /* thirdparty */,
 				A1CFD779154F5EAA007447E2 /* Products */,
 			);
 			sourceTree = "<group>";

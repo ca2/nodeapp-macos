@@ -393,9 +393,9 @@ namespace mac
       //      DWORD dwTimeIn = get_tick_count();
       
 //      static bool bTest = false;
-      semaphore * psemaphore = TwfGetBufferSemaphore();
-      single_lock slSemaphoreBuffer(psemaphore, FALSE);
-      if(!slSemaphoreBuffer.lock(duration::zero()))
+    //  semaphore * psemaphore = TwfGetBufferSemaphore();
+  //    single_lock slSemaphoreBuffer(psemaphore, FALSE);
+//      if(!slSemaphoreBuffer.lock(duration::zero()))
       {
          //xxx      AddUpdateRect(rectClip, true);
          //      return false;
