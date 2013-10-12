@@ -1395,6 +1395,13 @@ namespace draw2d_quartz2d
             pgraphicsSrc->m_pdib->unmap();
         
          }
+         
+         if(pgraphicsSrc->get_os_data() == NULL)
+         {
+            
+            return false;
+            
+         }
 
          CGImageRef image = CGBitmapContextCreateImage((CGContextRef) pgraphicsSrc->get_os_data());
          
@@ -1505,6 +1512,10 @@ namespace draw2d_quartz2d
            
            if(pgraphicsSrc == NULL)
                return false;
+          
+           if(pgraphicsSrc->get_os_data() == NULL)
+              return false;
+              
            
            CGImageRef image = CGBitmapContextCreateImage((CGContextRef) pgraphicsSrc->get_os_data());
            
@@ -1981,7 +1992,7 @@ namespace draw2d_quartz2d
       lpMetrics->tmInternalLeading     = leading;
       lpMetrics->tmExternalLeading     = 0;
       
-      lpMetrics->tmAveCharWidth        = (LONG) (width * m_spfont->m_dFontWidth / (double) str.get_length());
+      lpMetrics->tmAveCharWidth        = (LONG) (width * (m_spfont.is_null() ? 1.0 : m_spfont->m_dFontWidth) / (double) str.get_length());
 
       return true;
       
