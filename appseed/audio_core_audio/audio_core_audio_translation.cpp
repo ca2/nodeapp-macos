@@ -11,18 +11,30 @@ namespace multimedia
       
       void translate(AudioStreamBasicDescription & waveformatex, ::multimedia::audio::wave_format * pwaveformat)
       {
+         
+         ZERO(waveformatex);
+         waveformatex.mReserved         = 0;
+         FillOutASBDForLPCM (
+                                         waveformatex,
+                                         (Float64) pwaveformat->nSamplesPerSec,
+                                         pwaveformat->nChannels,
+                                         8 * sizeof(::multimedia::audio::WAVEBUFFERDATA),
+                                         8 * sizeof(::multimedia::audio::WAVEBUFFERDATA),
+                                         false,
+                             false);
 
 
-         waveformatex.mSampleRate       = pwaveformat->nSamplesPerSec;
+/*         waveformatex.mSampleRate       = (Float64) ;
          waveformatex.mFormatID         = kAudioFormatLinearPCM;
-         waveformatex.mFormatFlags      = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;;
-         waveformatex.mChannelsPerFrame = pwaveformat->nChannels;
+         waveformatex.mFormatFlags      = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked | kAudioFormatFlagsNativeEndian;
+         waveformatex.mChannelsPerFrame = ;
          waveformatex.mBytesPerFrame    = waveformatex.mChannelsPerFrame * sizeof(::multimedia::audio::WAVEBUFFERDATA);
          waveformatex.mFramesPerPacket  = 1;
          waveformatex.mBytesPerPacket   = waveformatex.mBytesPerFrame * waveformatex.mFramesPerPacket;
          waveformatex.mBitsPerChannel   = 8 * sizeof(::multimedia::audio::WAVEBUFFERDATA);
          waveformatex.mReserved         = 0;
-         
+  
+ */
       }
 
       /*

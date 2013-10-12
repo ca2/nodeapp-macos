@@ -1016,11 +1016,18 @@ namespace mac
       
       // acquire and dispatch messages until a WM_QUIT message is received.
       MESSAGE msg;
+      
+
+      
       while(m_bRun)
       {
+         
+         
          // phase1: check to see if we can do idle work
          while (bIdle && !::PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE))
          {
+
+            
             // call on_idle while in bIdle state
             if (!on_idle(lIdleCount++))
                bIdle = FALSE; // assume "no idle" state
@@ -1061,6 +1068,7 @@ namespace mac
          // phase2: pump messages while available
          do
          {
+            
             
             // pump message, but quit on WM_QUIT
             if (!pump_message())

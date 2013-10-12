@@ -35,6 +35,17 @@ namespace multimedia
          //ASSERT(GetMainWnd() == NULL);
          ::core::set_thread_priority(::core::scheduling_priority_highest);
          m_evInitialized.SetEvent();
+         
+         
+         if(!::multimedia::audio::wave_in::initialize_instance())
+            return false;
+         
+         
+         
+         if(!toolbox::initialize_instance())
+            return false;
+
+         
          return true;
       }
 

@@ -46,10 +46,12 @@ namespace multimedia
          virtual int32_t exit_instance();
 
 
-         static void AudioQueueBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer);
+         static void s_AudioQueueBufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer);
          
          void AudioQueueBufferCallback(AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer);
        
+         int run();
+         
 
       };
 

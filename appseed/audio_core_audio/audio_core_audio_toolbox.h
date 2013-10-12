@@ -26,7 +26,9 @@ namespace multimedia
          AudioQueueRef                                   m_Queue;
          comparable_raw_array < AudioQueueBufferRef >    m_Buffers;
          SInt64                                          m_CurrentPacket;
-         
+         CFRunLoopRef                                    m_runloop;
+         CFStringRef                                     m_runmode;
+   
          
          
          toolbox(sp(base_application) papp);
@@ -35,6 +37,9 @@ namespace multimedia
 
          virtual void * wave_allocate_buffer_data(::primitive::memory_size len);
          virtual void wave_free_buffer_data(void * pdata);
+         
+         
+         virtual bool initialize_instance();
          
          
          virtual void free_buffers();

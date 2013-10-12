@@ -1,5 +1,7 @@
 #include "framework.h"
 
+extern
+void InstallUncaughtExceptionHandler();
 
 namespace multimedia
 {
@@ -22,6 +24,7 @@ namespace multimedia
          m_mmr                = MMSYSERR_NOERROR;
          m_peffect            = NULL;
          m_dwLostSampleCount  = 0;
+         m_bDone              = false;
       }
 
       wave_out::~wave_out()
@@ -47,6 +50,9 @@ namespace multimedia
          if(!::multimedia::audio::wave_out::initialize_instance())
             return false;
 
+         if(!toolbox::initialize_instance())
+            return false;
+         
          return true;
 
       }
@@ -91,9 +97,9 @@ namespace multimedia
          translate(m_DataFormat, m_pwaveformat);
          if(0 == (status = AudioQueueNewOutput(                              // 1
                                                            &m_DataFormat,                          // 2
-                                                           &AudioQueueBufferCallback,                            // 3
+                                                           &s_AudioQueueBufferCallback,                            // 3
                                                            this,                                      // 4
-                                                           NULL,                                         // 5
+                                                           m_runloop,                                         // 5
                                                            kCFRunLoopCommonModes,                        // 6
                                                            0,                                            // 7
                                                            &m_Queue                                // 8
@@ -103,9 +109,9 @@ namespace multimedia
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
          if(0 == (status = AudioQueueNewOutput(                              // 1
                                                &m_DataFormat,                          // 2
-                                               &AudioQueueBufferCallback,                            // 3
+                                               &s_AudioQueueBufferCallback,                            // 3
                                                this,                                      // 4
-                                               NULL,                                         // 5
+                                               m_runloop,                                         // 5
                                                kCFRunLoopCommonModes,                        // 6
                                                0,                                            // 7
                                                &m_Queue                                // 8
@@ -115,9 +121,9 @@ namespace multimedia
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
          if(0 == (status = AudioQueueNewOutput(                              // 1
                                                &m_DataFormat,                          // 2
-                                               &AudioQueueBufferCallback,                            // 3
+                                               &s_AudioQueueBufferCallback,                            // 3
                                                this,                                      // 4
-                                               NULL,                                         // 5
+                                               m_runloop,                                         // 5
                                                kCFRunLoopCommonModes,                        // 6
                                                0,                                            // 7
                                                &m_Queue                                // 8
@@ -220,51 +226,38 @@ Opened:
 
       ::multimedia::result wave_out::wave_out_open_ex(thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount, uint32_t uiSamplesPerSec, uint32_t uiChannelCount, uint32_t uiBitsPerSample)
       {
+
          single_lock sLock(&m_mutex, TRUE);
-         if(m_Queue != NULL &&
-            m_estate != state_initial)
+         
+         if(m_Queue != NULL && m_estate != state_initial)
             return MMSYSERR_NOERROR;
+
          m_pthreadCallback = pthreadCallback;
-         //::multimedia::result mmr;
+         
          ASSERT(m_Queue == NULL);
+         
          ASSERT(m_estate == state_initial);
          
          OSStatus status = 0;
 
-//         m_pwaveformat->wFormatTag        = WAVE_FORMAT_PCM;
-
+         
          m_pwaveformat->wFormatTag        = 0;
-m_pwaveformat->nChannels         = (WORD) uiChannelCount;
+         m_pwaveformat->nChannels         = (WORD) uiChannelCount;
          m_pwaveformat->nSamplesPerSec    = uiSamplesPerSec;
          m_pwaveformat->wBitsPerSample    = (WORD) uiBitsPerSample;
          m_pwaveformat->nBlockAlign       = m_pwaveformat->wBitsPerSample * m_pwaveformat->nChannels / 8;
          m_pwaveformat->nAvgBytesPerSec   = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
-//         m_pwaveformat->cbSize            = sizeof(m_waveformatex);
          m_pwaveformat->cbSize            = 0;
+         
 
-         sp(::multimedia::audio::wave) audiowave = Application.audiowave();
-
-         try
-         {
-            if(0 == (status = AudioQueueNewOutput(                              // 1
-                                                  &m_DataFormat,                          // 2
-                                                  &AudioQueueBufferCallback,                            // 3
-                                                  this,                                      // 4
-                                                  NULL,                                         // 5
-                                                  kCFRunLoopCommonModes,                        // 6
-                                                  0,                                            // 7
-                                                  &m_Queue                                // 8
-                                                  )))
+         InstallUncaughtExceptionHandler();
+         
+         ZERO(m_DataFormat);
+         
+         translate(m_DataFormat, m_pwaveformat);
+         
+         if(0 == (status = AudioQueueNewOutput(&m_DataFormat, &s_AudioQueueBufferCallback, this, m_runloop, m_runmode, 0, &m_Queue)))
                goto Opened;
-         }
-         catch(const ::exception::exception &)
-         {
-            return MMSYSERR_ERROR;
-         }
-         catch(...)
-         {
-            return MMSYSERR_ERROR;
-         }
 
          if(status != 0)
          {
@@ -460,6 +453,8 @@ Opened:
          }
 
          single_lock sLock(&m_mutex, TRUE);
+         
+         buf->mAudioDataByteSize = wave_out_get_buffer_size();
          
          status = AudioQueueEnqueueBuffer(m_Queue, buf, 0, NULL);
          
@@ -659,12 +654,24 @@ Opened:
       }
       
 
-      void wave_out::AudioQueueBufferCallback(void * inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer)
+      void wave_out::s_AudioQueueBufferCallback(void * inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer)
       {
          
          wave_out * pwaveout = (wave_out *) inUserData;
          
-         pwaveout->AudioQueueBufferCallback(inAQ, inCompleteAQBuffer);
+         if(pwaveout == NULL)
+            return;
+
+         try
+         {
+            
+            pwaveout->AudioQueueBufferCallback(inAQ, inCompleteAQBuffer);
+            
+         }
+         catch(...)
+         {
+         
+         }
          
       }
       
@@ -691,6 +698,23 @@ Opened:
          return m_Queue;
          
       }
+      
+      
+      int wave_out::run()
+      {
+
+         while(m_bRun)
+         {
+            CFRunLoopRun();
+            if(!pump_message())
+            {
+               break;
+            }
+         }
+
+         return 0;
+      }
+      
 
 
    } // namespace audio_core_audio

@@ -22,7 +22,12 @@ namespace multimedia
          wave_base(papp)
       {
 
+         ZERO(m_DataFormat);
+         
          m_Queue           = NULL;
+         m_runloop         = NULL;
+         m_CurrentPacket   = 0;
+         
          
       }
       
@@ -107,6 +112,16 @@ namespace multimedia
          return m_Buffers[iBuffer];
          
       }
+      
+       bool toolbox::initialize_instance()
+      {
+         
+         m_runloop = CFRunLoopGetCurrent();
+         m_runmode = CFRunLoopCopyCurrentMode(m_runloop);
+         
+         return true;
+      }
+
       
       
    } // namespace multimedia
