@@ -30,9 +30,9 @@ namespace multimedia
 
       }
 
-      ::multimedia::result source::GetLineControls()
+      ::multimedia::e_result source::GetLineControls()
       {
-         ::multimedia::result mmrc;
+         ::multimedia::e_result mmrc;
          m_bHasV001Controls = false;
          int32_t iControlCount = m_mixerline.cControls;
          if (0 == iControlCount)
@@ -147,7 +147,7 @@ namespace multimedia
 
       }
 
-      /*::multimedia::result source::GetControl(uint32_t dwControlType, uint32_t dwControlFlags,  ::multimedia::audio_mixer::control ** ppControl)
+      /*::multimedia::e_result source::GetControl(uint32_t dwControlType, uint32_t dwControlFlags,  ::multimedia::audio_mixer::control ** ppControl)
       {
       ::multimedia::audio_mixer::control_array & controla = m_mixercontrola;
       if(controla.get_size() <= 0)
@@ -216,7 +216,7 @@ namespace multimedia
       }
 
 
-      ::multimedia::result source::mixerGetLineInfo(uint32_t dwSource, uint32_t dwDestination, uint32_t fdwInfo)
+      ::multimedia::e_result source::mixerGetLineInfo(uint32_t dwSource, uint32_t dwDestination, uint32_t fdwInfo)
       {
          
          m_mixerline.cbStruct       = sizeof(MIXERLINE);
@@ -226,7 +226,7 @@ namespace multimedia
 
          sp(::multimedia::audio_mixer_audio_core::device) device = get_device();
 
-         ::multimedia::result mmrc = ::mixerGetLineInfo((HMIXEROBJ)device->m_hMixer, &m_mixerline, fdwInfo);
+         ::multimedia::e_result mmrc = ::mixerGetLineInfo((HMIXEROBJ)device->m_hMixer, &m_mixerline, fdwInfo);
 
          if (MMSYSERR_NOERROR != mmrc)
          {
@@ -240,12 +240,12 @@ namespace multimedia
 
       }
 
-      ::multimedia::result source::mixerGetLineInfo(uint32_t dwSource, ::multimedia::audio_mixer::destination * pdestination)
+      ::multimedia::e_result source::mixerGetLineInfo(uint32_t dwSource, ::multimedia::audio_mixer::destination * pdestination)
       {
          
          sp(::multimedia::audio_mixer_audio_core::destination) destination = pdestination;
 
-         ::multimedia::result mmrc = mixerGetLineInfo(dwSource, destination->m_mixerline.dwDestination, MIXER_GETLINEINFOF_SOURCE);
+         ::multimedia::e_result mmrc = mixerGetLineInfo(dwSource, destination->m_mixerline.dwDestination, MIXER_GETLINEINFOF_SOURCE);
          SetDestination(pdestination);
          return mmrc;
 

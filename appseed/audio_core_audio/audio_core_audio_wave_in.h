@@ -26,7 +26,7 @@ namespace multimedia
          virtual bool wave_in_initialize_encoder();
 
          
-         virtual ::multimedia::result wave_in_add_buffer(int32_t iBuffer);
+         virtual ::multimedia::e_result wave_in_add_buffer(int32_t iBuffer);
 
          
          virtual void * get_os_data();
@@ -35,11 +35,11 @@ namespace multimedia
          AudioQueueRef wave_in_get_safe_AudioQueueRef();
          
          
-         ::multimedia::result wave_in_open(int32_t iBufferCount, int32_t iBufferSampleCount);
-         ::multimedia::result wave_in_close();
-         ::multimedia::result wave_in_stop();
-         ::multimedia::result wave_in_start();
-         ::multimedia::result wave_in_reset();
+         ::multimedia::e_result wave_in_open(int32_t iBufferCount, int32_t iBufferSampleCount);
+         ::multimedia::e_result wave_in_close();
+         ::multimedia::e_result wave_in_stop();
+         ::multimedia::e_result wave_in_start();
+         ::multimedia::e_result wave_in_reset();
 
          
          virtual bool initialize_instance();

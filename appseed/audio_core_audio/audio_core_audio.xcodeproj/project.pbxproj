@@ -46,7 +46,7 @@
 		9A8EAF2A17C563A300C458D1 /* audio_core_audio_factory_exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_factory_exchange.h; sourceTree = "<group>"; };
 		9A8EAF2B17C563A300C458D1 /* audio_core_audio_translation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_translation.cpp; sourceTree = "<group>"; };
 		9A8EAF2C17C563A300C458D1 /* audio_core_audio_translation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_translation.h; sourceTree = "<group>"; };
-		9A8EAF2D17C563A300C458D1 /* audio_core_audio_wave_in.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_wave_in.cpp; sourceTree = "<group>"; };
+		9A8EAF2D17C563A300C458D1 /* audio_core_audio_wave_in.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = audio_core_audio_wave_in.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9A8EAF2E17C563A300C458D1 /* audio_core_audio_wave_in.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_wave_in.h; sourceTree = "<group>"; };
 		9A8EAF2F17C563A300C458D1 /* audio_core_audio_wave_out.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_wave_out.cpp; sourceTree = "<group>"; };
 		9A8EAF3017C563A300C458D1 /* audio_core_audio_wave_out.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_wave_out.h; sourceTree = "<group>"; };

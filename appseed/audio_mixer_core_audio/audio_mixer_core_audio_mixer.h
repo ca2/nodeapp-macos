@@ -27,7 +27,7 @@ namespace multimedia
          void set_callback(::multimedia::audio_mixer::callback * pcallback);
 
 
-         ::multimedia::result set_new_device(uint32_t uiMixerId);
+         ::multimedia::e_result set_new_device(uint32_t uiMixerId);
 
 
          bool OnCommand(WPARAM wparam, LPARAM lparam);

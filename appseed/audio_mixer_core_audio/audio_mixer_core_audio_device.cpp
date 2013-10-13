@@ -40,10 +40,10 @@ namespace multimedia
 
       }
 
-      ::multimedia::result device::open(uint32_t uiMixerId, uint32_t dwCallback, uint32_t dwInstance, uint32_t fdwOpen)
+      ::multimedia::e_result device::open(uint32_t uiMixerId, uint32_t dwCallback, uint32_t dwInstance, uint32_t fdwOpen)
       {
 
-         ::multimedia::result            mmrc;
+         ::multimedia::e_result            mmrc;
          HMIXER              hmx;
          MIXERCAPS           mxcaps;
 
@@ -51,7 +51,7 @@ namespace multimedia
          if (m_hMixer != NULL)
          {
 
-            ::multimedia::result mmrct = close();
+            ::multimedia::e_result mmrct = close();
 
             if (MMSYSERR_NOERROR != mmrct)
             {
@@ -97,10 +97,10 @@ namespace multimedia
       }
 
 
-      ::multimedia::result device::initialize_capabilities()
+      ::multimedia::e_result device::initialize_capabilities()
       {
 
-         ::multimedia::result mmrc;
+         ::multimedia::e_result mmrc;
 
          mmrc = mixerGetDevCaps((uint32_t) m_hMixer, &m_mixercaps, sizeof(MIXERCAPS));
 
@@ -118,7 +118,7 @@ namespace multimedia
       }
 
 
-      ::multimedia::result device::initialize_destinations()
+      ::multimedia::e_result device::initialize_destinations()
       {
 
          sp(::multimedia::audio_mixer_audio_core::destination)    lpDestination;
@@ -165,7 +165,7 @@ namespace multimedia
 
       }
 
-      ::multimedia::result device::get_destination(::multimedia::audio_mixer::e_destination edestination, ::multimedia::audio_mixer::destination **ppDestination)
+      ::multimedia::e_result device::get_destination(::multimedia::audio_mixer::e_destination edestination, ::multimedia::audio_mixer::destination **ppDestination)
       {
          
          uint32_t dwComponentType;
@@ -309,9 +309,9 @@ namespace multimedia
       }
 
 
-      ::multimedia::result device::close()
+      ::multimedia::e_result device::close()
       {
-         ::multimedia::result mmrc = MMSYSERR_NOERROR;
+         ::multimedia::e_result mmrc = MMSYSERR_NOERROR;
 
          if(m_hMixer != NULL)
          {

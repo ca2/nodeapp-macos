@@ -27,7 +27,7 @@ namespace multimedia
          ::multimedia::audio_mixer::audio_mixer * get_mixer();
          const char * GetSZPName();
          bool OnCommand(WPARAM wparam, LPARAM lparam);
-         ::multimedia::result close();
+         ::multimedia::e_result close();
          void MapDlgCtrlIDToLineControls(::multimedia::audio_mixer::source * pSource);
          void MapDlgCtrlIDToControls();
          void MapLineControls(::multimedia::audio_mixer::source * pSource);
@@ -35,10 +35,10 @@ namespace multimedia
          void OnMixerLineChange(uint32_t dwLineID);
          void map_lines();
          void map_controls();
-         ::multimedia::result get_destination(::multimedia::audio_mixer::e_destination edestination, ::multimedia::audio_mixer::destination ** ppDestination);
-         ::multimedia::result initialize_destinations();
-         ::multimedia::result initialize_capabilities();
-         ::multimedia::result open(uint32_t uiMixerId, uint32_t dwCallback, uint32_t dwInstance, uint32_t fdwOpen);
+         ::multimedia::e_result get_destination(::multimedia::audio_mixer::e_destination edestination, ::multimedia::audio_mixer::destination ** ppDestination);
+         ::multimedia::e_result initialize_destinations();
+         ::multimedia::e_result initialize_capabilities();
+         ::multimedia::e_result open(uint32_t uiMixerId, uint32_t dwCallback, uint32_t dwInstance, uint32_t fdwOpen);
 
 
       };

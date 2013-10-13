@@ -33,14 +33,14 @@ namespace music
 
 
          exception(sp(base_application) papp);
-         exception(sp(base_application) papp, ::multimedia::result mmr, int32_t iAppError);
-         exception(sp(base_application) papp, ::music::midi::e_file_result mfr);
+         exception(sp(base_application) papp, ::multimedia::e_result mmr, int32_t iAppError);
+         exception(sp(base_application) papp, ::music::midi::file::e_result mfr);
          virtual ~exception();
 
          string GetUserText();
          void SetUserText(const char * lpsz);
          string GetDetailsText();
-         void SetMMResult(::multimedia::result mmr);
+         void SetMMResult(::multimedia::e_result mmr);
 
 
       };

@@ -117,9 +117,44 @@ namespace multimedia
       {
          
          m_runloop = CFRunLoopGetCurrent();
-         m_runmode = CFRunLoopCopyCurrentMode(m_runloop);
+         
+         if(m_runloop != NULL)
+         {
+
+            CFRetain(m_runloop);
+            
+         }
+
+         m_runmode = kCFRunLoopDefaultMode;
+
+         if(m_runmode != NULL)
+         {
+            
+            CFRetain(m_runmode);
+            
+         }
          
          return true;
+      }
+      
+      
+      int32_t toolbox::exit_instance()
+      {
+
+         if(m_runmode != NULL)
+         {
+            CFRelease(m_runmode);
+            m_runmode = NULL;
+         }
+         
+         if(m_runloop != NULL)
+         {
+            CFRelease(m_runloop);
+            m_runloop = NULL;
+         }
+         
+         return 0;
+         
       }
 
       
