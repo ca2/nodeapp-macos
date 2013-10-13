@@ -48,7 +48,7 @@ namespace multimedia
       }
 
 
-      ::multimedia::result destination::initialize_source_info()
+      ::multimedia::e_result destination::initialize_source_info()
       {
 
          sp(::multimedia::audio_mixer_audio_core::source)     lpSource;
@@ -73,7 +73,7 @@ namespace multimedia
       }
 
 
-      ::multimedia::result destination::initialize_all_controls()
+      ::multimedia::e_result destination::initialize_all_controls()
       {
          GetLineControls();
 

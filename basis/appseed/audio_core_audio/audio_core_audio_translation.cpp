@@ -36,6 +36,26 @@ namespace multimedia
   
  */
       }
+      
+      
+      ::multimedia::e_result translate(OSStatus status)
+      {
+         
+         switch(status)
+         {
+         case 0:
+            return ::multimedia::result_success;
+               
+         case kAudioFormatUnsupportedDataFormatError:
+            return ::multimedia::result_bad_format;
+               
+         default:
+            return ::multimedia::result_error;
+            
+         };
+         
+      }
+
 
       /*
 

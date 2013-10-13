@@ -318,7 +318,7 @@ namespace multimedia
       {
          if(this->get_size() <= 0)
             return;
-         ::multimedia::result                        mmrc;
+         ::multimedia::e_result                        mmrc;
          //    oswindow                            htxt;
          //    PMACONTROLINSTANCE_FADER        pmaci_fader;
          //    LPMACONTROLINSTANCE             pmaci;
@@ -564,7 +564,7 @@ namespace multimedia
       nRightValue ,
       m_mixercontrol.Bounds.dwMaximum - m_mixercontrol.Bounds.dwMinimum,
       nRange) +  m_mixercontrol.Bounds.dwMinimum;
-      ::multimedia::result mmrc = mixerSetControlDetails(
+      ::multimedia::e_result mmrc = mixerSetControlDetails(
       (HMIXEROBJ)m_pmixersource->get_device()->m_hMixer,
       &m_mixercontroldetails,
       MIXER_GETCONTROLDETAILSF_VALUE);
@@ -588,7 +588,7 @@ namespace multimedia
       int32_t nValue = nRange - pslVolume->GetPos();
       PMIXERCONTROLDETAILS_UNSIGNED pmxcd_u = (PMIXERCONTROLDETAILS_UNSIGNED) m_mixercontroldetails.paDetails;
       pmxcd_u[0].dwValue = (int32_t)MulDivRN(nValue, m_mixercontrol.Bounds.dwMaximum - m_mixercontrol.Bounds.dwMinimum, nRange) + m_mixercontrol.Bounds.dwMinimum;
-      ::multimedia::result mmrc = mixerSetControlDetails(
+      ::multimedia::e_result mmrc = mixerSetControlDetails(
       (HMIXEROBJ)m_pmixersource->get_device()->m_hMixer,
       &m_mixercontroldetails,
       MIXER_GETCONTROLDETAILSF_VALUE);
@@ -743,7 +743,7 @@ namespace multimedia
                               nRightValue ,
                               m_mixercontrol.Bounds.dwMaximum - m_mixercontrol.Bounds.dwMinimum,
                               nRange) +  m_mixercontrol.Bounds.dwMinimum;
-                           ::multimedia::result mmrc = mixerSetControlDetails(
+                           ::multimedia::e_result mmrc = mixerSetControlDetails(
                               (HMIXEROBJ)device->m_hMixer,
                               &m_mixercontroldetails,
                               MIXER_GETCONTROLDETAILSF_VALUE);
@@ -767,7 +767,7 @@ namespace multimedia
                            int32_t nValue = nRange - pslVolume->GetPos();
                            PMIXERCONTROLDETAILS_UNSIGNED pmxcd_u = (PMIXERCONTROLDETAILS_UNSIGNED) m_mixercontroldetails.paDetails;
                            pmxcd_u[0].dwValue = (int32_t)MulDivRN(nValue, m_mixercontrol.Bounds.dwMaximum - m_mixercontrol.Bounds.dwMinimum, nRange) + m_mixercontrol.Bounds.dwMinimum;
-                           ::multimedia::result mmrc = mixerSetControlDetails(
+                           ::multimedia::e_result mmrc = mixerSetControlDetails(
                               (HMIXEROBJ)device->m_hMixer,
                               &m_mixercontroldetails,
                               MIXER_GETCONTROLDETAILSF_VALUE);
@@ -833,7 +833,7 @@ namespace multimedia
                         bool fValue = i == iSel ? 1 : 0;
                         pmxcd_f[cMultipleItems - i - 1].fValue = fValue;
                      }
-                     ::multimedia::result mmrc = mixerSetControlDetails(
+                     ::multimedia::e_result mmrc = mixerSetControlDetails(
                         (HMIXEROBJ) device->m_hMixer,
                         &m_mixercontroldetails,
                         MIXER_GETCONTROLDETAILSF_VALUE);
