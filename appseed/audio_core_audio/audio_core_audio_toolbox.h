@@ -40,6 +40,7 @@ namespace multimedia
          
          
          virtual bool initialize_instance();
+         virtual int32_t exit_instance();
          
          
          virtual void free_buffers();

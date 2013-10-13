@@ -7,19 +7,19 @@ namespace music
    namespace midi_core_audio
    {
 
-      ::multimedia::result TranslateSMFResult(::music::midi::e_file_result               smfrc)
+      ::multimedia::e_result TranslateSMFResult(::music::midi::file::e_result               smfrc)
       {
          switch(smfrc)
          {
          case ::music::midi::Success:
             return MMSYSERR_NOERROR;
 
-         case ::music::midi::ENoMemory:
+         case ::music::midi::file::ENoMemory:
             return MCIERR_OUT_OF_MEMORY;
 
-         case ::music::midi::EInvalidFile:
-         case ::music::midi::EOpenFailed:
-         case ::music::midi::EInvalidTrack:
+         case ::music::midi::file::EInvalidFile:
+         case ::music::midi::file::EOpenFailed:
+         case ::music::midi::file::EInvalidTrack:
             return MCIERR_INVALID_FILE;
 
          default:

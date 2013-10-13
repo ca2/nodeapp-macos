@@ -18,13 +18,16 @@ namespace multimedia
          toolbox(papp),
          ::multimedia::audio::wave_out(papp)
       {
+         
          m_estate             = state_initial;
          m_pthreadCallback    = NULL;
          m_iBufferedCount     = 0;
-         m_mmr                = MMSYSERR_NOERROR;
+         m_mmr                = ::multimedia::result_success;
          m_peffect            = NULL;
          m_dwLostSampleCount  = 0;
          m_bDone              = false;
+         m_eventRunning.ResetEvent();
+         
       }
 
       wave_out::~wave_out()
@@ -61,25 +64,23 @@ namespace multimedia
       {
 
          ::multimedia::audio::wave_out::exit_instance();
+         
+         toolbox::exit_instance();
 
          return thread::exit_instance();
 
       }
 
-      ::multimedia::result wave_out::wave_out_open(thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount)
+      ::multimedia::e_result wave_out::wave_out_open(thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount)
       {
          
          single_lock sLock(&m_mutex, TRUE);
          
          if(m_Queue != NULL &&
             m_estate != state_initial)
-            return MMSYSERR_NOERROR;
+            return ::multimedia::result_success;
          
          m_pthreadCallback = pthreadCallback;
-         
-//         ::multimedia::result mmr;
-         
-         OSStatus status = 0;
          
          ASSERT(m_Queue == NULL);
          ASSERT(m_estate == state_initial);
@@ -95,60 +96,45 @@ namespace multimedia
          sp(::multimedia::audio::wave) audiowave = Application.audiowave();
 
          translate(m_DataFormat, m_pwaveformat);
-         if(0 == (status = AudioQueueNewOutput(                              // 1
+         if(::multimedia::result_success == (m_mmr = translate(AudioQueueNewOutput(                              // 1
                                                            &m_DataFormat,                          // 2
                                                            &s_AudioQueueBufferCallback,                            // 3
                                                            this,                                      // 4
                                                            m_runloop,                                         // 5
-                                                           kCFRunLoopCommonModes,                        // 6
+                                                           kCFRunLoopDefaultMode,                        // 6
                                                            0,                                            // 7
                                                            &m_Queue                                // 8
-                                                           )))
+                                                           ))))
             goto Opened;
          m_pwaveformat->nSamplesPerSec = 22050;
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
-         if(0 == (status = AudioQueueNewOutput(                              // 1
+         if(::multimedia::result_success == (m_mmr = translate(AudioQueueNewOutput(                              // 1
                                                &m_DataFormat,                          // 2
                                                &s_AudioQueueBufferCallback,                            // 3
                                                this,                                      // 4
                                                m_runloop,                                         // 5
-                                               kCFRunLoopCommonModes,                        // 6
+                                               kCFRunLoopDefaultMode,                        // 6
                                                0,                                            // 7
                                                &m_Queue                                // 8
-                                               )))
+                                               ))))
             goto Opened;
          m_pwaveformat->nSamplesPerSec = 11025;
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
-         if(0 == (status = AudioQueueNewOutput(                              // 1
+         if(::multimedia::result_success == (m_mmr = translate(AudioQueueNewOutput(                              // 1
                                                &m_DataFormat,                          // 2
                                                &s_AudioQueueBufferCallback,                            // 3
                                                this,                                      // 4
                                                m_runloop,                                         // 5
-                                               kCFRunLoopCommonModes,                        // 6
+                                               kCFRunLoopDefaultMode,                        // 6
                                                0,                                            // 7
                                                &m_Queue                                // 8
-                                               )))
+                                               ))))
             goto Opened;
 
-         if(status !=0)
-         {
-/*            if(mmr == MMSYSERR_ALLOCATED)
-            {
-               TRACE("Specified resource is already allocated.");
-            }
-            else if(mmr == MMSYSERR_BADDEVICEID)
-            {
-               TRACE("Specified device identifier is out of range.");
-            }
-            else if(mmr == WAVERR_BADFORMAT)
-            {
-               TRACE("Attempted to open with an unsupported waveform-audio_core_audio format.");
-            }
-            TRACE("ERROR OPENING WAVE INPUT DEVICE");*/
-            return MMSYSERR_ERROR;
-         }
+         return m_mmr;
 
 Opened:
+         
          uint32_t uiBufferSizeLog2;
          uint32_t uiBufferSize;
          uint32_t uiAnalysisSize;
@@ -214,32 +200,29 @@ Opened:
             if(0 != (status = AudioQueueAllocateBuffer (m_Queue, wave_out_get_buffer_size(), &buf))
             {
                TRACE("ERROR OPENING Preparing INPUT DEVICE buffer");
-               return MMSYSERR_ERROR;
+               return ::multimedia::result_error;
             }
             
             m_Buffers.add(buf);
 
          }*/
          m_estate = state_opened;
-         return MMSYSERR_NOERROR;
+         return ::multimedia::result_success;
       }
 
-      ::multimedia::result wave_out::wave_out_open_ex(thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount, uint32_t uiSamplesPerSec, uint32_t uiChannelCount, uint32_t uiBitsPerSample)
+      ::multimedia::e_result wave_out::wave_out_open_ex(thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount, uint32_t uiSamplesPerSec, uint32_t uiChannelCount, uint32_t uiBitsPerSample)
       {
 
          single_lock sLock(&m_mutex, TRUE);
          
          if(m_Queue != NULL && m_estate != state_initial)
-            return MMSYSERR_NOERROR;
+            return ::multimedia::result_success;
 
          m_pthreadCallback = pthreadCallback;
          
          ASSERT(m_Queue == NULL);
          
          ASSERT(m_estate == state_initial);
-         
-         OSStatus status = 0;
-
          
          m_pwaveformat->wFormatTag        = 0;
          m_pwaveformat->nChannels         = (WORD) uiChannelCount;
@@ -256,28 +239,16 @@ Opened:
          
          translate(m_DataFormat, m_pwaveformat);
          
-         if(0 == (status = AudioQueueNewOutput(&m_DataFormat, &s_AudioQueueBufferCallback, this, m_runloop, m_runmode, 0, &m_Queue)))
+
+         if(::multimedia::result_success == (m_mmr = translate(AudioQueueNewOutput(&m_DataFormat, &s_AudioQueueBufferCallback, this, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &m_Queue))))
                goto Opened;
 
-         if(status != 0)
-         {
-/*            if(mmr == MMSYSERR_ALLOCATED)
-            {
-               TRACE("Specified resource is already allocated.");
-            }
-            else if(mmr == MMSYSERR_BADDEVICEID)
-            {
-               TRACE("Specified device identifier is out of range.");
-            }
-            else if(mmr == WAVERR_BADFORMAT)
-            {
-               TRACE("Attempted to open with an unsupported waveform-audio_core_audio format.");
-            }*/
-            TRACE("ERROR OPENING WAVE INPUT DEVICE");
-            return MMSYSERR_ERROR;
-         }
+         return m_mmr;
 
 Opened:
+         
+         m_eventRunning.set_event();
+
          uint32_t uiBufferSizeLog2;
          uint32_t uiBufferSize;
          uint32_t uiAnalysisSize;
@@ -333,7 +304,7 @@ Opened:
          for(i = 0; i < iSize; i++)
          {
 
-            if(MMSYSERR_NOERROR != (mmr =  waveOutPrepareHeader(m_Queue, create_new_WAVEHDR(wave_out_get_buffer(), i), sizeof(WAVEHDR))))
+            if(::multimedia::result_success != (mmr =  waveOutPrepareHeader(m_Queue, create_new_WAVEHDR(wave_out_get_buffer(), i), sizeof(WAVEHDR))))
             {
                TRACE("ERROR OPENING Preparing INPUT DEVICE buffer");
                return mmr;
@@ -347,13 +318,13 @@ Opened:
 
          m_estate = state_opened;
 
-         return MMSYSERR_NOERROR;
+         return ::multimedia::result_success;
 
       }
 
 
 
-      ::multimedia::result wave_out::wave_out_close()
+      ::multimedia::e_result wave_out::wave_out_close()
       {
 
          single_lock sLock(&m_mutex, TRUE);
@@ -364,13 +335,13 @@ Opened:
          }
 
          if(m_estate != state_opened)
-            return MMSYSERR_NOERROR;
+            return ::multimedia::result_success;
          
          OSStatus status;
          
          free_buffers();
 
-/*         ::multimedia::result mmr;
+/*         ::multimedia::e_result mmr;
 
          int32_t i, iSize;
 
@@ -379,7 +350,7 @@ Opened:
          for(i = 0; i < iSize; i++)
          {
 
-            if(MMSYSERR_NOERROR != (mmr = waveOutUnprepareHeader(m_Queue, wave_hdr(i), sizeof(WAVEHDR))))
+            if(::multimedia::result_success != (mmr = waveOutUnprepareHeader(m_Queue, wave_hdr(i), sizeof(WAVEHDR))))
             {
                TRACE("ERROR OPENING Unpreparing INPUT DEVICE buffer =%d", mmr);
             }
@@ -396,7 +367,7 @@ Opened:
 
          m_estate = state_initial;
 
-         return MMSYSERR_NOERROR;
+         return ::multimedia::result_success;
 
       }
 
@@ -470,13 +441,13 @@ Opened:
       }
 
       
-      bool wave_out::wave_out_stop()
+      ::multimedia::e_result wave_out::wave_out_stop()
       {
 
          single_lock sLock(&m_mutex, TRUE);
 
          if(m_estate != state_playing && m_estate != state_paused)
-            return false;
+            return ::multimedia::result_error;
 
          m_eventStopped.ResetEvent();
 
@@ -489,20 +460,19 @@ Opened:
          // waveform-audio_core_audio output device and resets the current position
          // to zero. All pending playback buffers are marked as done and
          // returned to the application.
-         m_mmr = AudioQueueReset(m_Queue);
+         m_mmr = translate(AudioQueueReset(m_Queue));
 
-
-
-         if(m_mmr == MMSYSERR_NOERROR)
+         if(m_mmr == ::multimedia::result_success)
          {
             m_estate = state_opened;
          }
 
-         return m_mmr == MMSYSERR_NOERROR;
+         return m_mmr;
 
       }
 
-      bool wave_out::wave_out_pause()
+      
+      ::multimedia::e_result wave_out::wave_out_pause()
       {
 
          single_lock sLock(&m_mutex, TRUE);
@@ -510,30 +480,28 @@ Opened:
          ASSERT(m_estate == state_playing);
 
          if(m_estate != state_playing)
-            return false;
-
-
+            return ::multimedia::result_error;
 
          // waveOutReset
          // The waveOutReset function stops playback on the given
          // waveform-audio_core_audio output device and resets the current position
          // to zero. All pending playback buffers are marked as done and
          // returned to the application.
-         m_mmr = AudioQueuePause(m_Queue);
+         m_mmr = translate(AudioQueuePause(m_Queue));
+         
+         ASSERT(m_mmr == ::multimedia::result_success);
 
-
-         ASSERT(m_mmr == MMSYSERR_NOERROR);
-
-         if(m_mmr == MMSYSERR_NOERROR)
+         if(m_mmr == ::multimedia::result_success)
          {
             m_estate = state_paused;
          }
 
-         return m_mmr == MMSYSERR_NOERROR;
-
+         return m_mmr;
+         
       }
+      
 
-      bool wave_out::wave_out_restart()
+      ::multimedia::e_result wave_out::wave_out_restart()
       {
 
          single_lock sLock(&m_mutex, TRUE);
@@ -541,24 +509,29 @@ Opened:
          ASSERT(m_estate == state_paused);
 
          if(m_estate != state_paused)
-            return false;
-
+         {
+            
+            m_mmr = ::multimedia::result_error;
+            
+            return m_mmr;
+            
+         }
+         
          // waveOutReset
          // The waveOutReset function stops playback on the given
          // waveform-audio_core_audio output device and resets the current position
          // to zero. All pending playback buffers are marked as done and
          // returned to the application.
-         m_mmr = AudioQueueStart(m_Queue, NULL);
+         m_mmr = translate(AudioQueueStart(m_Queue, NULL));
 
+         ASSERT(m_mmr == ::multimedia::result_success);
 
-         ASSERT(m_mmr == MMSYSERR_NOERROR);
-
-         if(m_mmr == MMSYSERR_NOERROR)
+         if(m_mmr == ::multimedia::result_success)
          {
             m_estate = state_playing;
          }
 
-         return m_mmr == MMSYSERR_NOERROR;
+         return m_mmr;
 
       }
 
@@ -702,20 +675,43 @@ Opened:
       
       int wave_out::run()
       {
-
+         
          while(m_bRun)
          {
-            CFRunLoopRun();
+            
             if(!pump_message())
-            {
                break;
+            
+            if(m_estate == state_playing)
+            {
+               CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.25, false);
             }
+            else
+            {
+               Sleep(84);
+            }
+            
          }
 
          return 0;
       }
       
-
+      ::multimedia::e_result wave_out::wave_out_start(const imedia::position & position)
+      {
+         
+         ::multimedia::e_result mmr = ::multimedia::audio::wave_out::wave_out_start(position);
+         
+         if(mmr != 0)
+            return mmr;
+         
+         m_estate = state_paused;
+         
+         m_mmr = wave_out_restart();
+         
+         return m_mmr;
+         
+      }
+      
 
    } // namespace audio_core_audio
 

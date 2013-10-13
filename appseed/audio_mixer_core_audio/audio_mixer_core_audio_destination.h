@@ -23,8 +23,8 @@ namespace multimedia
 
          uint32_t get_component_type();
          void update_all_controls();
-         ::multimedia::result initialize_all_controls();
-         ::multimedia::result initialize_source_info();
+         ::multimedia::e_result initialize_all_controls();
+         ::multimedia::e_result initialize_source_info();
 
          ::multimedia::audio_mixer::source_array & get_source_info();
          void operator delete(void *);
