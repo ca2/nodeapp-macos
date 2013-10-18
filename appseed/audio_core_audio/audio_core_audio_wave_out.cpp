@@ -339,6 +339,7 @@ namespace multimedia
          
          //         post_thread_message(message_open);
          
+          InstallNullExceptionHandler();
          
          try
          {
@@ -350,11 +351,16 @@ namespace multimedia
          catch(...)
          {
          
+             InstallUncaughtExceptionHandler();
+             
             m_mmr = result_error;
          
             return m_mmr;
          
          }
+
+          InstallUncaughtExceptionHandler();
+          
          
          
          //         CFRunLoopWakeUp(CFRunLoopGetCurrent());
@@ -749,6 +755,8 @@ namespace multimedia
          
          if(iBuffer < 0)
             return;
+          
+          m_iBufferedCount--;
          
          wave_out_out_buffer_done((int) iBuffer);
          

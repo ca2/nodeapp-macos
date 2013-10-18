@@ -270,9 +270,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "874"
-            endingLineNumber = "874"
-            landmarkName = "thread::begin(int32_t epriority, uint_ptr nStackSize, uint32_t dwCreateFlags, LPSECURITY_ATTRIBUTES lpSecurityAttrs)"
-            landmarkType = "5">
+            endingLineNumber = "874">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -287,7 +285,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1818"
             endingLineNumber = "1818"
-            landmarkName = "thread::thread_entry(::mac::thread_startup * pstartup)"
+            landmarkName = "thread::UnlockTempMaps(WINBOOL bDeleteTemp)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -438,7 +436,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/filesystem/file/file_timeout_buffer.cpp"
@@ -464,6 +462,22 @@
             startingLineNumber = "400"
             endingLineNumber = "400"
             landmarkName = "system::as_string(var varFile, var &amp; varQuery, sp(base_application) papp)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/multimedia/audio/audio_wave_out.cpp"
+            timestampString = "403809009.334426"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "wave_out::wave_out_out_buffer_done(int iBuffer)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
