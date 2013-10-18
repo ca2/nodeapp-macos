@@ -1281,6 +1281,44 @@ namespace mac
    {
       SCAST_PTR(::message::base, pbase, pobj);
       
+      if(pbase->m_uiMessage == WM_SIZE || pbase->m_uiMessage == WM_MOVE)
+      {
+         
+//         win_update_graphics();
+         
+      }
+      
+      if(pbase->m_uiMessage == WM_KEYDOWN ||
+         pbase->m_uiMessage == WM_KEYUP ||
+         pbase->m_uiMessage == WM_CHAR)
+      {
+         
+         SCAST_PTR(::message::key, pkey, pobj);
+         
+//         Application.user()->keyboard().translate_os_key_message(pkey);
+         
+         if(pbase->m_uiMessage == WM_KEYDOWN)
+         {
+            try
+            {
+               Application.set_key_pressed(pkey->m_ekey, true);
+            }
+            catch(...)
+            {
+            }
+         }
+         else if(pbase->m_uiMessage == WM_KEYUP)
+         {
+            try
+            {
+               Application.set_key_pressed(pkey->m_ekey, false);
+            }
+            catch(...)
+            {
+            }
+         }
+      }
+      
       if(m_pguie != NULL)
       {
          m_pguie->pre_translate_message(pobj);
@@ -1500,7 +1538,7 @@ namespace mac
          ::message::key * pkey = (::message::key *) pbase;
 
 //         Application.user()->keyboard().translate_os_key_message(pkey);
-         
+         /*
          if(pbase->m_uiMessage == WM_KEYDOWN)
          {
             try
@@ -1521,7 +1559,7 @@ namespace mac
             {
             }
          }
-         
+         */
          
          ::user::interaction * puiFocus = dynamic_cast < ::user::interaction * > (Application.user()->get_keyboard_focus().m_p);
          if(puiFocus != NULL
