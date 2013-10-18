@@ -863,9 +863,40 @@ namespace mac
    
    void thread::step_timer()
    {
+   
       if(m_ptimera == NULL)
          return;
+      
       m_ptimera->check();
+      
+   }
+   
+   void thread::on_run_step()
+   {
+   
+      step_timer();
+     
+      
+      ::application * pappThis1 = dynamic_cast < ::application * > (this);
+
+      ::application * pappThis2 = dynamic_cast < ::application * > (m_p.m_p);
+      
+      m_p->m_dwAlive = m_dwAlive = ::get_tick_count();
+      
+      if(pappThis1 != NULL)
+      {
+
+         pappThis1->m_dwAlive = m_dwAlive;
+         
+      }
+      
+      if(pappThis2 != NULL)
+      {
+      
+         pappThis2->m_dwAlive = m_dwAlive;
+         
+      }
+      
    }
    
    
@@ -1011,8 +1042,6 @@ namespace mac
       // for tracking the idle time state
       WINBOOL bIdle = TRUE;
       LONG lIdleCount = 0;
-      ::application * pappThis1 = dynamic_cast < ::application * > (this);
-      ::application * pappThis2 = dynamic_cast < ::application * > (m_p.m_p);
       
       // acquire and dispatch messages until a WM_QUIT message is received.
       MESSAGE msg;
@@ -1031,16 +1060,9 @@ namespace mac
             // call on_idle while in bIdle state
             if (!on_idle(lIdleCount++))
                bIdle = FALSE; // assume "no idle" state
-            step_timer();
-            m_p->m_dwAlive = m_dwAlive = ::get_tick_count();
-            if(pappThis1 != NULL)
-            {
-               pappThis1->m_dwAlive = m_dwAlive;
-            }
-            if(pappThis2 != NULL)
-            {
-               pappThis2->m_dwAlive = m_dwAlive;
-            }
+            
+            m_p->on_run_step();
+            
             try
             {
                if(!m_p->verb())
@@ -1091,19 +1113,10 @@ namespace mac
                lIdleCount = 0;
             }
             
-            step_timer();
-            m_p->m_dwAlive = m_dwAlive = ::get_tick_count();
-            if(pappThis1 != NULL)
-            {
-               pappThis1->m_dwAlive = m_dwAlive;
-            }
-            if(pappThis2 != NULL)
-            {
-               pappThis2->m_dwAlive = m_dwAlive;
-            }
+            m_p->on_run_step();
+            
          }
-         //         while (::PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE) != FALSE);
-         while (::PeekMessage(&msg, NULL,0, 0, 0) != FALSE);
+         while (::PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE) != FALSE);
          
       }
    stop_run:
