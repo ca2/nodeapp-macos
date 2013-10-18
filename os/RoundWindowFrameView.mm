@@ -377,7 +377,7 @@
       if(!m_bAlt)
       {
          m_bAlt = true;
-         if(p->round_window_key_down(::user::key_control))
+         if(p->round_window_key_down(::user::key_alt))
             return;
       }
    }
@@ -386,7 +386,7 @@
       if(m_bAlt)
       {
          m_bAlt = false;
-         if(p->round_window_key_up(::user::key_control))
+         if(p->round_window_key_up(::user::key_alt))
             return;
       }
    }
