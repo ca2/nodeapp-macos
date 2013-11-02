@@ -176,11 +176,11 @@ typedef ::std::type_info std_type_info;
 // The following macros are used on data declarations/definitions
 //  (they are redefined for extension DLLs and the shared MFC DLL)
 #define __DATADEF
-#define AFX_API CLASS_DECL_ca
+#define AFX_API CLASS_DECL_BOOT
 
 // used when building the "core" MFC80.DLL
 #ifndef __CORE_DATA
-	#define __CORE_DATA CLASS_DECL_ca
+	#define __CORE_DATA CLASS_DECL_BOOT
 	#define __CORE_DATADEF
 #endif
 
@@ -219,7 +219,7 @@ typedef ::std::type_info std_type_info;
 #ifdef _AFX_DEVBUILD
 	#define AFX_IMPL_DATA __DATA_EXPORT
 #else
-	#define AFX_IMPL_DATA CLASS_DECL_ca
+	#define AFX_IMPL_DATA CLASS_DECL_BOOT
 #endif
 
 
