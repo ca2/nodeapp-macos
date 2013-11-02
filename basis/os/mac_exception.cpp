@@ -71,7 +71,7 @@ namespace gen
    
 #if defined( _CUSTOM_THROW )  // You can define your own throw hresult_exception to throw a custom exception.
    
-   CLASS_DECL_ca void WINAPI atl_throw_impl( HRESULT hr )
+   CLASS_DECL_BOOT void WINAPI atl_throw_impl( HRESULT hr )
    {
       TRACE(atlTraceException, 0, "throw hresult_exception: hr = 0x%x\n", hr );
 #ifdef _AFX
@@ -94,7 +94,7 @@ namespace gen
    // Throw a atl_exception with th given HRESULT
 #if !defined( _CUSTOM_THROW )  // You can define your own throw hresult_exception
    
-   //CLASS_DECL_ca void WINAPI atl_throw_impl(HRESULT hr)
+   //CLASS_DECL_BOOT void WINAPI atl_throw_impl(HRESULT hr)
    //{
    //   TRACE("throw hresult_exception: hr = 0x%x\n", hr);
    //  throw hresult_exception(hr);

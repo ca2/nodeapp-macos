@@ -3,9 +3,9 @@
 #include <crt_externs.h>
 CLASS_DECL_mac int32_t ca2_main();
 
-//CLASS_DECL_ca extern fixed_alloc_array * g_pfixedallocaWstring;
+//CLASS_DECL_BOOT extern fixed_alloc_array * g_pfixedallocaWstring;
 
-//CLASS_DECL_ca fixed_alloc_array * new_wstring_manager();
+//CLASS_DECL_BOOT fixed_alloc_array * new_wstring_manager();
 
 void CLASS_DECL_mac __cdecl _ca2_purecall()
 {
