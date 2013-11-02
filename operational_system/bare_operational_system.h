@@ -229,11 +229,11 @@ inline void __debug_break() { __asm("int $3"); }
 // The following macros are used on data declarations/definitions
 //  (they are redefined for extension DLLs and the shared MFC DLL)
 #define __DATADEF
-#define AFX_API CLASS_DECL_ca
+#define AFX_API CLASS_DECL_BOOT
 
 // used when building the "core" MFC80.DLL
 #ifndef __CORE_DATA
-	#define __CORE_DATA CLASS_DECL_ca
+	#define __CORE_DATA CLASS_DECL_BOOT
 	#define __CORE_DATADEF
 #endif
 
@@ -274,7 +274,7 @@ inline void __debug_break() { __asm("int $3"); }
 #ifdef _AFX_DEVBUILD
 	#define AFX_IMPL_DATA __DATA_EXPORT
 #else
-	#define AFX_IMPL_DATA CLASS_DECL_ca
+	#define AFX_IMPL_DATA CLASS_DECL_BOOT
 #endif
 
 

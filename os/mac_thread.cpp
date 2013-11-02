@@ -515,8 +515,8 @@ void CLASS_DECL_mac AfxInitThread()
 }
 
 
-   extern CLASS_DECL_ca2 PFN_get_thread g_pfn_get_thread;
-   extern CLASS_DECL_ca2 PFN_get_thread_state g_pfn_get_thread_state;
+   extern CLASS_DECL_CORE PFN_get_thread g_pfn_get_thread;
+   extern CLASS_DECL_CORE PFN_get_thread_state g_pfn_get_thread_state;
 
 
 
