@@ -51,7 +51,7 @@ namespace multimedia
          
          
          
-      };
+      }__attribute__ ((aligned (sizeof(int_ptr))));
       
    
    } // namespace multimedia
