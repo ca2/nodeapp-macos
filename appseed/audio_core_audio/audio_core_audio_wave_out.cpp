@@ -339,7 +339,7 @@ namespace multimedia
          
          //         post_thread_message(message_open);
          
-          InstallNullExceptionHandler();
+//          InstallNullExceptionHandler();
          
          try
          {
