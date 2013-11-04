@@ -3,13 +3,16 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "draw2d_quartz2d::graphics::internal_show_text(double, double, char const*, int, CGTextDrawingMode, bool, double*, double*, double*, double*):draw2d_quartz2d_graphics.cpp">
+      </ContextState>
+      <ContextState
          contextName = "mac::dir::initialize():mac_dir.cpp">
       </ContextState>
       <ContextState
-         contextName = "uinteraction::uinteraction::get_new_uinteraction(char const*):uinteraction_uinteraction.cpp">
+         contextName = "int ca::application::simple_message_box&lt;char const*&gt;(user::interaction*, unsigned int, char const*, char const* const&amp;):ca_application.h">
       </ContextState>
       <ContextState
-         contextName = "int ca::application::simple_message_box&lt;char const*&gt;(user::interaction*, unsigned int, char const*, char const* const&amp;):ca_application.h">
+         contextName = "uinteraction::uinteraction::get_new_uinteraction(char const*):uinteraction_uinteraction.cpp">
       </ContextState>
       <ContextState
          contextName = "mac::dir::is(char const*, ca::application*):mac_dir.cpp">
@@ -27,6 +30,14 @@
       </ContextState>
       <ContextState
          contextName = "ca::type_info::friendly_name() const:ca_type_info.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "multimedia::audio_core_audio::wave_out::wave_out_open_ex(thread*, int, int, unsigned int, unsigned int, unsigned int):audio_core_audio_wave_out.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "mac::dir::appdata(char const*, char const*):mac_dir.cpp">

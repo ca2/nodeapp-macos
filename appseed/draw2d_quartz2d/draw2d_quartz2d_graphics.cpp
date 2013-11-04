@@ -3396,14 +3396,14 @@ namespace draw2d_quartz2d
       if(m_layer != NULL)
       {
          
+         //CGLayerRelease(m_layer);
+          
+         m_layer = NULL;
+          
          CGContextRelease(m_pdc);
          
          m_pdc = NULL;
       
-         CGLayerRelease(m_layer);
-         
-         m_layer = NULL;
-         
       }
       else
       {
