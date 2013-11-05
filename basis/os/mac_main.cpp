@@ -130,7 +130,7 @@ int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, co
        {
        }*/
       
-      set_heap_mutex(NULL);
+//      set_heap_mutex(NULL);
       
       
       return nReturnCode;
@@ -312,7 +312,7 @@ uint32_t __run_system(void * p)
     }*/
    
    
-   set_heap_mutex(NULL);
+//   set_heap_mutex(NULL);
    
    exit(nReturnCode);
    
