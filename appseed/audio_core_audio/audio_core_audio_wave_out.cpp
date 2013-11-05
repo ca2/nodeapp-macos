@@ -59,7 +59,7 @@ namespace multimedia
          
          set_event_on_exit set_event_on_exitOpened(m_eventOpened);
          
-         if(succeeded(m_mmr = translate(AudioQueueNewOutput(&m_DataFormat, WaveOutAudioQueueBufferCallback, this, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &m_Queue))))
+         if(succeeded(m_mmr = translate(AudioQueueNewOutput(m_pdataformat, WaveOutAudioQueueBufferCallback, this, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &m_Queue))))
             return;
          
          uint32_t uiBufferSizeLog2;
@@ -188,9 +188,9 @@ namespace multimedia
          
          sp(::multimedia::audio::wave) audiowave = Application.audiowave();
          
-         translate(m_DataFormat, m_pwaveformat);
+         translate(*m_pdataformat, m_pwaveformat);
          if(::multimedia::result_success == (m_mmr = translate(AudioQueueNewOutput(                              // 1
-                                                                                   &m_DataFormat,                          // 2
+                                                                                   m_pdataformat,                          // 2
                                                                                    WaveOutAudioQueueBufferCallback,                            // 3
                                                                                    this,                                      // 4
                                                                                    m_runloop,                                         // 5
@@ -202,7 +202,7 @@ namespace multimedia
          m_pwaveformat->nSamplesPerSec = 22050;
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
          if(::multimedia::result_success == (m_mmr = translate(AudioQueueNewOutput(                              // 1
-                                                                                   &m_DataFormat,                          // 2
+                                                                                   m_pdataformat,                          // 2
                                                                                    WaveOutAudioQueueBufferCallback,                            // 3
                                                                                    this,                                      // 4
                                                                                    m_runloop,                                         // 5
@@ -214,7 +214,7 @@ namespace multimedia
          m_pwaveformat->nSamplesPerSec = 11025;
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
          if(::multimedia::result_success == (m_mmr = translate(AudioQueueNewOutput(                              // 1
-                                                                                   &m_DataFormat,                          // 2
+                                                                                   m_pdataformat,                          // 2
                                                                                    WaveOutAudioQueueBufferCallback,                            // 3
                                                                                    this,                                      // 4
                                                                                    m_runloop,                                         // 5
@@ -328,9 +328,9 @@ namespace multimedia
          
          InstallUncaughtExceptionHandler();
          
-         ZERO(m_DataFormat);
+         ZEROP(m_pdataformat);
          
-         translate(m_DataFormat, m_pwaveformat);
+         translate(*m_pdataformat, m_pwaveformat);
          
          //         m_eventOpened.ResetEvent();
          
@@ -344,7 +344,7 @@ namespace multimedia
          try
          {
             
-            if(failed(m_mmr = translate(AudioQueueNewOutput(&m_DataFormat, WaveOutAudioQueueBufferCallback, this, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &m_Queue))))
+            if(failed(m_mmr = translate(AudioQueueNewOutput(m_pdataformat, WaveOutAudioQueueBufferCallback, this, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &m_Queue))))
                return m_mmr;
             
          }

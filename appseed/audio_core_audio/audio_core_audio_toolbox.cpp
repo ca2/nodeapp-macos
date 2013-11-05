@@ -22,7 +22,7 @@ namespace multimedia
          wave_base(papp)
       {
 
-         ZERO(m_DataFormat);
+         ZEROP(m_pdataformat);
          
          m_Queue           = NULL;
          m_runloop         = NULL;
@@ -101,7 +101,7 @@ namespace multimedia
       AudioStreamBasicDescription * toolbox::wave_format()
       {
          
-         return &m_DataFormat;
+         return m_pdataformat;
          
       }
       

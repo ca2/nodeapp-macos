@@ -13,6 +13,10 @@
 #endif
 
 
+#include "audio_core_aligned_pointer.h"
+#include "audio_core_aligned.h"
+
+
 #include "audio_core_audio_translation.h"
 
 
@@ -21,6 +25,8 @@
 
 #include "audio_core_audio_wave_out.h"
 #include "audio_core_audio_wave_in.h"
+
+
 
 
 #include "audio_core_audio_factory_exchange.h"
