@@ -13,8 +13,8 @@ namespace multimedia
          element(papp)
       {
 
-         System.factory().cloneable_large < wave_in               >  (System.type_info < ::multimedia::audio::wave_in                  > ());
-         System.factory().cloneable_large < wave_out              >  (System.type_info < ::multimedia::audio::wave_out                 > ());
+         System.factory().cloneable_large < wave_in               >  (System.type_info < ::multimedia::audio::wave_in                  > (), true, true);
+         System.factory().cloneable_large < wave_out              >  (System.type_info < ::multimedia::audio::wave_out                 > (), true, true);
 
       }
 
