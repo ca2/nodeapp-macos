@@ -18,6 +18,10 @@ namespace mac
 
    int32_t copydesk::get_file_count()
    {
+   
+      if(m_p == NULL)
+         return 0;
+   
       if(!m_p->OpenClipboard())
          return 0;
       int32_t iCount = 0;
