@@ -1118,10 +1118,10 @@ namespace mac
          }
          while (::PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE) != FALSE);
 
-         timespec spec;
+/*         timespec spec;
          spec.tv_sec = 0;
          spec.tv_nsec = 84000000;
-         nanosleep(&spec, NULL);
+         nanosleep(&spec, NULL);*/
          
       }
    stop_run:
