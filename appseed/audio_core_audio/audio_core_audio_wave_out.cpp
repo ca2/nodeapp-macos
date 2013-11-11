@@ -59,7 +59,7 @@ namespace multimedia
          
          set_event_on_exit set_event_on_exitOpened(m_eventOpened);
          
-         if(succeeded(m_mmr = translate(AudioQueueNewOutput(m_pdataformat, WaveOutAudioQueueBufferCallback, this, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &m_Queue))))
+         if(succeeded(m_mmr = translate(AudioQueueNewOutput(m_pdataformat, WaveOutAudioQueueBufferCallback, this, NULL, kCFRunLoopCommonModes, 0, &m_Queue))))
             return;
          
          uint32_t uiBufferSizeLog2;
@@ -344,7 +344,7 @@ namespace multimedia
          try
          {
             
-            if(failed(m_mmr = translate(AudioQueueNewOutput(m_pdataformat, WaveOutAudioQueueBufferCallback, this, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &m_Queue))))
+            if(failed(m_mmr = translate(AudioQueueNewOutput(m_pdataformat, WaveOutAudioQueueBufferCallback, this, NULL, kCFRunLoopCommonModes, 0, &m_Queue))))
                return m_mmr;
             
          }
