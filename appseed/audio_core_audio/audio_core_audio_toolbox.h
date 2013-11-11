@@ -22,8 +22,10 @@ namespace multimedia
       public:
    
          
-         aligned < AudioStreamBasicDescription >         m_pdataformat;
-         aligned_pointer < AudioQueueRef >               m_Queue;
+//         aligned < AudioStreamBasicDescription >         m_pdataformat;
+//         aligned_pointer < AudioQueueRef >               m_Queue;
+         AudioStreamBasicDescription                     m_dataformat;
+         AudioQueueRef                                   m_Queue;
          comparable_raw_array < AudioQueueBufferRef >    m_Buffers;
          SInt64                                          m_CurrentPacket;
          CFRunLoopRef                                    m_runloop;
