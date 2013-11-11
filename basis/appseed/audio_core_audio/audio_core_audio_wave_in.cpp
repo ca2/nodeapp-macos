@@ -97,7 +97,7 @@ namespace multimedia
          m_iBuffer = 0;
 
          if(::multimedia::result_success == (m_mmr  = translate(AudioQueueNewInput(                              // 1
-                                                          m_pdataformat,                          // 2
+                                                          &m_dataformat,                          // 2
                                                           &HandleInputBuffer,                            // 3
                                                           this,                                      // 4
                                                           NULL,                                         // 5
@@ -109,7 +109,7 @@ namespace multimedia
          m_pwaveformat->nSamplesPerSec = 22050;
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
          if(::multimedia::result_success == (m_mmr  = translate(AudioQueueNewInput(                              // 1
-                                                            m_pdataformat,                          // 2
+                                                            &m_dataformat,                          // 2
                                                             &HandleInputBuffer,                            // 3
                                                             this,                                      // 4
                                                             NULL,                                         // 5
@@ -121,7 +121,7 @@ namespace multimedia
          m_pwaveformat->nSamplesPerSec = 11025;
          m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
          if(::multimedia::result_success == (m_mmr  = translate(AudioQueueNewInput(                              // 1
-                                                            m_pdataformat,                          // 2
+                                                            &m_dataformat,                          // 2
                                                             &HandleInputBuffer,                            // 3
                                                             this,                                      // 4
                                                             NULL,                                         // 5
@@ -461,8 +461,8 @@ Opened:
                                        const AudioStreamPacketDescription   *inPacketDesc)
       {
 
-         if(inNumPackets == 0 && m_pdataformat->mBytesPerPacket != 0)
-            inNumPackets = inBuffer->mAudioDataByteSize / m_pdataformat->mBytesPerPacket;
+         if(inNumPackets == 0 && m_dataformat.mBytesPerPacket != 0)
+            inNumPackets = inBuffer->mAudioDataByteSize / m_dataformat.mBytesPerPacket;
          
          m_iBuffer--;
             
