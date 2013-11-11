@@ -52,11 +52,8 @@ void round_window::round_window_show()
 
 void round_window::round_window_redraw()
 {
-   if(m_bDirty)
-   {
-      m_bDirty = false;
-      [[m_proundwindow dd_invokeOnMainThread] display ];
-   }
+
+   [[m_proundwindow dd_invokeOnMainThread] display ];
    
 }
 
@@ -64,7 +61,6 @@ void round_window::round_window_redraw()
 void round_window::round_window_invalidate()
 {
    
-   m_bDirty = true;
 //   [[m_proundwindow->m_controller dd_invokeOnMainThread] setViewsNeedDisplay : TRUE];
    
 }
