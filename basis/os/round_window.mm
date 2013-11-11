@@ -17,13 +17,11 @@ NSWindow * new_round_window(round_window * pwindow, CGRect rect)
    rect.size.width   = 0;
    rect.size.height  = 0;
    
-   RoundWindow * round_window = [RoundWindow alloc];
+   pwindow->m_proundwindow = [RoundWindow alloc];
    
-   round_window->m_pwindow = pwindow;
+   pwindow->m_proundwindow->m_pwindow = pwindow;
    
-   pwindow->m_proundwindow = round_window;
-   
-   return [round_window initWithContentRect : rect styleMask : 0 backing : NSBackingStoreBuffered  defer : false ];
+   return [pwindow->m_proundwindow initWithContentRect : rect styleMask : 0 backing : NSBackingStoreBuffered  defer : false ];
    
 }
 
@@ -54,8 +52,11 @@ void round_window::round_window_show()
 
 void round_window::round_window_redraw()
 {
-   
-   [[m_proundwindow dd_invokeOnMainThread] display ];
+   if(m_bDirty)
+   {
+      m_bDirty = false;
+      [[m_proundwindow dd_invokeOnMainThread] display ];
+   }
    
 }
 
@@ -63,6 +64,7 @@ void round_window::round_window_redraw()
 void round_window::round_window_invalidate()
 {
    
+   m_bDirty = true;
 //   [[m_proundwindow->m_controller dd_invokeOnMainThread] setViewsNeedDisplay : TRUE];
    
 }

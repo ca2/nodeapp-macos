@@ -15,6 +15,9 @@
 class round_window
 {
 public:
+
+
+bool m_bDirty;
    
 #ifdef __OBJC__
    RoundWindow * m_proundwindow;

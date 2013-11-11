@@ -51,7 +51,7 @@ namespace multimedia
          
          
          
-      };
+      } ; 
       
    
    } // namespace multimedia
