@@ -68,7 +68,7 @@ namespace multimedia
          
          void OnOpen();
 
-      };
+      } ;
 
 
    } // namespace audio_core_audio

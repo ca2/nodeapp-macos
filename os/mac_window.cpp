@@ -3096,8 +3096,9 @@ namespace mac
       
       if(ptimer->m_nIDEvent == 2049)
       {
-      
-         _001RedrawWindow();
+
+         round_window_invalidate();
+         round_window_redraw();
          
       }
       
@@ -5178,7 +5179,7 @@ namespace mac
    bool window::RedrawWindow(LPCRECT lpRectUpdate, ::draw2d::region* prgnUpdate, UINT flags)
    {
       
-      round_window_redraw();
+      round_window_invalidate();
       
       return true;
       
