@@ -129,7 +129,6 @@ UINT APIENTRY __thread_entry(void * pParam)
       __MODULE_STATE* pModuleState = __get_module_state();
       __MODULE_THREAD_STATE* pState = pModuleState->m_thread;
       pState->m_pCurrentWinThread = pThread;
-      ::get_thread()->m_pthread = pThread->m_p.m_p;
       
       // forced initialization of the thread
       __init_thread();
@@ -182,7 +181,7 @@ namespace mac
 {
 
    
-   CLASS_DECL_mac base_thread * __get_thread()
+   CLASS_DECL_mac ::thread * __get_thread()
    {
       
       // check for current thread in module thread state
@@ -196,14 +195,14 @@ namespace mac
    }
    
    
-   CLASS_DECL_mac void __set_thread(base_thread * pthread)
+   CLASS_DECL_mac void __set_thread(::thread * pthread)
    {
       
       // check for current thread in module thread state
       
       ___THREAD_STATE* pState = ::__get_thread_state();
       
-      pState->m_pCurrentWinThread = dynamic_cast < ::mac::thread * > (pthread->m_pthread->m_p.m_p);
+      pState->m_pCurrentWinThread = dynamic_cast < ::mac::thread * > (pthread->m_p.m_p);
       
    }
    
@@ -411,9 +410,9 @@ WINBOOL __cdecl __is_idle_message(signal_details * pobj)
 
 WINBOOL __cdecl __is_idle_message(MESSAGE* pMsg)
 {
-   base_thread * pThread = ::get_thread();
+   ::thread * pThread = ::get_thread();
    if(pThread)
-      return MAC_THREAD(pThread->m_pthread->m_p.m_p)->is_idle_message( pMsg );
+      return MAC_THREAD(pThread->m_p.m_p)->is_idle_message( pMsg );
    else
       return AfxInternalIsIdleMessage( pMsg );
 }
@@ -544,7 +543,7 @@ namespace mac
       m_evFinish.SetEvent();
       if(System.GetThread() != NULL)
       {
-         m_pAppThread = MAC_THREAD(::get_thread()->m_pthread->m_p.m_p)->m_pAppThread;
+         m_pAppThread = MAC_THREAD(::get_thread()->m_p.m_p)->m_pAppThread;
       }
       else
       {
@@ -748,7 +747,7 @@ namespace mac
       
       try
       {
-         if(MAC_THREAD(pui->m_pthread) == this)
+         if(MAC_THREAD(pui->m_pthread.m_p) == this)
          {
             pui->m_pthread = NULL;
          }
@@ -760,7 +759,7 @@ namespace mac
       {
          if(pui->m_pimpl != NULL && pui->m_pimpl != pui)
          {
-            if(MAC_THREAD(pui->m_pimpl->m_pthread) == this)
+            if(MAC_THREAD(pui->m_pimpl->m_pthread.m_p) == this)
             {
                pui->m_pimpl->m_pthread = NULL;
             }
@@ -773,7 +772,7 @@ namespace mac
       {
          if(pui->m_pguie != NULL && pui->m_pguie != pui)
          {
-            if(MAC_THREAD(pui->m_pguie->m_pthread) == this)
+            if(MAC_THREAD(pui->m_pguie->m_pthread.m_p) == this)
             {
                pui->m_pguie->m_pthread = NULL;
             }
@@ -1177,22 +1176,21 @@ namespace mac
          if(m_puiptra != NULL)
          {
             single_lock sl(&m_mutexUiPtra, TRUE);
-            ::user::interaction_ptr_array * puiptra = m_puiptra;
+            sp(::user::interaction_ptr_array) puiptra = m_puiptra;
             m_puiptra = NULL;
             for(int32_t i = 0; i < puiptra->get_size(); i++)
             {
                ::user::interaction * pui = puiptra->element_at(i);
                if(pui->m_pthread != NULL)
                {
-                  if(MAC_THREAD(pui->m_pthread->m_pthread) == this
-                     || MAC_THREAD(pui->m_pthread->m_pthread->m_p.m_p) == MAC_THREAD(m_p.m_p)
-                     || MAC_THREAD(pui->m_pthread->m_pthread) == MAC_THREAD(m_p.m_p))
+                  if(MAC_THREAD(pui->m_pthread.m_p) == this
+                     || MAC_THREAD(pui->m_pthread->m_p.m_p) == MAC_THREAD(m_p.m_p)
+                     || MAC_THREAD(pui->m_pthread.m_p) == MAC_THREAD(m_p.m_p))
                   {
                      pui->m_pthread = NULL;
                   }
                }
             }
-            delete puiptra;
             sl.unlock();
          }
       }
@@ -1762,10 +1760,10 @@ namespace mac
    
    CLASS_DECL_mac ::thread * get_thread()
    {
-      base_thread * pthread = ::get_thread();
+      ::thread * pthread = ::get_thread();
       if(pthread == NULL)
          return NULL;
-      return MAC_THREAD(pthread->m_pthread->m_p.m_p);
+      return MAC_THREAD(pthread->m_p.m_p);
    }
    
    

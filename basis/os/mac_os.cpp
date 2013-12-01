@@ -141,7 +141,7 @@ namespace mac
    
    bool os::get_pid_by_path(const char * pszName, DWORD & dwPid)
    {
-      uint32_array dwa;
+      uint_array dwa;
       get_all_processes(dwa);
       for(int32_t i = 0; i < dwa.get_count(); i++)
       {
@@ -156,7 +156,7 @@ namespace mac
    
    bool os::get_pid_by_title(const char * pszName, DWORD & dwPid)
    {
-      uint32_array dwa;
+      uint_array dwa;
       get_all_processes(dwa);
       for(int32_t i = 0; i < dwa.get_count(); i++)
       {
@@ -200,7 +200,7 @@ namespace mac
       
    }
    
-   void os::get_all_processes(uint32_array & dwa )
+   void os::get_all_processes(uint_array & dwa )
    {
       
     //  throw not_implemented(get_app());

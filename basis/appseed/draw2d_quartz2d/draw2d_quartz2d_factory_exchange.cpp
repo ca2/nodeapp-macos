@@ -19,7 +19,7 @@ namespace draw2d_quartz2d
       System.factory().cloneable_large < font                  >   (System.type_info < ::draw2d::font                > ());
       System.factory().creatable < path                        >   (System.type_info < ::draw2d::path                > (), 1);
       
-      ::draw2d_quartz2d::dib::s_initialize();
+//      ::draw2d_quartz2d::dib::s_initialize();
       
    }
 
