@@ -15,8 +15,8 @@
 		9A1B496916A4A32500875A94 /* mac1.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496816A4A32500875A94 /* mac1.h */; };
 		9A574B3616AA1AC7000CC4EF /* mac_copydesk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B3416AA1AC1000CC4EF /* mac_copydesk.cpp */; };
 		9A574B3716AA1AC7000CC4EF /* mac_copydesk.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B3516AA1AC4000CC4EF /* mac_copydesk.h */; };
-		9A574B3A16AA1E97000CC4EF /* mac_crypt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B3816AA1E90000CC4EF /* mac_crypt.cpp */; };
-		9A574B3B16AA1E97000CC4EF /* mac_crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B3916AA1E93000CC4EF /* mac_crypt.h */; };
+		9A574B3A16AA1E97000CC4EF /* mac_crypto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B3816AA1E90000CC4EF /* mac_crypto.cpp */; };
+		9A574B3B16AA1E97000CC4EF /* mac_crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B3916AA1E93000CC4EF /* mac_crypto.h */; };
 		9A574B5716AA2049000CC4EF /* mac_ip_enum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B4916AA2042000CC4EF /* mac_ip_enum.cpp */; };
 		9A574B5816AA2049000CC4EF /* mac_ip_enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A574B4A16AA2045000CC4EF /* mac_ip_enum.h */; };
 		9A574B5A16AA3B02000CC4EF /* mac_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */; };
@@ -119,11 +119,11 @@
 		07BB57871809BC4000124367 /* mpg123_asm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mpg123_asm.h; path = ../thirdparty/include/mpg123_asm.h; sourceTree = "<group>"; };
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
-		9A1B496816A4A32500875A94 /* mac1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac1.h; sourceTree = "<group>"; };
+		9A1B496816A4A32500875A94 /* mac1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = mac1.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9A574B3416AA1AC1000CC4EF /* mac_copydesk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_copydesk.cpp; sourceTree = "<group>"; };
 		9A574B3516AA1AC4000CC4EF /* mac_copydesk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_copydesk.h; sourceTree = "<group>"; };
-		9A574B3816AA1E90000CC4EF /* mac_crypt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_crypt.cpp; sourceTree = "<group>"; };
-		9A574B3916AA1E93000CC4EF /* mac_crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_crypt.h; sourceTree = "<group>"; };
+		9A574B3816AA1E90000CC4EF /* mac_crypto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_crypto.cpp; sourceTree = "<group>"; };
+		9A574B3916AA1E93000CC4EF /* mac_crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_crypto.h; sourceTree = "<group>"; };
 		9A574B4516AA2031000CC4EF /* mac_afxImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_afxImpl.h; sourceTree = "<group>"; };
 		9A574B4816AA203E000CC4EF /* mac_genResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_genResource.cpp; sourceTree = "<group>"; };
 		9A574B4916AA2042000CC4EF /* mac_ip_enum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_ip_enum.cpp; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 		A1CFD8E1154FB715007447E2 /* mac_port_forward.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_port_forward.cpp; sourceTree = "<group>"; };
 		A1CFD8E2154FB715007447E2 /* mac_port_forward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_port_forward.h; sourceTree = "<group>"; };
 		A1CFD8E6154FB715007447E2 /* mac_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_state.h; sourceTree = "<group>"; };
-		A1CFD8E9154FB715007447E2 /* mac_thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_thread.cpp; sourceTree = "<group>"; };
+		A1CFD8E9154FB715007447E2 /* mac_thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = mac_thread.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		A1CFD8EA154FB715007447E2 /* mac_thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_thread.h; sourceTree = "<group>"; };
 		A1CFD8EB154FB715007447E2 /* mac_thread_local_storage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_thread_local_storage.cpp; sourceTree = "<group>"; };
 		A1CFD8EC154FB715007447E2 /* mac_thread_slots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_thread_slots.h; sourceTree = "<group>"; };
@@ -350,8 +350,8 @@
 				9A1B496816A4A32500875A94 /* mac1.h */,
 				A1CFD8C4154FB715007447E2 /* mac2.cpp */,
 				9A574B4516AA2031000CC4EF /* mac_afxImpl.h */,
-				9A574B3816AA1E90000CC4EF /* mac_crypt.cpp */,
-				9A574B3916AA1E93000CC4EF /* mac_crypt.h */,
+				9A574B3816AA1E90000CC4EF /* mac_crypto.cpp */,
+				9A574B3916AA1E93000CC4EF /* mac_crypto.h */,
 				9A574B3416AA1AC1000CC4EF /* mac_copydesk.cpp */,
 				9A574B3516AA1AC4000CC4EF /* mac_copydesk.h */,
 				A1CFD897154FB715007447E2 /* mac_afxabort.cpp */,
@@ -465,7 +465,7 @@
 				9A1B496416A494A600875A94 /* framework.h in Headers */,
 				9A1B496916A4A32500875A94 /* mac1.h in Headers */,
 				9A574B3716AA1AC7000CC4EF /* mac_copydesk.h in Headers */,
-				9A574B3B16AA1E97000CC4EF /* mac_crypt.h in Headers */,
+				9A574B3B16AA1E97000CC4EF /* mac_crypto.h in Headers */,
 				9A574B5816AA2049000CC4EF /* mac_ip_enum.h in Headers */,
 				071B28A9173FD8E700610E30 /* mac_printer.h in Headers */,
 				071B28AA173FD8E700610E30 /* mac_shell.h in Headers */,
@@ -559,7 +559,7 @@
 				A1CFD967154FB715007447E2 /* mac_window_draw.cpp in Sources */,
 				9A1B496716A4A10100875A94 /* framework.cpp in Sources */,
 				9A574B3616AA1AC7000CC4EF /* mac_copydesk.cpp in Sources */,
-				9A574B3A16AA1E97000CC4EF /* mac_crypt.cpp in Sources */,
+				9A574B3A16AA1E97000CC4EF /* mac_crypto.cpp in Sources */,
 				9A574B5716AA2049000CC4EF /* mac_ip_enum.cpp in Sources */,
 				9A574B5A16AA3B02000CC4EF /* mac_exception.cpp in Sources */,
 				071B28A8173FD8E700610E30 /* mac_printer.cpp in Sources */,
@@ -613,7 +613,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/boot $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
 				WorkspaceDir = "$(SRCROOT)/../seed/metaseed";
 			};
 			name = Debug;
@@ -652,7 +652,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/boot $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
 				WorkspaceDir = "$(SRCROOT)/../seed/metaseed";
 			};
 			name = Release;

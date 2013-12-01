@@ -711,8 +711,16 @@ namespace draw2d_quartz2d
    void graphics::FillRect(LPCRECT lpRect, ::draw2d::brush* pBrush)
    {
       
-      throw not_implemented(get_app());
-      return;
+      CGRect rect;
+      
+      rect.origin.x     = lpRect->left;
+      rect.origin.y     = lpRect->top;
+      rect.size.width   = lpRect->right - lpRect->left;
+      rect.size.height  = lpRect->bottom - lpRect->top;
+      
+      set(pBrush);
+      
+      CGContextFillRect(m_pdc, rect);
       
       //      ASSERT(get_handle1() != NULL); ::FillRect(get_handle1(), lpRect, (HBRUSH)pBrush->get_os_data());
       
@@ -726,6 +734,28 @@ namespace draw2d_quartz2d
       //       ASSERT(get_handle1() != NULL); ::FrameRect(get_handle1(), lpRect, (HBRUSH)pBrush->get_os_data());
       
    }
+   
+   
+   bool graphics::DrawRect(LPCRECT lpRect, ::draw2d::pen* ppen)
+   {
+      
+      CGRect rect;
+      
+      rect.origin.x     = lpRect->left;
+      rect.origin.y     = lpRect->top;
+      rect.size.width   = lpRect->right - lpRect->left;
+      rect.size.height  = lpRect->bottom - lpRect->top;
+      
+      set(ppen);
+      
+      CGContextStrokeRect(m_pdc, rect);
+      
+      //      ASSERT(get_handle1() != NULL); ::FillRect(get_handle1(), lpRect, (HBRUSH)pBrush->get_os_data());
+      
+      return true;
+      
+   }
+   
    
    void graphics::InvertRect(LPCRECT lpRect)
    {
@@ -857,6 +887,7 @@ namespace draw2d_quartz2d
       
    }
    
+   /*
    bool graphics::DrawState(point pt, size size, HICON hIcon, UINT nFlags, HBRUSH hBrush)
    {
       
@@ -876,7 +907,7 @@ namespace draw2d_quartz2d
       //      ASSERT(get_handle1() != NULL);
       //      return ::DrawState(get_handle1(), (HBRUSH)pBrush->get_os_data(), NULL, (LPARAM)hIcon, 0, pt.x, pt.y, size.cx, size.cy, nFlags|DST_ICON) != FALSE;
       
-   }
+   }*/
    
    bool graphics::DrawState(point pt, size size, const char * lpszText, UINT nFlags, bool bPrefixText, int32_t nTextLen, HBRUSH hBrush)
    {
@@ -1189,20 +1220,23 @@ namespace draw2d_quartz2d
    bool graphics::Rectangle(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
    {
       
-      /*      Gdiplus::RectF rectf((Gdiplus::REAL) x1, (Gdiplus::REAL) y1, (Gdiplus::REAL) (x2 - x1), (Gdiplus::REAL) (y2 - y1));
-       
-       bool bOk1 = m_pgraphics->FillRectangle(gdiplus_brush(), rectf) == Gdiplus::Status::Ok;
-       
-       bool bOk2 = m_pgraphics->DrawRectangle(gdiplus_pen(), rectf) == Gdiplus::Status::Ok;
-       
-       return bOk1 && bOk2;*/
-//      
-//      
-//      cairo_rectangle(m_pdc, x1, y1, x2, y2);
-//      
-//      
-      return fill_and_draw();
+      CGRect rect;
       
+      rect.origin.x     = x1;
+      rect.origin.y     = y1;
+      rect.size.width   = x2 - x1;
+      rect.size.height  = y2 - y1;
+      
+      set(m_spbrush);
+      
+      CGContextFillRect(m_pdc, rect);
+      
+      set(m_sppen);
+      
+      CGContextStrokeRect(m_pdc, rect);
+      
+      
+      return true;
       
       
       
@@ -1756,7 +1790,7 @@ namespace draw2d_quartz2d
                
                keeper < ::draw2d::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
                
-               return System.visual().imaging().true_blend(this, point((int64_t) x, (int64_t) y), rectText.size(), dib1->get_graphics(), null_point());
+               return BitBlt(point((int64_t) x, (int64_t) y), rectText.size(), dib1->get_graphics(), null_point());
                
                /*BLENDFUNCTION bf;
                 bf.BlendOp     = AC_SRC_OVER;
@@ -4663,9 +4697,10 @@ namespace draw2d_quartz2d
        */
       
       
-      visual::graphics_extension e(get_app());
+//      visual::graphics_extension e(get_app());
+      ::draw2d::graphics::draw_text(str, lpRect, nFormat);
       
-      e._DrawText(this, str, lpRect, nFormat);
+      //_DrawText(this, str, lpRect, nFormat);
       
       /*
        
@@ -5479,7 +5514,7 @@ namespace draw2d_quartz2d
       
       CGContextSetRGBStrokeColor(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
       
-      CGContextSetLineWidth(m_pdc, ppen->m_dWidth);
+      CGContextSetLineWidth(m_pdc, ppen->m_dWidth - 0.51);
       
       return true;
       

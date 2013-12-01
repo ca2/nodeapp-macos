@@ -319,9 +319,9 @@ namespace mac
       if(m_pthread == NULL)
          return false;
          
-      m_pthread->m_pthread->add(this);
+      m_pthread->add(this);
       m_pguie->m_pthread = m_pthread;
-         m_pguie->m_pthread->m_pthread->add(m_pguie);
+         m_pguie->m_pthread->add(m_pguie);
          
       
       UNREFERENCED_PARAMETER(id);
@@ -381,7 +381,7 @@ namespace mac
       
       hook_window_create(this);
       
-      NSRect rect;
+      CGRect rect;
       
       rect.origin.x = x;
       rect.origin.y = y;
@@ -550,7 +550,7 @@ namespace mac
          Sys(m_pbaseapp).user()->m_pwindowmap->m_map.remove_key((int_ptr) get_handle());
       }
       
-      single_lock sl(m_pthread == NULL ? NULL : &m_pthread->m_pthread->m_mutex, TRUE);
+      single_lock sl(m_pthread == NULL ? NULL : &m_pthread->m_mutex, TRUE);
       if(m_pfont != NULL)
       {
          delete m_pfont;
@@ -674,7 +674,7 @@ namespace mac
    // WM_NCDESTROY is the absolute LAST message sent.
    void window::_001OnNcDestroy(signal_details * pobj)
    {
-      single_lock sl(m_pthread == NULL ? NULL : &m_pthread->m_pthread->m_mutex, TRUE);
+      single_lock sl(m_pthread == NULL ? NULL : &m_pthread->m_mutex, TRUE);
       pobj->m_bRet = true;
       // cleanup main and active windows
       ::thread* pThread = System.GetThread();
@@ -842,7 +842,7 @@ namespace mac
    
    bool window::DestroyWindow()
    {
-      single_lock sl(m_pthread == NULL ? NULL : &m_pthread->m_pthread->m_mutex, TRUE);
+      single_lock sl(m_pthread == NULL ? NULL : &m_pthread->m_mutex, TRUE);
       ::user::window * pWnd;
       hwnd_map * pMap;
       oswindow hWndOrig;
@@ -1246,7 +1246,7 @@ namespace mac
    
    
    
-   bool window::_001OnCmdMsg(BaseCmdMsg * pcmdmsg)
+   bool window::_001OnCmdMsg(base_cmd_msg * pcmdmsg)
    {
       if(command_target_interface::_001OnCmdMsg(pcmdmsg))
          return TRUE;
@@ -2279,7 +2279,7 @@ namespace mac
    
    sp(::user::interaction) PASCAL window::GetDescendantWindow(sp(::user::interaction) hWnd, id id)
    {
-      single_lock sl(&hWnd->m_pthread->m_pthread->m_mutex, TRUE);
+      single_lock sl(&hWnd->m_pthread->m_mutex, TRUE);
       // GetDlgItem recursive (return first found)
       // breadth-first for 1 level, then depth-first for next level
       
@@ -3917,8 +3917,8 @@ namespace mac
       m_iModalCount++;
       
                   m_iaModalThread.add(::GetCurrentThreadId());
-            ::application * pappThis1 = dynamic_cast < ::application * > (m_pthread->m_pthread->m_p.m_p);
-            ::application * pappThis2 = dynamic_cast < ::application * > (m_pthread->m_pthread);
+            ::application * pappThis1 = dynamic_cast < ::application * > (m_pthread->m_p.m_p);
+            ::application * pappThis2 = dynamic_cast < ::application * > (m_pthread.m_p);
             // acquire and dispatch messages until the modal state is done
             MESSAGE msg;
             for (;;)
@@ -3949,14 +3949,14 @@ namespace mac
           //           // stop idle processing next time
             //         bIdle = FALSE;
               //    }
-                        m_pthread->m_pthread->m_p->m_dwAlive = m_pthread->m_pthread->m_dwAlive = ::get_tick_count();
+                        m_pthread->m_p->m_dwAlive = m_pthread->m_dwAlive = ::get_tick_count();
                   if(pappThis1 != NULL)
                   {
-                     pappThis1->m_dwAlive = m_pthread->m_pthread->m_dwAlive;
+                     pappThis1->m_dwAlive = m_pthread->m_dwAlive;
                   }
                   if(pappThis2 != NULL)
                   {
-                     pappThis2->m_dwAlive = m_pthread->m_pthread->m_dwAlive;
+                     pappThis2->m_dwAlive = m_pthread->m_dwAlive;
                   }
                   if(pliveobject != NULL)
                   {
@@ -3971,7 +3971,7 @@ namespace mac
                   if (!ContinueModal(iLevel))
                      goto ExitModal;
                         // pump message, but quit on WM_QUIT
-                  if (!m_pthread->m_pthread->pump_message())
+                  if (!m_pthread->pump_message())
                   {
                      __post_quit_message(0);
                      return -1;
@@ -3992,14 +3992,14 @@ namespace mac
                      bIdle = TRUE;
                      lIdleCount = 0;
                   }
-                        m_pthread->m_pthread->m_p->m_dwAlive = m_pthread->m_pthread->m_dwAlive = ::get_tick_count();
+                        m_pthread->m_p->m_dwAlive = m_pthread->m_dwAlive = ::get_tick_count();
                   if(pappThis1 != NULL)
                   {
-                     pappThis1->m_dwAlive = m_pthread->m_pthread->m_dwAlive;
+                     pappThis1->m_dwAlive = m_pthread->m_dwAlive;
                   }
                   if(pappThis2 != NULL)
                   {
-                     pappThis2->m_dwAlive = m_pthread->m_pthread->m_dwAlive;
+                     pappThis2->m_dwAlive = m_pthread->m_dwAlive;
                   }
                   if(pliveobject != NULL)
                   {
@@ -4801,7 +4801,7 @@ namespace mac
    {
       if(m_pthread != NULL)
       {
-         return m_pthread->m_pthread->post_message(m_pguie, message, wparam, lparam);
+         return m_pthread->post_message(m_pguie, message, wparam, lparam);
       }
       else
       {
@@ -5130,7 +5130,7 @@ namespace mac
 //      ASSERT(::IsWindow(get_handle()));
   //    return window::GetDescendantWindow(this, id);
       
-      single_lock sl(&m_pthread->m_pthread->m_mutex, TRUE);
+      single_lock sl(&m_pthread->m_mutex, TRUE);
       for(int32_t i = 0; i < m_pguie->m_uiptraChild.get_count(); i++)
       {
          if(m_pguie->m_uiptraChild[i].GetDlgCtrlId() == id)
@@ -5218,7 +5218,7 @@ namespace mac
 
       UNREFERENCED_PARAMETER(lpfnTimer);
       
-      m_pguie->m_pthread->m_pthread->set_timer(m_pguie, nIDEvent, nElapse);
+      m_pguie->m_pthread->set_timer(m_pguie, nIDEvent, nElapse);
       
       return nIDEvent;
       
@@ -5236,7 +5236,7 @@ namespace mac
       //ASSERT(::IsWindow(get_handle()));
       //return ::KillTimer(get_handle(), nIDEvent)  != FALSE;
       
-      m_pguie->m_pthread->m_pthread->unset_timer(m_pguie, nIDEvent);
+      m_pguie->m_pthread->unset_timer(m_pguie, nIDEvent);
       
 
       return true;
@@ -6464,7 +6464,7 @@ namespace mac
       
       g->attach(cgc);
  
-      g->BitBlt(0, 0, m_spdibFlip->cx, m_spdibFlip->cy, m_spdibFlip->get_graphics(), 0, 0, SRCCOPY);
+      g->BitBlt(0, 0, m_spdibFlip->m_size.cx, m_spdibFlip->m_size.cy, m_spdibFlip->get_graphics(), 0, 0, SRCCOPY);
       
    }
    

@@ -19,7 +19,7 @@ namespace draw2d_quartz2d
    
    
    // palette
-   palette::operator HPALETTE() const
+/*   palette::operator HPALETTE() const
    {
       
       //return (HPALETTE)(this == NULL ? NULL : get_os_data());
@@ -27,7 +27,7 @@ namespace draw2d_quartz2d
       return NULL;
       
    }
-   
+  */ 
    
    /*
     

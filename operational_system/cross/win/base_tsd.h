@@ -38,8 +38,8 @@ extern "C" {
  * type model where int and long are 32 bit and pointer is 64-bit.
  */
 
-#if defined(__x86_64__) && !defined(_WIN64)
-#define _WIN64
+#if defined(__x86_64__) && !defined(_MACOS64)
+#define _MACOS64
 #endif
 
 /* Type model independent typedefs */

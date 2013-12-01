@@ -63,7 +63,7 @@ namespace mac
       
       virtual sp(::user::window) get_wnd() const;
       
-      virtual bool _001OnCmdMsg(BaseCmdMsg * pcmdmsg);
+      virtual bool _001OnCmdMsg(base_cmd_msg * pcmdmsg);
       
       virtual bool BaseOnControlEvent(::user::control_event * pevent);
       

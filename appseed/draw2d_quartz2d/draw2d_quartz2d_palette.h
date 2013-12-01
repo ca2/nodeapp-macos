@@ -20,7 +20,7 @@ namespace draw2d_quartz2d
       //      bool CreateHalftonePalette(::draw2d::graphics * pgraphics);
       
       // Attributes
-      operator HPALETTE() const;
+//      operator HPALETTE() const;
       int32_t GetEntryCount();
       UINT GetPaletteEntries(UINT nStartIndex, UINT nNumEntries,
                              LPPALETTEENTRY lpPaletteColors) const;

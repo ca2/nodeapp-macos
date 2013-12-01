@@ -29,8 +29,8 @@
 # error You cannot use both wine/port.h and msvcrt headers
 #endif
 
-#if defined(__x86_64__) && !defined(_WIN64)
-#define _WIN64
+#if defined(__x86_64__) && !defined(_MACOS64)
+#define _MACOS64
 #endif
 
 #if !defined(_MSC_VER) && !defined(__int64)
@@ -104,7 +104,7 @@ typedef int __msvcrt_long;
 typedef unsigned int __msvcrt_ulong;
 #endif
 
-#ifndef _INTPTR_T_DEFINED
+#if !defined _INTPTR_T_DEFINED && !defined _INTPTR_T
 #ifdef  _WIN64
 typedef __int64 intptr_t;
 #else
@@ -113,7 +113,7 @@ typedef int intptr_t;
 #define _INTPTR_T_DEFINED
 #endif
 
-#ifndef _UINTPTR_T_DEFINED
+#if !defined _UINTPTR_T_DEFINED && !defined _UINTPTR_T
 #ifdef  _WIN64
 typedef unsigned __int64 uintptr_t;
 #else
@@ -122,7 +122,7 @@ typedef unsigned int uintptr_t;
 #define _UINTPTR_T_DEFINED
 #endif
 
-#ifndef _PTRDIFF_T_DEFINED
+#if !defined _PTRDIFF_T_DEFINED && !defined _PTRDIFF_T
 #ifdef _WIN64
 typedef __int64 ptrdiff_t;
 #else
@@ -131,7 +131,7 @@ typedef int ptrdiff_t;
 #define _PTRDIFF_T_DEFINED
 #endif
 
-#ifndef _SIZE_T_DEFINED
+#if !defined _SIZE_T_DEFINED && !defined _SIZE_T
 #ifdef _WIN64
 typedef unsigned __int64 size_t;
 #else
@@ -158,7 +158,7 @@ typedef __int64 DECLSPEC_ALIGN(8) __time64_t;
 # define _USE_32BIT_TIME_T
 #endif
 
-#ifndef _TIME_T_DEFINED
+#if !defined _TIME_T_DEFINED && !defined _TIME_T
 #ifdef _USE_32BIT_TIME_T
 typedef __time32_t time_t;
 #else
