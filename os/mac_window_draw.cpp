@@ -334,7 +334,7 @@ namespace mac
       //      ::AttachThreadInput(::GetCurrentThreadId(), WIN_THREAD(System.::ca2::thread_sp::m_p)->m_nThreadID, TRUE);
       MESSAGE msg;
       s_bRunning = true;
-      while(m_bRun && ::get_thread()->m_pthread->m_bRun)
+      while(m_bRun && ::get_thread()->m_bRun)
       {
          try
          {
@@ -349,7 +349,7 @@ namespace mac
          //         while(::PeekMessage(&msg, ::caNULL, NULL, NULL, PM_NOREMOVE))
          while(::PeekMessage(&msg, NULL, 0, 0, 0))
          {
-            __get_thread()->m_pthread->pump_message();
+            __get_thread()->pump_message();
          }
          int32_t iUiDataWriteWindowTimeForTheApplicationInThisMachine = 8;
          if(m_iFramesPerSecond == 0)

@@ -59,7 +59,7 @@ namespace mac
       //      ::ca2::smart_pointer < ::application_base > ::m_p->_001OnFileNew(NULL);
    }
 
-   sp(::user::document_interface) application::_001OpenDocumentFile(var varFile)
+   sp(::user::object) application::_001OpenDocumentFile(var varFile)
    {
       //    return ::ca2::smart_pointer < ::application_base > ::m_p->_001OpenDocumentFile(varFile);
       return NULL;
@@ -430,7 +430,7 @@ namespace mac
    */
    bool application::process_initialize()
    {
-      if(::application_base::m_p->is_system())
+      if(m_pimpl->is_system())
       {
          /*
          if(__get_module_state()->m_pmapHWND == NULL)
@@ -577,7 +577,7 @@ namespace mac
       if(__get_thread() == NULL)
          return NULL;
       else
-         return __get_thread()->m_pthread;
+         return __get_thread();
    }
 
    void application::set_thread(::thread * pthread)
@@ -714,7 +714,7 @@ namespace mac
 
       m_pmaininitdata = (::mac::main_init_data *) pdata;
 
-      if(m_pmaininitdata != NULL && ::application_base::m_p->is_system())
+      if(m_pmaininitdata != NULL && m_pimpl->is_system())
       {
          if(!win_init(m_pmaininitdata))
             return false;

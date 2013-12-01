@@ -50,15 +50,6 @@
       location = "group:../../../app/thirdparty/appseed/mysql/basemysql.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/thirdparty/appseed/openssl/baseopenssl.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/thirdparty/appseed/zlib/basezlib.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/appseed/boot/boot.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/appseed/core/core.xcodeproj">
    </FileRef>
    <FileRef

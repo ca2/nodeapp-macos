@@ -67,7 +67,7 @@ CLASS_DECL_mac void AfxResetMsgCache();
 #include "mac_os.h"
 #include "mac_port_forward.h"
 #include "mac_copydesk.h"
-#include "mac_crypt.h"
+#include "mac_crypto.h"
 #include "mac_ip_enum.h"
 
 #define NULL_REF(class) (*((class *) NULL))

@@ -6,32 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/core/database/sqlite/sqlite3.cpp"
-            timestampString = "406001166.028354"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36394"
-            endingLineNumber = "36394"
-            landmarkName = "sqlite3VdbeMemRelease(Mem *p)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base_plex_heap.cpp"
-            timestampString = "406004508.627049"
+            filePath = "../../../app/appseed/base/user/fontopus/fontopus_simple_ui.cpp"
+            timestampString = "407543476.374063"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "755"
-            endingLineNumber = "755"
-            landmarkName = "plex_heap_alloc_array::realloc(void * p, size_t size, size_t sizeOld, int align)"
+            startingLineNumber = "943"
+            endingLineNumber = "943"
+            landmarkName = "simple_ui::on_action(const char * pszId)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base_plex_heap.cpp"
-            timestampString = "406004508.627049"
+            filePath = "../../../app/appseed/core/user/user/user_list.cpp"
+            timestampString = "407548945.608299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "783"
-            endingLineNumber = "783"
-            landmarkName = "plex_heap_alloc_array::realloc(void * p, size_t size, size_t sizeOld, int align)"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "list::_001OnDraw(::draw2d::graphics *pdc)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base_plex_heap.cpp"
-            timestampString = "406004508.627049"
+            filePath = "../../../app/appseed/core/user/user/user_list.cpp"
+            timestampString = "407549026.370442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "813"
-            endingLineNumber = "813"
-            landmarkName = "plex_heap_alloc_array::realloc(void * p, size_t size, size_t sizeOld, int align)"
+            startingLineNumber = "621"
+            endingLineNumber = "621"
+            landmarkName = "list::_001DrawItem(draw_list_item * pdrawitem)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,77 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base_plex_heap.cpp"
-            timestampString = "406004031.195057"
+            filePath = "../../../app/appseed/core/user/user/user_list.cpp"
+            timestampString = "407549032.862055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "837"
-            endingLineNumber = "837"
-            landmarkName = "plex_heap_alloc_array::realloc(void * p, size_t size, size_t sizeOld, int align)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/boot/macos/macos_mm_window_frame_view.mm"
-            timestampString = "406342456.20834"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389"
-            landmarkName = "-flagsChanged:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/boot/macos/macos_fontopus.cpp"
-            timestampString = "406353467.93425"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
-            landmarkName = "fontopus::show_auth_window(LPRECT lprect, string &amp; strUsername, string &amp; strSessId, string &amp; strServerId, string &amp; strLoginUrl, string strRequestingServer)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/ansios/ansios_http.cpp"
-            timestampString = "406353585.331505"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "http_get_dup(const char * pszUrl, bool bCache, void (*callback)(void *, int32_t, uint_ptr), void * callback_param, bool bProgress)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/ansios/ansios_http_lib.cpp"
-            timestampString = "406353868.018139"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "421"
-            endingLineNumber = "421"
-            landmarkName = "tiny_http::t_parse_url(const char * url)"
+            startingLineNumber = "624"
+            endingLineNumber = "624"
+            landmarkName = "list::_001DrawItem(draw_list_item * pdrawitem)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

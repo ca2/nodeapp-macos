@@ -265,6 +265,10 @@ namespace draw2d_quartz2d
       // Simple Drawing Functions
       void FillRect(LPCRECT lpRect, ::draw2d::brush* pBrush);
       void FrameRect(LPCRECT lpRect, ::draw2d::brush* pBrush);
+      
+      virtual bool DrawRect(LPCRECT lpRect, ::draw2d::pen* ppen);
+      
+      
       void InvertRect(LPCRECT lpRect);
       bool DrawIcon(int32_t x, int32_t y, ::visual::icon * picon);
       bool DrawIcon(POINT point, ::visual::icon * picon);
@@ -273,10 +277,10 @@ namespace draw2d_quartz2d
                      HBRUSH hBrush = NULL);
       bool DrawState(point pt, size size, ::draw2d::bitmap* pBitmap, UINT nFlags,
                      ::draw2d::brush* pBrush = NULL);
-      bool DrawState(point pt, size size, HICON hIcon, UINT nFlags,
+/*      bool DrawState(point pt, size size, HICON hIcon, UINT nFlags,
                      HBRUSH hBrush = NULL);
       bool DrawState(point pt, size size, HICON hIcon, UINT nFlags,
-                     ::draw2d::brush* pBrush = NULL);
+                     ::draw2d::brush* pBrush = NULL);*/
       bool DrawState(point pt, size size, const char * lpszText, UINT nFlags,
                      bool bPrefixText = TRUE, int32_t nTextLen = 0, HBRUSH hBrush = NULL);
       bool DrawState(point pt, size size, const char * lpszText, UINT nFlags,
@@ -312,6 +316,7 @@ namespace draw2d_quartz2d
       
       // Bitmap Functions
       bool PatBlt(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, DWORD dwRop);
+      using ::draw2d::graphics::BitBlt;
       bool BitBlt(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, ::draw2d::graphics * pgraphicsSrc,
                   int32_t xSrc, int32_t ySrc, DWORD dwRop);
       bool StretchBlt(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, ::draw2d::graphics * pgraphicsSrc,

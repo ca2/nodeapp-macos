@@ -78,8 +78,8 @@ typedef void (__MSG_CALL ::thread::*__PMSGT)();
 
 namespace mac
 {
-   CLASS_DECL_mac base_thread * __get_thread();
-   CLASS_DECL_mac void __set_thread(base_thread * pthread);
+   CLASS_DECL_mac ::thread * __get_thread();
+   CLASS_DECL_mac void __set_thread(::thread * pthread);
 }
 CLASS_DECL_mac MESSAGE * __get_current_message();
 
