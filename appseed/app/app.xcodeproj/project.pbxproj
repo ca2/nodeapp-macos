@@ -13,14 +13,15 @@
 		9A8CCB1217EA066C00F87A02 /* libbasefreeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCB0A17EA066C00F87A02 /* libbasefreeimage.dylib */; };
 		9A8CCB1317EA066C00F87A02 /* libbasefreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCB0B17EA066C00F87A02 /* libbasefreetype.dylib */; };
 		9A8CCB1417EA066C00F87A02 /* libbasemysql.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCB0C17EA066C00F87A02 /* libbasemysql.dylib */; };
-		9A8CCB1517EA066C00F87A02 /* libbaseopenssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCB0D17EA066C00F87A02 /* libbaseopenssl.dylib */; };
-		9A8CCB1617EA066C00F87A02 /* libbasezlib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCB0E17EA066C00F87A02 /* libbasezlib.dylib */; };
-		9A8CCB1717EA066C00F87A02 /* libboot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCB0F17EA066C00F87A02 /* libboot.dylib */; };
 		9A8CCB1817EA066C00F87A02 /* libcore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCB1017EA066C00F87A02 /* libcore.dylib */; };
 		9A8CCB1917EA06A100F87A02 /* libca2os.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADEA4781766695200D4CF1F /* libca2os.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07B5903518866047002C6FEC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		07B5903918866047002C6FEC /* core-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "core-Info.plist"; sourceTree = "<group>"; };
+		07B5903B18866047002C6FEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		07B5903D18866047002C6FEC /* core-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "core-Prefix.pch"; sourceTree = "<group>"; };
 		9A5752B216AAE1D2000CC4EF /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5752B616AAE1D2000CC4EF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9A5752B916AAE1D2000CC4EF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -31,9 +32,6 @@
 		9A8CCB0A17EA066C00F87A02 /* libbasefreeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasefreeimage.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasefreeimage.dylib"; sourceTree = "<group>"; };
 		9A8CCB0B17EA066C00F87A02 /* libbasefreetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasefreetype.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasefreetype.dylib"; sourceTree = "<group>"; };
 		9A8CCB0C17EA066C00F87A02 /* libbasemysql.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasemysql.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasemysql.dylib"; sourceTree = "<group>"; };
-		9A8CCB0D17EA066C00F87A02 /* libbaseopenssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbaseopenssl.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbaseopenssl.dylib"; sourceTree = "<group>"; };
-		9A8CCB0E17EA066C00F87A02 /* libbasezlib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasezlib.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasezlib.dylib"; sourceTree = "<group>"; };
-		9A8CCB0F17EA066C00F87A02 /* libboot.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboot.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libboot.dylib"; sourceTree = "<group>"; };
 		9A8CCB1017EA066C00F87A02 /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libcore.dylib"; sourceTree = "<group>"; };
 		9AB3522516AC11540084BFE8 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = app.entitlements; sourceTree = SOURCE_ROOT; };
 		9ADEA4781766695200D4CF1F /* libca2os.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libca2os.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libca2os.dylib"; sourceTree = "<group>"; };
@@ -44,22 +42,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A8CCB1917EA06A100F87A02 /* libca2os.dylib in Frameworks */,
+				9A5752B716AAE1D2000CC4EF /* Cocoa.framework in Frameworks */,
 				9A8CCB1117EA066C00F87A02 /* libbase.dylib in Frameworks */,
 				9A8CCB1217EA066C00F87A02 /* libbasefreeimage.dylib in Frameworks */,
 				9A8CCB1317EA066C00F87A02 /* libbasefreetype.dylib in Frameworks */,
 				9A8CCB1417EA066C00F87A02 /* libbasemysql.dylib in Frameworks */,
-				9A8CCB1517EA066C00F87A02 /* libbaseopenssl.dylib in Frameworks */,
-				9A8CCB1617EA066C00F87A02 /* libbasezlib.dylib in Frameworks */,
-				9A8CCB1717EA066C00F87A02 /* libboot.dylib in Frameworks */,
 				9A8CCB1817EA066C00F87A02 /* libcore.dylib in Frameworks */,
-				9A5752B716AAE1D2000CC4EF /* Cocoa.framework in Frameworks */,
+				9A8CCB1917EA06A100F87A02 /* libca2os.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07B5903718866047002C6FEC /* core */ = {
+			isa = PBXGroup;
+			children = (
+				07B5903818866047002C6FEC /* Supporting Files */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		07B5903818866047002C6FEC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				07B5903918866047002C6FEC /* core-Info.plist */,
+				07B5903A18866047002C6FEC /* InfoPlist.strings */,
+				07B5903D18866047002C6FEC /* core-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		9A5752A716AAE1D2000CC4EF = {
 			isa = PBXGroup;
 			children = (
@@ -67,12 +80,10 @@
 				9A8CCB0A17EA066C00F87A02 /* libbasefreeimage.dylib */,
 				9A8CCB0B17EA066C00F87A02 /* libbasefreetype.dylib */,
 				9A8CCB0C17EA066C00F87A02 /* libbasemysql.dylib */,
-				9A8CCB0D17EA066C00F87A02 /* libbaseopenssl.dylib */,
-				9A8CCB0E17EA066C00F87A02 /* libbasezlib.dylib */,
-				9A8CCB0F17EA066C00F87A02 /* libboot.dylib */,
 				9A8CCB1017EA066C00F87A02 /* libcore.dylib */,
 				9ADEA4781766695200D4CF1F /* libca2os.dylib */,
 				9A5752BC16AAE1D2000CC4EF /* app */,
+				07B5903718866047002C6FEC /* core */,
 				9A5752B516AAE1D2000CC4EF /* Frameworks */,
 				9A5752B316AAE1D2000CC4EF /* Products */,
 			);
@@ -90,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				9A5752B616AAE1D2000CC4EF /* Cocoa.framework */,
+				07B5903518866047002C6FEC /* CoreFoundation.framework */,
 				9A5752B816AAE1D2000CC4EF /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -182,18 +194,29 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		07B5903A18866047002C6FEC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07B5903B18866047002C6FEC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		9A5752CE16AAE1D3000CC4EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -217,7 +240,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/ca $(WorkspaceDir)/../../../app/appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
 				WorkspaceDir = "$(SRCROOT)/../../../nodeapp/seed/metaseed";
 			};
 			name = Debug;
@@ -226,14 +249,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -249,7 +272,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ". .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/ca $(WorkspaceDir)/../../../app/appseed/ca2 $(WorkspaceDir)/../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
+				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../.. $(WorkspaceDir)/../../thirdparty/include $(WorkspaceDir)/../../../app/thirdparty/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/thirdparty/appseed";
 				WorkspaceDir = "$(SRCROOT)/../../../nodeapp/seed/metaseed";
 			};
 			name = Release;

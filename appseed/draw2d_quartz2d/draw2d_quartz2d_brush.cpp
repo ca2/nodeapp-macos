@@ -88,14 +88,14 @@ namespace draw2d_quartz2d
          
          m_colorspace= CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
          
-         components[0] = GetRValue(m_cr1) / 255.f;
-         components[1] = GetGValue(m_cr1) / 255.f;
-         components[2] = GetBValue(m_cr1) / 255.f;
-         components[3] = GetAValue(m_cr1) / 255.f;
-         components[4] = GetRValue(m_cr2) / 255.f;
-         components[5] = GetGValue(m_cr2) / 255.f;
-         components[6] = GetBValue(m_cr2) / 255.f;
-         components[7] = GetAValue(m_cr2) / 255.f;
+         components[0] = argb_get_r_value(m_cr1) / 255.f;
+         components[1] = argb_get_g_value(m_cr1) / 255.f;
+         components[2] = argb_get_b_value(m_cr1) / 255.f;
+         components[3] = argb_get_a_value(m_cr1) / 255.f;
+         components[4] = argb_get_r_value(m_cr2) / 255.f;
+         components[5] = argb_get_g_value(m_cr2) / 255.f;
+         components[6] = argb_get_b_value(m_cr2) / 255.f;
+         components[7] = argb_get_a_value(m_cr2) / 255.f;
          
          locations[0] = 0.0;
          locations[1] = 1.0;
@@ -110,10 +110,10 @@ namespace draw2d_quartz2d
          
          m_colorspace= CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
          
-         components[0] = GetRValue(m_cr) / 255.f;
-         components[1] = GetGValue(m_cr) / 255.f;
-         components[2] = GetBValue(m_cr) / 255.f;
-         components[3] = GetAValue(m_cr) / 255.f;
+         components[0] = argb_get_r_value(m_cr) / 255.f;
+         components[1] = argb_get_g_value(m_cr) / 255.f;
+         components[2] = argb_get_b_value(m_cr) / 255.f;
+         components[3] = argb_get_a_value(m_cr) / 255.f;
          
          m_color = CGColorCreate(m_colorspace, components);
          
