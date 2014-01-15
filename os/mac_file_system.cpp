@@ -357,46 +357,52 @@ namespace mac
          else if(::str::begins_ci(strFilePath, "http://")
                  || ::str::begins_ci(strFilePath, "https://"))
          {
-            ::property_set post;
-            ::property_set headers;
-            if(varQuery.has_property("post"))
-            {
-               post = varQuery["post"].propset();
-            }
+            
             if(varQuery.has_property("in_headers"))
             {
-               headers = varQuery["in_headers"].propset();
+            
+               varQuery["headers"] = varQuery["in_headers"].propset();
+               
             }
-            if(varQuery.propset()["disable_ca2_sessid"])
+            
+            varQuery.propset().set_app(papp);
+
+            if(strFilePath.contains("/matter.ca2.cc/") || strFilePath.contains(".matter.ca2.cc/"))
             {
-               App(papp).http().get(strFilePath, storage, post, headers, varQuery.propset(), NULL, NULL);
-            }
-            else if(varQuery.propset()["optional_ca2_sessid"])
-            {
-               App(papp).http().get(strFilePath, storage, post, headers, varQuery.propset(), NULL, NULL);
-            }
-            else if(strFilePath.contains("/matter.ca2.cc/") || strFilePath.contains(".matter.ca2.cc/"))
-            {
+            
                try
                {
+               
                   storage.transfer_from(*App(papp).file().get_file(strFilePath, ::file::type_binary | ::file::mode_read));
+               
                }
                catch(...)
                {
+               
                }
+               
             }
             else
             {
-               App(papp).http().get(strFilePath, storage, post, headers, varQuery.propset(), NULL, &AppUser(papp));
+               
+               App(papp).http().get(strFilePath, storage, varQuery.propset());
+               
             }
-            varQuery["out_headers"] = headers;
+            
+            varQuery["out_headers"] = varQuery["get_headers"];
+            
          }
          else
          {
+         
             as_memory(strFilePath, storage, papp);
+            
          }
+         
       }
+      
       string strResult;
+      
       if(storage.get_size() >= 2
          && storage.get_data()[0] == 255
          && storage.get_data()[1] == 60)
@@ -441,8 +447,10 @@ namespace mac
          
          if((::str::begins(strPath, "http://") || ::str::begins(strPath, "https://")))
          {
+         
+            property_set set(papp);
             
-            App(papp).http().get(strPath, mem, &AppUser(papp));
+            App(papp).http().get(strPath, mem, set);
             
             return;
             
@@ -939,7 +947,11 @@ namespace mac
       }
       else if(::str::begins_ci_iws(pszPath, "http://") || ::str::begins_ci_iws(pszPath, "https://"))
       {
-         return App(papp).http().exists(pszPath);
+      
+         property_set set(papp);
+      
+         return App(papp).http().exists(pszPath, set);
+         
       }
       
       if(papp->m_pplaneapp->m_bZipIsDir)
@@ -989,7 +1001,11 @@ namespace mac
       if(::str::begins_ci_iws(strPath, "http://")
          || ::str::begins_ci_iws(strPath, "https://"))
       {
-         return App(papp).http().exists(strPath);
+      
+         property_set set(papp);
+      
+         return App(papp).http().exists(strPath, set);
+         
       }
       
       

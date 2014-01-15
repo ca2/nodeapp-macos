@@ -5262,13 +5262,13 @@ namespace draw2d_quartz2d
          
          COLORREF crText = m_spbrush.is_null() ? ARGB(255, 0, 0, 0) : m_spbrush->m_cr;
       
-         components[0] = GetRValue(crText) / 255.f;
+         components[0] = argb_get_r_value(crText) / 255.f;
       
-         components[1] = GetGValue(crText) / 255.f;
+         components[1] = argb_get_g_value(crText) / 255.f;
       
-         components[2] = GetBValue(crText) / 255.f;
+         components[2] = argb_get_b_value(crText) / 255.f;
       
-         components[3] = GetAValue(crText) / 255.f;
+         components[3] = argb_get_a_value(crText) / 255.f;
       
          cr = CGColorCreate(rgbColorSpace, components);
       
@@ -5490,12 +5490,12 @@ namespace draw2d_quartz2d
    bool graphics::set(const ::draw2d::brush * pbrush)
    {
       
-//      cairo_set_source_rgba(m_pdc, GetRValue(pbrush->m_cr) / 255.0, GetGValue(pbrush->m_cr) / 255.0, GetBValue(pbrush->m_cr) / 255.0, GetAValue(pbrush->m_cr) / 255.0);
+//      cairo_set_source_rgba(m_pdc, argb_get_r_value(pbrush->m_cr) / 255.0, argb_get_g_value(pbrush->m_cr) / 255.0, argb_get_b_value(pbrush->m_cr) / 255.0, argb_get_a_value(pbrush->m_cr) / 255.0);
       
       if(pbrush == NULL)
          return false;
 
-      CGContextSetRGBFillColor(m_pdc, GetRValue(pbrush->m_cr) / 255.0, GetGValue(pbrush->m_cr) / 255.0, GetBValue(pbrush->m_cr) / 255.0, GetAValue(pbrush->m_cr) / 255.0);
+      CGContextSetRGBFillColor(m_pdc, argb_get_r_value(pbrush->m_cr) / 255.0, argb_get_g_value(pbrush->m_cr) / 255.0, argb_get_b_value(pbrush->m_cr) / 255.0, argb_get_a_value(pbrush->m_cr) / 255.0);
       
       return true;
       
@@ -5505,14 +5505,14 @@ namespace draw2d_quartz2d
    bool graphics::set(const ::draw2d::pen * ppen)
    {
       
-//      cairo_set_source_rgba(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
+//      cairo_set_source_rgba(m_pdc, argb_get_r_value(ppen->m_cr) / 255.0, argb_get_g_value(ppen->m_cr) / 255.0, argb_get_b_value(ppen->m_cr) / 255.0, argb_get_a_value(ppen->m_cr) / 255.0);
 //      
 //      cairo_set_line_width(m_pdc, ppen->m_dWidth);
       
       if(ppen == NULL)
          return false;
       
-      CGContextSetRGBStrokeColor(m_pdc, GetRValue(ppen->m_cr) / 255.0, GetGValue(ppen->m_cr) / 255.0, GetBValue(ppen->m_cr) / 255.0, GetAValue(ppen->m_cr) / 255.0);
+      CGContextSetRGBStrokeColor(m_pdc, argb_get_r_value(ppen->m_cr) / 255.0, argb_get_g_value(ppen->m_cr) / 255.0, argb_get_b_value(ppen->m_cr) / 255.0, argb_get_a_value(ppen->m_cr) / 255.0);
       
       CGContextSetLineWidth(m_pdc, ppen->m_dWidth - 0.51);
       
@@ -5624,7 +5624,7 @@ namespace draw2d_quartz2d
          
          CGContextSaveGState(m_pdc);
          
-         CGContextSetRGBStrokeColor(m_pdc, GetRValue(ppen->m_cr) / 255.f, GetGValue(ppen->m_cr) / 255.f, GetBValue(ppen->m_cr) / 255.f, GetAValue(ppen->m_cr) / 255.f);
+         CGContextSetRGBStrokeColor(m_pdc, argb_get_r_value(ppen->m_cr) / 255.f, argb_get_g_value(ppen->m_cr) / 255.f, argb_get_b_value(ppen->m_cr) / 255.f, argb_get_a_value(ppen->m_cr) / 255.f);
          
          CGContextSetLineWidth(m_pdc, ppen->m_dWidth);
          
@@ -5750,7 +5750,7 @@ namespace draw2d_quartz2d
    void graphics::internal_set_fill_color(COLORREF cr)
    {
       
-      CGContextSetRGBFillColor(m_pdc, GetRValue(cr) / 255.0f, GetGValue(cr) / 255.0f, GetBValue(cr) / 255.0f, GetAValue(cr) / 255.0f);
+      CGContextSetRGBFillColor(m_pdc, argb_get_r_value(cr) / 255.0f, argb_get_g_value(cr) / 255.0f, argb_get_b_value(cr) / 255.0f, argb_get_a_value(cr) / 255.0f);
       
    }
    
