@@ -36,7 +36,6 @@
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
 		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
 		9AAE862317E98CC500F0512E /* libbase.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAE861F17E98CC400F0512E /* libbase.dylib */; };
-		9AAE862417E98CC500F0512E /* libbasefreeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAE862017E98CC400F0512E /* libbasefreeimage.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +68,6 @@
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AAE861F17E98CC400F0512E /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbase.dylib"; sourceTree = "<group>"; };
-		9AAE862017E98CC400F0512E /* libbasefreeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasefreeimage.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasefreeimage.dylib"; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libdraw2d_quartz2d.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libdraw2d_quartz2d.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,7 +79,6 @@
 				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
 				9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */,
 				9AAE862317E98CC500F0512E /* libbase.dylib in Frameworks */,
-				9AAE862417E98CC500F0512E /* libbasefreeimage.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +91,6 @@
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
 				9AAE861F17E98CC400F0512E /* libbase.dylib */,
-				9AAE862017E98CC400F0512E /* libbasefreeimage.dylib */,
 				A1CFD896154FB715007447E2 /* draw2d_quartz2d */,
 				A1CFD779154F5EAA007447E2 /* Products */,
 			);
