@@ -28,6 +28,8 @@ uint32_t __run_system(void * p);
 
 int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
 {
+
+setlocale(LC_ALL,"");
    
    ns_shared_application();
    

@@ -417,12 +417,12 @@ bool CLASS_DECL_mac __is_module_dll()
 bool CLASS_DECL_mac __init_current_state_app()
 {
    base_application * pApp = __get_module_state()->m_pCurrentWinApp;
-   if (pApp != NULL && !pApp->m_pplaneapp->initialize_instance())
+   if (pApp != NULL && !pApp->m_pbaseapp->initialize_instance())
    {
       // Init Failed
       try
       {
-         pApp->m_pplaneapp->exit();
+         pApp->m_pbaseapp->exit();
       }
       catch(...)
       {

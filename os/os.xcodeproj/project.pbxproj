@@ -10,6 +10,8 @@
 		071B28A8173FD8E700610E30 /* mac_printer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 071B28A5173FD8E600610E30 /* mac_printer.cpp */; };
 		071B28A9173FD8E700610E30 /* mac_printer.h in Headers */ = {isa = PBXBuildFile; fileRef = 071B28A6173FD8E600610E30 /* mac_printer.h */; };
 		071B28AA173FD8E700610E30 /* mac_shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 071B28A7173FD8E600610E30 /* mac_shell.h */; };
+		07884E8B189824F700DC6CEB /* libbase.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07884E89189824F700DC6CEB /* libbase.dylib */; };
+		07884E8C189824F700DC6CEB /* libcore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07884E8A189824F700DC6CEB /* libcore.dylib */; };
 		9A1B496416A494A600875A94 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496316A494A600875A94 /* framework.h */; };
 		9A1B496716A4A10100875A94 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B496616A4A10100875A94 /* framework.cpp */; };
 		9A1B496916A4A32500875A94 /* mac1.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496816A4A32500875A94 /* mac1.h */; };
@@ -22,11 +24,6 @@
 		9A574B5A16AA3B02000CC4EF /* mac_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */; };
 		9A8997B7177CFA3300C7761E /* mac_mm.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8997B6177CFA3200C7761E /* mac_mm.h */; };
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
-		9A8CCAD017E9E47900F87A02 /* libbase.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAC817E9E47900F87A02 /* libbase.dylib */; };
-		9A8CCAD117E9E47900F87A02 /* libbasefreeimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCAC917E9E47900F87A02 /* libbasefreeimage.dylib */; };
-		9A8CCAD217E9E47900F87A02 /* libbasefreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCACA17E9E47900F87A02 /* libbasefreetype.dylib */; };
-		9A8CCAD317E9E47900F87A02 /* libbasemysql.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCACB17E9E47900F87A02 /* libbasemysql.dylib */; };
-		9A8CCAD717E9E47900F87A02 /* libcore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8CCACF17E9E47900F87A02 /* libcore.dylib */; };
 		9AA1B44117634E520019E812 /* RoundWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA1B3EA17634E520019E812 /* RoundWindow.h */; };
 		9AA1B44217634E520019E812 /* RoundWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1B3EB17634E520019E812 /* RoundWindow.mm */; };
 		9AA1B44317634E520019E812 /* RoundWindowFrameView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */; };
@@ -112,6 +109,8 @@
 		071B28A6173FD8E600610E30 /* mac_printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_printer.h; sourceTree = "<group>"; };
 		071B28A7173FD8E600610E30 /* mac_shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_shell.h; sourceTree = "<group>"; };
 		07401ECC164632BB00F5D0F3 /* oswindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oswindow.h; sourceTree = "<group>"; };
+		07884E89189824F700DC6CEB /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = "../../../Users/carlos/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbase.dylib"; sourceTree = "<group>"; };
+		07884E8A189824F700DC6CEB /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = "../../../Users/carlos/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libcore.dylib"; sourceTree = "<group>"; };
 		07926B551809949300968303 /* win_common_controls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = win_common_controls.h; sourceTree = "<group>"; };
 		07BB57871809BC4000124367 /* mpg123_asm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mpg123_asm.h; path = ../thirdparty/include/mpg123_asm.h; sourceTree = "<group>"; };
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
@@ -128,11 +127,6 @@
 		9A574B5916AA3AFA000CC4EF /* mac_exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_exception.cpp; sourceTree = "<group>"; };
 		9A8997B6177CFA3200C7761E /* mac_mm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_mm.h; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		9A8CCAC817E9E47900F87A02 /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbase.dylib"; sourceTree = "<group>"; };
-		9A8CCAC917E9E47900F87A02 /* libbasefreeimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasefreeimage.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasefreeimage.dylib"; sourceTree = "<group>"; };
-		9A8CCACA17E9E47900F87A02 /* libbasefreetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasefreetype.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasefreetype.dylib"; sourceTree = "<group>"; };
-		9A8CCACB17E9E47900F87A02 /* libbasemysql.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbasemysql.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbasemysql.dylib"; sourceTree = "<group>"; };
-		9A8CCACF17E9E47900F87A02 /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = "../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libcore.dylib"; sourceTree = "<group>"; };
 		9AA1B3EA17634E520019E812 /* RoundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundWindow.h; sourceTree = "<group>"; };
 		9AA1B3EB17634E520019E812 /* RoundWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RoundWindow.mm; sourceTree = "<group>"; };
 		9AA1B3EC17634E520019E812 /* RoundWindowFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundWindowFrameView.h; sourceTree = "<group>"; };
@@ -220,13 +214,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07884E8B189824F700DC6CEB /* libbase.dylib in Frameworks */,
+				07884E8C189824F700DC6CEB /* libcore.dylib in Frameworks */,
 				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
 				9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */,
-				9A8CCAD017E9E47900F87A02 /* libbase.dylib in Frameworks */,
-				9A8CCAD117E9E47900F87A02 /* libbasefreeimage.dylib in Frameworks */,
-				9A8CCAD217E9E47900F87A02 /* libbasefreetype.dylib in Frameworks */,
-				9A8CCAD317E9E47900F87A02 /* libbasemysql.dylib in Frameworks */,
-				9A8CCAD717E9E47900F87A02 /* libcore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,13 +244,10 @@
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				07884E89189824F700DC6CEB /* libbase.dylib */,
+				07884E8A189824F700DC6CEB /* libcore.dylib */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
-				9A8CCAC817E9E47900F87A02 /* libbase.dylib */,
-				9A8CCAC917E9E47900F87A02 /* libbasefreeimage.dylib */,
-				9A8CCACA17E9E47900F87A02 /* libbasefreetype.dylib */,
-				9A8CCACB17E9E47900F87A02 /* libbasemysql.dylib */,
-				9A8CCACF17E9E47900F87A02 /* libcore.dylib */,
 				A1CFD87C154FB715007447E2 /* operational_system */,
 				A1CFD896154FB715007447E2 /* os */,
 				07BB57851809BBEE00124367 /* thirdparty */,
@@ -564,9 +552,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_STATIC_ANALYZER_MODE_ON_ANALYZE_ACTION = shallow;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -612,9 +602,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_STATIC_ANALYZER_MODE_ON_ANALYZE_ACTION = shallow;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -656,6 +648,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = framework.h;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -667,6 +663,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = framework.h;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

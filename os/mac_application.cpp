@@ -839,15 +839,13 @@ namespace mac
    }
 
 
-   ::user::printer * application::get_printer(const char * pszDeviceName)
+   sp(::user::printer) application::get_printer(const char * pszDeviceName)
    {
 
-      ::mac2::printer * pprinter = new ::mac2::printer(get_app());
+      sp(::mac2::printer) pprinter = Application.alloc (System.type_info < ::user::printer > ());
 
       if(!pprinter->open(pszDeviceName))
       {
-
-         delete pprinter;
 
          return NULL;
 

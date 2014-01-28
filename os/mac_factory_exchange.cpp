@@ -25,6 +25,7 @@ namespace mac
       System.factory().creatable < port_forward               >   (System.type_info < ::net::port_forward     > (), 1);
       System.factory().creatable < crypto                      >   (System.type_info < ::crypto::crypto           > (), 1);
       System.factory().creatable < copydesk                   >   (System.type_info < ::core::copydesk        > (), 1);
+      System.factory().creatable < ::mac2::printer                   >   (System.type_info < ::user::printer        > (), 1);
       
    }
 
