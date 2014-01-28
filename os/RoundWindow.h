@@ -11,7 +11,7 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 //
-#include "app/appseed/base/user/user_key_enum.h"
+#include "app/appseed/base/user/user/user_key_enum.h"
 
 
 ::user::e_key event_key(NSEvent * event);
