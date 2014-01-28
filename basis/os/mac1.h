@@ -50,6 +50,8 @@ CLASS_DECL_mac int32_t c_cdecl __new_handler(size_t nSize);
 
 void CLASS_DECL_mac __abort();
 
+//typedef void * HICON;
+
 
 // helpers for registering your own WNDCLASSes
 CLASS_DECL_mac const char * __register_window_class(UINT nClassStyle, HCURSOR hCursor = 0, HBRUSH hbrBackground = 0, HICON hIcon = 0);

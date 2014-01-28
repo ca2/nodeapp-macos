@@ -2376,10 +2376,10 @@ namespace mac
    // if the window doesn't have a _visible_ windows scrollbar - then
    //   look for a sibling with the appropriate ID
    
-   CScrollBar* window::GetScrollBarCtrl(int32_t) const
-   {
-      return NULL;        // no special scrollers supported
-   }
+//   CScrollBar* window::GetScrollBarCtrl(int32_t) const
+  // {
+    //  return NULL;        // no special scrollers supported
+  // }
    
    int32_t window::SetScrollPos(int32_t nBar, int32_t nPos, bool bRedraw)
    {
@@ -3111,7 +3111,7 @@ namespace mac
       RedrawWindow();
       
    }
-
+/*
 
    
    void window::OnHScroll(UINT, UINT, CScrollBar* pScrollBar)
@@ -3125,7 +3125,7 @@ namespace mac
       UNREFERENCED_PARAMETER(pScrollBar);
       Default();
    }
-   
+   */
    bool CALLBACK window::GetAppsEnumWindowsProc(oswindow hwnd, LPARAM lparam)
    {
       user::oswindow_array * phwnda = (user::oswindow_array *) lparam;

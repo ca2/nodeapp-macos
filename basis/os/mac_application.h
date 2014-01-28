@@ -196,7 +196,7 @@ namespace mac
       virtual uint32_t get_thread_id();
       
       
-      virtual ::user::printer * get_printer(const char * pszDeviceName);
+      virtual sp(::user::printer) get_printer(const char * pszDeviceName);
 
        string draw2d_get_default_library_name();
       string multimedia_audio_mixer_get_default_library_name();
