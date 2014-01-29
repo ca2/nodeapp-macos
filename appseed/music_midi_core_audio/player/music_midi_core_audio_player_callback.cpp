@@ -5,7 +5,7 @@ namespace music
 {
 
 
-   namespace midi_mmsystem
+   namespace midi_core_midi
    {
 
 
@@ -13,8 +13,9 @@ namespace music
       {
 
 
-         callback::callback(sp(::ca2::application) papp) :
-            m_wnd(papp)
+         callback::callback(sp(base_application) papp) :
+            element(papp)
+//            m_wnd(papp)
          {
          }
 
@@ -24,17 +25,17 @@ namespace music
 
          bool callback::initialize()
          {
-            if(!m_wnd.create())
-               return false;
-            m_wnd.set_callback(this);
+//            if(!m_wnd.create())
+  //             return false;
+    //        m_wnd.set_callback(this);
             return true;
          }
 
          bool callback::finalize()
          {
-            if(!m_wnd.IsWindow())
-               return true;
-            m_wnd.DestroyWindow();
+      //      if(!m_wnd.IsWindow())
+        //       return true;
+          //  m_wnd.DestroyWindow();
             return true;
          }
 
@@ -47,12 +48,13 @@ namespace music
 
          void callback::OnMidiPlayerNotifyEvent(::music::midi::player::notify_event * pdata)
          {
-            switch(pdata->m_enotifyevent)
-            {
-            case music::midi::player::notify_event_set_sequence:
-               //      pdata->m_pplayer->get_sequence()->m_midicallbackdata.oswindow = m_wnd.GetSafeoswindow_();
-               break;
-            }
+//            switch(pdata->m_enotifyevent)
+  //          {
+    //        case music::midi::player::notify_event_set_sequence:
+      //         //      pdata->m_pplayer->get_sequence()->m_midicallbackdata.oswindow = m_wnd.GetSafeoswindow_();
+        //       break;
+          //  }
+          UNREFERENCED_PARAMETER(pdata);
          }
 
          void callback::OnMidiLyricEvent(array<::ikaraoke::lyric_event_v1, ::ikaraoke::lyric_event_v1&> * pevents)
@@ -64,7 +66,7 @@ namespace music
       } // namespace player
 
 
-   } // namespace midi_mmsystem
+   } // namespace midi_core_midi
 
 
 } // namespace music
