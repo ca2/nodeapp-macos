@@ -5,8 +5,10 @@ namespace music
 {
 
 
-   namespace midi_core_audio
+   namespace midi_core_midi
    {
+   
+   /*
 
 
       exception::exception(sp(base_application) papp) :
@@ -18,7 +20,7 @@ namespace music
          m_etype = TypeUndefined;
       }
 
-      exception::exception(sp(base_application) papp, ::music::midi::file::e_result mfr) :
+      exception::exception(sp(base_application) papp, ::music::e_result mfr) :
          element(papp),
          ::call_stack(papp),
          ::exception::base(papp),
@@ -73,10 +75,10 @@ namespace music
       {
          return m_strUser;
       }
+*/
 
 
-
-   } // namespace midi_core_audio
+   } // namespace midi_core_midi
 
 
 } // namespace music
