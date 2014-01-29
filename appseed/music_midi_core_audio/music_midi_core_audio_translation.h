@@ -4,14 +4,14 @@
 namespace music
 {
 
-   namespace midi_core_audio
+   namespace midi_core_midi
    {
 
 
-      ::multimedia::e_result TranslateSMFResult(::music::midi::file::e_result smfrc);
+//      CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_CORE_MIDI ::multimedia::e_result TranslateSMFResult(::music::e_result smfrc);
 
 
-   } // namespace midi_core_audio
+   } // namespace midi_core_midi
 
 
 } // namespace music

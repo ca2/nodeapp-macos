@@ -1,9 +1,8 @@
 #pragma once
 
 
-#include "music_midi_mmsystem_player_window.h"
-#include "music_midi_mmsystem_player_callback.h"
-#include "music_midi_mmsystem_player_interface.h"
+#include "music_midi_core_audio_player_callback.h"
+#include "music_midi_core_audio_player_interface.h"
 
 
 
@@ -13,7 +12,7 @@ namespace music
 {
 
 
-   namespace midi_mmsystem
+   namespace midi_core_midi
    {
 
 
@@ -29,17 +28,17 @@ namespace music
 
 
 
-         class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_MMSYSTEM player :
+         class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_CORE_MIDI player :
             virtual public ::music::midi::player::player
          {
          public:
 
 
-            player(sp(::ca2::application) papp);
+            player(sp(base_application) papp);
             virtual ~player();
 
 
-            void install_message_handling(::ca2::message::dispatch * pinterface);
+            void install_message_handling(::message::dispatch * pinterface);
 
 
             void SendMmsgDone(::music::midi::sequence *pSeq, ::music::midi::LPMIDIDONEDATA lpmdd);
@@ -49,7 +48,7 @@ namespace music
 
             virtual bool initialize_instance();
             virtual int32_t exit_instance();
-            virtual void pre_translate_message(::ca2::signal_object * pobj);
+            virtual void pre_translate_message(::signal_details * pobj);
             void OnMmsgDone(::music::midi::sequence *pSeq);
             DECL_GEN_SIGNAL(OnUserMessage)
                void SaveFile(const char * lpszPathName);
@@ -69,9 +68,9 @@ namespace music
 
             bool SetMidiOutDevice(uint32_t uiDevice);
 
-            VMSRESULT SetInterface(player_interface * pinterface);
+            ::multimedia::e_result SetInterface(player_interface * pinterface);
 
-            VMSRESULT Initialize(::ca2::thread * pthread);
+            ::multimedia::e_result Initialize(::thread * pthread);
 
             bool IsPlaying();
 
@@ -94,7 +93,7 @@ namespace music
       } // namespace player
 
 
-   } // namespace midi_mmsystem
+   } // namespace midi_core_midi
 
 
 } // namespace music

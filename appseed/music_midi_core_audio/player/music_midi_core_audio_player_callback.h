@@ -5,7 +5,7 @@ namespace music
 {
 
 
-   namespace midi_mmsystem
+   namespace midi_core_midi
    {
 
 
@@ -13,7 +13,7 @@ namespace music
       {
 
 
-         class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_MMSYSTEM callback :
+         class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_CORE_MIDI callback :
             virtual public ::music::midi::player::callback_interface
          {
          public:
@@ -21,9 +21,8 @@ namespace music
 
 
             friend class window;
-            window m_wnd;
 
-            callback(sp(::ca2::application) papp);
+            callback(sp(base_application) papp);
             virtual ~callback();
 
             virtual bool initialize();
@@ -40,7 +39,7 @@ namespace music
       } // namespace player
 
 
-   } // namespace midi_mmsystem
+   } // namespace midi_core_midi
 
 
 } // namespace music

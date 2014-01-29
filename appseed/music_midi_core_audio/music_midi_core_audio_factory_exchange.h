@@ -5,12 +5,12 @@ namespace music
 {
 
 
-   namespace midi_core_audio
+   namespace midi_core_midi
    {
 
 
-      class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_MMSYSTEM factory_exchange :
-         virtual public ::ca2::object
+      class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_CORE_MIDI factory_exchange :
+         virtual public ::object
       {
       public:
 
@@ -21,7 +21,7 @@ namespace music
       };
 
 
-   } // namespace midi_core_audio
+   } // namespace midi_core_midi
 
 
 } // namespace music

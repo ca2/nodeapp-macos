@@ -5,7 +5,7 @@ namespace music
 {
 
 
-   namespace midi_core_audio
+   namespace midi_core_midi
    {
 
 
@@ -318,7 +318,7 @@ namespace music
 
       }
 
-      VMSRESULT FillTypeCombo(sp(simple_combo_box)lpcombo)
+      ::music::e_result FillTypeCombo(sp(simple_combo_box)lpcombo)
       {
          UNREFERENCED_PARAMETER(lpcombo);
          /*   lpcombo->ResetContent();
@@ -344,10 +344,10 @@ namespace music
          iItem = lpcombo->AddString(str);
          lpcombo->SetItemData(iItem, ProgramChange);*/
 
-         return VMSR_SUCCESS;
+         return ::music::success;
       }
 
-      VMSRESULT FillPitchCombo(sp(simple_combo_box)lpcombo)
+      ::music::e_result FillPitchCombo(sp(simple_combo_box)lpcombo)
       {
          UNREFERENCED_PARAMETER(lpcombo);
          /*    lpcombo->ResetContent();
@@ -358,7 +358,7 @@ namespace music
          lpcombo->SetItemData(iItem, i);
          }
          */
-         return VMSR_SUCCESS;
+         return ::music::success;
       }
 
 
@@ -425,7 +425,7 @@ namespace music
       }
 
 
-   } // namespace midi_core_audio
+   } // namespace midi_core_midi
 
 
 } // namespace music

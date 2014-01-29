@@ -5,7 +5,7 @@ namespace music
 {
 
 
-   namespace midi_mmsystem
+   namespace midi_core_midi
    {
 
 
@@ -13,8 +13,8 @@ namespace music
       {
 
 
-         player_interface::player_interface(sp(::ca2::application) papp) :
-            ca2(papp),
+         player_interface::player_interface(sp(base_application) papp) :
+            element(papp),
             callback(papp),
             ::music::midi::player::player_interface(papp)
             
@@ -56,7 +56,7 @@ namespace music
             {
                m_pmidiplayer = dynamic_cast < ::music::midi::player::player * > (__begin_thread < player >(
                   get_app(),
-                  ::ca2::scheduling_priority_normal,
+                  ::core::scheduling_priority_normal,
                   0,
                   CREATE_SUSPENDED));
             }
@@ -69,8 +69,8 @@ namespace music
 
             m_pmidiplayer->SetMidiCentral(m_psection);
 
-            m_pmidiplayer->SetCallbackWindow(&m_wnd);
-            if(VMS_FAILED(m_pmidiplayer->Initialize(
+//            m_pmidiplayer->SetCallbackWindow(&m_wnd);
+            if(::multimedia::failed(m_pmidiplayer->Initialize(
                GetMidiPlayerCallbackThread())))
             {
                return false;
@@ -90,7 +90,7 @@ namespace music
          bool player_interface::OnOpenMidiPlayer()
          {
             GetMidiPlayer()->SetInterface(this);
-            m_wnd.set_callback(m_composite);
+//            m_wnd.set_callback(m_composite);
             return true;
          }
 
@@ -99,12 +99,12 @@ namespace music
          void player_interface::OnMidiPlayerNotifyEvent(::music::midi::player::notify_event * pdata)
          {
             callback::OnMidiPlayerNotifyEvent(pdata);
-            switch(pdata->m_enotifyevent)
-            {
-            case music::midi::player::notify_event_set_sequence:
-               //      pdata->m_pplayer->get_sequence()->m_midicallbackdata.lpThreadV1 = GetMidiPlayerCallbackThread();
-               break;
-            }
+  //          switch(pdata->m_enotifyevent)
+    //        {
+      //      case music::midi::player::notify_event_set_sequence:
+        //       //      pdata->m_pplayer->get_sequence()->m_midicallbackdata.lpThreadV1 = GetMidiPlayerCallbackThread();
+          //     break;
+            //}
 
          }
 
@@ -112,7 +112,7 @@ namespace music
       } // namespace player
 
 
-   } // namespace midi_mmsystem
+   } // namespace midi_core_midi
 
 
 } // namespace music

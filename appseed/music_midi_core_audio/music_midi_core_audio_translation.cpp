@@ -4,10 +4,11 @@
 namespace music
 {
 
-   namespace midi_core_audio
+   namespace midi_core_midi
    {
 
-      ::multimedia::e_result TranslateSMFResult(::music::midi::file::e_result               smfrc)
+/*
+      ::multimedia::e_result TranslateSMFResult(::music::e_result               smfrc)
       {
          switch(smfrc)
          {
@@ -26,10 +27,12 @@ namespace music
             return MCIERR_UNSUPPORTED_FUNCTION;
          }
       }
+      
+      */
 
 
 
-   } // namespace midi_core_audio
+   } // namespace midi_core_midi
 
 
 } // namespace music      
