@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0715B915189ED3ED00B3EBD9 /* opensslconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715B913189ED3ED00B3EBD9 /* opensslconf.h */; };
 		071B28A8173FD8E700610E30 /* mac_printer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 071B28A5173FD8E600610E30 /* mac_printer.cpp */; };
 		071B28A9173FD8E700610E30 /* mac_printer.h in Headers */ = {isa = PBXBuildFile; fileRef = 071B28A6173FD8E600610E30 /* mac_printer.h */; };
 		071B28AA173FD8E700610E30 /* mac_shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 071B28A7173FD8E600610E30 /* mac_shell.h */; };
@@ -105,6 +106,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0715B913189ED3ED00B3EBD9 /* opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
 		071B28A5173FD8E600610E30 /* mac_printer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_printer.cpp; sourceTree = "<group>"; };
 		071B28A6173FD8E600610E30 /* mac_printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_printer.h; sourceTree = "<group>"; };
 		071B28A7173FD8E600610E30 /* mac_shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mac_shell.h; sourceTree = "<group>"; };
@@ -224,6 +226,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0715B912189ED3ED00B3EBD9 /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				0715B913189ED3ED00B3EBD9 /* opensslconf.h */,
+				0715B914189ED3ED00B3EBD9 /* Untitled Folder */,
+			);
+			name = openssl;
+			path = ../thirdparty/include/openssl;
+			sourceTree = "<group>";
+		};
+		0715B914189ED3ED00B3EBD9 /* Untitled Folder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Untitled Folder";
+			sourceTree = "<group>";
+		};
 		07BB57851809BBEE00124367 /* thirdparty */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +255,7 @@
 		07BB57861809BC1100124367 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				0715B912189ED3ED00B3EBD9 /* openssl */,
 				07BB57871809BC4000124367 /* mpg123_asm.h */,
 			);
 			name = include;
@@ -434,6 +454,7 @@
 				A1CFD94D154FB715007447E2 /* mac_os.h in Headers */,
 				A1CFD953154FB715007447E2 /* mac_port_forward.h in Headers */,
 				A1CFD957154FB715007447E2 /* mac_state.h in Headers */,
+				0715B915189ED3ED00B3EBD9 /* opensslconf.h in Headers */,
 				A1CFD95B154FB715007447E2 /* mac_thread.h in Headers */,
 				A1CFD95D154FB715007447E2 /* mac_thread_slots.h in Headers */,
 				A1CFD966154FB715007447E2 /* mac_window.h in Headers */,
