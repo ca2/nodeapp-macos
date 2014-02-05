@@ -1,4 +1,13 @@
-//#define OPENSSL_NO_DEPRECATED
+// ca2 configuration for openssl
+#include "app/appseed/base/base/base/base.h"
+#define OPENSSL_NO_ASM
+#define OPENSSL_NO_INLINE_ASM
+#define OPENSSL_NO_DYNAMIC_ENGINE
+#define OPENSSL_NO_RSAX
+#define OPENSSL_NO_HW
+#define OPENSSL_NO_RDRAND
+// end of ca2 configuration for openssl
+
 
 /* opensslconf.h */
 /* WARNING: Generated automatically from opensslconf.h.in by Configure. */
