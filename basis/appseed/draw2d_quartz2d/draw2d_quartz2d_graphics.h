@@ -231,7 +231,7 @@ namespace draw2d_quartz2d
       int32_t SelectClipRgn(::draw2d::region* pRgn);
       int32_t ExcludeClipRect(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
       int32_t ExcludeClipRect(LPCRECT lpRect);
-      int32_t ExcludeUpdateRgn(::user::window * pWnd);
+      int32_t ExcludeUpdateRgn(::window * pWnd);
       int32_t IntersectClipRect(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
       int32_t IntersectClipRect(LPCRECT lpRect);
       int32_t OffsetClipRgn(int32_t x, int32_t y);
