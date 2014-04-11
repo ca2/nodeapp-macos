@@ -294,7 +294,7 @@ namespace draw2d_quartz2d
 //      
    }
    
-   int32_t graphics::ExcludeUpdateRgn(::user::window * pWnd)
+   int32_t graphics::ExcludeUpdateRgn(window * pWnd)
    {
       //    ASSERT(get_handle1() != NULL);
       //      return ::ExcludeUpdateRgn(get_handle1(), WIN_WINDOW(pWnd)->get_handle());

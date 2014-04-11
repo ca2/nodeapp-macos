@@ -330,9 +330,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1819"
-            endingLineNumber = "1819"
-            landmarkName = "var::stra()"
-            landmarkType = "5">
+            endingLineNumber = "1819">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
