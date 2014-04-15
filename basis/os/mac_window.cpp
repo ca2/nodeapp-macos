@@ -15,7 +15,7 @@ void CLASS_DECL_mac __post_init_dialog(
 LRESULT CALLBACK
 __activation_window_procedure(oswindow hWnd, UINT nMsg, WPARAM wparam, LPARAM lparam);
 
-const char gen_OldWndProc[] = "::ca2::OldWndProc423";
+//const char gen_OldWndProc[] = "::ca2::OldWndProc423";
 
 /*const char gen_WndControlBar[] = __WNDCONTROLBAR;
  const char gen_WndMDIFrame[] = __WNDMDIFRAME;
@@ -4544,9 +4544,9 @@ namespace mac
    
    void window::_001WindowRestore()
    {
-      m_eappearance = appearance_normal;
+      m_eappearance = user::AppearanceNormal;
       if(m_pui != NULL)
-         m_pui->m_eappearance = appearance_normal;
+         m_pui->m_eappearance = user::AppearanceNormal;
 //      ::ShowWindow(get_handle(), SW_RESTORE);
    }
    
@@ -4603,12 +4603,12 @@ namespace mac
    }
    
    
-   bool window::IsIconic()
+   bool window::WfiIsIconic()
    {
       ASSERT(::IsWindow(get_handle()));
       if(GetExStyle() & WS_EX_LAYERED)
       {
-         return m_pui->m_eappearance == appearance_iconic;
+         return m_pui->m_eappearance == user::AppearanceIconic;
       }
       else
       {
@@ -4616,10 +4616,10 @@ namespace mac
       }
    }
    
-   bool window::IsZoomed()
+   bool window::WfiIsZoomed()
    {
       ASSERT(::IsWindow(get_handle()));
-      return m_pui->m_eappearance == appearance_zoomed;
+      return m_pui->m_eappearance == user::AppearanceZoomed;
    }
    
    
@@ -4689,9 +4689,9 @@ namespace mac
                {
                   if(m_pui != NULL)
                   {
-                     if(m_pui->get_wnd() != NULL && MAC_WINDOW(m_pui->get_wnd().m_p)->m_pguieCapture != NULL)
+                     if(m_pui->get_wnd() != NULL && MAC_WINDOW(m_pui->get_wnd())->m_pguieCapture != NULL)
                      {
-                        return MAC_WINDOW(m_pui->get_wnd().m_p)->m_pguieCapture;
+                        return MAC_WINDOW(m_pui->get_wnd())->m_pguieCapture;
                      }
                      else
                      {
@@ -6729,7 +6729,7 @@ __STATIC void CLASS_DECL_mac __post_init_dialog(
    
    // must be unowned or owner disabled
    ::user::interaction * pParent = MAC_WINDOW(pWnd)->GetWindow(GW_OWNER);
-   if (pParent != NULL && pParent->IsWindowEnabled())
+   if (pParent != NULL && pParent->is_window_enabled())
       return;
    
    if (!MAC_WINDOW(pWnd)->CheckAutoCenter())
