@@ -1944,7 +1944,7 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::get_text_metrics(LPTEXTMETRICW lpMetrics) const
+    bool graphics::get_text_metrics(::draw2d::text_metric * lpMetrics) const
    {
 //      //ASSERT(get_handle2() != NULL); return ::GetTextMetrics(get_handle2(), lpMetrics);
 //      /*wstring wstr(L"123AWZwmc");
@@ -2033,7 +2033,7 @@ namespace draw2d_quartz2d
    }
    
    
-   bool graphics::get_output_text_metrics(LPTEXTMETRICW lpMetrics) const
+    bool graphics::get_output_text_metrics(::draw2d::text_metric * lpMetrics) const
    {
       
       throw not_implemented(get_app());
