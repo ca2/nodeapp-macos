@@ -242,7 +242,7 @@ namespace mac
 
       try
       {
-         // cleanup thread local tooltip ::user::window
+         // cleanup thread local tooltip ::window
          if (hInstTerm == NULL)
          {
             //            __MODULE_THREAD_STATE* pModuleThreadState = __get_module_thread_state();
@@ -551,14 +551,14 @@ namespace mac
    return ::win::graphics::from_handle((HDC) pdata);
    }*/
 
-   sp(::user::window) application::window_from_os_data(void * pdata)
+   sp(::window) application::window_from_os_data(void * pdata)
    {
       return ::mac::window::from_handle((oswindow) pdata);
    }
 
-   sp(::user::window) application::window_from_os_data_permanent(void * pdata)
+   sp(::window) application::window_from_os_data_permanent(void * pdata)
    {
-      ::user::window * pwnd = ::mac::window::FromHandlePermanent((oswindow) pdata);
+      ::window * pwnd = ::mac::window::FromHandlePermanent((oswindow) pdata);
       if(pwnd != NULL)
          return pwnd;
       user::interaction_ptr_array wndptra = System.frames();
@@ -653,12 +653,12 @@ namespace mac
 
    }
 
-   sp(::user::window) application::FindWindow(const char * lpszClassName, const char * lpszWindowName)
+   sp(::window) application::FindWindow(const char * lpszClassName, const char * lpszWindowName)
    {
       return window::FindWindow(lpszClassName, lpszWindowName);
    }
 
-   sp(::user::window) application::FindWindowEx(oswindow hwndParent, oswindow hwndChildAfter, const char * lpszClass, const char * lpszWindow)
+   sp(::window) application::FindWindowEx(oswindow hwndParent, oswindow hwndChildAfter, const char * lpszClass, const char * lpszWindow)
    {
       return window::FindWindowEx(hwndParent, hwndChildAfter, lpszClass, lpszWindow);
    }
@@ -756,11 +756,11 @@ namespace mac
       if (!afxContextIsDLL)
          __init_thread();
 
-      // Initialize ::user::window::m_pfnNotifyWinEvent
+      // Initialize ::window::m_pfnNotifyWinEvent
       /*   HMODULE hModule = ::GetModuleHandle("user32.dll");
       if (hModule != NULL)
       {
-      ::user::window::m_pfnNotifyWinEvent = (::user::window::PFNNOTIFYWINEVENT)::GetProcAddress(hModule, "NotifyWinEvent");
+      ::window::m_pfnNotifyWinEvent = (::window::PFNNOTIFYWINEVENT)::GetProcAddress(hModule, "NotifyWinEvent");
       }*/
 
       return true;
