@@ -75,7 +75,7 @@ CLASS_DECL_mac void AfxResetMsgCache();
 #define AfxWndProc (*AfxGetAfxWndProc())
 
 #define MAC_THREAD(pthread) (dynamic_cast < ::mac::thread * > (dynamic_cast < ::thread * >(pthread)))
-#define MAC_WINDOW(pwnd) (dynamic_cast < ::mac::window * > (dynamic_cast < ::user::window * >(pwnd)))
+#define MAC_WINDOW(pwnd) (dynamic_cast < ::mac::window * > (dynamic_cast < ::window * >(pwnd)))
 
 #include "mac_shell.h"
 

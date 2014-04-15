@@ -132,7 +132,7 @@ namespace mac
       virtual sp(::user::interaction) get_active_ui();
       virtual sp(::user::interaction) set_active_ui(sp(::user::interaction) pui);
       virtual void step_timer();
-      virtual void on_run_step();
+      virtual bool on_run_step();
       
       
 //      virtual void on_delete(::ca2::ca2 * poc);
