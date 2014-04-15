@@ -516,7 +516,7 @@ namespace mac
          {
             if(wndpa[l].oprop("session").is_new())
             {
-               dynamic_cast < ::user::window * > (wndpa[l].m_pimpl.m_p)->_001UpdateWindow();
+               dynamic_cast < ::window * > (wndpa[l].m_pimpl.m_p)->_001UpdateWindow();
             }
             l++;
          }
@@ -541,15 +541,15 @@ namespace mac
       {
          oswindow hwndTopic = wndaApp[j];
          
-         ::user::window * pwnd = NULL;
-         //::user::window * pwnd = dynamic_cast < ::user::window * > (System.window_map().get((int_ptr) hwndTopic));
+         ::window * pwnd = NULL;
+         //::window * pwnd = dynamic_cast < ::window * > (System.window_map().get((int_ptr) hwndTopic));
          //if(pwnd == NULL)
          //{
          for(int32_t l = 0; l < wndpa.get_count(); l++)
          {
             if(wndpa[l].get_safe_handle() == hwndTopic)
             {
-               pwnd = dynamic_cast < ::user::window * > (wndpa[l].m_pimpl.m_p);
+               pwnd = dynamic_cast < ::window * > (wndpa[l].m_pimpl.m_p);
                break;
             }
          }
@@ -670,8 +670,8 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       return &m_semaphoreBuffer;
    }
    
-   // The first ::user::window handle in the array must belong
-   // to the higher z order ::user::window.
+   // The first ::window handle in the array must belong
+   // to the higher z order ::window.
    // The rectangle must contain all update region.
    // It must be in screen coordinates.
    
@@ -679,7 +679,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    
    // Remark: this optimization eliminates top level lnxdows
    // that are lower z order siblings of a higher z order
-   // top level ::user::window that contains all
+   // top level ::window that contains all
    // the update region in a opaque area.
    // It doesn´t eliminates from the update parent lnxdows
    // obscured by opaque children.
@@ -806,7 +806,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
          return OptimizeNone;
       }
       
-      //    ::user::window * pwnd = window::FromHandlePermanent(hwnd);
+      //    ::window * pwnd = window::FromHandlePermanent(hwnd);
       
       
       if(ptwi == NULL)
@@ -897,7 +897,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       ::GetWindowRect((::oswindow) oswindow, rectWindow);
       
       
-      //   ::user::window * pwnd = ::lnx::window::from_handle(oswindow);
+      //   ::window * pwnd = ::lnx::window::from_handle(oswindow);
       
       if(!TwfGetTopWindow(
                           hwndParam,
@@ -1003,7 +1003,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    {
       rect rectWindow;
       
-      //   ::user::window * pwndOpaque = window::FromHandlePermanent(hwndOpaque);
+      //   ::window * pwndOpaque = window::FromHandlePermanent(hwndOpaque);
       
       ::GetWindowRect((oswindow) hwndOpaque, rectWindow);
       
@@ -1092,7 +1092,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
                                   // pdc is the source primitive::memory device context
                                   // from which bitmap the screen is updated.
                                   user::buffer * pbuffer,
-                                  // hwndParam ::user::window device context
+                                  // hwndParam ::window device context
                                   // is used from screen output
                                   ::user::interaction* pwnd)
    {
@@ -1106,11 +1106,11 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
          {
             return true;
          }
-         if(pwnd->IsIconic())
+         if(pwnd->WfiIsIconic())
          {
             return true;
          }
-         if(pwnd->m_pguie != NULL && pwnd->m_pguie != pwnd && !pwnd->m_pguie->m_bVisible)
+         if(pwnd->m_pui != NULL && pwnd->m_pui != pwnd && !pwnd->m_pui->m_bVisible)
          {
             return true;
          }
@@ -1127,7 +1127,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       //
       //      if(hdcScreen == NULL)
       //      {
-      //         // If it has failed to get ::user::window
+      //         // If it has failed to get ::window
       //         // owned device context, try to get
       //         // a device context from the cache.
       //         hdcScreen = ::GetDCEx((oswindow) hwndParam, NULL, DCX_CACHE | DCX_CLIPSIBLINGS | DCX_WINDOW);
@@ -1155,13 +1155,13 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       //      // rect rectUpdate;
       //      // rgnUpdate.get_bounding_box(rectUpdate);
       //
-      //      // get the ::user::window client area box
+      //      // get the ::window client area box
       //      // in screen coordinates.
       //      rect64 rectWindow;
       //      rectWindow = pwnd->m_rectParentClient;
       //
       //      // Output rectangle receive the intersection
-      //      // of ::user::window box and update box.
+      //      // of ::window box and update box.
       //      //rect rectOutput;
       //      //rectOutput.intersect(rectWnd, rectUpdate);
       //
@@ -1175,9 +1175,9 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       //      rect64 rectOutputClient(rectWindow);
       //      rectOutputClient -= rectWindow.top_left();
       //
-      //      // The ::user::window owned device context is clipped
+      //      // The ::window owned device context is clipped
       //      // with the update region in screen coordinates
-      //      // translated to ::user::window client coordinates.
+      //      // translated to ::window client coordinates.
       //      //::draw2d::region_sp rgnClip(get_app());
       //      //rgnClip->create_rect(0, 0, 0, 0);
       //      //rgnClip->CopyRgn(&rgnUpdate);
@@ -1260,25 +1260,25 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
       //
       //         class rect rectWin;
       //         ::GetWindowRect((oswindow) hwndParam, rectWin);
-      //         if(rect(rectWindow) != rectWin || (pwnd->m_pguie != NULL && (bool) pwnd->m_pguie->oprop("pending_layout")))
+      //         if(rect(rectWindow) != rectWin || (pwnd->m_pui != NULL && (bool) pwnd->m_pui->oprop("pending_layout")))
       //         {
       //
       //
-      //            if(pwnd->m_pguie != NULL && (bool) pwnd->m_pguie->oprop("pending_layout"))
+      //            if(pwnd->m_pui != NULL && (bool) pwnd->m_pui->oprop("pending_layout"))
       //            {
-      //               void * hwndZOrder = (void *) pwnd->m_pguie->oprop("pending_zorder").get_integer();
+      //               void * hwndZOrder = (void *) pwnd->m_pui->oprop("pending_zorder").get_integer();
       //               ::SetWindowPos((oswindow) hwndParam, HWND_TOPMOST,
       //                  (int32_t) rectWindow.left, (int32_t) rectWindow.top, (int32_t) rectWindow.width(), (int32_t) rectWindow.height(), SWP_SHOWWINDOW);
       //               ::SetWindowPos((oswindow) hwndParam, HWND_NOTOPMOST,
       //                  (int32_t) rectWindow.left, (int32_t) rectWindow.top, (int32_t) rectWindow.width(), (int32_t) rectWindow.height(), SWP_SHOWWINDOW);
       //               ::SetWindowPos((oswindow) hwndParam, (oswindow) hwndZOrder,
       //                  (int32_t) rectWindow.left, (int32_t) rectWindow.top, (int32_t) rectWindow.width(), (int32_t) rectWindow.height(), SWP_SHOWWINDOW | SWP_FRAMECHANGED);
-      //               /*simple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd->m_pguie);
+      //               /*simple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd->m_pui);
       //               if(pframe != NULL)
       //               {
       //                  pframe->ActivateFrame();
       //               }*/
-      //               pwnd->m_pguie->oprop("pending_layout") = false;
+      //               pwnd->m_pui->oprop("pending_layout") = false;
       //            }
       //            else
       //            {
@@ -1322,8 +1322,8 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    
    
    
-   // The first ::user::window handle in the array must belong
-   // to the higher z order ::user::window.
+   // The first ::window handle in the array must belong
+   // to the higher z order ::window.
    // The rectangle must contain all update region.
    // It must be in screen coordinates.
    
@@ -1331,7 +1331,7 @@ imple_frame_window * pframe = dynamic_cast < simple_frame_window * > (pwnd);
    
    // Remark: this optimization eliminates top level lnxdows
    // that are lower z order siblings of a higher z order
-   // top level ::user::window that contains all
+   // top level ::window that contains all
    // the update region in a opaque area.
    // It doesn´t eliminates from the update parent lnxdows
    // obscured by opaque children.

@@ -133,7 +133,7 @@ UINT APIENTRY __thread_entry(void * pParam)
       // forced initialization of the thread
       __init_thread();
 
-      // thread inherits cast's main ::user::window if not already set
+      // thread inherits cast's main ::window if not already set
       //if (papp != NULL && GetMainWnd() == NULL)
       {
          // just attach the oswindow
@@ -232,7 +232,7 @@ CLASS_DECL_mac void AfxInternalProcessWndProcException(::exception::base*, signa
    }
    else if (pbase->m_uiMessage == WM_PAINT)
    {
-      // force validation of ::user::window to prevent getting WM_PAINT again
+      // force validation of ::window to prevent getting WM_PAINT again
       //      ValidateRect(pbase->m_hwnd, NULL);
       pbase->set_lresult(0);
       return;
@@ -269,7 +269,7 @@ void AfxInternalPreTranslateMessage(signal_details * pobj)
          }
       }
       
-      // walk from target to main ::user::window
+      // walk from target to main ::window
       ::user::interaction* pMainWnd = pThread->GetMainWnd();
       if(pMainWnd != NULL && pMainWnd->IsWindow())
       {
@@ -280,7 +280,7 @@ void AfxInternalPreTranslateMessage(signal_details * pobj)
       
       // in case of modeless dialogs, last chance route through main
       //   ::ca2::window's accelerator table
-      ::user::window * pWnd = pbase->m_pwnd->get_wnd();
+      ::window * pWnd = pbase->m_pwnd->get_wnd();
       if (pMainWnd != NULL)
       {
          if (pWnd != NULL && MAC_WINDOW(pWnd)->GetTopLevelParent() != pMainWnd)
@@ -298,12 +298,12 @@ void AfxInternalPreTranslateMessage(signal_details * pobj)
          {
             if(pui != NULL)
             {
-               if(pui->m_pguie != NULL)
+               if(pui->m_pui != NULL)
                {
-                  if(pui->m_pguie != pMainWnd
+                  if(pui->m_pui != pMainWnd
                      && pui != pMainWnd)
                   {
-                     pui->m_pguie->pre_translate_message(pobj);
+                     pui->m_pui->pre_translate_message(pobj);
                      if(pobj->m_bRet)
                         return;
                   }
@@ -734,14 +734,14 @@ namespace mac
       if(m_puiptra != NULL)
       {
          m_puiptra->remove(pui);
-         m_puiptra->remove(pui->m_pguie);
+         m_puiptra->remove(pui->m_pui);
          m_puiptra->remove(pui->m_pimpl);
       }
       sl.unlock();
       if(m_ptimera != NULL)
       {
          m_ptimera->unset(pui);
-         m_ptimera->unset(pui->m_pguie);
+         m_ptimera->unset(pui->m_pui);
          m_ptimera->unset(pui->m_pimpl);
       }
       
@@ -770,11 +770,11 @@ namespace mac
       }
       try
       {
-         if(pui->m_pguie != NULL && pui->m_pguie != pui)
+         if(pui->m_pui != NULL && pui->m_pui != pui)
          {
-            if(MAC_THREAD(pui->m_pguie->m_pthread.m_p) == this)
+            if(MAC_THREAD(pui->m_pui->m_pthread.m_p) == this)
             {
-               pui->m_pguie->m_pthread = NULL;
+               pui->m_pui->m_pthread = NULL;
             }
          }
       }
@@ -870,7 +870,7 @@ namespace mac
       
    }
    
-   void thread::on_run_step()
+   bool thread::on_run_step()
    {
    
       step_timer();
@@ -895,6 +895,8 @@ namespace mac
          pappThis2->m_dwAlive = m_dwAlive;
          
       }
+       
+       return true;
       
    }
    
@@ -1609,7 +1611,7 @@ namespace mac
       //      if(m_hThread == NULL)
       //       return false;
       ::user::message * pmessage = new ::user::message;
-      pmessage->m_pguie       = pguie;
+      pmessage->m_pui       = pguie;
       pmessage->m_uiMessage   = uiMessage;
       pmessage->m_wparam      = wparam;
       pmessage->m_lparam      = lparam;
@@ -1635,7 +1637,7 @@ namespace mac
       //}
       
       // all other messages route through message ::collection::map
-      ::user::window * pwindow = pbase->m_pwnd->get_wnd();
+      ::window * pwindow = pbase->m_pwnd->get_wnd();
       
       /*      ASSERT(pwindow == NULL || MAC_WINDOW(pwindow)->get_handle() == pbase->m_hwnd);
        
@@ -1666,9 +1668,9 @@ namespace mac
             __pre_init_dialog(pwindow, &rectOld, &dwStyle);
          
          // delegate to object's message_handler
-         if(pwindow->m_pguie != NULL && pwindow->m_pguie != pwindow)
+         if(pwindow->m_pui != NULL && pwindow->m_pui != pwindow)
          {
-            pwindow->m_pguie->message_handler(pobj);
+            pwindow->m_pui->message_handler(pobj);
          }
          else
          {
@@ -1851,7 +1853,7 @@ namespace mac
       install_message_handling(pThread);
       m_p->install_message_handling(pThread);
       
-//      ::user::window threadWnd;
+//      ::window threadWnd;
       
 //      m_ptimera            = new ::user::interaction::timer_array(get_app());
 //      m_puiptra            = new user::interaction_ptr_array;
@@ -2521,7 +2523,7 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  }
  else if (pMsg->message == WM_PAINT)
  {
- // force validation of ::user::window to prevent getting WM_PAINT again
+ // force validation of ::window to prevent getting WM_PAINT again
  ValidateRect(pMsg->hwnd, NULL);
  return 0;
  }
@@ -2548,16 +2550,16 @@ WINBOOL AfxInternalIsIdleMessage(LPMESSAGE lpmsg);
  return TRUE;
  }
  
- // walk from target to main ::user::window
+ // walk from target to main ::window
  ::user::interaction* pMainWnd = System.GetMainWnd();
- trans   if (::user::window::WalkPreTranslateTree(pMainWnd->GetSafeHwnd(), pMsg))
+ trans   if (::window::WalkPreTranslateTree(pMainWnd->GetSafeHwnd(), pMsg))
  return TRUE; */
 
 // in case of modeless dialogs, last chance route through main
 //   ::ca2::window's accelerator table
 /*   if (pMainWnd != NULL)
  {
- ::user::window * pWnd = ::mac::window::from_handle(pMsg->hwnd);
+ ::window * pWnd = ::mac::window::from_handle(pMsg->hwnd);
  if (pWnd != NULL && MAC_WINDOW(pWnd)->GetTopLevelParent() != pMainWnd)
  return pMainWnd->pre_translate_message(pMsg);
  }
@@ -2883,7 +2885,7 @@ namespace mac
     
     if (lCount <= 0)
     {
-    // send WM_IDLEUPDATECMDUI to the main ::user::window
+    // send WM_IDLEUPDATECMDUI to the main ::window
     ::user::interaction* pMainWnd = GetMainWnd();
     if (pMainWnd != NULL && pMainWnd->IsWindowVisible())
     {
@@ -2963,7 +2965,7 @@ namespace mac
                                            ASSERT(pMessageMap != (*pMessageMap->pfnGetBaseMap)());
                                            if (pMsg->message < 0xC000)
                                            {
-                                           // constant ::user::window message
+                                           // constant ::window message
                                            if ((lpEntry = AfxFindMessageEntry(pMessageMap->lpEntries,
                                            pMsg->message, 0, 0)) != NULL)
                                            goto LDispatch;
