@@ -178,8 +178,8 @@ namespace mac
       
       
       // oswindow size and position Functions
-      virtual bool IsIconic();
-      virtual bool IsZoomed();
+      virtual bool WfiIsIconic();
+      virtual bool WfiIsZoomed();
       void MoveWindow(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight,
                       bool bRepaint = TRUE);
       void MoveWindow(LPCRECT lpRect, bool bRepaint = TRUE);

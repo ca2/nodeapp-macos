@@ -386,8 +386,8 @@ namespace draw2d_quartz2d
       UINT SetTextAlign(UINT nFlags);
       int32_t GetTextFace(int32_t nCount, LPTSTR lpszFacename) const;
       int32_t GetTextFace(string & rString) const;
-      bool get_text_metrics(LPTEXTMETRICW lpMetrics) const;
-      bool get_output_text_metrics(LPTEXTMETRICW lpMetrics) const;
+       bool get_text_metrics(::draw2d::text_metric * lpMetrics) const;
+       bool get_output_text_metrics(::draw2d::text_metric * lpMetrics) const;
       int32_t SetTextJustification(int32_t nBreakExtra, int32_t nBreakCount);
       int32_t GetTextCharacterExtra() const;
       int32_t SetTextCharacterExtra(int32_t nCharExtra);
