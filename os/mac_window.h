@@ -69,11 +69,11 @@ namespace mac
       
       void _002OnDraw(::draw2d::graphics * pdc);
       
-      DECL_GEN_SIGNAL(_001OnEraseBkgnd)
-      DECL_GEN_SIGNAL(_001OnMove)
-      DECL_GEN_SIGNAL(_001OnSize)
-      DECL_GEN_SIGNAL(_001OnShowWindow)
-      DECL_GEN_SIGNAL(_001OnProdevianSynch)
+       DECL_GEN_SIGNAL(_001OnEraseBkgnd);
+       DECL_GEN_SIGNAL(_001OnMove);
+       DECL_GEN_SIGNAL(_001OnSize);
+       DECL_GEN_SIGNAL(_001OnShowWindow);
+       DECL_GEN_SIGNAL(_001OnProdevianSynch);
       
       
 #if(WINVER >= 0x0500)
@@ -496,9 +496,9 @@ namespace mac
       LRESULT OnMenuChar(UINT nChar, UINT nFlags, ::user::menu* pMenu);
       void OnMenuSelect(UINT nItemID, UINT nFlags, HMENU hSysMenu);
       void OnMove(int32_t x, int32_t y);
-      DECL_GEN_SIGNAL(_001OnPaint)
-      DECL_GEN_SIGNAL(_001OnPrint)
-      DECL_GEN_SIGNAL(_001OnCaptureChanged)
+      DECL_GEN_SIGNAL(_001OnPaint);
+      DECL_GEN_SIGNAL(_001OnPrint);
+       DECL_GEN_SIGNAL(_001OnCaptureChanged);
       void OnParentNotify(UINT message, LPARAM lParam);
       HCURSOR OnQueryDragIcon();
       bool OnQueryEndSession();
@@ -519,7 +519,7 @@ namespace mac
       bool OnNcActivate(bool bActive);
       void OnNcCalcSize(bool bCalcValidRects, NCCALCSIZE_PARAMS* lpncsp);
       bool OnNcCreate(LPCREATESTRUCT lpCreateStruct);
-      DECL_GEN_SIGNAL(_001OnNcDestroy)
+      DECL_GEN_SIGNAL(_001OnNcDestroy);
       LRESULT OnNcHitTest(point point);
       void OnNcLButtonDblClk(UINT nHitTest, point point);
       void OnNcLButtonDown(UINT nHitTest, point point);
@@ -571,7 +571,7 @@ namespace mac
       void OnRButtonDblClk(UINT nFlags, point point);
       void OnRButtonDown(UINT nFlags, point point);
       void OnRButtonUp(UINT nFlags, point point);
-      DECL_GEN_SIGNAL(_001OnSetCursor)
+      DECL_GEN_SIGNAL(_001OnSetCursor);
       void OnTimer(uint_ptr nIDEvent);
       
       // Initialization message handler member functions
