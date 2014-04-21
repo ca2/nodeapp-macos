@@ -44,6 +44,25 @@ setlocale(LC_ALL,"");
 }
 
 
+int32_t CLASS_DECL_mac __ios_main(int32_t argc, char * argv[])
+{
+    
+    setlocale(LC_ALL,"");
+    
+    ns_shared_application();
+    
+    
+    CreateThread(NULL, 0, __run_system, NULL, 0, 0);
+    
+    ui_app_run(argc, argv);
+    
+    return 0;
+    
+    
+}
+
+
+
 int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, const char * lpCmdLine, int32_t nCmdShow)
 {
    try
