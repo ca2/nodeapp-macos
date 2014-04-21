@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../../appseed/app/app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-cidadedecuritiba/appseed/alphaclock/app_cidadedecuritiba_alphaclock.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/deepfish/app_core_deepfish.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/flag/app_core_flag.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/hellomultiverse/app_core_hellomultiverse.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/projection/app_core_projection.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/uinteraction/app_core_uinteraction.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "absolute:/ca2/app-veriwell/appseed/mplite/../../../nodeapp/appseed/audio_core_audio/audio_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../appseed/audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/base/base.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/thirdparty/appseed/freetype/basefreetype.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/thirdparty/appseed/freeimage/basefreeimage.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/libmpg123/basempg123.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/thirdparty/appseed/mysql/basemysql.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/core/core.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/math/math.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../appseed/music_midi_core_audio/music_midi_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../os/os.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/sphere/sphere.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/tesseract/tesseract.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
+   </FileRef>
+</Workspace>
