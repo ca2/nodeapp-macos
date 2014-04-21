@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 ca2 Desenvolvimento de Sofware Ltda. All rights reserved.
 //
 #import "mac_mm.h"
-
+#import "ca2AppDelegate.h"
 
 
 NSWindow * new_round_window(round_window * pwindow, CGRect rect)
@@ -39,6 +39,16 @@ void ns_app_run()
 
    [NSApp run];
    
+}
+
+
+void ui_app_run(int argc, char * argv[])
+{
+    
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([ca2AppDelegate class]));
+    }
+    
 }
 
 
