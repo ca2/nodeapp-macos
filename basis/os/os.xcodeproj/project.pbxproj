@@ -34,6 +34,15 @@
 		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
 		9AC444061770AA7C00DC2349 /* _c.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC444051770AA7C00DC2349 /* _c.h */; };
 		9AC444081770AAB100DC2349 /* _ca.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC444071770AAB100DC2349 /* _ca.h */; };
+		9AE24E331904CFB6001AEFFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE24E321904CFB6001AEFFB /* Foundation.framework */; };
+		9AE24E381904CFB6001AEFFB /* ca2os_ios.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9AE24E371904CFB6001AEFFB /* ca2os_ios.h */; };
+		9AE24E3A1904CFB6001AEFFB /* ca2os_ios.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE24E391904CFB6001AEFFB /* ca2os_ios.m */; };
+		9AE24E411904CFB6001AEFFB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE24E401904CFB6001AEFFB /* XCTest.framework */; };
+		9AE24E421904CFB6001AEFFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE24E321904CFB6001AEFFB /* Foundation.framework */; };
+		9AE24E441904CFB6001AEFFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE24E431904CFB6001AEFFB /* UIKit.framework */; };
+		9AE24E471904CFB6001AEFFB /* libca2os_ios.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE24E301904CFB6001AEFFB /* libca2os_ios.dylib */; };
+		9AE24E4D1904CFB6001AEFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AE24E4B1904CFB6001AEFFB /* InfoPlist.strings */; };
+		9AE24E4F1904CFB6001AEFFB /* ca2os_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE24E4E1904CFB6001AEFFB /* ca2os_iosTests.m */; };
 		A1CFD8F9154FB715007447E2 /* _.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87D154FB715007447E2 /* _.h */; };
 		A1CFD8FA154FB715007447E2 /* bare_operational_system.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87E154FB715007447E2 /* bare_operational_system.h */; };
 		A1CFD8FB154FB715007447E2 /* ca2.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD87F154FB715007447E2 /* ca2.h */; };
@@ -105,6 +114,29 @@
 		A1CFD968154FB715007447E2 /* mac_window_draw.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CFD8F8154FB715007447E2 /* mac_window_draw.h */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9AE24E451904CFB6001AEFFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1CFD76F154F5EA7007447E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AE24E2F1904CFB6001AEFFB;
+			remoteInfo = ca2os_ios;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9AE24E2E1904CFB6001AEFFB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				9AE24E381904CFB6001AEFFB /* ca2os_ios.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0715B913189ED3ED00B3EBD9 /* opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
 		071B28A5173FD8E600610E30 /* mac_printer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mac_printer.cpp; sourceTree = "<group>"; };
@@ -138,6 +170,17 @@
 		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AC444051770AA7C00DC2349 /* _c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _c.h; sourceTree = "<group>"; };
 		9AC444071770AAB100DC2349 /* _ca.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ca.h; sourceTree = "<group>"; };
+		9AE24E301904CFB6001AEFFB /* libca2os_ios.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libca2os_ios.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AE24E321904CFB6001AEFFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9AE24E361904CFB6001AEFFB /* ca2os_ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ca2os_ios-Prefix.pch"; sourceTree = "<group>"; };
+		9AE24E371904CFB6001AEFFB /* ca2os_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ca2os_ios.h; sourceTree = "<group>"; };
+		9AE24E391904CFB6001AEFFB /* ca2os_ios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ca2os_ios.m; sourceTree = "<group>"; };
+		9AE24E3F1904CFB6001AEFFB /* ca2os_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ca2os_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AE24E401904CFB6001AEFFB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9AE24E431904CFB6001AEFFB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		9AE24E4A1904CFB6001AEFFB /* ca2os_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ca2os_iosTests-Info.plist"; sourceTree = "<group>"; };
+		9AE24E4C1904CFB6001AEFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9AE24E4E1904CFB6001AEFFB /* ca2os_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ca2os_iosTests.m; sourceTree = "<group>"; };
 		9AE725FE17E83C65003E47F9 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libca2os.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libca2os.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CFD87D154FB715007447E2 /* _.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _.h; sourceTree = "<group>"; };
@@ -212,6 +255,25 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9AE24E2D1904CFB6001AEFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AE24E331904CFB6001AEFFB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AE24E3C1904CFB6001AEFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AE24E411904CFB6001AEFFB /* XCTest.framework in Frameworks */,
+				9AE24E471904CFB6001AEFFB /* libca2os_ios.dylib in Frameworks */,
+				9AE24E441904CFB6001AEFFB /* UIKit.framework in Frameworks */,
+				9AE24E421904CFB6001AEFFB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1CFD775154F5EAA007447E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,6 +323,52 @@
 			name = include;
 			sourceTree = "<group>";
 		};
+		9AE24E311904CFB6001AEFFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AE24E321904CFB6001AEFFB /* Foundation.framework */,
+				9AE24E401904CFB6001AEFFB /* XCTest.framework */,
+				9AE24E431904CFB6001AEFFB /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AE24E341904CFB6001AEFFB /* ca2os_ios */ = {
+			isa = PBXGroup;
+			children = (
+				9AE24E371904CFB6001AEFFB /* ca2os_ios.h */,
+				9AE24E391904CFB6001AEFFB /* ca2os_ios.m */,
+				9AE24E351904CFB6001AEFFB /* Supporting Files */,
+			);
+			path = ca2os_ios;
+			sourceTree = "<group>";
+		};
+		9AE24E351904CFB6001AEFFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9AE24E361904CFB6001AEFFB /* ca2os_ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9AE24E481904CFB6001AEFFB /* ca2os_iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				9AE24E4E1904CFB6001AEFFB /* ca2os_iosTests.m */,
+				9AE24E491904CFB6001AEFFB /* Supporting Files */,
+			);
+			path = ca2os_iosTests;
+			sourceTree = "<group>";
+		};
+		9AE24E491904CFB6001AEFFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9AE24E4A1904CFB6001AEFFB /* ca2os_iosTests-Info.plist */,
+				9AE24E4B1904CFB6001AEFFB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +379,9 @@
 				A1CFD87C154FB715007447E2 /* operational_system */,
 				A1CFD896154FB715007447E2 /* os */,
 				07BB57851809BBEE00124367 /* thirdparty */,
+				9AE24E341904CFB6001AEFFB /* ca2os_ios */,
+				9AE24E481904CFB6001AEFFB /* ca2os_iosTests */,
+				9AE24E311904CFB6001AEFFB /* Frameworks */,
 				A1CFD779154F5EAA007447E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -279,6 +390,8 @@
 			isa = PBXGroup;
 			children = (
 				A1CFD778154F5EAA007447E2 /* libca2os.dylib */,
+				9AE24E301904CFB6001AEFFB /* libca2os_ios.dylib */,
+				9AE24E3F1904CFB6001AEFFB /* ca2os_iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -478,6 +591,41 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		9AE24E2F1904CFB6001AEFFB /* ca2os_ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AE24E541904CFB6001AEFFB /* Build configuration list for PBXNativeTarget "ca2os_ios" */;
+			buildPhases = (
+				9AE24E2C1904CFB6001AEFFB /* Sources */,
+				9AE24E2D1904CFB6001AEFFB /* Frameworks */,
+				9AE24E2E1904CFB6001AEFFB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ca2os_ios;
+			productName = ca2os_ios;
+			productReference = 9AE24E301904CFB6001AEFFB /* libca2os_ios.dylib */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9AE24E3E1904CFB6001AEFFB /* ca2os_iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AE24E551904CFB6001AEFFB /* Build configuration list for PBXNativeTarget "ca2os_iosTests" */;
+			buildPhases = (
+				9AE24E3B1904CFB6001AEFFB /* Sources */,
+				9AE24E3C1904CFB6001AEFFB /* Frameworks */,
+				9AE24E3D1904CFB6001AEFFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9AE24E461904CFB6001AEFFB /* PBXTargetDependency */,
+			);
+			name = ca2os_iosTests;
+			productName = ca2os_iosTests;
+			productReference = 9AE24E3F1904CFB6001AEFFB /* ca2os_iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A1CFD777154F5EAA007447E2 /* ca2os */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1CFD77C154F5EAA007447E2 /* Build configuration list for PBXNativeTarget "ca2os" */;
@@ -503,6 +651,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "ca2 Desenvolvimento de Sofware Ltda.";
+				TargetAttributes = {
+					9AE24E3E1904CFB6001AEFFB = {
+						TestTargetID = A1CFD777154F5EAA007447E2;
+					};
+				};
 			};
 			buildConfigurationList = A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "os" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -517,11 +670,40 @@
 			projectRoot = "";
 			targets = (
 				A1CFD777154F5EAA007447E2 /* ca2os */,
+				9AE24E2F1904CFB6001AEFFB /* ca2os_ios */,
+				9AE24E3E1904CFB6001AEFFB /* ca2os_iosTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		9AE24E3D1904CFB6001AEFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AE24E4D1904CFB6001AEFFB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		9AE24E2C1904CFB6001AEFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AE24E3A1904CFB6001AEFFB /* ca2os_ios.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AE24E3B1904CFB6001AEFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AE24E4F1904CFB6001AEFFB /* ca2os_iosTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1CFD774154F5EAA007447E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -568,7 +750,134 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9AE24E461904CFB6001AEFFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9AE24E2F1904CFB6001AEFFB /* ca2os_ios */;
+			targetProxy = 9AE24E451904CFB6001AEFFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9AE24E4B1904CFB6001AEFFB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9AE24E4C1904CFB6001AEFFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		9AE24E501904CFB6001AEFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DSTROOT = /tmp/ca2os_ios.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ca2os_ios/ca2os_ios-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9AE24E511904CFB6001AEFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DSTROOT = /tmp/ca2os_ios.dst;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ca2os_ios/ca2os_ios-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9AE24E521904CFB6001AEFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/libca2os.dylib";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ca2os_ios/ca2os_ios-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "ca2os_iosTests/ca2os_iosTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9AE24E531904CFB6001AEFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/libca2os.dylib";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ca2os_ios/ca2os_ios-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "ca2os_iosTests/ca2os_iosTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		A1CFD77A154F5EAA007447E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -695,6 +1004,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9AE24E541904CFB6001AEFFB /* Build configuration list for PBXNativeTarget "ca2os_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AE24E501904CFB6001AEFFB /* Debug */,
+				9AE24E511904CFB6001AEFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9AE24E551904CFB6001AEFFB /* Build configuration list for PBXNativeTarget "ca2os_iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AE24E521904CFB6001AEFFB /* Debug */,
+				9AE24E531904CFB6001AEFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A1CFD772154F5EA7007447E2 /* Build configuration list for PBXProject "os" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

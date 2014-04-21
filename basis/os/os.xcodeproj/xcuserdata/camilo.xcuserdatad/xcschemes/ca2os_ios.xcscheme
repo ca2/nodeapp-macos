@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A5752B116AAE1D2000CC4EF"
-               BuildableName = "app.app"
-               BlueprintName = "app"
-               ReferencedContainer = "container:app.xcodeproj">
+               BlueprintIdentifier = "9AE24E2F1904CFB6001AEFFB"
+               BuildableName = "libca2os_ios.dylib"
+               BlueprintName = "ca2os_ios"
+               ReferencedContainer = "container:os.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,22 +32,13 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9AE24ED81904E95E001AEFFB"
-               BuildableName = "app_iosTests.xctest"
-               BlueprintName = "app_iosTests"
-               ReferencedContainer = "container:app.xcodeproj">
+               BlueprintIdentifier = "9AE24E3E1904CFB6001AEFFB"
+               BuildableName = "ca2os_iosTests.xctest"
+               BlueprintName = "ca2os_iosTests"
+               ReferencedContainer = "container:os.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9A5752B116AAE1D2000CC4EF"
-            BuildableName = "app.app"
-            BlueprintName = "app"
-            ReferencedContainer = "container:app.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -58,15 +49,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9A5752B116AAE1D2000CC4EF"
-            BuildableName = "app.app"
-            BlueprintName = "app"
-            ReferencedContainer = "container:app.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -76,15 +58,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9A5752B116AAE1D2000CC4EF"
-            BuildableName = "app.app"
-            BlueprintName = "app"
-            ReferencedContainer = "container:app.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
