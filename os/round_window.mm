@@ -42,16 +42,6 @@ void ns_app_run()
 }
 
 
-void ui_app_run(int argc, char * argv[])
-{
-    
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([ca2AppDelegate class]));
-    }
-    
-}
-
-
 
 void round_window::round_window_show()
 {
