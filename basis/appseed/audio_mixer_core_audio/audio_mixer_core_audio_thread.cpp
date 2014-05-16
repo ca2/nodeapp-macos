@@ -9,7 +9,7 @@ namespace multimedia
    {
 
 
-      thread::thread(sp(base_application) papp) :
+      thread::thread(sp(::base::application) papp) :
          element(papp),
          ::thread(papp)
       {
@@ -152,7 +152,7 @@ namespace multimedia
       void thread::OnVmsmException(signal_details * pobj)
       {
          UNREFERENCED_PARAMETER(pobj);
-         //sp(base_application) pApp = (sp(base_application)) &System;
+         //sp(::base::application) pApp = (sp(::base::application)) &System;
          //pApp->post_thread_message(VMSM_EXCEPTION, wParam, lParam);
       }
 

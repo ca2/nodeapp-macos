@@ -11,7 +11,7 @@ namespace draw2d_quartz2d
    public:
       
       
-      font(sp(base_application) papp);
+      font(sp(::base::application) papp);
       virtual ~font();
       
       

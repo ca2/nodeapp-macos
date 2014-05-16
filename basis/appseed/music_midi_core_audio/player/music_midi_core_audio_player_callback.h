@@ -22,7 +22,7 @@ namespace music
 
             friend class window;
 
-            callback(sp(base_application) papp);
+            callback(sp(::base::application) papp);
             virtual ~callback();
 
             virtual bool initialize();

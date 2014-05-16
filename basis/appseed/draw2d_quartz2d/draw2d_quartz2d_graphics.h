@@ -52,7 +52,7 @@ namespace draw2d_quartz2d
       
       
       
-      graphics(sp(base_application) papp);
+      graphics(sp(::base::application) papp);
       virtual ~graphics();
       
       
@@ -480,7 +480,7 @@ namespace draw2d_quartz2d
       bool SelectClipPath(int32_t nMode);
       
       // Misc Helper Functions
-      static ::draw2d::brush* PASCAL GetHalftoneBrush(base_application * papp);
+      static ::draw2d::brush* PASCAL GetHalftoneBrush(::base::application * papp);
       void DrawDragRect(LPCRECT lpRect, SIZE size,
                         LPCRECT lpRectLast, SIZE sizeLast,
                         ::draw2d::brush* pBrush = NULL, ::draw2d::brush* pBrushLast = NULL);
@@ -520,7 +520,7 @@ namespace draw2d_quartz2d
       
       //protected:
       // used for implementation of non-virtual SelectObject calls
-      //static ::draw2d::object* PASCAL SelectGdiObject(base_application * papp, HDC hDC, HGDIOBJ h);
+      //static ::draw2d::object* PASCAL SelectGdiObject(::base::application * papp, HDC hDC, HGDIOBJ h);
       
       
       // platform-specific or platform-internals
