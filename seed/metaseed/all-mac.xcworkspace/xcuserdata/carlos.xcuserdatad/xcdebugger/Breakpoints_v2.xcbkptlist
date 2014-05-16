@@ -508,28 +508,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/base/os/ansios/ansios_thread.cpp"
-            timestampString = "421931552.981223"
+            timestampString = "421937221.497336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1286"
-            endingLineNumber = "1286"
+            startingLineNumber = "1282"
+            endingLineNumber = "1282"
             landmarkName = "on_init_thread()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/os/ansios/ansios_thread.cpp"
-            timestampString = "421931552.981223"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1296"
-            endingLineNumber = "1296"
-            landmarkName = "on_term_thread()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -552,17 +536,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/node/macos/mac1.cpp"
-            timestampString = "421929864.02818"
+            filePath = "../../../app/appseed/base/base/os/ansios/ansios_thread.cpp"
+            timestampString = "421936720.40745"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "548"
-            endingLineNumber = "548"
-            landmarkName = "__initialize(bool bDLL, DWORD dwVersion)"
+            startingLineNumber = "709"
+            endingLineNumber = "709"
+            landmarkName = "os_thread_thread_proc(LPVOID lpparameter)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "os_thread_thread_proc"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/base/os/ansios/ansios_thread.cpp"
+                  timestampString = "421936751.433587"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "709"
+                  endingLineNumber = "709"
+                  offsetFromSymbolStart = "39">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to raw_array&lt;void*, void* const&amp;&gt;::dump(dump_context&amp;) const"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/./base/os/ansios/ansios_thread.cpp"
+                  timestampString = "421936751.434061"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "709"
+                  endingLineNumber = "709"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
