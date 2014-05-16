@@ -1,6 +1,7 @@
 #pragma once
 
 
+#define APPLEOS
 #define MACOS
 
 

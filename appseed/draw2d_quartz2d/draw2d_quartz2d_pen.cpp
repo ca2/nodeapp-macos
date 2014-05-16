@@ -5,7 +5,7 @@ namespace draw2d_quartz2d
 {
    
    
-   pen::pen(sp(base_application) papp) :
+   pen::pen(sp(::base::application) papp) :
       ::element(papp)
    {
       
@@ -22,7 +22,7 @@ namespace draw2d_quartz2d
     {
     return (HPEN)(this == NULL ? NULL : get_handle());
     }*/
-   /*   pen* PASCAL pen::from_handle(base_application * papp, HPEN hPen)
+   /*   pen* PASCAL pen::from_handle(::base::application * papp, HPEN hPen)
     {
     return dynamic_cast < pen* > (::win::object::from_handle(papp, hPen));
     }*/

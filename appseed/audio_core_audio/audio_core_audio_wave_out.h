@@ -30,7 +30,7 @@ namespace multimedia
          int32_t                                   m_iBufferSampleCount;
 
 
-         wave_out(sp(base_application) papp);
+         wave_out(sp(::base::application) papp);
          virtual ~wave_out();
 
 

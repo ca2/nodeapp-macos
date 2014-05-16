@@ -25,7 +25,7 @@ namespace multimedia
          MIXERCONTROLDETAILS              m_mixercontroldetails;
 
 
-         control(sp(base_application) papp);
+         control(sp(::base::application) papp);
          control(control & control);
          virtual ~control();
 

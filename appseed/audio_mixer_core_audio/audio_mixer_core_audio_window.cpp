@@ -9,7 +9,7 @@ namespace multimedia
    {
 
 
-      window::window(sp(base_application) papp) :
+      window::window(sp(::base::application) papp) :
          element(papp)
       {
          create_message_window("");

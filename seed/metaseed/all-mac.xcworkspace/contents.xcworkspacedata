@@ -65,9 +65,6 @@
       location = "group:../../appseed/music_midi_core_audio/music_midi_core_audio.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../os/os.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/appseed/sphere/sphere.xcodeproj">
    </FileRef>
    <FileRef

@@ -7,7 +7,7 @@ namespace draw2d_quartz2d
 {
    
    
-   graphics::graphics(sp(base_application) papp) :
+   graphics::graphics(sp(::base::application) papp) :
       ::element(papp)
    {
       
@@ -3201,7 +3201,7 @@ namespace draw2d_quartz2d
    /////////////////////////////////////////////////////////////////////////////
    // special graphics drawing primitives/helpers
    
-   ::draw2d::brush* PASCAL graphics::GetHalftoneBrush(base_application * papp)
+   ::draw2d::brush* PASCAL graphics::GetHalftoneBrush(::base::application * papp)
    {
       /*      ::ca2::LockGlobals(CRIT_HALFTONEBRUSH);
        if (gen_HalftoneBrush == NULL)
@@ -3544,7 +3544,7 @@ namespace draw2d_quartz2d
       
    }
    
-   //   ::draw2d::object* PASCAL graphics::SelectGdiObject(base_application * papp, HDC hDC, HGDIOBJ h)
+   //   ::draw2d::object* PASCAL graphics::SelectGdiObject(::base::application * papp, HDC hDC, HGDIOBJ h)
    // {
    //      return ::win::object::from_handle(papp, ::SelectObject(hDC, h));
    //}

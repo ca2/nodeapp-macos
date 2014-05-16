@@ -5,7 +5,7 @@ namespace draw2d_quartz2d
 {
    
    
-   bitmap::bitmap(sp(base_application) papp) :
+   bitmap::bitmap(sp(::base::application) papp) :
       element(papp)
    {
       

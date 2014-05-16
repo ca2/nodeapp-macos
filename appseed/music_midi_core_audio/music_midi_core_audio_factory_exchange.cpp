@@ -9,7 +9,7 @@ namespace music
    {
 
 
-      factory_exchange::factory_exchange(sp(base_application) papp) :
+      factory_exchange::factory_exchange(sp(::base::application) papp) :
          element(papp)
       {
 
@@ -35,7 +35,7 @@ namespace music
 
 
 extern "C"
-void ca2_factory_exchange(sp(base_application) papp)
+void ca2_factory_exchange(sp(::base::application) papp)
 {
 
    ::music::midi_core_midi::factory_exchange factoryexchange(papp);

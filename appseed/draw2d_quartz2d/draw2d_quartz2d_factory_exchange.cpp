@@ -5,7 +5,7 @@ namespace draw2d_quartz2d
 {
 
    
-   factory_exchange::factory_exchange(sp(base_application) papp) :
+   factory_exchange::factory_exchange(sp(::base::application) papp) :
       ::element(papp)
    {
       
@@ -31,7 +31,7 @@ namespace draw2d_quartz2d
 
 
 
-extern "C" void ca2_factory_exchange(sp(base_application) papp)
+extern "C" void ca2_factory_exchange(sp(::base::application) papp)
 {
    draw2d_quartz2d::factory_exchange factoryexchange(papp);
 }
