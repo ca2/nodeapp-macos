@@ -9,7 +9,7 @@ namespace multimedia
    {
 
 
-      line_info::line_info(sp(base_application) papp)
+      line_info::line_info(sp(::base::application) papp)
       {
 
       }

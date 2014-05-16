@@ -18,7 +18,7 @@ namespace draw2d_quartz2d
       int32_t                 scan;
       
       
-      bitmap(sp(base_application) papp);
+      bitmap(sp(::base::application) papp);
       virtual ~bitmap();
       
       

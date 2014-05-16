@@ -49,7 +49,7 @@ namespace draw2d_quartz2d
    }
    
    
-   object * graphics_object_allocator(base_application * papp, HANDLE h)
+   object * graphics_object_allocator(::base::application * papp, HANDLE h)
    {
       /*switch(::GetObjectType(h))
        {
@@ -70,7 +70,7 @@ namespace draw2d_quartz2d
       return NULL;
    }
    
-   /*object* PASCAL object::from_handle(base_application * papp, HGDIOBJ h)
+   /*object* PASCAL object::from_handle(::base::application * papp, HGDIOBJ h)
     {
     hgdiobj_map* pMap = afxMapHGDIOBJ(TRUE); //create ::collection::map if not exist
     ASSERT(pMap != NULL);
