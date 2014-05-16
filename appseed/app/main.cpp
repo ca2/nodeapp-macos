@@ -9,10 +9,6 @@
 #include "app.h"
 
 
-void __node_init_app_state();
-
-
-
 uint32_t __run_system(void * p)
 {
    
@@ -23,16 +19,7 @@ uint32_t __run_system(void * p)
    
    on_init_thread();
    
-   __node_init_app_state();
-   
    int32_t nReturnCode = 0;
-   
-   
-   
-   //   UNREFERENCED_PARAMETER(lpCmdLine);
-   
-   
-   
    
    //   ::CoInitialize(NULL);
    
@@ -133,53 +120,6 @@ uint32_t __run_system(void * p)
    {
    }
    
-   //   psystem = NULL;
-   
-   
-   try
-   {
-      //      delete __get_module_state()->m_pmapHWND;
-   }
-   catch(...)
-   {
-   }
-   /*   try
-    {
-    delete __get_module_state()->m_pmapHDC;
-    }
-    catch(...)
-    {
-    }*/
-   /*   try
-    {
-    delete __get_module_state()->m_pmapHGDIOBJ;
-    }
-    catch(...)
-    {
-    }*/
-   //      delete __get_module_state()->m_pmapHMENU;
-   
-   try
-   {
-      __get_module_state()->m_pmapHWND     = NULL;
-   }
-   catch(...)
-   {
-   }
-   /*   try
-    {
-    __get_module_state()->m_pmapHDC      = NULL;
-    }
-    catch(...)
-    {
-    }*/
-   /*   try
-    {
-    __get_module_state()->m_pmapHGDIOBJ  = NULL;
-    }
-    catch(...)
-    {
-    }*/
    
    
    on_term_thread();
@@ -196,18 +136,8 @@ uint32_t __run_system(void * p)
 }
 
 
-
-
-
 uint32_t __run_system(void * p);
 
-//::base::application *     win_application_create(::application * pappSystem, const char * pszId);
-//::application *     win_instantiate_application(::application * pappSystem, const char * pszId);
-//int32_t                     win_application_procedure(::application * pappSystem)
-//UINT c_cdecl          win_application_thread_proc(LPVOID);
-/////////////////////////////////////////////////////////////////////////////
-// Standard WinMain implementation
-//  Can be replaced as long as '::ca2::WinInit' is called first
 
 int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
 {

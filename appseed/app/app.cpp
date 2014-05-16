@@ -66,58 +66,15 @@ int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, co
       
       psystem = NULL;
       
-      try
-      {
-         //         delete __get_module_state()->m_pmapHWND;
-      }
-      catch(...)
-      {
-      }
-      /*      try
-       {
-       delete __get_module_state()->m_pmapHDC;
-       }
-       catch(...)
-       {
-       }*/
-      /*      try
-       {
-       delete __get_module_state()->m_pmapHGDIOBJ;
-       }
-       catch(...)
-       {
-       }*/
-      //      delete __get_module_state()->m_pmapHMENU;
-      try
-      {
-         __get_module_state()->m_pmapHWND     = NULL;
-      }
-      catch(...)
-      {
-      }
-      /*      try
-       {
-       __get_module_state()->m_pmapHDC      = NULL;
-       }
-       catch(...)
-       {
-       }
-       try
-       {
-       __get_module_state()->m_pmapHGDIOBJ  = NULL;
-       }
-       catch(...)
-       {
-       }*/
-      
-      //      set_heap_mutex(NULL);
-      
-      
       return nReturnCode;
+      
    }
    catch(...)
    {
+      
    }
+   
    return -1;
+   
 }
 
