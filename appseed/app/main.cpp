@@ -124,6 +124,8 @@ uint32_t __run_system(void * p)
    
    on_term_thread();
    
+   ::multithreading::term_multithreading();
+   
    
    //   set_heap_mutex(NULL);
    
@@ -143,6 +145,8 @@ int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
 {
    
    setlocale(LC_ALL,"");
+   
+   ::multithreading::init_multithreading();
    
    ns_shared_application();
    
