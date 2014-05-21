@@ -150,7 +150,7 @@ int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
    
    setlocale(LC_ALL,"");
    
-   ::base::zstatic_start::init();
+   ::base::static_start::init();
    
    ::multithreading::init_multithreading();
    
