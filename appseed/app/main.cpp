@@ -124,10 +124,14 @@ uint32_t __run_system(void * p)
    
    on_term_thread();
    
+   __wait_threading_count(millis(((1984 + 1977) + (11 + 4) + (15 + 2)) * 23));
+   
    ::multithreading::term_multithreading();
    
    
    //   set_heap_mutex(NULL);
+   
+   ::base::static_start::term();
    
    exit(nReturnCode);
    
@@ -145,6 +149,8 @@ int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
 {
    
    setlocale(LC_ALL,"");
+   
+   ::base::zstatic_start::init();
    
    ::multithreading::init_multithreading();
    
