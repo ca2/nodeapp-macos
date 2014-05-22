@@ -16,28 +16,16 @@ uint32_t __run_system(void * p)
    main_param * pparam = (main_param *) p;
    
    
+   if(!defer_base_init())
+      return -1;
    
-   on_init_thread();
    
    int32_t nReturnCode = 0;
    
-   //   ::CoInitialize(NULL);
-   
-   
-   //throw todo(::get_thread_app());
-   
-   //   if(!main_initialize())
-   //    return -1;
-   
-   
-   //   _set_purecall_handler(_ca2_purecall);
    
    sp(::plane::system) psystem = canew(::plane::system());
    
-   //   ASSERT(hPrevInstance == NULL);
-   
    ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
-   
    
    pinitmaindata->m_hInstance             = NULL;
    
@@ -95,21 +83,7 @@ uint32_t __run_system(void * p)
    nReturnCode = psystem->main();
    
    
-   try
-   {
-      //      main_finalize();
-   }
-   catch(...)
-   {
-   }
    
-   try
-   {
-      __mac_term();
-   }
-   catch(...)
-   {
-   }
    
    
    try
@@ -121,17 +95,8 @@ uint32_t __run_system(void * p)
    }
    
    
-   
-   on_term_thread();
-   
-   __wait_threading_count(millis(((1984 + 1977) + (11 + 4) + (15 + 2)) * 23));
-   
-   ::multithreading::term_multithreading();
-   
-   
-   //   set_heap_mutex(NULL);
-   
-   ::base::static_start::term();
+
+   defer_base_term();
    
    exit(nReturnCode);
    
