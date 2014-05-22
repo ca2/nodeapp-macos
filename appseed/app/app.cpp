@@ -53,9 +53,6 @@ int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, co
       nReturnCode = psystem->main();
       
       
-      __mac_term();
-      
-      
       try
       {
          delete psystem;
@@ -66,6 +63,14 @@ int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, co
       
       psystem = NULL;
       
+      try
+      {
+         defer_base_term();
+      }
+      catch(...)
+      {
+      }
+
       return nReturnCode;
       
    }
