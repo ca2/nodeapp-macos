@@ -19,7 +19,7 @@ namespace music
          ::music::midi::player::player(papp)
          {
             
-            m_psequencethread = dynamic_cast < ::music::midi::sequence_thread * > (__begin_thread < sequence_thread >(papp, ::core::scheduling_priority_normal, 0, CREATE_SUSPENDED));
+            m_psequencethread = dynamic_cast < ::music::midi::sequence_thread * > (__begin_thread < sequence_thread >(papp, ::base::scheduling_priority_normal, 0, CREATE_SUSPENDED));
             
             m_puie               = NULL;
             
@@ -39,7 +39,7 @@ namespace music
             //SetMainWnd(NULL);
             //ASSERT(GetMainWnd() == NULL);
             
-            set_thread_priority(::core::scheduling_priority_normal);
+            set_thread_priority(::base::scheduling_priority_normal);
             
             m_evInitialized.SetEvent();
             
