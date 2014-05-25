@@ -108,7 +108,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/hellomultiverse/hellomultiverse_application.cpp"
@@ -121,13 +121,13 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "hellomultiverse::application::initialize_instance()"
                   moduleName = "libapp_core_hellomultiverse.dylib"
                   urlString = "file:///ca2/app-core/appseed/hellomultiverse/hellomultiverse_application.cpp"
-                  timestampString = "422671377.922698"
+                  timestampString = "422701664.324668"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -135,13 +135,13 @@
                   offsetFromSymbolStart = "347">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "non-virtual thunk to factory_allocator::~factory_allocator()"
                   moduleName = "libapp_core_hellomultiverse.dylib"
                   urlString = "file:///ca2/app-core/appseed/hellomultiverse/hellomultiverse_application.cpp"
-                  timestampString = "422671377.925337"
+                  timestampString = "422701664.404558"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -154,7 +154,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/plane/session/plane_session.cpp"
@@ -234,7 +234,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/base/node/macos/mac_window.cpp"
@@ -244,6 +244,22 @@
             startingLineNumber = "4042"
             endingLineNumber = "4042"
             landmarkName = "window::GetWindowRect(__rect64 * lprect)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/user/user/user_keyboard.cpp"
+            timestampString = "422721582.875444"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "keyboard::get_current_system_layout()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
