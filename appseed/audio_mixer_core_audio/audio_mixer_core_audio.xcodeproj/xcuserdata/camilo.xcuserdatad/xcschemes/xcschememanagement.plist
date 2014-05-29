@@ -7,11 +7,6 @@
 		<key>audio_mixer_core_audio.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>39</integer>
-		</dict>
-		<key>draw2d_quartz2d.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
 			<integer>19</integer>
 		</dict>
 	</dict>
