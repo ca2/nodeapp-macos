@@ -20,20 +20,13 @@ int main(int argc, char *argv[])
 }
 
 
-
-
 int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, const char * lpCmdLine, int32_t nCmdShow)
 {
+
    try
    {
       
-      //      _set_purecall_handler(_ca2_purecall);
-      
       ::plane::system * psystem = new ::plane::system();
-      
-      
-      //Sleep(30 * 1000);
-      
       
       ASSERT(hPrevInstance == NULL);
       
@@ -42,33 +35,84 @@ int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, co
       ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
       
       pinitmaindata->m_hInstance             = hInstance;
+      
       pinitmaindata->m_hPrevInstance         = hPrevInstance;
+      
       pinitmaindata->m_strCommandLine        = lpCmdLine;
+
       pinitmaindata->m_nCmdShow              = nCmdShow;
       
-      
       psystem->init_main_data(pinitmaindata);
-      
-      
-      nReturnCode = psystem->main();
-      
+
+      bool bOk = false;
       
       try
       {
-         delete psystem;
+      
+         if(psystem->pre_run())
+         {
+            
+            bOk = true;
+         
+         }
+         
       }
       catch(...)
       {
+         
+      }
+      
+      try
+      {
+         
+         if(!bOk)
+         {
+      
+            if(psystem->m_iReturnCode == 0)
+            {
+         
+               return -1;
+            
+            }
+            
+            return psystem->m_iReturnCode;
+            
+         }
+         
+         
+      }
+      catch(...)
+      {
+         
+         return -1;
+         
+      }
+ 
+      
+      nReturnCode = psystem->main();
+      
+      try
+      {
+         
+         delete psystem;
+         
+      }
+      catch(...)
+      {
+      
       }
       
       psystem = NULL;
       
       try
       {
+         
          defer_base_term();
+         
       }
       catch(...)
       {
+         
       }
 
       return nReturnCode;
@@ -82,4 +126,8 @@ int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, co
    return -1;
    
 }
+
+
+
+
 
