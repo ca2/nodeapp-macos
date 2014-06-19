@@ -238,11 +238,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/base/node/macos/mac_window.cpp"
-            timestampString = "422665009.161688"
+            timestampString = "424895346.924547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4042"
-            endingLineNumber = "4042"
+            startingLineNumber = "4051"
+            endingLineNumber = "4051"
             landmarkName = "window::GetWindowRect(__rect64 * lprect)"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,7 +250,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/user/user/user_keyboard.cpp"

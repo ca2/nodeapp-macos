@@ -78,6 +78,49 @@ uint32_t __run_system(void * p)
    
    //MessageBox(NULL, "box1", "box1", MB_ICONINFORMATION);
    
+   bool bOk = true;
+   
+   try
+   {
+      
+      if(psystem->pre_run())
+      {
+         
+         bOk = true;
+         
+      }
+      
+   }
+   catch(...)
+   {
+      
+   }
+   
+   try
+   {
+      
+      if(!bOk)
+      {
+         
+         if(psystem->m_iReturnCode == 0)
+         {
+            
+            return -1;
+            
+         }
+         
+         return psystem->m_iReturnCode;
+         
+      }
+      
+      
+   }
+   catch(...)
+   {
+      
+      return -1;
+      
+   }
    
    
    nReturnCode = psystem->main();
