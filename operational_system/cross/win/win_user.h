@@ -772,9 +772,9 @@ GetWindow(
 #define MB_YESNOCANCEL              0x00000003L
 #define MB_YESNO                    0x00000004L
 #define MB_RETRYCANCEL              0x00000005L
-#if(WINVER >= 0x0500)
+//#if(WINVER >= 0x0500)
 #define MB_CANCELTRYCONTINUE        0x00000006L
-#endif /* WINVER >= 0x0500 */
+//#endif /* WINVER >= 0x0500 */
 
 
 #define MB_ICONHAND                 0x00000010L
@@ -782,11 +782,11 @@ GetWindow(
 #define MB_ICONEXCLAMATION          0x00000030L
 #define MB_ICONASTERISK             0x00000040L
 
-#if(WINVER >= 0x0400)
+//#if(WINVER >= 0x0400)
 #define MB_USERICON                 0x00000080L
 #define MB_ICONWARNING              MB_ICONEXCLAMATION
 #define MB_ICONERROR                MB_ICONHAND
-#endif /* WINVER >= 0x0400 */
+//#endif /* WINVER >= 0x0400 */
 
 #define MB_ICONINFORMATION          MB_ICONASTERISK
 #define MB_ICONSTOP                 MB_ICONHAND
@@ -794,27 +794,27 @@ GetWindow(
 #define MB_DEFBUTTON1               0x00000000L
 #define MB_DEFBUTTON2               0x00000100L
 #define MB_DEFBUTTON3               0x00000200L
-#if(WINVER >= 0x0400)
+//#if(WINVER >= 0x0400)
 #define MB_DEFBUTTON4               0x00000300L
-#endif /* WINVER >= 0x0400 */
+//#endif /* WINVER >= 0x0400 */
 
 #define MB_APPLMODAL                0x00000000L
 #define MB_SYSTEMMODAL              0x00001000L
 #define MB_TASKMODAL                0x00002000L
-#if(WINVER >= 0x0400)
+//#if(WINVER >= 0x0400)
 #define MB_HELP                     0x00004000L // Help Button
-#endif /* WINVER >= 0x0400 */
+//#endif /* WINVER >= 0x0400 */
 
 #define MB_NOFOCUS                  0x00008000L
 #define MB_SETFOREGROUND            0x00010000L
 #define MB_DEFAULT_DESKTOP_ONLY     0x00020000L
 
-#if(WINVER >= 0x0400)
+//#if(WINVER >= 0x0400)
 #define MB_TOPMOST                  0x00040000L
 #define MB_RIGHT                    0x00080000L
 #define MB_RTLREADING               0x00100000L
 
-#endif /* WINVER >= 0x0400 */
+///#endif /* WINVER >= 0x0400 */
 
 #ifdef _WIN32_WINNT
 #if (_WIN32_WINNT >= 0x0400)
@@ -933,21 +933,21 @@ MessageBoxW(
 #define IDIGNORE            5
 #define IDYES               6
 #define IDNO                7
-#if(WINVER >= 0x0400)
+//#if(WINVER >= 0x0400)
 #define IDCLOSE         8
 #define IDHELP          9
-#endif /* WINVER >= 0x0400 */
+//#endif /* WINVER >= 0x0400 */
 
-#if(WINVER >= 0x0500)
+//#if(WINVER >= 0x0500)
 #define IDTRYAGAIN      10
 #define IDCONTINUE      11
-#endif /* WINVER >= 0x0500 */
+//#endif /* WINVER >= 0x0500 */
 
-#if(WINVER >= 0x0501)
+//#if(WINVER >= 0x0501)
 #ifndef IDTIMEOUT
 #define IDTIMEOUT 32000
 #endif
-#endif /* WINVER >= 0x0501 */
+//#endif /* WINVER >= 0x0501 */
 
 
 struct user_menu;
@@ -1053,7 +1053,7 @@ typedef WINDOWPLACEMENT *PWINDOWPLACEMENT, *LPWINDOWPLACEMENT;
 #endif /* _WIN32_WINNT >= 0x0500 */
 
 
-
+/*
 
 typedef struct tag_MSG
 {
@@ -1064,7 +1064,7 @@ typedef struct tag_MSG
    POINT       pt;
 } MESSAGE, * LPMESSAGE;
 
-
+*/
 
 HDC BeginPaint(oswindow hwnd, PAINTSTRUCT * ps);
 

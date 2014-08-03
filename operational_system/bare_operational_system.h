@@ -100,7 +100,7 @@ typedef union _XEvent XEvent;
 	#include "version_dylib.h"
 #endif
 
-inline void __debug_break() { __asm("int $3"); }
+inline void debug_break() { __asm("int $3"); }
 
 
 
