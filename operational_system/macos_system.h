@@ -51,7 +51,7 @@
 // dbg alloc MS VC CRT
 #define _NORMAL_BLOCK  1
 
-#include "oswindow.h"
+//#include "oswindow.h"
 
 
 
