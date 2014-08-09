@@ -26,7 +26,7 @@
 #define NOTHROW throw()
 #define THROWS // gnucc null throw statement means that the function can throw any exception
 
-
+#define _WCHAR_T_DEFINED
 
 #ifdef DEBUG
 
