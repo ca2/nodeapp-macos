@@ -83,7 +83,7 @@
                   symbolName = "simple_ui::message_box::~message_box()"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/user/simple_ui/simple_ui_message_box.cpp"
-                  timestampString = "429372901.663102"
+                  timestampString = "429377832.780924"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -97,7 +97,7 @@
                   symbolName = "simple_ui::message_box::~message_box()"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/user/simple_ui/simple_ui_message_box.cpp"
-                  timestampString = "429372901.663394"
+                  timestampString = "429377832.781472"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -111,7 +111,7 @@
                   symbolName = "simple_ui::message_box::~message_box()"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/user/simple_ui/simple_ui_message_box.cpp"
-                  timestampString = "429372901.663737"
+                  timestampString = "429377832.782248"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -204,7 +204,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/multithreading/multithreading_thread_impl.cpp"
@@ -237,7 +237,7 @@
                   symbolName = "user::interaction::draw_control_background(draw2d::graphics*)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/user/user/user_interaction.cpp"
-                  timestampString = "429372901.665521"
+                  timestampString = "429377832.783897"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "962"
@@ -251,7 +251,7 @@
                   symbolName = "non-virtual thunk to user::interaction::draw_control_background(draw2d::graphics*)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/./user/user/user_interaction.cpp"
-                  timestampString = "429372901.666031"
+                  timestampString = "429377832.784427"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "962"
@@ -296,7 +296,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/user/user/user_interaction.cpp"
@@ -360,7 +360,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/multithreading/multithreading_thread_impl.cpp"
@@ -370,6 +370,109 @@
             startingLineNumber = "1329"
             endingLineNumber = "1329"
             landmarkName = "thread_impl::initialize_message_queue()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/user/user/user_interaction.cpp"
+            timestampString = "429376013.572268"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2800"
+            endingLineNumber = "2800"
+            landmarkName = "interaction::_001RunModalLoop(uint32_t dwFlags,::base::live_object * pliveobject)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/user/user/user_interaction_base.cpp"
+            timestampString = "429376727.727133"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "583"
+            endingLineNumber = "583"
+            landmarkName = "interaction_base::timer_array::check()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/user/simple_ui/simple_ui_tap.cpp"
+            timestampString = "429376980.543752"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "tap::_001OnDraw(::draw2d::graphics * pgraphics)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/user/simple_ui/simple_ui_tap.cpp"
+            timestampString = "429376993.787225"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "tap::simple_ui_draw_volume(::draw2d::graphics * pgraphics)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/user/simple_ui/simple_ui_tap.cpp"
+            timestampString = "429377014.552542"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "tap::is_hover()"
+            landmarkType = "5">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent>
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/user/simple_ui/simple_ui_tap.cpp"
+            timestampString = "429377017.499161"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "tap::is_hover()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
