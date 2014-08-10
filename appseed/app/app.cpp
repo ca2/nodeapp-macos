@@ -26,7 +26,7 @@ int32_t CLASS_DECL_mac ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, co
    try
    {
       
-      ::plane::system * psystem = new ::plane::system();
+      ::core::system * psystem = new ::core::system();
       
       ASSERT(hPrevInstance == NULL);
       

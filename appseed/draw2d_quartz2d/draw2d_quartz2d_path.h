@@ -26,6 +26,7 @@ namespace draw2d_quartz2d
       virtual bool internal_add_line(int x1, int y1, int x2, int y2);
       virtual bool internal_add_line(int x, int y);
       virtual bool internal_add_move(int x, int y);
+      virtual bool internal_add_string_path(int x, int y, const string & strText, ::draw2d::font_sp spfont);
       
       virtual void * get_os_data() const;
       
@@ -39,6 +40,7 @@ namespace draw2d_quartz2d
       bool set(const ::draw2d::path::arc & arc);
       bool set(const ::draw2d::path::move & move);
       bool set(const ::draw2d::path::line & line);
+      bool set(const ::draw2d::path::string_path & stringpath);
    
       
       
