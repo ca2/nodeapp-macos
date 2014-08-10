@@ -720,9 +720,13 @@ namespace draw2d_quartz2d
       rect.size.width   = lpRect.right - lpRect.left;
       rect.size.height  = lpRect.bottom - lpRect.top;
       
-      set(pBrush);
+//      set(pBrush);
       
-      CGContextFillRect(m_pdc, rect);
+      CGContextBeginPath(m_pdc);
+      
+      CGContextAddRect(m_pdc, rect);
+      
+      fill(pBrush);
       
       //      ASSERT(get_handle1() != NULL); ::FillRect(get_handle1(), lpRect, (HBRUSH)pBrush->get_os_data());
       
@@ -5335,9 +5339,9 @@ namespace draw2d_quartz2d
       
 //      cairo_set_source_rgba(m_pdc, argb_get_r_value(pbrush->m_cr) / 255.0, argb_get_g_value(pbrush->m_cr) / 255.0, argb_get_b_value(pbrush->m_cr) / 255.0, argb_get_a_value(pbrush->m_cr) / 255.0);
       
-      if(pbrush == NULL)
+      if(pbrush == NULL && !pbrush->m_etype == ::draw2d::brush::type_linear_gradient_point_color)
          return false;
-
+      
       CGContextSetRGBFillColor(m_pdc, argb_get_r_value(pbrush->m_cr) / 255.0, argb_get_g_value(pbrush->m_cr) / 255.0, argb_get_b_value(pbrush->m_cr) / 255.0, argb_get_a_value(pbrush->m_cr) / 255.0);
       
       return true;
