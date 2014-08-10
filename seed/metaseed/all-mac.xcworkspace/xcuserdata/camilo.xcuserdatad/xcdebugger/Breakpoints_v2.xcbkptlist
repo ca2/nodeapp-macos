@@ -83,7 +83,7 @@
                   symbolName = "simple_ui::message_box::~message_box()"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/user/simple_ui/simple_ui_message_box.cpp"
-                  timestampString = "429356008.379211"
+                  timestampString = "429363824.050445"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -97,7 +97,7 @@
                   symbolName = "simple_ui::message_box::~message_box()"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/user/simple_ui/simple_ui_message_box.cpp"
-                  timestampString = "429356008.379443"
+                  timestampString = "429363824.050921"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -111,7 +111,7 @@
                   symbolName = "simple_ui::message_box::~message_box()"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/user/simple_ui/simple_ui_message_box.cpp"
-                  timestampString = "429356008.379734"
+                  timestampString = "429363824.051477"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -149,7 +149,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1241"
             endingLineNumber = "1241"
-            landmarkName = "interaction::_001OnTimer(signal_details * pobj)"
+            landmarkName = "interaction::_001OnKeyUp(signal_details * pobj)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -165,7 +165,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1237"
             endingLineNumber = "1237"
-            landmarkName = "interaction::_001OnTimer(signal_details * pobj)"
+            landmarkName = "interaction::_001OnKeyUp(signal_details * pobj)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -181,7 +181,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1238"
             endingLineNumber = "1238"
-            landmarkName = "interaction::_001OnTimer(signal_details * pobj)"
+            landmarkName = "interaction::_001OnKeyUp(signal_details * pobj)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -197,7 +197,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1283"
             endingLineNumber = "1283"
-            landmarkName = "thread_impl::step_timer()"
+            landmarkName = "thread_impl::get_finish_event()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -212,9 +212,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1286"
-            endingLineNumber = "1286"
-            landmarkName = "thread_impl::step_timer()"
-            landmarkType = "5">
+            endingLineNumber = "1286">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -229,8 +227,38 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "959"
             endingLineNumber = "959"
-            landmarkName = "interaction::on_set_may_pro_devian()"
+            landmarkName = "interaction::draw_control_background(::draw2d::graphics *pdc)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "user::interaction::draw_control_background(draw2d::graphics*)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/user/user/user_interaction.cpp"
+                  timestampString = "429363824.160855"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "962"
+                  endingLineNumber = "962"
+                  offsetFromSymbolStart = "597">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to user::interaction::draw_control_background(draw2d::graphics*)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/./user/user/user_interaction.cpp"
+                  timestampString = "429363824.161398"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "962"
+                  endingLineNumber = "962"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -326,6 +354,22 @@
             startingLineNumber = "1391"
             endingLineNumber = "1391"
             landmarkName = "thread_impl::run()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/multithreading/multithreading_thread_impl.cpp"
+            timestampString = "429363791.639436"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1329"
+            endingLineNumber = "1329"
+            landmarkName = "thread_impl::initialize_message_queue()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
