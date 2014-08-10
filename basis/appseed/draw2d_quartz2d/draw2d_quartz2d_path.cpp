@@ -4,6 +4,7 @@
 #define MATH_PI 3.14159265359
 
 
+
 namespace draw2d_quartz2d
 {
    
@@ -129,7 +130,15 @@ namespace draw2d_quartz2d
       return true;
       
    }
-   
+
+   bool path::internal_add_string_path(int x, int y, const string & strText, ::draw2d::font_sp spfont)
+   {
+      
+      CGPathAddStringToPoint(m_path, NULL, x, y);
+      
+      return true;
+      
+   }
    
    bool path::internal_add_move(int x, int y)
    {
@@ -206,13 +215,16 @@ namespace draw2d_quartz2d
       switch(e.m_etype)
       {
          case ::draw2d::path::element::type_move:
-            set(e.m_move);
+            set(e.u.m_move);
             break;
          case ::draw2d::path::element::type_arc:
-            set(e.m_arc);
+            set(e.u.m_arc);
             break;
          case ::draw2d::path::element::type_line:
-            set(e.m_line);
+            set(e.u.m_line);
+            break;
+         case ::draw2d::path::element::type_string_path:
+            set(e.m_stringpath);
             break;
          case ::draw2d::path::element::type_end:
             internal_end_figure(e.m_end.m_bClose);
@@ -251,6 +263,13 @@ namespace draw2d_quartz2d
    {
       
       return internal_add_line(line.m_x, line.m_y);
+      
+   }
+
+   bool path::set(const ::draw2d::path::string_path & stringpath)
+   {
+      
+      return internal_add_string_path(stringpath.m_x, stringpath.m_y, stringpath.m_strText, stringpath.m_spfont);
       
    }
    

@@ -3,6 +3,8 @@
 #include <memory.h>
 #include <CoreFoundation/CFDictionary.h>
 
+
+
 namespace draw2d_quartz2d
 {
    
@@ -5198,167 +5200,8 @@ namespace draw2d_quartz2d
    bool graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)
    {
       
-      string str(lpszString, nCount);
+      return ::internal_show_text(m_pdc, x, y, lpszString, nCount, emode, bDraw, pascent,pdescent, pleading, pwidth);
       
-      CFStringRef string = CFStringCreateWithCString(NULL, str, kCFStringEncodingUTF8);
-
-      if(string == NULL)
-         return false;
-      
-      CGContextBeginPath(m_pdc);
-      
-      ::string strFontName;
-      
-      if(m_spfont.is_null())
-      {
-         
-         strFontName = "Helvetica";
-         
-      }
-      else if(m_spfont->m_strFontFamilyName == "Lucida Sans Unicode")
-      {
-         
-         strFontName = "Helvetica";
-         
-      }
-      else
-      {
-         
-         strFontName = "Helvetica";
-         
-      }
-      
-      CFStringRef fontName = CFStringCreateWithCString(NULL, strFontName, kCFStringEncodingUTF8);
-      
-      double dFontSize;
-      
-      if(m_spfont.is_null())
-      {
-         
-         dFontSize = 12.0;
-         
-      }
-      else
-      {
-         
-         dFontSize = m_spfont->m_dFontSize;
-         
-      }
-      
-      CTFontDescriptorRef fontD = CTFontDescriptorCreateWithNameAndSize(fontName, 0.f);
-      
-      CTFontRef font =  CTFontCreateWithFontDescriptor(fontD, dFontSize, NULL);
-      
-      CFStringRef keys[] = { kCTFontAttributeName, kCTForegroundColorAttributeName };
-      
-      CGColorRef cr = NULL;
-      
-      if(emode != kCGTextInvisible && bDraw)
-      {
-      
-         CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
-      
-         CGFloat components[4];
-         
-         COLORREF crText = m_spbrush.is_null() ? ARGB(255, 0, 0, 0) : m_spbrush->m_cr;
-      
-         components[0] = argb_get_r_value(crText) / 255.f;
-      
-         components[1] = argb_get_g_value(crText) / 255.f;
-      
-         components[2] = argb_get_b_value(crText) / 255.f;
-      
-         components[3] = argb_get_a_value(crText) / 255.f;
-      
-         cr = CGColorCreate(rgbColorSpace, components);
-      
-         CGColorSpaceRelease(rgbColorSpace);
-         
-      }
-      
-      CFTypeRef values[] = { font, cr };
-      
-      CFDictionaryRef attributes =
-         CFDictionaryCreate(
-                            kCFAllocatorDefault,
-                            (const void**) &keys,
-                            (const void**)&values,
-                            (emode != kCGTextInvisible && bDraw) ? 2 : 1,
-                            &kCFTypeDictionaryKeyCallBacks,
-                            &kCFTypeDictionaryValueCallBacks);
-      
-      
-      CFAttributedStringRef attrString =
-      
-      CFAttributedStringCreate(kCFAllocatorDefault, string, attributes);
-      
-      CFRelease(string);
-      
-      CFRelease(attributes);
-      
-      CTLineRef line = CTLineCreateWithAttributedString(attrString);
-      
-      CGFloat ascent, descent, leading, width;
-      
-      width = CTLineGetTypographicBounds(line, &ascent,  &descent, &leading);
-      
-//      double dRate = dFontSize / (ascent + descent + leading);
-      
-      if(bDraw)
-      {
-      
-         CGContextSetTextDrawingMode(m_pdc, emode);
-      
-         CGContextSetTextMatrix(m_pdc, CGAffineTransformScale(CGAffineTransformMakeTranslation(x, y + dFontSize), 1.f, -1.f));
-      
-         CTLineDraw(line, m_pdc);
-         
-      }
-      
-      CFRelease(line);
-      
-      if(emode != kCGTextInvisible && bDraw)
-      {
-      
-         CGColorRelease(cr);
-         
-      }
-      
-      CFRelease(fontName);
-      
-      CFRelease(fontD);
-      
-      CFRelease(font);
-      
-      if(pascent != NULL)
-      {
-         
-         *pascent = ascent;
-         
-      }
-      
-      if(pdescent != NULL)
-      {
-         
-         *pdescent = descent;
-         
-      }
-      
-      if(pleading != NULL)
-      {
-         
-         *pleading = leading;
-         
-      }
-      
-      if(pwidth != NULL)
-      {
-         
-         *pwidth = width;
-         
-      }
-      
-      return true;
       
    }
    
@@ -5755,7 +5598,177 @@ namespace draw2d_quartz2d
    }
    
    
-} // namespace draw2d_quartz2d
 
+
+
+bool internal_show_text(CGContext pdc, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)
+{
+   
+   string str(lpszString, nCount);
+   
+   CFStringRef string = CFStringCreateWithCString(NULL, str, kCFStringEncodingUTF8);
+   
+   if(string == NULL)
+      return false;
+   
+   CGContextBeginPath(m_pdc);
+   
+   ::string strFontName;
+   
+   if(m_spfont.is_null())
+   {
+      
+      strFontName = "Helvetica";
+      
+   }
+   else if(m_spfont->m_strFontFamilyName == "Lucida Sans Unicode")
+   {
+      
+      strFontName = "Helvetica";
+      
+   }
+   else
+   {
+      
+      strFontName = "Helvetica";
+      
+   }
+   
+   CFStringRef fontName = CFStringCreateWithCString(NULL, strFontName, kCFStringEncodingUTF8);
+   
+   double dFontSize;
+   
+   if(m_spfont.is_null())
+   {
+      
+      dFontSize = 12.0;
+      
+   }
+   else
+   {
+      
+      dFontSize = m_spfont->m_dFontSize;
+      
+   }
+   
+   CTFontDescriptorRef fontD = CTFontDescriptorCreateWithNameAndSize(fontName, 0.f);
+   
+   CTFontRef font =  CTFontCreateWithFontDescriptor(fontD, dFontSize, NULL);
+   
+   CFStringRef keys[] = { kCTFontAttributeName, kCTForegroundColorAttributeName };
+   
+   CGColorRef cr = NULL;
+   
+   if(emode != kCGTextInvisible && bDraw)
+   {
+      
+      CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+      
+      CGFloat components[4];
+      
+      COLORREF crText = m_spbrush.is_null() ? ARGB(255, 0, 0, 0) : m_spbrush->m_cr;
+      
+      components[0] = argb_get_r_value(crText) / 255.f;
+      
+      components[1] = argb_get_g_value(crText) / 255.f;
+      
+      components[2] = argb_get_b_value(crText) / 255.f;
+      
+      components[3] = argb_get_a_value(crText) / 255.f;
+      
+      cr = CGColorCreate(rgbColorSpace, components);
+      
+      CGColorSpaceRelease(rgbColorSpace);
+      
+   }
+   
+   CFTypeRef values[] = { font, cr };
+   
+   CFDictionaryRef attributes =
+   CFDictionaryCreate(
+                      kCFAllocatorDefault,
+                      (const void**) &keys,
+                      (const void**)&values,
+                      (emode != kCGTextInvisible && bDraw) ? 2 : 1,
+                      &kCFTypeDictionaryKeyCallBacks,
+                      &kCFTypeDictionaryValueCallBacks);
+   
+   
+   CFAttributedStringRef attrString =
+   
+   CFAttributedStringCreate(kCFAllocatorDefault, string, attributes);
+   
+   CFRelease(string);
+   
+   CFRelease(attributes);
+   
+   CTLineRef line = CTLineCreateWithAttributedString(attrString);
+   
+   CGFloat ascent, descent, leading, width;
+   
+   width = CTLineGetTypographicBounds(line, &ascent,  &descent, &leading);
+   
+   //      double dRate = dFontSize / (ascent + descent + leading);
+   
+   if(bDraw)
+   {
+      
+      CGContextSetTextDrawingMode(m_pdc, emode);
+      
+      CGContextSetTextMatrix(m_pdc, CGAffineTransformScale(CGAffineTransformMakeTranslation(x, y + dFontSize), 1.f, -1.f));
+      
+      CTLineDraw(line, m_pdc);
+      
+   }
+   
+   CFRelease(line);
+   
+   if(emode != kCGTextInvisible && bDraw)
+   {
+      
+      CGColorRelease(cr);
+      
+   }
+   
+   CFRelease(fontName);
+   
+   CFRelease(fontD);
+   
+   CFRelease(font);
+   
+   if(pascent != NULL)
+   {
+      
+      *pascent = ascent;
+      
+   }
+   
+   if(pdescent != NULL)
+   {
+      
+      *pdescent = descent;
+      
+   }
+   
+   if(pleading != NULL)
+   {
+      
+      *pleading = leading;
+      
+   }
+   
+   if(pwidth != NULL)
+   {
+      
+      *pwidth = width;
+      
+   }
+   
+   return true;
+   
+}
+
+
+} // namespace draw2d_quartz2d
 
 
