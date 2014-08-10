@@ -296,7 +296,7 @@ namespace draw2d_quartz2d
 //      
    }
    
-   int32_t graphics::ExcludeUpdateRgn(window * pWnd)
+   int32_t graphics::ExcludeUpdateRgn(::user::interaction * pWnd)
    {
       //    ASSERT(get_handle1() != NULL);
       //      return ::ExcludeUpdateRgn(get_handle1(), WIN_WINDOW(pWnd)->get_handle());
@@ -630,7 +630,7 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::RectVisible(LPCRECT lpRect) const
+   bool graphics::RectVisible(const RECT & lpRect) const
    {
       
       //      ASSERT(get_handle1() != NULL);
@@ -683,14 +683,14 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::Arc(LPCRECT lpRect, POINT ptStart, POINT ptEnd)
+   bool graphics::Arc(const RECT & lpRect, POINT ptStart, POINT ptEnd)
    {
       
       return Arc(
-                 lpRect->left,
-                 lpRect->top,
-                 lpRect->right,
-                 lpRect->bottom,
+                 lpRect.left,
+                 lpRect.top,
+                 lpRect.right,
+                 lpRect.bottom,
                  ptStart.x,
                  ptStart.y,
                  ptEnd.x,
@@ -710,15 +710,15 @@ namespace draw2d_quartz2d
       
    }
    
-   void graphics::FillRect(LPCRECT lpRect, ::draw2d::brush* pBrush)
+   void graphics::FillRect(const RECT & lpRect, ::draw2d::brush* pBrush)
    {
       
       CGRect rect;
       
-      rect.origin.x     = lpRect->left;
-      rect.origin.y     = lpRect->top;
-      rect.size.width   = lpRect->right - lpRect->left;
-      rect.size.height  = lpRect->bottom - lpRect->top;
+      rect.origin.x     = lpRect.left;
+      rect.origin.y     = lpRect.top;
+      rect.size.width   = lpRect.right - lpRect.left;
+      rect.size.height  = lpRect.bottom - lpRect.top;
       
       set(pBrush);
       
@@ -727,7 +727,7 @@ namespace draw2d_quartz2d
       //      ASSERT(get_handle1() != NULL); ::FillRect(get_handle1(), lpRect, (HBRUSH)pBrush->get_os_data());
       
    }
-   void graphics::FrameRect(LPCRECT lpRect, ::draw2d::brush* pBrush)
+   void graphics::FrameRect(const RECT & lpRect, ::draw2d::brush* pBrush)
    {
       
       throw not_implemented(get_app());
@@ -738,15 +738,15 @@ namespace draw2d_quartz2d
    }
    
    
-   bool graphics::DrawRect(LPCRECT lpRect, ::draw2d::pen* ppen)
+   bool graphics::DrawRect(const RECT & lpRect, ::draw2d::pen* ppen)
    {
       
       CGRect rect;
       
-      rect.origin.x     = lpRect->left;
-      rect.origin.y     = lpRect->top;
-      rect.size.width   = lpRect->right - lpRect->left;
-      rect.size.height  = lpRect->bottom - lpRect->top;
+      rect.origin.x     = lpRect.left;
+      rect.origin.y     = lpRect.top;
+      rect.size.width   = lpRect.right - lpRect.left;
+      rect.size.height  = lpRect.bottom - lpRect.top;
       
       set(ppen);
       
@@ -759,7 +759,7 @@ namespace draw2d_quartz2d
    }
    
    
-   void graphics::InvertRect(LPCRECT lpRect)
+   void graphics::InvertRect(const RECT & lpRect)
    {
       
       throw not_implemented(get_app());
@@ -987,18 +987,18 @@ namespace draw2d_quartz2d
       //      return ::Chord(get_handle1(), x1, y1, x2, y2, x3, y3, x4, y4) != FALSE;
    }
    
-   bool graphics::Chord(LPCRECT lpRect, POINT ptStart, POINT ptEnd)
+   bool graphics::Chord(const RECT & lpRect, POINT ptStart, POINT ptEnd)
    {
       
       throw not_implemented(get_app());
       return false;
       
       //ASSERT(get_handle1() != NULL);
-      //return ::Chord(get_handle1(), lpRect->left, lpRect->top, lpRect->right, lpRect->bottom, ptStart.x, ptStart.y, ptEnd.x, ptEnd.y) != FALSE;
+      //return ::Chord(get_handle1(), lpRect.left, lpRect.top, lpRect.right, lpRect.bottom, ptStart.x, ptStart.y, ptEnd.x, ptEnd.y) != FALSE;
       
    }
    
-   void graphics::DrawFocusRect(LPCRECT lpRect)
+   void graphics::DrawFocusRect(const RECT & lpRect)
    {
       
       throw not_implemented(get_app());
@@ -1047,15 +1047,15 @@ namespace draw2d_quartz2d
    }
    
    
-   bool graphics::DrawEllipse(LPCRECT lprect)
+   bool graphics::DrawEllipse(const RECT & lprect)
    {
 
       
-      return DrawEllipse(lprect->left, lprect->top, lprect->right, lprect->bottom);
+      return DrawEllipse(lprect.left, lprect.top, lprect.right, lprect.bottom);
       
       
-      /*return ::Ellipse(get_handle1(), lpRect->left, lpRect->top,
-       lpRect->right, lpRect->bottom); */
+      /*return ::Ellipse(get_handle1(), lpRect.left, lpRect.top,
+       lpRect.right, lpRect.bottom); */
       
    }
    
@@ -1102,13 +1102,13 @@ namespace draw2d_quartz2d
    }
    
    
-   bool graphics::FillEllipse(LPCRECT lpRect)
+   bool graphics::FillEllipse(const RECT & lpRect)
    {
       
-      /*return ::Ellipse(get_handle1(), lpRect->left, lpRect->top,
-       lpRect->right, lpRect->bottom); */
+      /*return ::Ellipse(get_handle1(), lpRect.left, lpRect.top,
+       lpRect.right, lpRect.bottom); */
       
-      return FillEllipse(lpRect->left, lpRect->top, lpRect->right - lpRect->left, lpRect->bottom - lpRect->top);
+      return FillEllipse(lpRect.left, lpRect.top, lpRect.right - lpRect.left, lpRect.bottom - lpRect.top);
       
    }
    
@@ -1123,7 +1123,7 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::Pie(LPCRECT lpRect, POINT ptStart, POINT ptEnd)
+   bool graphics::Pie(const RECT & lpRect, POINT ptStart, POINT ptEnd)
    {
       
       throw not_implemented(get_app());
@@ -1131,7 +1131,7 @@ namespace draw2d_quartz2d
       
       
       /*      ASSERT(get_handle1() != NULL);
-       return ::Pie(get_handle1(), lpRect->left, lpRect->top, lpRect->right, lpRect->bottom, ptStart.x, ptStart.y, ptEnd.x, ptEnd.y) != FALSE;*/
+       return ::Pie(get_handle1(), lpRect.left, lpRect.top, lpRect.right, lpRect.bottom, ptStart.x, ptStart.y, ptEnd.x, ptEnd.y) != FALSE;*/
       
    }
    
@@ -1244,10 +1244,10 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::Rectangle(LPCRECT lpRect)
+   bool graphics::Rectangle(const RECT & lpRect)
    {
       
-      return Rectangle(lpRect->left, lpRect->top, lpRect->right, lpRect->bottom);
+      return Rectangle(lpRect.left, lpRect.top, lpRect.right, lpRect.bottom);
       
    }
    
@@ -1260,10 +1260,10 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::DrawRectangle(LPCRECT lpRect)
+   bool graphics::DrawRectangle(const RECT & lpRect)
    {
       
-      return DrawRectangle(lpRect->left, lpRect->top, lpRect->right, lpRect->bottom);
+      return DrawRectangle(lpRect.left, lpRect.top, lpRect.right, lpRect.bottom);
       
    }
    
@@ -1276,10 +1276,10 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::FillRectangle(LPCRECT lpRect)
+   bool graphics::FillRectangle(const RECT & lpRect)
    {
       
-      return FillRectangle(lpRect->left, lpRect->top, lpRect->right, lpRect->bottom);
+      return FillRectangle(lpRect.left, lpRect.top, lpRect.right, lpRect.bottom);
       
    }
    
@@ -1294,11 +1294,11 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::RoundRect(LPCRECT lpRect, POINT point)
+   bool graphics::RoundRect(const RECT & lpRect, POINT point)
    {
       
       //ASSERT(get_handle1() != NULL);
-      //return ::RoundRect(get_handle1(), lpRect->left, lpRect->top, lpRect->right, lpRect->bottom, point.x, point.y) != FALSE;
+      //return ::RoundRect(get_handle1(), lpRect.left, lpRect.top, lpRect.right, lpRect.bottom, point.x, point.y) != FALSE;
       throw not_implemented(get_app());
       return false;
       
@@ -1790,7 +1790,7 @@ namespace draw2d_quartz2d
                /*::draw2d::dib_sp dib3(get_app());
                 dib1->mult_alpha(dib3);*/
                
-               keeper < ::draw2d::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
+               keep < ::draw2d::dib * > keep(&m_pdibAlphaBlend, NULL, m_pdibAlphaBlend, true);
                
                return BitBlt(point((int64_t) x, (int64_t) y), rectText.size(), dib1->get_graphics(), null_point());
                
@@ -1812,7 +1812,7 @@ namespace draw2d_quartz2d
       
    } // call virtual
    
-   bool graphics::ExtTextOut(int32_t x, int32_t y, UINT nOptions, LPCRECT lpRect, const char * lpszString, UINT nCount, LPINT lpDxWidths)
+   bool graphics::ExtTextOut(int32_t x, int32_t y, UINT nOptions, const RECT & lpRect, const char * lpszString, UINT nCount, LPINT lpDxWidths)
    {
       
       throw not_implemented(get_app());
@@ -1823,7 +1823,7 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::ExtTextOut(int32_t x, int32_t y, UINT nOptions, LPCRECT lpRect, const string & str, LPINT lpDxWidths)
+   bool graphics::ExtTextOut(int32_t x, int32_t y, UINT nOptions, const RECT & lpRect, const string & str, LPINT lpDxWidths)
    {
       
       throw not_implemented(get_app());
@@ -2131,7 +2131,7 @@ namespace draw2d_quartz2d
    }
    
    
-   bool graphics::ScrollDC(int32_t dx, int32_t dy, LPCRECT lpRectScroll, LPCRECT lpRectClip, ::draw2d::region* pRgnUpdate, LPRECT lpRectUpdate)
+   bool graphics::ScrollDC(int32_t dx, int32_t dy, const RECT & lpRectScroll, const RECT & lpRectClip, ::draw2d::region* pRgnUpdate, LPRECT lpRectUpdate)
    {
       
       throw not_implemented(get_app());
@@ -2155,7 +2155,7 @@ namespace draw2d_quartz2d
    }
    
    // graphics 3.1 Specific functions
-   UINT graphics::SetBoundsRect(LPCRECT lpRectBounds, UINT flags)
+   UINT graphics::SetBoundsRect(const RECT & lpRectBounds, UINT flags)
    {
       
       throw not_implemented(get_app());
@@ -2377,14 +2377,14 @@ namespace draw2d_quartz2d
       
    }
    
-   bool graphics::ArcTo(LPCRECT lpRect, POINT ptStart, POINT ptEnd)
+   bool graphics::ArcTo(const RECT & lpRect, POINT ptStart, POINT ptEnd)
    {
       
       throw not_implemented(get_app());
       return false;
       
       //      ASSERT(get_handle1() != NULL);
-      //      return ArcTo(lpRect->left, lpRect->top, lpRect->right, lpRect->bottom, ptStart.x, ptStart.y, ptEnd.x, ptEnd.y);
+      //      return ArcTo(lpRect.left, lpRect.top, lpRect.right, lpRect.bottom, ptStart.x, ptStart.y, ptEnd.x, ptEnd.y);
       
    }
    
@@ -2744,7 +2744,7 @@ namespace draw2d_quartz2d
     delete pMeta;;
     }*/
    
-   bool graphics::PlayMetaFile(HENHMETAFILE hEnhMF, LPCRECT lpBounds)
+   bool graphics::PlayMetaFile(HENHMETAFILE hEnhMF, const RECT & lpBounds)
    {
       
       throw not_implemented(get_app());
@@ -3226,7 +3226,7 @@ namespace draw2d_quartz2d
       return NULL;
    }
    
-   void graphics::DrawDragRect(LPCRECT lpRect, SIZE size, LPCRECT lpRectLast, SIZE sizeLast, ::draw2d::brush* pBrush, ::draw2d::brush* pBrushLast)
+   void graphics::DrawDragRect(const RECT & lpRect, SIZE size, const RECT & lpRectLast, SIZE sizeLast, ::draw2d::brush* pBrush, ::draw2d::brush* pBrushLast)
    {
       
       throw not_implemented(get_app());
@@ -3305,7 +3305,7 @@ namespace draw2d_quartz2d
       
    }
    
-   /*void graphics::FillSolidRect(LPCRECT lpRect, COLORREF clr)
+   /*void graphics::FillSolidRect(const RECT & lpRect, COLORREF clr)
     {
     ::SetBkColor(get_handle1(), clr);
     ::ExtTextOut(get_handle1(), 0, 0, ETO_OPAQUE, lpRect, NULL, 0, NULL);
@@ -3330,11 +3330,11 @@ namespace draw2d_quartz2d
     
     */
    
-   void graphics::Draw3dRect(LPCRECT lpRect,
+   void graphics::Draw3dRect(const RECT & lpRect,
                              COLORREF clrTopLeft, COLORREF clrBottomRight)
    {
-      Draw3dRect(lpRect->left, lpRect->top, lpRect->right - lpRect->left,
-                 lpRect->bottom - lpRect->top, clrTopLeft, clrBottomRight);
+      Draw3dRect(lpRect.left, lpRect.top, lpRect.right - lpRect.left,
+                 lpRect.bottom - lpRect.top, clrTopLeft, clrBottomRight);
    }
    
    void graphics::Draw3dRect(int32_t x, int32_t y, int32_t cx, int32_t cy,
@@ -4033,7 +4033,7 @@ namespace draw2d_quartz2d
       {
          
          if(m_spregion.is_null())
-            m_spregion.create(allocer());
+            m_spregion.alloc(allocer());
          
          *m_spregion.m_p = *pregion;
          
@@ -4071,7 +4071,7 @@ namespace draw2d_quartz2d
       
    }
    
-   int32_t graphics::ExcludeClipRect(LPCRECT lpRect)
+   int32_t graphics::ExcludeClipRect(const RECT & lpRect)
    {
       
       throw not_implemented(get_app());
@@ -4080,11 +4080,11 @@ namespace draw2d_quartz2d
       /*
        int32_t nRetVal = ERROR;
        if(get_handle1() != NULL && get_handle1() != get_handle2())
-       nRetVal = ::ExcludeClipRect(get_handle1(), lpRect->left, lpRect->top,
-       lpRect->right, lpRect->bottom);
+       nRetVal = ::ExcludeClipRect(get_handle1(), lpRect.left, lpRect.top,
+       lpRect.right, lpRect.bottom);
        if(get_handle2() != NULL)
-       nRetVal = ::ExcludeClipRect(get_handle2(), lpRect->left, lpRect->top,
-       lpRect->right, lpRect->bottom);
+       nRetVal = ::ExcludeClipRect(get_handle2(), lpRect.left, lpRect.top,
+       lpRect.right, lpRect.bottom);
        return nRetVal;
        */
       
@@ -4107,7 +4107,7 @@ namespace draw2d_quartz2d
       
    }
    
-   int32_t graphics::IntersectClipRect(LPCRECT lpRect)
+   int32_t graphics::IntersectClipRect(const RECT & lpRect)
    {
       
       throw not_implemented(get_app());
@@ -4115,9 +4115,9 @@ namespace draw2d_quartz2d
       
       /*      int32_t nRetVal = ERROR;
        if(get_handle1() != NULL && get_handle1() != get_handle2())
-       nRetVal = ::IntersectClipRect(get_handle1(), lpRect->left, lpRect->top, lpRect->right, lpRect->bottom);
+       nRetVal = ::IntersectClipRect(get_handle1(), lpRect.left, lpRect.top, lpRect.right, lpRect.bottom);
        if(get_handle2() != NULL)
-       nRetVal = ::IntersectClipRect(get_handle2(), lpRect->left, lpRect->top, lpRect->right, lpRect->bottom);
+       nRetVal = ::IntersectClipRect(get_handle2(), lpRect.left, lpRect.top, lpRect.right, lpRect.bottom);
        return nRetVal;
        */
       
@@ -4640,7 +4640,7 @@ namespace draw2d_quartz2d
    
    
    
-   int32_t graphics::draw_text(const char * lpszString, int32_t nCount, LPRECT lpRect, UINT nFormat)
+   int32_t graphics::draw_text(const char * lpszString, int32_t nCount, const RECT & lpRect, UINT nFormat)
    {
       /*if(get_handle1() == NULL)
        return -1;
@@ -4654,7 +4654,7 @@ namespace draw2d_quartz2d
       
    }
    
-   int32_t graphics::draw_text(const string & str, LPRECT lpRect, UINT nFormat)
+   int32_t graphics::draw_text(const string & str, const RECT & lpRect, UINT nFormat)
    {
       
       /*if(get_handle1() == NULL)
@@ -4754,10 +4754,10 @@ namespace draw2d_quartz2d
        
        Gdiplus::Matrix * pmNew = m.Clone();
        
-       pmNew->Translate((Gdiplus::REAL) lpRect->left, (Gdiplus::REAL) lpRect->top);
+       pmNew->Translate((Gdiplus::REAL) lpRect.left, (Gdiplus::REAL) lpRect.top);
        pmNew->Scale((Gdiplus::REAL) m_fontxyz.m_dFontWidth, (Gdiplus::REAL) 1.0, Gdiplus::MatrixOrderAppend);
        
-       Gdiplus::RectF rectf(0, 0, (Gdiplus::REAL) ((lpRect->right - lpRect->left) * m_fontxyz.m_dFontWidth), (Gdiplus::REAL) (lpRect->bottom - lpRect->top));
+       Gdiplus::RectF rectf(0, 0, (Gdiplus::REAL) ((lpRect.right - lpRect.left) * m_fontxyz.m_dFontWidth), (Gdiplus::REAL) (lpRect.bottom - lpRect.top));
        
        m_pgraphics->SetTransform(pmNew);
        
@@ -4767,7 +4767,7 @@ namespace draw2d_quartz2d
        
        delete pmNew;*/
 //      
-//      cairo_translate(m_pdc, lpRect->left, lpRect->top);
+//      cairo_translate(m_pdc, lpRect.left, lpRect.top);
 //      
 //      cairo_scale(m_pdc, m_fontxyz.m_dFontWidth, 1.0);
 //      
@@ -4777,14 +4777,14 @@ namespace draw2d_quartz2d
 //      
 //      cairo_scale(m_pdc, 1.0 / m_fontxyz.m_dFontWidth, 1.0);
 //      
-//      cairo_translate(m_pdc, -lpRect->left, -lpRect->top);
+//      cairo_translate(m_pdc, -lpRect.left, -lpRect.top);
 //      
       
       return 1;
       
    }
    
-   int32_t graphics::draw_text_ex(LPTSTR lpszString, int32_t nCount, LPRECT lpRect, UINT nFormat, LPDRAWTEXTPARAMS lpDTParams)
+   int32_t graphics::draw_text_ex(LPTSTR lpszString, int32_t nCount, const RECT & lpRect, UINT nFormat, LPDRAWTEXTPARAMS lpDTParams)
    {
       
       throw not_implemented(get_app());
@@ -4801,7 +4801,7 @@ namespace draw2d_quartz2d
        */
    }
    
-   int32_t graphics::draw_text_ex(const string & str, LPRECT lpRect, UINT nFormat, LPDRAWTEXTPARAMS lpDTParams)
+   int32_t graphics::draw_text_ex(const string & str, const RECT & lpRect, UINT nFormat, LPDRAWTEXTPARAMS lpDTParams)
    {
       
       throw not_implemented(get_app());
@@ -5147,15 +5147,15 @@ namespace draw2d_quartz2d
    
    
    
-   void graphics::FillSolidRect(LPCRECT lpRect, COLORREF clr)
+   void graphics::FillSolidRect(const RECT & lpRect, COLORREF clr)
    {
       
       CGRect rect;
       
-      rect.origin.x     = lpRect->left;
-      rect.origin.y     = lpRect->top;
-      rect.size.width   = lpRect->right - lpRect->left;
-      rect.size.height  = lpRect->bottom - lpRect->top;
+      rect.origin.x     = lpRect.left;
+      rect.origin.y     = lpRect.top;
+      rect.size.width   = lpRect.right - lpRect.left;
+      rect.size.height  = lpRect.bottom - lpRect.top;
       
       internal_set_fill_color(clr);
       
@@ -5200,7 +5200,7 @@ namespace draw2d_quartz2d
    bool graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)
    {
       
-      return ::internal_show_text(m_pdc, x, y, lpszString, nCount, emode, bDraw, pascent,pdescent, pleading, pwidth);
+      return ::draw2d_quartz2d::internal_show_text(m_pdc, m_spfont, m_spbrush, x, y, lpszString, nCount, emode, bDraw, pascent,pdescent, pleading, pwidth);
       
       
    }
@@ -5300,7 +5300,7 @@ namespace draw2d_quartz2d
    
    
    
-   bool graphics::blur(bool bExpand, double dRadius, LPCRECT lpcrect)
+   bool graphics::blur(bool bExpand, double dRadius, const RECT & lpcrect)
    {
       
 //      cairo_pattern_t * ppattern = cairo_get_source(m_pdc);
@@ -5507,10 +5507,13 @@ namespace draw2d_quartz2d
       switch(e.m_etype)
       {
          case ::draw2d::path::element::type_arc:
-            set(e.m_arc);
+            set(e.u.m_arc);
             break;
          case ::draw2d::path::element::type_line:
-            set(e.m_line);
+            set(e.u.m_line);
+            break;
+         case ::draw2d::path::element::type_string:
+            set(e.m_stringpath);
             break;
          case ::draw2d::path::element::type_end:
 //            cairo_close_path(m_pdc);
@@ -5571,7 +5574,11 @@ namespace draw2d_quartz2d
       
    }
    
-   
+   bool graphics::set(const ::draw2d_quartz2d::path::string_path & stringpath)
+   {
+      return true;
+      
+   }
    
    bool graphics::fill()
    {
@@ -5601,7 +5608,7 @@ namespace draw2d_quartz2d
 
 
 
-bool internal_show_text(CGContext pdc, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)
+   bool internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)
 {
    
    string str(lpszString, nCount);
@@ -5611,17 +5618,17 @@ bool internal_show_text(CGContext pdc, double x, double y, const char * lpszStri
    if(string == NULL)
       return false;
    
-   CGContextBeginPath(m_pdc);
+   CGContextBeginPath(pdc);
    
    ::string strFontName;
    
-   if(m_spfont.is_null())
+   if(spfont.is_null())
    {
       
       strFontName = "Helvetica";
       
    }
-   else if(m_spfont->m_strFontFamilyName == "Lucida Sans Unicode")
+   else if(spfont->m_strFontFamilyName == "Lucida Sans Unicode")
    {
       
       strFontName = "Helvetica";
@@ -5638,7 +5645,7 @@ bool internal_show_text(CGContext pdc, double x, double y, const char * lpszStri
    
    double dFontSize;
    
-   if(m_spfont.is_null())
+   if(spfont.is_null())
    {
       
       dFontSize = 12.0;
@@ -5647,7 +5654,7 @@ bool internal_show_text(CGContext pdc, double x, double y, const char * lpszStri
    else
    {
       
-      dFontSize = m_spfont->m_dFontSize;
+      dFontSize = spfont->m_dFontSize;
       
    }
    
@@ -5666,7 +5673,7 @@ bool internal_show_text(CGContext pdc, double x, double y, const char * lpszStri
       
       CGFloat components[4];
       
-      COLORREF crText = m_spbrush.is_null() ? ARGB(255, 0, 0, 0) : m_spbrush->m_cr;
+      COLORREF crText = spbrush.is_null() ? ARGB(255, 0, 0, 0) : spbrush->m_cr;
       
       components[0] = argb_get_r_value(crText) / 255.f;
       
@@ -5713,11 +5720,11 @@ bool internal_show_text(CGContext pdc, double x, double y, const char * lpszStri
    if(bDraw)
    {
       
-      CGContextSetTextDrawingMode(m_pdc, emode);
+      CGContextSetTextDrawingMode(pdc, emode);
       
-      CGContextSetTextMatrix(m_pdc, CGAffineTransformScale(CGAffineTransformMakeTranslation(x, y + dFontSize), 1.f, -1.f));
+      CGContextSetTextMatrix(pdc, CGAffineTransformScale(CGAffineTransformMakeTranslation(x, y + dFontSize), 1.f, -1.f));
       
-      CTLineDraw(line, m_pdc);
+      CTLineDraw(line,pdc);
       
    }
    
@@ -5770,5 +5777,19 @@ bool internal_show_text(CGContext pdc, double x, double y, const char * lpszStri
 
 
 } // namespace draw2d_quartz2d
+
+
+
+
+
+
+CGContextRef CGContextCreate(CGSize size)
+{
+	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+	CGContextRef ctx = CGBitmapContextCreate(nil, size.width, size.height, 8, size.width * (CGColorSpaceGetNumberOfComponents(space) + 1), space, kCGImageAlphaPremultipliedLast);
+	CGColorSpaceRelease(space);
+   
+	return ctx;
+}
 
 
