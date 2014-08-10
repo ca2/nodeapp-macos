@@ -23,7 +23,7 @@ uint32_t __run_system(void * p)
    int32_t nReturnCode = 0;
    
    
-   sp(::plane::system) psystem = canew(::plane::system());
+   sp(::core::system) psystem = canew(::core::system());
    
    ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
    

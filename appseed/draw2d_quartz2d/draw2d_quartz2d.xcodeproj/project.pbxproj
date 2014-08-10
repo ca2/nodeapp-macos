@@ -39,6 +39,7 @@
 		9A6B40FA17BBE291008391AD /* draw2d_quartz2d_region.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40E217BBE291008391AD /* draw2d_quartz2d_region.h */; };
 		9A6B40FB17BBE291008391AD /* draw2d_quartz2d.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A6B40E317BBE291008391AD /* draw2d_quartz2d.h */; };
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
+		9AA1007F19971AF5004F84BD /* cgcontextcreate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA1007E19971AF5004F84BD /* cgcontextcreate.h */; };
 		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
 		9AE24E091904CF99001AEFFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE24E081904CF99001AEFFB /* Foundation.framework */; };
 		9AE24E0E1904CF99001AEFFB /* draw2d_quartz2d_ios.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9AE24E0D1904CF99001AEFFB /* draw2d_quartz2d_ios.h */; };
@@ -248,6 +249,7 @@
 		9A6B40E217BBE291008391AD /* draw2d_quartz2d_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d_region.h; sourceTree = "<group>"; };
 		9A6B40E317BBE291008391AD /* draw2d_quartz2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw2d_quartz2d.h; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		9AA1007E19971AF5004F84BD /* cgcontextcreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cgcontextcreate.h; sourceTree = "<group>"; };
 		9AA1B449176361950019E812 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9AAE861F17E98CC400F0512E /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/all-dlckdugtwkhfjkdbgurajmehstei/Build/Products/Debug/libbase.dylib"; sourceTree = "<group>"; };
 		9AE24E061904CF99001AEFFB /* libdraw2d_quartz2d_ios.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdraw2d_quartz2d_ios.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -430,6 +432,7 @@
 		A1CFD896154FB715007447E2 /* draw2d_quartz2d */ = {
 			isa = PBXGroup;
 			children = (
+				9AA1007E19971AF5004F84BD /* cgcontextcreate.h */,
 				9A6B40CC17BBE291008391AD /* draw2d_quartz2d_bitmap.cpp */,
 				9A6B40CD17BBE291008391AD /* draw2d_quartz2d_bitmap.h */,
 				9A6B40CE17BBE291008391AD /* draw2d_quartz2d_brush.cpp */,
@@ -471,6 +474,7 @@
 				9A6B40E517BBE291008391AD /* draw2d_quartz2d_bitmap.h in Headers */,
 				9A6B40E717BBE291008391AD /* draw2d_quartz2d_brush.h in Headers */,
 				9A6B40E917BBE291008391AD /* draw2d_quartz2d_dib.h in Headers */,
+				9AA1007F19971AF5004F84BD /* cgcontextcreate.h in Headers */,
 				9A6B40EB17BBE291008391AD /* draw2d_quartz2d_factory_exchange.h in Headers */,
 				9A6B40ED17BBE291008391AD /* draw2d_quartz2d_font.h in Headers */,
 				9A6B40EF17BBE291008391AD /* draw2d_quartz2d_graphics.h in Headers */,

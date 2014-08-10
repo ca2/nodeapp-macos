@@ -5,7 +5,7 @@
 namespace draw2d_quartz2d
 {
 
-   bool internal_show_text(CGContext pdc, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw = true, CGFloat * pascent = NULL, CGFloat * pdescent = NULL, CGFloat * pleading = NULL, CGFloat * pwidth = NULL);
+   bool internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw = true, CGFloat * pascent = NULL, CGFloat * pdescent = NULL, CGFloat * pleading = NULL, CGFloat * pwidth = NULL);
    
    
    class brush;
@@ -111,7 +111,7 @@ namespace draw2d_quartz2d
       virtual int32_t SaveDC();
       virtual bool RestoreDC(int32_t nSavedDC);
       int32_t GetDeviceCaps(int32_t nIndex) const;
-      UINT SetBoundsRect(LPCRECT lpRectBounds, UINT flags);
+      UINT SetBoundsRect(const RECT & lpRectBounds, UINT flags);
       UINT GetBoundsRect(LPRECT lpRectBounds, UINT flags);
       // xxx      bool ResetDC(const DEVMODE* lpDevMode);
       
@@ -230,13 +230,13 @@ namespace draw2d_quartz2d
       virtual int32_t GetClipBox(LPRECT lpRect) const;
       virtual bool PtVisible(int32_t x, int32_t y) const;
       bool PtVisible(POINT point) const;
-      virtual bool RectVisible(LPCRECT lpRect) const;
+      virtual bool RectVisible(const RECT & lpRect) const;
       int32_t SelectClipRgn(::draw2d::region* pRgn);
       int32_t ExcludeClipRect(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
-      int32_t ExcludeClipRect(LPCRECT lpRect);
+      int32_t ExcludeClipRect(const RECT & lpRect);
       int32_t ExcludeUpdateRgn(::user::interaction * pWnd);
       int32_t IntersectClipRect(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
-      int32_t IntersectClipRect(LPCRECT lpRect);
+      int32_t IntersectClipRect(const RECT & lpRect);
       int32_t OffsetClipRgn(int32_t x, int32_t y);
       int32_t OffsetClipRgn(SIZE size);
       int32_t SelectClipRgn(::draw2d::region* pRgn, int32_t nMode);
@@ -248,12 +248,12 @@ namespace draw2d_quartz2d
       bool LineTo(double x, double y);
       //  bool LineTo(POINT point);
       bool Arc(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3, int32_t x4, int32_t y4);
-      bool Arc(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
+      bool Arc(const RECT & lpRect, POINT ptStart, POINT ptEnd);
       bool Polyline(const POINT* lpPoints, int32_t nCount);
       
       bool AngleArc(int32_t x, int32_t y, int32_t nRadius, float fStartAngle, float fSweepAngle);
       bool ArcTo(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3, int32_t x4, int32_t y4);
-      bool ArcTo(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
+      bool ArcTo(const RECT & lpRect, POINT ptStart, POINT ptEnd);
       int32_t GetArcDirection() const;
       int32_t SetArcDirection(int32_t nArcDirection);
       
@@ -266,13 +266,13 @@ namespace draw2d_quartz2d
       bool PolyBezierTo(const POINT* lpPoints, int32_t nCount);
       
       // Simple Drawing Functions
-      void FillRect(LPCRECT lpRect, ::draw2d::brush* pBrush);
-      void FrameRect(LPCRECT lpRect, ::draw2d::brush* pBrush);
+      void FillRect(const RECT & lpRect, ::draw2d::brush* pBrush);
+      void FrameRect(const RECT & lpRect, ::draw2d::brush* pBrush);
       
-      virtual bool DrawRect(LPCRECT lpRect, ::draw2d::pen* ppen);
+      virtual bool DrawRect(const RECT & lpRect, ::draw2d::pen* ppen);
       
       
-      void InvertRect(LPCRECT lpRect);
+      void InvertRect(const RECT & lpRect);
       bool DrawIcon(int32_t x, int32_t y, ::visual::icon * picon);
       bool DrawIcon(POINT point, ::visual::icon * picon);
       bool DrawIcon(int32_t x, int32_t y, ::visual::icon * picon, int32_t cx, int32_t cy, UINT istepIfAniCur, HBRUSH hbrFlickerFreeDraw, UINT diFlags);
@@ -296,26 +296,26 @@ namespace draw2d_quartz2d
       // Ellipse and Polygon Functions
       bool Chord(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3,
                  int32_t x4, int32_t y4);
-      bool Chord(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
-      void DrawFocusRect(LPCRECT lpRect);
+      bool Chord(const RECT & lpRect, POINT ptStart, POINT ptEnd);
+      void DrawFocusRect(const RECT & lpRect);
       bool DrawEllipse(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
-      bool DrawEllipse(LPCRECT lpRect);
+      bool DrawEllipse(const RECT & lpRect);
       bool FillEllipse(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
-      bool FillEllipse(LPCRECT lpRect);
+      bool FillEllipse(const RECT & lpRect);
       bool Pie(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3, int32_t x4, int32_t y4);
-      bool Pie(LPCRECT lpRect, POINT ptStart, POINT ptEnd);
+      bool Pie(const RECT & lpRect, POINT ptStart, POINT ptEnd);
       virtual bool fill_polygon(const POINTD * lpPoints, int32_t nCount);
       virtual bool fill_polygon(const POINT* lpPoints, int32_t nCount);
       bool Polygon(const POINT* lpPoints, int32_t nCount);
       bool PolyPolygon(const POINT* lpPoints, const INT* lpPolyCounts, int32_t nCount);
       bool Rectangle(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
-      bool Rectangle(LPCRECT lpRect);
+      bool Rectangle(const RECT & lpRect);
       virtual bool DrawRectangle(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
-      virtual bool DrawRectangle(LPCRECT lpRect);
+      virtual bool DrawRectangle(const RECT & lpRect);
       virtual bool FillRectangle(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
-      virtual bool FillRectangle(LPCRECT lpRect);
+      virtual bool FillRectangle(const RECT & lpRect);
       bool RoundRect(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3);
-      bool RoundRect(LPCRECT lpRect, POINT point);
+      bool RoundRect(const RECT & lpRect, POINT point);
       
       // Bitmap Functions
       bool PatBlt(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, DWORD dwRop);
@@ -355,20 +355,20 @@ namespace draw2d_quartz2d
       virtual bool TextOut(int32_t x, int32_t y, const string & str);
       virtual bool TextOut(double x, double y, const char * lpszString, int32_t nCount);
       virtual bool TextOut(double x, double y, const string & str);
-      virtual bool ExtTextOut(int32_t x, int32_t y, UINT nOptions, LPCRECT lpRect,
+      virtual bool ExtTextOut(int32_t x, int32_t y, UINT nOptions, const RECT & lpRect,
                               const char * lpszString, UINT nCount, LPINT lpDxWidths);
-      bool ExtTextOut(int32_t x, int32_t y, UINT nOptions, LPCRECT lpRect,
+      bool ExtTextOut(int32_t x, int32_t y, UINT nOptions, const RECT & lpRect,
                       const string & str, LPINT lpDxWidths);
       virtual size TabbedTextOut(int32_t x, int32_t y, const char * lpszString, int32_t nCount,
                                  int32_t nTabPositions, LPINT lpnTabStopPositions, int32_t nTabOrigin);
       size TabbedTextOut(int32_t x, int32_t y, const string & str,
                          int32_t nTabPositions, LPINT lpnTabStopPositions, int32_t nTabOrigin);
       
-      virtual int32_t draw_text(const char * lpszString, int32_t nCount, LPRECT lpRect, UINT nFormat);
-      virtual int32_t draw_text(const string & str, LPRECT lpRect, UINT nFormat);
+      virtual int32_t draw_text(const char * lpszString, int32_t nCount, const RECT & lpRect, UINT nFormat);
+      virtual int32_t draw_text(const string & str, const RECT & lpRect, UINT nFormat);
       
-      virtual int32_t draw_text_ex(LPTSTR lpszString, int32_t nCount, LPRECT lpRect, UINT nFormat, LPDRAWTEXTPARAMS lpDTParams);
-      virtual int32_t draw_text_ex(const string & str, LPRECT lpRect, UINT nFormat, LPDRAWTEXTPARAMS lpDTParams);
+      virtual int32_t draw_text_ex(LPTSTR lpszString, int32_t nCount, const RECT & lpRect, UINT nFormat, LPDRAWTEXTPARAMS lpDTParams);
+      virtual int32_t draw_text_ex(const string & str, const RECT & lpRect, UINT nFormat, LPDRAWTEXTPARAMS lpDTParams);
       
       size GetTextExtent(const char * lpszString, strsize nCount, int32_t iIndex) const;
       size GetTextExtent(const char * lpszString, strsize nCount) const;
@@ -412,7 +412,7 @@ namespace draw2d_quartz2d
       bool DrawFrameControl(LPRECT lpRect, UINT nType, UINT nState);
       
       // Scrolling Functions
-      bool ScrollDC(int32_t dx, int32_t dy, LPCRECT lpRectScroll, LPCRECT lpRectClip,
+      bool ScrollDC(int32_t dx, int32_t dy, const RECT & lpRectScroll, const RECT & lpRectClip,
                     ::draw2d::region* pRgnUpdate, LPRECT lpRectUpdate);
       
       // font Functions
@@ -458,7 +458,7 @@ namespace draw2d_quartz2d
       
       // MetaFile Functions
       //xxx      bool PlayMetaFile(HMETAFILE hMF);
-      bool PlayMetaFile(HENHMETAFILE hEnhMetaFile, LPCRECT lpBounds);
+      bool PlayMetaFile(HENHMETAFILE hEnhMetaFile, const RECT & lpBounds);
       bool AddMetaFileComment(UINT nDataSize, const BYTE* pCommentData);
       // can be used for enhanced metafiles only
       
@@ -484,13 +484,13 @@ namespace draw2d_quartz2d
       
       // Misc Helper Functions
       static ::draw2d::brush* PASCAL GetHalftoneBrush(::base::application * papp);
-      void DrawDragRect(LPCRECT lpRect, SIZE size,
-                        LPCRECT lpRectLast, SIZE sizeLast,
+      void DrawDragRect(const RECT & lpRect, SIZE size,
+                        const RECT & lpRectLast, SIZE sizeLast,
                         ::draw2d::brush* pBrush = NULL, ::draw2d::brush* pBrushLast = NULL);
       void FillSolidRect(const __rect64 * lpRect, COLORREF clr);
-      void FillSolidRect(LPCRECT lpRect, COLORREF clr);
+      void FillSolidRect(const RECT & lpRect, COLORREF clr);
       void FillSolidRect(int32_t x, int32_t y, int32_t cx, int32_t cy, COLORREF clr);
-      void Draw3dRect(LPCRECT lpRect, COLORREF clrTopLeft, COLORREF clrBottomRight);
+      void Draw3dRect(const RECT & lpRect, COLORREF clrTopLeft, COLORREF clrBottomRight);
       void Draw3dRect(int32_t x, int32_t y, int32_t cx, int32_t cy,
                       COLORREF clrTopLeft, COLORREF clrBottomRight);
       
@@ -519,7 +519,7 @@ namespace draw2d_quartz2d
       
       //xxx      virtual Gdiplus::FillMode gdiplus_get_fill_mode();
       
-      bool blur(bool bExpand, double dRadius, LPCRECT lpcrect);
+      bool blur(bool bExpand, double dRadius, const RECT & lpcrect);
       
       //protected:
       // used for implementation of non-virtual SelectObject calls
@@ -535,6 +535,7 @@ namespace draw2d_quartz2d
       bool set(const ::draw2d::path::arc & arc);
       bool set(const ::draw2d::path::move & move);
       bool set(const ::draw2d::path::line & line);
+      bool set(const ::draw2d::path::string_path & stringpath);
       bool fill_and_draw(::draw2d::brush * pbrush, ::draw2d::pen * ppen);
       bool fill(::draw2d::brush * pbrush);
       bool draw(::draw2d::pen * ppen);
