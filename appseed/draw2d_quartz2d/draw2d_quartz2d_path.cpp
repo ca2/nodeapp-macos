@@ -134,7 +134,17 @@ namespace draw2d_quartz2d
    bool path::internal_add_string_path(int x, int y, const string & strText, ::draw2d::font_sp spfont)
    {
       
-      CGPathAddStringToPoint(m_path, NULL, x, y);
+      CGSize s;
+      s.width =1;
+      s.height=1;
+      
+      CGContextRef pdc = CGContextCreate(s);
+      
+      internal_show_text(pdc, spfont,NULL, x, y, strText, (int)strText.get_length(), kCGTextStroke);
+      
+      CGPathAddPath(m_path, NULL, CGContextCopyPath(pdc));
+      
+      CGContextRelease(pdc);
       
       return true;
       
@@ -223,11 +233,11 @@ namespace draw2d_quartz2d
          case ::draw2d::path::element::type_line:
             set(e.u.m_line);
             break;
-         case ::draw2d::path::element::type_string_path:
+         case ::draw2d::path::element::type_string:
             set(e.m_stringpath);
             break;
          case ::draw2d::path::element::type_end:
-            internal_end_figure(e.m_end.m_bClose);
+            internal_end_figure(e.u.m_end.m_bClose);
             break;
          default:
             throw "unexpected simple os graphics element type";
