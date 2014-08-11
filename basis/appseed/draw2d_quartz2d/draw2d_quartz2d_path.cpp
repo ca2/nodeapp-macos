@@ -135,12 +135,12 @@ namespace draw2d_quartz2d
    {
       
       CGSize s;
-      s.width =1;
-      s.height=1;
+      s.width =1000;
+      s.height=1000;
       
       CGContextRef pdc = CGContextCreate(s);
       
-      internal_show_text(pdc, spfont,NULL, x, y, strText, (int)strText.get_length(), kCGTextStroke);
+      internal_show_text(pdc, spfont,NULL,NULL, x, y, strText, (int)strText.get_length(), kCGTextStroke);
       
       CGPathAddPath(m_path, NULL, CGContextCopyPath(pdc));
       
@@ -234,7 +234,7 @@ namespace draw2d_quartz2d
             set(e.u.m_line);
             break;
          case ::draw2d::path::element::type_string:
-            set(e.m_stringpath);
+//            set(e.m_stringpath);
             break;
          case ::draw2d::path::element::type_end:
             internal_end_figure(e.u.m_end.m_bClose);
