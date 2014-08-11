@@ -16,7 +16,7 @@ uint32_t __run_system(void * p)
    main_param * pparam = (main_param *) p;
    
    
-   if(!defer_base_init())
+   if(!defer_core_init())
       return -1;
    
    
@@ -139,7 +139,7 @@ uint32_t __run_system(void * p)
    
    
 
-   defer_base_term();
+   defer_core_term();
    
    exit(nReturnCode);
    
