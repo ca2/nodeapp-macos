@@ -5,7 +5,7 @@
 namespace draw2d_quartz2d
 {
 
-   bool internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw = true, CGFloat * pascent = NULL, CGFloat * pdescent = NULL, CGFloat * pleading = NULL, CGFloat * pwidth = NULL);
+   bool internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,::draw2d::pen_sp sppen,double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw = true, CGFloat * pascent = NULL, CGFloat * pdescent = NULL, CGFloat * pleading = NULL, CGFloat * pwidth = NULL);
    
    
    class brush;
@@ -350,7 +350,7 @@ namespace draw2d_quartz2d
        BLENDFUNCTION blend);*/
       
       // Text Functions
-      virtual bool internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw = true, CGFloat * pascent = NULL, CGFloat * pdescent = NULL, CGFloat * pleading = NULL, CGFloat * pwidth = NULL);
+      virtual bool internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw = true, CGFloat * pascent = NULL, CGFloat * pdescent = NULL, CGFloat * pleading = NULL, CGFloat * pwidth = NULL, ::draw2d::pen * ppen=NULL, ::draw2d::brush * pbrush = NULL);
       virtual bool TextOut(int32_t x, int32_t y, const char * lpszString, int32_t nCount);
       virtual bool TextOut(int32_t x, int32_t y, const string & str);
       virtual bool TextOut(double x, double y, const char * lpszString, int32_t nCount);
@@ -476,6 +476,12 @@ namespace draw2d_quartz2d
       bool draw_path(::draw2d::path * ppath);
       bool fill_path(::draw2d::path * ppath);
       
+      bool draw_path(::draw2d::path * ppath, ::draw2d::pen * ppen);
+      bool fill_path(::draw2d::path * ppath, ::draw2d::brush * pbrush);
+
+      bool draw_inline_path(::draw2d::path * ppath, ::draw2d::pen * ppen);
+      bool fill_inline_path(::draw2d::path * ppath, ::draw2d::brush * pbrush);
+      
       
       float GetMiterLimit() const;
       bool SetMiterLimit(float fMiterLimit);
@@ -535,7 +541,13 @@ namespace draw2d_quartz2d
       bool set(const ::draw2d::path::arc & arc);
       bool set(const ::draw2d::path::move & move);
       bool set(const ::draw2d::path::line & line);
+      bool fill_inline(const ::draw2d::path * ppath, ::draw2d::brush * pbrush);
+      bool draw_inline(const ::draw2d::path * ppath, ::draw2d::pen * ppen);
+      bool fill_inline(const ::draw2d::path::element & e, ::draw2d::brush * pbrush);
+      bool draw_inline(const ::draw2d::path::element & e, ::draw2d::pen * ppen);
       bool set(const ::draw2d::path::string_path & stringpath);
+      bool fill_inline(const ::draw2d::path::string_path & stringpath, ::draw2d::brush * pbrush);
+      bool draw_inline(const ::draw2d::path::string_path & stringpath, ::draw2d::pen * ppen);
       bool fill_and_draw(::draw2d::brush * pbrush, ::draw2d::pen * ppen);
       bool fill(::draw2d::brush * pbrush);
       bool draw(::draw2d::pen * ppen);

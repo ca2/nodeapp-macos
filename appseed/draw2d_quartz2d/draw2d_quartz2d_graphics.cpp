@@ -2682,7 +2682,11 @@ namespace draw2d_quartz2d
       if(!set(ppath))
          return false;
       
-      return draw();
+      draw();
+      
+      draw_inline(ppath, m_sppen);
+      
+      return true;
       
    }
    
@@ -2692,10 +2696,66 @@ namespace draw2d_quartz2d
       if(!set(ppath))
          return false;
       
-      return fill();
+      fill();
+      
+      fill_inline(ppath, m_spbrush);
+      
+      return true;
       
    }
    
+   bool graphics::draw_path(::draw2d::path * ppath, ::draw2d::pen * ppen)
+   {
+      
+      if(!set(ppath))
+         return false;
+      
+      draw(ppen);
+      
+      draw_inline(ppath, ppen);
+      
+      return true;
+   }
+   
+   
+   bool graphics::fill_path(::draw2d::path * ppath, ::draw2d::brush * pbrush)
+   {
+      
+      if(!set(ppath))
+         return false;
+      
+      
+      
+      fill(pbrush);
+      
+      fill_inline(ppath, pbrush);
+      
+      return true;
+      
+   }
+   
+   
+   bool graphics::draw_inline_path(::draw2d::path * ppath, ::draw2d::pen * ppen)
+   {
+      
+      if(!set(ppath))
+         return false;
+      
+      return draw(ppen);
+      
+   }
+   
+   
+   bool graphics::fill_inline_path(::draw2d::path * ppath, ::draw2d::brush * pbrush)
+   {
+      
+      if(!set(ppath))
+         return false;
+      
+      return fill(pbrush);
+      
+   }
+
    
    bool graphics::AddMetaFileComment(UINT nDataSize, const BYTE* pCommentData)
    {
@@ -2857,31 +2917,11 @@ namespace draw2d_quartz2d
           
           */
       }
-//      
-//      if(pgraphicsSrc == NULL)
-//         return false;
-//      
-//      
-//      if(nSrcWidth == 0 || nSrcHeight == 0 || nDstWidth == 0 || nDstHeight == 0)
-//         return false;
-//      
-//      cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
-//      
-//      if(ppattern == NULL)
-//         return false;
-//      
-//      cairo_translate(m_pdc, xDst, yDst);
-//      
-//      cairo_scale(m_pdc, (double) nDstWidth / (double) nSrcWidth, (double) nDstHeight / (double) nSrcHeight);
-//      
-//      cairo_set_source(m_pdc, ppattern);
-//      
-//      cairo_paint_with_alpha(m_pdc, dRate);
-//      
-//      cairo_scale(m_pdc, (double) nSrcWidth / (double) nDstWidth, (double) nSrcHeight / (double) nDstHeight);
-//      
-//      cairo_translate(m_pdc, -xDst, -yDst);
       
+      CGContextSetAlpha(m_pdc, (CGFloat) dRate);
+      BitBlt(xDst, yDst, nDstWidth, nDstHeight, pgraphicsSrc, xSrc, ySrc, SRCCOPY);
+      CGContextSetAlpha(m_pdc, (CGFloat) 1.f);
+
       return true;
       
    }
@@ -5201,10 +5241,10 @@ namespace draw2d_quartz2d
    }
 
    
-   bool graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)
+   bool graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth, ::draw2d::pen * ppen, ::draw2d::brush * pbrush)
    {
       
-      return ::draw2d_quartz2d::internal_show_text(m_pdc, m_spfont, m_spbrush, x, y, lpszString, nCount, emode, bDraw, pascent,pdescent, pleading, pwidth);
+      return ::draw2d_quartz2d::internal_show_text(m_pdc, m_spfont, pbrush == NULL ? m_spbrush.m_p : pbrush, ppen == NULL ? m_sppen.m_p : ppen, x, y, lpszString, nCount, emode, bDraw, pascent,pdescent, pleading, pwidth);
       
       
    }
@@ -5339,7 +5379,7 @@ namespace draw2d_quartz2d
       
 //      cairo_set_source_rgba(m_pdc, argb_get_r_value(pbrush->m_cr) / 255.0, argb_get_g_value(pbrush->m_cr) / 255.0, argb_get_b_value(pbrush->m_cr) / 255.0, argb_get_a_value(pbrush->m_cr) / 255.0);
       
-      if(pbrush == NULL && !pbrush->m_etype == ::draw2d::brush::type_linear_gradient_point_color)
+      if(pbrush == NULL || pbrush->m_etype == ::draw2d::brush::type_linear_gradient_point_color)
          return false;
       
       CGContextSetRGBFillColor(m_pdc, argb_get_r_value(pbrush->m_cr) / 255.0, argb_get_g_value(pbrush->m_cr) / 255.0, argb_get_b_value(pbrush->m_cr) / 255.0, argb_get_a_value(pbrush->m_cr) / 255.0);
@@ -5503,6 +5543,33 @@ namespace draw2d_quartz2d
       return true;
       
    }
+   bool graphics::draw_inline(const ::draw2d::path * ppath, ::draw2d::pen * ppen)
+   {
+      
+      for(int32_t i = 0; i < ppath->m_elementa.get_count(); i++)
+      {
+         
+         draw_inline(ppath->m_elementa[i], ppen);
+         
+      }
+      
+      return true;
+      
+   }
+   bool graphics::fill_inline(const ::draw2d::path * ppath, ::draw2d::brush * pbrush)
+   {
+      
+      for(int32_t i = 0; i < ppath->m_elementa.get_count(); i++)
+      {
+         
+         fill_inline(ppath->m_elementa[i], pbrush);
+         
+      }
+      
+      return true;
+      
+   }
+   
    
    
    bool graphics::set(const ::draw2d_quartz2d::path::element & e)
@@ -5517,19 +5584,50 @@ namespace draw2d_quartz2d
             set(e.u.m_line);
             break;
          case ::draw2d::path::element::type_string:
-            set(e.m_stringpath);
+           // set(e.m_stringpath);
             break;
          case ::draw2d::path::element::type_end:
 //            cairo_close_path(m_pdc);
             break;
          default:
-            throw "unexpected simple os graphics element type";
+            break;
       }
       
       return false;
       
    }
-   
+
+   bool graphics::draw_inline(const ::draw2d_quartz2d::path::element & e, ::draw2d::pen * ppen)
+   {
+      
+      switch(e.m_etype)
+      {
+         case ::draw2d::path::element::type_string:
+          draw_inline(e.m_stringpath, ppen);
+            break;
+         default:
+            break;
+      }
+      
+      return false;
+      
+   }
+   bool graphics::fill_inline(const ::draw2d_quartz2d::path::element & e, ::draw2d::brush * pbrush)
+   {
+      
+      switch(e.m_etype)
+      {
+         case ::draw2d::path::element::type_string:
+            fill_inline(e.m_stringpath, pbrush);
+            break;
+         default:
+         break;
+      }
+      
+      return false;
+      
+   }
+
    bool graphics::set(const ::draw2d_quartz2d::path::arc & a)
    {
       
@@ -5583,6 +5681,20 @@ namespace draw2d_quartz2d
       return true;
       
    }
+   bool graphics::draw_inline(const ::draw2d_quartz2d::path::string_path & stringpath, ::draw2d::pen * ppen)
+   {
+
+      internal_show_text(stringpath.m_x, stringpath.m_y, stringpath.m_strText, (int)stringpath.m_strText.get_length(), kCGTextStroke, true, NULL, NULL, NULL, NULL, ppen);
+      
+      return true;
+      
+   }
+   bool graphics::fill_inline(const ::draw2d_quartz2d::path::string_path & stringpath, ::draw2d::brush * pbrush)
+   {
+      internal_show_text(stringpath.m_x, stringpath.m_y, stringpath.m_strText, (int)stringpath.m_strText.get_length(), kCGTextFill, true, NULL, NULL, NULL, NULL, NULL, pbrush);
+      return true;
+      
+   }
    
    bool graphics::fill()
    {
@@ -5612,7 +5724,7 @@ namespace draw2d_quartz2d
 
 
 
-   bool internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)
+   bool internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,::draw2d::pen_sp sppen, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)
 {
    
    string str(lpszString, nCount);
@@ -5666,48 +5778,80 @@ namespace draw2d_quartz2d
    
    CTFontRef font =  CTFontCreateWithFontDescriptor(fontD, dFontSize, NULL);
    
-   CFStringRef keys[] = { kCTFontAttributeName, kCTForegroundColorAttributeName };
+   array < CFStringRef>    pkeys;
+   array < CFTypeRef >     pvals;
+   array < CFTypeRef >     cfrel;
+   array < CGColorRef >    crrel;
    
-   CGColorRef cr = NULL;
+   pkeys.add(kCTFontAttributeName);
+   pvals.add(font);
+
+   COLORREF cr;
    
    if(emode != kCGTextInvisible && bDraw)
    {
-      
+
       CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
       
       CGFloat components[4];
+  
+      if(emode == kCGTextFill || emode == kCGTextFillStroke)
+      {
       
-      COLORREF crText = spbrush.is_null() ? ARGB(255, 0, 0, 0) : spbrush->m_cr;
+         cr = spbrush.is_null() ? ARGB(255, 0, 0, 0) : spbrush->m_cr;
       
-      components[0] = argb_get_r_value(crText) / 255.f;
+         components[0] = argb_get_r_value(cr) / 255.f;
+         components[1] = argb_get_g_value(cr) / 255.f;
+         components[2] = argb_get_b_value(cr) / 255.f;
+         components[3] = argb_get_a_value(cr) / 255.f;
       
-      components[1] = argb_get_g_value(crText) / 255.f;
-      
-      components[2] = argb_get_b_value(crText) / 255.f;
-      
-      components[3] = argb_get_a_value(crText) / 255.f;
-      
-      cr = CGColorCreate(rgbColorSpace, components);
+         pkeys.add(kCTForegroundColorAttributeName);
+         pvals.add(CGColorCreate(rgbColorSpace, components));
+         crrel.add((CGColorRef)pvals.last_element());
+
+         
+      }
+      if(emode == kCGTextStroke|| emode == kCGTextFillStroke)
+      {
+         
+         cr = sppen.is_null() ? ARGB(255, 0, 0, 0) : sppen->m_cr;
+         
+         double dStroke = sppen.is_null() ? 3.0 : sppen->m_dWidth * 100.0 / spfont->m_dFontSize;
+         
+         pkeys.add(kCTStrokeWidthAttributeName);
+         pvals.add(CFNumberCreate(kCFAllocatorDefault, kCFNumberDoubleType, &dStroke));
+         cfrel.add(pvals.last_element());
+         
+         components[0] = argb_get_r_value(cr) / 255.f;
+         components[1] = argb_get_g_value(cr) / 255.f;
+         components[2] = argb_get_b_value(cr) / 255.f;
+         components[3] = argb_get_a_value(cr) / 255.f;
+         
+         pkeys.add(kCTStrokeColorAttributeName);
+         pvals.add(CGColorCreate(rgbColorSpace, components));
+         crrel.add((CGColorRef)pvals.last_element());
+         
+      }
       
       CGColorSpaceRelease(rgbColorSpace);
       
    }
    
-   CFTypeRef values[] = { font, cr };
+   ::count iCount = pkeys.count();
    
-   CFDictionaryRef attributes =
-   CFDictionaryCreate(
+   CFStringRef * &   keys = pkeys.m_pData;
+   CFTypeRef * &     vals = pvals.m_pData;
+   
+   CFDictionaryRef attributes = CFDictionaryCreate(
                       kCFAllocatorDefault,
-                      (const void**) &keys,
-                      (const void**)&values,
-                      (emode != kCGTextInvisible && bDraw) ? 2 : 1,
+                      (const void**) keys,
+                      (const void**) vals,
+                      iCount,
                       &kCFTypeDictionaryKeyCallBacks,
                       &kCFTypeDictionaryValueCallBacks);
    
    
-   CFAttributedStringRef attrString =
-   
-   CFAttributedStringCreate(kCFAllocatorDefault, string, attributes);
+   CFAttributedStringRef attrString = CFAttributedStringCreate(kCFAllocatorDefault, string, attributes);
    
    CFRelease(string);
    
@@ -5734,11 +5878,14 @@ namespace draw2d_quartz2d
    
    CFRelease(line);
    
-   if(emode != kCGTextInvisible && bDraw)
+   for(index i = 0; i < cfrel.count(); i++)
    {
-      
-      CGColorRelease(cr);
-      
+      CFRelease(cfrel[i]);
+   }
+   
+   for(index i = 0; i < crrel.count(); i++)
+   {
+      CGColorRelease(crrel[i]);
    }
    
    CFRelease(fontName);
