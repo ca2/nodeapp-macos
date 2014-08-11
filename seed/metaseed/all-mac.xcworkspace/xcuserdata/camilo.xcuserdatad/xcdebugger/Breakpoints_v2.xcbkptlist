@@ -447,7 +447,7 @@
                   symbolName = "not_implemented::not_implemented(not_implemented const&amp;)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/exception/exception_not_implemented.cpp"
-                  timestampString = "429464467.069172"
+                  timestampString = "429465678.701497"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "9"
@@ -461,7 +461,7 @@
                   symbolName = "not_implemented::not_implemented(not_implemented const&amp;)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/exception/exception_not_implemented.cpp"
-                  timestampString = "429464467.069582"
+                  timestampString = "429465678.701789"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "9"
@@ -493,7 +493,7 @@
                   symbolName = "not_implemented::not_implemented(smart_pointer&lt;base::application&gt;, char const*)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/exception/exception_not_implemented.cpp"
-                  timestampString = "429464467.072605"
+                  timestampString = "429465678.897012"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -507,7 +507,7 @@
                   symbolName = "not_implemented::not_implemented(smart_pointer&lt;base::application&gt;, char const*)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/exception/exception_not_implemented.cpp"
-                  timestampString = "429464467.072906"
+                  timestampString = "429465678.897296"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -568,7 +568,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/uinteraction/uinteraction_frame_schema_001.cpp"
@@ -579,6 +579,36 @@
             endingLineNumber = "33"
             landmarkName = "FrameSchemaHardCoded001::FrameSchemaHardCoded001(sp(::base::application) papp)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "user::uinteraction::frame::core::FrameSchemaHardCoded001::FrameSchemaHardCoded001(smart_pointer&lt;base::application&gt;)"
+                  moduleName = "libapp_core_uinteraction.dylib"
+                  urlString = "file:///ca2/app-core/appseed/uinteraction/uinteraction_frame_schema_001.cpp"
+                  timestampString = "429465059.608859"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "user::uinteraction::frame::core::FrameSchemaHardCoded001::FrameSchemaHardCoded001(smart_pointer&lt;base::application&gt;)"
+                  moduleName = "libapp_core_uinteraction.dylib"
+                  urlString = "file:///ca2/app-core/appseed/uinteraction/uinteraction_frame_schema_001.cpp"
+                  timestampString = "429465059.639404"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -690,6 +720,38 @@
             startingLineNumber = "237"
             endingLineNumber = "237"
             landmarkName = "application::request(const char * pszRequest, const char * pszUrl, property_set &amp; set)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/filesystem/file/file_dir_system.cpp"
+            timestampString = "429465026.234571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "980"
+            endingLineNumber = "980"
+            landmarkName = "system::matter_ls_file(sp(::base::application) papp, const string &amp; str, stringa &amp; stra)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/filesystem/file/file_dir_system.cpp"
+            timestampString = "429466147.46971"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "981"
+            endingLineNumber = "981"
+            landmarkName = "system::matter_ls_file(sp(::base::application) papp, const string &amp; str, stringa &amp; stra)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
