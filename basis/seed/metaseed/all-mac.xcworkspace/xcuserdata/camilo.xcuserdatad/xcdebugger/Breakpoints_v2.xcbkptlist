@@ -416,11 +416,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "429459793.622785"
+            timestampString = "429495264.557561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5845"
-            endingLineNumber = "5845"
+            startingLineNumber = "5864"
+            endingLineNumber = "5864"
             landmarkName = "internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,::draw2d::pen_sp sppen, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)"
             landmarkType = "7">
          </BreakpointContent>
@@ -447,7 +447,7 @@
                   symbolName = "not_implemented::not_implemented(not_implemented const&amp;)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/exception/exception_not_implemented.cpp"
-                  timestampString = "429487706.427514"
+                  timestampString = "429528677.630782"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "9"
@@ -461,7 +461,7 @@
                   symbolName = "not_implemented::not_implemented(not_implemented const&amp;)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/exception/exception_not_implemented.cpp"
-                  timestampString = "429487706.427907"
+                  timestampString = "429528677.631243"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "9"
@@ -493,7 +493,7 @@
                   symbolName = "not_implemented::not_implemented(smart_pointer&lt;base::application&gt;, char const*)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/exception/exception_not_implemented.cpp"
-                  timestampString = "429487706.431071"
+                  timestampString = "429528677.706949"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -507,7 +507,7 @@
                   symbolName = "not_implemented::not_implemented(smart_pointer&lt;base::application&gt;, char const*)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/exception/exception_not_implemented.cpp"
-                  timestampString = "429487706.4313"
+                  timestampString = "429528677.707241"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -524,11 +524,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "429459793.622785"
+            timestampString = "429495264.557561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5687"
-            endingLineNumber = "5687"
+            startingLineNumber = "5706"
+            endingLineNumber = "5706"
             landmarkName = "graphics::draw_inline(const ::draw2d_quartz2d::path::string_path &amp; stringpath, ::draw2d::pen * ppen)"
             landmarkType = "5">
          </BreakpointContent>
@@ -540,11 +540,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "429459793.622785"
+            timestampString = "429495264.557561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5817"
-            endingLineNumber = "5817"
+            startingLineNumber = "5836"
+            endingLineNumber = "5836"
             landmarkName = "internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,::draw2d::pen_sp sppen, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)"
             landmarkType = "7">
          </BreakpointContent>
@@ -625,6 +625,36 @@
             endingLineNumber = "44"
             landmarkName = "FrameSchemaHardCoded002::FrameSchemaHardCoded002(sp(::base::application) papp)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "user::uinteraction::frame::core::FrameSchemaHardCoded002::FrameSchemaHardCoded002(smart_pointer&lt;base::application&gt;)"
+                  moduleName = "libapp_core_uinteraction.dylib"
+                  urlString = "file:///ca2/app-core/appseed/uinteraction/uinteraction_frame_schema_002.cpp"
+                  timestampString = "429528685.467435"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "user::uinteraction::frame::core::FrameSchemaHardCoded002::FrameSchemaHardCoded002(smart_pointer&lt;base::application&gt;)"
+                  moduleName = "libapp_core_uinteraction.dylib"
+                  urlString = "file:///ca2/app-core/appseed/uinteraction/uinteraction_frame_schema_002.cpp"
+                  timestampString = "429528685.477384"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -641,6 +671,36 @@
             endingLineNumber = "37"
             landmarkName = "FrameSchemaHardCoded005::FrameSchemaHardCoded005(sp(::base::application) papp)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "user::uinteraction::frame::core::FrameSchemaHardCoded005::FrameSchemaHardCoded005(smart_pointer&lt;base::application&gt;)"
+                  moduleName = "libapp_core_uinteraction.dylib"
+                  urlString = "file:///ca2/app-core/appseed/uinteraction/uinteraction_frame_schema_005.cpp"
+                  timestampString = "429528685.477821"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "user::uinteraction::frame::core::FrameSchemaHardCoded005::FrameSchemaHardCoded005(smart_pointer&lt;base::application&gt;)"
+                  moduleName = "libapp_core_uinteraction.dylib"
+                  urlString = "file:///ca2/app-core/appseed/uinteraction/uinteraction_frame_schema_005.cpp"
+                  timestampString = "429528685.47815"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "26">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -753,6 +813,38 @@
             endingLineNumber = "981"
             landmarkName = "system::matter_ls_file(sp(::base::application) papp, const string &amp; str, stringa &amp; stra)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/base/base/base_system.cpp"
+            timestampString = "429522532.564479"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1391"
+            endingLineNumber = "1391"
+            landmarkName = "system::get_monitor_count()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/base/base/os/macos/macos_base_user_mm.mm"
+            timestampString = "429528451.532097"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
+            landmarkName = "GetWkspaceRect(LPRECT lprect, int iMonitor)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
