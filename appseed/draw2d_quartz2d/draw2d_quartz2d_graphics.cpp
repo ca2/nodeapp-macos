@@ -5401,7 +5401,7 @@ namespace draw2d_quartz2d
       
       CGContextSetRGBStrokeColor(m_pdc, argb_get_r_value(ppen->m_cr) / 255.0, argb_get_g_value(ppen->m_cr) / 255.0, argb_get_b_value(ppen->m_cr) / 255.0, argb_get_a_value(ppen->m_cr) / 255.0);
       
-      CGContextSetLineWidth(m_pdc, ppen->m_dWidth - 0.51);
+      CGContextSetLineWidth(m_pdc, ppen->m_dWidth);
       
       return true;
       
@@ -5534,12 +5534,16 @@ namespace draw2d_quartz2d
             
          }
          
+         /*
+         
          if(fmod(ppen->m_dWidth, 2.0) <= 1.0)
          {
          
             CGContextTranslateCTM(m_pdc, 0.5f, 0.5f);
             
          }
+          
+         */
          
          CGContextStrokePath(m_pdc);
 
