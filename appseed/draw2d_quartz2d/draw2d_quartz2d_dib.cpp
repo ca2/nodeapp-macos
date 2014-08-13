@@ -186,7 +186,7 @@ namespace draw2d_quartz2d
    bool dib::create(::draw2d::graphics * pdc)
    {
       
-      ::draw2d::bitmap * pbitmap = & (dynamic_cast < ::draw2d_quartz2d::graphics * > (pdc))->GetCurrentBitmap();
+      ::draw2d::bitmap_sp pbitmap = pdc->get_current_bitmap();
       
       if(pbitmap == NULL)
          return false;

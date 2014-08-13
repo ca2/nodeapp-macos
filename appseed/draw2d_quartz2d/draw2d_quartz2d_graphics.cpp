@@ -1714,7 +1714,7 @@ namespace draw2d_quartz2d
           dib0->create(rectText.size());
           dib0->Fill(0, 0, 0, 0);
           dib0->get_graphics()->SetTextColor(ARGB(255, 255, 255, 255));
-          dib0->get_graphics()->SelectObject(&GetCurrentFont());
+          dib0->get_graphics()->SelectObject(get_current_font());
           dib0->get_graphics()->SetBkMode(TRANSPARENT);
           dib0->get_graphics()->TextOut(0, 0, str);
           dib0->ToAlpha(0);*/
@@ -1722,7 +1722,7 @@ namespace draw2d_quartz2d
           dib1->create(rectText.size());
           dib1->Fill(0, 0, 0, 0);
           dib1->get_graphics()->set_color(m_crColor);
-          dib1->get_graphics()->SelectObject(&GetCurrentFont());
+          dib1->get_graphics()->SelectObject(get_current_font());
           dib1->get_graphics()->SetBkMode(TRANSPARENT);
           dib1->get_graphics()->TextOut(0, 0, str);
           //dib1->channel_from(visual::rgba::channel_alpha, dib0);
@@ -1774,14 +1774,14 @@ namespace draw2d_quartz2d
                ::draw2d::dib_sp dib0(allocer());
                dib0->create(rectText.size());
                dib0->get_graphics()->set_text_color(RGB(255, 255, 255));
-               dib0->get_graphics()->SelectObject(&GetCurrentFont());
+               dib0->get_graphics()->SelectObject(get_current_font());
 //               dib0->get_graphics()->SetBkMode(TRANSPARENT);
                dib0->get_graphics()->TextOut(0, 0, str);
                dib0->ToAlpha(0);
                ::draw2d::dib_sp dib1(allocer());
                dib1->create(rectText.size());
                dib1->get_graphics()->set_text_color(m_spbrush->m_cr);
-               dib1->get_graphics()->SelectObject(&GetCurrentFont());
+               dib1->get_graphics()->SelectObject(get_current_font());
 //               dib1->get_graphics()->SetBkMode(TRANSPARENT);
                dib1->get_graphics()->TextOut(0, 0, str);
                dib1->channel_from(visual::rgba::channel_alpha, dib0);
@@ -2429,38 +2429,38 @@ namespace draw2d_quartz2d
     
     */
    
-   ::draw2d::pen & graphics::GetCurrentPen() const
+   ::draw2d::pen_sp graphics::get_current_pen() const
    {
       
-      return *m_sppen.m_p;
+      return m_sppen;
       
    }
    
-   ::draw2d::brush & graphics::GetCurrentBrush() const
+   ::draw2d::brush_sp graphics::get_current_brush() const
    {
       
-      return *m_spbrush.m_p;
+      return m_spbrush;
       
    }
    
-   ::draw2d::palette & graphics::GetCurrentPalette() const
+   ::draw2d::palette_sp graphics::get_current_palette() const
    {
       
-      return *(::draw2d::palette *)NULL;
+      return (::draw2d::palette *)NULL;
       
    }
    
-   ::draw2d::font & graphics::GetCurrentFont() const
+   ::draw2d::font_sp graphics::get_current_font() const
    {
       
-      return *m_spfont.m_p;
+      return m_spfont;
       
    }
    
-   ::draw2d::bitmap & graphics::GetCurrentBitmap() const
+   ::draw2d::bitmap_sp graphics::get_current_bitmap() const
    {
       
-      return *m_spbitmap.m_p;
+      return m_spbitmap;
       
    }
    
@@ -5514,6 +5514,25 @@ namespace draw2d_quartz2d
          CGContextSetRGBStrokeColor(m_pdc, argb_get_r_value(ppen->m_cr) / 255.f, argb_get_g_value(ppen->m_cr) / 255.f, argb_get_b_value(ppen->m_cr) / 255.f, argb_get_a_value(ppen->m_cr) / 255.f);
          
          CGContextSetLineWidth(m_pdc, ppen->m_dWidth);
+         
+         if(ppen->m_elinecapBeg == ::draw2d::pen::line_cap_round || ppen->m_elinecapEnd == ::draw2d::pen::line_cap_round)
+         {
+            
+            CGContextSetLineCap(m_pdc, kCGLineCapRound);
+            
+         }
+         else if(ppen->m_elinecapBeg == ::draw2d::pen::line_cap_square || ppen->m_elinecapEnd == ::draw2d::pen::line_cap_square)
+         {
+            
+            CGContextSetLineCap(m_pdc, kCGLineCapSquare);
+            
+         }
+         else
+         {
+            
+            CGContextSetLineCap(m_pdc, kCGLineCapButt);
+            
+         }
          
          if(fmod(ppen->m_dWidth, 2.0) <= 1.0)
          {

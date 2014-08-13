@@ -82,11 +82,11 @@ namespace draw2d_quartz2d
       
       bool IsPrinting() const;            // TRUE if being used for printing
       
-      ::draw2d::pen & GetCurrentPen() const;
-      ::draw2d::brush & GetCurrentBrush() const;
-      ::draw2d::palette & GetCurrentPalette() const;
-      ::draw2d::font & GetCurrentFont() const;
-      ::draw2d::bitmap & GetCurrentBitmap() const;
+      ::draw2d::pen_sp get_current_pen() const;
+      ::draw2d::brush_sp get_current_brush() const;
+      ::draw2d::palette_sp get_current_palette() const;
+      ::draw2d::font_sp get_current_font() const;
+      ::draw2d::bitmap_sp get_current_bitmap() const;
       
       
       //pen *       COCOA_pen();
