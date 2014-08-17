@@ -38,16 +38,19 @@
       location = "group:../../../app/appseed/base/base.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/thirdparty/appseed/freetype/basefreetype.xcodeproj">
+      location = "group:../../../app/base/freeimage/basefreeimage.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/thirdparty/appseed/freeimage/basefreeimage.xcodeproj">
+      location = "group:../../../app/base/freetype/basefreetype.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-veriwell/appseed/libmpg123/basempg123.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/thirdparty/appseed/mysql/basemysql.xcodeproj">
+      location = "group:../../../app/base/mysql/basemysql.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/base/openssl/baseopenssl.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/core/core.xcodeproj">
