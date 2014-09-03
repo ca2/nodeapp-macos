@@ -35,22 +35,43 @@
       location = "group:../../appseed/audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/appseed/aura/aura.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/aura/charguess/auracharguess.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/aura/sqlite/aurasqlite.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/axis/axis.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/bsdiff/axisbsdiff.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/bzip2/axisbzip2.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/freeimage/axisfreeimage.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/freetype/axisfreetype.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/mysql/axismysql.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/openssl/axisopenssl.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/zlib/axiszlib.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/base/base.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/base/freeimage/basefreeimage.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/base/freetype/basefreetype.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app-veriwell/appseed/libmpg123/basempg123.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/base/mysql/basemysql.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/base/openssl/baseopenssl.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/core/core.xcodeproj">
