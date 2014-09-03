@@ -33,6 +33,30 @@
 		9AC9452118290B7800AA7325 /* audio_core_aligned.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC9451F18290B7700AA7325 /* audio_core_aligned.h */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9A2EA30419A62C44004DAFFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A2EA2FE19A62C44004DAFFC /* axis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A98A6151771D67E000AE16E;
+			remoteInfo = base;
+		};
+		9A2EA30619A62C44004DAFFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A2EA2FE19A62C44004DAFFC /* axis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AE24D341904CEFE001AEFFB;
+			remoteInfo = base_ios;
+		};
+		9A2EA30819A62C44004DAFFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A2EA2FE19A62C44004DAFFC /* axis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AE24D431904CEFE001AEFFB;
+			remoteInfo = base_iosTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		07A27B391808C1F3005F7B47 /* audio_core_audio_toolbox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_toolbox.cpp; sourceTree = "<group>"; };
 		07A27B3A1808C1F3005F7B47 /* audio_core_audio_toolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_toolbox.h; sourceTree = "<group>"; };
@@ -42,6 +66,7 @@
 		07A27B451808E111005F7B47 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		9A2EA2FE19A62C44004DAFFC /* axis.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = axis.xcodeproj; path = ../../../app/appseed/axis/axis.xcodeproj; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9A8EAF2817C563A300C458D1 /* audio_core_audio_command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_command.h; sourceTree = "<group>"; };
 		9A8EAF2917C563A300C458D1 /* audio_core_audio_factory_exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_factory_exchange.cpp; sourceTree = "<group>"; };
@@ -78,9 +103,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A2EA2FF19A62C44004DAFFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A2EA30519A62C44004DAFFC /* libaxis.dylib */,
+				9A2EA30719A62C44004DAFFC /* libaxis.dylib */,
+				9A2EA30919A62C44004DAFFC /* base_iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				9A2EA2FE19A62C44004DAFFC /* axis.xcodeproj */,
 				07A27B451808E111005F7B47 /* AudioToolbox.framework */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
 				9AA1B449176361950019E812 /* Cocoa.framework */,
@@ -184,12 +220,42 @@
 			mainGroup = A1CFD76D154F5EA7007447E2;
 			productRefGroup = A1CFD779154F5EAA007447E2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9A2EA2FF19A62C44004DAFFC /* Products */;
+					ProjectRef = 9A2EA2FE19A62C44004DAFFC /* axis.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A1CFD777154F5EAA007447E2 /* audio_core_audio */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9A2EA30519A62C44004DAFFC /* libaxis.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libaxis.dylib;
+			remoteRef = 9A2EA30419A62C44004DAFFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A2EA30719A62C44004DAFFC /* libaxis.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libaxis.dylib;
+			remoteRef = 9A2EA30619A62C44004DAFFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A2EA30919A62C44004DAFFC /* base_iosTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = base_iosTests.xctest;
+			remoteRef = 9A2EA30819A62C44004DAFFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1CFD774154F5EAA007447E2 /* Sources */ = {

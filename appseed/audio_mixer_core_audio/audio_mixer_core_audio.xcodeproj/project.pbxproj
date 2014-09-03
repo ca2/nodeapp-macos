@@ -38,11 +38,36 @@
 		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9A2EA31019A62C4B004DAFFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A2EA30A19A62C4B004DAFFC /* axis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A98A6151771D67E000AE16E;
+			remoteInfo = base;
+		};
+		9A2EA31219A62C4B004DAFFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A2EA30A19A62C4B004DAFFC /* axis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AE24D341904CEFE001AEFFB;
+			remoteInfo = base_ios;
+		};
+		9A2EA31419A62C4B004DAFFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A2EA30A19A62C4B004DAFFC /* axis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AE24D431904CEFE001AEFFB;
+			remoteInfo = base_iosTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		079DBF461886ABF100EFFEFB /* libbase.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbase.dylib; path = ../../../app/appseed/base/build/Release/libbase.dylib; sourceTree = "<group>"; };
 		079DBF471886ABF100EFFEFB /* libcore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcore.dylib; path = ../../../app/appseed/core/build/Release/libcore.dylib; sourceTree = "<group>"; };
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		9A2EA30A19A62C4B004DAFFC /* axis.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = axis.xcodeproj; path = ../../../app/appseed/axis/axis.xcodeproj; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9A8EAF3D17C563D300C458D1 /* audio_mixer_core_audio_callback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_mixer_core_audio_callback.cpp; sourceTree = "<group>"; };
 		9A8EAF3E17C563D300C458D1 /* audio_mixer_core_audio_callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_mixer_core_audio_callback.h; sourceTree = "<group>"; };
@@ -86,9 +111,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A2EA30B19A62C4B004DAFFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A2EA31119A62C4B004DAFFC /* libaxis.dylib */,
+				9A2EA31319A62C4B004DAFFC /* libaxis.dylib */,
+				9A2EA31519A62C4B004DAFFC /* base_iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				9A2EA30A19A62C4B004DAFFC /* axis.xcodeproj */,
 				079DBF461886ABF100EFFEFB /* libbase.dylib */,
 				079DBF471886ABF100EFFEFB /* libcore.dylib */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
@@ -200,12 +236,42 @@
 			mainGroup = A1CFD76D154F5EA7007447E2;
 			productRefGroup = A1CFD779154F5EAA007447E2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9A2EA30B19A62C4B004DAFFC /* Products */;
+					ProjectRef = 9A2EA30A19A62C4B004DAFFC /* axis.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A1CFD777154F5EAA007447E2 /* audio_mixer_core_audio */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9A2EA31119A62C4B004DAFFC /* libaxis.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libaxis.dylib;
+			remoteRef = 9A2EA31019A62C4B004DAFFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A2EA31319A62C4B004DAFFC /* libaxis.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libaxis.dylib;
+			remoteRef = 9A2EA31219A62C4B004DAFFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A2EA31519A62C4B004DAFFC /* base_iosTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = base_iosTests.xctest;
+			remoteRef = 9A2EA31419A62C4B004DAFFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1CFD774154F5EAA007447E2 /* Sources */ = {

@@ -331,12 +331,12 @@ inline void debug_break() { __asm("int $3"); }
 #define TRUE 1
 #define FALSE 0
 
-#define max(x,y) (((x) > (y)) ? (x) : (y))
-#define min(x,y) (((x) < (y)) ? (x) : (y))
+//#define max(x,y) (((x) > (y)) ? (x) : (y))
+//#define min(x,y) (((x) < (y)) ? (x) : (y))
 
 
-#define __max(a,b)  (((a) > (b)) ? (a) : (b))
-#define __min(a,b)  (((a) < (b)) ? (a) : (b))
+//#define __max(a,b)  (((a) > (b)) ? (a) : (b))
+//#define __min(a,b)  (((a) < (b)) ? (a) : (b))
 
 //#define LOWORD(x)  (x & 0xffff)
 //#define HIWORD(x)  ((x >> 16) & 0xffff)
