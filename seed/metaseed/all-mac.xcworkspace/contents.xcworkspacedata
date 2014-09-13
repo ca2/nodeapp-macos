@@ -32,9 +32,6 @@
       location = "group:../../appseed/audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/atom/iconv/atomiconv.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/appseed/aura/aura.xcodeproj">
    </FileRef>
    <FileRef
