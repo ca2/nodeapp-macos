@@ -20,9 +20,6 @@
       location = "group:../../../app-core/appseed/projection/app_core_projection.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/uinteraction/app_core_uinteraction.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
    </FileRef>
    <FileRef
@@ -47,9 +44,6 @@
       location = "group:../../../app/appseed/axis/axis.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/axis/bsdiff/axisbsdiff.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/axis/bzip2/axisbzip2.xcodeproj">
    </FileRef>
    <FileRef
@@ -57,6 +51,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../app/axis/freetype/axisfreetype.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/idn/axisidn.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/axis/mysql/axismysql.xcodeproj">
