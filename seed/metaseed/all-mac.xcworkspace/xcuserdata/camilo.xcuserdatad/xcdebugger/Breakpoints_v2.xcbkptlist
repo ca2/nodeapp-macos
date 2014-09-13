@@ -14,9 +14,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1293"
-            endingLineNumber = "1293"
-            landmarkName = "application::main()"
-            landmarkType = "5">
+            endingLineNumber = "1293">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,9 +44,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2090"
-            endingLineNumber = "2090"
-            landmarkName = "application::run()"
-            landmarkType = "5">
+            endingLineNumber = "2090">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,9 +90,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2091"
-            endingLineNumber = "2091"
-            landmarkName = "application::run()"
-            landmarkType = "5">
+            endingLineNumber = "2091">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -140,9 +134,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2092"
-            endingLineNumber = "2092"
-            landmarkName = "application::run()"
-            landmarkType = "5">
+            endingLineNumber = "2092">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
