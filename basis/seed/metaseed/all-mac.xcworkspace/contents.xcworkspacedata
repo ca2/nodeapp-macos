@@ -38,9 +38,6 @@
       location = "group:../../../app/aura/charguess/auracharguess.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/aura/sqlite/aurasqlite.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/appseed/axis/axis.xcodeproj">
    </FileRef>
    <FileRef
@@ -60,9 +57,6 @@
    </FileRef>
    <FileRef
       location = "group:../../../app/axis/openssl/axisopenssl.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/axis/zlib/axiszlib.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/base/base.xcodeproj">
