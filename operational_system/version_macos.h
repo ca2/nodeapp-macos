@@ -12,7 +12,7 @@
 #define DEBUG 0
 #endif
 
-#include <Carbon/Carbon.h>
+//#include <Carbon/Carbon.h>
 
 #if DEBUG
 #undef DEBUG
@@ -21,10 +21,10 @@
 #undef DEBUG
 #endif
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <sys/time.h>
+//#include <stdlib.h>
+//#include <stdio.h>
+//#include <math.h>
+//#include <sys/time.h>
 
 #ifndef EXPORT
 #define EXPORT
