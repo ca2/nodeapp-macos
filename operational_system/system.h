@@ -8,6 +8,9 @@
 #pragma once
 
 
+#define __ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES 0
+
+
 #define _DARWIN_C_SOURCE
 #define _POSIX_SOURCE 200809L
 #define _POSIX_C_SOURCE 200809L
@@ -64,7 +67,15 @@ typedef struct gdi_object * HGDIOBJ;
 #define DEBUG 0
 #endif
 
+#if defined(_MM) || defined(_M)
+
 #include <Foundation/Foundation.h>
+
+#else
+
+#include <Carbon/Carbon.h>
+
+#endif
 
 #if DEBUG
 #undef DEBUG

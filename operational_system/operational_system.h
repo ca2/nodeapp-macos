@@ -7,35 +7,9 @@
 typedef ::std::type_info std_type_info;
 
 
-//#define max(x,y) (((x) > (y)) ? (x) : (y))
-//#define min(x,y) (((x) < (y)) ? (x) : (y))
-
-
-//#define __max(x,y) (((x) > (y)) ? (x) : (y))
-//#define __min(x,y) (((x) < (y)) ? (x) : (y))
-
-
-// _AFXEXT implies _ApplicationFrameworkDLL
-#if defined(_AFXEXT) && !defined(_ApplicationFrameworkDLL)
-	#define _ApplicationFrameworkDLL
-#endif
-
-#if defined(_ApplicationFrameworkDLL) && !defined(_DLL) && defined(WIN32)
-//	#error Please use the /MD switch for _ApplicationFrameworkDLL builds
-#endif
-
-#if defined(_ApplicationFrameworkDLL) && !defined(_MT) && defined(WIN32)
-	#error Please use the /MD switch (multithreaded DLL C-runtime)
-#endif
-
-/////////////////////////////////////////////////////////////////////////////
-// special include files
-
 #ifndef AFX_INLINE
 	#define AFX_INLINE inline /*inline*/
 #endif
-
-#include "version_macos.h"
 
 // Include any non-Intel platform specific items
 #ifndef _X86_
