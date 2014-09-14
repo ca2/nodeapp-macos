@@ -8,24 +8,10 @@
 #pragma once
 
 
-#define __ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES 0
-
-
 #define _DARWIN_C_SOURCE
-
-
+#define _POSIX_SOURCE 200809L
 #define _POSIX_C_SOURCE 200809L
-#ifdef cplusplus
-#ifdef __MM
-#import <Foundation/Foundation.h>
-#else
-#include <Carbon/Carbon.h>
-#endif
-#endif
-#undef _POSIX_C_SOURCE
 
-
-#define _POSIX_C_SOURCE 200809L
 #include <inttypes.h>
 #include <string.h>
 #include <stdlib.h>
@@ -33,6 +19,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <errno.h>
+
 #undef _POSIX_C_SOURCE
 
 
@@ -65,7 +52,33 @@ typedef struct gdi_object * HGDIOBJ;
 #define DECL_SPEC_ANY
 
 
-#include "version_macos.h"
+// STRICT is the only supported option (NOSTRICT is no longer supported)
+#ifndef STRICT
+#define STRICT 1
+#endif
+
+#ifdef DEBUG
+#undef DEBUG
+#define DEBUG 1
+#else
+#define DEBUG 0
+#endif
+
+#include <Foundation/Foundation.h>
+
+#if DEBUG
+#undef DEBUG
+#define DEBUG
+#else
+#undef DEBUG
+#endif
+
+
+
+#ifndef EXPORT
+#define EXPORT
+#endif
+
 
 #ifndef _X86_
 #include "version_cpu.h"
@@ -390,15 +403,11 @@ typedef unsigned int uint_ptr, *pulong_ptr;
 #endif
 
 
-
-
 #define DWORD     uint32_t
 #define BYTE      uint8_t
 
-//#define NULL 0
-#define _strcmpi strcasecmp
 
-//#include <stdlib.h>
+#define _strcmpi strcasecmp
 
 
 #ifdef _LP64
@@ -417,6 +426,7 @@ typedef uint32_t uint_ptr;
 
 
 typedef void * PVOID;
+
 
 #define _strcmpi strcasecmp
 
