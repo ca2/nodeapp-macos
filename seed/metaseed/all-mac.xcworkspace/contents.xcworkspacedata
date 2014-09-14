@@ -62,6 +62,9 @@
       location = "group:../../../app/axis/openssl/axisopenssl.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/axis/zlib/axiszlib.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/base/base.xcodeproj">
    </FileRef>
    <FileRef

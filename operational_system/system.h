@@ -8,26 +8,34 @@
 #pragma once
 
 
+#define __ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES 0
+
+
+#define _DARWIN_C_SOURCE
+
+
+#define _POSIX_C_SOURCE 200809L
+#ifdef cplusplus
+#ifdef __MM
+#import <Foundation/Foundation.h>
+#else
+#include <Carbon/Carbon.h>
+#endif
+#endif
+#undef _POSIX_C_SOURCE
+
+
+#define _POSIX_C_SOURCE 200809L
+#include <inttypes.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <stddef.h>
-#include <string.h>
-#include <time.h>
-#include <limits.h>
 #include <errno.h>
-#include <inttypes.h>
-#include <sys/time.h>
-#include <pthread.h>
-#include <sys/resource.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <netdb.h>
-#include <math.h>
-#include <assert.h>
-#include <unistd.h>
+#undef _POSIX_C_SOURCE
+
+
 
 
 #ifdef __cplusplus
@@ -40,100 +48,25 @@
 
 
 
-#pragma once
-
-
-
-
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <pthread.h>
-#include <sys/resource.h>
-#include <sys/time.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <netdb.h>
-
-// from C++ Sockets Library
-// ----------------------------------------
-// common unix includes / defines
-//#include <unistd.h>
-//#include <sys/time.h>
-//#include <sys/types.h>
-//#include <sys/socket.h>
-//#include <netinet/in.h>
-//#include <arpa/inet.h>
-//#include <netdb.h>
-
 
 
 #define _strdup strdup
 #define _stricmp stricmp
 
 
-#ifndef _XSERVER64
-#ifndef _XTYPEDEF_XID
-#define _XTYPEDEF_XID
-typedef unsigned long XID;
-#endif
-#endif
-
-
 struct device_context;
 struct gdi_object;
-
-typedef XID Window;
 
 
 typedef struct device_context * HDC;
 typedef struct gdi_object * HGDIOBJ;
 
-union _XEvent;
-
-typedef union _XEvent XEvent;
-
-
-
-//typedef Font HFONT;
-
-
 
 #define DECL_SPEC_ANY
 
 
-/////////////////////////////////////////////////////////////////////////////
-// Master version numbers
-
-#define _AFX     1      // Microsoft Application Framework Classes
-#ifndef _MFC_VER
-#define _MFC_VER 0x0800 // Microsoft Foundation Classes version 8.00
-#endif
-
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Special configurations
-
-// _AFXEXT implies _ApplicationFrameworkDLL
-#if defined(_AFXEXT) && !defined(_ApplicationFrameworkDLL)
-#define _ApplicationFrameworkDLL
-#endif
-
-#if defined(_ApplicationFrameworkDLL) && !defined(_DLL) && defined(WIN32)
-//	#error Please use the /MD switch for _ApplicationFrameworkDLL builds
-#endif
-
-#if defined(_ApplicationFrameworkDLL) && !defined(_MT) && defined(WIN32)
-#error Please use the /MD switch (multithreaded DLL C-runtime)
-#endif
-
-
 #include "version_macos.h"
 
-// Include any non-Intel platform specific items
 #ifndef _X86_
 #include "version_cpu.h"
 #endif
@@ -313,118 +246,11 @@ inline void debug_break() { __asm("int $3"); }
 
 
 
-#ifdef _AFX_DEVBUILD
-#define AFX_IMPL_DATA __DATA_EXPORT
-#else
-#define AFX_IMPL_DATA CLASS_DECL_BOOT
-#endif
-
-
-// #define _AFX_NOFORCE_LIBS
-#define _AFX_FULLTYPEINFO
-#define VC_EXTRALEAN
-#define NO_ANSIUNI_ONLY
-#define _MFC_OVERRIDES_NEW
 
 #define MAX_DWORD_PTR ((uint_ptr)(-1))
 
 #define TRUE 1
 #define FALSE 0
-
-//#define max(x,y) (((x) > (y)) ? (x) : (y))
-//#define min(x,y) (((x) < (y)) ? (x) : (y))
-
-
-//#define __max(a,b)  (((a) > (b)) ? (a) : (b))
-//#define __min(a,b)  (((a) < (b)) ? (a) : (b))
-
-//#define LOWORD(x)  (x & 0xffff)
-//#define HIWORD(x)  ((x >> 16) & 0xffff)
-
-
-
-
-
-// str
-//void strncpy(char * dest, const char * cat, int iLen);
-/*
- const char * stristr(const char * src, const char * find);
- char to_lower(int ch);
- char to_upper(int ch);
- int stricmp(const char * sz1, const char * sz2);
- int strcmp(const char * sz1, const char * sz2);
- const char * strbegins(const char * sz1, const char * prefix);
- char * strrch(char * sz, char ch);
- void itoa(int i, char * sz, int radix);
- void ltoa(long l, char * sz, int radix);
- void ultoa(unsigned long ul, char * sz, int radix);
- void i64toa(int64_t i, char * sz, int radix);
- void ui64toa(uint64_t i, char * sz, int radix);
- void str_reverse(char * sz);
- void zero_pad(char * sz, int_ptr iPad);
- 
- char * strlwr(char * psz);
- char * strupr(char * psz);
- 
- //void wcscat(wchar_t * dest, const wchar_t * cat);
- //void wcscpy(wchar_t * dest, const wchar_t * cat);
- //void wcsncpy(wchar_t * dest, const wchar_t * cat, int iLen);
- //int  wcslen(const wchar_t * cat);
- //const wchar_t * wcsdup(const wchar_t * src);
- const wchar_t * wcsdup(const wchar_t * src, int iLen);
- //const wchar_t * wcsstr(const wchar_t * src, const wchar_t * find);
- const wchar_t * wcsistr(const wchar_t * src, const wchar_t * find);
- wchar_t to_lower(wchar_t wch);
- int wcsicmp(const wchar_t * sz1, const wchar_t * sz2);
- //int wcscmp(const wchar_t * sz1, const wchar_t * sz2);
- const wchar_t * wcsbegins(const wchar_t * sz1, const wchar_t * prefix);
- wchar_t * wcsrch(wchar_t * sz, wchar_t ch);
- void itoa(int i, wchar_t * sz, int radix);
- void ltoa(long l, wchar_t * sz, int radix);
- void ultow(unsigned long ul, wchar_t * sz, int radix);
- void i64tow(int64_t i, wchar_t * sz, int radix);
- void ui64tow(uint64_t i, wchar_t * sz, int radix);
- void wcs_reverse(wchar_t * sz);
- void zero_pad(wchar_t * sz, int iPad);
- 
- void wcslwr(wchar_t * psz);
- void wcsupr(wchar_t * psz);
- 
- */
-/*
- #ifndef HWND_DEF
- #define HWND_DEF
- typedef class tag_WINDOW
- {
- public:
- 
- WindowRef      m_windowref;
- void *         m_pnswindow;
- 
- 
- 
- } WINDOW, * LPWINDOW;
- 
- typedef LPWINDOW oswindow;
- #endif
- */
-
-//#include "cross/win/win.h"
-
-
-
-
-
-//
-//  _ca.h
-//  os
-//
-//  Created by Camilo Sasuke Tsumanuma on 6/18/13.
-//  Copyright (c) 2013 ca2 Desenvolvimento de Sofware Ltda. All rights reserved.
-//
-
-
-#pragma once
 
 
 
@@ -437,17 +263,10 @@ inline void debug_break() { __asm("int $3"); }
 
 
 
-#pragma once
+//#pragma once
 
 
 
-#ifdef __MM
-
-
-#import <Cocoa/Cocoa.h>
-
-
-#endif
 
 
 
@@ -533,6 +352,78 @@ typedef unsigned int uint_ptr, *pulong_ptr;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#define DECL_C
+
+
+
+#define _PRE_WIDEN(x) L ## x
+#define _WIDEN(x) _PRE_WIDEN(x)
+
+#define NOTHROW throw()
+#define THROWS // gnucc null throw statement means that the function can throw any exception
+
+#define _WCHAR_T_DEFINED
+
+#ifdef DEBUG
+
+#define RELEASENOTHROW
+
+#else
+
+#define RELEASENOTHROW throw()
+
+#endif
+
+
+
+
+#define DWORD     uint32_t
+#define BYTE      uint8_t
+
+//#define NULL 0
+#define _strcmpi strcasecmp
+
+//#include <stdlib.h>
+
+
+#ifdef _LP64
+
+typedef int64_t int_ptr;
+typedef uint64_t uint_ptr;
+#define int3264   int64_t
+
+#else
+
+typedef int32_t int_ptr;
+typedef uint32_t uint_ptr;
+#define int3264   int32_t
+
+#endif
+
+
+typedef void * PVOID;
+
+#define _strcmpi strcasecmp
+
+
+#ifdef _LP64
+#define OS64BIT
+#endif
 
 
 
