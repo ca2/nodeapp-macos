@@ -67,7 +67,7 @@ typedef struct gdi_object * HGDIOBJ;
 #define DEBUG 0
 #endif
 
-#if defined(_MM) || defined(_M)
+#if defined(__MM) || defined(__M)
 
 #include <Foundation/Foundation.h>
 
