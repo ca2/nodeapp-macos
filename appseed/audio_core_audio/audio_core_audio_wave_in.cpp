@@ -9,7 +9,7 @@ namespace multimedia
    {
 
 
-      wave_in::wave_in(sp(::base::application) papp) :
+      wave_in::wave_in(sp(::aura::application) papp) :
          element(papp),
          ::thread(papp),
          wave_base(papp),

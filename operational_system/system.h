@@ -70,12 +70,11 @@ typedef struct gdi_object * HGDIOBJ;
 #if defined(__MM) || defined(__M)
 
 #include <Foundation/Foundation.h>
-
-#else
-
-#include <Carbon/Carbon.h>
+#include <Cocoa/Cocoa.h>
 
 #endif
+
+#include <Carbon/Carbon.h>
 
 #if DEBUG
 #undef DEBUG

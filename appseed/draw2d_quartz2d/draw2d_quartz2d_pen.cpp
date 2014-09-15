@@ -5,7 +5,7 @@ namespace draw2d_quartz2d
 {
    
    
-   pen::pen(sp(::base::application) papp) :
+   pen::pen(sp(::aura::application) papp) :
       ::element(papp)
    {
       

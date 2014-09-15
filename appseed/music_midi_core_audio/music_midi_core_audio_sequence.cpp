@@ -12,7 +12,7 @@ namespace music
    {
       
       
-      sequence::sequence(sp(::base::application) papp) :
+      sequence::sequence(sp(::aura::application) papp) :
       element(papp),
       ::music::midi::object(papp),
       ::ikaraoke::karaoke(papp),

@@ -16,7 +16,7 @@ namespace multimedia
    {
       
       
-      toolbox::toolbox(sp(::base::application) papp) :
+      toolbox::toolbox(sp(::aura::application) papp) :
          element(papp),
          ::thread(papp),
          wave_base(papp)

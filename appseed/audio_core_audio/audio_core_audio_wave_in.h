@@ -19,7 +19,7 @@ namespace multimedia
          bool                             m_bIsRunning;
          
 
-         wave_in(sp(::base::application) papp);
+         wave_in(sp(::aura::application) papp);
          virtual ~wave_in();
 
 

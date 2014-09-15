@@ -9,8 +9,9 @@ namespace draw2d_quartz2d
 {
    
    
-   graphics::graphics(sp(::base::application) papp) :
-      ::element(papp)
+   graphics::graphics(sp(::aura::application) papp) :
+      ::element(papp),
+      ::draw2d::graphics(papp)
    {
       
       m_bPrinting       = FALSE;
@@ -1463,8 +1464,8 @@ namespace draw2d_quartz2d
             
          rect.origin.x = x;
          rect.origin.y = y;
-         rect.size.width = min(nWidth, CGImageGetWidth(image) - xSrc);
-         rect.size.height = min(nHeight, CGImageGetHeight(image) - ySrc);
+         rect.size.width = MIN(nWidth, CGImageGetWidth(image) - xSrc);
+         rect.size.height = MIN(nHeight, CGImageGetHeight(image) - ySrc);
             
          CGRect rectSub;
             
@@ -1788,8 +1789,8 @@ namespace draw2d_quartz2d
                ::draw2d::dib_sp dib2(allocer());
                dib2->create(rectText.size());
                dib2->Fill(255, 0, 0, 0);
-               dib2->from(point((int64_t) max(0, m_ptAlphaBlend.x - x), (int64_t) max(0, m_ptAlphaBlend.y - y)),
-                          m_pdibAlphaBlend->get_graphics(), point((int64_t) max(0, x - m_ptAlphaBlend.x), (int64_t) max(0, y - m_ptAlphaBlend.y)), rectText.size());
+               dib2->from(point((int64_t) MAX(0, m_ptAlphaBlend.x - x), (int64_t) MAX(0, m_ptAlphaBlend.y - y)),
+                          m_pdibAlphaBlend->get_graphics(), point((int64_t) MAX(0, x - m_ptAlphaBlend.x), (int64_t) MAX(0, y - m_ptAlphaBlend.y)), rectText.size());
                dib1->channel_multiply(visual::rgba::channel_alpha, dib2);
                /*::draw2d::dib_sp dib3(get_app());
                 dib1->mult_alpha(dib3);*/

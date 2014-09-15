@@ -9,7 +9,7 @@ namespace multimedia
    {
 
 
-      factory_exchange::factory_exchange(sp(::base::application) papp) :
+      factory_exchange::factory_exchange(sp(::aura::application) papp) :
          element(papp)
       {
 
@@ -30,7 +30,7 @@ namespace multimedia
 } // namespace multimedia
 
 extern "C"
-void ca2_factory_exchange(sp(::base::application) papp)
+void ca2_factory_exchange(sp(::aura::application) papp)
 {
 
    ::multimedia::audio_core_audio::factory_exchange factoryexchange(papp);

@@ -16,7 +16,7 @@ namespace multimedia
    {
       
       
-      wave_out::wave_out(sp(::base::application) papp) :
+      wave_out::wave_out(sp(::aura::application) papp) :
       element(papp),
       ::thread(papp),
       wave_base(papp),

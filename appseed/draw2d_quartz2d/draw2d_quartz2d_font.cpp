@@ -5,7 +5,7 @@ namespace draw2d_quartz2d
 {
    
    
-   font::font(sp(::base::application) papp) :
+   font::font(sp(::aura::application) papp) :
       element(papp)
    {
       

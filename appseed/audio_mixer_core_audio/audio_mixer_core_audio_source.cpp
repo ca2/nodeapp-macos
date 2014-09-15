@@ -9,7 +9,7 @@ namespace multimedia
    {
 
 
-      source::source(sp(::base::application) papp) :
+      source::source(sp(::aura::application) papp) :
          element(papp),
          ::multimedia::audio_mixer::source(papp)
       {

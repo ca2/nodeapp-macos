@@ -12,7 +12,7 @@ namespace draw2d_quartz2d
    public:
       
        
-      palette(sp(::base::application) papp);
+      palette(sp(::aura::application) papp);
       virtual ~palette();
       
       

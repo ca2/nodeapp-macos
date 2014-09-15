@@ -33,7 +33,7 @@ namespace multimedia
    
          
          
-         toolbox(sp(::base::application) papp);
+         toolbox(sp(::aura::application) papp);
          virtual ~toolbox();
          
 

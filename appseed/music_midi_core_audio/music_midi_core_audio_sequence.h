@@ -113,7 +113,7 @@ namespace music
          ::imedia::position            m_tkPosition;
 
 
-         sequence(sp(::base::application) papp);
+         sequence(sp(::aura::application) papp);
          virtual ~sequence();
 
          

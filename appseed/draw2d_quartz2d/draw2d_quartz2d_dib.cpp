@@ -28,7 +28,7 @@ namespace draw2d_quartz2d
    double dib::dPi;*/
    
    
-   dib::dib(sp(::base::application) papp) :
+   dib::dib(sp(::aura::application) papp) :
       element(papp),
       m_spbitmap(allocer()),
       m_spgraphics(allocer())
@@ -335,11 +335,11 @@ namespace draw2d_quartz2d
          {
             bMax = 0;
             b =(BYTE)(r1[0]  - r2[0]);
-            bMax = max(b, bMax);
+            bMax = MAX(b, bMax);
             b =(BYTE)(r1[1]  - r2[1]);
-            bMax = max(b, bMax);
+            bMax = MAX(b, bMax);
             b =(BYTE)(r1[2]  - r2[2]);
-            bMax = max(b, bMax);
+            bMax = MAX(b, bMax);
             bMax = 255 - bMax;
          }
          dest[0]  =  bMax;

@@ -9,7 +9,7 @@ namespace draw2d_quartz2d
 {
    
    
-   path::path(sp(::base::application) papp) :
+   path::path(sp(::aura::application) papp) :
       ::element(papp)
    {
       

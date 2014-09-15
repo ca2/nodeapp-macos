@@ -56,6 +56,27 @@
 			remoteGlobalIDString = 9A98A6031771D67E000AE16E;
 			remoteInfo = base;
 		};
+		9A19A17F19C6EEC10018DF7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A9F2C9A19A64097007AE2C7 /* axisbzip2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AEEADFD19C4FBC700866C9E;
+			remoteInfo = axisbzip2;
+		};
+		9A19A18219C6EEC10018DF7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A9F2C6D19A6403F007AE2C7 /* axisfreeimage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AEEB48E19C5084900866C9E;
+			remoteInfo = axisfreeimage;
+		};
+		9A19A18519C6EEC10018DF7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A9F2C7319A6404B007AE2C7 /* axisfreetype.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AEEB49119C5088600866C9E;
+			remoteInfo = axisfreetype;
+		};
 		9A2EA26919A62B1A004DAFFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A2EA26319A62B1A004DAFFC /* axis.xcodeproj */;
@@ -98,20 +119,6 @@
 			remoteGlobalIDString = 0778A245199FEF0700206CA1;
 			remoteInfo = baseopenssl_iosTests;
 		};
-		9A9F2C7119A64040007AE2C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A9F2C6D19A6403F007AE2C7 /* axisfreeimage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9AA5E6D616F7C61B005C45CE;
-			remoteInfo = _ca2freeimage;
-		};
-		9A9F2C7719A6404B007AE2C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A9F2C7319A6404B007AE2C7 /* axisfreetype.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9AA5E6D616F7C61B005C45CE;
-			remoteInfo = _ca2freeimage;
-		};
 		9A9F2C7F19A64062007AE2C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A9F2C7919A64062007AE2C7 /* axismysql.xcodeproj */;
@@ -136,13 +143,6 @@
 		9A9F2C8919A6406A007AE2C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A9F2C8519A64069007AE2C7 /* axiszlib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9AA5E6D616F7C61B005C45CE;
-			remoteInfo = _ca2freeimage;
-		};
-		9A9F2C9E19A64097007AE2C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A9F2C9A19A64097007AE2C7 /* axisbzip2.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9AA5E6D616F7C61B005C45CE;
 			remoteInfo = _ca2freeimage;
@@ -231,7 +231,7 @@
 			children = (
 				9A2EA26A19A62B1A004DAFFC /* libaxis.dylib */,
 				9A2EA26C19A62B1A004DAFFC /* libaxis.dylib */,
-				9A2EA26E19A62B1A004DAFFC /* base_iosTests.xctest */,
+				9A2EA26E19A62B1A004DAFFC /* axis_iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 			children = (
 				9A2EA3B219A630A9004DAFFC /* libaxisopenssl.dylib */,
 				9A2EA3B419A630A9004DAFFC /* libaxisopenssl.dylib */,
-				9A2EA3B619A630A9004DAFFC /* baseopenssl_iosTests.xctest */,
+				9A2EA3B619A630A9004DAFFC /* axisopenssl_iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -311,7 +311,7 @@
 		9A9F2C6E19A6403F007AE2C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A9F2C7219A64040007AE2C7 /* lib_ca2freeimage.dylib */,
+				9A19A18319C6EEC10018DF7D /* libaxisfreeimage.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 		9A9F2C7419A6404B007AE2C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A9F2C7819A6404B007AE2C7 /* lib_ca2freeimage.dylib */,
+				9A19A18619C6EEC10018DF7D /* libaxisfreetype.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 			children = (
 				9A9F2C8019A64062007AE2C7 /* libaxismysql.dylib */,
 				9A9F2C8219A64062007AE2C7 /* libaxismysql.dylib */,
-				9A9F2C8419A64062007AE2C7 /* basemysql_iosTests.xctest */,
+				9A9F2C8419A64062007AE2C7 /* axismysql_iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 		9A9F2C9B19A64097007AE2C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A9F2C9F19A64097007AE2C7 /* lib_ca2freeimage.dylib */,
+				9A19A18019C6EEC10018DF7D /* libaxisbzip2.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -472,6 +472,27 @@
 			remoteRef = 0722ED6C19261BEE003E99F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		9A19A18019C6EEC10018DF7D /* libaxisbzip2.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libaxisbzip2.dylib;
+			remoteRef = 9A19A17F19C6EEC10018DF7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A19A18319C6EEC10018DF7D /* libaxisfreeimage.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libaxisfreeimage.dylib;
+			remoteRef = 9A19A18219C6EEC10018DF7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A19A18619C6EEC10018DF7D /* libaxisfreetype.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libaxisfreetype.dylib;
+			remoteRef = 9A19A18519C6EEC10018DF7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9A2EA26A19A62B1A004DAFFC /* libaxis.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -486,7 +507,7 @@
 			remoteRef = 9A2EA26B19A62B1A004DAFFC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A2EA26E19A62B1A004DAFFC /* base_iosTests.xctest */ = {
+		9A2EA26E19A62B1A004DAFFC /* axis_iosTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = axis_iosTests.xctest;
@@ -507,25 +528,11 @@
 			remoteRef = 9A2EA3B319A630A9004DAFFC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A2EA3B619A630A9004DAFFC /* baseopenssl_iosTests.xctest */ = {
+		9A2EA3B619A630A9004DAFFC /* axisopenssl_iosTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = axisopenssl_iosTests.xctest;
 			remoteRef = 9A2EA3B519A630A9004DAFFC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9A9F2C7219A64040007AE2C7 /* lib_ca2freeimage.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = lib_ca2freeimage.dylib;
-			remoteRef = 9A9F2C7119A64040007AE2C7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9A9F2C7819A6404B007AE2C7 /* lib_ca2freeimage.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = lib_ca2freeimage.dylib;
-			remoteRef = 9A9F2C7719A6404B007AE2C7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		9A9F2C8019A64062007AE2C7 /* libaxismysql.dylib */ = {
@@ -542,7 +549,7 @@
 			remoteRef = 9A9F2C8119A64062007AE2C7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A9F2C8419A64062007AE2C7 /* basemysql_iosTests.xctest */ = {
+		9A9F2C8419A64062007AE2C7 /* axismysql_iosTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = axismysql_iosTests.xctest;
@@ -552,15 +559,8 @@
 		9A9F2C8A19A6406A007AE2C7 /* lib_ca2freeimage.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = lib_ca2freeimage.dylib;
+			path = libaxiszlib.dylib;
 			remoteRef = 9A9F2C8919A6406A007AE2C7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9A9F2C9F19A64097007AE2C7 /* lib_ca2freeimage.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = lib_ca2freeimage.dylib;
-			remoteRef = 9A9F2C9E19A64097007AE2C7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -644,7 +644,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../.. $(WorkspaceDir)/../../base/include $(WorkspaceDir)/../../../app/base/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/base";
+				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../../../app/appseed/axis $(WorkspaceDir)/../../../app/appseed/aura $(WorkspaceDir)/../.. $(WorkspaceDir)/../../base/include $(WorkspaceDir)/../../../app/base/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/base";
 				WorkspaceDir = "$(SRCROOT)/../../../nodeapp/seed/metaseed";
 			};
 			name = Debug;
@@ -679,7 +679,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../.. $(WorkspaceDir)/../../base/include $(WorkspaceDir)/../../../app/base/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/base";
+				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../../../app/appseed/axis $(WorkspaceDir)/../../../app/appseed/aura $(WorkspaceDir)/../.. $(WorkspaceDir)/../../base/include $(WorkspaceDir)/../../../app/base/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/base";
 				WorkspaceDir = "$(SRCROOT)/../../../nodeapp/seed/metaseed";
 			};
 			name = Release;
