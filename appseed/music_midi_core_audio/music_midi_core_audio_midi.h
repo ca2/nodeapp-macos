@@ -20,7 +20,7 @@ namespace music
          //uint32_t                      m_uiMidiOutDevice;
 
 
-         midi(sp(::base::application) papp);
+         midi(sp(::aura::application) papp);
          virtual ~midi();
 
 

@@ -9,7 +9,7 @@ namespace multimedia
    {
 
 
-      section::section(sp(::base::application) papp) :
+      section::section(sp(::aura::application) papp) :
          element(papp),
          ::ca2::section(papp)
       {

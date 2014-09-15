@@ -18,7 +18,7 @@ namespace draw2d_quartz2d
       //static region * PASCAL from_handle(::base::application * papp, HRGN hRgn);
       //operator HRGN() const;
       
-      region(sp(::base::application) papp);
+      region(sp(::aura::application) papp);
       virtual ~region();
       
       

@@ -32,9 +32,9 @@ namespace music
 
 
 
-         exception(sp(::base::application) papp);
-         exception(sp(::base::application) papp, ::multimedia::e_result mmr, int32_t iAppError);
-         exception(sp(::base::application) papp, ::music::e_result mfr);
+         exception(sp(::aura::application) papp);
+         exception(sp(::aura::application) papp, ::multimedia::e_result mmr, int32_t iAppError);
+         exception(sp(::aura::application) papp, ::music::e_result mfr);
          virtual ~exception();
 
          string GetUserText();
