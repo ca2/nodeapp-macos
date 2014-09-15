@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Camilo Sasuke Tsumanuma. All rights reserved.
 //
 
-#include "app/appseed/core/core.h"
+#include "app/appseed/core/core/core/core.h"
 
 
 uint32_t __run_system(void * p);

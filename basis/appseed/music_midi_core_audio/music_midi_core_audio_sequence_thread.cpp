@@ -9,7 +9,7 @@ namespace music
    {
       
       
-      sequence_thread::sequence_thread(sp(::base::application) papp) :
+      sequence_thread::sequence_thread(sp(::aura::application) papp) :
       element(papp),
       thread(papp),
       ::music::midi::sequence_thread(papp)

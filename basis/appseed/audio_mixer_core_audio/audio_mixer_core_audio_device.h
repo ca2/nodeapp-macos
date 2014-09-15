@@ -19,7 +19,7 @@ namespace multimedia
          MIXERCAPS                     m_mixercaps;
 
 
-         device(sp(::base::application) papp);
+         device(sp(::aura::application) papp);
          virtual ~device();
 
          virtual bool initialize(::multimedia::audio_mixer::audio_mixer * pmixer);
