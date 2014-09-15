@@ -7,6 +7,7 @@
 //
 
 #include "app.h"
+#include "aura/aura/node/macos/macos.h"
 
 
 uint32_t __run_system(void * p)
@@ -25,7 +26,7 @@ uint32_t __run_system(void * p)
    
    sp(::core::system) psystem = canew(::core::system());
    
-   ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
+   ::macos::main_init_data * pinitmaindata  = new ::macos::main_init_data;
    
    pinitmaindata->m_hInstance             = NULL;
    
@@ -153,7 +154,7 @@ uint32_t __run_system(void * p)
 uint32_t __run_system(void * p);
 
 
-int32_t CLASS_DECL_mac __mac_main(int32_t argc, char * argv[])
+int32_t  __mac_main(int32_t argc, char * argv[])
 {
    
    setlocale(LC_ALL,"");
