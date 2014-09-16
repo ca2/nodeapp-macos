@@ -16,13 +16,31 @@ extern int32_t __mac_main(int32_t argc, char * argv[]);
 int main(int argc, char *argv[])
 {
    
-   return __mac_main(argc, argv);
+   if(!defer_core_init())
+      return -1;
+   
+   int iResult = __mac_main(argc, argv);
+   
+   try
+   {
+      
+      defer_core_term();
+      
+   }
+   catch(...)
+   {
+      
+   }
+
+   return iResult;
    
 }
 
 
 int32_t ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, const char * lpCmdLine, int32_t nCmdShow)
 {
+   
+   
 
    try
    {
@@ -105,17 +123,6 @@ int32_t ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, const char * lpCm
       
       psystem = NULL;
       
-      try
-      {
-         
-         defer_base_term();
-         
-      }
-      catch(...)
-      {
-         
-      }
-
       return nReturnCode;
       
    }
