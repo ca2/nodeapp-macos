@@ -7,6 +7,7 @@
 //
 
 #include "app.h"
+#include "aura/aura/node/macos/macos.h"
 
 
 extern int32_t __mac_main(int32_t argc, char * argv[]);
@@ -32,7 +33,7 @@ int32_t ca2_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, const char * lpCm
       
       int32_t nReturnCode = 0;
       
-      ::mac::main_init_data * pinitmaindata  = new ::mac::main_init_data;
+      ::macos::main_init_data * pinitmaindata  = new ::macos::main_init_data;
       
       pinitmaindata->m_hInstance             = hInstance;
       
