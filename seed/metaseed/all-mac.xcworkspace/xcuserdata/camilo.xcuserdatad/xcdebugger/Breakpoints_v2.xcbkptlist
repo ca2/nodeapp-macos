@@ -459,7 +459,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "980"
             endingLineNumber = "980"
-            landmarkName = "system::matter_ls_file(sp(::base::application) papp, const string &amp; str, stringa &amp; stra)"
+            landmarkName = "system::matter_ls_file(sp(::aura::application) papp, const string &amp; str, stringa &amp; stra)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -475,7 +475,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "981"
             endingLineNumber = "981"
-            landmarkName = "system::matter_ls_file(sp(::base::application) papp, const string &amp; str, stringa &amp; stra)"
+            landmarkName = "system::matter_ls_file(sp(::aura::application) papp, const string &amp; str, stringa &amp; stra)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -546,11 +546,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/os/macos/macos_MessageBoxA.cpp"
-            timestampString = "432556856.958706"
+            timestampString = "432557336.835299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "MessageBoxA(oswindow window, const char * pszMessage, const char * pszHeader, UINT uType )"
             landmarkType = "7">
          </BreakpointContent>
@@ -562,11 +562,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/os/macos/macos_MessageBoxA.cpp"
-            timestampString = "432556861.641431"
+            timestampString = "432557336.835299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "MessageBoxA(oswindow window, const char * pszMessage, const char * pszHeader, UINT uType )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/os/macos/macos_MessageBoxA.cpp"
+            timestampString = "432557336.835299"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "MessageBoxA(oswindow window, const char * pszMessage, const char * pszHeader, UINT uType )"
             landmarkType = "7">
          </BreakpointContent>
