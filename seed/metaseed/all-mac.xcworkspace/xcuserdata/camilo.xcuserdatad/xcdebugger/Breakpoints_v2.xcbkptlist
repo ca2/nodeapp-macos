@@ -4,218 +4,6 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base/base_application.cpp"
-            timestampString = "429429246.308749"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1293"
-            endingLineNumber = "1293">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base/base_application.cpp"
-            timestampString = "429429248.005148"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1292"
-            endingLineNumber = "1292"
-            landmarkName = "application::main()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base/base_application.cpp"
-            timestampString = "429429385.827875"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2090"
-            endingLineNumber = "2090">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base/base_application.cpp"
-            timestampString = "429431678.104071"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2091"
-            endingLineNumber = "2091">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "base::application::run()"
-                  moduleName = "libbase.dylib"
-                  urlString = "file:///ca2/app/appseed/base/base/base/base_application.cpp"
-                  timestampString = "429431678.10823"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2092"
-                  endingLineNumber = "2092"
-                  offsetFromSymbolStart = "600">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "non-virtual thunk to base::application::run()"
-                  moduleName = "libbase.dylib"
-                  urlString = "file:///ca2/app/appseed/base/../base/base/base/base_application.cpp"
-                  timestampString = "429431678.108477"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2092"
-                  endingLineNumber = "2092"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base/base_application.cpp"
-            timestampString = "429431679.623189"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2092"
-            endingLineNumber = "2092">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "base::application::run()"
-                  moduleName = "libbase.dylib"
-                  urlString = "file:///ca2/app/appseed/base/base/base/base_application.cpp"
-                  timestampString = "429431679.628139"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2092"
-                  endingLineNumber = "2092"
-                  offsetFromSymbolStart = "600">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "non-virtual thunk to base::application::run()"
-                  moduleName = "libbase.dylib"
-                  urlString = "file:///ca2/app/appseed/base/../base/base/base/base_application.cpp"
-                  timestampString = "429431679.62842"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2092"
-                  endingLineNumber = "2092"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/hellomultiverse/hellomultiverse_application.cpp"
-            timestampString = "429431950.004504"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "application::on_request(sp(::create_context) pcreatecontext)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/hellomultiverse/hellomultiverse_application.cpp"
-            timestampString = "429431964.596292"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "application::on_request(sp(::create_context) pcreatecontext)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/hellomultiverse/hellomultiverse_application.cpp"
-            timestampString = "429431965.644128"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "application::on_request(sp(::create_context) pcreatecontext)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/hellomultiverse/hellomultiverse_application.cpp"
-            timestampString = "429431967.083981"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "application::on_request(sp(::create_context) pcreatecontext)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/hellomultiverse/hellomultiverse_application.cpp"
-            timestampString = "429431968.396546"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "application::on_request(sp(::create_context) pcreatecontext)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -231,27 +19,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/hellomultiverse/hellomultiverse_view.cpp"
-            timestampString = "429432021.067086"
+            filePath = "../../../app/appseed/base/base/base/base_session.cpp"
+            timestampString = "432562616.493167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_path.cpp"
-            timestampString = "429448471.818904"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "path::set(const ::draw2d::path::element &amp; e)"
+            startingLineNumber = "1188"
+            endingLineNumber = "1188"
+            landmarkName = "session::initialize1()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -261,13 +35,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_path.cpp"
-            timestampString = "429448474.314778"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_system.cpp"
+            timestampString = "432562631.666613"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "path::set(const ::draw2d::path::element &amp; e)"
+            startingLineNumber = "703"
+            endingLineNumber = "703"
+            landmarkName = "system::on_alloc(::aura::application * papp,sp(type) info)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -277,13 +51,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_path.cpp"
-            timestampString = "429448504.922895"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_system.cpp"
+            timestampString = "432567904.171169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
-            landmarkName = "path::set(const ::draw2d::path::string_path &amp; stringpath)"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "system::system(sp(::aura::application) papp)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -293,14 +67,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_path.cpp"
-            timestampString = "429450248.165522"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_system.cpp"
+            timestampString = "432567906.22693"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "path::internal_add_string_path(int x, int y, const string &amp; strText, ::draw2d::font_sp spfont)"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "system::system(sp(::aura::application) papp)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aura::system::system(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_system.cpp"
+                  timestampString = "432587987.262493"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "6153">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aura::system::system(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_system.cpp"
+                  timestampString = "432587987.262794"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "5565">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -309,14 +113,972 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "429586526.508725"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_system_smart_pointer.inl"
+            timestampString = "432567973.724416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5868"
-            endingLineNumber = "5868"
-            landmarkName = "internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,::draw2d::pen_sp sppen, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "alloc(const allocatorsp &amp; allocer)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;xml::edit_item&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.790294"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;thread_impl&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.790789"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;aura::os&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.791365"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;aura::message_queue&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.792139"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;file::binary_buffer&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.792697"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::dib&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.793319"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;aura::application&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.793854"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;file::stream_buffer&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.795112"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;create_context&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.795775"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;file::string_buffer&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.796608"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::pen&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.79749"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::font&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.798078"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::brush&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.798619"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::path&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.799217"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::graphics&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.79984"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;process::pipe&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.800171"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;command_line&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.800561"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;application_bias&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.800903"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;property&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.801406"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;process::process&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581376.802278"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::graphics&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581378.219569"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;create_context&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581378.219897"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::dib&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581378.220249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::region&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581378.220784"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::brush&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581378.221384"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::pen&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581378.221816"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::font&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581378.222259"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;aura::message_queue&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581378.222747"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::path&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581378.223535"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::font&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.101461"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::path&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.101849"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::brush&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.102289"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::pen&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.102556"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::dib&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.102911"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;create_context&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.103314"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::graphics&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.103839"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;file::binary_buffer&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.104301"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;aura::message_queue&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.104858"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;file::text_buffer&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.105257"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;aura::os&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.10578"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;crypto::crypto&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.106208"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;file::system&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.106779"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;file::dir::system&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581380.107427"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;thread_impl&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.539994"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;process::process&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.540308"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::dib&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.540752"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;create_context&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.541092"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::font&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.541456"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::region&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.541975"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::brush&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.542441"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;file::set&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.54302"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;aura::message_queue&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.543284"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;file::binary_buffer&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.543579"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::graphics&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.543952"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;filemanager::fs::simple::Folder&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.544326"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::pen&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.544645"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;html::data::image&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.544923"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;user::print_job&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.545163"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::path&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.545416"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;user::split_bar&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.545628"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;aura::application&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432581384.545902"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::bitmap&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libdraw2d_quartz2d.dylib"
+                  urlString = "file:///ca2/nodeapp/appseed/draw2d_quartz2d/../../seed/metaseed/../../../app/appseed/aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432587403.85715"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::graphics&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libdraw2d_quartz2d.dylib"
+                  urlString = "file:///ca2/nodeapp/appseed/draw2d_quartz2d/../../seed/metaseed/../../../app/appseed/aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432587403.857617"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::dib&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libdraw2d_quartz2d.dylib"
+                  urlString = "file:///ca2/nodeapp/appseed/draw2d_quartz2d/../../seed/metaseed/../../../app/appseed/aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432587403.857954"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "smart_pointer&lt;draw2d::region&gt;::alloc(allocatorsp const&amp;)"
+                  moduleName = "libdraw2d_quartz2d.dylib"
+                  urlString = "file:///ca2/nodeapp/appseed/draw2d_quartz2d/../../seed/metaseed/../../../app/appseed/aura/aura/aura/aura_system_smart_pointer.inl"
+                  timestampString = "432587403.858336"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "280">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_session.cpp"
+            timestampString = "432588348.176646"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "session::session(sp(::aura::application) papp)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aura::session::session(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_session.cpp"
+                  timestampString = "432593722.977278"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aura::session::session(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_session.cpp"
+                  timestampString = "432593722.977923"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -325,14 +1087,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "429586526.508725"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_session.cpp"
+            timestampString = "432588351.682054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5710"
-            endingLineNumber = "5710"
-            landmarkName = "graphics::draw_inline(const ::draw2d_quartz2d::path::string_path &amp; stringpath, ::draw2d::pen * ppen)"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "session::session(sp(::aura::application) papp)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aura::session::session(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_session.cpp"
+                  timestampString = "432588770.055128"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aura::session::session(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_session.cpp"
+                  timestampString = "432588770.107651"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -341,30 +1133,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "429586526.508725"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
+            timestampString = "432588423.616819"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5840"
-            endingLineNumber = "5840"
-            landmarkName = "internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,::draw2d::pen_sp sppen, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/hellomultiverse/hellomultiverse_view.cpp"
-            timestampString = "429459024.502571"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "view::_001OnDraw(::draw2d::graphics * pdc)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "application::application()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aura::application::application()"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_application.cpp"
+                  timestampString = "432588770.2849"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aura::application::application()"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_application.cpp"
+                  timestampString = "432588770.285184"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -373,14 +1179,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/net/http/http_application.cpp"
-            timestampString = "429460578.535285"
+            filePath = "../../../app/appseed/base/base/base/base_session.cpp"
+            timestampString = "432588962.165933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "application::get(::sockets::socket_handler &amp; handler, const char * pszUrl, property_set &amp; set)"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "session::session(sp(::aura::application) papp)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "base::session::session(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/base/base/base_session.cpp"
+                  timestampString = "432593722.988201"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "base::session::session(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/base/base/base_session.cpp"
+                  timestampString = "432593722.98865"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -389,202 +1225,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/net/http/http_application.cpp"
-            timestampString = "429460586.250225"
+            filePath = "../../../app/appseed/axis/axis/axis/axis_session.cpp"
+            timestampString = "432593584.07423"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "application::get(const char * pszUrl, primitive::memory_base &amp; memory, property_set &amp; set)"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "session::session(sp(::aura::application) papp)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/net/http/http_application.cpp"
-            timestampString = "429460590.201539"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "application::get(const char * pszUrl, string &amp; str, property_set &amp; set)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/net/http/http_application.cpp"
-            timestampString = "429460592.946241"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "application::get(const char * pszUrl, property_set &amp; set)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/net/http/http_application.cpp"
-            timestampString = "429460603.097362"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "application::request(const char * pszRequest, const char * pszUrl, property_set &amp; set)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/filesystem/file/file_dir_system.cpp"
-            timestampString = "429465026.234571"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "980"
-            endingLineNumber = "980"
-            landmarkName = "system::matter_ls_file(sp(::aura::application) papp, const string &amp; str, stringa &amp; stra)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/filesystem/file/file_dir_system.cpp"
-            timestampString = "429466147.46971"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "981"
-            endingLineNumber = "981"
-            landmarkName = "system::matter_ls_file(sp(::aura::application) papp, const string &amp; str, stringa &amp; stra)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/base/base_system.cpp"
-            timestampString = "429522532.564479"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1391"
-            endingLineNumber = "1391">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/core/user/simple/simple_frame_window.cpp"
-            timestampString = "429619276.451269"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "894"
-            endingLineNumber = "894"
-            landmarkName = "simple_frame_window::InitialFramePosition(bool bForceRestore)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/primitive/math/math_math.cpp"
-            timestampString = "432328172.397189"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
-            landmarkName = "math::random_context_entropy(int32_t iMin, int32_t iMax, int32_t iLevel)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/axis/freeimage/Source/LibJPEG/jmorecfg.h"
-            timestampString = "432351750.628471"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/os/macos/macos_MessageBoxA.cpp"
-            timestampString = "432557336.835299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "MessageBoxA(oswindow window, const char * pszMessage, const char * pszHeader, UINT uType )"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/os/macos/macos_MessageBoxA.cpp"
-            timestampString = "432557336.835299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "MessageBoxA(oswindow window, const char * pszMessage, const char * pszHeader, UINT uType )"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/os/macos/macos_MessageBoxA.cpp"
-            timestampString = "432557336.835299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "MessageBoxA(oswindow window, const char * pszMessage, const char * pszHeader, UINT uType )"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "axis::session::session(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/axis/axis/axis_session.cpp"
+                  timestampString = "432593722.978553"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "axis::session::session(smart_pointer&lt;aura::application&gt;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/axis/axis/axis_session.cpp"
+                  timestampString = "432593722.979012"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
