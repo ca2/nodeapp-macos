@@ -1038,7 +1038,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/aura/aura_session.cpp"
@@ -1051,13 +1051,13 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "aura::session::session(smart_pointer&lt;aura::application&gt;)"
                   moduleName = "libaura.dylib"
                   urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_session.cpp"
-                  timestampString = "432593722.977278"
+                  timestampString = "432598726.060437"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "12"
@@ -1065,13 +1065,13 @@
                   offsetFromSymbolStart = "18">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "aura::session::session(smart_pointer&lt;aura::application&gt;)"
                   moduleName = "libaura.dylib"
                   urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_session.cpp"
-                  timestampString = "432593722.977923"
+                  timestampString = "432598726.060771"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "12"
@@ -1176,7 +1176,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/base/base/base_session.cpp"
@@ -1189,13 +1189,13 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "base::session::session(smart_pointer&lt;aura::application&gt;)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/base/base_session.cpp"
-                  timestampString = "432593722.988201"
+                  timestampString = "432598726.062843"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -1203,13 +1203,13 @@
                   offsetFromSymbolStart = "18">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "base::session::session(smart_pointer&lt;aura::application&gt;)"
                   moduleName = "libbase.dylib"
                   urlString = "file:///ca2/app/appseed/base/base/base/base_session.cpp"
-                  timestampString = "432593722.98865"
+                  timestampString = "432598726.063286"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -1222,7 +1222,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/axis/axis/axis/axis_session.cpp"
@@ -1235,13 +1235,13 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "axis::session::session(smart_pointer&lt;aura::application&gt;)"
                   moduleName = "libaxis.dylib"
                   urlString = "file:///ca2/app/appseed/axis/axis/axis/axis_session.cpp"
-                  timestampString = "432593722.978553"
+                  timestampString = "432598726.061547"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -1249,13 +1249,13 @@
                   offsetFromSymbolStart = "18">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "axis::session::session(smart_pointer&lt;aura::application&gt;)"
                   moduleName = "libaxis.dylib"
                   urlString = "file:///ca2/app/appseed/axis/axis/axis/axis_session.cpp"
-                  timestampString = "432593722.979012"
+                  timestampString = "432598726.061945"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -1263,6 +1263,38 @@
                   offsetFromSymbolStart = "23">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/core/core/core/core_application.cpp"
+            timestampString = "432599737.925243"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "3975"
+            endingLineNumber = "3975"
+            landmarkName = "application::simple_message_box(sp(::user::interaction) puiOwner,const char * pszMessage,UINT fuStyle)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "432599817.490279"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
+            landmarkName = "thread_proc_simple_ui_message_box(LPVOID lpvoid)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
