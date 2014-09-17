@@ -706,8 +706,26 @@ namespace draw2d_quartz2d
        
        return ::Polyline(get_handle1(), lpPoints, nCount) != FALSE;*/
       
-      throw not_implemented(get_app());
-      return false;
+//      throw not_implemented(get_app());
+
+      if(nCount < 2)
+         return false;
+
+      CGContextBeginPath(m_pdc);
+      
+      CGContextMoveToPoint(m_pdc, lpPoints[0].x, lpPoints[0].y);
+      
+      for(index i = 1; i < nCount; i++)
+      {
+         
+         CGContextAddLineToPoint(m_pdc, lpPoints[i].x, lpPoints[i].y);
+         
+      }
+      
+      if(!draw())
+         return false;
+
+      return true;
       
    }
    
