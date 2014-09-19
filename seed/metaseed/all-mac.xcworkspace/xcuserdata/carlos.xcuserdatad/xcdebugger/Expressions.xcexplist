@@ -9,6 +9,14 @@
          contextName = "plex_heap_alloc_sync::NewBlock():base_plex_heap.cpp">
       </ContextState>
       <ContextState
+         contextName = "-[RoundWindowFrameView flagsChanged:]:RoundWindowFrameView.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "1 &lt;&lt; 0">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "user::keyboard::translate_os_key_message(message::key*):user_keyboard.cpp">
          <PersistentStrings>
             <PersistentString
