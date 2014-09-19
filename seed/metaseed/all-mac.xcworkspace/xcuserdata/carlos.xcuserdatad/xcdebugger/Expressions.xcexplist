@@ -23,6 +23,17 @@
          contextName = "factory_allocator::alloc():primitive_factory.h">
       </ContextState>
       <ContextState
+         contextName = "user::keyboard_layout::load(char const*):user_keyboard_layout.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "strCode">
+            </PersistentString>
+            <PersistentString
+               value = "strValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "multimedia::audio_core_audio::wave_out::wave_out_open_ex(thread*, int, int, unsigned int, unsigned int, unsigned int):audio_core_audio_wave_out.cpp">
          <PersistentStrings>
             <PersistentString
