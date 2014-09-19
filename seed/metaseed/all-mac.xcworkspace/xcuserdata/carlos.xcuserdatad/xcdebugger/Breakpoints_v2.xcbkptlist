@@ -9,46 +9,272 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindowFrameView.mm"
-            timestampString = "432808316.245866"
+            filePath = "../../../app/appseed/aura/aura/aura/aura.inl"
+            timestampString = "432839600.785941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "522"
-            endingLineNumber = "522"
-            landmarkName = "event_num_pad_key_code(NSEvent * event)"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "operator delete(void * p, int32_t nType, const char * /* lpszFileName */, int32_t"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "app"
+                  urlString = "file:///ca2/nodeapp/appseed/app/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839603.285983"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/./aura/aura/aura.inl"
+                  timestampString = "432839603.461698"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839603.466984"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839603.471501"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839603.483335"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "libaxisfreeimage.dylib"
+                  urlString = "file:///ca2/app/axis/freeimage/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839603.491054"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "libauracharguess.dylib"
+                  urlString = "file:///ca2/app/aura/charguess/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839603.49347"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "libdraw2d_quartz2d.dylib"
+                  urlString = "file:///ca2/nodeapp/appseed/draw2d_quartz2d/../../seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839603.630469"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "libapp_core_flag.dylib"
+                  urlString = "file:///ca2/app-core/appseed/flag/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839603.861303"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator delete(void*, int, char const*, int)"
+                  moduleName = "libwndfrm_core.dylib"
+                  urlString = "file:///ca2/app-core/appseed/wndfrm_core/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839603.890705"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindowFrameView.mm"
-            timestampString = "432809135.712465"
+            filePath = "../../../app/appseed/aura/aura/aura/aura.inl"
+            timestampString = "432839636.87323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "544"
-            endingLineNumber = "544"
-            landmarkName = "event_num_pad_key_code(NSEvent * event)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "operator delete(void * p)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindowFrameView.mm"
-            timestampString = "432810020.970012"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-initWithFrame:andRoundWindow:"
-            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator new(unsigned long, char const*, int)"
+                  moduleName = "app"
+                  urlString = "file:///ca2/nodeapp/appseed/app/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839645.014413"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator new(unsigned long, char const*, int)"
+                  moduleName = "libaura.dylib"
+                  urlString = "file:///ca2/app/appseed/aura/./aura/aura/aura.inl"
+                  timestampString = "432839645.188818"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator new(unsigned long, char const*, int)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839645.192062"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator new(unsigned long, char const*, int)"
+                  moduleName = "libbase.dylib"
+                  urlString = "file:///ca2/app/appseed/base/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839645.196582"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator new(unsigned long, char const*, int)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839645.206543"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator new(unsigned long, char const*, int)"
+                  moduleName = "libaxisfreeimage.dylib"
+                  urlString = "file:///ca2/app/axis/freeimage/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839645.213591"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "operator new(unsigned long, char const*, int)"
+                  moduleName = "libauracharguess.dylib"
+                  urlString = "file:///ca2/app/aura/charguess/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
+                  timestampString = "432839645.215419"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
