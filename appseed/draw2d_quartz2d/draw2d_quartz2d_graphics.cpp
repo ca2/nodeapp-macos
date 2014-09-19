@@ -5121,7 +5121,8 @@ namespace draw2d_quartz2d
       
       CGFloat ascent, descent, leading, width;
       
-      const_cast < graphics * > (this)->internal_show_text(0, 0, &lpszString[iIndex], (int32_t) nCount, kCGTextInvisible, false, &ascent, &descent, &leading, &width);
+//      const_cast < graphics * > (this)->internal_show_text(0, 0, &lpszString[iIndex], (int32_t) nCount, kCGTextInvisible, false, &ascent, &descent, &leading, &width);
+      const_cast < graphics * > (this)->internal_show_text(0, 0, &lpszString[0], (int32_t) MIN(nCount, iIndex), kCGTextInvisible, false, &ascent, &descent, &leading, &width);
       
 //      CGPoint pt = CGContextGetTextPosition(m_pdc);
 
