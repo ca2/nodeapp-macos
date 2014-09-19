@@ -6,15 +6,24 @@
          contextName = "factory_allocator::alloc():primitive_factory.h">
       </ContextState>
       <ContextState
-         contextName = "heap_memory::unaligned(void*, unsigned long, unsigned char):base_heap.cpp">
+         contextName = "plex_heap_alloc_sync::NewBlock():base_plex_heap.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "user::keyboard::translate_os_key_message(message::key*):user_keyboard.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "sizeof(heap_memory)">
+               value = "pkey-&gt;m_ekey">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "plex_heap_alloc_array::realloc(void*, unsigned long, int):base_plex_heap.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "heap_memory::aligned(void*, unsigned long, unsigned char):base_heap.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc_array::free(void*):base_plex_heap_impl.h">
       </ContextState>
       <ContextState
          contextName = "smart_pointer&lt;factory_allocator&gt; base_factory::get_allocator&lt;create_context&gt;(int, bool):primitive_factory.h">
@@ -28,13 +37,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "heap_memory::aligned(void*, unsigned long, unsigned char):base_heap.cpp">
-      </ContextState>
-      <ContextState
-         contextName = "plex_heap_alloc_array::free(void*):base_plex_heap_impl.h">
-      </ContextState>
-      <ContextState
-         contextName = "plex_heap_alloc_sync::NewBlock():base_plex_heap.cpp">
+         contextName = "heap_memory::unaligned(void*, unsigned long, unsigned char):base_heap.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "sizeof(heap_memory)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>
