@@ -5005,7 +5005,7 @@ namespace draw2d_quartz2d
       
       class sized sized;
       
-      if(!GetTextExtent(sized, lpszString, nCount, 0))
+      if(!GetTextExtent(sized, lpszString, nCount, (int) nCount))
          return ::size(0, 0);
       
       return ::size(sized.cx, sized.cy);
@@ -5052,7 +5052,7 @@ namespace draw2d_quartz2d
       
       class sized size;
       
-      if(!GetTextExtent(size, str, str.get_length(), 0))
+      if(!GetTextExtent(size, str, str.get_length(), (int)str.get_length()))
          return ::size(0, 0);
       
       return ::size((long) size.cx, (long) size.cy);
@@ -5122,7 +5122,7 @@ namespace draw2d_quartz2d
       CGFloat ascent, descent, leading, width;
       
 //      const_cast < graphics * > (this)->internal_show_text(0, 0, &lpszString[iIndex], (int32_t) nCount, kCGTextInvisible, false, &ascent, &descent, &leading, &width);
-      const_cast < graphics * > (this)->internal_show_text(0, 0, &lpszString[0], (int32_t) MIN(nCount, iIndex), kCGTextInvisible, false, &ascent, &descent, &leading, &width);
+      const_cast < graphics * > (this)->internal_show_text(0, 0, &lpszString[0], (int32_t) iIndex, kCGTextInvisible, false, &ascent, &descent, &leading, &width);
       
 //      CGPoint pt = CGContextGetTextPosition(m_pdc);
 
