@@ -571,5 +571,37 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "432784318.589835"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5008"
+            endingLineNumber = "5008"
+            landmarkName = "graphics::GetTextExtent(const char * lpszString, strsize nCount)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "432784368.253549"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5125"
+            endingLineNumber = "5125"
+            landmarkName = "graphics::GetTextExtent(sized &amp; size, const char * lpszString, strsize nCount, int32_t iIndex)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
