@@ -14,6 +14,10 @@
 #endif
 
 
+#define STORE_LAST_BLOCK 1
+#define MEMDFREE 1
+#define MEMDLEAK 1
+
 
 #define BSD_STYLE_SOCKETS
 #define HAVE_OPENSSL
