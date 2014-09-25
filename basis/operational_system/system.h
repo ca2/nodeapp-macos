@@ -422,14 +422,14 @@ typedef unsigned int uint_ptr, *pulong_ptr;
 
 #ifdef _LP64
 
-typedef int64_t int_ptr;
-typedef uint64_t uint_ptr;
+//typedef int64_t int_ptr;
+//typedef uint64_t uint_ptr;
 #define int3264   int64_t
 
 #else
 
-typedef int32_t int_ptr;
-typedef uint32_t uint_ptr;
+//typedef int32_t int_ptr;
+//typedef uint32_t uint_ptr;
 #define int3264   int32_t
 
 #endif
