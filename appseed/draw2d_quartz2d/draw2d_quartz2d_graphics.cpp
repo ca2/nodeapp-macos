@@ -5859,7 +5859,7 @@ namespace draw2d_quartz2d
          
          cr = sppen.is_null() ? ARGB(255, 0, 0, 0) : sppen->m_cr;
          
-         double dStroke = sppen.is_null() ? 3.0 : sppen->m_dWidth * 100.0 / spfont->m_dFontSize;
+         double dStroke = sppen.is_null() ? 3.0 : sppen->m_dWidth * 100.0 / dFontSize;
          
          pkeys.add(kCTStrokeWidthAttributeName);
          pvals.add(CFNumberCreate(kCFAllocatorDefault, kCFNumberDoubleType, &dStroke));
