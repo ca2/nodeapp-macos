@@ -5261,10 +5261,10 @@ namespace draw2d_quartz2d
    }
 
    
-   bool graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth, ::draw2d::pen * ppen, ::draw2d::brush * pbrush)
+   bool graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth, ::draw2d::pen * ppen, ::draw2d::brush * pbrush, ::draw2d::font * pfont)
    {
       
-      return ::draw2d_quartz2d::internal_show_text(m_pdc, m_spfont, pbrush == NULL ? m_spbrush.m_p : pbrush, ppen == NULL ? m_sppen.m_p : ppen, x, y, lpszString, nCount, emode, bDraw, pascent,pdescent, pleading, pwidth);
+      return ::draw2d_quartz2d::internal_show_text(m_pdc, pfont == NULL ? m_spfont.m_p : pfont, pbrush == NULL ? m_spbrush.m_p : pbrush, ppen == NULL ? m_sppen.m_p : ppen, x, y, lpszString, nCount, emode, bDraw, pascent,pdescent, pleading, pwidth);
       
       
    }
@@ -5727,14 +5727,14 @@ namespace draw2d_quartz2d
    bool graphics::draw_inline(const ::draw2d_quartz2d::path::string_path & stringpath, ::draw2d::pen * ppen)
    {
 
-      internal_show_text(stringpath.m_x, stringpath.m_y, stringpath.m_strText, (int)stringpath.m_strText.get_length(), kCGTextStroke, true, NULL, NULL, NULL, NULL, ppen);
+      internal_show_text(stringpath.m_x, stringpath.m_y, stringpath.m_strText, (int)stringpath.m_strText.get_length(), kCGTextStroke, true, NULL, NULL, NULL, NULL, ppen, NULL, stringpath.m_spfont);
       
       return true;
       
    }
    bool graphics::fill_inline(const ::draw2d_quartz2d::path::string_path & stringpath, ::draw2d::brush * pbrush)
    {
-      internal_show_text(stringpath.m_x, stringpath.m_y, stringpath.m_strText, (int)stringpath.m_strText.get_length(), kCGTextFill, true, NULL, NULL, NULL, NULL, NULL, pbrush);
+      internal_show_text(stringpath.m_x, stringpath.m_y, stringpath.m_strText, (int)stringpath.m_strText.get_length(), kCGTextFill, true, NULL, NULL, NULL, NULL, NULL, pbrush, stringpath.m_spfont);
       return true;
       
    }
