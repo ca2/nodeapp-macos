@@ -42,16 +42,16 @@ namespace draw2d_quartz2d
       virtual ~dib();
       
       
-      void map(bool bApplyAlphaTransform = true);
-      void unmap();
+      void map(bool bApplyAlphaTransform = true) const;
+      void unmap() const;
       
       
-      virtual ::draw2d::graphics * get_graphics();
-      virtual ::draw2d::bitmap_sp get_bitmap();
+      virtual ::draw2d::graphics * get_graphics() const;
+      virtual ::draw2d::bitmap_sp get_bitmap() const;
       virtual ::draw2d::bitmap_sp detach_bitmap();
       
       
-      virtual COLORREF * get_data();
+      virtual COLORREF * get_data() const;
       
       void stretch_dib(::draw2d::dib * pdib);
       

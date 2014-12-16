@@ -23,6 +23,9 @@
       location = "group:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/atom/iconv/atomiconv.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
    </FileRef>
    <FileRef

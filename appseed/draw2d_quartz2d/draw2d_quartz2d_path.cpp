@@ -210,7 +210,7 @@ namespace draw2d_quartz2d
       for(int32_t i = 0; i < m_elementa.get_count(); i++)
       {
          
-         set(m_elementa[i]);
+         set(m_elementa(i));
          
       }
       
@@ -251,7 +251,7 @@ namespace draw2d_quartz2d
    bool path::set(const ::draw2d::path::arc & arc)
    {
    
-      rect rect;
+       ::rect rect;
       rect.left = arc.m_xCenter - arc.m_dRadiusX;
       rect.right = arc.m_xCenter + arc.m_dRadiusX;
       rect.top = arc.m_yCenter - arc.m_dRadiusY;

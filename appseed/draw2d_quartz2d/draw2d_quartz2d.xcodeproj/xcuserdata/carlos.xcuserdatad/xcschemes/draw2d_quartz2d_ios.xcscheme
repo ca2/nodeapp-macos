@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1CFD777154F5EAA007447E2"
-               BuildableName = "libdraw2d_quartz2d.dylib"
-               BlueprintName = "draw2d_quartz2d"
+               BlueprintIdentifier = "9AE24E051904CF99001AEFFB"
+               BuildableName = "libdraw2d_quartz2d_ios.dylib"
+               BlueprintName = "draw2d_quartz2d_ios"
+               ReferencedContainer = "container:draw2d_quartz2d.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9AE24E141904CF99001AEFFB"
+               BuildableName = "draw2d_quartz2d_iosTests.xctest"
+               BlueprintName = "draw2d_quartz2d_iosTests"
                ReferencedContainer = "container:draw2d_quartz2d.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,7 +42,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9AE24E141904CF99001AEFFB"
+               BuildableName = "draw2d_quartz2d_iosTests.xctest"
+               BlueprintName = "draw2d_quartz2d_iosTests"
+               ReferencedContainer = "container:draw2d_quartz2d.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9AE24E051904CF99001AEFFB"
+            BuildableName = "libdraw2d_quartz2d_ios.dylib"
+            BlueprintName = "draw2d_quartz2d_ios"
+            ReferencedContainer = "container:draw2d_quartz2d.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -42,9 +75,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1CFD777154F5EAA007447E2"
-            BuildableName = "libdraw2d_quartz2d.dylib"
-            BlueprintName = "draw2d_quartz2d"
+            BlueprintIdentifier = "9AE24E051904CF99001AEFFB"
+            BuildableName = "libdraw2d_quartz2d_ios.dylib"
+            BlueprintName = "draw2d_quartz2d_ios"
             ReferencedContainer = "container:draw2d_quartz2d.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +93,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1CFD777154F5EAA007447E2"
-            BuildableName = "libdraw2d_quartz2d.dylib"
-            BlueprintName = "draw2d_quartz2d"
+            BlueprintIdentifier = "9AE24E051904CF99001AEFFB"
+            BuildableName = "libdraw2d_quartz2d_ios.dylib"
+            BlueprintName = "draw2d_quartz2d_ios"
             ReferencedContainer = "container:draw2d_quartz2d.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
