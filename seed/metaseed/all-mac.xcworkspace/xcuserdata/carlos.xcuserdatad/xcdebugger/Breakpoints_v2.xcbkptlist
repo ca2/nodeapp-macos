@@ -4,161 +4,13 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura.inl"
-            timestampString = "432839600.785941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "operator delete(void * p, int32_t nType, const char * /* lpszFileName */, int32_t"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "app"
-                  urlString = "file:///ca2/nodeapp/appseed/app/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839603.285983"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "libaura.dylib"
-                  urlString = "file:///ca2/app/appseed/aura/./aura/aura/aura.inl"
-                  timestampString = "432839603.461698"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "libaxis.dylib"
-                  urlString = "file:///ca2/app/appseed/axis/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839603.466984"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "libbase.dylib"
-                  urlString = "file:///ca2/app/appseed/base/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839603.471501"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "libcore.dylib"
-                  urlString = "file:///ca2/app/appseed/core/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839603.483335"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "libaxisfreeimage.dylib"
-                  urlString = "file:///ca2/app/axis/freeimage/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839603.491054"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "libauracharguess.dylib"
-                  urlString = "file:///ca2/app/aura/charguess/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839603.49347"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "libdraw2d_quartz2d.dylib"
-                  urlString = "file:///ca2/nodeapp/appseed/draw2d_quartz2d/../../seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839603.630469"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "libapp_core_flag.dylib"
-                  urlString = "file:///ca2/app-core/appseed/flag/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839603.861303"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator delete(void*, int, char const*, int)"
-                  moduleName = "libwndfrm_core.dylib"
-                  urlString = "file:///ca2/app-core/appseed/wndfrm_core/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839603.890705"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "22">
-               </Location>
-            </Locations>
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -167,112 +19,314 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura.inl"
-            timestampString = "432839636.87323"
+            filePath = "../../../app/appseed/core/core/core/core_platform.cpp"
+            timestampString = "440412711.263914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "operator delete(void * p)"
+            startingLineNumber = "1918"
+            endingLineNumber = "1918"
+            landmarkName = "get_new_app(sp(::aura::application) pappNewApplicationParent,const char * pszType,const char * pszAppId)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/core/core/core/core_application.cpp"
+            timestampString = "440412770.871106"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1608"
+            endingLineNumber = "1608"
+            landmarkName = "application::on_run_exception(::exception::exception &amp; e)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "440412912.419247"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
+            landmarkName = "thread_proc_simple_ui_message_box(LPVOID lpvoid)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "440412975.83481"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "message_box::show()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "440414135.287804"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "message_box::_001OnDraw(::draw2d::graphics * pdc)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/user/user_interaction.cpp"
+            timestampString = "440414172.188604"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "807"
+            endingLineNumber = "807"
+            landmarkName = "interaction::_001DrawThis(::draw2d::graphics * pgraphics)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/user/user_interaction_impl.cpp"
+            timestampString = "440414582.595144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2468"
+            endingLineNumber = "2468"
+            landmarkName = "interaction_impl::_001UpdateScreen()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
+            timestampString = "440414714.316972"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5703"
+            endingLineNumber = "5703"
+            landmarkName = "interaction_impl::round_window_draw(CGContextRef cgc)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "440414724.347323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "message_box::_001OnDraw(::draw2d::graphics * pdc)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/axis/os/macos/macos_base_user_mm.mm"
+            timestampString = "440415221.882276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "set_nswindow_frame(oswindow hwnd, LPCRECT lpcrect, int iDisplay)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "440415560.190777"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "message_box::_001OnDraw(::draw2d::graphics * pdc)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/user/user_interaction.cpp"
+            timestampString = "440415755.206475"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "753"
+            endingLineNumber = "753"
+            landmarkName = "interaction::_001DrawThis(::draw2d::graphics * pgraphics)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/user/user_interaction_impl.cpp"
+            timestampString = "440416188.104146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2544"
+            endingLineNumber = "2544"
+            landmarkName = "interaction_impl::_001UpdateBuffer()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
+            timestampString = "440417739.796333"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5734"
+            endingLineNumber = "5734"
+            landmarkName = "interaction_impl::round_window_draw(CGContextRef cgc)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
+            timestampString = "440417666.759618"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5731"
+            endingLineNumber = "5731"
+            landmarkName = "interaction_impl::round_window_draw(CGContextRef cgc)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/user/user_window_util.cpp"
+            timestampString = "440419066.389183"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "982"
+            endingLineNumber = "982"
+            landmarkName = "interaction_ptra::get_hwnda()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindowFrameView.mm"
+            timestampString = "440419225.120386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-mouseMoved:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/primitive/collection/collection_array_impl.inl"
+            timestampString = "440419413.637974"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
+            landmarkName = "array_base(a.get_app(), sizeof(TYPE), false)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "operator new(unsigned long, char const*, int)"
-                  moduleName = "app"
-                  urlString = "file:///ca2/nodeapp/appseed/app/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839645.014413"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator new(unsigned long, char const*, int)"
-                  moduleName = "libaura.dylib"
-                  urlString = "file:///ca2/app/appseed/aura/./aura/aura/aura.inl"
-                  timestampString = "432839645.188818"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator new(unsigned long, char const*, int)"
+                  symbolName = "array&lt;oswindow_data*, oswindow_data*, constructor::def&lt;oswindow_data*&gt; &gt;::operator=(array&lt;oswindow_data*, oswindow_data*, constructor::def&lt;oswindow_data*&gt; &gt;&amp;&amp;)"
                   moduleName = "libaxis.dylib"
-                  urlString = "file:///ca2/app/appseed/axis/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839645.192062"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/primitive/collection/collection_array_impl.inl"
+                  timestampString = "440419414.512548"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "19">
+                  startingLineNumber = "507"
+                  endingLineNumber = "507"
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "operator new(unsigned long, char const*, int)"
-                  moduleName = "libbase.dylib"
-                  urlString = "file:///ca2/app/appseed/base/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839645.196582"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator new(unsigned long, char const*, int)"
+                  symbolName = "array&lt;oswindow_data*, oswindow_data*, constructor::def&lt;oswindow_data*&gt; &gt;::operator=(array&lt;oswindow_data*, oswindow_data*, constructor::def&lt;oswindow_data*&gt; &gt;&amp;&amp;)"
                   moduleName = "libcore.dylib"
-                  urlString = "file:///ca2/app/appseed/core/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839645.206543"
+                  urlString = "file:///ca2/app/appseed/core/../aura/primitive/collection/collection_array_impl.inl"
+                  timestampString = "440419414.512781"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator new(unsigned long, char const*, int)"
-                  moduleName = "libaxisfreeimage.dylib"
-                  urlString = "file:///ca2/app/axis/freeimage/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839645.213591"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "operator new(unsigned long, char const*, int)"
-                  moduleName = "libauracharguess.dylib"
-                  urlString = "file:///ca2/app/aura/charguess/../../../nodeapp/seed/metaseed/../../../app/appseed/aura/aura/aura/aura.inl"
-                  timestampString = "432839645.215419"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "19">
+                  startingLineNumber = "507"
+                  endingLineNumber = "507"
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -284,12 +338,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindowFrameView.mm"
-            timestampString = "433494290.96542"
+            timestampString = "440419514.201504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
-            landmarkName = "-drawRect:"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-mouseUp:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -299,13 +353,59 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindowApp.mm"
-            timestampString = "433523713.566874"
+            filePath = "../../../app/appseed/aura/primitive/collection/collection_array_impl.inl"
+            timestampString = "440419584.567124"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-sendEvent:"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
+            landmarkName = "array_base(a.get_app(), sizeof(TYPE), false)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "array&lt;oswindow_data*, oswindow_data*, constructor::def&lt;oswindow_data*&gt; &gt;::operator=(array&lt;oswindow_data*, oswindow_data*, constructor::def&lt;oswindow_data*&gt; &gt;&amp;&amp;)"
+                  moduleName = "libaxis.dylib"
+                  urlString = "file:///ca2/app/appseed/axis/../aura/primitive/collection/collection_array_impl.inl"
+                  timestampString = "440419584.595527"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "507"
+                  endingLineNumber = "507"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "array&lt;oswindow_data*, oswindow_data*, constructor::def&lt;oswindow_data*&gt; &gt;::operator=(array&lt;oswindow_data*, oswindow_data*, constructor::def&lt;oswindow_data*&gt; &gt;&amp;&amp;)"
+                  moduleName = "libcore.dylib"
+                  urlString = "file:///ca2/app/appseed/core/../aura/primitive/collection/collection_array_impl.inl"
+                  timestampString = "440419584.595759"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "507"
+                  endingLineNumber = "507"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
+            timestampString = "440457704.956317"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
+            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -315,13 +415,39 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/user/user/user_edit_plain_text.cpp"
-            timestampString = "433515972.419568"
+            filePath = "../../../app/appseed/base/base/install/install_install.cpp"
+            timestampString = "440428674.578909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2826"
-            endingLineNumber = "2826"
-            landmarkName = "edit_plain_text::ShowWindow(int32_t nCmdShow)"
+            startingLineNumber = "914"
+            endingLineNumber = "914"
+            landmarkName = "install::add_app_install(const char * pszBuild, const char * pszType, const char * pszId, const char * pszLocale, const char * pszSchema)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
+            timestampString = "440456130.123531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -331,13 +457,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
-            timestampString = "433517013.807386"
+            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
+            timestampString = "440456130.123531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3800"
-            endingLineNumber = "3800"
-            landmarkName = "interaction_impl::SetWindowPos(int32_t z, int32_t x, int32_t y, int32_t cx, int32_t cy, UINT nFlags)"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
+            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -347,13 +473,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
-            timestampString = "433517013.807386"
+            filePath = "../../../app/appseed/aura/primitive/str/str_str.cpp"
+            timestampString = "440430160.07522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3793"
-            endingLineNumber = "3793"
-            landmarkName = "interaction_impl::SetWindowPos(int32_t z, int32_t x, int32_t y, int32_t cx, int32_t cy, UINT nFlags)"
+            startingLineNumber = "2077"
+            endingLineNumber = "2077"
+            landmarkName = "consume_spaced_value(string &amp; str)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_system.cpp"
+            timestampString = "440453716.19341"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "system::process_initialize()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -363,13 +505,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
-            timestampString = "433517013.807386"
+            filePath = "../../../app/appseed/core/core/core/core_application.cpp"
+            timestampString = "440454756.772313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3780"
-            endingLineNumber = "3780"
-            landmarkName = "interaction_impl::SetWindowPos(int32_t z, int32_t x, int32_t y, int32_t cx, int32_t cy, UINT nFlags)"
+            startingLineNumber = "1659"
+            endingLineNumber = "1659"
+            landmarkName = "application::on_run_exception(::exception::exception &amp; e)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -379,45 +521,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/user/user/user_interaction.cpp"
-            timestampString = "433519945.859687"
+            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
+            timestampString = "440451856.580076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5133"
-            endingLineNumber = "5133"
-            landmarkName = "interaction::SetWindowPos(int32_t z,int32_t x,int32_t y,int32_t cx,int32_t cy,UINT nFlags)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/user/user/user_interaction.cpp"
-            timestampString = "433520112.354119"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5130"
-            endingLineNumber = "5130"
-            landmarkName = "interaction::SetWindowPos(int32_t z,int32_t x,int32_t y,int32_t cx,int32_t cy,UINT nFlags)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
-            timestampString = "433520353.887685"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4690"
-            endingLineNumber = "4690"
-            landmarkName = "interaction_impl::RedrawWindow(LPCRECT lpRectUpdate, ::draw2d::region* prgnUpdate, UINT flags)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "process::create_child_process(const char * pszCmdLine,bool bPiped,const char * pszDir,int32_t iCa2Priority)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -427,13 +537,77 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/round_window.mm"
-            timestampString = "433520416.614801"
+            filePath = "../../../app/appseed/base/base/install/install_install.cpp"
+            timestampString = "440434789.313279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "round_window::round_window_make_main_window()"
+            startingLineNumber = "916"
+            endingLineNumber = "916"
+            landmarkName = "install::add_app_install(const char * pszBuild, const char * pszType, const char * pszId, const char * pszLocale, const char * pszSchema)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/process/process_departament.cpp"
+            timestampString = "440450381.583581"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "departament::process_thread::run_normal()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/process/process_departament.cpp"
+            timestampString = "440450383.760025"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "departament::process_thread::run_normal()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
+            timestampString = "440456130.123531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
+            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
+            timestampString = "440456130.123531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "process::create_child_process(const char * pszCmdLine,bool bPiped,const char * pszDir,int32_t iCa2Priority)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -443,13 +617,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/core/user/wndfrm/frame/wndfrm_frame_move_manager.cpp"
-            timestampString = "433523366.080889"
+            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
+            timestampString = "440457552.07937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "MoveManager::Relay(::message::mouse * pmouse)"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
+            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
+            timestampString = "440457556.932969"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
+            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -459,13 +649,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/core/user/wndfrm/frame/wndfrm_frame_move_manager.cpp"
-            timestampString = "433523386.992745"
+            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
+            timestampString = "440457566.974604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "MoveManager::Relay(::message::mouse * pmouse)"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
+            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

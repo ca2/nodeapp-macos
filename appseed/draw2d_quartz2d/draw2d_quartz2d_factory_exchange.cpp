@@ -31,7 +31,7 @@ namespace draw2d_quartz2d
 
 
 
-extern "C" void ca2_factory_exchange(sp(::aura::application) papp)
+extern "C" void ca2_factory_exchange(::aura::application * papp)
 {
    draw2d_quartz2d::factory_exchange factoryexchange(papp);
 }

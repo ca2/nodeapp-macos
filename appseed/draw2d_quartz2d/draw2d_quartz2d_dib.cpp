@@ -36,11 +36,11 @@ namespace draw2d_quartz2d
       m_bMapped            = false;
    }
    
-   COLORREF * dib::get_data()
+   COLORREF * dib::get_data() const
    {
       return m_pcolorref;
    }
-   ::draw2d::bitmap_sp dib::get_bitmap()
+   ::draw2d::bitmap_sp dib::get_bitmap() const
    {
       return m_spbitmap;
    }
@@ -367,7 +367,7 @@ namespace draw2d_quartz2d
       
    }
    
-   ::draw2d::graphics * dib::get_graphics()
+   ::draw2d::graphics * dib::get_graphics() const
    {
       unmap();
       return m_spgraphics;
@@ -375,7 +375,7 @@ namespace draw2d_quartz2d
    
    
    
-   void dib::map(bool bApplyTransform)
+   void dib::map(bool bApplyTransform) const
    {
       
       if(m_bMapped)
@@ -402,12 +402,12 @@ namespace draw2d_quartz2d
       
       }
       
-      m_bMapped = true;
+      ((dib *) this)->m_bMapped = true;
       
       
    }
    
-   void dib::unmap()
+   void dib::unmap() const
    {
       
       if(!m_bMapped)
@@ -424,7 +424,7 @@ namespace draw2d_quartz2d
          size--;
       }
       
-      m_bMapped = false;
+      ((dib *) this)->m_bMapped = false;
 
          
    }
