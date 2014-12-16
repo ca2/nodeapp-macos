@@ -5592,7 +5592,7 @@ namespace draw2d_quartz2d
       for(int32_t i = 0; i < ppath->m_elementa.get_count(); i++)
       {
          
-         draw_inline(ppath->m_elementa[i], ppen);
+         draw_inline(ppath->m_elementa(i), ppen);
          
       }
       
@@ -5605,7 +5605,7 @@ namespace draw2d_quartz2d
       for(int32_t i = 0; i < ppath->m_elementa.get_count(); i++)
       {
          
-         fill_inline(ppath->m_elementa[i], pbrush);
+         fill_inline(ppath->m_elementa(i), pbrush);
          
       }
       
@@ -5850,7 +5850,7 @@ namespace draw2d_quartz2d
       
          pkeys.add(kCTForegroundColorAttributeName);
          pvals.add(CGColorCreate(rgbColorSpace, components));
-         crrel.add((CGColorRef)pvals.last_element());
+         crrel.add((CGColorRef)pvals.last());
 
          
       }
@@ -5863,7 +5863,7 @@ namespace draw2d_quartz2d
          
          pkeys.add(kCTStrokeWidthAttributeName);
          pvals.add(CFNumberCreate(kCFAllocatorDefault, kCFNumberDoubleType, &dStroke));
-         cfrel.add(pvals.last_element());
+         cfrel.add(pvals.last());
          
          components[0] = argb_get_r_value(cr) / 255.f;
          components[1] = argb_get_g_value(cr) / 255.f;
@@ -5872,7 +5872,7 @@ namespace draw2d_quartz2d
          
          pkeys.add(kCTStrokeColorAttributeName);
          pvals.add(CGColorCreate(rgbColorSpace, components));
-         crrel.add((CGColorRef)pvals.last_element());
+         crrel.add((CGColorRef)pvals.last());
          
       }
       
@@ -5882,8 +5882,8 @@ namespace draw2d_quartz2d
    
    ::count iCount = pkeys.count();
    
-   CFStringRef * &   keys = pkeys.m_pData;
-   CFTypeRef * &     vals = pvals.m_pData;
+   CFStringRef * &   keys = (CFStringRef * &) pkeys.m_pData;
+   CFTypeRef * &     vals = (CFTypeRef * &) pvals.m_pData;
    
    CFDictionaryRef attributes = CFDictionaryCreate(
                       kCFAllocatorDefault,
