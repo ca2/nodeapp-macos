@@ -16,6 +16,61 @@ extern int32_t __mac_main(int32_t argc, char * argv[]);
 int main(int argc, char *argv[])
 {
    
+   pid_t processid;
+   
+   processid=getpid();
+   
+   printf("%d\n", processid);
+   
+   bool bInstall = false;
+   
+   bool bUninstall = false;
+   
+   for(index i = 0; i < argc; i++)
+   {
+
+      if(strcmp(argv[i], "install") == 0)
+      {
+         
+         bInstall = true;
+         
+      }
+      else if(strcmp(argv[i], "install") == 0)
+      {
+         
+         bUninstall = true;
+         
+      }
+      
+   }
+   
+   if(bInstall)
+   {
+     
+//      if(setuid(0) != 0)
+  //    {
+//
+  //       return -3;
+    //
+      //}
+
+   }
+   else if(bUninstall)
+   {
+    
+//      if(setuid(0) != 0)
+  //    {
+    //
+      //   return -3;
+        //
+      //}
+      
+   }
+   
+//   fwrite(&processid,sizeof(processid),1,stdout);
+  // fflush(stdout);
+
+   
    if(!defer_core_init())
       return -1;
    

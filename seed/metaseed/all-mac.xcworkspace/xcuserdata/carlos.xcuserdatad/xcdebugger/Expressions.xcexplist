@@ -47,7 +47,13 @@
          contextName = "plex_heap_alloc_array::realloc(void*, unsigned long, int):base_plex_heap.cpp">
       </ContextState>
       <ContextState
+         contextName = "ansios::process::create_child_process(char const*, bool, char const*, int):ansios_process.cpp">
+      </ContextState>
+      <ContextState
          contextName = "plex_heap_alloc::Alloc():aura_plex_heap_impl.h">
+      </ContextState>
+      <ContextState
+         contextName = "core::application::on_run_exception(exception::exception&amp;):core_application.cpp">
       </ContextState>
       <ContextState
          contextName = "-[RoundWindowFrameView drawRect:]:RoundWindowFrameView.mm">
@@ -74,15 +80,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "event::lock(duration const&amp;):multithreading_event.cpp">
-      </ContextState>
-      <ContextState
          contextName = "draw2d::dib::BitBlt(int, int, draw2d::dib*, int):draw2d_dib.cpp">
          <PersistentStrings>
             <PersistentString
                value = "m_size">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "event::lock(duration const&amp;):multithreading_event.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "process::departament::process_thread::run_normal():process_departament.cpp">
       </ContextState>
       <ContextState
          contextName = "critical_section::lock():multithreading_critical_section.cpp">
@@ -105,6 +114,23 @@
       </ContextState>
       <ContextState
          contextName = "file::application::as_string(var):file_application.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "ansios::process::synch_elevated(char const*, int, duration const&amp;, bool*):ansios_process.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pszCmdLineParam">
+            </PersistentString>
+            <PersistentString
+               value = "strC">
+            </PersistentString>
+            <PersistentString
+               value = "strFallback">
+            </PersistentString>
+            <PersistentString
+               value = "strFolder">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "smart_pointer&lt;factory_allocator&gt; base_factory::get_allocator&lt;create_context&gt;(int, bool):primitive_factory.h">
@@ -130,6 +156,9 @@
                value = "lpcrect">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "install::install::add_app_install(char const*, char const*, char const*, char const*, char const*):install_install.cpp">
       </ContextState>
       <ContextState
          contextName = "plex_heap_alloc_array::free(void*):base_plex_heap_impl.h">
@@ -195,6 +224,9 @@
       </ContextState>
       <ContextState
          contextName = "factory_allocator::alloc():primitive_factory.h">
+      </ContextState>
+      <ContextState
+         contextName = "dir::eat_end_level(string&amp;, int, char const*):file_dir.cpp">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

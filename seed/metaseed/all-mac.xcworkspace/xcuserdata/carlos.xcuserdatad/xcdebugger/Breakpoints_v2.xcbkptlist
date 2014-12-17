@@ -10,13 +10,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
-            timestampString = "440462904.070866"
+            timestampString = "440515847.398536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "494"
+            endingLineNumber = "494"
             landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/node/macos/macos_application.cpp"
+            timestampString = "440504352.286123"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
+            landmarkName = "application::update_module_paths()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/filesystem/file/file_dir.cpp"
+            timestampString = "440504546.80184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "501"
+            endingLineNumber = "501"
+            landmarkName = "ca2_module_folder_dup()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
-            timestampString = "440463354.13795"
+            timestampString = "440515847.398536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "482"
-            endingLineNumber = "482"
+            startingLineNumber = "468"
+            endingLineNumber = "468"
             landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
             landmarkType = "5">
          </BreakpointContent>
@@ -38,32 +70,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
-            timestampString = "440463354.13795"
+            filePath = "../../../app/appseed/base/net/http/http_system.cpp"
+            timestampString = "440511301.431278"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "474"
-            endingLineNumber = "474"
-            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
-            landmarkType = "5">
+            startingLineNumber = "1383"
+            endingLineNumber = "1383"
+            landmarkName = "get(::sockets::socket_handler &amp; handler, const char * pszUrl, property_set &amp; set)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
-            timestampString = "440463354.13795"
+            filePath = "../../../app/appseed/base/base/node/macos/macos_dir.cpp"
+            timestampString = "440518179.149346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
-            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
+            startingLineNumber = "1239"
+            endingLineNumber = "1239"
+            landmarkName = "dir::appdata(const char * lpcsz, const char * lpcsz2)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

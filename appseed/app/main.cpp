@@ -13,7 +13,6 @@
 uint32_t __run_system(void * p)
 {
    
-   
    main_param * pparam = (main_param *) p;
    
    
