@@ -42,3 +42,11 @@
 #define CLASS_DECL_EXPORT
 #define CLASS_DECL_THREAD __thread
 
+
+
+#define static_inline inline
+
+
+
+
+

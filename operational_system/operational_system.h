@@ -2,6 +2,7 @@
 
 
 #include <typeinfo>
+#include <initializer_list>
 
 
 typedef ::std::type_info std_type_info;
@@ -20,6 +21,8 @@ typedef ::std::type_info std_type_info;
 #ifdef _ApplicationFrameworkDLL
 	#include "version_dylib.h"
 #endif
+
+
 
 //#undef  __debug_break
 //#define __debug_break() ({asm("int 3")})
