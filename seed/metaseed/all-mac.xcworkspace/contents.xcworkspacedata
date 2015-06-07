@@ -50,6 +50,9 @@
       location = "group:../../../app/axis/bzip2/axisbzip2.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/axis/crypto/axiscrypto.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/axis/freeimage/axisfreeimage.xcodeproj">
    </FileRef>
    <FileRef

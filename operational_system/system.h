@@ -22,6 +22,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <errno.h>
+#include <sys/time.h>
 
 #undef _POSIX_C_SOURCE
 
@@ -446,7 +447,7 @@ typedef void * PVOID;
 #endif
 
 
-
+#include <pthread.h>
 
 
 
