@@ -6,7 +6,7 @@ namespace draw2d_quartz2d
    
    
    brush::brush(sp(::aura::application) papp) :
-      ::element(papp)
+      ::object(papp)
    {
       
       m_colorspace = NULL;

@@ -6,7 +6,7 @@ namespace draw2d_quartz2d
    
    
    bitmap::bitmap(sp(::aura::application) papp) :
-      element(papp)
+      ::object(papp)
    {
       
       m_context = NULL;
