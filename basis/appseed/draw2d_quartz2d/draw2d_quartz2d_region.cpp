@@ -6,7 +6,7 @@ namespace draw2d_quartz2d
    
    
    region::region(sp(::aura::application) papp) :
-      ::element(papp)
+      ::object(papp)
    {
       
    }
