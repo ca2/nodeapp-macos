@@ -24,9 +24,12 @@
 #include <errno.h>
 #include <sys/time.h>
 
-#undef _POSIX_C_SOURCE
 
-
+/*
+#if _POSIX_C_SOURCE == 200809L
+#error "Only for test!! Good error!! _POSIX_C_SOURCE still 200809L"
+#endf
+*/
 
 
 #ifdef __cplusplus
@@ -450,5 +453,8 @@ typedef void * PVOID;
 #include <pthread.h>
 
 
-
-
+/*
+#if _POSIX_C_SOURCE == 200809L
+#error "Only for test!! Good error!! _POSIX_C_SOURCE still 200809L"
+#endf
+*/

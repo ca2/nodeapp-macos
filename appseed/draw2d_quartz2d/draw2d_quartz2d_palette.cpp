@@ -6,7 +6,7 @@ namespace draw2d_quartz2d
    
    
    palette::palette(sp(::aura::application) papp) :
-   element(papp)
+      ::object(papp)
    {
       
    }

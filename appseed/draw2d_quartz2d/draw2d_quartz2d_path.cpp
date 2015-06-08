@@ -10,7 +10,7 @@ namespace draw2d_quartz2d
    
    
    path::path(sp(::aura::application) papp) :
-      ::element(papp)
+      ::object(papp)
    {
       
       m_path = NULL;

@@ -29,7 +29,7 @@ namespace draw2d_quartz2d
    
    
    dib::dib(sp(::aura::application) papp) :
-      element(papp),
+      object(papp),
       m_spbitmap(allocer()),
       m_spgraphics(allocer())
    {

@@ -6,7 +6,7 @@ namespace draw2d_quartz2d
 
    
    factory_exchange::factory_exchange(sp(::aura::application) papp) :
-      ::element(papp)
+      ::object(papp)
    {
       
       System.factory().cloneable_large < dib                   >   (System.type_info < ::draw2d::dib                 > ());

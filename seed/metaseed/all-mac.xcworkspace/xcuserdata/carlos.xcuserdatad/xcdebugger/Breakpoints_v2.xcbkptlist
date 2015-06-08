@@ -25,22 +25,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/node/macos/macos_application.cpp"
-            timestampString = "440504352.286123"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
-            landmarkName = "application::update_module_paths()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/filesystem/file/file_dir.cpp"
             timestampString = "440504546.80184"
             startingColumnNumber = "9223372036854775807"
@@ -96,6 +80,22 @@
             startingLineNumber = "1239"
             endingLineNumber = "1239"
             landmarkName = "dir::appdata(const char * lpcsz, const char * lpcsz2)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/os/macos/macos_small_ipca_channel.cpp"
+            timestampString = "455415236.131531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
+            landmarkName = "ipc::open_ba(const char * pszChannel,launcher * plauncher)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
