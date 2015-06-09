@@ -170,7 +170,7 @@ int32_t  __mac_main(int32_t argc, char * argv[])
    pparam->argv = argv;
    
    
-   CreateThread(NULL, 0, __run_system, pparam, 0, 0);
+   create_thread(NULL, 0, __run_system, pparam, 0, 0);
    
    ns_app_run();
    

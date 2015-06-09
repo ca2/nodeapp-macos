@@ -44,10 +44,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "plex_heap_alloc_array::realloc(void*, unsigned long, int):base_plex_heap.cpp">
+         contextName = "ansios::process::create_child_process(char const*, bool, char const*, int):ansios_process.cpp">
       </ContextState>
       <ContextState
-         contextName = "ansios::process::create_child_process(char const*, bool, char const*, int):ansios_process.cpp">
+         contextName = "plex_heap_alloc_array::realloc(void*, unsigned long, int):base_plex_heap.cpp">
       </ContextState>
       <ContextState
          contextName = "plex_heap_alloc::Alloc():aura_plex_heap_impl.h">
@@ -88,10 +88,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "event::lock(duration const&amp;):multithreading_event.cpp">
+         contextName = "process::departament::process_thread::run_normal():process_departament.cpp">
       </ContextState>
       <ContextState
-         contextName = "process::departament::process_thread::run_normal():process_departament.cpp">
+         contextName = "event::lock(duration const&amp;):multithreading_event.cpp">
       </ContextState>
       <ContextState
          contextName = "critical_section::lock():multithreading_critical_section.cpp">
@@ -111,6 +111,11 @@
       </ContextState>
       <ContextState
          contextName = "simple_ui::message_box::show():simple_ui_message_box.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_pimpl">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "file::application::as_string(var):file_application.cpp">
@@ -119,7 +124,7 @@
          contextName = "ansios::process::synch_elevated(char const*, int, duration const&amp;, bool*):ansios_process.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "pszCmdLineParam">
+               value = "strFolder">
             </PersistentString>
             <PersistentString
                value = "strC">
@@ -128,7 +133,7 @@
                value = "strFallback">
             </PersistentString>
             <PersistentString
-               value = "strFolder">
+               value = "pszCmdLineParam">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -190,6 +195,28 @@
       </ContextState>
       <ContextState
          contextName = "draw2d_quartz2d::graphics::GetTextExtent(sized&amp;, char const*, long long, int) const:draw2d_quartz2d_graphics.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "simple_ui::message_box::create_button(smart_pointer_array&lt;simple_ui::tap&gt;&amp;, id, char const*):simple_ui_message_box.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "ptap.m_p-&gt;m_pauraapp">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "user::interaction::create_window_ex(unsigned int, char const*, char const*, unsigned int, tagRECT const&amp;, user::interaction*, id, void*):user_interaction.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "this-&gt;m_pimpl.m_p-&gt;m_pui">
+            </PersistentString>
+            <PersistentString
+               value = "m_pimpl-&gt;m_pui">
+            </PersistentString>
+            <PersistentString
+               value = "m_pimpl.m_p-&gt;m_pui">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "smart_pointer:aura_smart_pointer2.h">
