@@ -6,17 +6,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
-            timestampString = "440515847.398536"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "455535387.026669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "494"
-            endingLineNumber = "494"
-            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "message_box::message_box(::aura::application * papp,const char * pszMessage,const char * pszCaption, uint32_t uiFlags)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "simple_ui::message_box::message_box(aura::application*, char const*, char const*, unsigned int)"
+                  moduleName = "libaxis.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///ca2/app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+                  timestampString = "455543845.022298"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "43">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "simple_ui::message_box::message_box(aura::application*, char const*, char const*, unsigned int)"
+                  moduleName = "libaxis.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///ca2/app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+                  timestampString = "455543845.022614"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,61 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/filesystem/file/file_dir.cpp"
-            timestampString = "440504546.80184"
+            filePath = "../../../app/appseed/core/core/core/core_system.cpp"
+            timestampString = "455535927.827326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "501"
-            endingLineNumber = "501"
-            landmarkName = "ca2_module_folder_dup()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/node/ansios/ansios_process.cpp"
-            timestampString = "440515847.398536"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "468"
-            endingLineNumber = "468"
-            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/net/http/http_system.cpp"
-            timestampString = "440511301.431278"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1383"
-            endingLineNumber = "1383"
-            landmarkName = "get(::sockets::socket_handler &amp; handler, const char * pszUrl, property_set &amp; set)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/node/macos/macos_dir.cpp"
-            timestampString = "440518179.149346"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1239"
-            endingLineNumber = "1239"
-            landmarkName = "dir::appdata(const char * lpcsz, const char * lpcsz2)"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "system::process_initialize()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +73,140 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/os/macos/macos_small_ipca_channel.cpp"
-            timestampString = "455415236.131531"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "455538759.353831"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "443"
-            endingLineNumber = "443"
-            landmarkName = "ipc::open_ba(const char * pszChannel,launcher * plauncher)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "message_box::create_button(spa(tap) &amp; tapa,id id,const char * pszText)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "455538983.416311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "message_box::create_a_button(id id,const char * pszText)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "455538985.816049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "message_box::create_b_button(id id,const char * pszText)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
+            timestampString = "455539635.726371"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "message_box::show()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_tap.cpp"
+            timestampString = "455544213.249029"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "tap::~tap()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "simple_ui::tap::~tap()"
+                  moduleName = "libaxis.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///ca2/app/appseed/axis/user/simple_ui/simple_ui_tap.cpp"
+                  timestampString = "455547407.840871"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "simple_ui::tap::~tap()"
+                  moduleName = "libaxis.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///ca2/app/appseed/axis/user/simple_ui/simple_ui_tap.cpp"
+                  timestampString = "455547407.841384"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "simple_ui::tap::~tap()"
+                  moduleName = "libaxis.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///ca2/app/appseed/axis/user/simple_ui/simple_ui_tap.cpp"
+                  timestampString = "455547407.84189"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
+            timestampString = "455546866.342131"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "820"
+            endingLineNumber = "820"
+            landmarkName = "interaction_impl::DestroyWindow()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
