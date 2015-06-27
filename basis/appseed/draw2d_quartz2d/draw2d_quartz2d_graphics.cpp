@@ -1461,7 +1461,17 @@ namespace draw2d_quartz2d
             return false;
             
          }
-
+         
+         if(m_pdib != NULL)
+         {
+            
+            m_pdib->unmap();
+            
+         }
+         
+         
+         CGImageRef imageDst = CGBitmapContextCreateImage((CGContextRef) get_os_data());
+         
          CGImageRef image = CGBitmapContextCreateImage((CGContextRef) pgraphicsSrc->get_os_data());
          
          if(image == NULL)
@@ -1471,27 +1481,58 @@ namespace draw2d_quartz2d
             
          }
          
-         if(m_pdib != NULL)
-         {
+         size_t SH = CGImageGetHeight(image);
 
-            m_pdib->unmap();
-            
+         size_t SW = CGImageGetWidth(image);
+         
+         size_t DH;
+
+         size_t DW;
+         
+         if(imageDst == NULL)
+         {
+            DH = (size_t) -1;
+            DW = (size_t) -1;
+         }
+         else
+         {
+            DH = CGImageGetHeight(imageDst);
+            DW = CGImageGetWidth(imageDst);
          }
          
          CGRect rect;
+         
+    //     point ptOffset = this->GetViewportOrg();
             
          rect.origin.x = x;
          rect.origin.y = y;
-         rect.size.width = MIN(nWidth, CGImageGetWidth(image) - xSrc);
-         rect.size.height = MIN(nHeight, CGImageGetHeight(image) - ySrc);
+         rect.size.width = nWidth;
+         rect.size.height = nHeight;
             
          CGRect rectSub;
             
          rectSub.origin.x = xSrc;
-         rectSub.origin.y = ySrc;
+         rectSub.origin.y =  ySrc;
          rectSub.size.width = rect.size.width;
          rectSub.size.height = rect.size.height;
-            
+         
+         CGFloat fMin = MIN(rect.origin.y, rectSub.origin.y);
+         if(fMin < 0)
+         {
+            rect.size.height += fMin;
+            rectSub.size.height += fMin;
+            rect.origin.y -= fMin;
+            rectSub.origin.y -= fMin;
+         }
+         fMin = MIN(rect.origin.x, rectSub.origin.x);
+         if(fMin < 0)
+         {
+            rect.size.width += fMin;
+            rectSub.size.width += fMin;
+            rect.origin.y -= fMin;
+            rectSub.origin.x -= fMin;
+         }
+         
          CGImageRef imageSub = CGImageCreateWithImageInRect(image, rectSub);
             
          if(imageSub != NULL)
@@ -1505,8 +1546,20 @@ namespace draw2d_quartz2d
          
          CGImageRelease(image);
          
+         if(imageDst != NULL)
+         {
+            
+            CGImageRelease(imageDst);
+            
+         }
          
-                                    
+         //if(m_pdib != NULL)
+         //{
+            
+           // m_pdib->map();
+            
+         //}
+            
 //
 //         cairo_pattern_t * ppattern = cairo_get_source((cairo_t *) pgraphicsSrc->get_os_data());
 //         
