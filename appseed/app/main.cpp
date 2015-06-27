@@ -25,6 +25,12 @@ uint32_t __run_system(void * p)
    
    sp(::core::system) psystem = canew(::core::system());
    
+#ifndef WINDOWS
+   
+   psystem->m_pthreadimpl->m_hthread = (HTHREAD) pthread_self();
+   psystem->m_pthreadimpl->m_uiThread = (IDTHREAD) pthread_self();
+#endif
+   
    ::macos::main_init_data * pinitmaindata  = new ::macos::main_init_data;
    
    pinitmaindata->m_hInstance             = NULL;

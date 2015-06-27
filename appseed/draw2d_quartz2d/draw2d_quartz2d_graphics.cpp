@@ -1512,11 +1512,17 @@ namespace draw2d_quartz2d
          CGRect rectSub;
             
          rectSub.origin.x = xSrc;
-         rectSub.origin.y =  ySrc;
+         if(pgraphicsSrc->m_pdib == NULL || pgraphicsSrc->m_pdib->m_iHeight < 0)
+         {
+            rectSub.origin.y =  ySrc;
+         }
+         else
+         {
+            rectSub.origin.y =  ySrc + (MAX(0,(int_ptr)pgraphicsSrc->m_pdib->m_size.cy - (int_ptr)pgraphicsSrc->m_pdib->m_iHeight));
+         }
          rectSub.size.width = rect.size.width;
          rectSub.size.height = rect.size.height;
-         
-         CGFloat fMin = MIN(rect.origin.y, rectSub.origin.y);
+                  CGFloat fMin = MIN(rect.origin.y, rectSub.origin.y);
          if(fMin < 0)
          {
             rect.size.height += fMin;
@@ -1526,6 +1532,7 @@ namespace draw2d_quartz2d
          }
          fMin = MIN(rect.origin.x, rectSub.origin.x);
          if(fMin < 0)
+
          {
             rect.size.width += fMin;
             rectSub.size.width += fMin;
@@ -5966,7 +5973,7 @@ namespace draw2d_quartz2d
       
       CGContextSetTextDrawingMode(pdc, emode);
       
-      CGContextSetTextMatrix(pdc, CGAffineTransformScale(CGAffineTransformMakeTranslation(x, y + dFontSize), 1.f, -1.f));
+      CGContextSetTextMatrix(pdc, CGAffineTransformScale(CGAffineTransformMakeTranslation(x, y + ascent), 1.f, -1.f));
       
       CTLineDraw(line,pdc);
       
