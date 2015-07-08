@@ -94,6 +94,14 @@
          contextName = "event::lock(duration const&amp;):multithreading_event.cpp">
       </ContextState>
       <ContextState
+         contextName = "ns_shared_application():round_window.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "RoundWindowApp">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "critical_section::lock():multithreading_critical_section.cpp">
          <PersistentStrings>
             <PersistentString
@@ -124,7 +132,7 @@
          contextName = "ansios::process::synch_elevated(char const*, int, duration const&amp;, bool*):ansios_process.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "strFolder">
+               value = "pszCmdLineParam">
             </PersistentString>
             <PersistentString
                value = "strC">
@@ -133,7 +141,7 @@
                value = "strFallback">
             </PersistentString>
             <PersistentString
-               value = "pszCmdLineParam">
+               value = "strFolder">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
