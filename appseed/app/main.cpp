@@ -10,26 +10,18 @@
 #include "base/base/node/macos/macos.h"
 
 
-uint32_t __run_system(void * p)
+uint32_t __run_system(main_param * pparam)
 {
-   
-   main_param * pparam = (main_param *) p;
-   
-   
-   if(!defer_core_init())
-      return -1;
-   
    
    int32_t nReturnCode = 0;
    
-   
    sp(::core::system) psystem = canew(::core::system());
    
-#ifndef WINDOWS
-   
-   psystem->m_pthreadimpl->m_hthread = (HTHREAD) pthread_self();
-   psystem->m_pthreadimpl->m_uiThread = (IDTHREAD) pthread_self();
-#endif
+//#ifndef WINDOWS
+  // 
+   //psystem->m_pthreadimpl->m_hthread = (HTHREAD) pthread_self();
+   //psystem->m_pthreadimpl->m_uiThread = (IDTHREAD) pthread_self();
+//#endif
    
    ::macos::main_init_data * pinitmaindata  = new ::macos::main_init_data;
    
@@ -89,7 +81,7 @@ uint32_t __run_system(void * p)
    try
    {
       
-      if(psystem->pre_run())
+      if(psystem->begin_synch())
       {
          
          bOk = true;
@@ -129,7 +121,7 @@ uint32_t __run_system(void * p)
    }
    
    
-   nReturnCode = psystem->main();
+//   nReturnCode = psystem->main();
    
    
    
@@ -137,7 +129,7 @@ uint32_t __run_system(void * p)
    
    try
    {
-      psystem.release();
+  //    psystem.release();
    }
    catch(...)
    {
@@ -145,9 +137,9 @@ uint32_t __run_system(void * p)
    
    
 
-   defer_core_term();
+  // defer_core_term();
    
-   exit(nReturnCode);
+  // exit(nReturnCode);
    
    return nReturnCode;
    
@@ -164,9 +156,9 @@ int32_t  __mac_main(int32_t argc, char * argv[])
    
    setlocale(LC_ALL,"");
    
-   ::base::static_start::init();
+   //::base::static_start::init();
    
-   ::multithreading::init_multithreading();
+   //::multithreading::init_multithreading();
    
    ns_shared_application();
    
@@ -176,7 +168,7 @@ int32_t  __mac_main(int32_t argc, char * argv[])
    pparam->argv = argv;
    
    
-   create_thread(NULL, 0, __run_system, pparam, 0, 0);
+   __run_system(pparam);
    
    ns_app_run();
    
