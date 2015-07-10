@@ -59,6 +59,62 @@
 			remoteGlobalIDString = 9A98A6031771D67E000AE16E;
 			remoteInfo = base;
 		};
+		07E42D5C1B50277C0061D0BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A9F2C9A19A64097007AE2C7 /* axisbzip2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07108B6E1B4C97C600A28F80;
+			remoteInfo = axisbzip2_ios;
+		};
+		07E42D601B50277C0061D0BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A9F2C6D19A6403F007AE2C7 /* axisfreeimage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07108BD71B4C97D500A28F80;
+			remoteInfo = axisfreeimage_ios;
+		};
+		07E42D641B50277C0061D0BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A9F2C7319A6404B007AE2C7 /* axisfreetype.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07108CDC1B4C97E300A28F80;
+			remoteInfo = axisfreetype_ios;
+		};
+		07E42D6E1B50277C0061D0BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A9F2C8519A64069007AE2C7 /* axiszlib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07108D041B4C97EF00A28F80;
+			remoteInfo = axiszlib_ios;
+		};
+		07E42D771B50277C0061D0BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07E42D531B50277C0061D0BC /* draw2d_quartz2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1CFD778154F5EAA007447E2;
+			remoteInfo = draw2d_quartz2d;
+		};
+		07E42D791B50277C0061D0BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07E42D531B50277C0061D0BC /* draw2d_quartz2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07E25F501B4FFC2100752DE1;
+			remoteInfo = draw2d_quartz2d_ios;
+		};
+		07E42D7B1B50277C0061D0BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07E42D531B50277C0061D0BC /* draw2d_quartz2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AE24E151904CF99001AEFFB;
+			remoteInfo = draw2d_quartz2d_iosTests;
+		};
+		07E42D7D1B5027B90061D0BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07E42D531B50277C0061D0BC /* draw2d_quartz2d.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A1CFD777154F5EAA007447E2;
+			remoteInfo = draw2d_quartz2d;
+		};
 		9A19A17F19C6EEC10018DF7D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A9F2C9A19A64097007AE2C7 /* axisbzip2.xcodeproj */;
@@ -213,6 +269,7 @@
 		07B5903518866047002C6FEC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		07B5903918866047002C6FEC /* core-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "core-Info.plist"; sourceTree = "<group>"; };
 		07B5903B18866047002C6FEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		07E42D531B50277C0061D0BC /* draw2d_quartz2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = draw2d_quartz2d.xcodeproj; path = ../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj; sourceTree = "<group>"; };
 		9A1EDBBE19C8456900F5CCE8 /* aura.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = aura.xcodeproj; path = ../../../app/appseed/aura/aura.xcodeproj; sourceTree = "<group>"; };
 		9A2EA26319A62B1A004DAFFC /* axis.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = axis.xcodeproj; path = ../../../app/appseed/axis/axis.xcodeproj; sourceTree = "<group>"; };
 		9A2EA3AB19A630A9004DAFFC /* axisopenssl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = axisopenssl.xcodeproj; path = ../../../app/axis/openssl/axisopenssl.xcodeproj; sourceTree = "<group>"; };
@@ -283,6 +340,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		07E42D541B50277C0061D0BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07E42D781B50277C0061D0BC /* libdraw2d_quartz2d.dylib */,
+				07E42D7A1B50277C0061D0BC /* libdraw2d_quartz2d.dylib */,
+				07E42D7C1B50277C0061D0BC /* draw2d_quartz2d_iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9A1EDBBF19C8456900F5CCE8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +393,7 @@
 				9A9F2C7919A64062007AE2C7 /* axismysql.xcodeproj */,
 				9A9F2C8519A64069007AE2C7 /* axiszlib.xcodeproj */,
 				0722ED6219261BEE003E99F4 /* core.xcodeproj */,
+				07E42D531B50277C0061D0BC /* draw2d_quartz2d.xcodeproj */,
 				9A5752BC16AAE1D2000CC4EF /* app */,
 				07B5903718866047002C6FEC /* core */,
 				9A5752B516AAE1D2000CC4EF /* Frameworks */,
@@ -380,6 +448,7 @@
 			isa = PBXGroup;
 			children = (
 				9A19A18319C6EEC10018DF7D /* libaxisfreeimage.dylib */,
+				07E42D611B50277C0061D0BC /* libaxisfreeimage.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -388,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				9A19A18619C6EEC10018DF7D /* libaxisfreetype.dylib */,
+				07E42D651B50277C0061D0BC /* libaxisfreetype.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -406,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				9A9F2C8A19A6406A007AE2C7 /* libaxiszlib.dylib */,
+				07E42D6F1B50277C0061D0BC /* libaxiszlib.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -414,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				9A19A18019C6EEC10018DF7D /* libaxisbzip2.dylib */,
+				07E42D5D1B50277C0061D0BC /* libaxisbzip2.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -432,6 +504,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				07E42D7E1B5027B90061D0BC /* PBXTargetDependency */,
 				9A1EDBDC19C8457300F5CCE8 /* PBXTargetDependency */,
 				9A1EDBDF19C8459700F5CCE8 /* PBXTargetDependency */,
 				0722ED6F19261C02003E99F4 /* PBXTargetDependency */,
@@ -503,6 +576,10 @@
 					ProductGroup = 0722ED6319261BEE003E99F4 /* Products */;
 					ProjectRef = 0722ED6219261BEE003E99F4 /* core.xcodeproj */;
 				},
+				{
+					ProductGroup = 07E42D541B50277C0061D0BC /* Products */;
+					ProjectRef = 07E42D531B50277C0061D0BC /* draw2d_quartz2d.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -547,6 +624,55 @@
 			remoteRef = 0722ED6C19261BEE003E99F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		07E42D5D1B50277C0061D0BC /* libaxisbzip2.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libaxisbzip2.dylib;
+			remoteRef = 07E42D5C1B50277C0061D0BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07E42D611B50277C0061D0BC /* libaxisfreeimage.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libaxisfreeimage.dylib;
+			remoteRef = 07E42D601B50277C0061D0BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07E42D651B50277C0061D0BC /* libaxisfreetype.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libaxisfreetype.dylib;
+			remoteRef = 07E42D641B50277C0061D0BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07E42D6F1B50277C0061D0BC /* libaxiszlib.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libaxiszlib.dylib;
+			remoteRef = 07E42D6E1B50277C0061D0BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07E42D781B50277C0061D0BC /* libdraw2d_quartz2d.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libdraw2d_quartz2d.dylib;
+			remoteRef = 07E42D771B50277C0061D0BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07E42D7A1B50277C0061D0BC /* libdraw2d_quartz2d.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libdraw2d_quartz2d.dylib;
+			remoteRef = 07E42D791B50277C0061D0BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07E42D7C1B50277C0061D0BC /* draw2d_quartz2d_iosTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = draw2d_quartz2d_iosTests.xctest;
+			remoteRef = 07E42D7B1B50277C0061D0BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9A19A18019C6EEC10018DF7D /* libaxisbzip2.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -584,7 +710,7 @@
 		};
 		9A1EDBC719C8456900F5CCE8 /* libaura.dylib */ = {
 			isa = PBXReferenceProxy;
-			fileType = archive.ar;
+			fileType = "compiled.mach-o.dylib";
 			path = libaura.dylib;
 			remoteRef = 9A1EDBC619C8456900F5CCE8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -695,6 +821,11 @@
 			isa = PBXTargetDependency;
 			name = base;
 			targetProxy = 0722ED6E19261C02003E99F4 /* PBXContainerItemProxy */;
+		};
+		07E42D7E1B5027B90061D0BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = draw2d_quartz2d;
+			targetProxy = 07E42D7D1B5027B90061D0BC /* PBXContainerItemProxy */;
 		};
 		9A19A1BB19C6F51F0018DF7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
