@@ -6,7 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             scope = "0"
@@ -19,44 +19,124 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_ipi.cpp"
-            timestampString = "458670927.987006"
+            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
+            timestampString = "458938336.81098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "ipi::ipi(::aura::application * papp,const string &amp; strApp)"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "view::on_create(::signal_details * pobj)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "/ca2/app/appseed/axis/../axis/filesystem/filesystem/filesystem_axis_system.cpp"
+            timestampString = "458938396.243665"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "477"
+            endingLineNumber = "477"
+            landmarkName = "system::as_string(var varFile, var &amp; varQuery, ::aura::application * papp)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "/ca2/app/appseed/axis/../axis/filesystem/filesystem/filesystem_dir_axis_system.cpp"
+            timestampString = "458939229.673789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1751"
+            endingLineNumber = "1751"
+            landmarkName = "system::matter(::aura::application * papp, const ::file::path &amp; str, bool bDir, const ::file::path &amp; root, const ::file::path &amp; domain)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "/ca2/app/appseed/axis/../axis/filesystem/filesystem/filesystem_axis_system.cpp"
+            timestampString = "458939954.656619"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1860"
+            endingLineNumber = "1860"
+            landmarkName = "system::get_file(var varFile,UINT nOpenFlags,cres * pfesp, ::aura::application * papp)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
+            timestampString = "458940878.516726"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "775"
+            endingLineNumber = "775"
+            landmarkName = "view:: _001OnDraw(::draw2d::graphics * pdcScreen)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
+            timestampString = "458941113.994719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "view::view(::aura::application * papp)"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "aura::ipi::ipi(aura::application*, string const&amp;)"
-                  moduleName = "libaura.dylib"
+                  symbolName = "projection::view::view(aura::application*)"
+                  moduleName = "libapp_core_projection.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_ipi.cpp"
-                  timestampString = "458671382.376592"
+                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
+                  timestampString = "458941635.954725"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "219">
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "1956">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "aura::ipi::ipi(aura::application*, string const&amp;)"
-                  moduleName = "libaura.dylib"
+                  symbolName = "projection::view::view(aura::application*)"
+                  moduleName = "libapp_core_projection.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///ca2/app/appseed/aura/aura/aura/aura_ipi.cpp"
-                  timestampString = "458671382.376911"
+                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
+                  timestampString = "458941635.954938"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "256">
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "2361">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -67,30 +147,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "/ca2/app/appseed/aura/../aura/aura/os/macos/macos_small_ipca_channel.cpp"
-            timestampString = "458671851.698647"
+            filePath = "../../../app/axis/jpeg/Source/FreeImage/PluginJPEG.cpp"
+            timestampString = "458941699.630232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "rx::create(const char * pszChannel)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "/ca2/app/appseed/aura/../aura/aura/os/macos/macos_small_ipca_channel.cpp"
-            timestampString = "458671851.698647"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "rx::create(const char * pszChannel)"
-            landmarkType = "5">
+            startingLineNumber = "1689"
+            endingLineNumber = "1689"
+            landmarkName = "FreeImage_InitPlugin(Plugin *plugin,int format_id)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -99,14 +163,46 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "/ca2/app/appseed/aura/../aura/aura/os/macos/macos_small_ipca_channel.cpp"
-            timestampString = "458671851.698647"
+            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
+            timestampString = "458941758.663001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "rx::create(const char * pszChannel)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "view::view(::aura::application * papp)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "projection::view::view(aura::application*)"
+                  moduleName = "libapp_core_projection.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
+                  timestampString = "458942327.33707"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "2229">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "projection::view::view(aura::application*)"
+                  moduleName = "libapp_core_projection.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
+                  timestampString = "458942327.337331"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "2625">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -115,13 +211,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "/ca2/app/appseed/aura/../aura/aura/os/macos/macos_small_ipca_channel.cpp"
-            timestampString = "458671851.698647"
+            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
+            timestampString = "458941760.156733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "rx::create(const char * pszChannel)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "view::view(::aura::application * papp)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "projection::view::view(aura::application*)"
+                  moduleName = "libapp_core_projection.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
+                  timestampString = "458942327.337491"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "3490">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "projection::view::view(aura::application*)"
+                  moduleName = "libapp_core_projection.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
+                  timestampString = "458942327.337643"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "4079">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
+            timestampString = "458941841.075547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "785"
+            endingLineNumber = "785"
+            landmarkName = "view:: _001OnDraw(::draw2d::graphics * pdcScreen)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
