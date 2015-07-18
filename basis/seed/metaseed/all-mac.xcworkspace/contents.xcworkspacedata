@@ -62,6 +62,9 @@
       location = "group:../../../app/axis/idn/axisidn.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/axis/jpeg/axisjpeg.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/axis/mysql/axismysql.xcodeproj">
    </FileRef>
    <FileRef
@@ -84,6 +87,12 @@
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../../app/appseed/html/html.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../../app/axis/html_lite/html_lite.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/math/math.xcodeproj">
