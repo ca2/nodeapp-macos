@@ -20,6 +20,9 @@
       location = "group:../../../app-core/appseed/projection/app_core_projection.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/rdpclient/app_core_rdpclient.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
    </FileRef>
    <FileRef
