@@ -12,7 +12,11 @@
 #if defined(_DEBUG) && !defined(DEBUG)
 #define DEBUG 1
 #endif
-
+#ifdef __cplusplus
+typedef wchar_t unichar;
+#else
+typedef unsigned short unichar;
+#endif
 
 #define STORE_LAST_BLOCK 1
 #define MEMDFREE 1
