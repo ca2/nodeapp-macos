@@ -399,7 +399,11 @@ typedef unsigned int uint_ptr, *pulong_ptr;
 
 
 #define _PRE_WIDEN(x) L ## x
+#ifdef WINDOWS
 #define _WIDEN(x) _PRE_WIDEN(x)
+#else
+#define _WIDEN(x) unitext(x)
+#endif
 
 #define NOTHROW throw()
 #define THROWS // gnucc null throw statement means that the function can throw any exception
@@ -458,3 +462,7 @@ typedef void * PVOID;
 #error "Only for test!! Good error!! _POSIX_C_SOURCE still 200809L"
 #endf
 */
+
+
+typedef unsigned short     unichar;
+typedef wchar_t            unichar32;

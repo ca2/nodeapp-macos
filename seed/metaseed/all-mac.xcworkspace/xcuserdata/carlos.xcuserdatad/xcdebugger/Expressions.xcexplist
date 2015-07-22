@@ -91,15 +91,15 @@
          contextName = "process::departament::process_thread::run_normal():process_departament.cpp">
       </ContextState>
       <ContextState
-         contextName = "event::lock(duration const&amp;):multithreading_event.cpp">
-      </ContextState>
-      <ContextState
          contextName = "ns_shared_application():round_window.mm">
          <PersistentStrings>
             <PersistentString
                value = "RoundWindowApp">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "event::lock(duration const&amp;):multithreading_event.cpp">
       </ContextState>
       <ContextState
          contextName = "critical_section::lock():multithreading_critical_section.cpp">
@@ -132,7 +132,7 @@
          contextName = "ansios::process::synch_elevated(char const*, int, duration const&amp;, bool*):ansios_process.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "pszCmdLineParam">
+               value = "strFolder">
             </PersistentString>
             <PersistentString
                value = "strC">
@@ -141,7 +141,7 @@
                value = "strFallback">
             </PersistentString>
             <PersistentString
-               value = "strFolder">
+               value = "pszCmdLineParam">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -245,6 +245,14 @@
       </ContextState>
       <ContextState
          contextName = "user::interaction::_001DrawThis(draw2d::graphics*):user_interaction.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "-[RoundWindowFrameView mouseDown:]:RoundWindowFrameView.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "event.type">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "user::keyboard_layout::load(char const*):user_keyboard_layout.cpp">

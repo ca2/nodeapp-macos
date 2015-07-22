@@ -4,28 +4,19 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
+            condition = "pmouse-&gt;m_uiMessage == 516"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
-            timestampString = "458938336.81098"
+            filePath = "../../../app-core/appseed/rdpclient/rdpclient_view.cpp"
+            timestampString = "459291431.518399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "view::on_create(::signal_details * pobj)"
+            startingLineNumber = "749"
+            endingLineNumber = "749"
+            landmarkName = "view::_001OnMouse(::signal_details * pobj)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +26,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "/ca2/app/appseed/axis/../axis/filesystem/filesystem/filesystem_axis_system.cpp"
-            timestampString = "458938396.243665"
+            filePath = "../../../app-core/appseed/rdpclient/rdpclient_view.cpp"
+            timestampString = "459291431.518399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "477"
-            endingLineNumber = "477"
-            landmarkName = "system::as_string(var varFile, var &amp; varQuery, ::aura::application * papp)"
+            startingLineNumber = "764"
+            endingLineNumber = "764"
+            landmarkName = "view::_001OnMouse(::signal_details * pobj)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,334 +42,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "/ca2/app/appseed/axis/../axis/filesystem/filesystem/filesystem_dir_axis_system.cpp"
-            timestampString = "458939229.673789"
+            filePath = "../../../app/appseed/base/base/node/macos/RoundWindowFrameView.mm"
+            timestampString = "459289026.149227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1751"
-            endingLineNumber = "1751"
-            landmarkName = "system::matter(::aura::application * papp, const ::file::path &amp; str, bool bDir, const ::file::path &amp; root, const ::file::path &amp; domain)"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "-mouseDown:"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "/ca2/app/appseed/axis/../axis/filesystem/filesystem/filesystem_axis_system.cpp"
-            timestampString = "458939954.656619"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1860"
-            endingLineNumber = "1860"
-            landmarkName = "system::get_file(var varFile,UINT nOpenFlags,cres * pfesp, ::aura::application * papp)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
-            timestampString = "458940878.516726"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "775"
-            endingLineNumber = "775"
-            landmarkName = "view:: _001OnDraw(::draw2d::graphics * pdcScreen)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
-            timestampString = "458941113.994719"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "view::view(::aura::application * papp)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "projection::view::view(aura::application*)"
-                  moduleName = "libapp_core_projection.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
-                  timestampString = "458941635.954725"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "1956">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "projection::view::view(aura::application*)"
-                  moduleName = "libapp_core_projection.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
-                  timestampString = "458941635.954938"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "2361">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/axis/jpeg/Source/FreeImage/PluginJPEG.cpp"
-            timestampString = "458941699.630232"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1689"
-            endingLineNumber = "1689"
-            landmarkName = "FreeImage_InitPlugin_axisjpeg(Plugin *plugin,int format_id)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
-            timestampString = "458941758.663001"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "view::view(::aura::application * papp)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "projection::view::view(aura::application*)"
-                  moduleName = "libapp_core_projection.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
-                  timestampString = "458942327.33707"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "2229">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "projection::view::view(aura::application*)"
-                  moduleName = "libapp_core_projection.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
-                  timestampString = "458942327.337331"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "2625">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
-            timestampString = "458941760.156733"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "view::view(::aura::application * papp)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "projection::view::view(aura::application*)"
-                  moduleName = "libapp_core_projection.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
-                  timestampString = "458942327.337491"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "3490">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "projection::view::view(aura::application*)"
-                  moduleName = "libapp_core_projection.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///ca2/app-core/appseed/projection/projection_view.cpp"
-                  timestampString = "458942327.337643"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "4079">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/projection/projection_view.cpp"
-            timestampString = "458941841.075547"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "785"
-            endingLineNumber = "785"
-            landmarkName = "view:: _001OnDraw(::draw2d::graphics * pdcScreen)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../game/appseed/tictactoe/tictactoe_application.cpp"
-            timestampString = "459057528.268551"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "game_tictactoe_get_new_library(::aura::application * papp)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_session.cpp"
-            timestampString = "459057584.700496"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "813"
-            endingLineNumber = "813"
-            landmarkName = "get_new_app(sp(::aura::application) pappNewApplicationParent,const char * pszType,const char * pszAppId)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../game/appseed/tictactoe/tictactoe_application.cpp"
-            timestampString = "459057998.148743"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "application::initialize_instance()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../game/appseed/tictactoe/tictactoe_application.cpp"
-            timestampString = "459058008.758395"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "application::on_request(sp(::create) pcreatecontext)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/axis/png/Source/FreeImage/PluginPNG.cpp"
-            timestampString = "459065409.537997"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "946"
-            endingLineNumber = "946"
-            landmarkName = "FreeImage_InitPlugin_axispng(Plugin *plugin,int format_id)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/axis/freeimage/Source/FreeImage/Plugin.cpp"
-            timestampString = "459066262.913984"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
-            landmarkName = "FreeImage_Initialise(WINBOOL load_local_plugins_only)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/axis/freeimage/Source/FreeImage/Plugin.cpp"
-            timestampString = "459066269.685285"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "377"
-            endingLineNumber = "377"
-            landmarkName = "FreeImage_Initialise(WINBOOL load_local_plugins_only)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -387,13 +58,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/message/message_user.cpp"
-            timestampString = "459066446.050039"
+            filePath = "../../../app/appseed/base/base/node/macos/RoundWindowFrameView.mm"
+            timestampString = "459289029.453134"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "mouse::~mouse()"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "-mouseDown:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -403,14 +74,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/message/message_user.cpp"
-            timestampString = "459066447.447512"
+            filePath = "../../../app/axis/clientchannels/channels/rdpsnd/client/mac/rdpsnd_mac.c"
+            timestampString = "459290507.986408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "mouse::~mouse()"
-            landmarkType = "5">
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "freerdp_rdpsnd_client_subsystem_entry()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -419,13 +90,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/axis/freeimage/Source/FreeImage/Plugin.cpp"
-            timestampString = "459066465.730321"
+            filePath = "../../../app-core/appseed/rdpclient/rdp/rdp_freerdp.cpp"
+            timestampString = "459290925.892537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
-            landmarkName = "FreeImage_Initialise(WINBOOL load_local_plugins_only)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "wf_start(::rdpclient::view * pview, int argc, char ** argv)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
