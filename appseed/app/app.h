@@ -9,14 +9,4 @@
 #include "app/appseed/core/core/core/core.h"
 
 
-uint32_t __run_system(void * p);
-
-
-
-struct main_param
-{
-   int argc;
-   char * *argv;
-   
-};
 

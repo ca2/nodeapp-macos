@@ -13,6 +13,56 @@
 uint32_t __run_system(main_param * pparam)
 {
    
+   string strCommandline;
+   
+   bool bColon = false;
+   
+   for(int32_t i = 0; i < pparam->argc; i++)
+   {
+      
+      if(i > 0)
+      {
+         
+         strCommandLine += " ";
+         
+      }
+      
+      if(strcmp(pparam->argv[i], ":") == 0)
+      {
+         
+         strCommandLine     += ":";
+         
+         bColon = true;
+         
+      }
+      else if(bColon)
+      {
+         
+         strCommandLine     += pparam->argv[i];
+         
+         
+      }
+      else
+      {
+         
+         strCommandLine     += "\"";
+         
+         strCommandLine     += pparam->argv[i];
+         
+         strCommandLine     += "\"";
+         
+      }
+      
+   }
+   
+   return __run_system(strCommandLine);
+   
+}
+
+
+uint32_t __run_system(const string & strCommandLine)
+{
+   
    int32_t nReturnCode = 0;
    
    sp(::core::system) psystem = canew(::core::system());
@@ -23,53 +73,17 @@ uint32_t __run_system(main_param * pparam)
    //psystem->m_pthreadimpl->m_uiThread = (IDTHREAD) pthread_self();
 //#endif
    
-   ::macos::main_init_data * pinitmaindata  = new ::macos::main_init_data;
+   ::macos::main_init_data * pinitmaindata   = new ::macos::main_init_data;
    
-   pinitmaindata->m_hInstance             = NULL;
+   pinitmaindata->m_hInstance                = NULL;
    
-   pinitmaindata->m_hPrevInstance         = NULL;
+   pinitmaindata->m_hPrevInstance            = NULL;
    
-   bool bColon = false;
-   
-   for(int32_t i = 0; i < pparam->argc; i++)
-   {
+   pinitmaindata->m_strCommandLine           = strCommandLine;
       
-      if(i > 0)
-      {
-         
-         pinitmaindata->m_strCommandLine += " ";
-         
-      }
-      
-      if(strcmp(pparam->argv[i], ":") == 0)
-      {
-         
-         pinitmaindata->m_strCommandLine     += ":";
-         
-         bColon = true;
-         
-      }
-      else if(bColon)
-      {
-         
-         pinitmaindata->m_strCommandLine     += pparam->argv[i];
-         
-         
-      }
-      else
-      {
-         
-         pinitmaindata->m_strCommandLine     += "\"";
-         
-         pinitmaindata->m_strCommandLine     += pparam->argv[i];
-         
-         pinitmaindata->m_strCommandLine     += "\"";
-         
-      }
-      
-   }
-   pinitmaindata->m_vssCommandLine = pinitmaindata->m_strCommandLine;
-   pinitmaindata->m_nCmdShow              = SW_SHOW;
+   pinitmaindata->m_vssCommandLine           = pinitmaindata->m_strCommandLine;
+   
+   pinitmaindata->m_nCmdShow                 = SW_SHOW;
    
    
    psystem->init_main_data(pinitmaindata);
