@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../app-core/appseed/hellomultiverse/Hello Multiverse!!.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../appseed/app/app.xcodeproj">
    </FileRef>
    <FileRef
