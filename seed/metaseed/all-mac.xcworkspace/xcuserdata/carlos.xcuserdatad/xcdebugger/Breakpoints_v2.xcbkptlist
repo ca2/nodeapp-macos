@@ -8,15 +8,14 @@
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
-            condition = "pmouse-&gt;m_uiMessage == 516"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/rdpclient/rdpclient_view.cpp"
-            timestampString = "459291431.518399"
+            filePath = "../../../app/appseed/core/user/user/user_tab.cpp"
+            timestampString = "460206080.411889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "749"
-            endingLineNumber = "749"
-            landmarkName = "view::_001OnMouse(::signal_details * pobj)"
+            startingLineNumber = "882"
+            endingLineNumber = "882"
+            landmarkName = "tab::_001OnDrawSchema01(::draw2d::graphics * pdc)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/rdpclient/rdpclient_view.cpp"
-            timestampString = "459291431.518399"
+            filePath = "../../../app/appseed/aura/graphics/draw2d/draw2d_graphics.cpp"
+            timestampString = "460206191.273567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "764"
-            endingLineNumber = "764"
-            landmarkName = "view::_001OnMouse(::signal_details * pobj)"
+            startingLineNumber = "3654"
+            endingLineNumber = "3654"
+            landmarkName = "graphics::_DrawText(const char * lpcsz, strsize iCount, const RECT &amp; rectParam, UINT uiFormat, ::draw2d::font * pfontUnderline)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,62 +41,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/node/macos/RoundWindowFrameView.mm"
-            timestampString = "459289026.149227"
+            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "460206511.987367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "-mouseDown:"
+            startingLineNumber = "2246"
+            endingLineNumber = "2246"
+            landmarkName = "graphics::get_text_metrics(::draw2d::text_metric * lpMetrics)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/node/macos/RoundWindowFrameView.mm"
-            timestampString = "459289029.453134"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "-mouseDown:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/axis/clientchannels/channels/rdpsnd/client/mac/rdpsnd_mac.c"
-            timestampString = "459290507.986408"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "freerdp_rdpsnd_client_subsystem_entry()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/rdpclient/rdp/rdp_freerdp.cpp"
-            timestampString = "459290925.892537"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "wf_start(::rdpclient::view * pview, int argc, char ** argv)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
