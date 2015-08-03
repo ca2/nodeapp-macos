@@ -74,16 +74,16 @@
       location = "container:../../../app/axis/idn/axisidn.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/axis/jpeg/axisjpeg.xcodeproj">
+      location = "group:../../../app/axis/image_jpeg/axis_image_jpeg.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/image_png/axis_image_png.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/axis/mysql/axismysql.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/axis/openssl/axisopenssl.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/png/axispng.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/axis/rdpclient/axisrdpclient.xcodeproj">
