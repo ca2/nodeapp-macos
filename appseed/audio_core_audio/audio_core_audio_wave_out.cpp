@@ -333,8 +333,8 @@ namespace multimedia
          translate(*&m_dataformat, m_pwaveformat);
          
          //         m_eventOpened.ResetEvent();
-         
-         iBufferSampleCount = 512;
+         iBufferCount = 4;
+         iBufferSampleCount = 1024;
          
          m_iBufferCount = iBufferCount;
          m_iBufferSampleCount = iBufferSampleCount;
