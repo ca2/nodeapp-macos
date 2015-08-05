@@ -17,7 +17,7 @@ namespace multimedia
       
       
       wave_out::wave_out(sp(::aura::application) papp) :
-      element(papp),
+      object(papp),
       ::thread(papp),
       wave_base(papp),
       toolbox(papp),
@@ -333,6 +333,8 @@ namespace multimedia
          translate(*&m_dataformat, m_pwaveformat);
          
          //         m_eventOpened.ResetEvent();
+         
+         iBufferSampleCount = 512;
          
          m_iBufferCount = iBufferCount;
          m_iBufferSampleCount = iBufferSampleCount;
@@ -807,7 +809,7 @@ namespace multimedia
        }*/
       
       
-      void wave_out::on_run_step()
+      bool wave_out::on_run_step()
       {
          
          ::thread::on_run_step();
@@ -818,6 +820,8 @@ namespace multimedia
             CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.25, false);
             
          }
+         
+         return true;
          
       }
       

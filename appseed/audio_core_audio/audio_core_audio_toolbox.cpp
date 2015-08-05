@@ -17,7 +17,7 @@ namespace multimedia
       
       
       toolbox::toolbox(sp(::aura::application) papp) :
-         element(papp),
+         object(papp),
          ::thread(papp),
          wave_base(papp)
       {
