@@ -38,10 +38,13 @@
       location = "container:../../../app/atom/iconv/atomiconv.xcodeproj">
    </FileRef>
    <FileRef
+      location = "container:/ca2/app-veriwell/appseed/mplite/../../../nodeapp/appseed/audio_core_audio/audio_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:/ca2/app-veriwell/appseed/mplite/../../../nodeapp/appseed/audio_core_audio/audio_core_audio.xcodeproj">
+      location = "group:../../../app-core/appseed/audio_decode_wave/audio_decode_wave.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../appseed/audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">

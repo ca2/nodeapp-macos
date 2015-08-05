@@ -63,7 +63,7 @@ namespace multimedia
          //int run();
          
          
-         virtual void on_run_step();
+         virtual bool on_run_step();
          
          
          void OnOpen();
