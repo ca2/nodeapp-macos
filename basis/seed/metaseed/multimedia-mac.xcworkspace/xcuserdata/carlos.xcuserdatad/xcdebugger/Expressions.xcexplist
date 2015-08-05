@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "draw2d_quartz2d::internal_show_text(CGContext*, smart_pointer&lt;draw2d::font&gt;, draw2d::brush_sp, draw2d::pen_sp, double, double, char const*, int, CGTextDrawingMode, bool, double*, double*, double*, double*):draw2d_quartz2d_graphics.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "str">
+            </PersistentString>
+            <PersistentString
+               value = "nCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RoundWindowFrameView flagsChanged:]:RoundWindowFrameView.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "1 &lt;&lt; 0">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc_array::free(void*, unsigned long):aura_plex_heap_impl.h">
+      </ContextState>
+      <ContextState
+         contextName = "str::to_uint64(string const&amp;):str_str.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc_array::find(unsigned long):aura_plex_heap_impl.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_pData[i]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "mach_msg_trap:(null)">
+         <PersistentStrings>
+            <PersistentString
+               value = "p">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ansios::process::create_child_process(char const*, bool, char const*, int):ansios_process.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc_array::realloc(void*, unsigned long, int):base_plex_heap.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc::Alloc():aura_plex_heap_impl.h">
+      </ContextState>
+      <ContextState
+         contextName = "core::application::on_run_exception(exception::exception&amp;):core_application.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "-[RoundWindowFrameView drawRect:]:RoundWindowFrameView.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "rect">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "heap_memory::unaligned(void*, unsigned long, unsigned char):base_heap.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "sizeof(heap_memory)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "event_key_code(NSEvent*):RoundWindowFrameView.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "[event modifierFlags]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "draw2d::dib::BitBlt(int, int, draw2d::dib*, int):draw2d_dib.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "process::departament::process_thread::run_normal():process_departament.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "ns_shared_application():round_window.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "RoundWindowApp">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "event::lock(duration const&amp;):multithreading_event.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "critical_section::lock():multithreading_critical_section.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_mutex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "multimedia::audio_core_audio::wave_out::wave_out_open_ex(thread*, int, int, unsigned int, unsigned int, unsigned int):audio_core_audio_wave_out.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "&amp;this-&gt;m_Queue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "simple_ui::message_box::show():simple_ui_message_box.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_pimpl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "file::application::as_string(var):file_application.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "ansios::process::synch_elevated(char const*, int, duration const&amp;, bool*):ansios_process.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "strFolder">
+            </PersistentString>
+            <PersistentString
+               value = "strC">
+            </PersistentString>
+            <PersistentString
+               value = "strFallback">
+            </PersistentString>
+            <PersistentString
+               value = "pszCmdLineParam">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "smart_pointer&lt;factory_allocator&gt; base_factory::get_allocator&lt;create_context&gt;(int, bool):primitive_factory.h">
+      </ContextState>
+      <ContextState
+         contextName = "simple_ui::message_box::_001OnDraw(draw2d::graphics*):simple_ui_message_box.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "aura::application::initialize1():aura_application.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_pf1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "file::dir::system::matter(smart_pointer&lt;aura::application&gt;, string const&amp;, string const&amp;, bool, char const*, char const*):file_dir_system.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "set_nswindow_frame(oswindow_data*, tagRECT const*, int):macos_base_user_mm.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "lpcrect">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "install::install::add_app_install(char const*, char const*, char const*, char const*, char const*):install_install.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc_array::free(void*):base_plex_heap_impl.h">
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc::Free(void*):aura_plex_heap_impl.h">
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc_sync::Alloc():aura_plex_heap_impl.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_pf1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "user::keyboard::translate_os_key_message(message::key*):user_keyboard.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pkey-&gt;m_ekey">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "heap_memory::aligned(void*, unsigned long, unsigned char):base_heap.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "user::edit_plain_text::_001OnDraw(draw2d::graphics*):user_edit_plain_text.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "draw2d_quartz2d::graphics::GetTextExtent(sized&amp;, char const*, long long, int) const:draw2d_quartz2d_graphics.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "simple_ui::message_box::create_button(smart_pointer_array&lt;simple_ui::tap&gt;&amp;, id, char const*):simple_ui_message_box.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "ptap.m_p-&gt;m_pauraapp">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "user::interaction::create_window_ex(unsigned int, char const*, char const*, unsigned int, tagRECT const&amp;, user::interaction*, id, void*):user_interaction.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "this-&gt;m_pimpl.m_p-&gt;m_pui">
+            </PersistentString>
+            <PersistentString
+               value = "m_pimpl-&gt;m_pui">
+            </PersistentString>
+            <PersistentString
+               value = "m_pimpl.m_p-&gt;m_pui">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "smart_pointer:aura_smart_pointer2.h">
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc_sync::NewBlock():base_plex_heap.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "plex_heap_alloc_sync::Free(void*):aura_plex_heap_impl.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "((unsigned long) p &amp; 0xfffffffffe000000)">
+            </PersistentString>
+            <PersistentString
+               value = "(unsigned long) 0x000000000e000000">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "user::interaction::_001DrawThis(draw2d::graphics*):user_interaction.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "-[RoundWindowFrameView mouseDown:]:RoundWindowFrameView.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "event.type">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "user::keyboard_layout::load(char const*):user_keyboard_layout.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "strCode">
+            </PersistentString>
+            <PersistentString
+               value = "strValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "factory_allocator::alloc():primitive_factory.h">
+      </ContextState>
+      <ContextState
+         contextName = "dir::eat_end_level(string&amp;, int, char const*):file_dir.cpp">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
