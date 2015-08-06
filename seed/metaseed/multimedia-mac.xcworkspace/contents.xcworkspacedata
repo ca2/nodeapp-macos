@@ -5,6 +5,9 @@
       location = "container:../../../app-core/appseed/hellomultiverse/Hello Multiverse!!.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/auraclick/auraclick.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-core/appseed/auraverse/auraverse.xcodeproj">
    </FileRef>
    <FileRef
@@ -12,6 +15,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-cidadedecuritiba/appseed/alphaclock/app_cidadedecuritiba_alphaclock.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/auraclick/app_core_auraclick.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/auraverse/app_core_auraverse.xcodeproj">
