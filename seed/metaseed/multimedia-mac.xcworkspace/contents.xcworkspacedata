@@ -56,6 +56,9 @@
       location = "container:../../../app/aura/charguess/auracharguess.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/aura/pcre/aurapcre.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app/aura/sqlite/aurasqlite.xcodeproj">
    </FileRef>
    <FileRef
