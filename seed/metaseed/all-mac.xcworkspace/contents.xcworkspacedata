@@ -5,6 +5,9 @@
       location = "group:../../../app-core/appseed/hellomultiverse/Hello Multiverse!!.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/flag/Flag.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../appseed/app/app.xcodeproj">
    </FileRef>
    <FileRef
