@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071042281B743B17009EFDB7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 071042271B743B17009EFDB7 /* Images.xcassets */; };
+		071043841B743C37009EFDB7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 071043811B743C37009EFDB7 /* MainMenu.xib */; };
 		0722ED7819261C13003E99F4 /* libbase.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0722ED3919261BC6003E99F4 /* libbase.dylib */; };
 		9A19A1BF19C6F52D0018DF7D /* libcore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A19A1BE19C6F51F0018DF7D /* libcore.dylib */; };
 		9A1EDBDD19C8458300F5CCE8 /* libaura.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1EDBC519C8456900F5CCE8 /* libaura.dylib */; };
@@ -292,6 +294,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071042271B743B17009EFDB7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		071043821B743C37009EFDB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MainMenu.xib; sourceTree = "<group>"; };
 		0722ED1D1925A392003E99F4 /* app.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = app.h; sourceTree = SOURCE_ROOT; };
 		0722ED3219261BC6003E99F4 /* base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = base.xcodeproj; path = /ca2/nodeapp/seed/metaseed/../../../app/appseed/base/base.xcodeproj; sourceTree = "<absolute>"; };
 		0722ED6219261BEE003E99F4 /* core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = core.xcodeproj; path = /ca2/nodeapp/seed/metaseed/../../../app/appseed/core/core.xcodeproj; sourceTree = "<absolute>"; };
@@ -336,6 +340,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0710437E1B743C37009EFDB7 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				071043811B743C37009EFDB7 /* MainMenu.xib */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
 		0722ED3319261BC6003E99F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,8 +387,8 @@
 		07D1B0CC1B6FBEB3004E8E35 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07D1B0D21B6FBEB3004E8E35 /* libaxisjpeg.dylib */,
-				07D1B0D41B6FBEB3004E8E35 /* libaxisjpeg.dylib */,
+				07D1B0D21B6FBEB3004E8E35 /* libaxis_image_jpeg.dylib */,
+				07D1B0D41B6FBEB3004E8E35 /* libaxis_image_jpeg.dylib */,
 				07D1B0D61B6FBEB3004E8E35 /* axisjpeg_iosTests.xctest */,
 			);
 			name = Products;
@@ -385,8 +397,8 @@
 		07D1B0D81B6FBEBA004E8E35 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07D1B0DE1B6FBEBA004E8E35 /* libaxispng.dylib */,
-				07D1B0E01B6FBEBA004E8E35 /* libaxispng.dylib */,
+				07D1B0DE1B6FBEBA004E8E35 /* libaxis_image_png.dylib */,
+				07D1B0E01B6FBEBA004E8E35 /* libaxis_image_png.dylib */,
 				07D1B0E21B6FBEBA004E8E35 /* axispng_iosTests.xctest */,
 			);
 			name = Products;
@@ -489,6 +501,8 @@
 		9A5752BC16AAE1D2000CC4EF /* app */ = {
 			isa = PBXGroup;
 			children = (
+				0710437E1B743C37009EFDB7 /* Base.lproj */,
+				071042271B743B17009EFDB7 /* Images.xcassets */,
 				9AB3522516AC11540084BFE8 /* app.entitlements */,
 				9A5752DC16AAE321000CC4EF /* app.cpp */,
 				0722ED1D1925A392003E99F4 /* app.h */,
@@ -580,6 +594,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 9A5752A716AAE1D2000CC4EF;
 			productRefGroup = 9A5752B316AAE1D2000CC4EF /* Products */;
@@ -684,17 +699,17 @@
 			remoteRef = 077C88AC1B519CC600AB2A41 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		07D1B0D21B6FBEB3004E8E35 /* libaxisjpeg.dylib */ = {
+		07D1B0D21B6FBEB3004E8E35 /* libaxis_image_jpeg.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libaxisjpeg.dylib;
+			path = libaxis_image_jpeg.dylib;
 			remoteRef = 07D1B0D11B6FBEB3004E8E35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		07D1B0D41B6FBEB3004E8E35 /* libaxisjpeg.dylib */ = {
+		07D1B0D41B6FBEB3004E8E35 /* libaxis_image_jpeg.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libaxisjpeg.dylib;
+			path = libaxis_image_jpeg.dylib;
 			remoteRef = 07D1B0D31B6FBEB3004E8E35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -705,17 +720,17 @@
 			remoteRef = 07D1B0D51B6FBEB3004E8E35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		07D1B0DE1B6FBEBA004E8E35 /* libaxispng.dylib */ = {
+		07D1B0DE1B6FBEBA004E8E35 /* libaxis_image_png.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libaxispng.dylib;
+			path = libaxis_image_png.dylib;
 			remoteRef = 07D1B0DD1B6FBEBA004E8E35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		07D1B0E01B6FBEBA004E8E35 /* libaxispng.dylib */ = {
+		07D1B0E01B6FBEBA004E8E35 /* libaxis_image_png.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libaxispng.dylib;
+			path = libaxis_image_png.dylib;
 			remoteRef = 07D1B0DF1B6FBEBA004E8E35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -873,6 +888,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				071042281B743B17009EFDB7 /* Images.xcassets in Resources */,
+				071043841B743C37009EFDB7 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,6 +944,17 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		071043811B743C37009EFDB7 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				071043821B743C37009EFDB7 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		9A5752CE16AAE1D3000CC4EF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -957,15 +985,15 @@
 					"$(WorkspaceDir)/../../../app/base/include",
 					"$(WorkspaceDir)/../../../nodeapp/thirdparty/include",
 				);
-				INSTALL_PATH = "@executable_path";
+				INSTALL_PATH = /Library/Framework/ca2;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path /Library/Frameworks/ca2";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(TARGET_BUILD_DIR)\"",
+					"$(TARGET_BUILD_DIR)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../../../app/appseed/axis $(WorkspaceDir)/../../../app/appseed/aura $(WorkspaceDir)/../.. $(WorkspaceDir)/../../base/include $(WorkspaceDir)/../../../app/base/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/base";
 				WorkspaceDir = "$(SRCROOT)/../../../nodeapp/seed/metaseed";
 			};
@@ -994,14 +1022,14 @@
 					"$(WorkspaceDir)/../../../app/base/include",
 					"$(WorkspaceDir)/../../../nodeapp/thirdparty/include",
 				);
-				INSTALL_PATH = "@executable_path";
+				INSTALL_PATH = /Library/Framework/ca2;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path /Library/Frameworks/ca2";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(TARGET_BUILD_DIR)\"",
+					"$(TARGET_BUILD_DIR)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../../../app/appseed/axis $(WorkspaceDir)/../../../app/appseed/aura $(WorkspaceDir)/../.. $(WorkspaceDir)/../../base/include $(WorkspaceDir)/../../../app/base/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/base";
 				WorkspaceDir = "$(SRCROOT)/../../../nodeapp/seed/metaseed";
 			};
@@ -1010,11 +1038,13 @@
 		9A5752D116AAE1D3000CC4EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application: Camilo Tsumanuma (L8N5V6TZE5)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/app-Info.plist";
+				INSTALL_PATH = "@executable_path";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1022,11 +1052,13 @@
 		9A5752D216AAE1D3000CC4EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application: Camilo Tsumanuma (L8N5V6TZE5)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/app-Info.plist";
+				INSTALL_PATH = "@executable_path";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
