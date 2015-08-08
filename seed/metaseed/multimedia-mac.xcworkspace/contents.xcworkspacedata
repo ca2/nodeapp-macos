@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:../../../app-core/appseed/hellomultiverse/Hello Multiverse!!.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app-core/appseed/auraclick/auraclick.xcodeproj">
    </FileRef>
    <FileRef
