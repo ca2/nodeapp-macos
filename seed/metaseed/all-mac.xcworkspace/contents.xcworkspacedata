@@ -11,6 +11,9 @@
       location = "group:../../../app-core/appseed/projection/Projection.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-cidadedecuritiba/appseed/alphaclock/Alphaclock.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../appseed/app/app.xcodeproj">
    </FileRef>
    <FileRef
