@@ -14,7 +14,7 @@
       location = "group:../../../app-cidadedecuritiba/appseed/alphaclock/Alphaclock.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/rdpclient/Rdpclient.xcodeproj">
+      location = "container:../../../app-core/appseed/rdpclient/Rdpclient.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../appseed/app/app.xcodeproj">
@@ -78,6 +78,18 @@
    </FileRef>
    <FileRef
       location = "container:../../../app/axis/freerdp/axisfreerdp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/ca2/app/axis/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/ca2/app/axis/openh264/codec/build/iOS/common/welscommon.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/openh264/codec/build/iOS/dec/welsdec/welsdec.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/openh264/codec/build/iOS/enc/welsenc/welsenc.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/axis/freetype/axisfreetype.xcodeproj">
