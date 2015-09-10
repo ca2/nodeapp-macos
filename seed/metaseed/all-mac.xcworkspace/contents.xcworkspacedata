@@ -17,6 +17,9 @@
       location = "container:../../../app-core/appseed/rdpclient/Rdpclient.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-veriwell/appseed/waven/Waven.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../appseed/app/app.xcodeproj">
    </FileRef>
    <FileRef
@@ -39,6 +42,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/waven/app_veriwell_waven.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/atom/iconv/atomiconv.xcodeproj">
@@ -80,18 +86,6 @@
       location = "container:../../../app/axis/freerdp/axisfreerdp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/ca2/app/axis/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:/ca2/app/axis/openh264/codec/build/iOS/common/welscommon.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/axis/openh264/codec/build/iOS/dec/welsdec/welsdec.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/axis/openh264/codec/build/iOS/enc/welsenc/welsenc.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../../app/axis/freetype/axisfreetype.xcodeproj">
    </FileRef>
    <FileRef
@@ -122,6 +116,9 @@
       location = "container:../../../app/appseed/base/base.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/id3lib/baseid3lib.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-veriwell/appseed/libmpg123/basempg123.xcodeproj">
    </FileRef>
    <FileRef
@@ -132,6 +129,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../game/appseed/tictactoe/game_tictactoe.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "absolute:/ca2/app-veriwell/appseed/multimedia/../../../app-core/appseed/gcom/gcom.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/html/html.xcodeproj">
@@ -156,6 +156,18 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/ca2/app/axis/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/ca2/app/axis/openh264/codec/build/iOS/common/welscommon.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/openh264/codec/build/iOS/dec/welsdec/welsdec.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/axis/openh264/codec/build/iOS/enc/welsenc/welsenc.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/wndfrm_core/wndfrm_core.xcodeproj">

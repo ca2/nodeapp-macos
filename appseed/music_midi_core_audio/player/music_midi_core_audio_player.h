@@ -1,13 +1,6 @@
 #pragma once
 
 
-#include "music_midi_core_audio_player_callback.h"
-#include "music_midi_core_audio_player_interface.h"
-
-
-
-
-
 namespace music
 {
 
@@ -23,7 +16,6 @@ namespace music
       {
 
          class player_callback;
-         class player_interface;
 
 
 
@@ -50,7 +42,7 @@ namespace music
             virtual int32_t exit_instance();
             virtual void pre_translate_message(::signal_details * pobj);
             void OnMmsgDone(::music::midi::sequence *pSeq);
-            DECL_GEN_SIGNAL(OnUserMessage)
+            DECL_GEN_SIGNAL(OnUserMessage);
                void SaveFile(const char * lpszPathName);
             void SetPosition(double dRate);
             void Pause();
@@ -68,7 +60,7 @@ namespace music
 
             bool SetMidiOutDevice(uint32_t uiDevice);
 
-            ::multimedia::e_result SetInterface(player_interface * pinterface);
+            virtual ::multimedia::e_result set_client(::music::midi::player::player_client * pclient);
 
             ::multimedia::e_result Initialize(::thread * pthread);
 
@@ -79,12 +71,12 @@ namespace music
             void SendTempoChange(); // verificar
 
 
-            DECL_GEN_SIGNAL(OnNotifyEvent)
-            DECL_GEN_SIGNAL(OnMultimediaMidiOutputMessageDone)
-            DECL_GEN_SIGNAL(OnMultimediaMidiOutputMessagePositionCB)
+            DECL_GEN_SIGNAL(OnNotifyEvent);
+            DECL_GEN_SIGNAL(OnMultimediaMidiOutputMessageDone);
+            DECL_GEN_SIGNAL(OnMultimediaMidiOutputMessagePositionCB);
 
             // midi central listener
-            DECL_GEN_VSIGNAL(on_attribute_change);
+            DECL_GEN_SIGNAL(on_attribute_change);
 
 
          };

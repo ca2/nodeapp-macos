@@ -318,48 +318,48 @@ namespace music
 
       }
 
-      ::music::e_result FillTypeCombo(sp(simple_combo_box)lpcombo)
-      {
-         UNREFERENCED_PARAMETER(lpcombo);
-         /*   lpcombo->ResetContent();
-
-         string str;
-         str.load_string(IDS_MIDI_NOTEOFF);
-         int32_t iItem = lpcombo->AddString(str);
-         lpcombo->SetItemData(iItem, NoteOff);
-
-         str.load_string(IDS_MIDI_NOTEON);
-         iItem = lpcombo->AddString(str);
-         lpcombo->SetItemData(iItem, NoteOn);
-
-         //    string str;
-         //  str.load_string(IDS_MIDI_KEYPRESSURE);
-         //lpcombo->AddString(str);
-         //lpcombo->SetItemData(lpcombo->get_count() - 1, K);
-         str.load_string(IDS_MIDI_CONTROLCHANGE);
-         iItem = lpcombo->AddString(str);
-         lpcombo->SetItemData(iItem, ControlChange);
-
-         str.load_string(IDS_MIDI_PROGRAMCHANGE);
-         iItem = lpcombo->AddString(str);
-         lpcombo->SetItemData(iItem, ProgramChange);*/
-
-         return ::music::success;
-      }
-
-      ::music::e_result FillPitchCombo(sp(simple_combo_box)lpcombo)
-      {
-         UNREFERENCED_PARAMETER(lpcombo);
-         /*    lpcombo->ResetContent();
-
-         for(int32_t i = 0; i < 128; i++)
-         {
-         int32_t iItem = lpcombo->AddString(pitchText[i]);
-         lpcombo->SetItemData(iItem, i);
-         }
-         */
-         return ::music::success;
-      }
+//      ::music::e_result FillTypeCombo(sp(simple_combo_box)lpcombo)
+//      {
+//         UNREFERENCED_PARAMETER(lpcombo);
+//         /*   lpcombo->ResetContent();
+//
+//         string str;
+//         str.load_string(IDS_MIDI_NOTEOFF);
+//         int32_t iItem = lpcombo->AddString(str);
+//         lpcombo->SetItemData(iItem, NoteOff);
+//
+//         str.load_string(IDS_MIDI_NOTEON);
+//         iItem = lpcombo->AddString(str);
+//         lpcombo->SetItemData(iItem, NoteOn);
+//
+//         //    string str;
+//         //  str.load_string(IDS_MIDI_KEYPRESSURE);
+//         //lpcombo->AddString(str);
+//         //lpcombo->SetItemData(lpcombo->get_count() - 1, K);
+//         str.load_string(IDS_MIDI_CONTROLCHANGE);
+//         iItem = lpcombo->AddString(str);
+//         lpcombo->SetItemData(iItem, ControlChange);
+//
+//         str.load_string(IDS_MIDI_PROGRAMCHANGE);
+//         iItem = lpcombo->AddString(str);
+//         lpcombo->SetItemData(iItem, ProgramChange);*/
+//
+//         return ::music::success;
+//      }
+//
+//      ::music::e_result FillPitchCombo(sp(simple_combo_box)lpcombo)
+//      {
+//         UNREFERENCED_PARAMETER(lpcombo);
+//         /*    lpcombo->ResetContent();
+//
+//         for(int32_t i = 0; i < 128; i++)
+//         {
+//         int32_t iItem = lpcombo->AddString(pitchText[i]);
+//         lpcombo->SetItemData(iItem, i);
+//         }
+//         */
+//         return ::music::success;
+//      }
 
 
       int32_t GetMessageLen(BYTE bEvent)

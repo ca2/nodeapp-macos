@@ -10,7 +10,7 @@ namespace music
       
       
       sequence_thread::sequence_thread(sp(::aura::application) papp) :
-      element(papp),
+      object(papp),
       thread(papp),
       ::music::midi::sequence_thread(papp)
       {
@@ -22,7 +22,7 @@ namespace music
       
       bool sequence_thread::initialize_instance()
       {
-         set_thread_priority(::base::scheduling_priority_highest);
+         set_thread_priority(::multithreading::priority_highest);
          return true;
       }
       
@@ -386,7 +386,7 @@ namespace music
          spcommand = (::music::midi::player::command *) pbase->m_lparam.m_lparam;
          try
          {
-            spcommand->m_eresult = _ExecuteCommand(spcommand);
+             _ExecuteCommand(spcommand);
          }
          catch(exception * pe)
          {
@@ -401,7 +401,7 @@ namespace music
       }
       
       
-      ::multimedia::e_result sequence_thread::_ExecuteCommand(smart_pointer < ::music::midi::player::command > spcommand)
+      void sequence_thread::_ExecuteCommand(smart_pointer < ::music::midi::player::command > spcommand)
       {
       
       ::multimedia::e_result mmrc = ::multimedia::result_success;
@@ -466,7 +466,6 @@ Play(spcommand->m_dRate);
             break;
          }
          
-         return mmrc;
       }
       
       
