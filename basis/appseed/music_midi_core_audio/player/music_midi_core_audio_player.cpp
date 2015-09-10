@@ -14,12 +14,12 @@ namespace music
          
          
          player::player(sp(::aura::application) papp) :
-         element(papp),
+         object(papp),
          thread(papp),
          ::music::midi::player::player(papp)
          {
             
-            m_psequencethread = dynamic_cast < ::music::midi::sequence_thread * > (__begin_thread < sequence_thread >(papp, ::base::scheduling_priority_normal, 0, CREATE_SUSPENDED));
+            m_psequencethread = dynamic_cast < ::music::midi::sequence_thread * > (__begin_thread < sequence_thread >(papp, ::multithreading::priority_normal, 0, CREATE_SUSPENDED));
             
             m_puie               = NULL;
             
@@ -39,7 +39,7 @@ namespace music
             //SetMainWnd(NULL);
             //ASSERT(GetMainWnd() == NULL);
             
-            set_thread_priority(::base::scheduling_priority_normal);
+            set_thread_priority(::multithreading::priority_normal);
             
             m_evInitialized.SetEvent();
             
@@ -302,15 +302,37 @@ namespace music
          //    m_pView = pview;
          //}
          
-         ::multimedia::e_result player::SetInterface(player_interface * pinterface)
+//         ::multimedia::e_result player::SetInterface(player_interface * pinterface)
+//         {
+//            m_pinterface = pinterface;
+//            get_sequence()->m_pthread   = m_psequencethread;
+//            m_psequencethread->m_psequence = get_sequence();
+//            m_psequencethread->m_pplayer = this;
+//            PostNotifyEvent(::music::midi::player::notify_event_set_sequence);
+//            return ::multimedia::result_success;
+//         }
+//         
+//         
+//         
+         
+         
+         ::multimedia::e_result player::set_client(::music::midi::player::player_client * pclient)
          {
-            m_pinterface = pinterface;
+            
+            m_pclient = pclient;
+            
             get_sequence()->m_pthread   = m_psequencethread;
-            m_psequencethread->m_psequence = get_sequence();
-            m_psequencethread->m_pplayer = this;
+            
+            m_psequencethread->m_psequence = get_sequence(); 
+            
+            m_psequencethread->m_pplayer = this; 
+            
             PostNotifyEvent(::music::midi::player::notify_event_set_sequence);
+            
             return ::multimedia::result_success;
+            
          }
+         
          
          
          bool player::SetMidiOutDevice(uint32_t uiDevice)
