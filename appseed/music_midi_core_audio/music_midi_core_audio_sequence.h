@@ -165,7 +165,7 @@ namespace music
          virtual void SetTempoChangeFlag(bool bSet = true);
          virtual bool IsChangingTempo();
          
-         virtual int32_t GetTempoShift();
+         virtual double GetTempoShift();
          virtual void GetMidiDoneData(::music::midi::LPMIDIDONEDATA lpmdd);
          virtual bool IsInSpecialModeV001();
          virtual bool WasInSpecialModeV001();
