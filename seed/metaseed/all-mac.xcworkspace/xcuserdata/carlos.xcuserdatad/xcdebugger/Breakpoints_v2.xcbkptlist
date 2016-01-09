@@ -716,7 +716,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/base/node/macos/RoundWindowApp.mm"
@@ -752,11 +752,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/hellomultiverse/mac_main.cpp"
-            timestampString = "474070815.529344"
+            timestampString = "474076205.194528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "main(int argc, char *argv[])"
             landmarkType = "7">
          </BreakpointContent>
