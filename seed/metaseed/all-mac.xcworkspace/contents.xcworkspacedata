@@ -131,7 +131,7 @@
       location = "container:../../../game/appseed/tictactoe/game_tictactoe.xcodeproj">
    </FileRef>
    <FileRef
-      location = "absolute:/ca2/app-veriwell/appseed/multimedia/../../../app-core/appseed/gcom/gcom.xcodeproj">
+      location = "container:../../../app-core/appseed/gcom/gcom.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/html/html.xcodeproj">
@@ -158,10 +158,10 @@
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/ca2/app/axis/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
+      location = "container:../../../app/axis/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/ca2/app/axis/openh264/codec/build/iOS/common/welscommon.xcodeproj">
+      location = "container:../../../app/axis/openh264/codec/build/iOS/common/welscommon.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/axis/openh264/codec/build/iOS/dec/welsdec/welsdec.xcodeproj">
