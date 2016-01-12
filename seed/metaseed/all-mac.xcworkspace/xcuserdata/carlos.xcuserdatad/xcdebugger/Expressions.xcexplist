@@ -25,6 +25,17 @@
          contextName = "plex_heap_alloc_array::free(void*, unsigned long):aura_plex_heap_impl.h">
       </ContextState>
       <ContextState
+         contextName = "ns_shared_application(int, char**):round_window.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "argv[1]">
+            </PersistentString>
+            <PersistentString
+               value = "argv[2]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "str::to_uint64(string const&amp;):str_str.cpp">
       </ContextState>
       <ContextState
@@ -132,7 +143,7 @@
          contextName = "ansios::process::synch_elevated(char const*, int, duration const&amp;, bool*):ansios_process.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "strFolder">
+               value = "pszCmdLineParam">
             </PersistentString>
             <PersistentString
                value = "strC">
@@ -141,7 +152,7 @@
                value = "strFallback">
             </PersistentString>
             <PersistentString
-               value = "pszCmdLineParam">
+               value = "strFolder">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
