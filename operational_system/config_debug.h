@@ -1,7 +1,7 @@
 #pragma once
 
 
-#define MEMDLEAK 1
+#define MEMDLEAK 0
 
 //#define __VLD
 
