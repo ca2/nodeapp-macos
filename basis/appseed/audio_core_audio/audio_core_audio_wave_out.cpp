@@ -106,7 +106,7 @@ namespace multimedia
             uiSkippedSamplesCount = 1;
          }
          
-         wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, uiBufferCount, m_pwaveformat, m_pwaveformat);
+         wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, uiBufferCount, 64, m_pwaveformat, m_pwaveformat);
          
          m_pprebuffer->open(this, m_pwaveformat->nChannels, uiBufferCount, m_iBufferSampleCount);
          
@@ -272,7 +272,7 @@ namespace multimedia
             uiSkippedSamplesCount = 1;
          }
          
-         wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, uiBufferCount, m_pwaveformat, m_pwaveformat);
+         wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, uiBufferCount, 64, m_pwaveformat, m_pwaveformat);
          
          m_pprebuffer->open(
                             this, // callback thread (thread)
@@ -411,7 +411,7 @@ namespace multimedia
             uiSkippedSamplesCount = 1;
          }
          
-         wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, uiBufferCount, m_pwaveformat, m_pwaveformat);
+         wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, uiBufferCount, 64, m_pwaveformat, m_pwaveformat);
          
          m_pprebuffer->open(this, m_pwaveformat->nChannels, uiBufferCount, iBufferSampleCount);
          
@@ -655,7 +655,7 @@ namespace multimedia
       }
       
       
-      imedia::time wave_out::wave_out_get_position_millis()
+      imedia_time wave_out::wave_out_get_position_millis()
       {
          
          single_lock sLock(&m_mutex, TRUE);
@@ -676,7 +676,7 @@ namespace multimedia
             if(!(stamp.mFlags & kAudioTimeStampSampleTimeValid))
                return 0;
             
-            return (imedia::time) stamp.mSampleTime;
+            return (imedia_time) stamp.mSampleTime;
             
          }
          else
@@ -707,7 +707,7 @@ namespace multimedia
             if(!(stamp.mFlags & kAudioTimeStampSampleTimeValid))
                return 0;
             
-            return (imedia::time) stamp.mSampleTime;
+            return (imedia_time) stamp.mSampleTime;
             
          }
          else
@@ -812,7 +812,7 @@ namespace multimedia
       bool wave_out::on_run_step()
       {
          
-         ::thread::on_run_step();
+//         ::thread::on_run_step();
          
          if(m_estate == state_playing)
          {

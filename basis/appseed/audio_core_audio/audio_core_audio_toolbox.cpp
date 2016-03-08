@@ -38,7 +38,7 @@ namespace multimedia
       }
       
       
-      void * toolbox::wave_allocate_buffer_data(::primitive::memory_size len)
+      void * toolbox::wave_allocate_buffer_data(memory_size_t len)
       {
          
          AudioQueueBufferRef buf = NULL;

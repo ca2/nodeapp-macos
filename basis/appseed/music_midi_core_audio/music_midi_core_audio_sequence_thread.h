@@ -22,7 +22,7 @@ namespace music
          void install_message_handling(::message::dispatch * pinterface);
 
          ::music::midi::sequence * get_sequence();
-         void Stop(imedia::time msEllapse);
+         void Stop(imedia_time msEllapse);
 
          bool PostMidiSequenceEvent(::music::midi::sequence * pseq, ::music::midi::sequence::e_event event);
 
