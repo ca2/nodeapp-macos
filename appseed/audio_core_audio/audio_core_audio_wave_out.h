@@ -36,7 +36,7 @@ namespace multimedia
 
          void install_message_handling(::message::dispatch * pinterface);
 
-         virtual imedia::time wave_out_get_position_millis();
+         virtual imedia_time wave_out_get_position_millis();
          imedia::position wave_out_get_position();
          virtual void wave_out_buffer_ready(int iBuffer);
 

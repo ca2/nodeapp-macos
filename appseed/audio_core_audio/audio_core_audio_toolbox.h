@@ -37,7 +37,7 @@ namespace multimedia
          virtual ~toolbox();
          
 
-         virtual void * wave_allocate_buffer_data(::primitive::memory_size len);
+         virtual void * wave_allocate_buffer_data(memory_size_t len);
          virtual void wave_free_buffer_data(void * pdata);
          
          
