@@ -137,19 +137,13 @@
       location = "container:../../../app-core/appseed/gcom/gcom.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/appseed/html/html.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/html_lite/html_lite.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/appseed/math/math.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../appseed/music_midi_core_audio/music_midi_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/pcre/pcre.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/sphere/sphere.xcodeproj">
