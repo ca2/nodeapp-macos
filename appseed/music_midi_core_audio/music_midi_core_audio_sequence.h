@@ -182,7 +182,7 @@ namespace music
          ::music::e_result OpenFile(::music::midi::sequence & sequence, int32_t iOpenMode);
          ::music::e_result OpenFile(::file::stream_buffer & ar, int32_t openMode);
          ::music::e_result OpenFile(const char * lpFileName, int32_t openMode);
-         ::music::e_result OpenFile(primitive::memory * pmemorystorage, int32_t openMode, ::music::e_storage estorage);
+         ::music::e_result OpenFile(memory * pmemorystorage, int32_t openMode, ::music::e_storage estorage);
          
          ::music::e_result CloseFile();
          ::music::e_result SaveFile(const char * lpFileName);

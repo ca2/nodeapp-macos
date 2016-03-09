@@ -41,6 +41,9 @@
       location = "container:../../../app-core/appseed/rdpclient/app_core_rdpclient.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-veriwell/appseed/asciimedia/app_veriwell_asciimedia.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
    </FileRef>
    <FileRef
@@ -54,6 +57,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/audio_decode_spotify/audio_decode_spotify.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../appseed/audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
