@@ -14,10 +14,11 @@ namespace music
    {
 
 
-      midi::midi(sp(::aura::application) papp) :
-         object(papp),
-         departament(papp),
-         ::music::midi::midi(papp)
+      midi::midi(::aura::application * papp) :
+      ::object(papp),
+         department(papp),
+         ::music::midi::midi(papp),
+      ::music::midi::object(papp)
       {
 
             m_uiMidiOutDevice = 0;

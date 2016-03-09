@@ -38,7 +38,7 @@ namespace music
          IGUI_WIN_MSG_LINK(::music::midi_core_midi::sequence::message_run, pinterface, this, &sequence_thread::OnRun);
       }
       
-      void sequence_thread::Stop(imedia::time msEllapse)
+      void sequence_thread::Stop(imedia_time msEllapse)
       {
          get_sequence()->Stop();
          m_eventStop.wait(millis(msEllapse));
