@@ -37,8 +37,10 @@ namespace multimedia
          virtual ~toolbox();
          
 
-         virtual void * wave_allocate_buffer_data(memory_size_t len);
-         virtual void wave_free_buffer_data(void * pdata);
+         virtual void wave_allocate_buffer_data(::multimedia::audio::wave_buffer::buffer * pbuffer, memory_size_t uiBufferSize, uint32_t uiAlign);
+         
+         virtual void wave_free_buffer_data(::multimedia::audio::wave_buffer::buffer * pbuffer);
+
          
          
          virtual bool initialize_instance();
@@ -52,8 +54,7 @@ namespace multimedia
          AudioQueueBufferRef audio_buffer(int iBuffer);
          
          
-         
-      } ; 
+      } ;
       
    
    } // namespace multimedia
