@@ -38,32 +38,32 @@ namespace multimedia
       }
       
       
-      void * toolbox::wave_allocate_buffer_data(memory_size_t len)
+      void toolbox::wave_allocate_buffer_data(::multimedia::audio::wave_buffer::buffer * pbuffer, memory_size_t len, uint32_t uiAlign)
       {
          
          AudioQueueBufferRef buf = NULL;
          
          if(0 != AudioQueueAllocateBuffer(m_Queue, (UInt32) len, &buf))
-            return NULL;
+            return;
          
          if(buf == NULL)
-            return NULL;
+            return;
          
          m_Buffers.add(buf);
          
-         return (void *) buf->mAudioData;
+         pbuffer->m_pData = buf->mAudioData;
          
       }
       
       
-      void toolbox::wave_free_buffer_data(void * pdata)
+      void toolbox::wave_free_buffer_data(::multimedia::audio::wave_buffer::buffer * pbuffer)
       {
          
          for(int i = 0; i < m_Buffers.get_count(); i++)
          {
 
             
-            if(m_Buffers[i]->mAudioData == pdata)
+            if(m_Buffers[i]->mAudioData == pbuffer->m_pData)
             {
             
                AudioQueueFreeBuffer(m_Queue, m_Buffers[i]);
