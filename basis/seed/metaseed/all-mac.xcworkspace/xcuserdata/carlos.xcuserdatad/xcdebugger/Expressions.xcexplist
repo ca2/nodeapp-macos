@@ -143,7 +143,7 @@
          contextName = "ansios::process::synch_elevated(char const*, int, duration const&amp;, bool*):ansios_process.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "pszCmdLineParam">
+               value = "strFolder">
             </PersistentString>
             <PersistentString
                value = "strC">
@@ -152,7 +152,7 @@
                value = "strFallback">
             </PersistentString>
             <PersistentString
-               value = "strFolder">
+               value = "pszCmdLineParam">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -183,6 +183,14 @@
       </ContextState>
       <ContextState
          contextName = "install::install::add_app_install(char const*, char const*, char const*, char const*, char const*):install_install.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "audio_decode_spotify::decoder::_DecoderInitialize(smart_pointer&lt;file::stream_buffer&gt;):Decoder.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_nSampleCount">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "plex_heap_alloc_array::free(void*):base_plex_heap_impl.h">
