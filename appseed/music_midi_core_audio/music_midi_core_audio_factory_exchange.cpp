@@ -34,7 +34,7 @@ namespace music
 
 
 extern "C"
-void ca2_factory_exchange(sp(::aura::application) papp)
+void ca2_factory_exchange(::aura::application * papp)
 {
 
    ::music::midi_core_midi::factory_exchange factoryexchange(papp);
