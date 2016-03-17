@@ -47,7 +47,7 @@
       location = "container:../../../app/atom/iconv/atomiconv.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:/ca2/app-veriwell/appseed/mplite/../../../nodeapp/appseed/audio_core_audio/audio_core_audio.xcodeproj">
+      location = "group:../../appseed/audio_core_audio/audio_core_audio.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
@@ -134,19 +134,13 @@
       location = "group:../../../app-core/appseed/gcom/gcom.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/appseed/html/html.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/html_lite/html_lite.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/appseed/math/math.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../appseed/music_midi_core_audio/music_midi_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/pcre/pcre.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/sphere/sphere.xcodeproj">
