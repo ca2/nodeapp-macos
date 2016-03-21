@@ -667,11 +667,20 @@ namespace multimedia
          if(m_Queue != NULL)
          {
             
-            status = AudioQueueDeviceGetCurrentTime(m_Queue, &stamp);
+            
+            AudioQueueTimelineRef timeLine;
+            
+            status = AudioQueueCreateTimeline(m_Queue, &timeLine);
+            if(status != noErr)
+               return 0;
+            
+            status = AudioQueueGetCurrentTime(m_Queue, timeLine, &stamp, NULL);
             
             if(status != 0)
                return 0;
             
+            
+
             
             if(!(stamp.mFlags & kAudioTimeStampSampleTimeValid))
                return 0;
@@ -698,7 +707,13 @@ namespace multimedia
          if(m_Queue != NULL)
          {
             
-            status = AudioQueueDeviceGetCurrentTime(m_Queue, &stamp);
+            AudioQueueTimelineRef timeLine;
+            
+            status = AudioQueueCreateTimeline(m_Queue, &timeLine);
+            if(status != noErr)
+               return 0;
+            
+            status = AudioQueueGetCurrentTime(m_Queue, timeLine, &stamp, NULL);
             
             if(status != 0)
                return 0;
