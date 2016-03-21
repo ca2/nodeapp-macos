@@ -20,9 +20,6 @@
       location = "group:../../../app-veriwell/appseed/waven/Waven.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../appseed/app/app.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../../app-cidadedecuritiba/appseed/alphaclock/app_cidadedecuritiba_alphaclock.xcodeproj">
    </FileRef>
    <FileRef
