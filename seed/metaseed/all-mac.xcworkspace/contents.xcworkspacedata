@@ -110,6 +110,9 @@
       location = "container:../../../app/aura/charguess/auracharguess.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/aura/expat/auraexpat.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app/aura/pcre/aurapcre.xcodeproj">
    </FileRef>
    <FileRef
@@ -201,6 +204,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/sphere/sphere.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/strophe/strophe.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/tesseract/tesseract.xcodeproj">
