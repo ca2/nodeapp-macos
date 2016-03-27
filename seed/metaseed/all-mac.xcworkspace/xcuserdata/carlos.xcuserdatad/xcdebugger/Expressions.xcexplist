@@ -75,6 +75,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "file::dir::axis::system::matter(aura::application*, file::path const&amp;, bool, file::path const&amp;, file::path const&amp;):filesystem_dir_axis_system.cpp">
+      </ContextState>
+      <ContextState
          contextName = "heap_memory::unaligned(void*, unsigned long, unsigned char):base_heap.cpp">
          <PersistentStrings>
             <PersistentString
@@ -143,7 +146,7 @@
          contextName = "ansios::process::synch_elevated(char const*, int, duration const&amp;, bool*):ansios_process.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "strFolder">
+               value = "pszCmdLineParam">
             </PersistentString>
             <PersistentString
                value = "strC">
@@ -152,12 +155,20 @@
                value = "strFallback">
             </PersistentString>
             <PersistentString
-               value = "pszCmdLineParam">
+               value = "strFolder">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "smart_pointer&lt;factory_allocator&gt; base_factory::get_allocator&lt;create_context&gt;(int, bool):primitive_factory.h">
+      </ContextState>
+      <ContextState
+         contextName = "draw2d::dib::create_nanosvg(string):draw2d_dib.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "str">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "simple_ui::message_box::_001OnDraw(draw2d::graphics*):simple_ui_message_box.cpp">
