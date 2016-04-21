@@ -53,6 +53,9 @@
       location = "container:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/audio_decode_wave/audio_decode_wave.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-core/appseed/audio_decode_spotify/audio_decode_spotify.xcodeproj">
    </FileRef>
    <FileRef
