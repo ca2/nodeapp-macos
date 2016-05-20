@@ -3,13 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict>
-		<key>music_midi_core_audio.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
-		</dict>
-	</dict>
+	<dict/>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>A1CFD777154F5EAA007447E2</key>
