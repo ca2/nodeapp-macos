@@ -26,7 +26,10 @@
 
 #define BSD_STYLE_SOCKETS
 #define HAVE_OPENSSL
-#define VARIADIC_TEMPLATE
+#define VARIADIC_TEMPLATE_FORMAT2
+
+
+#define __PLATFORM   "macos"
 
 
 
