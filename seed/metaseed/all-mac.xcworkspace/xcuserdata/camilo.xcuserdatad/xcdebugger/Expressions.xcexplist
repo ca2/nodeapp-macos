@@ -46,6 +46,14 @@
          contextName = "__run_system(void*):mac_main.cpp">
       </ContextState>
       <ContextState
+         contextName = "multimedia::audio::wave_buffer::PCMOutOpen(multimedia::audio::wave_base*, unsigned int, unsigned int, unsigned int, multimedia::audio::wave_format*, multimedia::audio::wave_format*):audio_wave_buffer.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "iSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "mac::dir::initialize():mac_dir.cpp">
       </ContextState>
       <ContextState
