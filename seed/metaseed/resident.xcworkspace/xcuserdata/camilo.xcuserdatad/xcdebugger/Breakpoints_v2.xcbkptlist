@@ -694,7 +694,7 @@
                   moduleName = "libxmpp.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app-core/appseed/xmpp/xmpp_comm.cpp"
-                  timestampString = "485541337.068564"
+                  timestampString = "485544946.779124"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -709,7 +709,7 @@
                   moduleName = "libxmpp.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app-core/appseed/xmpp/xmpp_comm.cpp"
-                  timestampString = "485541337.068643"
+                  timestampString = "485544946.779281"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -768,6 +768,54 @@
             startingLineNumber = "350"
             endingLineNumber = "350"
             landmarkName = "pack::layout_card(int i,bool bForceShow,int &amp; y)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "485541911.689049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5398"
+            endingLineNumber = "5398"
+            landmarkName = "graphics::set(const ::draw2d::pen * ppen)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "485541994.76046"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5395"
+            endingLineNumber = "5395"
+            landmarkName = "graphics::set(const ::draw2d::pen * ppen)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/vericard/vericard_card.cpp"
+            timestampString = "485542210.660153"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "821"
+            endingLineNumber = "821"
+            landmarkName = "card::_001OnDraw(::draw2d::dib * pdib)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
