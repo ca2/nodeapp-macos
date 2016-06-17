@@ -37,7 +37,7 @@ namespace multimedia
          void install_message_handling(::message::dispatch * pinterface);
 
          virtual imedia_time wave_out_get_position_millis();
-         imedia::position wave_out_get_position();
+         imedia_position wave_out_get_position();
          virtual void wave_out_buffer_ready(int iBuffer);
 
          virtual ::multimedia::e_result wave_out_open(::thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount);
@@ -49,7 +49,7 @@ namespace multimedia
          virtual void * get_os_data();
          AudioQueueRef wave_out_get_safe_AudioQueueRef();
          
-         ::multimedia::e_result wave_out_start(const imedia::position & position);
+         ::multimedia::e_result wave_out_start(const imedia_position & position);
          
 
          virtual void wave_out_on_playback_end();
