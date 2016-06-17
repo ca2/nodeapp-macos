@@ -959,7 +959,7 @@ namespace music
        * may be called.
        *
        ***************************************************************************/
-      ::multimedia::e_result sequence::get_ticks(imedia::position &  pTicks)
+      ::multimedia::e_result sequence::get_ticks(imedia_position &  pTicks)
       {
          
          single_lock sl(&m_mutex);
@@ -1117,7 +1117,7 @@ namespace music
        * Returns the number of ticks into the stream.
        *
        ***************************************************************************/
-      imedia::position sequence::MillisecsToTicks(imedia_time msOffset)
+      imedia_position sequence::MillisecsToTicks(imedia_time msOffset)
       {
          return file()->MillisecsToTicks(msOffset);
       }
@@ -1136,7 +1136,7 @@ namespace music
        * Returns the number of milliseconds into the stream.
        *
        ***************************************************************************/
-      imedia_time sequence::TicksToMillisecs(imedia::position tkOffset)
+      imedia_time sequence::TicksToMillisecs(imedia_position tkOffset)
       {
          return file()->TicksToMillisecs(tkOffset);
       }
@@ -1465,7 +1465,7 @@ namespace music
           void ::music::midi::sequence::SetKeyShift(int32_t iShift)
           {*/
          bool bPlay = IsPlaying();
-         imedia::position ticks = 0;
+         imedia_position ticks = 0;
          if(bPlay)
          {
             ticks = GetPositionTicks();
@@ -1705,7 +1705,7 @@ namespace music
          }
       }
       
-      /*imedia::position sequence::GetPositionTicks()
+      /*imedia_position sequence::GetPositionTicks()
        {
        single_lock sl(&m_mutex);
        if(!sl.lock(millis(0)))
@@ -1745,17 +1745,17 @@ namespace music
          return false;
       }
       
-      imedia::position sequence::TimeToPosition(imedia_time millis)
+      imedia_position sequence::TimeToPosition(imedia_time millis)
       {
-         return imedia::position(MillisecsToTicks((int_ptr) millis));
+         return imedia_position(MillisecsToTicks((int_ptr) millis));
       }
       
-      imedia_time sequence::PositionToTime(imedia::position tk)
+      imedia_time sequence::PositionToTime(imedia_position tk)
       {
-         return imedia_time(TicksToMillisecs((imedia::position) (int_ptr) tk));
+         return imedia_time(TicksToMillisecs((imedia_position) (int_ptr) tk));
       }
       
-      void sequence::GetPosition(imedia::position & position)
+      void sequence::GetPosition(imedia_position & position)
       {
          get_ticks(position);
       }
@@ -1785,8 +1785,8 @@ namespace music
          
          ASSERT(!file.IsNull());
          file.GetTracks().seek_begin();
-         imedia::position               tkMax = file.m_tkLength;
-         imedia::position               tkLastPosition = 0;
+         imedia_position               tkMax = file.m_tkLength;
+         imedia_position               tkLastPosition = 0;
          
          
          ::ikaraoke::static_data & staticdata = data.GetStaticData();
@@ -2302,7 +2302,7 @@ namespace music
       }
       
       
-      void sequence::GetPositionLength(imedia::position &position)
+      void sequence::GetPositionLength(imedia_position &position)
       {
          position = m_tkLength;
       }
@@ -2468,7 +2468,7 @@ namespace music
       void sequence::MuteAll(bool bMute, int32_t iExcludeTrack)
       {
          bool bPlay = IsPlaying();
-         imedia::position ticks = 0;
+         imedia_position ticks = 0;
          if(bPlay)
          {
             ticks = GetPositionTicks();
@@ -2485,7 +2485,7 @@ namespace music
       void sequence::MuteTrack(int32_t iIndex, bool bMute)
       {
          bool bPlay = IsPlaying();
-         imedia::position ticks = 0;
+         imedia_position ticks = 0;
          if(bPlay)
          {
             ticks = GetPositionTicks();
@@ -2499,7 +2499,7 @@ namespace music
          }
       }
       
-      imedia::position sequence::GetQuarterNote()
+      imedia_position sequence::GetQuarterNote()
       {
          return get_file()->m_pFileHeader->GetQuarterNoteTicks();
       }
@@ -2566,7 +2566,7 @@ namespace music
          else
          {
             
-            get_file()->WorkGetNextEvent(pevent, ::numeric_info< imedia::position >::get_maximum_value  (), false);
+            get_file()->WorkGetNextEvent(pevent, ::numeric_info< imedia_position >::get_maximum_value  (), false);
             
          }
          
@@ -2623,7 +2623,7 @@ namespace music
                      while(true)
                      {
                         
-                        if(get_file()->WorkGetNextEvent(peventOff, ::numeric_info <imedia::position >::get_maximum_value (), false) != ::music::success)
+                        if(get_file()->WorkGetNextEvent(peventOff, ::numeric_info <imedia_position >::get_maximum_value (), false) != ::music::success)
                            break;
                         
                         if(pevent->on_match_off(peventOff))
@@ -2647,11 +2647,11 @@ namespace music
 /*
                      snd_seq_event_t ev;
                      
-                     ::imedia::position tkPosition = pevent->m_tkPosition - m_tkPrerollBase;
+                     imedia_position tkPosition = pevent->m_tkPosition - m_tkPrerollBase;
                      
                      seq_midi_event_init(m_pseq, &ev, tkPosition, pevent->GetTrack());
                      
-                     ::imedia::position tkDuration = peventOff->m_tkPosition - pevent->m_tkPosition;
+                     imedia_position tkDuration = peventOff->m_tkPosition - pevent->m_tkPosition;
                      
                      seq_midi_note(
                                    m_pseq,
