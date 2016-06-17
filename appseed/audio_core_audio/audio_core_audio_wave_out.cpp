@@ -695,7 +695,7 @@ namespace multimedia
       }
       
       
-      imedia::position wave_out::wave_out_get_position()
+      imedia_position wave_out::wave_out_get_position()
       {
          
          single_lock sLock(&m_mutex, TRUE);
@@ -840,7 +840,7 @@ namespace multimedia
          
       }
       
-      ::multimedia::e_result wave_out::wave_out_start(const imedia::position & position)
+      ::multimedia::e_result wave_out::wave_out_start(const imedia_position & position)
       {
          
          ::multimedia::e_result mmr = ::multimedia::audio::wave_out::wave_out_start(position);

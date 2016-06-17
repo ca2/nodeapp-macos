@@ -8,6 +8,15 @@
       location = "group:../../../app-core/appseed/auratype/auratype.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/clockverse/clockverse.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/timer/timer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/weather/Weather!!.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-core/appseed/auraverse/auraverse.xcodeproj">
    </FileRef>
    <FileRef
@@ -26,6 +35,9 @@
       location = "group:../../../app-core/appseed/auraverse/app_core_auraverse.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/clockverse/app_core_clockverse.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-core/appseed/deepfish/app_core_deepfish.xcodeproj">
    </FileRef>
    <FileRef
@@ -39,6 +51,12 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/rdpclient/app_core_rdpclient.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/timer/app_core_timer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/weather/app_core_weather.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
@@ -150,6 +168,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/tesseract/tesseract.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/userdatetime/userdatetime.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">

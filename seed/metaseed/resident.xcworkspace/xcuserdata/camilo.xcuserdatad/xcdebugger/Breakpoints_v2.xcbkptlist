@@ -4,19 +4,13 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/user/simple_ui/simple_ui_message_box.cpp"
-            timestampString = "432600525.446836"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "430"
-            endingLineNumber = "430"
-            landmarkName = "simple_ui_message_box(oswindow interaction_impl,const char * lpText,const char * lpCaption,uint32_t uiFlags)"
-            landmarkType = "7">
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,139 +19,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
-            timestampString = "433428565.393799"
+            filePath = "../../../app-core/appseed/vericard/vericard_application.cpp"
+            timestampString = "487871586.351526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4183"
-            endingLineNumber = "4183">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindowFrameView.mm"
-            timestampString = "432612373.77342"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-mouseMoved:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindowFrameView.mm"
-            timestampString = "432612399.871765"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-mouseUp:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindow.mm"
-            timestampString = "433438646.627185"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "@implementation RoundWindow"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindow.mm"
-            timestampString = "433430978.174945"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "@implementation RoundWindow"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/RoundWindowFrameView.mm"
-            timestampString = "433439694.905651"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
-            landmarkName = "-mouseDownCanMoveWindow"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
-            timestampString = "433428565.393799"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3728"
-            endingLineNumber = "3728"
-            landmarkName = "interaction_impl::SetWindowPos(int32_t z, int32_t x, int32_t y, int32_t cx, int32_t cy, UINT nFlags)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/os/macos/macos_base_user.cpp"
-            timestampString = "432613544.192033"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "SetWindowPos(oswindow hwnd, oswindow hwndInsertAfter, int x, int y, int cx, int cy, UINT uFlags)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/os/macos/macos_base_user.cpp"
-            timestampString = "432613545.769988"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "SetWindowPos(oswindow hwnd, oswindow hwndInsertAfter, int x, int y, int cx, int cy, UINT uFlags)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "det_l(::aura::application * papp, string str)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -167,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_path.cpp"
-            timestampString = "433385131.809089"
+            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_path.cpp"
+            timestampString = "487874507.529991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "path::internal_add_string_path(int x, int y, const string &amp; strText, ::draw2d::font_sp spfont)"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
+            landmarkName = "path::set(const ::draw2d::path::string_path &amp; stringpath)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -183,13 +51,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "433386637.802925"
+            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "487874586.27781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5649"
-            endingLineNumber = "5649"
-            landmarkName = "graphics::draw_inline(const ::draw2d_quartz2d::path::element &amp; e, ::draw2d::pen * ppen)"
+            startingLineNumber = "5301"
+            endingLineNumber = "5301"
+            landmarkName = "graphics::internal_show_text(double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth, ::draw2d::pen * ppen, ::draw2d::brush * pbrush, ::draw2d::font * pfont)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -199,13 +67,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
-            timestampString = "433428565.393799"
+            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "487874998.597445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3742"
-            endingLineNumber = "3742"
-            landmarkName = "interaction_impl::SetWindowPos(int32_t z, int32_t x, int32_t y, int32_t cx, int32_t cy, UINT nFlags)"
+            startingLineNumber = "5740"
+            endingLineNumber = "5740"
+            landmarkName = "graphics::draw_inline(const ::draw2d_quartz2d::path::string_path &amp; stringpath, ::draw2d::pen * ppen)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -215,13 +83,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/axis/node/macos/macos_interaction_impl.cpp"
-            timestampString = "433428501.490069"
+            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "487874998.597445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "625"
-            endingLineNumber = "625"
-            landmarkName = "interaction_impl::_001OnDestroy(signal_details * pobj)"
+            startingLineNumber = "5747"
+            endingLineNumber = "5747"
+            landmarkName = "graphics::fill_inline(const ::draw2d_quartz2d::path::string_path &amp; stringpath, ::draw2d::brush * pbrush)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -231,13 +99,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/multithreading/multithreading_core.cpp"
-            timestampString = "433430023.212999"
+            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "487875435.620334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "__wait_threading_count_except(::thread * pthread, ::duration dur)"
+            startingLineNumber = "5950"
+            endingLineNumber = "5950"
+            landmarkName = "internal_show_text(::draw2d_quartz2d::graphics * p, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,::draw2d::pen_sp sppen, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -247,13 +115,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/multithreading/multithreading_core.cpp"
-            timestampString = "433429410.564549"
+            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
+            timestampString = "487875157.687492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "__inc_threading_count()"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "fill_with_brush(draw2d_quartz2d::graphics * p, ::draw2d::brush * pbrush)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -263,45 +131,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/multithreading/multithreading_core.cpp"
-            timestampString = "433429470.345021"
+            filePath = "/macos/app/appseed/aura/../aura/aura/os/macos/macos_small_ipca_channel.cpp"
+            timestampString = "487875667.148787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "__dec_threading_count()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_comm.cpp"
-            timestampString = "485376126.845154"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "get()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485377077.360083"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
-            landmarkName = "pack::layout_card(int i,bool bForceShow,int &amp; y)"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "rx::on_receive(rx * prx,const char * pszMessage)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -311,107 +147,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485377218.163422"
+            filePath = "../../../app-core/appseed/resident/resident_ipi.cpp"
+            timestampString = "487877018.236512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
-            landmarkName = "pack::layout_card(int i,bool bForceShow,int &amp; y)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485377292.3223"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
-            landmarkName = "pack::layout_card(int i,bool bForceShow,int &amp; y)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485377368.463632"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "pack::add_resident_chat(sp(chat_item) pitem)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485379878.032627"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
-            landmarkName = "pack::layout_card(bool bForceShow)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485379954.435435"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "pack::add_resident_chat(sp(chat_item) pitem)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485379974.159373"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485380067.539687"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
-            landmarkName = "pack::layout_card(int i,bool bForceShow,int &amp; y)"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "ipi::on_call(const string &amp; strObject,const string &amp; strMember,var_array &amp; va)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -422,12 +164,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/vericard/vericard_application.cpp"
-            timestampString = "485381464.070732"
+            timestampString = "487879472.620759"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "597"
-            endingLineNumber = "597"
-            landmarkName = "application::trans_speak(sp(chat_item) pitem)"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "det_l(::aura::application * papp, string str)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/vericard/vericard_application.cpp"
+            timestampString = "487881262.355161"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "815"
+            endingLineNumber = "815"
+            landmarkName = "application::raw_trans_speak(string strLang, string strText, bool bSynch)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -437,13 +195,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_comm.cpp"
-            timestampString = "485385992.658832"
+            filePath = "../../../app-core/appseed/vericard/vericard_ipi.cpp"
+            timestampString = "487882114.8024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "comm::on_bot(string strUser,string strText)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "ipi::on_call(const string &amp; strObject,const string &amp; strMember,var_array &amp; va)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -454,59 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485386699.485225"
+            timestampString = "487882321.921656"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "pack::layout_card(int i,bool bForceShow,int &amp; y)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/os/macos/macos_base_user_mm.mm"
-            timestampString = "485541280.604626"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "set_nswindow_frame(oswindow hwnd, LPCRECT lpcrect, int iDisplay)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/os/macos/macos_base_user_mm.mm"
-            timestampString = "485541280.604626"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "set_nswindow_frame(oswindow hwnd, LPCRECT lpcrect, int iDisplay)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485391591.347116"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "pack::add_resident_chat(sp(chat_item) pitem)"
             landmarkType = "5">
          </BreakpointContent>
@@ -517,14 +227,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/base/os/macos/macos_base_user_mm.mm"
-            timestampString = "485541280.604626"
+            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
+            timestampString = "487882356.342729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "set_nswindow_frame(oswindow hwnd, LPCRECT lpcrect, int iDisplay)"
-            landmarkType = "7">
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "pack::add_resident_chat(sp(chat_item) pitem)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -534,225 +244,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485394076.102482"
+            timestampString = "487882418.723061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
-            landmarkName = "pack::layout_card(int i,bool bForceShow,int &amp; y)"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "pack::add_resident_chat(sp(chat_item) pitem)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/./base/node/macos/macos_interaction_impl.cpp"
-            timestampString = "485394163.395205"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3867"
-            endingLineNumber = "3867"
-            landmarkName = "interaction_impl::SetWindowPos(int_ptr z, int32_t x, int32_t y, int32_t cx, int32_t cy, UINT nFlags)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/xmpp/xmpp_thread.cpp"
-            timestampString = "485461470.537989"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "thread::run()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/xmpp/xmpp_thread.cpp"
-            timestampString = "485461478.593297"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-            landmarkName = "thread::run()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/xmpp/xmpp_thread.cpp"
-            timestampString = "485461482.975312"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
-            landmarkName = "thread::run()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/xmpp/xmpp_handler.cpp"
-            timestampString = "485478045.776825"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "presence_reply(xmpp_conn_t * const conn,xmpp_stanza_t * const stanza,void * const userdata)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/xmpp/xmpp_handler.cpp"
-            timestampString = "485478078.844382"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
-            landmarkName = "result_handler(xmpp_conn_t * const conn, xmpp_stanza_t * const stanza, void * const userdata)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/xmpp/xmpp_handler.cpp"
-            timestampString = "485478202.391534"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "presence_reply(xmpp_conn_t * const conn,xmpp_stanza_t * const stanza,void * const userdata)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/xmpp/xmpp_handler.cpp"
-            timestampString = "485478226.475193"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "812"
-            endingLineNumber = "812"
-            landmarkName = "roster_reply(xmpp_conn_t * const conn,xmpp_stanza_t * const stanza,void * const userdata)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "1"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/xmpp/xmpp_comm.cpp"
-            timestampString = "485478547.369997"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "comm::comm(::aura::application * papp, const char * pszApp)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "xmpp::comm::comm(aura::application*, char const*)"
-                  moduleName = "libxmpp.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///macos/app-core/appseed/xmpp/xmpp_comm.cpp"
-                  timestampString = "485550059.995614"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "450">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "xmpp::comm::comm(aura::application*, char const*)"
-                  moduleName = "libxmpp.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///macos/app-core/appseed/xmpp/xmpp_comm.cpp"
-                  timestampString = "485550059.995704"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "547">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/xmpp/xmpp_thread.cpp"
-            timestampString = "485479120.085738"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
-            landmarkName = "thread::run()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -762,12 +260,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
-            timestampString = "485540269.329741"
+            timestampString = "487882498.846694"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
-            landmarkName = "pack::layout_card(int i,bool bForceShow,int &amp; y)"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
+            landmarkName = "pack::add_resident_chat(sp(chat_item) pitem)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -777,13 +275,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "485549546.661742"
+            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
+            timestampString = "487882517.084876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5434"
-            endingLineNumber = "5434"
-            landmarkName = "graphics::set(const ::draw2d::pen * ppen)"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
+            landmarkName = "pack::add_resident_chat(sp(chat_item) pitem)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -793,13 +291,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "485549546.661742"
+            filePath = "../../../app-core/appseed/vericard/vericard_pack.cpp"
+            timestampString = "487882551.691232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5431"
-            endingLineNumber = "5431"
-            landmarkName = "graphics::set(const ::draw2d::pen * ppen)"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
+            landmarkName = "pack::add_resident_chat(sp(chat_item) pitem)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -809,78 +307,126 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_card.cpp"
-            timestampString = "485542210.660153"
+            filePath = "../../../app/appseed/aura/primitive/str/str_str.cpp"
+            timestampString = "487895565.351182"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "821"
-            endingLineNumber = "821"
-            landmarkName = "card::_001OnDraw(::draw2d::dib * pdib)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "485549546.661742"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5537"
-            endingLineNumber = "5537"
-            landmarkName = "graphics::draw(::draw2d::pen * ppen)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_card.cpp"
-            timestampString = "485546975.16243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "832"
-            endingLineNumber = "832"
-            landmarkName = "card::_001OnDraw(::draw2d::dib * pdib)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "485549546.661742"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5536"
-            endingLineNumber = "5536"
-            landmarkName = "graphics::draw(::draw2d::pen * ppen)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_graphics.cpp"
-            timestampString = "485549546.661742"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5831"
-            endingLineNumber = "5831"
-            landmarkName = "internal_show_text(CGContextRef pdc, ::draw2d::font_sp spfont,::draw2d::brush_sp spbrush,::draw2d::pen_sp sppen, double x, double y, const char * lpszString, int32_t nCount, CGTextDrawingMode emode, bool bDraw, CGFloat * pascent, CGFloat * pdescent, CGFloat * pleading, CGFloat * pwidth)"
+            startingLineNumber = "956"
+            endingLineNumber = "956"
+            landmarkName = "utf8_find(const char * pszFind, const char * pszParam, index iStart)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/vericard/vericard_application.cpp"
+            timestampString = "487883897.239334"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "823"
+            endingLineNumber = "823"
+            landmarkName = "application::raw_trans_speak(string strLang, string strText, bool bSynch)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/primitive/str/str_str.cpp"
+            timestampString = "487895565.351182"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "999"
+            endingLineNumber = "999"
+            landmarkName = "find_ci(const char * pszFind, const char * psz, index iStart)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/primitive/str/str_str.cpp"
+            timestampString = "487895565.351182"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "538"
+            endingLineNumber = "538"
+            landmarkName = "utf8_replace(const char * pszFind, const char * pszReplace, const char * psz, strsize iStart)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/primitive/str/str_str.cpp"
+            timestampString = "487895565.351182"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "532"
+            endingLineNumber = "532"
+            landmarkName = "utf8_replace(const char * pszFind, const char * pszReplace, const char * psz, strsize iStart)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/primitive/str/str_str.cpp"
+            timestampString = "487895565.351182"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "541"
+            endingLineNumber = "541"
+            landmarkName = "utf8_replace(const char * pszFind, const char * pszReplace, const char * psz, strsize iStart)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/vericard/vericard_application.cpp"
+            timestampString = "487896103.382711"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "828"
+            endingLineNumber = "828"
+            landmarkName = "application::raw_trans_speak(string strLang, string strText, bool bSynch)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/vericard/vericard_application.cpp"
+            timestampString = "487896904.226498"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "692"
+            endingLineNumber = "692"
+            landmarkName = "application::trans_speak(sp(chat_item) pitem)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

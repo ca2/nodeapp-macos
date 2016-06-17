@@ -69,7 +69,7 @@
 #define FONT_SERIF_EX "Liberation Serif"
 #define FONT_SANS_FX "Ubuntu"
 #define FONT_SERIF_FX "Bitstream Charter"
-#define FONT_MONO "Menlo Regular"
+#define FONT_MONO "Menlo"
 
 
 

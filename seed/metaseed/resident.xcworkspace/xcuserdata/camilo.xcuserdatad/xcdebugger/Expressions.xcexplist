@@ -9,10 +9,21 @@
          contextName = "vericard::pack::layout_card(int, bool, int&amp;):vericard_pack.cpp">
       </ContextState>
       <ContextState
+         contextName = "vericard::application::raw_trans_speak(string, string, bool):vericard_application.cpp">
+      </ContextState>
+      <ContextState
          contextName = "draw2d_quartz2d::graphics::internal_show_text(double, double, char const*, int, CGTextDrawingMode, bool, double*, double*, double*, double*):draw2d_quartz2d_graphics.cpp">
       </ContextState>
       <ContextState
          contextName = "ca::library::open(c::smart_pointer&lt;ca::application&gt;, char const*, bool):ca_library.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "url::department::url_encode(char const*):net_url_department.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "*psz">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "this_plugin::get_text(string&amp;, string):lib_language.cpp">
