@@ -8,10 +8,13 @@
       location = "group:../../../app-core/appseed/flag/Flag.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/projection/Projection.xcodeproj">
+      location = "group:../../../app-cidadedecuritiba/appseed/alphaclock/Alphaclock.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-cidadedecuritiba/appseed/alphaclock/Alphaclock.xcodeproj">
+      location = "group:../../../app-core/appseed/clockverse/clockverse.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/projection/Projection.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/rdpclient/Rdpclient.xcodeproj">
@@ -20,7 +23,13 @@
       location = "group:../../../app-veriwell/appseed/waven/Waven.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/appseed/ace/ace.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-cidadedecuritiba/appseed/alphaclock/app_cidadedecuritiba_alphaclock.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/clockverse/app_core_clockverse.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/flag/app_core_flag.xcodeproj">
