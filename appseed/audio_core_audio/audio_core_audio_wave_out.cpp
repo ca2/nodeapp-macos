@@ -325,23 +325,15 @@ namespace multimedia
          m_pwaveformat->nAvgBytesPerSec   = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
          m_pwaveformat->cbSize            = 0;
          
-         
-         InstallUncaughtExceptionHandler();
-         
          ZEROP(&m_dataformat);
          
          translate(*&m_dataformat, m_pwaveformat);
          
-         //         m_eventOpened.ResetEvent();
          iBufferCount = 4;
          iBufferSampleCount = 1024;
          
          m_iBufferCount = iBufferCount;
          m_iBufferSampleCount = iBufferSampleCount;
-         
-         //         post_thread_message(message_open);
-         
-//          InstallNullExceptionHandler();
          
          try
          {
@@ -353,20 +345,12 @@ namespace multimedia
          catch(...)
          {
          
-             InstallUncaughtExceptionHandler();
-             
             m_mmr = result_error;
          
             return m_mmr;
          
          }
 
-          InstallUncaughtExceptionHandler();
-          
-         
-         
-         //         CFRunLoopWakeUp(CFRunLoopGetCurrent());
-         
          uint32_t uiBufferSizeLog2;
          uint32_t uiBufferSize;
          uint32_t uiAnalysisSize;
