@@ -51,12 +51,12 @@
 			remoteGlobalIDString = 9AE24D341904CEFE001AEFFB;
 			remoteInfo = base_ios;
 		};
-		9A2EA31419A62C4B004DAFFC /* PBXContainerItemProxy */ = {
+		9A4E84741D1FD3BB008A419B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A2EA30A19A62C4B004DAFFC /* axis.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9AE24D431904CEFE001AEFFB;
-			remoteInfo = base_iosTests;
+			remoteInfo = axis_iosTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -110,18 +110,26 @@
 			children = (
 				9A2EA31119A62C4B004DAFFC /* libaxis.dylib */,
 				9A2EA31319A62C4B004DAFFC /* libaxis.dylib */,
-				9A2EA31519A62C4B004DAFFC /* axis_iosTests.xctest */,
+				9A4E84751D1FD3BB008A419B /* axis_iosTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9A4E84701D1FD3BB008A419B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
+				9AA1B449176361950019E812 /* Cocoa.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
 				9A2EA30A19A62C4B004DAFFC /* axis.xcodeproj */,
-				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
-				9AA1B449176361950019E812 /* Cocoa.framework */,
 				A1CFD896154FB715007447E2 /* audio_mixer_core_audio */,
+				9A4E84701D1FD3BB008A419B /* Frameworks */,
 				A1CFD779154F5EAA007447E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -256,12 +264,13 @@
 			remoteRef = 9A2EA31219A62C4B004DAFFC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A2EA31519A62C4B004DAFFC /* axis_iosTests.xctest */ = {
+		9A4E84751D1FD3BB008A419B /* axis_iosTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = axis_iosTests.xctest;
-			remoteRef = 9A2EA31419A62C4B004DAFFC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
+			name = axis_iosTests.xctest;
+			path = "/macos/app/appseed/axis/build/Debug-iphoneos/axis_iosTests.xctest";
+			remoteRef = 9A4E84741D1FD3BB008A419B /* PBXContainerItemProxy */;
+			sourceTree = "<absolute>";
 		};
 /* End PBXReferenceProxy section */
 

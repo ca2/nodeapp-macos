@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0793EB7D1CA4195A001374D8 /* libaura.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0793EB7C1CA4195A001374D8 /* libaura.dylib */; };
 		07A27B3B1808C1F3005F7B47 /* audio_core_audio_toolbox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A27B391808C1F3005F7B47 /* audio_core_audio_toolbox.cpp */; };
 		07A27B3C1808C1F3005F7B47 /* audio_core_audio_toolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A27B3A1808C1F3005F7B47 /* audio_core_audio_toolbox.h */; };
 		07A27B461808E111005F7B47 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A27B451808E111005F7B47 /* AudioToolbox.framework */; };
@@ -30,6 +29,7 @@
 		9AC9451D1828E7CE00AA7325 /* audio_core_aligned_pointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC9451B1828E7CE00AA7325 /* audio_core_aligned_pointer.h */; };
 		9AC9452018290B7700AA7325 /* audio_core_aligned.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AC9451E18290B7700AA7325 /* audio_core_aligned.cpp */; };
 		9AC9452118290B7800AA7325 /* audio_core_aligned.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC9451F18290B7700AA7325 /* audio_core_aligned.h */; };
+		9ACE473C1D1FE5E000A1E0AD /* libaura.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACE473B1D1FE5E000A1E0AD /* libaura.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 			remoteGlobalIDString = 07B6579D190F3CAF002DAADE;
 			remoteInfo = multlimedia_iosTests;
 		};
-		07D4208A1B71F7760065510D /* PBXContainerItemProxy */ = {
+		9A4E832A1D1FCCE0008A419B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07D4207E1B71F7700065510D /* multimedia.xcodeproj */;
 			proxyType = 1;
@@ -64,7 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0793EB7C1CA4195A001374D8 /* libaura.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libaura.dylib; path = ../../../app/appseed/aura/build/Debug/libaura.dylib; sourceTree = "<group>"; };
 		07A27B391808C1F3005F7B47 /* audio_core_audio_toolbox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_toolbox.cpp; sourceTree = "<group>"; };
 		07A27B3A1808C1F3005F7B47 /* audio_core_audio_toolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_toolbox.h; sourceTree = "<group>"; };
 		07A27B451808E111005F7B47 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -88,6 +87,7 @@
 		9AC9451B1828E7CE00AA7325 /* audio_core_aligned_pointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_aligned_pointer.h; sourceTree = "<group>"; };
 		9AC9451E18290B7700AA7325 /* audio_core_aligned.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_aligned.cpp; sourceTree = "<group>"; };
 		9AC9451F18290B7700AA7325 /* audio_core_aligned.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_aligned.h; sourceTree = "<group>"; };
+		9ACE473B1D1FE5E000A1E0AD /* libaura.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libaura.dylib; path = "../../../../Users/camilo/Library/Developer/Xcode/DerivedData/core-mac-ekqwiewkpeyhdudtxguywfqohhby/Build/Products/Debug/libaura.dylib"; sourceTree = "<group>"; };
 		A1CFD778154F5EAA007447E2 /* libaudio_core_audio.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libaudio_core_audio.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0793EB7D1CA4195A001374D8 /* libaura.dylib in Frameworks */,
+				9ACE473C1D1FE5E000A1E0AD /* libaura.dylib in Frameworks */,
 				07D4208C1B71F7820065510D /* libmultimedia.dylib in Frameworks */,
 				07A27B461808E111005F7B47 /* AudioToolbox.framework in Frameworks */,
 				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
@@ -120,7 +120,7 @@
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
-				0793EB7C1CA4195A001374D8 /* libaura.dylib */,
+				9ACE473B1D1FE5E000A1E0AD /* libaura.dylib */,
 				07D4207E1B71F7700065510D /* multimedia.xcodeproj */,
 				07D4206D1B71F5590065510D /* CoreAudio.framework */,
 				07A27B451808E111005F7B47 /* AudioToolbox.framework */,
@@ -198,7 +198,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				07D4208B1B71F7760065510D /* PBXTargetDependency */,
+				9A4E832B1D1FCCE0008A419B /* PBXTargetDependency */,
 			);
 			name = audio_core_audio;
 			productName = os;
@@ -280,10 +280,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		07D4208B1B71F7760065510D /* PBXTargetDependency */ = {
+		9A4E832B1D1FCCE0008A419B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = multimedia;
-			targetProxy = 07D4208A1B71F7760065510D /* PBXContainerItemProxy */;
+			targetProxy = 9A4E832A1D1FCCE0008A419B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
