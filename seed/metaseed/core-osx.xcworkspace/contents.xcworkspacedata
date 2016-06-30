@@ -155,7 +155,7 @@
       location = "container:../../../app/appseed/base/base.xcodeproj">
    </FileRef>
    <FileRef
-      location = "absolute:/macos/nodeapp/seed/metaseed/../../../app-core/appseed/id3lib/baseid3lib.xcodeproj">
+      location = "group:../../../app-core/appseed/id3lib/baseid3lib.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/libmpg123/basempg123.xcodeproj">
