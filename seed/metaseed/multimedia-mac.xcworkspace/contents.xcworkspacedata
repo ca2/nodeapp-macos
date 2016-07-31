@@ -2,10 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../app-core/appseed/auraclick/auraclick.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/auratype/auratype.xcodeproj">
+      location = "group:../../../app-veriwell/appseed/verisimplevideo/verisimplevideo.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/auraverse/auraverse.xcodeproj">
@@ -44,6 +41,9 @@
       location = "container:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-veriwell/appseed/verisimplevideo/app_veriwell_verisimplevideo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app/atom/iconv/atomiconv.xcodeproj">
    </FileRef>
    <FileRef
@@ -51,6 +51,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/a/macos/app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/audio_decode_wave/audio_decode_wave.xcodeproj">
@@ -119,7 +122,7 @@
       location = "container:../../../app/appseed/base/base.xcodeproj">
    </FileRef>
    <FileRef
-      location = "absolute:/macos/nodeapp/seed/metaseed/../../../app-core/appseed/id3lib/baseid3lib.xcodeproj">
+      location = "group:../../../app-core/appseed/id3lib/baseid3lib.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/libmpg123/basempg123.xcodeproj">
