@@ -83,13 +83,7 @@
       location = "container:../../../app/aura/pcre/aurapcre.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/aura/sqlite/aurasqlite.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../../app/appseed/axis/axis.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/bzip2/axisbzip2.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/axis/clientchannels/axisclientchannels.xcodeproj">
@@ -126,9 +120,6 @@
    </FileRef>
    <FileRef
       location = "container:../../../app/axis/winpr/axiswinpr.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/zlib/axiszlib.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/base/base.xcodeproj">
