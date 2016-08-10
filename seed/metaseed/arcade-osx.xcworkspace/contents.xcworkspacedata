@@ -11,6 +11,9 @@
       location = "group:../../../game/appseed/sokoban/Sokoban.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../game/appseed/pacman/Pacman.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/ace/ace.xcodeproj">
    </FileRef>
    <FileRef
@@ -123,6 +126,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../game/appseed/pacman/game_pacman.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../game/appseed/sokoban/game_sokoban.xcodeproj">
