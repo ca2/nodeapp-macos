@@ -327,7 +327,7 @@ namespace multimedia
          
          ZEROP(&m_dataformat);
          
-         translate(*&m_dataformat, m_pwaveformat);
+         translate(m_dataformat, m_pwaveformat);
          
          iBufferCount = 4;
          iBufferSampleCount = 1024;
