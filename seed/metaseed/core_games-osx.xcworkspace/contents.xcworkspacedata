@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../game/appseed/tictactoe/Tic Tac Toe.xcodeproj">
+      location = "group:../../../game/appseed/coincube/coincube.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../game/appseed/tetris/Tetris.xcodeproj">
+      location = "group:../../../game/appseed/arch001/arch001.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/ace/ace.xcodeproj">
@@ -122,10 +122,13 @@
       location = "container:../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../game/appseed/tetris/game_tetris.xcodeproj">
+      location = "group:../../../app/appseed/estamira/estamira.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../game/appseed/tictactoe/game_tictactoe.xcodeproj">
+      location = "group:../../../game/appseed/coincube/game_coincube.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../game/appseed/arch001/game_arch001.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/gcom/gcom.xcodeproj">
