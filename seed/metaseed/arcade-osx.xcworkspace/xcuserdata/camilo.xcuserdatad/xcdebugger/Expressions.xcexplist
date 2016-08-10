@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "mac::dir::appdata(char const*, char const*):mac_dir.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "round_window::round_window_release():round_window.mm">
+      </ContextState>
+      <ContextState
+         contextName = "draw2d_quartz2d::graphics::internal_show_text(double, double, char const*, int, CGTextDrawingMode, bool, double*, double*, double*, double*):draw2d_quartz2d_graphics.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "ca::library::open(c::smart_pointer&lt;ca::application&gt;, char const*, bool):ca_library.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "multimedia::audio_core_audio::wave_out::wave_out_open_ex(thread*, int, int, unsigned int, unsigned int, unsigned int):audio_core_audio_wave_out.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ca::type_info::friendly_name() const:ca_type_info.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "int ca::application::simple_message_box&lt;char const*&gt;(user::interaction*, unsigned int, char const*, char const* const&amp;):ca_application.h">
+      </ContextState>
+      <ContextState
+         contextName = "mac::dir::is(char const*, ca::application*):mac_dir.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "string_format::printf(char const*&amp;):primitive_string_format.h">
+      </ContextState>
+      <ContextState
+         contextName = "uinteraction::uinteraction::get_new_uinteraction(char const*):uinteraction_uinteraction.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "__run_system(void*):mac_main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "multimedia::audio::wave_buffer::PCMOutOpen(multimedia::audio::wave_base*, unsigned int, unsigned int, unsigned int, multimedia::audio::wave_format*, multimedia::audio::wave_format*):audio_wave_buffer.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "iSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "mac::dir::initialize():mac_dir.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "__wait_threading_count_except(thread*, duration):multithreading_core.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_iThreadingCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
