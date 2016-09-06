@@ -256,7 +256,7 @@
 		0730B01F1BA11864001D28DB /* libios_veriwell_multimedia.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libios_veriwell_multimedia.a;
+			path = libios_veriwell_multimedia.dylib;
 			remoteRef = 0730B01E1BA11864001D28DB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
