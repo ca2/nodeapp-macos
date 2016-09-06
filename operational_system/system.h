@@ -476,3 +476,7 @@ typedef wchar_t            unichar32;
 #undef index
 
 
+#define WINBOOL int
+
+
+

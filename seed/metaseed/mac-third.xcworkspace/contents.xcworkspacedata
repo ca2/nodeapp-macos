@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../../../app/appseed/third/third.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/ace/ace.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/expat/auraexpat.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/pcre/aurapcre.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/crypto/axiscrypto.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/clientchannels/axisclientchannels.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/freerdp/axisfreerdp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/freetype/axisfreetype.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/idn/axisidn.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/jpeg/axisjpeg.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/openssl/axisopenssl.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/png/axispng.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/winpr/axiswinpr.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/libmpg123/basempg123.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/strophe/strophe.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/openh264/codec/build/iOS/common/welscommon.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/openh264/codec/build/iOS/dec/welsdec/welsdec.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/openh264/codec/build/iOS/enc/welsenc/welsenc.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
+   </FileRef>
+</Workspace>
