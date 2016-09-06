@@ -260,17 +260,16 @@
 		9A2EA31319A62C4B004DAFFC /* libaxis.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libaxis.dylib;
+			path = libios_axis.dylib;
 			remoteRef = 9A2EA31219A62C4B004DAFFC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		9A4E84751D1FD3BB008A419B /* axis_iosTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			name = axis_iosTests.xctest;
-			path = "/macos/app/appseed/axis/build/Debug-iphoneos/axis_iosTests.xctest";
+			path = axis_iosTests.xctest;
 			remoteRef = 9A4E84741D1FD3BB008A419B /* PBXContainerItemProxy */;
-			sourceTree = "<absolute>";
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 

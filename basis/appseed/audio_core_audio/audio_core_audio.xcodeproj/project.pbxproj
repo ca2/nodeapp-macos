@@ -248,7 +248,7 @@
 		07D420871B71F7700065510D /* libios_multlimedia.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libios_multlimedia.dylib;
+			path = libios_multimedia.dylib;
 			remoteRef = 07D420861B71F7700065510D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
