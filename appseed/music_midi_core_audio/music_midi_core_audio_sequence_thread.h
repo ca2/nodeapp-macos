@@ -14,7 +14,7 @@ namespace music
       {
       public:
 
-
+         
          sequence_thread(sp(::aura::application) papp);
          virtual ~sequence_thread();
 

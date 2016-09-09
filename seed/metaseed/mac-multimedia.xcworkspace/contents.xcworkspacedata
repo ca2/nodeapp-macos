@@ -5,6 +5,9 @@
       location = "group:../../../app-veriwell/appseed/verisimplevideo/verisimplevideo.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:/a/macos/app-veriwell/appseed/mplite/veriwell Musical Player lite.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-core/appseed/auraverse/auraverse.xcodeproj">
    </FileRef>
    <FileRef
@@ -44,9 +47,6 @@
       location = "group:../../../app-veriwell/appseed/verisimplevideo/app_veriwell_verisimplevideo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/atom/iconv/atomiconv.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
    </FileRef>
    <FileRef
@@ -68,88 +68,43 @@
       location = "container:../../../app/appseed/aura/aura.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/aura/pcre/aurapcre.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../third/appseed/pcre/aurapcre.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/aura/sqlite/aurasqlite.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/axis/axis.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/axis/bzip2/axisbzip2.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/clientchannels/axisclientchannels.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../third/appseed/clientchannels/axisclientchannels.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/crypto/axiscrypto.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/crypto/axiscrypto.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/axis/freeimage/axisfreeimage.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/appseed/freeimage/axisfreeimage.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/freerdp/axisfreerdp.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/freerdp/axisfreerdp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/axis/freetype/axisfreetype.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../third/appseed/freetype/axisfreetype.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/idn/axisidn.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/idn/axisidn.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/axis/image_jpeg/axis_image_jpeg.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/appseed/image_jpeg/image_decode_jpeg.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/axis/image_png/axis_image_png.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/image_png/image_decode_png.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/axis/openssl/axisopenssl.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../third/appseed/openssl/axisopenssl.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/rdpclient/axisrdpclient.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/rdpclient/axisrdpclient.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app/axis/winpr/axiswinpr.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../third/appseed/winpr/axiswinpr.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../app/axis/zlib/axiszlib.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/base/base.xcodeproj">
@@ -158,7 +113,7 @@
       location = "group:../../../app-core/appseed/id3lib/baseid3lib.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app-veriwell/appseed/libmpg123/basempg123.xcodeproj">
+      location = "group:../../../third/appseed/libmpg123/basempg123.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/core/core.xcodeproj">
