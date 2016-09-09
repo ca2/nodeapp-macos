@@ -15,6 +15,18 @@
 		07D6C9B318986C6E00CB8AA8 /* music_midi_core_audio_player.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D6C9AB18986C6E00CB8AA8 /* music_midi_core_audio_player.h */; };
 		9A1B496416A494A600875A94 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496316A494A600875A94 /* framework.h */; };
 		9A1B496716A4A10100875A94 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B496616A4A10100875A94 /* framework.cpp */; };
+		9A210CB51D81AB23000C4336 /* AudioUnitOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A210CB31D81AB23000C4336 /* AudioUnitOutput.cpp */; };
+		9A210CB61D81AB23000C4336 /* AudioUnitOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A210CB41D81AB23000C4336 /* AudioUnitOutput.h */; };
+		9A210CBB1D81AB9B000C4336 /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A210CB91D81AB9B000C4336 /* CAStreamBasicDescription.cpp */; };
+		9A210CBC1D81AB9B000C4336 /* CAStreamBasicDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A210CBA1D81AB9B000C4336 /* CAStreamBasicDescription.h */; };
+		9A210CBF1D81AC21000C4336 /* OutputBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A210CBD1D81AC21000C4336 /* OutputBase.cpp */; };
+		9A210CC01D81AC21000C4336 /* OutputBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A210CBE1D81AC21000C4336 /* OutputBase.h */; };
+		9A210CD21D81DEB7000C4336 /* AUOutputBL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A210CD01D81DEB7000C4336 /* AUOutputBL.cpp */; };
+		9A210CD31D81DEB7000C4336 /* AUOutputBL.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A210CD11D81DEB7000C4336 /* AUOutputBL.h */; };
+		9A210CD61D81E3E8000C4336 /* CoreMIDIOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A210CD41D81E3E8000C4336 /* CoreMIDIOutput.cpp */; };
+		9A210CD71D81E3E8000C4336 /* CoreMIDIOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A210CD51D81E3E8000C4336 /* CoreMIDIOutput.h */; };
+		9A210CD91D81ED72000C4336 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A210CD81D81ED72000C4336 /* AudioToolbox.framework */; };
+		9A210CDB1D81ED91000C4336 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A210CDA1D81ED91000C4336 /* CoreMIDI.framework */; };
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
 		9A8EAF7B17C5640300C458D1 /* music_midi_core_audio_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF6C17C5640300C458D1 /* music_midi_core_audio_exception.cpp */; };
 		9A8EAF7C17C5640300C458D1 /* music_midi_core_audio_exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF6D17C5640300C458D1 /* music_midi_core_audio_exception.h */; };
@@ -73,6 +85,22 @@
 		07D6C9AB18986C6E00CB8AA8 /* music_midi_core_audio_player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = music_midi_core_audio_player.h; sourceTree = "<group>"; };
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
+		9A210CB31D81AB23000C4336 /* AudioUnitOutput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioUnitOutput.cpp; sourceTree = "<group>"; };
+		9A210CB41D81AB23000C4336 /* AudioUnitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioUnitOutput.h; sourceTree = "<group>"; };
+		9A210CB91D81AB9B000C4336 /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		9A210CBA1D81AB9B000C4336 /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		9A210CBD1D81AC21000C4336 /* OutputBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutputBase.cpp; sourceTree = "<group>"; };
+		9A210CBE1D81AC21000C4336 /* OutputBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputBase.h; sourceTree = "<group>"; };
+		9A210CD01D81DEB7000C4336 /* AUOutputBL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AUOutputBL.cpp; sourceTree = "<group>"; };
+		9A210CD11D81DEB7000C4336 /* AUOutputBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUOutputBL.h; sourceTree = "<group>"; };
+		9A210CD41D81E3E8000C4336 /* CoreMIDIOutput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreMIDIOutput.cpp; sourceTree = "<group>"; };
+		9A210CD51D81E3E8000C4336 /* CoreMIDIOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreMIDIOutput.h; sourceTree = "<group>"; };
+		9A210CD81D81ED72000C4336 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9A210CDA1D81ED91000C4336 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		9A210CDC1D81ED9F000C4336 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		9A210CDE1D81EDB5000C4336 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		9A210CE01D81EDF4000C4336 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		9A210CE31D81EE1E000C4336 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		9A8EAF6C17C5640300C458D1 /* music_midi_core_audio_exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = music_midi_core_audio_exception.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9A8EAF6D17C5640300C458D1 /* music_midi_core_audio_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = music_midi_core_audio_exception.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -97,6 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A210CDB1D81ED91000C4336 /* CoreMIDI.framework in Frameworks */,
+				9A210CD91D81ED72000C4336 /* AudioToolbox.framework in Frameworks */,
 				072E446E1CA89BF80096952D /* libaura.dylib in Frameworks */,
 				9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */,
 				9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */,
@@ -111,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				0730B01D1BA11864001D28DB /* libveriwell_multimedia.dylib */,
-				0730B01F1BA11864001D28DB /* libios_veriwell_multimedia.a */,
+				0730B01F1BA11864001D28DB /* libios_veriwell_multimedia.dylib */,
 				0730B0211BA11864001D28DB /* veriwell_multimedia_iosTests.xctest */,
 			);
 			name = Products;
@@ -129,6 +159,12 @@
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
+				9A210CE31D81EE1E000C4336 /* IOKit.framework */,
+				9A210CE01D81EDF4000C4336 /* QTKit.framework */,
+				9A210CDE1D81EDB5000C4336 /* CoreAudio.framework */,
+				9A210CDC1D81ED9F000C4336 /* AudioUnit.framework */,
+				9A210CDA1D81ED91000C4336 /* CoreMIDI.framework */,
+				9A210CD81D81ED72000C4336 /* AudioToolbox.framework */,
 				072E446D1CA89BF80096952D /* libaura.dylib */,
 				0730B0161BA11863001D28DB /* veriwell_multimedia.xcodeproj */,
 				9A8997BC177D0E7D00C7761E /* Carbon.framework */,
@@ -168,6 +204,16 @@
 				9A8EAF7A17C5640300C458D1 /* music_midi_core_audio.h */,
 				9A1B496316A494A600875A94 /* framework.h */,
 				9A1B496616A4A10100875A94 /* framework.cpp */,
+				9A210CB31D81AB23000C4336 /* AudioUnitOutput.cpp */,
+				9A210CB41D81AB23000C4336 /* AudioUnitOutput.h */,
+				9A210CB91D81AB9B000C4336 /* CAStreamBasicDescription.cpp */,
+				9A210CBA1D81AB9B000C4336 /* CAStreamBasicDescription.h */,
+				9A210CBD1D81AC21000C4336 /* OutputBase.cpp */,
+				9A210CBE1D81AC21000C4336 /* OutputBase.h */,
+				9A210CD01D81DEB7000C4336 /* AUOutputBL.cpp */,
+				9A210CD11D81DEB7000C4336 /* AUOutputBL.h */,
+				9A210CD41D81E3E8000C4336 /* CoreMIDIOutput.cpp */,
+				9A210CD51D81E3E8000C4336 /* CoreMIDIOutput.h */,
 			);
 			name = music_midi_core_audio;
 			sourceTree = "<group>";
@@ -179,16 +225,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A210CBC1D81AB9B000C4336 /* CAStreamBasicDescription.h in Headers */,
 				9A1B496416A494A600875A94 /* framework.h in Headers */,
 				9A8EAF7C17C5640300C458D1 /* music_midi_core_audio_exception.h in Headers */,
 				9A8EAF7E17C5640300C458D1 /* music_midi_core_audio_factory_exchange.h in Headers */,
 				9A8EAF8017C5640300C458D1 /* music_midi_core_audio_file.h in Headers */,
+				9A210CD31D81DEB7000C4336 /* AUOutputBL.h in Headers */,
 				07D6C9B318986C6E00CB8AA8 /* music_midi_core_audio_player.h in Headers */,
+				9A210CD71D81E3E8000C4336 /* CoreMIDIOutput.h in Headers */,
 				07884EBA189866D300DC6CEB /* music_midi_core_audio_midi.h in Headers */,
 				9A8EAF8217C5640300C458D1 /* music_midi_core_audio_sequence_thread.h in Headers */,
 				9A8EAF8417C5640300C458D1 /* music_midi_core_audio_sequence.h in Headers */,
 				9A8EAF8617C5640300C458D1 /* music_midi_core_audio_translation.h in Headers */,
 				9A8EAF8817C5640300C458D1 /* music_midi_core_audio.h in Headers */,
+				9A210CC01D81AC21000C4336 /* OutputBase.h in Headers */,
+				9A210CB61D81AB23000C4336 /* AudioUnitOutput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +304,7 @@
 			remoteRef = 0730B01C1BA11864001D28DB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0730B01F1BA11864001D28DB /* libios_veriwell_multimedia.a */ = {
+		0730B01F1BA11864001D28DB /* libios_veriwell_multimedia.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libios_veriwell_multimedia.dylib;
@@ -274,16 +325,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A210CB51D81AB23000C4336 /* AudioUnitOutput.cpp in Sources */,
 				9A1B496716A4A10100875A94 /* framework.cpp in Sources */,
 				07884EB9189866D300DC6CEB /* music_midi_core_audio_midi.cpp in Sources */,
 				07D6C9B218986C6E00CB8AA8 /* music_midi_core_audio_player.cpp in Sources */,
 				9A8EAF7B17C5640300C458D1 /* music_midi_core_audio_exception.cpp in Sources */,
 				9A8EAF7D17C5640300C458D1 /* music_midi_core_audio_factory_exchange.cpp in Sources */,
 				9A8EAF7F17C5640300C458D1 /* music_midi_core_audio_file.cpp in Sources */,
+				9A210CBF1D81AC21000C4336 /* OutputBase.cpp in Sources */,
 				9A8EAF8117C5640300C458D1 /* music_midi_core_audio_sequence_thread.cpp in Sources */,
 				9A8EAF8317C5640300C458D1 /* music_midi_core_audio_sequence.cpp in Sources */,
+				9A210CD21D81DEB7000C4336 /* AUOutputBL.cpp in Sources */,
 				9A8EAF8517C5640300C458D1 /* music_midi_core_audio_translation.cpp in Sources */,
+				9A210CD61D81E3E8000C4336 /* CoreMIDIOutput.cpp in Sources */,
 				9A8EAF8717C5640300C458D1 /* music_midi_core_audio.cpp in Sources */,
+				9A210CBB1D81AB9B000C4336 /* CAStreamBasicDescription.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +399,7 @@
 					"$(inherited)",
 					"$(TARGET_BUILD_DIR)",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -390,7 +446,7 @@
 					"$(inherited)",
 					"$(TARGET_BUILD_DIR)",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../../../app/appseed/axis $(WorkspaceDir)/../../../app/appseed/aura $(WorkspaceDir)/../../../app/base $(WorkspaceDir)/../../../app/axis $(WorkspaceDir)/../../../app/aura $(WorkspaceDir)/../../../app/atom";

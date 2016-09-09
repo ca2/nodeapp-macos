@@ -28,6 +28,7 @@ namespace music
 
             player(sp(::aura::application) papp);
             virtual ~player();
+            
 
 
             void install_message_handling(::message::dispatch * pinterface);
