@@ -1,8 +1,102 @@
 #include "framework.h"
 
 
+OSStatus LoadSMF(const char* data, int dataSize, MusicSequence& sequence, MusicSequenceLoadFlags loadFlags);
 
 
+CFStringRef ConnectedEndpointName(MIDIEndpointRef endpoint);
+
+
+// Get general midi notifications
+void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
+   printf("MIDI Notify, messageId=%d,", message->messageID);
+}
+// Get the MIDI messages as they're sent
+static void MyMIDIReadProc(const MIDIPacketList *pktlist,
+                           void *refCon,
+                           void *connRefCon) {
+   ::music::midi_core_midi::sequence * pseq = (::music::midi_core_midi::sequence * )refCon;
+   
+   //if(!pseq->m_bStart)
+   {
+      
+      
+      
+   }
+   //CAClockParseMIDI(pseq->m_cl, pktlist);
+   // Cast our Sampler unit back to an audio unit
+   //AudioUnit *player = &pseq->m_pau->m_synth_unit;
+   
+   //MIDISend(pseq->m_pcmo->m_port, pseq->m_pcmo->getDestinations()[0].m_ref, pktlist);
+   //CAClockTime t;
+   //CAClockGetCurrentTime(pseq->m_cl, kCAClockTimeFormat_Seconds, &t);
+   //pseq->m_posPlay = t.time.seconds * 1000;
+   MIDIPacket *packet = (MIDIPacket *)pktlist->packet;
+   for (int i=0; i < pktlist->numPackets; i++)
+   {
+      
+      //pseq->m_posPlay += packet->timeStamp;
+      Byte midiStatus = packet->data[0];
+      Byte midiCommand = midiStatus >> 4;
+   
+       //If the command is note-on
+      //if (midiCommand == 0x09) {
+         Byte note = packet->data[1] & 0x7F;
+         Byte velocity = packet->data[2] & 0x7F;
+         
+         // Log the note letter in a readable format
+         int noteNumber = ((int) note) % 12;
+//         NSString *noteType;
+//         switch (noteNumber) {
+//            case 0:
+//               noteType = @"C";
+//               break;
+//            case 1:
+//               noteType = @"C#";
+//               break;
+//            case 2:
+//               noteType = @"D";
+//               break;
+//            case 3:
+//               noteType = @"D#";
+//               break;
+//            case 4:
+//               noteType = @"E";
+//               break;
+//            case 5:
+//               noteType = @"F";
+//               break;
+//            case 6:
+//               noteType = @"F#";
+//               break;
+//            case 7:
+//               noteType = @"G";
+//               break;
+//            case 8:
+//               noteType = @"G#";
+//               break;
+//            case 9:
+//               noteType = @"A";
+//               break;
+//            case 10:
+//               noteType = @"Bb";
+//               break;
+//            case 11:
+//               noteType = @"B";
+//               break;
+//            default:
+//               break;
+//         }
+//         NSLog([noteType stringByAppendingFormat:[NSString stringWithFormat:@": %i", noteNumber]]);
+         
+         // Use MusicDeviceMIDIEvent to send our MIDI message to the sampler to be played
+         
+      //}
+      OSStatus result = noErr;
+      result = MusicDeviceMIDIEvent (pseq->m_pau->m_synth_unit, midiStatus, note, velocity, 0);
+      packet = MIDIPacketNext(packet);
+   }
+}
 
 namespace music
 {
@@ -12,12 +106,13 @@ namespace music
    {
       
       
-      sequence::sequence(sp(::aura::application) papp) :
-      object(papp),
+      sequence::sequence(::aura::application * papp) :
+      ::object(papp),
+      ::music::midi::object(papp),
       ::ikaraoke::karaoke(papp),
       ::music::midi::sequence(papp)
       {
-         
+         m_posPlay = 0;
 //         m_pseq = NULL;
          
          m_buffera.Initialize(16, 4 * 1024, 0);
@@ -185,6 +280,8 @@ namespace music
          {
             return ::music::EFunctionNotSupported;
          }
+         
+         m_posPlay = 0;
          
          m_iOpenMode = openMode;
          
@@ -404,6 +501,108 @@ namespace music
          return ::music::success;
       }
       
+      /*
+      unsigned int MidiOutCore :: getPortCount()
+      {
+         CFRunLoopRunInMode( kCFRunLoopDefaultMode, 0, false );
+         return MIDIGetNumberOfDestinations();
+      }
+      
+      std::string MidiOutCore :: getPortName( unsigned int portNumber )
+      {
+         CFStringRef nameRef;
+         MIDIEndpointRef portRef;
+         char name[128];
+         
+         std::string stringName;
+         CFRunLoopRunInMode( kCFRunLoopDefaultMode, 0, false );
+         if ( portNumber >= MIDIGetNumberOfDestinations() ) {
+            std::ostringstream ost;
+            ost << "MidiOutCore::getPortName: the 'portNumber' argument (" << portNumber << ") is invalid.";
+            errorString_ = ost.str();
+            error( RtMidiError::WARNING, errorString_ );
+            return stringName;
+         }
+         
+         portRef = MIDIGetDestination( portNumber );
+         nameRef = ConnectedEndpointName(portRef);
+         CFStringGetCString( nameRef, name, sizeof(name), CFStringGetSystemEncoding());
+         CFRelease( nameRef );
+         
+         return stringName = name;
+      }
+      
+      void MidiOutCore :: openPort( unsigned int portNumber, const std::string portName )
+      {
+         if ( connected_ ) {
+            errorString_ = "MidiOutCore::openPort: a valid connection already exists!";
+            error( RtMidiError::WARNING, errorString_ );
+            return;
+         }
+         
+         CFRunLoopRunInMode( kCFRunLoopDefaultMode, 0, false );
+         unsigned int nDest = MIDIGetNumberOfDestinations();
+         if (nDest < 1) {
+            errorString_ = "MidiOutCore::openPort: no MIDI output destinations found!";
+            error( RtMidiError::NO_DEVICES_FOUND, errorString_ );
+            return;
+         }
+         
+         if ( portNumber >= nDest ) {
+            std::ostringstream ost;
+            ost << "MidiOutCore::openPort: the 'portNumber' argument (" << portNumber << ") is invalid.";
+            errorString_ = ost.str();
+            error( RtMidiError::INVALID_PARAMETER, errorString_ );
+            return;
+         }
+         
+         MIDIPortRef port;
+         CoreMidiData *data = static_cast<CoreMidiData *> (apiData_);
+         OSStatus result = MIDIOutputPortCreate( data->client,
+                                                CFStringCreateWithCString( NULL, portName.c_str(), kCFStringEncodingASCII ),
+                                                &port );
+         if ( result != noErr ) {
+            MIDIClientDispose( data->client );
+            errorString_ = "MidiOutCore::openPort: error creating OS-X MIDI output port.";
+            error( RtMidiError::DRIVER_ERROR, errorString_ );
+            return;
+         }
+         
+         // Get the desired output port identifier.
+         MIDIEndpointRef destination = MIDIGetDestination( portNumber );
+         if ( destination == 0 ) {
+            MIDIPortDispose( port );
+            MIDIClientDispose( data->client );
+            errorString_ = "MidiOutCore::openPort: error getting MIDI output destination reference.";
+            error( RtMidiError::DRIVER_ERROR, errorString_ );
+            return;
+         }
+         
+         // Save our api-specific connection information.
+         data->port = port;
+         data->destinationId = destination;
+         connected_ = true;
+      }
+      
+      void MidiOutCore :: closePort( void )
+      {
+         CoreMidiData *data = static_cast<CoreMidiData *> (apiData_);
+         
+         if ( data->endpoint ) {
+            MIDIEndpointDispose( data->endpoint );
+         }
+         
+         if ( data->port ) {
+            MIDIPortDispose( data->port );
+         }
+         
+         connected_ = false;
+      }
+
+      */
+
+       
+      
       /***************************************************************************
        *
        * seqPreroll
@@ -490,6 +689,27 @@ namespace music
          
          
          
+         
+         // Create a new music sequence
+         // Initialise the music sequence
+         //NewMusicSequence(&s);
+         
+
+         
+//         maxLen;
+         
+         //while (1) { // kill time until the music is over
+           // usleep (3 * 1000 * 1000);
+           // MusicTimeStamp now = 0;
+           // MusicPlayerGetTime (p, &now);
+            //if (now >= maxLen)
+         //}
+         
+         // Stop the player and dispose of the objects
+         
+         
+         
+         
          m_buffera.Reset();
          lpmh = &m_buffera[0].m_midihdr;
          
@@ -572,21 +792,11 @@ namespace music
           }
           */
          
+         
          //mmrc = m_buffera.midiStreamOut(m_hstream);
-         if (mmrc != ::multimedia::result_success)
-         {
-            TRACE( "midiOutPrepare(preroll) -> %lu!", (uint32_t)mmrc);
-            //mmrc = MCIERR_DEVICE_NOT_READY;
-            if(bThrow)
-            {
-               SetState(status_opened);
-               throw new exception(get_app(), ::music::EMidiPlayerPrerollPrepareHeader);
-            }
-            else
-            {
-               goto seq_Preroll_Cleanup;
-            }
-         }
+         //if (mmrc != ::multimedia::result_success)
+         //{
+         //}
          //         m_uBuffersInMMSYSTEM +=(uint32_t)  m_buffera.get_size();
          
       seq_Preroll_Cleanup:
@@ -664,6 +874,157 @@ namespace music
          
          if(GetState() != status_pre_rolled)
             return ::music::translate(::music::EFunctionNotSupported);
+         
+         m_posPlay = 0;
+         CFStringRef nameRef;
+         MIDIEndpointRef portRef;
+         char name[128];
+
+         int portNumber = 0;
+         std::string stringName;
+         CFRunLoopRunInMode( kCFRunLoopDefaultMode, 0, false );
+         if ( portNumber >= MIDIGetNumberOfDestinations() )
+{
+         }
+         
+         //char name[2048];
+//         portRef = MIDIGetDestination( 0 );
+//         nameRef = ConnectedEndpointName(portRef);
+//         CFStringGetCString( nameRef, name, sizeof(name), CFStringGetSystemEncoding());
+//         CFRelease( nameRef );
+//         
+//         stringName = name;
+//         
+//         m_pcmo = new CoreMidiOutput(stringName);
+         
+         m_bStart = false;
+         
+         m_pau = new AudioUnitOutput(NULL);
+         
+         OSStatus result;
+         
+         m_cl = NULL;
+         
+         
+         result = CAClockNew(0, &m_cl);
+         
+         
+         if(result != noErr)
+         {
+            
+            return translate_os_status(result);
+            
+         }
+         // Create a client
+         //MIDIClientRef virtualMidi;
+         result = MIDIClientCreate(CFSTR("Virtual Client"),
+                                   MyMIDINotifyProc,
+                                   NULL,
+                                   &m_virtualMidi);
+         
+         
+         if(result != noErr)
+         {
+            
+            return translate_os_status(result);
+            
+         }
+         
+         // Create an endpoint
+         //MIDIEndpointRef virtualEndpoint;
+         result = MIDIDestinationCreate(m_virtualMidi, CFSTR("Virtual Destination"), MyMIDIReadProc, this, &m_virtualEndpoint);
+         
+         
+         if(result != noErr)
+         {
+            
+            return translate_os_status(result);
+            
+         }
+         m_sequence = NULL;
+         
+         OSStatus os = LoadSMF((const char *)m_pfile->get_data(),
+                               m_pfile->get_size(),
+                               m_sequence, 0);
+         
+         if(os != noErr)
+         {
+            
+            return translate_os_status(os);
+            
+         }
+         MusicSequenceType outType;
+          OSStatus os2 = MusicSequenceGetSequenceType ( m_sequence, &outType );
+         
+         // ************* Set the endpoint of the sequence to be our virtual endpoint
+         MusicSequenceSetMIDIEndpoint(m_sequence, m_virtualEndpoint);
+         
+         // Create a new music player
+         // Initialise the music player
+         os = NewMusicPlayer(&m_player);
+         if(os != noErr)
+         {
+            
+            return translate_os_status(os);
+            
+         }
+         
+         // Load the sequence into the music player
+         os = MusicPlayerSetSequence(m_player, m_sequence);
+         if(os != noErr)
+         {
+            
+            return translate_os_status(os);
+            
+         }
+         // Called to do some MusicPlayer setup. This just
+         // reduces latency when MusicPlayerStart is called
+         os = MusicPlayerPreroll(m_player);
+         if(os != noErr)
+         {
+            
+            return translate_os_status(os);
+            
+         }
+         // Starts the music playing
+         os = MusicPlayerStart(m_player);
+         
+         if(os != noErr)
+         {
+            
+            return translate_os_status(os);
+            
+         }
+         
+         m_uiStart = get_tick_count();
+         
+         // Get length of track so that we know how long to kill time for
+         MusicTrack t;
+         MusicTimeStamp len = 0;
+         MusicTimeStamp maxLen = 0;
+         UInt32 sz = sizeof(MusicTimeStamp);
+         UInt32 uiCount = 0;
+         os = MusicSequenceGetTrackCount(m_sequence, &uiCount);
+//         if(os != noErr)
+//         {
+//            
+//            return translate_os_status(os);
+//            
+//         }
+         
+         for(UInt32 uiTrack = 0; uiTrack < uiCount; uiTrack++)
+         {
+            
+            MusicSequenceGetIndTrack(m_sequence, uiTrack, &t);
+            len = 0;
+            MusicTrackGetProperty(t, kSequenceTrackProperty_TrackLength, &len, &sz);
+            
+            if(len > maxLen)
+            {
+               maxLen = len;
+            }
+         }
+
          
 /*         if (m_pseq == NULL)
          {
@@ -917,6 +1278,10 @@ namespace music
          
          m_eventMidiPlaybackEnd.ResetEvent();
          
+         
+         MusicPlayerStop(m_player);
+         DisposeMusicSequence(m_sequence);
+         DisposeMusicPlayer(m_player);
 //         if(m_pseq != NULL)
   //       {
     //        seq_stop_timer(m_pseq);
@@ -980,6 +1345,78 @@ namespace music
             TRACE( "seqTime(): State wrong! [is %u]", GetState());
             return ::music::translate(::music::EFunctionNotSupported);
          }
+         
+//         
+//         if(m_player != NULL)
+//         {
+//            
+//            Boolean bPlaying = false;
+//            OSStatus os = MusicPlayerIsPlaying(m_player, &bPlaying);
+//            
+//            if(os == noErr && bPlaying)
+//            {
+//               
+//               MusicTimeStamp now = 0;
+//               os = MusicPlayerGetTime (m_player, &now);
+//               if(os == noErr)
+//               {
+//         
+//                  pTick
+//                  
+//               }
+//               
+//            }
+//            
+//         }
+         
+         imedia_time t = 0;
+         if(get_millis(t) == ::multimedia::result_success)
+         {
+            
+            pTicks = MillisecsToTicks(t);
+            
+            return ::multimedia::result_success;
+            
+         }
+         
+         
+         
+         //time = m_posPlay;
+//         if(m_player != NULL)
+//         {
+//            //MusicPlayerGetPlayRateScalar
+//            Boolean bPlaying = false;
+//            OSStatus os = MusicPlayerIsPlaying(m_player, &bPlaying);
+//            
+//            if(os == noErr && bPlaying)
+//            {
+//               
+//               MusicTimeStamp now = 0;
+//               os = MusicPlayerGetTime (m_player, &now);
+//               if(os == noErr)
+//               {
+//                  MusicTimeStamp f;
+//                  CABarBeatTime t;
+//                  os = MusicSequenceBeatsToBarBeatTime(m_sequence, now, m_dwTimeDivision , &t);
+//                  if(os == noErr)
+//                  {
+////                     UInt64 outHostTime = 0;
+//  //                   OSStatus os2= MusicPlayerGetHostTimeForBeats ( m_player, now, &outHostTime );
+//                     
+//    //                 m_posPlay = time = now * 1000;
+//                     
+//                     pTicks= t.;
+//                     
+//                     return ::multimedia::result_success;
+//                     
+//                  }
+//                  
+//               }
+//               
+//            }
+//            
+//         }
+         
          
          pTicks = 0;
          if (status_opened != GetState())
@@ -1054,6 +1491,43 @@ namespace music
             return ::music::translate(::music::EFunctionNotSupported);
          }
          
+         //time = m_posPlay;
+         if(m_player != NULL)
+         {
+            //MusicPlayerGetPlayRateScalar
+            Boolean bPlaying = false;
+            OSStatus os = MusicPlayerIsPlaying(m_player, &bPlaying);
+            
+            if(os == noErr && bPlaying)
+            {
+               
+               MusicTimeStamp now = 0;
+               os = MusicPlayerGetTime (m_player, &now);
+               if(os == noErr)
+               {
+               Float64 f;
+               os = MusicSequenceGetSecondsForBeats(m_sequence, now,  &f);
+                  if(os == noErr)
+                  {
+                     UInt64 outHostTime = 0;
+                      OSStatus os2= MusicPlayerGetHostTimeForBeats ( m_player, now, &outHostTime );
+               
+               //m_posPlay = time = now * 1000;
+                     
+                     m_posPlay = time = get_tick_count() - m_uiStart;
+                     
+                     //time = outHostTime;
+               
+               return ::multimedia::result_success;
+                     
+                  }
+                  
+               }
+               
+            }
+            
+         }
+
          time = 0;
          if (status_opened != GetState())
          {
