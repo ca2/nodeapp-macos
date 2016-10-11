@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../app-core/appseed/todo/Todo!!.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-core/appseed/auraclick/auraclick.xcodeproj">
    </FileRef>
    <FileRef
@@ -69,6 +72,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/timer/app_core_timer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/todo/app_core_todo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/weather/app_core_weather.xcodeproj">
