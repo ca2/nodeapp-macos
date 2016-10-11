@@ -1,10 +1,16 @@
 {
   "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5785e629-6d34-604c-b465-30bb7cddd17d++6695",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : {
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6073" : {
+
+    },
+    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : {
 
     },
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : {
+
+    },
+    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : {
 
     },
     "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : {
@@ -13,28 +19,27 @@
     "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : {
 
     },
-    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : {
-
-    },
     "b94385fe-d6cc-b241-ac1b-8c034d966402++6695" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : 9223372036854775807,
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6073" : 9223372036854775807,
+    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : 9223372036854775807,
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : 9223372036854775807,
+    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : 9223372036854775807,
     "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : 9223372036854775807,
     "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : 9223372036854775807,
-    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : 9223372036854775807,
     "b94385fe-d6cc-b241-ac1b-8c034d966402++6695" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A3E83340-7DEC-4EF5-B984-9AB82D9D93A6",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : "app-core\/",
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6073" : "third\/appseed\/protobuf\/",
+    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : "nodeapp\/",
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : "third\/",
+    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : "app-core\/",
     "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : "app\/",
     "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : "app-veriwell\/",
-    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : "nodeapp\/",
     "b94385fe-d6cc-b241-ac1b-8c034d966402++6695" : "app-cidadedecuritiba\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "mac-core",
@@ -60,6 +65,16 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/nodeapp-macos",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5785e629-6d34-604c-b465-30bb7cddd17d++6695"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/protobuf-c\/protobuf-c.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6073"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/third",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6073"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/third",
