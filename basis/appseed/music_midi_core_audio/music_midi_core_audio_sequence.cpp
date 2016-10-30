@@ -1150,6 +1150,9 @@ namespace music
             
          }
          */
+         
+         SetState(status_playing);
+         
          return ::multimedia::result_success;
          
       }
@@ -1227,6 +1230,8 @@ namespace music
          
          SetState(status_playing);
          m_evMmsgDone.ResetEvent();
+         
+         OSStatus oss = MusicPlayerStop(m_player);
          
          //    ::multimedia::e_result mmrc = 0;
          //    single_lock slStream(&m_csStream, false);

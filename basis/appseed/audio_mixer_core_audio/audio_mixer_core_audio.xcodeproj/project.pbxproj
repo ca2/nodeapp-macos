@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				9A2EA31119A62C4B004DAFFC /* libaxis.dylib */,
-				9A2EA31319A62C4B004DAFFC /* libaxis.dylib */,
+				9A2EA31319A62C4B004DAFFC /* libios_axis.dylib */,
 				9A4E84751D1FD3BB008A419B /* axis_iosTests.xctest */,
 			);
 			name = Products;
@@ -257,7 +257,7 @@
 			remoteRef = 9A2EA31019A62C4B004DAFFC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9A2EA31319A62C4B004DAFFC /* libaxis.dylib */ = {
+		9A2EA31319A62C4B004DAFFC /* libios_axis.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libios_axis.dylib;
@@ -341,7 +341,7 @@
 					"$(inherited)",
 					"$(TARGET_BUILD_DIR)",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -389,7 +389,7 @@
 					"$(inherited)",
 					"$(TARGET_BUILD_DIR)",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(WorkspaceDir)/../../../include $(WorkspaceDir)/../../../app/include . .. $(WorkspaceDir)/../../.. $(WorkspaceDir)/../../../app $(WorkspaceDir)/../../../app/appseed $(WorkspaceDir)/../../../app/appseed/core $(WorkspaceDir)/../../../app/appseed/base $(WorkspaceDir)/../.. $(WorkspaceDir)/../../base/include $(WorkspaceDir)/../../../app/base/include $(WorkspaceDir)/../../appseed $(WorkspaceDir)/../../../app/base";
