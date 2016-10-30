@@ -5,28 +5,28 @@
       location = "group:../../../app-core/appseed/addressbook/addressbook.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/a/macos/app-core/appseed/verilux/verilux.xcodeproj">
+      location = "group:../../../app-core/appseed/verilux/verilux.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/a/macos/app-core/appseed/verifile/verifile.xcodeproj">
+      location = "group:../../../app-core/appseed/verifile/verifile.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/a/macos/app-core/appseed/veriedit/veriedit.xcodeproj">
+      location = "group:../../../app-core/appseed/veriedit/veriedit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/ace/ace.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/a/macos/app-core/appseed/addressbook/app_core_addressbook.xcodeproj">
+      location = "group:../../../app-core/appseed/addressbook/app_core_addressbook.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/a/macos/app-core/appseed/verilux/app_core_verilux.xcodeproj">
+      location = "group:../../../app-core/appseed/verilux/app_core_verilux.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/a/macos/app-core/appseed/verifile/app_core_verifile.xcodeproj">
+      location = "group:../../../app-core/appseed/verifile/app_core_verifile.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/a/macos/app-core/appseed/veriedit/app_core_veriedit.xcodeproj">
+      location = "group:../../../app-core/appseed/veriedit/app_core_veriedit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
@@ -77,12 +77,6 @@
       location = "group:../../../third/appseed/idn/axisidn.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/appseed/image_jpeg/image_decode_jpeg.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/appseed/image_png/image_decode_png.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../third/appseed/openssl/axisopenssl.xcodeproj">
    </FileRef>
    <FileRef
@@ -111,6 +105,12 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/gcom/gcom.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/image_jpeg/image_decode_jpeg.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/image_png/image_decode_png.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
