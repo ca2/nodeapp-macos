@@ -43,6 +43,7 @@
 		9A8EAF8717C5640300C458D1 /* music_midi_core_audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF7817C5640300C458D1 /* music_midi_core_audio.cpp */; };
 		9A8EAF8817C5640300C458D1 /* music_midi_core_audio.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF7A17C5640300C458D1 /* music_midi_core_audio.h */; };
 		9AA1B44A176361950019E812 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA1B449176361950019E812 /* Cocoa.framework */; };
+		9AB175301DC78C520076874C /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A210CDC1D81ED9F000C4336 /* AudioUnit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB175301DC78C520076874C /* AudioUnit.framework in Frameworks */,
 				9A210CDB1D81ED91000C4336 /* CoreMIDI.framework in Frameworks */,
 				9A210CD91D81ED72000C4336 /* AudioToolbox.framework in Frameworks */,
 				072E446E1CA89BF80096952D /* libaura.dylib in Frameworks */,
