@@ -41,8 +41,8 @@ namespace music
          void ExecuteCommand(::smart_pointer < ::music::midi::player::command > pcommand);
          void _ExecuteCommand(::smart_pointer < ::music::midi::player::command > pcommand);
 
-         virtual bool initialize_instance();
-         virtual int32_t exit_instance();
+         virtual bool initialize_thread();
+         virtual int32_t exit_thread();
 
          DECL_GEN_SIGNAL(OnCommand);
          DECL_GEN_SIGNAL(OnMidiSequenceEvent);
