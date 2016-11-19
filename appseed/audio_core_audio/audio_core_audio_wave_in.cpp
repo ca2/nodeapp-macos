@@ -28,7 +28,7 @@ namespace multimedia
       {
       }
 
-      bool wave_in::initialize_instance()
+      bool wave_in::initialize_thread()
       {
          TRACE("wave_in::initialize_instance %X\n", get_os_int());
          //SetMainWnd(NULL);
@@ -37,22 +37,22 @@ namespace multimedia
          m_evInitialized.SetEvent();
          
          
-         if(!::multimedia::audio::wave_in::initialize_instance())
+         if(!::multimedia::audio::wave_in::initialize_thread())
             return false;
          
          
          
-         if(!toolbox::initialize_instance())
+         if(!toolbox::initialize_thread())
             return false;
 
          
          return true;
       }
 
-      int32_t wave_in::exit_instance()
+      int32_t wave_in::exit_thread()
       {
          m_eventExitInstance.SetEvent();
-         return thread::exit_instance();
+         return thread::exit_thread();
       }
 
       void wave_in::pre_translate_message(signal_details * pobj)
@@ -82,7 +82,7 @@ namespace multimedia
          
          return ::multimedia::result_error;
 
-         single_lock sLock(&m_mutex, TRUE);
+         single_lock sLock(m_pmutex, TRUE);
          ASSERT(m_Queue == NULL);
          ASSERT(m_estate == state_initial);
 
@@ -221,7 +221,7 @@ Opened:
       ::multimedia::e_result wave_in::wave_in_close()
       {
 
-         single_lock sLock(&m_mutex, TRUE);
+         single_lock sLock(m_pmutex, TRUE);
 
          ::multimedia::e_result mmr;
 
@@ -264,7 +264,7 @@ Opened:
       ::multimedia::e_result wave_in::wave_in_start()
       {
 
-         single_lock sLock(&m_mutex, TRUE);
+         single_lock sLock(m_pmutex, TRUE);
          
          if(m_estate == state_recording)
             return ::multimedia::result_success;
@@ -291,7 +291,7 @@ Opened:
       ::multimedia::e_result wave_in::wave_in_stop()
       {
 
-         single_lock sLock(&m_mutex, TRUE);
+         single_lock sLock(m_pmutex, TRUE);
 
          if(m_estate != state_recording)
             return ::multimedia::result_error;
@@ -351,7 +351,7 @@ Opened:
 
       ::multimedia::e_result wave_in::wave_in_reset()
       {
-         single_lock sLock(&m_mutex, TRUE);
+         single_lock sLock(m_pmutex, TRUE);
          m_bResetting = true;
          if(m_Queue == NULL)
          {
