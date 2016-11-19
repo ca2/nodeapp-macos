@@ -3019,7 +3019,7 @@ namespace music
          
          ASSERT(this != NULL);
          
-         event * pevent          = new event();
+         event * pevent          = canew(event());
          
          pevent->m_eevent        = eevent;
          pevent->m_psequence     = this;
