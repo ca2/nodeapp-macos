@@ -37,12 +37,13 @@
     "b94385fe-d6cc-b241-ac1b-8c034d966402++6695+++7820E0A" : 9223372036854775807,
     "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695+++EC73412" : 9223372036854775807,
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6073+++9B4C314" : 9223372036854775807,
-    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695+++01D8D46" : 9223372036854775807,
+    "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F+++EB699A0" : 9223372036854775807,
     "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695+++F5B04B5" : 9223372036854775807,
     "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695+++6B96377" : 9223372036854775807,
-    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695+++509A820" : 9223372036854775807,
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695+++01D8D46" : 9223372036854775807,
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6073+++9A18B74" : 9223372036854775807,
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695+++43581AD" : 9223372036854775807
+    "4b29f6fd-04c5-0641-9915-f104bd532099++6695+++43581AD" : 9223372036854775807,
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695+++509A820" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A3E83340-7DEC-4EF5-B984-9AB82D9D93A6",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
@@ -50,12 +51,13 @@
     "b94385fe-d6cc-b241-ac1b-8c034d966402++6695+++7820E0A" : "app-cidadedecuritiba\/",
     "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695+++EC73412" : "app\/",
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6073+++9B4C314" : "third\/appseed\/protobuf\/",
-    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695+++01D8D46" : "..\/Volumes\/apple\/macos\/third",
+    "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F+++EB699A0" : "..\/git\/OpenSSL-for-iPhone",
     "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695+++F5B04B5" : "..\/Volumes\/apple\/macos\/app",
     "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695+++6B96377" : "app-veriwell\/",
-    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695+++509A820" : "third\/",
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695+++01D8D46" : "..\/Volumes\/apple\/macos\/third",
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6073+++9A18B74" : "third\/appseed\/protobuf\/",
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695+++43581AD" : "app-core\/"
+    "4b29f6fd-04c5-0641-9915-f104bd532099++6695+++43581AD" : "app-core\/",
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695+++509A820" : "third\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "mac-core",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -85,6 +87,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/nodeapp-macos",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5785e629-6d34-604c-b465-30bb7cddd17d++6695+++7637878"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/x2on\/OpenSSL-for-iPhone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F+++EB699A0"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/third",
