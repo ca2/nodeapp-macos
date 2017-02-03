@@ -35,6 +35,9 @@
       location = "group:../../../app/appseed/ace/ace.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:/macos/app-core/appseed/announcecom/announcecom.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-cidadedecuritiba/appseed/alphaclock/app_cidadedecuritiba_alphaclock.xcodeproj">
    </FileRef>
    <FileRef
@@ -45,15 +48,6 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/auraverse/app_core_auraverse.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/beampro_bot/app_core_beampro_bot.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/beampro_client/app_core_beampro_client.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/beampro_resident/app_core_beampro_resident.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/berdge/app_core_berdge.xcodeproj">
@@ -71,16 +65,10 @@
       location = "container:../../../app-core/appseed/hellomultiverse/app_core_hellomultiverse.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/irc_bot/app_core_irc_bot.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/irc_client/app_core_irc_client.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/irc_resident/app_core_irc_resident.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app-core/appseed/resident/app_core_resident.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/resident_client/app_core_resident_client.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/timer/app_core_timer.xcodeproj">
@@ -90,15 +78,6 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/weather/app_core_weather.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/xmpp_bot/app_core_xmpp_bot.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/xmpp_client/app_core_xmpp_client.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/xmpp_resident/app_core_xmpp_resident.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-veriwell/appseed/asciimedia/app_veriwell_asciimedia.xcodeproj">
@@ -201,6 +180,15 @@
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/protobuf/protobuf-c.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/resident_beampro/resident_beampro.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/resident_liveedutv/resident_liveedutv.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/resident_twitchtv/resident_twitchtv.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/sphere/sphere.xcodeproj">
