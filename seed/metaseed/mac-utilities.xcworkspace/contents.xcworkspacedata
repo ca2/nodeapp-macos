@@ -62,9 +62,6 @@
       location = "group:../../../third/appseed/clientchannels/axisclientchannels.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../third/appseed/crypto/axiscrypto.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app/appseed/freeimage/axisfreeimage.xcodeproj">
    </FileRef>
    <FileRef
