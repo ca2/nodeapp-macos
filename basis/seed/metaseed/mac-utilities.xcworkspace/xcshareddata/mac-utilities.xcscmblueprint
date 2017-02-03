@@ -21,21 +21,23 @@
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : 9223372036854775807,
     "2106cbbc-8be9-a44d-8f5f-e0ba33a4fbb3++6695" : 9223372036854775807,
-    "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : 9223372036854775807,
-    "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : 9223372036854775807,
+    "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F" : 9223372036854775807,
     "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : 9223372036854775807,
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : 9223372036854775807
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : 9223372036854775807,
+    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : 9223372036854775807,
+    "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : 9223372036854775807,
+    "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1D711C69-D269-450E-8218-C0F95EC4E039",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : "..\/Volumes\/apple\/macos\/third",
     "2106cbbc-8be9-a44d-8f5f-e0ba33a4fbb3++6695" : "game\/",
-    "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : "..\/Volumes\/apple\/macos\/app",
-    "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : "app-veriwell\/",
+    "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F" : "..\/git\/OpenSSL-for-iPhone",
     "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : "nodeapp\/",
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : "..\/Volumes\/apple\/macos\/app-core"
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : "..\/Volumes\/apple\/macos\/third",
+    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : "..\/Volumes\/apple\/macos\/app-core",
+    "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : "..\/Volumes\/apple\/macos\/app",
+    "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : "app-veriwell\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "mac-utilities",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -65,6 +67,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/nodeapp-macos",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5785e629-6d34-604c-b465-30bb7cddd17d++6695"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/x2on\/OpenSSL-for-iPhone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/third",
