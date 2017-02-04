@@ -32,6 +32,12 @@
       location = "group:../../../app-veriwell/appseed/waven/Waven.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/commander-browser-bot/commander-browser-bot.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/commander-browser-def/commander-browser-def.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/ace/ace.xcodeproj">
    </FileRef>
    <FileRef
