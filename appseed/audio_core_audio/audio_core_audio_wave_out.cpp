@@ -305,7 +305,6 @@ namespace multimedia
       
       ::multimedia::e_result wave_out::wave_out_open_ex(thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount, uint32_t uiSamplesPerSec, uint32_t uiChannelCount, uint32_t uiBitsPerSample, ::multimedia::audio::e_purpose epurpose)
       {
-         
          single_lock sLock(m_pmutex, TRUE);
          
          if(m_Queue != NULL && m_estate != state_initial)
@@ -328,17 +327,32 @@ namespace multimedia
          ZEROP(&m_dataformat);
          
          translate(m_dataformat, m_pwaveformat);
-         
-         iBufferCount = 4;
-         iBufferSampleCount = 1024;
-         
+
+         if(epurpose == ::multimedia::audio::purpose_playground)
+         {
+            
+            iBufferCount = 4;
+            
+            iBufferSampleCount = 1024;
+            
+         }
+         else if(epurpose == ::multimedia::audio::purpose_playback)
+         {
+            
+            iBufferCount = 8;
+            
+            iBufferSampleCount = 8192;
+            
+         }
+      //   if(epurpose)
+         m_epurpose = epurpose;
          m_iBufferCount = iBufferCount;
          m_iBufferSampleCount = iBufferSampleCount;
          
          try
          {
             
-            if(failed(m_mmr = translate(AudioQueueNewOutput(&m_dataformat, WaveOutAudioQueueBufferCallback, this, NULL, kCFRunLoopCommonModes, 0, &m_Queue))))
+            if(failed(m_mmr = translate(AudioQueueNewOutput(&m_dataformat, WaveOutAudioQueueBufferCallback, this, NULL, NULL, 0, &m_Queue))))
                return m_mmr;
             
          }
