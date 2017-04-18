@@ -10,6 +10,9 @@
  * https://www.openssl.org/source/license.html
  */
 
+
+#define NO_WINDOWS_BRAINDEATH
+
 #ifdef  __cplusplus
 extern "C" {
 #endif
@@ -21,6 +24,9 @@ extern "C" {
 /*
  * OpenSSL was configured with the following options:
  */
+   
+#define OPENSSLDIR "."
+#define ENGINESDIR "."
 
 #ifndef OPENSSL_SYS_MACOSX
 # define OPENSSL_SYS_MACOSX 1
@@ -143,8 +149,8 @@ extern "C" {
 #else
 # define DEPRECATEDIN_0_9_8(f)
 #endif
-
-#define OPENSSL_CPUID_OBJ
+//#define OPENSSL_NO_ASM
+//#define OPENSSL_CPUID_OBJ
 
 /* Generate 80386 code? */
 #undef I386_ONLY
