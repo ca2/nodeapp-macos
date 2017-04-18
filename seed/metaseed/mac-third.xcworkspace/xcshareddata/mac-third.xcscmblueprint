@@ -1,0 +1,52 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5785e629-6d34-604c-b465-30bb7cddd17d++6695",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : {
+
+    },
+    "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : {
+
+    },
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : 9223372036854775807,
+    "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : 9223372036854775807,
+    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : 9223372036854775807,
+    "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "742BF38C-A8C7-48CB-8EF3-FD088B741EDA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : "third\/",
+    "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : "app\/",
+    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : "nodeapp\/",
+    "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F" : "..\/git\/OpenSSL-for-iPhone"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "mac-third",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "seed\/metaseed\/mac-third.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/app",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/nodeapp-macos",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5785e629-6d34-604c-b465-30bb7cddd17d++6695"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/x2on\/OpenSSL-for-iPhone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/third",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695"
+    }
+  ]
+}
