@@ -5,7 +5,7 @@
       location = "group:../../../app-core/appseed/commander/commander.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/berdge/berdge.xcodeproj">
+      location = "group:../../../app-core/appseed/desk/desk.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/todo/Todo!!.xcodeproj">
@@ -56,13 +56,13 @@
       location = "group:../../../app-core/appseed/auraverse/app_core_auraverse.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/berdge/app_core_berdge.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app-core/appseed/clockverse/app_core_clockverse.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/commander/app_core_commander.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/desk/app_core_desk.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/flag/app_core_flag.xcodeproj">
