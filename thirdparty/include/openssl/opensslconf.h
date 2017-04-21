@@ -1,5 +1,4 @@
 // ca2 configuration for openssl
-#include "app/appseed/base/base/base/base.h"
 #define OPENSSL_NO_ASM
 #define OPENSSL_NO_INLINE_ASM
 #define OPENSSL_NO_DYNAMIC_ENGINE
