@@ -5,6 +5,12 @@
       location = "group:../../../app-core/appseed/commander/commander.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/commander-browser-bot/commander-browser-bot.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/commander-browser-def/commander-browser-def.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-core/appseed/desk/desk.xcodeproj">
    </FileRef>
    <FileRef
@@ -30,12 +36,6 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-veriwell/appseed/waven/Waven.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/commander-browser-bot/commander-browser-bot.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-core/appseed/commander-browser-def/commander-browser-def.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/ace/ace.xcodeproj">
@@ -125,6 +125,9 @@
       location = "group:../../../third/appseed/clientchannels/axisclientchannels.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../third/appseed/crypto/axiscrypto.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/freeimage/axisfreeimage.xcodeproj">
    </FileRef>
    <FileRef
@@ -135,6 +138,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/jpeg/axisjpeg.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../third/appseed/openssl/axisopenssl.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/png/axispng.xcodeproj">
