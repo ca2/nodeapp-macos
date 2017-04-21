@@ -29,7 +29,6 @@ namespace multimedia
          m_iBufferedCount     = 0;
          m_mmr                = ::multimedia::result_success;
          m_peffect            = NULL;
-         m_dwLostSampleCount  = 0;
          m_bDone              = false;
          m_eventRunning.ResetEvent();
          
