@@ -35,8 +35,8 @@
     "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F" : "..\/git\/OpenSSL-for-iPhone",
     "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : "nodeapp\/",
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : "..\/Volumes\/apple\/macos\/third",
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : "..\/Volumes\/apple\/macos\/app-core",
-    "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : "..\/Volumes\/apple\/macos\/app",
+    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : "app-core\/",
+    "42380382-9956-6c45-b5c0-3ed0cc9a5645++6695" : "app\/",
     "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : "app-veriwell\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "mac-utilities",
