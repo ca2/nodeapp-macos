@@ -2,7 +2,7 @@
 //  audio_core_audio_toolbox.cpp
 //  audio_core_audio
 //
-//  Created by Thomas Borregaard Sørensen on 11/10/13.
+//  Created by Camilo Sasuke Tsumanuma on 11/10/13.
 //  Copyright (c) 2013 ca2 Desenvolvimento de Sofware Ltda. All rights reserved.
 //
 #include "framework.h"

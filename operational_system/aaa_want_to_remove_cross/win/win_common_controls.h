@@ -2,7 +2,7 @@
 //  win_common_controls.h
 //  os
 //
-//  Created by Thomas Borregaard Sørensen on 12/10/13.
+//  Created by Camilo Sasuke Tsumanuma on 12/10/13.
 //  Copyright (c) 2013 ca2 Desenvolvimento de Sofware Ltda. All rights reserved.
 //
 #pragma once
