@@ -158,9 +158,6 @@
       location = "group:../../../third/appseed/libmpg123/basempg123.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/beampro/beampro.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../../app/appseed/core/core.xcodeproj">
    </FileRef>
    <FileRef
@@ -179,6 +176,9 @@
       location = "group:../../../app-core/appseed/irc/irc.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/mixercom/mixercom.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
    </FileRef>
    <FileRef
@@ -194,10 +194,10 @@
       location = "group:../../../third/appseed/protobuf/protobuf-c.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/resident_beampro/resident_beampro.xcodeproj">
+      location = "group:../../../app-core/appseed/resident_liveedutv/resident_liveedutv.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/resident_liveedutv/resident_liveedutv.xcodeproj">
+      location = "group:../../../app-core/appseed/resident_mixercom/resident_mixercom.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/resident_twitchtv/resident_twitchtv.xcodeproj">
