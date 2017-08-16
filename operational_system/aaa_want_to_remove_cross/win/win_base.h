@@ -251,20 +251,20 @@ GetCommandLineW(
 
 VOID
 WINAPI
-OutputDebugStringA(
+output_debug_string(
     LPCSTR lpOutputString
     );
 
 
 VOID
 WINAPI
-OutputDebugStringW(
+output_debug_string(
     LPCWSTR lpOutputString
     );
 #ifdef UNICODE
-#define OutputDebugString  OutputDebugStringW
+#define output_debug_string  output_debug_string
 #else
-#define OutputDebugString  OutputDebugStringA
+#define output_debug_string  output_debug_string
 #endif // !UNICODE
 
 

@@ -5,10 +5,10 @@
       location = "group:../../../app-veriwell/appseed/verisimplevideo/verisimplevideo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-veriwell/appseed/mplite/veriwell Musical Player lite.xcodeproj">
+      location = "group:../../../app-veriwell/appseed/musical_player_lite/veriwell Musical Player lite.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-veriwell/appseed/vmsplayer/veriwell Musical Player.xcodeproj">
+      location = "group:../../../app-veriwell/appseed/musical_player/veriwell Musical Player.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/auraverse/auraverse.xcodeproj">
@@ -44,13 +44,13 @@
       location = "container:../../../app-core/appseed/rdpclient/app_core_rdpclient.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app-veriwell/appseed/vmsplayer/app_veriwell_vmsplayer.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app-veriwell/appseed/verisimplevideo/app_veriwell_verisimplevideo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/musical_player/app_veriwell_musical_player.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/musical_player_lite/app_veriwell_musical_player_lite.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
