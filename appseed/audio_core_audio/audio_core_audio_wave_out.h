@@ -16,16 +16,9 @@ namespace multimedia
       public:
          
          
-//         enum e_message
-//         {
-//            message_open = WM_APP + 5555,
-//         };
-
-
          UInt32                                    m_NumPacketsToRead;
          array < AudioStreamPacketDescription * >  m_PacketDescs;
          bool                                      m_bDone;
-//         ::manual_reset_event                      m_eventOpened;
          int32_t                                   m_iBufferCount;
          int32_t                                   m_iBufferSampleCount;
 
@@ -34,7 +27,7 @@ namespace multimedia
          virtual ~wave_out();
 
 
-         void install_message_handling(::message::dispatch * pinterface);
+         void install_message_routing(::message::sender * pinterface) override;
 
          virtual imedia_time wave_out_get_position_millis();
          imedia_position wave_out_get_position();
@@ -60,8 +53,6 @@ namespace multimedia
 
          void AudioQueueBufferCallback(AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer);
        
-         //int run();
-         
          
          virtual bool on_run_step();
          

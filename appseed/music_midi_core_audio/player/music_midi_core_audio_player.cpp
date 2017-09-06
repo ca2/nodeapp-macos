@@ -61,9 +61,9 @@ namespace music
             return thread::exit_thread();
          }
          
-         void player::install_message_handling(::message::dispatch * pinterface)
+         void player::install_message_routing(::message::sender * psender)
          {
-            ::music::midi::player::player::install_message_handling(pinterface);
+            ::music::midi::player::player::install_message_routing(psender);
             //IGUI_WIN_MSG_LINK(MM_MOM_DONE, pinterface, this, &player::OnMultimediaMidiOutputMessageDone);
             //IGUI_WIN_MSG_LINK(MM_MOM_POSITIONCB, pinterface, this, &player::OnMultimediaMidiOutputMessagePositionCB);
          }
@@ -215,9 +215,9 @@ namespace music
             
          }
          
-         void player::pre_translate_message(::signal_details * pobj)
+         void player::pre_translate_message(::message::message * pmessage)
          {
-            SCAST_PTR(::message::base, pbase, pobj);
+            SCAST_PTR(::message::base, pbase, pmessage);
             //ASSERT(GetMainWnd() == NULL);
             //   if(pMsg->message == MM_MOM_DONE ||
             //      pMsg->message == MM_MOM_POSITIONCB ||
@@ -229,7 +229,7 @@ namespace music
             //   }
             if(pbase->m_pwnd == NULL)
             {
-               switch(pbase->m_uiMessage)
+               switch(pbase->m_id.int64())
                {
                   case WM_USER + 100:
                   {
@@ -240,17 +240,17 @@ namespace music
                      return;
                }
             }
-            if(pbase->m_uiMessage == MMSG_DONE)
+            if(pbase->m_id == MMSG_DONE)
             {
                OnMmsgDone((::music::midi::sequence *) pbase->m_wparam);
                pbase->m_bRet = true;
                return;
             }
-            else if(pbase->m_uiMessage == WM_USER)
+            else if(pbase->m_id == WM_USER)
             {
                //      OnUserMessage(pMsg->wParam, pMsg->lParam);
             }
-            return thread::pre_translate_message(pobj);
+            return thread::pre_translate_message(pmessage);
          }
          
          void player::SaveFile(const char * lpszPathName)
@@ -264,9 +264,9 @@ namespace music
          }
          
          
-         void player::OnUserMessage(::signal_details * pobj)
+         void player::OnUserMessage(::message::message * pmessage)
          {
-            SCAST_PTR(::message::base, pbase, pobj);
+            SCAST_PTR(::message::base, pbase, pmessage);
             if(pbase->m_wparam == 3377)
             {
                m_puie->send_message(WM_USER, pbase->m_wparam, pbase->m_lparam);
@@ -411,9 +411,9 @@ namespace music
             m_puie = puie;
          }
          
-         void player::on_attribute_change(::signal_details * pobj)
+         void player::on_attribute_change(::message::message * pmessage)
          {
-            SCAST_PTR(::music::midi::attribute_message, pchange, pobj);
+            SCAST_PTR(::music::midi::attribute_message, pchange, pmessage);
             
             switch(pchange->m_eattribute)
             {
@@ -442,10 +442,10 @@ namespace music
          }
          
          
-         void player::OnMultimediaMidiOutputMessageDone(::signal_details * pobj)
+         void player::OnMultimediaMidiOutputMessageDone(::message::message * pmessage)
          {
   
-            UNREFERENCED_PARAMETER(pobj);
+            UNREFERENCED_PARAMETER(pmessage);
 //            SCAST_PTR(::message::base, pbase, pobj);
             
             /*seq_context_t * pseq = (seq_context_t *) pbase->m_wparam;
@@ -460,9 +460,9 @@ namespace music
             
          }
          
-         void player::OnMultimediaMidiOutputMessagePositionCB(::signal_details * pobj)
+         void player::OnMultimediaMidiOutputMessagePositionCB(::message::message * pmessage)
          {
-         UNREFERENCED_PARAMETER(pobj);
+         UNREFERENCED_PARAMETER(pmessage);
 //            SCAST_PTR(::message::base, pbase, pobj);
             /*            LPMIDIHDR lpmidihdr = (LPMIDIHDR) pbase->m_wparam;
              //          get_sequence()->OnPositionCB(lpmidihdr);
@@ -477,9 +477,9 @@ namespace music
          
          
          
-         void player::OnNotifyEvent(::signal_details * pobj)
+         void player::OnNotifyEvent(::message::message * pmessage)
          {
-            SCAST_PTR(::message::base, pbase, pobj);
+            SCAST_PTR(::message::base, pbase, pmessage);
             ::music::midi::player::notify_event * pdata = (::music::midi::player::notify_event *) pbase->m_lparam.m_lparam;
             pdata->m_pplayer = this;
             if(m_puie != NULL)

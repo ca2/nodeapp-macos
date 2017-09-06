@@ -44,7 +44,7 @@ namespace multimedia
          
          virtual bool initialize_thread();
          virtual int32_t exit_thread();
-         virtual void pre_translate_message(signal_details * pobj);
+         virtual void pre_translate_message(::message::message * pmessage) override;
          
 
          static void HandleInputBuffer(void                                 *aqData,
