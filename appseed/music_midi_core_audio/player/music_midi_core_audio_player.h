@@ -30,7 +30,7 @@ namespace music
             
 
 
-            void install_message_handling(::message::dispatch * pinterface);
+            void install_message_routing(::message::sender * psender);
 
 
             void SendMmsgDone(::music::midi::sequence *pSeq, ::music::midi::LPMIDIDONEDATA lpmdd);
@@ -40,7 +40,7 @@ namespace music
 
             virtual bool initialize_thread();
             virtual int32_t exit_thread();
-            virtual void pre_translate_message(::signal_details * pobj);
+            virtual void pre_translate_message(::message::message * pmessage);
             void OnMmsgDone(::music::midi::sequence *pSeq);
             DECL_GEN_SIGNAL(OnUserMessage);
                void SaveFile(const char * lpszPathName);

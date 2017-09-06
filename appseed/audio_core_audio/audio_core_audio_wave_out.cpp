@@ -39,10 +39,10 @@ namespace multimedia
          
       }
       
-      void wave_out::install_message_handling(::message::dispatch * pinterface)
+      void wave_out::install_message_routing(::message::sender * pinterface)
       {
          
-         ::multimedia::audio::wave_out::install_message_handling(pinterface);
+         ::multimedia::audio::wave_out::install_message_routing(pinterface);
          
          //         IGUI_WIN_MSG_LINK(MM_WOM_OPEN, pinterface, this, &wave_out::OnMultimediaOpen);
          //       IGUI_WIN_MSG_LINK(MM_WOM_DONE, pinterface, this, &wave_out::OnMultimediaDone);
@@ -451,9 +451,9 @@ namespace multimedia
          if(m_estate != state_opened)
             return ::multimedia::result_success;
          
-         OSStatus status;
+         m_estate = state_closing;
          
-         free_buffers();
+         OSStatus status;
          
          /*         ::multimedia::e_result mmr;
           
@@ -473,7 +473,43 @@ namespace multimedia
           
           }*/
          
-         status = AudioQueueDispose(m_Queue, 1);
+         //free_buffers();
+         
+         int i = 0;
+         UInt32 property_running;
+         UInt32 size;
+         while(i < 50)
+         {
+            
+            property_running = 0;
+            
+            size = sizeof(property_running);
+            
+            OSStatus status = AudioQueueGetProperty(m_Queue, kAudioQueueProperty_IsRunning, &property_running, &size );
+            
+            if(status != 0)
+            {
+             
+               break;
+               
+            }
+            
+            if(!property_running)
+            {
+               
+               Sleep(50);
+             
+               break;
+               
+            }
+            
+            i++;
+            
+            Sleep(250);
+            
+         }
+         
+         status = AudioQueueDispose(m_Queue, FALSE);
          
          m_Queue = NULL;
          
@@ -554,7 +590,6 @@ namespace multimedia
          
       }
       
-      
       ::multimedia::e_result wave_out::wave_out_stop()
       {
          
@@ -565,22 +600,20 @@ namespace multimedia
          
          m_eventStopped.ResetEvent();
          
-         m_pprebuffer->Stop();
-         
          m_estate = state_stopping;
          
-         // waveOutReset
-         // The waveOutReset function stops playback on the given
-         // waveform-audio_core_audio output device and resets the current position
-         // to zero. All pending playback buffers are marked as done and
-         // returned to the application.
-         m_mmr = translate(AudioQueueReset(m_Queue));
+         m_mmr = translate(AudioQueueStop(m_Queue, TRUE));
          
          if(m_mmr == ::multimedia::result_success)
          {
+            
             m_estate = state_opened;
+            
          }
+
+         m_pprebuffer->Stop();
          
+
          return m_mmr;
          
       }
@@ -770,7 +803,7 @@ namespace multimedia
          if(iBuffer < 0)
             return;
           
-          m_iBufferedCount--;
+         m_iBufferedCount--;
          
          wave_out_out_buffer_done((int) iBuffer);
          
@@ -784,47 +817,9 @@ namespace multimedia
          
       }
       
-      /*
-       int wave_out::run()
-       {
-       
-       MESSAGE msg;
-       
-       while(m_bRun)
-       {
-       
-       if(::PeekMessageW(&msg, NULL, 0, 0, PM_REMOVE))
-       {
-       
-       if(!pump_message())
-       {
-       
-       break;
-       
-       }
-       
-       }
-       
-       
-       if(m_estate == state_playing)
-       {
-       CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.25, false);
-       }
-       else
-       {
-       Sleep(8);
-       }
-       
-       }
-       
-       return 0;
-       }*/
-      
       
       bool wave_out::on_run_step()
       {
-         
-//         ::thread::on_run_step();
          
          if(m_estate == state_playing)
          {
@@ -836,6 +831,7 @@ namespace multimedia
          return true;
          
       }
+
       
       ::multimedia::e_result wave_out::wave_out_start(const imedia_position & position)
       {

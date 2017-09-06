@@ -55,9 +55,9 @@ namespace multimedia
          return thread::exit_thread();
       }
 
-      void wave_in::pre_translate_message(signal_details * pobj)
+      void wave_in::pre_translate_message(::message::message * pmessage)
       {
-         SCAST_PTR(::message::base, pbase, pobj);
+         SCAST_PTR(::message::base, pbase, pmessage);
          //ASSERT(GetMainWnd() == NULL);
 /*         if(pbase->m_uiMessage == MM_WIM_OPEN ||
             pbase->m_uiMessage == MM_WIM_CLOSE ||
