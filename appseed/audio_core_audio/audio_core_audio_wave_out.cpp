@@ -579,8 +579,6 @@ namespace multimedia
          
          status = AudioQueueEnqueueBuffer(m_Queue, buf, 0, NULL);
          
-         VERIFY(status == 0);
-         
          if(status == 0)
          {
             
