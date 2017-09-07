@@ -14,6 +14,7 @@
 		9A1B496416A494A600875A94 /* framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B496316A494A600875A94 /* framework.h */; };
 		9A1B496716A4A10100875A94 /* framework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B496616A4A10100875A94 /* framework.cpp */; };
 		9A8997BD177D0E7F00C7761E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8997BC177D0E7D00C7761E /* Carbon.framework */; };
+		9A8C49411F606996004A5BA4 /* libace.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8C49401F606996004A5BA4 /* libace.dylib */; };
 		9A8EAF3317C563A300C458D1 /* audio_core_audio_command.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF2817C563A300C458D1 /* audio_core_audio_command.h */; };
 		9A8EAF3417C563A300C458D1 /* audio_core_audio_factory_exchange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EAF2917C563A300C458D1 /* audio_core_audio_factory_exchange.cpp */; };
 		9A8EAF3517C563A300C458D1 /* audio_core_audio_factory_exchange.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8EAF2A17C563A300C458D1 /* audio_core_audio_factory_exchange.h */; };
@@ -72,6 +73,7 @@
 		9A1B496316A494A600875A94 /* framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		9A1B496616A4A10100875A94 /* framework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framework.cpp; sourceTree = "<group>"; };
 		9A8997BC177D0E7D00C7761E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		9A8C49401F606996004A5BA4 /* libace.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libace.dylib; path = ../../../../Volumes/apple/archive/Xcode/DerivedData/Build/Products/Debug/libace.dylib; sourceTree = "<group>"; };
 		9A8EAF2817C563A300C458D1 /* audio_core_audio_command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_command.h; sourceTree = "<group>"; };
 		9A8EAF2917C563A300C458D1 /* audio_core_audio_factory_exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audio_core_audio_factory_exchange.cpp; sourceTree = "<group>"; };
 		9A8EAF2A17C563A300C458D1 /* audio_core_audio_factory_exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio_core_audio_factory_exchange.h; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8C49411F606996004A5BA4 /* libace.dylib in Frameworks */,
 				9ACE473C1D1FE5E000A1E0AD /* libaura.dylib in Frameworks */,
 				07D4208C1B71F7820065510D /* libmultimedia.dylib in Frameworks */,
 				07A27B461808E111005F7B47 /* AudioToolbox.framework in Frameworks */,
@@ -117,6 +120,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9A8C493F1F606995004A5BA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A8C49401F606996004A5BA4 /* libace.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A1CFD76D154F5EA7007447E2 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +139,7 @@
 				9AA1B449176361950019E812 /* Cocoa.framework */,
 				A1CFD896154FB715007447E2 /* audio_core_audio */,
 				A1CFD779154F5EAA007447E2 /* Products */,
+				9A8C493F1F606995004A5BA4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,7 +260,7 @@
 		07D420871B71F7700065510D /* libios_multimedia.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libios_multimedia.dylib;
+			path = libios_multimedia.a;
 			remoteRef = 07D420861B71F7700065510D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
