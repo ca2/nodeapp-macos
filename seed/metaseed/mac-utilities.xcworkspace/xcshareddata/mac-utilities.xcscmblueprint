@@ -1,77 +1,84 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5785e629-6d34-604c-b465-30bb7cddd17d++6695",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F3E25938A1539F194F81FBFD9033BAF137077CEB",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "BB8CCAC92AD275E61B33608F68C87EEE973AA6BF" : {
+
+    },
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : {
 
     },
-    "55D806BE34623FA34C31B75218B8956FEB8D140B" : {
+    "245889EC1F37A1CD94E157BC034EC9E070BE1828" : {
 
     },
-    "2106cbbc-8be9-a44d-8f5f-e0ba33a4fbb3++6695" : {
+    "20E355A664F03D1823330A9B58655242043D678E" : {
 
     },
-    "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : {
+    "F3E25938A1539F194F81FBFD9033BAF137077CEB" : {
 
     },
-    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : {
-
-    },
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : {
+    "B0CEA54DD4CCC4DCC4E5A18B32B678B885F9157A" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "2106cbbc-8be9-a44d-8f5f-e0ba33a4fbb3++6695" : 9223372036854775807,
+    "B0CEA54DD4CCC4DCC4E5A18B32B678B885F9157A" : 9223372036854775807,
+    "BB8CCAC92AD275E61B33608F68C87EEE973AA6BF" : 9223372036854775807,
     "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F" : 9223372036854775807,
-    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : 9223372036854775807,
-    "55D806BE34623FA34C31B75218B8956FEB8D140B" : 9223372036854775807,
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : 9223372036854775807,
+    "20E355A664F03D1823330A9B58655242043D678E" : 9223372036854775807,
+    "245889EC1F37A1CD94E157BC034EC9E070BE1828" : 9223372036854775807,
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : 9223372036854775807,
-    "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : 9223372036854775807
+    "9554DF4565241D38417E2E52041CE8F4AB4E9532" : 9223372036854775807,
+    "F3E25938A1539F194F81FBFD9033BAF137077CEB" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1D711C69-D269-450E-8218-C0F95EC4E039",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "2106cbbc-8be9-a44d-8f5f-e0ba33a4fbb3++6695" : "game\/",
+    "B0CEA54DD4CCC4DCC4E5A18B32B678B885F9157A" : "app-core\/",
+    "BB8CCAC92AD275E61B33608F68C87EEE973AA6BF" : "game\/",
     "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F" : "..\/git\/OpenSSL-for-iPhone",
-    "5785e629-6d34-604c-b465-30bb7cddd17d++6695" : "nodeapp\/",
-    "55D806BE34623FA34C31B75218B8956FEB8D140B" : "app\/",
-    "4b29f6fd-04c5-0641-9915-f104bd532099++6695" : "app-core\/",
+    "20E355A664F03D1823330A9B58655242043D678E" : "app\/",
+    "245889EC1F37A1CD94E157BC034EC9E070BE1828" : "app-veriwell\/",
     "a1d2bbe8-b63b-7349-a07c-3cb514397c11++6695" : "..\/Volumes\/apple\/macos\/third",
-    "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695" : "app-veriwell\/"
+    "9554DF4565241D38417E2E52041CE8F4AB4E9532" : "third\/",
+    "F3E25938A1539F194F81FBFD9033BAF137077CEB" : "nodeapp\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "mac-utilities",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "seed\/metaseed\/mac-utilities.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/app-veriwell",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "03dd2be2-3049-ec45-8d99-d2dcd00a76de++6695"
-    },
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/game",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2106cbbc-8be9-a44d-8f5f-e0ba33a4fbb3++6695"
-    },
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/app-core",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4b29f6fd-04c5-0641-9915-f104bd532099++6695"
-    },
-    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/app",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "55D806BE34623FA34C31B75218B8956FEB8D140B"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "20E355A664F03D1823330A9B58655242043D678E"
     },
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/nodeapp-macos",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/app-veriwell",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5785e629-6d34-604c-b465-30bb7cddd17d++6695"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "245889EC1F37A1CD94E157BC034EC9E070BE1828"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/x2on\/OpenSSL-for-iPhone.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8092C8C7FB5C3FF769ACA4A4D09F354B1F39375F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ca2\/third.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9554DF4565241D38417E2E52041CE8F4AB4E9532"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/app-core",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B0CEA54DD4CCC4DCC4E5A18B32B678B885F9157A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/game",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BB8CCAC92AD275E61B33608F68C87EEE973AA6BF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/nodeapp-macos",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F3E25938A1539F194F81FBFD9033BAF137077CEB"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/repos.ca2.cc\/third",
