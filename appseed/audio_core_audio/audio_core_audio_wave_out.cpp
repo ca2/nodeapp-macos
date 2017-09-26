@@ -16,7 +16,7 @@ namespace multimedia
    {
       
       
-      wave_out::wave_out(sp(::aura::application) papp) :
+      wave_out::wave_out(::aura::application * papp) :
       object(papp),
       ::thread(papp),
       wave_base(papp),
@@ -62,12 +62,12 @@ namespace multimedia
             return;
          
          uint32_t uiBufferSizeLog2;
-         uint32_t uiBufferSize;
+         memory_size_t uiBufferSize;
          uint32_t uiAnalysisSize;
-         uint32_t uiAllocationSize;
+         memory_size_t uiAllocationSize;
          uint32_t uiInterestSize;
          uint32_t uiSkippedSamplesCount;
-         uint32_t uiBufferCount = m_iBufferCount;
+         memory_size_t uiBufferCount = m_iBufferCount;
          
          //   if(m_pwaveformat->nSamplesPerSec == 44100)
          if(true)
@@ -86,24 +86,24 @@ namespace multimedia
             uiInterestSize = 200;
             uiSkippedSamplesCount = 2;
          }
-         else if(m_pwaveformat->nSamplesPerSec == 22050)
-         {
-            uiBufferSizeLog2 = 10;
-            uiBufferSize = 4 * 1 << uiBufferSizeLog2;
-            uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
-            uiAllocationSize = 4 * uiAnalysisSize;
-            uiInterestSize = 200;
-            uiSkippedSamplesCount = 1;
-         }
-         else if(m_pwaveformat->nSamplesPerSec == 11025)
-         {
-            uiBufferSizeLog2 = 10;
-            uiBufferSize = 2 * 1 << uiBufferSizeLog2;
-            uiAnalysisSize = 2 * 1 << uiBufferSizeLog2;
-            uiAllocationSize = 4 * uiAnalysisSize;
-            uiInterestSize = 200;
-            uiSkippedSamplesCount = 1;
-         }
+//         else if(m_pwaveformat->nSamplesPerSec == 22050)
+//         {
+//            uiBufferSizeLog2 = 10;
+//            uiBufferSize = 4 * 1 << uiBufferSizeLog2;
+//            uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
+//            uiAllocationSize = 4 * uiAnalysisSize;
+//            uiInterestSize = 200;
+//            uiSkippedSamplesCount = 1;
+//         }
+//         else if(m_pwaveformat->nSamplesPerSec == 11025)
+//         {
+//            uiBufferSizeLog2 = 10;
+//            uiBufferSize = 2 * 1 << uiBufferSizeLog2;
+//            uiAnalysisSize = 2 * 1 << uiBufferSizeLog2;
+//            uiAllocationSize = 4 * uiAnalysisSize;
+//            uiInterestSize = 200;
+//            uiSkippedSamplesCount = 1;
+//         }
          
          wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, uiBufferCount, 64, m_pwaveformat, m_pwaveformat);
          
@@ -163,7 +163,7 @@ namespace multimedia
          
       }
       
-      ::multimedia::e_result wave_out::wave_out_open(thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount)
+      ::multimedia::e_result wave_out::wave_out_open(thread * pthreadCallback, ::count iBufferCount, ::count iBufferSampleCount)
       {
          
          single_lock sLock(m_pmutex, TRUE);
@@ -228,12 +228,12 @@ namespace multimedia
       Opened:
          
          uint32_t uiBufferSizeLog2;
-         uint32_t uiBufferSize;
+         memory_size_t uiBufferSize;
          uint32_t uiAnalysisSize;
-         uint32_t uiAllocationSize;
+         memory_size_t uiAllocationSize;
          uint32_t uiInterestSize;
          uint32_t uiSkippedSamplesCount;
-         uint32_t uiBufferCount = iBufferCount;
+         memory_size_t uiBufferCount = iBufferCount;
          
          if(m_pwaveformat->nSamplesPerSec == 44100)
          {
@@ -302,7 +302,7 @@ namespace multimedia
          return m_mmr;
       }
       
-      ::multimedia::e_result wave_out::wave_out_open_ex(thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount, uint32_t uiSamplesPerSec, uint32_t uiChannelCount, uint32_t uiBitsPerSample, ::multimedia::audio::e_purpose epurpose)
+      ::multimedia::e_result wave_out::wave_out_open_ex(thread * pthreadCallback, ::count iBufferCount, ::count iBufferSampleCount, uint32_t uiSamplesPerSec, uint32_t uiChannelCount, uint32_t uiBitsPerSample, ::multimedia::audio::e_purpose epurpose)
       {
          single_lock sLock(m_pmutex, TRUE);
          
@@ -365,12 +365,12 @@ namespace multimedia
          }
 
          uint32_t uiBufferSizeLog2;
-         uint32_t uiBufferSize;
+         memory_size_t uiBufferSize;
          uint32_t uiAnalysisSize;
-         uint32_t uiAllocationSize;
+         memory_size_t uiAllocationSize;
          uint32_t uiInterestSize;
          uint32_t uiSkippedSamplesCount;
-         uint32_t uiBufferCount = iBufferCount;
+         memory_size_t uiBufferCount = iBufferCount;
          
          //   if(m_pwaveformat->nSamplesPerSec == 44100)
          if(true)
@@ -389,24 +389,24 @@ namespace multimedia
             uiInterestSize = 200;
             uiSkippedSamplesCount = 2;
          }
-         else if(m_pwaveformat->nSamplesPerSec == 22050)
-         {
-            uiBufferSizeLog2 = 10;
-            uiBufferSize = 4 * 1 << uiBufferSizeLog2;
-            uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
-            uiAllocationSize = 4 * uiAnalysisSize;
-            uiInterestSize = 200;
-            uiSkippedSamplesCount = 1;
-         }
-         else if(m_pwaveformat->nSamplesPerSec == 11025)
-         {
-            uiBufferSizeLog2 = 10;
-            uiBufferSize = 2 * 1 << uiBufferSizeLog2;
-            uiAnalysisSize = 2 * 1 << uiBufferSizeLog2;
-            uiAllocationSize = 4 * uiAnalysisSize;
-            uiInterestSize = 200;
-            uiSkippedSamplesCount = 1;
-         }
+//         else if(m_pwaveformat->nSamplesPerSec == 22050)
+//         {
+//            uiBufferSizeLog2 = 10;
+//            uiBufferSize = 4 * 1 << uiBufferSizeLog2;
+//            uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
+//            uiAllocationSize = 4 * uiAnalysisSize;
+//            uiInterestSize = 200;
+//            uiSkippedSamplesCount = 1;
+//         }
+//         else if(m_pwaveformat->nSamplesPerSec == 11025)
+//         {
+//            uiBufferSizeLog2 = 10;
+//            uiBufferSize = 2 * 1 << uiBufferSizeLog2;
+//            uiAnalysisSize = 2 * 1 << uiBufferSizeLog2;
+//            uiAllocationSize = 4 * uiAnalysisSize;
+//            uiInterestSize = 200;
+//            uiSkippedSamplesCount = 1;
+//         }
          
          wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, uiBufferCount, 64, m_pwaveformat, m_pwaveformat);
          
@@ -553,7 +553,7 @@ namespace multimedia
        }*/
       
       
-      void wave_out::wave_out_buffer_ready(int iBuffer)
+      void wave_out::wave_out_buffer_ready(index iBuffer)
       {
          
          if(wave_out_get_state() != state_playing)
@@ -575,7 +575,7 @@ namespace multimedia
          
          single_lock sLock(m_pmutex, TRUE);
          
-         buf->mAudioDataByteSize = wave_out_get_buffer_size();
+         buf->mAudioDataByteSize = (UInt32) wave_out_get_buffer_size();
          
          status = AudioQueueEnqueueBuffer(m_Queue, buf, 0, NULL);
          

@@ -33,13 +33,13 @@ namespace multimedia
    
          
          
-         toolbox(sp(::aura::application) papp);
+         toolbox(::aura::application * papp);
          virtual ~toolbox();
          
 
-         virtual void wave_allocate_buffer_data(::multimedia::audio::wave_buffer::buffer * pbuffer, memory_size_t uiBufferSize, uint32_t uiAlign);
+         virtual void wave_allocate_buffer_data(::multimedia::audio::wave_buffer::buffer * pbuffer, memory_size_t uiBufferSize, memory_size_t uiAlign) override;
          
-         virtual void wave_free_buffer_data(::multimedia::audio::wave_buffer::buffer * pbuffer);
+         virtual void wave_free_buffer_data(::multimedia::audio::wave_buffer::buffer * pbuffer) override;
 
          
          
@@ -51,7 +51,7 @@ namespace multimedia
          
          
          AudioStreamBasicDescription * wave_format();
-         AudioQueueBufferRef audio_buffer(int iBuffer);
+         AudioQueueBufferRef audio_buffer(index iBuffer);
          
          
       } ;

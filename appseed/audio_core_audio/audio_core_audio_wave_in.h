@@ -23,10 +23,10 @@ namespace multimedia
          virtual ~wave_in();
 
 
-         virtual bool wave_in_initialize_encoder();
+         virtual bool wave_in_initialize_encoder() override;
 
          
-         virtual ::multimedia::e_result wave_in_add_buffer(int32_t iBuffer);
+         virtual ::multimedia::e_result wave_in_add_buffer(int32_t iBuffer) override;
 
          
          virtual void * get_os_data();
@@ -35,15 +35,15 @@ namespace multimedia
          AudioQueueRef wave_in_get_safe_AudioQueueRef();
          
          
-         ::multimedia::e_result wave_in_open(int32_t iBufferCount, int32_t iBufferSampleCount);
-         ::multimedia::e_result wave_in_close();
-         ::multimedia::e_result wave_in_stop();
-         ::multimedia::e_result wave_in_start();
-         ::multimedia::e_result wave_in_reset();
+         ::multimedia::e_result wave_in_open(int32_t iBufferCount, int32_t iBufferSampleCount) override;
+         ::multimedia::e_result wave_in_close() override;
+         ::multimedia::e_result wave_in_stop() override;
+         ::multimedia::e_result wave_in_start() override;
+         ::multimedia::e_result wave_in_reset() override;
 
          
-         virtual bool initialize_thread();
-         virtual int32_t exit_thread();
+         virtual bool initialize_thread() override;
+         virtual int32_t exit_thread() override;
          virtual void pre_translate_message(::message::message * pmessage) override;
          
 
