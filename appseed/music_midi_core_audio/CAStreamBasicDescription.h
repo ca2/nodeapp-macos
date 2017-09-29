@@ -146,8 +146,8 @@ public:
    // note: leaves sample rate untouched
    {
       mFormatID = kAudioFormatLinearPCM;
-      int sampleSize = sizeof(AudioSampleType);
-      mFormatFlags = kAudioFormatFlagsCanonical;
+      int sampleSize = sizeof(Float32);
+      mFormatFlags = kAudioFormatFlagIsFloat | kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked;
       mBitsPerChannel = 8 * sampleSize;
       mChannelsPerFrame = nChannels;
       mFramesPerPacket = 1;
