@@ -445,39 +445,28 @@ namespace multimedia
          
          if(m_estate == state_playing)
          {
+            
             wave_out_stop();
+            
          }
          
          if(m_estate != state_opened)
+         {
+            
             return ::multimedia::result_success;
+            
+         }
          
          m_estate = state_closing;
          
          OSStatus status;
          
-         /*         ::multimedia::e_result mmr;
-          
-          int32_t i, iSize;
-          
-          iSize =  wave_out_get_buffer()->GetBufferCount();
-          
-          for(i = 0; i < iSize; i++)
-          {
-          
-          if(::multimedia::result_success != (mmr = waveOutUnprepareHeader(m_Queue, wave_hdr(i), sizeof(WAVEHDR))))
-          {
-          TRACE("ERROR OPENING Unpreparing INPUT DEVICE buffer =%d", mmr);
-          }
-          
-          delete wave_hdr(i);
-          
-          }*/
-         
-         //free_buffers();
-         
          int i = 0;
+
          UInt32 property_running;
+         
          UInt32 size;
+         
          while(i < 50)
          {
             
@@ -485,7 +474,7 @@ namespace multimedia
             
             size = sizeof(property_running);
             
-            OSStatus status = AudioQueueGetProperty(m_Queue, kAudioQueueProperty_IsRunning, &property_running, &size );
+            OSStatus status = AudioQueueGetProperty(m_Queue, kAudioQueueProperty_IsRunning, &property_running, &size);
             
             if(status != 0)
             {
@@ -509,6 +498,8 @@ namespace multimedia
             
          }
          
+         free_buffers();
+         
          status = AudioQueueDispose(m_Queue, FALSE);
          
          m_Queue = NULL;
@@ -521,45 +512,17 @@ namespace multimedia
          
       }
       
-      /*
-       void wave_out::OnMultimediaOpen(signal_details * pobj)
-       {
-       UNREFERENCED_PARAMETER(pobj);
-       }
-       
-       
-       void wave_out::OnMultimediaDone(signal_details * pobj)
-       {
-       
-       SCAST_PTR(::message::base, pbase, pobj);
-       
-       m_iBufferedCount--;
-       
-       LPWAVEHDR lpwavehdr = (LPWAVEHDR) pbase->m_lparam.m_lparam;
-       
-       wave_out_out_buffer_done(lpwavehdr->dwUser);
-       
-       }
-       
-       void wave_out::OnMultimediaClose(signal_details * pobj)
-       {
-       UNREFERENCED_PARAMETER(pobj);
-       }
-       */
-      
-      /*void wave_out::wave_out_on_buffer_ready(signal_details * pobj)
-       {
-       UNREFERENCED_PARAMETER(pobj);
-       }*/
-      
       
       void wave_out::wave_out_buffer_ready(index iBuffer)
       {
          
          if(wave_out_get_state() != state_playing)
          {
+            
             TRACE("ERROR wave_out::BufferReady while wave_out_get_state() != state_playing");
+            
             return;
+            
          }
          
          AudioQueueBufferRef buf = audio_buffer(iBuffer);
@@ -579,10 +542,10 @@ namespace multimedia
          
          status = AudioQueueEnqueueBuffer(m_Queue, buf, 0, NULL);
          
-         if(status == 0)
+         if(status != 0)
          {
             
-            m_iBufferedCount++;
+            m_iBufferedCount--;
             
          }
          
@@ -600,7 +563,7 @@ namespace multimedia
          
          m_estate = state_stopping;
          
-         m_mmr = translate(AudioQueueStop(m_Queue, TRUE));
+         m_mmr = translate(AudioQueueStop(m_Queue, FALSE));
          
          if(m_mmr == ::multimedia::result_success)
          {
@@ -610,7 +573,6 @@ namespace multimedia
          }
 
          m_pprebuffer->Stop();
-         
 
          return m_mmr;
          
@@ -664,18 +626,15 @@ namespace multimedia
          
          m_mmr = translate(AudioQueuePrime(m_Queue, 0, NULL));
          
-         // waveOutReset
-         // The waveOutReset function stops playback on the given
-         // waveform-audio_core_audio output device and resets the current position
-         // to zero. All pending playback buffers are marked as done and
-         // returned to the application.
          m_mmr = translate(AudioQueueStart(m_Queue, NULL));
          
          ASSERT(m_mmr == ::multimedia::result_success);
          
          if(m_mmr == ::multimedia::result_success)
          {
+            
             m_estate = state_playing;
+            
          }
          
          return m_mmr;
@@ -801,7 +760,7 @@ namespace multimedia
          if(iBuffer < 0)
             return;
           
-         m_iBufferedCount--;
+         //m_iBufferedCount--;
          
          wave_out_out_buffer_done((int) iBuffer);
          
