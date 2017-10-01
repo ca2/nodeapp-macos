@@ -4,50 +4,28 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/base/user/user/user_menu_item.cpp"
-            timestampString = "526497960.335357"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "menu_item::create_buttons(menu * pmenu)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/graphics/draw2d/draw2d_graphics.cpp"
-            timestampString = "526498391.838873"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1265"
-            endingLineNumber = "1265"
-            landmarkName = "graphics::BitBlt(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, ::draw2d::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, uint32_t dwRop)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/graphics/draw2d/draw2d_graphics.cpp"
-            timestampString = "526498448.439207"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "528565651.796313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1338"
-            endingLineNumber = "1338"
-            landmarkName = "graphics::BitBltAlphaBlend(int32_t x, int32_t y, int32_t nWidth, int32_t nHeight, ::draw2d::graphics * pgraphicsSrc, int32_t xSrc, int32_t ySrc, uint32_t dwRop)"
+            startingLineNumber = "627"
+            endingLineNumber = "627"
+            landmarkName = "decoder::packet_thread::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +35,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/core/filesystem/filemanager/filemanager_file_list.cpp"
-            timestampString = "526504633.597981"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "528565651.796647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1201"
-            endingLineNumber = "1201"
-            landmarkName = "file_list::browse_sync(::action::context actioncontext)"
+            startingLineNumber = "1111"
+            endingLineNumber = "1111"
+            landmarkName = "decoder::image_decoder::get_free_frame()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +51,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/core/filesystem/filemanager/filemanager_manager.cpp"
-            timestampString = "526504651.201032"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "528565651.79671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "538"
-            endingLineNumber = "538"
-            landmarkName = "manager::start_full_browse(string strPath, ::action::context actioncontext)"
+            startingLineNumber = "1271"
+            endingLineNumber = "1271"
+            landmarkName = "decoder::audio_decoder::decode_audio_packet(AVPacket * ppacket)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,61 +67,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/os/macos/macos_file_watcher.cpp"
-            timestampString = "526505499.417148"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "528565651.796768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "addAll()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/os/macos/macos_file_watcher.cpp"
-            timestampString = "526505136.126222"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "m_plistener(listener)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/os/macos/macos_file_watcher.cpp"
-            timestampString = "526505433.0783"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
-            landmarkName = "myCallbackFunction( ConstFSEventStreamRef streamRef, void *clientCallBackInfo, size_t numEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[])"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/multimedia_playlist_spotify/spotify/spotify_session.cpp"
-            timestampString = "526509337.549625"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "session::run()"
+            startingLineNumber = "891"
+            endingLineNumber = "891"
+            landmarkName = "decoder::image_decoder::decode_image_packet(AVPacket * ppacket, int iFree)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -153,13 +83,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/multimedia_playlist_spotify/spotify/spotify_session.cpp"
-            timestampString = "526511996.791033"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "528565651.796822"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "session::run_spotify_step()"
+            startingLineNumber = "1114"
+            endingLineNumber = "1114"
+            landmarkName = "decoder::image_decoder::get_free_frame()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -169,13 +99,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/multimedia_playlist_spotify/spotify/spotify_session.cpp"
-            timestampString = "526511956.756073"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "528565651.796875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "session::run_spotify_step()"
+            startingLineNumber = "1102"
+            endingLineNumber = "1102"
+            landmarkName = "decoder::image_decoder::get_free_frame()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,13 +115,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/multimedia_playlist_spotify/spotify/spotify_session.cpp"
-            timestampString = "526512006.377397"
+            filePath = "../../../app-core/appseed/multimedia/audio/audio_wave_pre_buffer.cpp"
+            timestampString = "528562572.780702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
-            landmarkName = "session::run_spotify_step()"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "wave_pre_buffer::_FreeId(index iId)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/multimedia/audio/audio_wave_pre_buffer.cpp"
+            timestampString = "528562572.781183"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "wave_pre_buffer::_FreeId(index iId)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
