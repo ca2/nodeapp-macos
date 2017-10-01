@@ -56,16 +56,13 @@
       location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../appseed/audio_core_audio/audio_core_audio.xcodeproj">
+      location = "group:../../../app/appseed/audio_core_audio/audio_core_audio.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/audio_decode_wave/audio_decode_wave.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../appseed/audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/aura/aura.xcodeproj">

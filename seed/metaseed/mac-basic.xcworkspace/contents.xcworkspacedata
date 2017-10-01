@@ -53,7 +53,7 @@
       location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../appseed/audio_core_audio/audio_core_audio.xcodeproj">
+      location = "group:../../../app/appseed/audio_core_audio/audio_core_audio.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
@@ -63,9 +63,6 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/audio_decode_spotify/audio_decode_spotify.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../appseed/audio_mixer_core_audio/audio_mixer_core_audio.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/aura/aura.xcodeproj">
@@ -131,10 +128,10 @@
       location = "group:../../../app-core/appseed/multimedia_playlist_spotify/multimedia_playlist_spotify.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../appseed/music_midi_core_audio/music_midi_core_audio.xcodeproj">
+      location = "group:../../../app/appseed/programming/programming.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/appseed/programming/programming.xcodeproj">
+      location = "group:../../../app-core/appseed/rdpsnd-client-audio_decode/rdpsnd-client-audio_decode.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/sphere/sphere.xcodeproj">
@@ -144,18 +141,6 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/common/welscommon.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/dec/welsdec/welsdec.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/enc/welsenc/welsenc.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/wndfrm_core/wndfrm_core.xcodeproj">
