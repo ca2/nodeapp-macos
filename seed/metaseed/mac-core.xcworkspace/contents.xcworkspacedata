@@ -17,9 +17,6 @@
       location = "group:../../../app-core/appseed/verifile/verifile.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/macos/app-core/appseed/todo/todo.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app-core/appseed/auraclick/auraclick.xcodeproj">
    </FileRef>
    <FileRef
@@ -29,13 +26,16 @@
       location = "group:../../../app-core/appseed/timer/timer.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/todo/todo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-core/appseed/clockverse/clockverse.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/resident/resident.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/macos/app-core/appseed/weather/weather.xcodeproj">
+      location = "group:../../../app-core/appseed/weather/weather.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-veriwell/appseed/waven/Waven.xcodeproj">
@@ -44,7 +44,7 @@
       location = "group:../../../app/appseed/ace/ace.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/macos/app-core/appseed/announcecom/announcecom.xcodeproj">
+      location = "group:../../../app-core/appseed/announcecom/announcecom.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-cidadedecuritiba/appseed/alphaclock/app_cidadedecuritiba_alphaclock.xcodeproj">
