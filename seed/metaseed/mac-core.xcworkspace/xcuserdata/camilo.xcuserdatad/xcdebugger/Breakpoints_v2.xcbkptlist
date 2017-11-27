@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.584112"
+            timestampString = "533475027.944016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1863"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.584667"
+            timestampString = "533475027.944561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1855"
@@ -186,12 +186,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.584908"
+            timestampString = "533475027.944745"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1817"
             endingLineNumber = "1817"
-            landmarkName = "view::reload_theme(bool bOnlyWallpaper)"
+            landmarkName = "view::hit_test(point pt)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.585142"
+            timestampString = "533475027.94492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1842"
@@ -238,9 +238,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1187"
-            endingLineNumber = "1187"
-            landmarkName = "imaging::load_image(::draw2d::dib &amp; dib, ::file::file_sp pfile)"
-            landmarkType = "7">
+            endingLineNumber = "1187">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -286,9 +284,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1201"
-            endingLineNumber = "1201"
-            landmarkName = "imaging::load_image(::draw2d::dib &amp; dib, ::file::file_sp pfile)"
-            landmarkType = "7">
+            endingLineNumber = "1201">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -298,7 +294,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.58544"
+            timestampString = "533475027.945172"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1602"
@@ -314,7 +310,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.585643"
+            timestampString = "533475027.945373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1557"
@@ -330,7 +326,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.585836"
+            timestampString = "533475027.945613"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1560"
@@ -346,7 +342,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.586028"
+            timestampString = "533475027.945788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1848"
@@ -362,7 +358,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.586256"
+            timestampString = "533475027.946018"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1906"
@@ -378,12 +374,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.586459"
+            timestampString = "533475027.946275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1502"
             endingLineNumber = "1502"
-            landmarkName = "view::layout_back(bool bForceUpdate)"
+            landmarkName = "view::_001OnMouseWheel(::message::message * pobj)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -406,11 +402,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.586679"
+            timestampString = "533475027.946554"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "926"
@@ -426,7 +422,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.58688"
+            timestampString = "533475027.946732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "504"
@@ -438,11 +434,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.587123"
+            timestampString = "533475027.946888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "697"
@@ -458,7 +454,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.587342"
+            timestampString = "533475027.947045"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "730"
@@ -470,11 +466,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "533447491.587647"
+            timestampString = "533475027.947228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1598"
@@ -490,7 +486,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d_bitmap.cpp"
-            timestampString = "533446657.746672"
+            timestampString = "533452042.020748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -666,29 +662,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/graphics/visual/visual_apple_image.cpp"
-            timestampString = "533446335.344836"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "dib_sp::write_to_file(::file::file_sp pfile, save_image * psaveimage)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/graphics/visual/visual_apple_image.cpp"
             timestampString = "533446335.344875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1179"
             endingLineNumber = "1179"
-            landmarkName = "imaging::load_image(::draw2d::dib &amp; dib, ::file::file_sp pfile)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -986,6 +966,22 @@
             startingLineNumber = "254"
             endingLineNumber = "254"
             landmarkName = "graphics::SelectObject(::draw2d::bitmap * pbitmap)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/graphics/visual/visual_dib.cpp"
+            timestampString = "533452350.950409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "dib_sp::load_from_file(var varFile, bool bCache, bool bCreateHelperMaps)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
