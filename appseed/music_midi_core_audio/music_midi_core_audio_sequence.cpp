@@ -184,7 +184,7 @@ namespace music
           if (NULL == m_lpbAlloc)
           return MCIERR_OUT_OF_MEMORY;
           
-          // Initialize all MIDIHDR's and throw new them into a free list
+          // Initialize all MIDIHDR's and _throw( them into a free list
           //
           m_lpmhFree = NULL;
           
@@ -760,7 +760,7 @@ namespace music
           /*if(bThrow)
           {
           SetState(status_opened);
-          throw new exception(mmrc, MIDIPLAYERPRERROLLREADEVENTSEXCEPTION);
+          _throw(exception(mmrc, MIDIPLAYERPRERROLLREADEVENTSEXCEPTION));
           }*/
          /*               goto seq_Preroll_Cleanup;
           }
@@ -783,7 +783,7 @@ namespace music
           if(bThrow)
           {
           SetState(status_opened);
-          throw new exception(get_app(), mmrc, MIDIPLAYERPRERROLLPREPAREHEADEREXCEPTION);
+          _throw(exception(get_app(), mmrc, MIDIPLAYERPRERROLLPREPAREHEADEREXCEPTION));
           }
           else
           {
@@ -1058,7 +1058,7 @@ namespace music
              if(bThrow)
              {
              SetState(status_opened);
-             throw new exception(get_app(), ::music::EMidiPlayerPrerollStreamProperty);
+             _throw(exception(get_app(), ::music::EMidiPlayerPrerollStreamProperty));
              }
              goto seq_Preroll_Cleanup;
              }*/

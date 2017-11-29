@@ -147,7 +147,7 @@ namespace music
             if(::music::failed(mmrc = get_sequence()->CloseFile()) &&
                mmrc != ::music::EFunctionNotSupported)
             {
-               throw new exception(get_app(), EMidiPlayerClose);
+               _throw(exception(get_app(), EMidiPlayerClose));
             }
          }
          
@@ -258,7 +258,7 @@ namespace music
             ::music::e_result            mmrc;
             if(::music::failed(mmrc = get_sequence()->SaveFile(lpszPathName)) )
             {
-               throw new exception(get_app(), ::music::EMidiPlayerSave);
+               _throw(exception(get_app(), ::music::EMidiPlayerSave));
             }
             
          }
