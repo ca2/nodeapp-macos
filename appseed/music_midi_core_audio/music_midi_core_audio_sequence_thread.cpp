@@ -269,7 +269,7 @@ namespace music
             /* super merge module      CVmsMusDll::load_string(str, IDS_PREROLLUSERERROR001);
              pme->SetUserText(str);*/
             
-            throw new pme;
+            _throw(pme);
             
          }
          
@@ -294,11 +294,11 @@ namespace music
          }
          catch (exception * pme)
          {
-            throw new not_implemented(get_app());
+            _throw(not_implemented(get_app()));
             /*string str;
              str.load_string(IDS_PREROLLUSERERROR001);
              pme->SetUserText(str);*/
-            throw new pme;
+            _throw(pme);
          }
          
          //    if(!get_sequence()->IsInSpecialModeV001())
@@ -468,7 +468,7 @@ Play(spcommand->m_dRate);
                link.ModifyFlag(::music::midi::sequence::FlagStop, ::music::midi::sequence::FlagNull);
                if(::multimedia::result_success != (mmrc = get_sequence()->Stop()))
                {
-                  throw new exception(get_app(), EMidiPlayerStop, mmrc);
+                  _throw(exception(get_app(), EMidiPlayerStop, mmrc));
                }
             }
                break;
@@ -483,7 +483,7 @@ Play(spcommand->m_dRate);
                link.m_tkRestart = get_sequence()->GetPositionTicks();
                if(::multimedia::result_success != (mmrc = get_sequence()->Stop()))
                {
-                  throw new exception(get_app(), EMidiPlayerStop, mmrc);
+                  _throw(exception(get_app(), EMidiPlayerStop, mmrc));
                }
             }
                break;

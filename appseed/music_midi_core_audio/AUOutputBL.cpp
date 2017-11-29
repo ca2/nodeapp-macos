@@ -111,7 +111,7 @@ void 	AUOutputBL::Prepare (UInt32 inNumFrames, bool inWantNullBufferIfAllocated)
    {
       UInt32 nBytes = mFormat.FramesToBytes (inNumFrames);
       if ((nBytes * mNumberBuffers) > AllocatedBytes())
-         throw new OSStatus(kAudioUnitErr_TooManyFramesToProcess);
+         _throw(OSStatus(kAudioUnitErr_TooManyFramesToProcess));
       
       mBufferList->mNumberBuffers = mNumberBuffers;
       AudioBuffer *buf = &mBufferList->mBuffers[0];

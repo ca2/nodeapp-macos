@@ -64,7 +64,7 @@ static CFStringRef EndpointName(MIDIEndpointRef endpoint, bool isExternal)
    str = NULL;
    MIDIObjectGetStringProperty(device, kMIDIPropertyName, &str);
    if (str != NULL) {
-      // if an external device has only one entity, throw new away
+      // if an external device has only one entity, _throw( away
       // the endpoint name and just use the device name
       if (isExternal && MIDIDeviceGetNumberOfEntities(device) < 2) {
          CFRelease(result);
