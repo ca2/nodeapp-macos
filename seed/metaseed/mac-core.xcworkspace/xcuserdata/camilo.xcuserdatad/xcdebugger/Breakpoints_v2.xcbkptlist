@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5851"
             endingLineNumber = "5851"
-            landmarkName = "interaction_impl::round_window_resized(CGRect rect)"
+            landmarkName = "interaction_impl::round_window_mouse_dragged(double x, double y, unsigned long ulAppleMouseButton)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5809"
             endingLineNumber = "5809"
-            landmarkName = "interaction_impl::round_window_mouse_moved(double x, double y)"
+            landmarkName = "interaction_impl::round_window_mouse_moved(double x, double y, unsigned long ulAppleMouseButton)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,28 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
-            timestampString = "533426409.276353"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4595"
-            endingLineNumber = "4595"
-            landmarkName = "application::check_exclusive(bool &amp; bHandled)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
             timestampString = "533426409.276396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3931"
             endingLineNumber = "3931"
-            landmarkName = "application::initialize_application()"
+            landmarkName = "application::process_term()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -666,9 +650,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1179"
-            endingLineNumber = "1179"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            endingLineNumber = "1179">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -982,6 +964,38 @@
             startingLineNumber = "191"
             endingLineNumber = "191"
             landmarkName = "dib_sp::load_from_file(var varFile, bool bCache, bool bCreateHelperMaps)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_application.h"
+            timestampString = "533488350.957686"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
+            timestampString = "533491738.650548"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2632"
+            endingLineNumber = "2632"
+            landmarkName = "application::init_thread()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

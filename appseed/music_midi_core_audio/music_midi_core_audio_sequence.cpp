@@ -184,7 +184,7 @@ namespace music
           if (NULL == m_lpbAlloc)
           return MCIERR_OUT_OF_MEMORY;
           
-          // Initialize all MIDIHDR's and throw them into a free list
+          // Initialize all MIDIHDR's and throw new them into a free list
           //
           m_lpmhFree = NULL;
           

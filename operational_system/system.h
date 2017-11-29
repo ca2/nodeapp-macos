@@ -410,7 +410,7 @@ typedef unsigned int uint_ptr, *pulong_ptr;
 #endif
 
 #define NOTHROW throw()
-#define THROWS // gnucc null throw statement means that the function can throw any exception
+#define THROWS // gnucc null throw new statement means that the function can throw new any exception
 
 #define _WCHAR_T_DEFINED
 
