@@ -161,7 +161,7 @@ FT_BEGIN_HEADER
    *   @FT_Face objects.
    *
    *   If the content of a given face ID changes at runtime, or if the value
-   *   becomes invalid (e.g., when uninstalling a font), you should
+   *   becomes invalid (e.g., when unstalling a font), you should
    *   immediately call @FTC_Manager_RemoveFaceID before any other cache
    *   function.
    *

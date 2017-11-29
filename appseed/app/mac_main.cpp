@@ -182,14 +182,14 @@ int main(int argc, char *argv[])
 //         if(!bOk)
 //         {
 //      
-//            if(psystem->m_iReturnCode == 0)
+//            if(psystem->m_iErrorCode == 0)
 //            {
 //         
 //               return -1;
 //            
 //            }
 //            
-//            return psystem->m_iReturnCode;
+//            return psystem->m_iErrorCode;
 //            
 //         }
 //         

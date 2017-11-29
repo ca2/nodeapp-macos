@@ -26,7 +26,7 @@ namespace multimedia
       }
 
 
-      bool thread::initialize_instance()
+      bool thread::init_instance()
       {
          //CoInitialize(NULL);
          // xxx   if(!::ca2::OleInit())
