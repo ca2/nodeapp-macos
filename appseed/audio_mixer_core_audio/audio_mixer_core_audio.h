@@ -3,7 +3,7 @@
 
 
 #include "app-core/appseed/multimedia/multimedia/multimedia.h"
-#include <mmsystem.t.h>
+
 
 
 #if defined(_AUDIO_MIXER_MMSYSTEM_LIBRARY)

@@ -113,9 +113,6 @@
       location = "group:../../../app-core/appseed/audio_decode_wave/audio_decode_wave.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/appseed/audio_mixer_xaudio/audio_mixer_core_audio.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../../app/appseed/aura/aura.xcodeproj">
    </FileRef>
    <FileRef
