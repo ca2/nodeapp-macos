@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "visual::dib_sp::load_from_matter(char const*, bool, bool):visual_dib.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "p">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
