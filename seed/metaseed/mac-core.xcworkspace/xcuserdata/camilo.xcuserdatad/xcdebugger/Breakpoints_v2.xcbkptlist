@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "535859438.430881"
+            timestampString = "535892313.212519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1461"
@@ -100,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/desk/desk_view.cpp"
-            timestampString = "535859438.431259"
+            timestampString = "535892313.212588"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1464"
@@ -186,6 +186,22 @@
             startingLineNumber = "163"
             endingLineNumber = "163"
             landmarkName = "imaging::_load_image(::draw2d::dib * pdib, ::file::file * pfile)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/weather/weather_view.cpp"
+            timestampString = "535893153.845371"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "898"
+            endingLineNumber = "898"
+            landmarkName = "view::on_change_weather_sublime_text_3()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
