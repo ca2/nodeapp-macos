@@ -7,82 +7,20 @@
 
 #define MMSG_DONE                   (WM_USER+20)
 
-// much more/less and so'nso code from rtmidi
-
-/*! \class RtMidi
- \brief An abstract base class for realtime MIDI input/output.
- 
- This class implements some common functionality for the realtime
- MIDI input/output subclasses RtMidiIn and RtMidiOut.
- 
- RtMidi WWW site: http://music.mcgill.ca/~gary/rtmidi/
- 
- RtMidi: realtime MIDI i/o C++ classes
- Copyright (c) 2003-2016 Gary P. Scavone
- 
- Permission is hereby granted, free of charge, to any person
- obtaining a copy of this software and associated documentation files
- (the "Software"), to deal in the Software without restriction,
- including without limitation the rights to use, copy, modify, merge,
- publish, distribute, sublicense, and/or sell copies of the Software,
- and to permit persons to whom the Software is furnished to do so,
- subject to the following conditions:
- 
- The above copyright notice and this permission notice shall be
- included in all copies or substantial portions of the Software.
- 
- Any person wishing to distribute modifications to the Software is
- asked to send the modifications to the original developer so that
- they can be incorporated into the canonical version.  This is,
- however, not a binding provision of this license.
- 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
- ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
- CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-
-
-// *************************************************** //
-//
-// OS/API-specific methods.
-//
-// *************************************************** //
-
-//#if defined(__MACOSX_CORE__)
-
-// The CoreMIDI API is based on the use of a callback function for
-// MIDI input.  We convert the system specific time stamps to delta
-// time values.
-
-// OS-X CoreMIDI header files.
-//#include <CoreMIDI/CoreMIDI.h>
-//#include <CoreAudio/HostTime.h>
-//#include <CoreServices/CoreServices.h>
-
-// A structure to hold variables related to the CoreMIDI API
-// implementation.
-//struct core_midi_data {
-//   MIDIClientRef client;
-//   MIDIPortRef port;
-//   MIDIEndpointRef endpoint;
-//   MIDIEndpointRef destinationId;
-//   unsigned long long lastTime;
-//   MIDISysexSendRequest sysexreq;
-//};
 
 namespace music
 {
 
    
-   namespace midi_core_midi
+   namespace midi
    {
       
+      
+      namespace port
+      {
+      
 
-      class file;
+      class buffer;
       class sequence;
       class sequence_thread;
 
@@ -112,7 +50,7 @@ namespace music
             
          };
          
-         imedia_position m_posPlay;
+         
          class buffer
          {
          public:
@@ -121,15 +59,11 @@ namespace music
             MIDIHDR              m_midihdr;
             memory               m_storage;
             bool                 m_bPrepared;
+
             
             bool IsPrepared();
             void Reset();
             void Initialize(int32_t iSize, uint32_t dwUser);
-            
-//            ::multimedia::e_result midiStreamOut(seq_context_t * hmidiout);
-            //::multimedia::e_result midiOutPrepareHeader(HMIDIOUT hmidiout);
-            //::multimedia::e_result midiOutUnprepareHeader(HMIDIOUT hmidiout);
-            
             
             inline LPMIDIHDR GetMidiHdr() { return &m_midihdr; }
             
@@ -149,10 +83,6 @@ namespace music
             void Initialize(int32_t iCount, int32_t iSize, uint32_t dwUser);
             
             
-//            ::multimedia::e_result midiStreamOut(seq_context_t * hmidiout);
-            //::multimedia::e_result midiOutPrepareHeader(HMIDIOUT hmidiout);
-            //::multimedia::e_result midiOutUnprepareHeader(HMIDIOUT hmidiout);
-            
          };
          
          class event :
@@ -166,38 +96,18 @@ namespace music
             
          };
          
-            buffer_array m_buffera;
+         buffer_array                        m_buffera;
 
-         //core_midi_data   m_data;
-//         MIDIPortRef                      m_port;
-//         MIDIClientRef                     m_client;
+         MIDIPortRef                         m_port;
+         MIDIClientRef                       m_client;
 
-         midi_callback_data            m_midicallbackdata;
-         int64_array m_iaBuffered;
+         midi_callback_data                  m_midicallbackdata;
+         int64_array                         m_iaBuffered;
 
- array < ::music::midi::event * >    m_evptra;
-            int m_iBuffered;
-         imedia_position            m_tkPosition;
-
-         
-         MusicSequence     m_sequence;
-         MusicPlayer       m_player;
-         
-         CAClockRef m_cl;
-         
-         // Create a client
-         MIDIClientRef m_virtualMidi;
-         MIDIEndpointRef m_virtualEndpoint;
-         
-         //CoreMidiOutput * m_pcmo;
-         
-         AudioUnitOutput * m_pau;
-         
-         uint64_t m_uiStart;
-         bool m_bStart;
-         
-         
-         
+         array < ::music::midi::event * >    m_evptra;
+         int                                 m_iBuffered;
+         imedia_position                     m_tkPosition;
+         thread *                            m_pthreadPlay;
 
          sequence(::aura::application * papp);
          virtual ~sequence();
@@ -215,14 +125,14 @@ namespace music
          
          virtual int32_t GetDefaultCodePage();
          
-         void Prepare(::ikaraoke::data & data);
-         void Prepare(int32_t iTrack, ::ikaraoke::data & data);
-         void Prepare(
-                      string2a & str2a,
-                      imedia::position_2darray & tka2DTokensTicks,
-                      int32_t iMelodyTrack,
-                      int2a & ia2TokenLine,
-                      ::ikaraoke::data & data);
+//         void Prepare(::ikaraoke::data & data);
+//         void Prepare(int32_t iTrack, ::ikaraoke::data & data);
+//         void Prepare(
+//                      string2a & str2a,
+//                      imedia_position_2darray & tka2DTokensTicks,
+//                      int32_t iMelodyTrack,
+//                      int2a & ia2TokenLine,
+//                      ::ikaraoke::data & data);
          
          //imedia_position GetPositionTicks();
          void SetLevelMeter(int32_t iLevel);
@@ -260,20 +170,19 @@ namespace music
          virtual void OnEvent(::music::midi::sequence::event * pevent);
          
          
-         ::multimedia::e_result AllocBuffers();
+//         ::multimedia::e_result AllocBuffers();
+//
+//         VOID FreeBuffers();
          
-         VOID FreeBuffers();
+//         ::music::e_result OpenFile(::music::midi::sequence & sequence, int32_t iOpenMode);
+//         ::music::e_result OpenFile(::file::file * pfile, int32_t openMode);
+//         ::music::e_result OpenFile(const char * lpFileName, int32_t openMode);
+//         ::music::e_result OpenFile(memory * pmemorystorage, int32_t openMode, ::music::e_storage estorage);
          
-         //::multimedia::e_result OpenFile(const char * lpFileName, int32_t openMode);
-         ::music::e_result OpenFile(::music::midi::sequence & sequence, int32_t iOpenMode);
-         ::music::e_result OpenFile(::file::file & ar, int32_t openMode);
-         ::music::e_result OpenFile(const char * lpFileName, int32_t openMode);
-         ::music::e_result OpenFile(memory * pmemorystorage, int32_t openMode, ::music::e_storage estorage);
-         
-         ::music::e_result CloseFile();
-         ::music::e_result SaveFile(const char * lpFileName);
-         ::music::e_result SaveFile();
-         ::music::e_result SaveFile(::file::file_sp &ar);
+//         ::music::e_result CloseFile();
+//         ::music::e_result SaveFile(const char * lpFileName);
+//         ::music::e_result SaveFile();
+//         ::music::e_result SaveFile(::file::file * *pfile);
          ::multimedia::e_result Preroll(::thread * pthread, ::music::midi::LPPREROLL lpPreroll, bool bThrow);
          ::multimedia::e_result Start();
          
@@ -307,12 +216,12 @@ namespace music
          imedia_position GetQuarterNote();
          
          
-         inline sp(::music::midi_core_midi::file) file()
+         inline sp(::music::midi::port::buffer) file()
          {
             return get_file();
          }
          
-         inline sp(::music::midi_core_midi::sequence_thread) thread()
+         inline sp(::music::midi::port::sequence_thread) thread()
          {
             return m_pthread;
          }
@@ -327,9 +236,10 @@ namespace music
 
       };
 
+      } // namespace port
 
 
-   } // namespace midi_core_midi
+   } // namespace midi
 
 
 } // namespace music

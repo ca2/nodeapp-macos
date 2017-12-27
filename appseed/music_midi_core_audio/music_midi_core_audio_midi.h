@@ -5,19 +5,17 @@ namespace music
 {
 
 
-   namespace midi_core_midi
+   namespace midi
    {
+      
+      namespace port
+      {
 
 
       class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_CORE_MIDI midi :
          virtual public ::music::midi::midi
       {
       public:
-
-
-         //base_library                 m_library;
-         //midi_listener_set             m_listenerptra;
-         //uint32_t                      m_uiMidiOutDevice;
 
 
          midi(::aura::application * papp);
@@ -51,9 +49,12 @@ namespace music
 
 
       };
+         
+         
+      } // namespace port
 
 
-   } // namespace midi_core_midi
+   } // namespace midi
 
 
 } // namespace music

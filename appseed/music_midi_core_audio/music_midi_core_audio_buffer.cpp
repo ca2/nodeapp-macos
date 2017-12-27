@@ -5,13 +5,16 @@ namespace music
 {
 
 
-   namespace midi_core_midi
+   namespace midi
    {
+      
+      namespace port
+      {
 
 
-      file::file(::aura::application * papp) :
+      buffer::buffer(::aura::application * papp) :
          ::object(papp),
-         primitive::memory_container (papp),
+         memory_container(papp),
          ::music::midi::file::buffer(papp)
       {
          
@@ -26,8 +29,6 @@ namespace music
          m_cbPendingUserEvent    = 0;
          m_hpbPendingUserEvent   = 0;
 
-         m_tempomap.set_size(0, C_TEMPO_MAP_CHK);
-
          m_iKeyShift             = 0;
          m_dTempoShift           = 0.0;
 
@@ -39,22 +40,10 @@ namespace music
 
       }
 
-      file::~file()
+      buffer::~buffer()
       {
 
-         CloseFile();
-
-         if(m_ptracks != NULL)
-         {
-            delete m_ptracks;
-            m_ptracks = NULL;
-         }
-
-         if(m_estorage == ::music::storage_attach)
-         {
-            detach();
-         }
-
+        
       }
 //
 ///*
@@ -946,7 +935,7 @@ namespace music
 //         else // Meta
 //         {
 //            // se o meta event possuir tkDelta > 0,
-//            // insere o evento no stream para que não haja perda de sincronismo
+//            // insere o evento no stream para que nï¿½o haja perda de sincronismo
 //            if(tkDelta > 0)
 //            {
 //               InsertPadEvent(tkDelta, lpmh);
@@ -3448,9 +3437,11 @@ namespace music
 //         }
 //      }
 //
+         
+      } // namespace port
 
 
-   } // namespace midi_core_midi
+   } // namespace midi
 
 
 } // namespace music

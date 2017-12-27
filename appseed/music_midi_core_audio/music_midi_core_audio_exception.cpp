@@ -5,13 +5,16 @@ namespace music
 {
 
 
-   namespace midi_core_midi
+   namespace midi
    {
+      
+      namespace port
+      {
    
    /*
 
 
-      exception::exception(sp(::aura::application) papp) :
+      exception::exception(sp(::base::application) papp) :
          element(papp),
          ::call_stack(papp),
          ::exception::base(papp),
@@ -20,7 +23,7 @@ namespace music
          m_etype = TypeUndefined;
       }
 
-      exception::exception(sp(::aura::application) papp, ::music::e_result mfr) :
+      exception::exception(sp(::base::application) papp, ::music::e_result mfr) :
          element(papp),
          ::call_stack(papp),
          ::exception::base(papp),
@@ -30,7 +33,7 @@ namespace music
          m_mfr = mfr;
       }
 
-      exception::exception(sp(::aura::application) papp, ::multimedia::e_result mmr, int32_t iAppError) :
+      exception::exception(sp(::base::application) papp, ::multimedia::e_result mmr, int32_t iAppError) :
          element(papp),
          ::call_stack(papp),
          ::exception::base(papp),
@@ -77,6 +80,7 @@ namespace music
       }
 */
 
+      } // namespace port
 
    } // namespace midi_core_midi
 

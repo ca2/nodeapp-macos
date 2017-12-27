@@ -21,8 +21,11 @@ namespace music
 {
 
 
-   namespace midi_core_midi
+   namespace midi
    {
+      
+      namespace port
+      {
 
 /*
       class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_CORE_MIDI exception : 
@@ -32,9 +35,9 @@ namespace music
 
 
 
-         exception(sp(::aura::application) papp);
-         exception(sp(::aura::application) papp, ::multimedia::e_result mmr, int32_t iAppError);
-         exception(sp(::aura::application) papp, ::music::e_result mfr);
+         exception(sp(::base::application) papp);
+         exception(sp(::base::application) papp, ::multimedia::e_result mmr, int32_t iAppError);
+         exception(sp(::base::application) papp, ::music::e_result mfr);
          virtual ~exception();
 
          string GetUserText();
@@ -46,6 +49,9 @@ namespace music
       };
 
 */
+         
+      } // namespace port
+      
    } // namespace midi_core_midi
 
 
