@@ -10,15 +10,19 @@ namespace music
 {
 
 
-   namespace midi_core_midi
+   namespace midi
    {
+      
+      
+      namespace port
+      {
 
 
       midi::midi(::aura::application * papp) :
-      ::object(papp),
-         department(papp),
-         ::music::midi::midi(papp),
-      ::music::midi::object(papp)
+         ::object(papp),
+         ::aura::department(papp),
+         ::music::midi::object(papp),
+         ::music::midi::midi(papp)
       {
 
             m_uiMidiOutDevice = 0;
@@ -281,6 +285,8 @@ namespace music
          return mmrc;
 
       }
+         
+      } // namespace port
 
 
    } // namespace midi

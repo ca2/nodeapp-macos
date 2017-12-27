@@ -5,12 +5,16 @@ namespace music
 {
    
    
-   namespace midi_core_midi
+   namespace midi
    {
       
       
-      sequence_thread::sequence_thread(sp(::aura::application) papp) :
-      object(papp),
+      namespace port
+      {
+      
+      
+      sequence_thread::sequence_thread(::aura::application * papp) :
+      ::object(papp),
       thread(papp),
       ::music::midi::sequence_thread(papp)
       {
@@ -21,7 +25,7 @@ namespace music
       }
       
       
-      bool sequence_thread::initialize_thread()
+      bool sequence_thread::init_thread()
       {
          
          set_thread_priority(::multithreading::priority_highest);
@@ -31,37 +35,45 @@ namespace music
       }
       
       
-      int32_t sequence_thread::exit_thread()
+      void sequence_thread::term_thread()
       {
          
-         return thread::exit_thread();
+         thread::term_thread();
          
       }
       
       
-      void sequence_thread::install_message_handling(::message::sender * psender)
+      void sequence_thread::install_message_routing(::message::sender * pinterface)
       {
-         IGUI_MSG_LINK(::music::midi::player::message_command, psender, this, &sequence_thread::OnCommand);
-         IGUI_MSG_LINK(::music::midi::sequence::message_event, psender, this, &sequence_thread::OnMidiSequenceEvent);
-         IGUI_MSG_LINK(::music::midi_core_midi::sequence::message_run, psender, this, &sequence_thread::OnRun);
+         
+         IGUI_MSG_LINK(::music::midi::player::message_command, pinterface, this, &sequence_thread::OnCommand);
+         IGUI_MSG_LINK(::music::midi::sequence::message_event, pinterface, this, &sequence_thread::OnMidiSequenceEvent);
+         //IGUI_MSG_LINK(::music::midi::sequence::message_run, pinterface, this, &sequence_thread::OnRun);
+         
       }
+      
       
       void sequence_thread::Stop(imedia_time msEllapse)
       {
+         
          get_sequence()->Stop();
          m_eventStop.wait(millis(msEllapse));
+         
       }
+      
       
       ::music::midi::sequence * sequence_thread::get_sequence()
       {
+         
          return m_psequence;
+         
       }
       
       
       bool sequence_thread::PostMidiSequenceEvent(::music::midi::sequence * pseq, ::music::midi::sequence::e_event eevent)
       {
          
-         return post_object(::music::midi::sequence::message_event,  (WPARAM) pseq, pseq->create_new_event(eevent));
+         return post_message(::music::midi::sequence::message_event,  (WPARAM) pseq, (LPARAM) pseq->create_new_event(eevent));
          
       }
       
@@ -71,19 +83,19 @@ namespace music
          
          sp(sequence) seq = pseq;
          
-         return post_object(::music::midi::sequence::message_event,  (WPARAM) pseq, seq->create_new_event(eevent, lpmh));
+         return post_message(::music::midi::sequence::message_event,  (WPARAM) pseq, (LPARAM) seq->create_new_event(eevent, lpmh));
          
       }
       
       
-      void sequence_thread::OnMidiSequenceEvent(::message::message * pmessage)
+      void sequence_thread::OnMidiSequenceEvent(::message::message * pobj)
       {
          
-         SCAST_PTR(::message::base, pbase, pmessage);
+         SCAST_PTR(::message::base, pbase, pobj);
          
-         sp(::music::midi::sequence::event) pevent(pbase->m_lparam);
+         ::music::midi::sequence::event * pevent = (::music::midi::sequence::event *) pbase->m_lparam.m_lparam;
          
-         sp(::music::midi_core_midi::sequence) pseq = pevent->m_psequence;
+         sp(::music::midi::port::sequence) pseq = pevent->m_psequence;
          
          pseq->OnEvent(pevent);
          
@@ -176,7 +188,7 @@ namespace music
                
                pseq->seq_start();
                
-               post_message(::music::midi_core_midi::sequence::message_run);
+               post_message(::music::midi::port::sequence::message_run, 0, 0);
                
                PostNotifyEvent(::music::midi::player::notify_event_playback_start);
                
@@ -195,50 +207,37 @@ namespace music
                
          }
          
+         delete pevent;
+         
+         
       }
       
       void sequence_thread::PostNotifyEvent(::music::midi::player::e_notify_event eevent)
       {
-         
          if(m_pplayer != NULL)
          {
-            
-            ::music::midi::player::notify_event * pdata = canew(::music::midi::player::notify_event);
-            
+            ::music::midi::player::notify_event * pdata = new ::music::midi::player::notify_event;
             pdata->m_enotifyevent = eevent;
-            
-            m_pplayer->post_object(::music::midi::player::message_notify_event, 0, pdata);
-            
+            m_pplayer->post_message(::music::midi::player::message_notify_event, 0, (LPARAM) pdata);
          }
-         
       }
-      
       
       void sequence_thread::Play(imedia_position tkStart)
       {
-         
          ASSERT(get_sequence() != NULL);
-         
          ASSERT(get_sequence()->GetState() == ::music::midi::sequence::status_opened);
          
          PrerollAndWait(tkStart);
-         
          get_sequence()->Start();
-         
       }
-      
       
       void sequence_thread::Play(double dRate)
       {
-         
          ASSERT(get_sequence() != NULL);
-         
          ASSERT(get_sequence()->GetState() == ::music::midi::sequence::status_opened);
          
          PrerollAndWait(dRate);
-         
          get_sequence()->Start();
-         
       }
       
       
@@ -248,29 +247,22 @@ namespace music
          ::music::midi::PREROLL                 preroll;
          
          preroll.tkBase = tkStart;
-         
          preroll.tkEnd  = get_sequence()->m_tkLength;
          
          get_sequence()->SetMidiOutDevice(m_pplayer->GetMidiOutDevice());
          
          try
          {
-            
             get_sequence()->Preroll(this, &preroll, true);
-            
          }
          catch (exception * pme)
          {
-            
             string str;
-            
             ASSERT(FALSE);
             
             /* super merge module      CVmsMusDll::load_string(str, IDS_PREROLLUSERERROR001);
              pme->SetUserText(str);*/
-            
-            _throw(pme);
-            
+            throw pme;
          }
          
       }
@@ -294,11 +286,14 @@ namespace music
          }
          catch (exception * pme)
          {
-            _throw(not_implemented(get_app()));
+            
+            throw not_implemented(get_app());
+            
             /*string str;
              str.load_string(IDS_PREROLLUSERERROR001);
              pme->SetUserText(str);*/
-            _throw(pme);
+            //throw pme;
+            
          }
          
          //    if(!get_sequence()->IsInSpecialModeV001())
@@ -334,22 +329,24 @@ namespace music
       }
       
       
-      void sequence_thread::ExecuteCommand(smart_pointer < ::music::midi::player::command > spcommand)
+      void sequence_thread::ExecuteCommand(::music::midi::player::command * spcommand)
       {
-
-         post_object(::music::midi::player::message_command, 0, spcommand);
-         
+         spcommand->add_ref();
+         post_message(
+                             ::music::midi::player::message_command,
+                             0,
+                             (LPARAM) (::music::midi::player::command *) spcommand);
       }
       
       
-      void sequence_thread::OnRun(::message::message * pmessage)
+      void sequence_thread::OnRun(::message::message * pobj)
       {
          
          sp(sequence) pseq = get_sequence();
          
 //         snd_seq_event_t * pev = NULL;
          
-         imedia_position pos = 0;
+         ::imedia_position pos = 0;
          
          pseq->GetPosition(pos);
          
@@ -400,21 +397,19 @@ namespace music
             
          }
          
-         post_message(sequence::message_run);
+         post_message(sequence::message_run, 0, 0);
          
       }
       
       
-      void sequence_thread::OnCommand(::message::message * pmessage)
+      void sequence_thread::OnCommand(::message::message * pobj)
       {
-         
-         SCAST_PTR(::message::base, pbase, pmessage);
-         
-         sp(::music::midi::player::command) spcommand(pbase->m_lparam);
-         
+         SCAST_PTR(::message::base, pbase, pobj);
+         smart_pointer < ::music::midi::player::command > spcommand;
+         spcommand = (::music::midi::player::command *) pbase->m_lparam.m_lparam;
          try
          {
-             _ExecuteCommand(spcommand);
+            _ExecuteCommand(spcommand);
          }
          catch(exception * pe)
          {
@@ -423,16 +418,19 @@ namespace music
          }
          catch(...)
          {
+            
             spcommand->m_eresult = ::multimedia::result_error;
+            
          }
+         
          spcommand->OnFinish();
+         
       }
       
       
-      void sequence_thread::_ExecuteCommand(smart_pointer < ::music::midi::player::command > spcommand)
+      void sequence_thread::_ExecuteCommand(::music::midi::player::command * spcommand)
       {
       
-      ::multimedia::e_result mmrc = ::multimedia::result_success;
          switch(spcommand->GetCommand())
          {
             case ::music::midi::player::command_play:
@@ -468,7 +466,7 @@ Play(spcommand->m_dRate);
                link.ModifyFlag(::music::midi::sequence::FlagStop, ::music::midi::sequence::FlagNull);
                if(::multimedia::result_success != (mmrc = get_sequence()->Stop()))
                {
-                  _throw(exception(get_app(), EMidiPlayerStop, mmrc));
+                  throw new exception(get_app(), EMidiPlayerStop, mmrc);
                }
             }
                break;
@@ -483,7 +481,7 @@ Play(spcommand->m_dRate);
                link.m_tkRestart = get_sequence()->GetPositionTicks();
                if(::multimedia::result_success != (mmrc = get_sequence()->Stop()))
                {
-                  _throw(exception(get_app(), EMidiPlayerStop, mmrc));
+                  throw new exception(get_app(), EMidiPlayerStop, mmrc);
                }
             }
                break;
@@ -494,12 +492,13 @@ Play(spcommand->m_dRate);
             break;
          }
          
+   
       }
+         
+      } // namespace port
       
-      
-      
-      
-   } // namespace midi_core_midi
+
+   } // namespace midi
    
    
 } // namespace music

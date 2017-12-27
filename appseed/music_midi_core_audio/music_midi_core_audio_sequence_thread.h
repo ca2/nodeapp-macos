@@ -1,12 +1,16 @@
 #pragma once
 
 
-
 namespace music
 {
 
-   namespace midi_core_midi
+   
+   namespace midi
    {
+      
+      
+      namespace port
+      {
 
 
       class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_CORE_MIDI sequence_thread : 
@@ -14,12 +18,12 @@ namespace music
       {
       public:
 
-         
-         sequence_thread(sp(::aura::application) papp);
+
+         sequence_thread(::aura::application * papp);
          virtual ~sequence_thread();
 
 
-         void install_message_handling(::message::sender * psender);
+         void install_message_routing(::message::sender * pinterface) override;
 
          ::music::midi::sequence * get_sequence();
          void Stop(imedia_time msEllapse);
@@ -38,17 +42,19 @@ namespace music
          void PostTempoChange();
          void SendTempoChange();
 
-         void ExecuteCommand(::smart_pointer < ::music::midi::player::command > pcommand);
-         void _ExecuteCommand(::smart_pointer < ::music::midi::player::command > pcommand);
+         void ExecuteCommand(::music::midi::player::command * pcommand) override;
+         void _ExecuteCommand(::music::midi::player::command * pcommand) override;
 
-         virtual bool initialize_thread();
-         virtual int32_t exit_thread();
+         virtual bool init_thread() override;
+         virtual void term_thread() override;
 
          DECL_GEN_SIGNAL(OnCommand);
          DECL_GEN_SIGNAL(OnMidiSequenceEvent);
          DECL_GEN_SIGNAL(OnRun);
 
       };
+         
+      } // namespace port
 
 
    } // namespace midi_core_midi
