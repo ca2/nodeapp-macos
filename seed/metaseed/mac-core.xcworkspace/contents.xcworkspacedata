@@ -23,6 +23,9 @@
       location = "group:../../../app-core/appseed/auratype/auratype.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/chronometer/chronometer.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-core/appseed/timer/timer.xcodeproj">
    </FileRef>
    <FileRef
@@ -78,6 +81,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/resident_client/app_core_resident_client.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/chronometer/app_core_chronometer.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/timer/app_core_timer.xcodeproj">
