@@ -32,7 +32,7 @@
       location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../appseed/audio_core_audio/audio_core_audio.xcodeproj">
+      location = "group:../../../app/appseed/audio_core_audio/audio_core_audio.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
@@ -60,9 +60,6 @@
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/clientchannels/axisclientchannels.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/appseed/freeimage/axisfreeimage.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/freerdp/axisfreerdp.xcodeproj">
@@ -104,12 +101,6 @@
       location = "container:../../../app-core/appseed/gcom/gcom.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app/appseed/image_jpeg/image_decode_jpeg.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/appseed/image_png/image_decode_png.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
    </FileRef>
    <FileRef
@@ -129,18 +120,6 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/common/welscommon.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/dec/welsdec/welsdec.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/enc/welsenc/welsenc.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/wndfrm_core/wndfrm_core.xcodeproj">
