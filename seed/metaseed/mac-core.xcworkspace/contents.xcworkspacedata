@@ -134,9 +134,6 @@
       location = "group:../../../third/appseed/clientchannels/axisclientchannels.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../third/appseed/crypto/axiscrypto.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../third/appseed/freetype/axisfreetype.xcodeproj">
    </FileRef>
    <FileRef
@@ -144,9 +141,6 @@
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/jpeg/axisjpeg.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openssl/axisopenssl.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/png/axispng.xcodeproj">
