@@ -63,12 +63,12 @@
 #define AXIS_FREEIMAGE
 
 
-#define FONT_SANS "FreeSans"
-#define FONT_SERIF "FreeSerif"
-#define FONT_SANS_EX "Liberation Sans"
-#define FONT_SERIF_EX "Liberation Serif"
-#define FONT_SANS_FX "Ubuntu"
-#define FONT_SERIF_FX "Bitstream Charter"
+#define FONT_SANS "Helvetica"
+#define FONT_SERIF "Times"
+#define FONT_SANS_EX "Arial"
+#define FONT_SERIF_EX "Times New Roman"
+#define FONT_SANS_FX "Verdana"
+#define FONT_SERIF_FX "Georgia"
 #define FONT_MONO "Menlo"
 
 
