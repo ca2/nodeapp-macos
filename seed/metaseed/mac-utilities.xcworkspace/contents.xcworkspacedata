@@ -95,9 +95,6 @@
       location = "container:../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../game/appseed/tictactoe/game_tictactoe.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:../../../app-core/appseed/gcom/gcom.xcodeproj">
    </FileRef>
    <FileRef

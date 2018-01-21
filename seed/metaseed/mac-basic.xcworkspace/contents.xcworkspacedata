@@ -80,9 +80,6 @@
       location = "group:../../../third/appseed/clientchannels/axisclientchannels.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../third/appseed/crypto/axiscrypto.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../third/appseed/freerdp/axisfreerdp.xcodeproj">
    </FileRef>
    <FileRef
@@ -90,12 +87,6 @@
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/idn/axisidn.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/appseed/image_jpeg/image_decode_jpeg.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/appseed/image_png/image_decode_png.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/winpr/axiswinpr.xcodeproj">
@@ -114,9 +105,6 @@
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../../game/appseed/tictactoe/game_tictactoe.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/gcom/gcom.xcodeproj">
