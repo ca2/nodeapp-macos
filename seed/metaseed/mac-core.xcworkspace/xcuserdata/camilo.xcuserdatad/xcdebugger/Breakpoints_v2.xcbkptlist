@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/node/macos/macos_application.cpp"
-            timestampString = "538237905.198944"
+            filePath = "../../../app/appseed/axis/database/simpledb/simpledb_db_server.cpp"
+            timestampString = "541184901.885516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "application::os_on_start_application()"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "db_server::initialize()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/programming/introjection/introjection_compiler.cpp"
-            timestampString = "538237905.199064"
+            filePath = "../../../app/appseed/aura/aura/node/apple/apple_process.cpp"
+            timestampString = "541192396.224952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "531"
-            endingLineNumber = "531"
-            landmarkName = "compiler::compile(string strFilePath,bool &amp; bNew)"
+            startingLineNumber = "537"
+            endingLineNumber = "537"
+            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,14 +41,270 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/os/macos/macos_main.cpp"
-            timestampString = "540913535.933272"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
+            timestampString = "541234832.801797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "os_post_quit()"
+            startingLineNumber = "2813"
+            endingLineNumber = "2813"
+            landmarkName = "application::application_pre_run()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
+            timestampString = "541234832.802232"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2818"
+            endingLineNumber = "2818"
+            landmarkName = "application::application_pre_run()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
+            timestampString = "541234832.802371"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2816"
+            endingLineNumber = "2816"
+            landmarkName = "application::application_pre_run()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/vericard/vericard_comm.cpp"
+            timestampString = "541231653.913838"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "comm::on_bot(string strUser, string strText)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "/Users/camilo/Library/Application Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot.cpp"
+            timestampString = "541231718.50696"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "on_bot(string strUser,string strText)"
             landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "this_plugin::on_bot(string, string)"
+                  moduleName = "libresident_mixercom_bot.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_mixercom/room/ca2live@mixer.com/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot.cpp"
+                  timestampString = "541231718.522758"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "11009">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "this_plugin::on_bot(string, string)"
+                  moduleName = "libresident_twitchtv_bot.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot.cpp"
+                  timestampString = "541231718.524811"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "11009">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "/Users/camilo/Library/Application Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot_x.cpp"
+            timestampString = "541231759.508853"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2232"
+            endingLineNumber = "2232"
+            landmarkName = "bot_x()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "this_plugin::bot_x()"
+                  moduleName = "libresident_twitchtv_bot.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot_x.cpp"
+                  timestampString = "541232110.713504"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "2232"
+                  endingLineNumber = "2232"
+                  offsetFromSymbolStart = "74489">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "this_plugin::bot_x()"
+                  moduleName = "libresident_mixercom_bot.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_mixercom/room/ca2live@mixer.com/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot_x.cpp"
+                  timestampString = "541232116.540477"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "2232"
+                  endingLineNumber = "2232"
+                  offsetFromSymbolStart = "74489">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "/Users/camilo/Library/Application Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib1.cpp"
+            timestampString = "541234832.8026119"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
+            landmarkName = "user_weather(::vericard::user * puser, string &amp; strQuery, string &amp; strCountryCode, string &amp; strCity, bool &amp; bLocation)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "this_plugin::user_weather(vericard::user*, string&amp;, string&amp;, string&amp;, bool&amp;)"
+                  moduleName = "libresident_twitchtv_bot.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib1.cpp"
+                  timestampString = "541232110.719206"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "376"
+                  endingLineNumber = "376"
+                  offsetFromSymbolStart = "657">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "this_plugin::user_weather(vericard::user*, string&amp;, string&amp;, string&amp;, bool&amp;)"
+                  moduleName = "libresident_mixercom_bot.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_mixercom/room/ca2live@mixer.com/../../../resident_liveedutv/room/ca2@livecoding.tv/lib1.cpp"
+                  timestampString = "541232116.544865"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "376"
+                  endingLineNumber = "376"
+                  offsetFromSymbolStart = "657">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
+            timestampString = "541234832.802932"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "3727"
+            endingLineNumber = "3727"
+            landmarkName = "application::init_application()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_ipi.cpp"
+            timestampString = "541233288.736117"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "ipi::ecall(const string &amp; strApp,int_array iaExcludePid, const string &amp; strObject,const string &amp; strMember,var_array &amp; va, duration durationTimeOut)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_ipi.cpp"
+            timestampString = "541233288.73634"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "ipi::ecall(const string &amp; strApp,int_array iaExcludePid, const string &amp; strObject,const string &amp; strMember,var_array &amp; va, duration durationTimeOut)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_ipi.cpp"
+            timestampString = "541233288.736389"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "ipi::ecall(const string &amp; strApp,int_array iaExcludePid, const string &amp; strObject,const string &amp; strMember,var_array &amp; va, duration durationTimeOut)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
