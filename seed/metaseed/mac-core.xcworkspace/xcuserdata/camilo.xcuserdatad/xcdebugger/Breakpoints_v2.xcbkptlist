@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/axis/database/simpledb/simpledb_db_server.cpp"
-            timestampString = "541184901.885516"
+            filePath = "../../../app-core/appseed/multimedia/audio/audio_wave_player.cpp"
+            timestampString = "541290674.199911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "db_server::initialize()"
+            startingLineNumber = "936"
+            endingLineNumber = "936"
+            landmarkName = "wave_player::OnEvent(e_event eevent, wave_player_command * pcommand)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/node/apple/apple_process.cpp"
-            timestampString = "541192396.224952"
+            filePath = "../../../app-core/appseed/audio_decode_spotify/audio_decode_spotify_decoder.cpp"
+            timestampString = "541305025.375719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "537"
-            endingLineNumber = "537"
-            landmarkName = "process::synch_elevated(const char * pszCmdLineParam,int iShow,const ::duration &amp; durationTimeOut,bool * pbTimeOut)"
+            startingLineNumber = "723"
+            endingLineNumber = "723"
+            landmarkName = "decoder::audio_plugin_stop()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
-            timestampString = "541234832.801797"
+            filePath = "../../../app-core/appseed/multimedia/audio_decode/audio_decode_decoder.cpp"
+            timestampString = "541293350.9364181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2813"
-            endingLineNumber = "2813"
-            landmarkName = "application::application_pre_run()"
+            startingLineNumber = "522"
+            endingLineNumber = "522"
+            landmarkName = "decoder::audio_plugin_read_sync(LPVOID lpvoidBuffer, memory_size_t uiBufferSize)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
-            timestampString = "541234832.802232"
+            filePath = "../../../app-core/appseed/multimedia/audio_decode/audio_decode_decoder.cpp"
+            timestampString = "541293350.936952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2818"
-            endingLineNumber = "2818"
-            landmarkName = "application::application_pre_run()"
+            startingLineNumber = "527"
+            endingLineNumber = "527"
+            landmarkName = "decoder::audio_plugin_read_sync(LPVOID lpvoidBuffer, memory_size_t uiBufferSize)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/multimedia/audio_decode/audio_decode_decoder.cpp"
+            timestampString = "541293381.686736"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
+            landmarkName = "decoder::audio_plugin_read_sync(LPVOID lpvoidBuffer, memory_size_t uiBufferSize)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +89,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
-            timestampString = "541234832.802371"
+            filePath = "../../../app-core/appseed/multimedia/audio_plugin/audio_plugin_plugin.cpp"
+            timestampString = "541305025.376075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2816"
-            endingLineNumber = "2816"
-            landmarkName = "application::application_pre_run()"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "plugin::audio_plugin_read(LPVOID lpvoidBuffer, memory_size_t uiBufferSize)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +105,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/vericard/vericard_comm.cpp"
-            timestampString = "541231653.913838"
+            filePath = "../../../app-core/appseed/multimedia/audio_plugin/audio_plugin_mixer.cpp"
+            timestampString = "541305025.376332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "comm::on_bot(string strUser, string strText)"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
+            landmarkName = "mixer::audio_plugin_read(LPVOID lpvoidBuffer, memory_size_t uiBufferSize)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/multimedia/audio/audio_wave_pre_buffer.cpp"
+            timestampString = "541298511.146049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
+            landmarkName = "wave_pre_buffer::fill_synch(buffer * pbuffer)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,157 +137,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "/Users/camilo/Library/Application Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot.cpp"
-            timestampString = "541231718.50696"
+            filePath = "../../../app/appseed/audio_core_audio/audio_core_audio_wave_out.cpp"
+            timestampString = "541305025.37703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "on_bot(string strUser,string strText)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "this_plugin::on_bot(string, string)"
-                  moduleName = "libresident_mixercom_bot.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_mixercom/room/ca2live@mixer.com/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot.cpp"
-                  timestampString = "541231718.522758"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "186"
-                  endingLineNumber = "186"
-                  offsetFromSymbolStart = "11009">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "this_plugin::on_bot(string, string)"
-                  moduleName = "libresident_twitchtv_bot.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot.cpp"
-                  timestampString = "541231718.524811"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "186"
-                  endingLineNumber = "186"
-                  offsetFromSymbolStart = "11009">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "/Users/camilo/Library/Application Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot_x.cpp"
-            timestampString = "541231759.508853"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2232"
-            endingLineNumber = "2232"
-            landmarkName = "bot_x()"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "this_plugin::bot_x()"
-                  moduleName = "libresident_twitchtv_bot.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot_x.cpp"
-                  timestampString = "541232110.713504"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2232"
-                  endingLineNumber = "2232"
-                  offsetFromSymbolStart = "74489">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "this_plugin::bot_x()"
-                  moduleName = "libresident_mixercom_bot.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_mixercom/room/ca2live@mixer.com/../../../resident_liveedutv/room/ca2@livecoding.tv/lib_bot_x.cpp"
-                  timestampString = "541232116.540477"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2232"
-                  endingLineNumber = "2232"
-                  offsetFromSymbolStart = "74489">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "/Users/camilo/Library/Application Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib1.cpp"
-            timestampString = "541234832.8026119"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
-            landmarkName = "user_weather(::vericard::user * puser, string &amp; strQuery, string &amp; strCountryCode, string &amp; strCity, bool &amp; bLocation)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "this_plugin::user_weather(vericard::user*, string&amp;, string&amp;, string&amp;, bool&amp;)"
-                  moduleName = "libresident_twitchtv_bot.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_twitchtv/room/ca2live@irc.twitch.tv/../../../resident_liveedutv/room/ca2@livecoding.tv/lib1.cpp"
-                  timestampString = "541232110.719206"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "376"
-                  endingLineNumber = "376"
-                  offsetFromSymbolStart = "657">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "this_plugin::user_weather(vericard::user*, string&amp;, string&amp;, string&amp;, bool&amp;)"
-                  moduleName = "libresident_mixercom_bot.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/camilo/Library/Application%20Support/ca2/system/config/resident_mixercom/room/ca2live@mixer.com/../../../resident_liveedutv/room/ca2@livecoding.tv/lib1.cpp"
-                  timestampString = "541232116.544865"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "376"
-                  endingLineNumber = "376"
-                  offsetFromSymbolStart = "657">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_application.cpp"
-            timestampString = "541234832.802932"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3727"
-            endingLineNumber = "3727"
-            landmarkName = "application::init_application()"
+            startingLineNumber = "703"
+            endingLineNumber = "703"
+            landmarkName = "wave_out::AudioQueueBufferCallback(AudioQueueRef inAQ, AudioQueueBufferRef inCompleteAQBuffer)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -265,13 +153,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_ipi.cpp"
-            timestampString = "541233288.736117"
+            filePath = "../../../app-core/appseed/multimedia/audio/audio_wave_pre_buffer.cpp"
+            timestampString = "541298511.14652"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "ipi::ecall(const string &amp; strApp,int_array iaExcludePid, const string &amp; strObject,const string &amp; strMember,var_array &amp; va, duration durationTimeOut)"
+            startingLineNumber = "586"
+            endingLineNumber = "586"
+            landmarkName = "wave_pre_buffer::start(const imedia_position &amp; position)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -281,13 +169,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_ipi.cpp"
-            timestampString = "541233288.73634"
+            filePath = "../../../app-core/appseed/multimedia/audio_plugin/audio_plugin_mixer.cpp"
+            timestampString = "541305025.377324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "ipi::ecall(const string &amp; strApp,int_array iaExcludePid, const string &amp; strObject,const string &amp; strMember,var_array &amp; va, duration durationTimeOut)"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "mixer::audio_plugin_read(LPVOID lpvoidBuffer, memory_size_t uiBufferSize)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -297,13 +185,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/aura/aura_ipi.cpp"
-            timestampString = "541233288.736389"
+            filePath = "../../../app-core/appseed/multimedia/audio_plugin/audio_plugin_resampler.cpp"
+            timestampString = "541305025.377672"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "ipi::ecall(const string &amp; strApp,int_array iaExcludePid, const string &amp; strObject,const string &amp; strMember,var_array &amp; va, duration durationTimeOut)"
+            startingLineNumber = "1424"
+            endingLineNumber = "1424"
+            landmarkName = "resampler::multimedia_read_frame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/multimedia/audio_plugin/audio_plugin_resampler.cpp"
+            timestampString = "541305025.377933"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "671"
+            endingLineNumber = "671"
+            landmarkName = "resampler::multimedia_read_frame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/multimedia/audio_plugin/audio_plugin_resampler.cpp"
+            timestampString = "541305025.377997"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1448"
+            endingLineNumber = "1448"
+            landmarkName = "resampler::ReadSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/multimedia/audio_plugin/audio_plugin_mixer.cpp"
+            timestampString = "541305025.378055"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "mixer::audio_plugin_read(LPVOID lpvoidBuffer, memory_size_t uiBufferSize)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
