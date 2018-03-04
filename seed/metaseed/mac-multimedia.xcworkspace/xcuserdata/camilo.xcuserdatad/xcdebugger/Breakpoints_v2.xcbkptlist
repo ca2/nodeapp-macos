@@ -4,28 +4,18 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "535903394.906856"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.010269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "627"
-            endingLineNumber = "627"
-            landmarkName = "decoder::packet_thread::run()"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "535903394.907324"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.01065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1111"
-            endingLineNumber = "1111"
-            landmarkName = "decoder::image_decoder::get_free_frame()"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "535903394.907647"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequence.cpp"
+            timestampString = "541775719.9480751"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1285"
-            endingLineNumber = "1285"
-            landmarkName = "decoder::audio_decoder::decode_audio_packet(AVPacket * ppacket)"
+            startingLineNumber = "1655"
+            endingLineNumber = "1655"
+            landmarkName = "sequence::get_fade_volume(imedia_time time)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "535903394.907963"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.0109119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "891"
-            endingLineNumber = "891"
-            landmarkName = "decoder::image_decoder::decode_image_packet(AVPacket * ppacket, int iFree)"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -83,13 +73,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "535903394.908349"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.011222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1114"
-            endingLineNumber = "1114"
-            landmarkName = "decoder::image_decoder::get_free_frame()"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -99,13 +89,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "535903394.908615"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.011479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1102"
-            endingLineNumber = "1102"
-            landmarkName = "decoder::image_decoder::get_free_frame()"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -115,13 +105,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/multimedia/audio/audio_wave_pre_buffer.cpp"
-            timestampString = "528562572.780702"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.011682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "wave_pre_buffer::_FreeId(index iId)"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -131,93 +121,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-core/appseed/multimedia/audio/audio_wave_pre_buffer.cpp"
-            timestampString = "528562572.781183"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.0118769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "wave_pre_buffer::_FreeId(index iId)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-            timestampString = "536122213.244469"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "WriteOutputFile (const char* outputFilePath, OSType dataFormat, Float64 srate, MusicTimeStamp sequenceLength, bool shouldPrint, AUGraph inGraph, UInt32 numFrames, MusicPlayer player, stringa&amp; errorMessages)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-            timestampString = "536122213.244884"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "str2OSType (const char * inString, OSType &amp;outType)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-            timestampString = "536122213.245084"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
-            landmarkName = "SetUpGraph (AUGraph &amp;inGraph, UInt32 numFrames, Float64 &amp;sampleRate, bool isOffline)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-            timestampString = "536122213.245371"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
-            landmarkName = "LoadSMF(const char * data, int dataSize, MusicSequence&amp; sequence, MusicSequenceLoadFlags loadFlags)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.041387"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "886"
-            endingLineNumber = "886"
-            landmarkName = "sequence::get_ticks(imedia_position &amp; pTicks)"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -227,13 +137,77 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.875794"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.012118"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "558"
-            endingLineNumber = "558"
-            landmarkName = "buffer::MillisecsToTicks(imedia_time msOffset)"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "sequencer::run()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.012571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "sequencer::run()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.0128061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "sequencer::run()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.013011"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "sequencer::run()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence_thread.cpp"
+            timestampString = "541817201.013234"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "sequence_thread::Play(imedia_position tkStart)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -244,59 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.041802"
+            timestampString = "541817201.013273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "928"
-            endingLineNumber = "928"
-            landmarkName = "sequence::get_millis(imedia_time &amp; time)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.042077"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "sequence::seq_start()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.042334"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1678"
-            endingLineNumber = "1678"
-            landmarkName = "sequence::seq_dump()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.042582"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "sequence::Preroll(::thread * pthread, ::music::midi::LPPREROLL lpPreroll, bool bThrow)"
             landmarkType = "7">
          </BreakpointContent>
@@ -304,48 +230,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../appseed/music_midi_core_audio/music_midi_port_thread.cpp"
-            timestampString = "536043390.33943"
+            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence_thread.cpp"
+            timestampString = "541817201.013308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "thread::run()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../appseed/music_midi_core_audio/music_midi_port_thread.cpp"
-            timestampString = "536043390.339508"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "thread::run()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../appseed/music_midi_core_audio/music_midi_port_thread.cpp"
-            timestampString = "536043390.339578"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "thread::run()"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "sequence_thread::Play(imedia_position tkStart)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -355,13 +249,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.042779"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.0133491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "962"
-            endingLineNumber = "962"
-            landmarkName = "sequence::get_millis(imedia_time &amp; time)"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -371,13 +265,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877199"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.013556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2036"
-            endingLineNumber = "2036"
-            landmarkName = "buffer::CreateTempoMap()"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -387,61 +281,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-            timestampString = "536122213.245869"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.013805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "908"
-            endingLineNumber = "908"
-            landmarkName = "AudioUnitOutput::note_on(const int note, const int volume, const int channel)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AudioUnitOutput::note_on(int, int, int)"
-                  moduleName = "libmusic_midi_core_audio.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///macos/app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-                  timestampString = "536122214.669459"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "908"
-                  endingLineNumber = "908"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AudioUnitOutput::note_on(int, int, int)"
-                  moduleName = "libmusic_midi_core_audio.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///macos/app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-                  timestampString = "536122214.672098"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "908"
-                  endingLineNumber = "908"
-                  offsetFromSymbolStart = "78">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877286"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "431"
-            endingLineNumber = "431"
-            landmarkName = "buffer::TicksToMillisecs(imedia_position tkOffset)"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -451,13 +297,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877338"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.014021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2014"
-            endingLineNumber = "2014"
-            landmarkName = "buffer::CreateTempoMap()"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -467,13 +313,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877387"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.014351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2038"
-            endingLineNumber = "2038"
-            landmarkName = "buffer::CreateTempoMap()"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -483,13 +329,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877436"
+            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_sequencer.cpp"
+            timestampString = "541817201.0145611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
-            landmarkName = "buffer::_tick_to_micro(imedia_position ticks)"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "sequencer::run()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -499,13 +345,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877483"
+            filePath = "/macos/app-veriwell/appseed/multimedia/../../../nodeapp/seed/metaseed/../../../app-veriwell/appseed/multimedia/music/midi/music_midi_tracks.cpp"
+            timestampString = "541817201.01476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "481"
-            endingLineNumber = "481"
-            landmarkName = "buffer::_micro_to_tick(uint64_t micro)"
+            startingLineNumber = "2105"
+            endingLineNumber = "2105"
+            landmarkName = "tracks::WorkGetNextEvent( event *&amp; pevent, imedia_position tkMax, bool bTkMaxInclusive, bool bOnlyMTrk)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -515,509 +361,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.87753"
+            filePath = "/macos/app-veriwell/appseed/multimedia/../../../nodeapp/seed/metaseed/../../../app-veriwell/appseed/multimedia/music/midi/music_midi_tracks.cpp"
+            timestampString = "541817201.014827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1615"
-            endingLineNumber = "1615"
-            landmarkName = "buffer::get_position_tempo(imedia_position tk)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.87758"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1573"
-            endingLineNumber = "1573"
-            landmarkName = "buffer::get_micro_tempo(int64_t iMicro)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877632"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1582"
-            endingLineNumber = "1582"
-            landmarkName = "buffer::get_micro_tempo(int64_t iMicro)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877685"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1586"
-            endingLineNumber = "1586"
-            landmarkName = "buffer::get_micro_tempo(int64_t iMicro)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877738"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "488"
-            endingLineNumber = "488"
-            landmarkName = "buffer::_micro_to_tick(uint64_t micro)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877792"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "874"
-            endingLineNumber = "874"
-            landmarkName = "buffer::Build()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877847"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "985"
-            endingLineNumber = "985"
-            landmarkName = "buffer::Build()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.877902"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "986"
-            endingLineNumber = "986"
-            landmarkName = "buffer::Build()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_track.cpp"
-            timestampString = "536120037.343009"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4098"
-            endingLineNumber = "4098"
-            landmarkName = "track::WorkWriteEvent()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/karaoke/karaoke_bouncing_ball.cpp"
-            timestampString = "536112021.695785"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "744"
-            endingLineNumber = "744"
-            landmarkName = "bouncing_ball::SetQuarterNoteDuration(imedia_position tk)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/karaoke/karaoke_bouncing_ball.cpp"
-            timestampString = "536112021.696065"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "bouncing_ball::to(::draw2d::graphics * pgraphics, bool bDraw, lyric_view_line * lpline, lyric_view_line * lplineNext, ::ikaraoke::lyric_events_v2 * plyricevents, bool bShadowNow)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/karaoke/karaoke_view.cpp"
-            timestampString = "536115011.8252"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "view::OnLyricEvent(::ikaraoke::lyric_event_v1 *pevent,bool bRepaint)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.043236"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "881"
-            endingLineNumber = "881"
-            landmarkName = "sequence::get_ticks(imedia_position &amp; pTicks)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.043518"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "963"
-            endingLineNumber = "963"
-            landmarkName = "sequence::get_millis(imedia_time &amp; time)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.043785"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "955"
-            endingLineNumber = "955"
-            landmarkName = "sequence::get_millis(imedia_time &amp; time)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.043974"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "957"
-            endingLineNumber = "957"
-            landmarkName = "sequence::get_millis(imedia_time &amp; time)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.044149"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "960"
-            endingLineNumber = "960"
-            landmarkName = "sequence::get_millis(imedia_time &amp; time)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-            timestampString = "536122213.246565"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "532"
-            endingLineNumber = "532"
-            landmarkName = "AudioUnitOutput::outputToDisk(const char * outputFilePath, const char * data, const int data_size, stringa &amp; errorMessages)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/AUOutputBL.cpp"
-            timestampString = "536114916.92642"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "AUOutputBL::AUOutputBL (const CAStreamBasicDescription &amp;inDesc, UInt32 inDefaultNumFrames)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/verisimplevideo/verisimplevideo_view.cpp"
-            timestampString = "536119791.534684"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "view::on_update(::user::impact * pSender, LPARAM lHint, ::object* phint)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/verisimplevideo/verisimplevideo_view.cpp"
-            timestampString = "536119791.534968"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "view::on_update(::user::impact * pSender, LPARAM lHint, ::object* phint)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/verisimplevideo/verisimplevideo_view.cpp"
-            timestampString = "536119791.535243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "view::on_update(::user::impact * pSender, LPARAM lHint, ::object* phint)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.044424"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "MyMIDIReadProc(const MIDIPacketList * pktlist, void * refCon, void * connRefCon)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.044699"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "MyMIDIReadProc(const MIDIPacketList * pktlist, void * refCon, void * connRefCon)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-            timestampString = "536122213.246896"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "759"
-            endingLineNumber = "759"
-            landmarkName = "AudioUnitOutput::programChange(uint8_t progChangeNum, uint8_t midiChannelInUse)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AudioUnitOutput::programChange(unsigned char, unsigned char)"
-                  moduleName = "libmusic_midi_core_audio.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///macos/app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-                  timestampString = "536122171.629571"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "759"
-                  endingLineNumber = "759"
-                  offsetFromSymbolStart = "29">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AudioUnitOutput::programChange(unsigned char, unsigned char)"
-                  moduleName = "libmusic_midi_core_audio.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///macos/app/appseed/music_midi_core_audio/AudioUnitOutput.cpp"
-                  timestampString = "536122171.632177"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "759"
-                  endingLineNumber = "759"
-                  offsetFromSymbolStart = "86">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.044958"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "MyMIDIReadProc(const MIDIPacketList * pktlist, void * refCon, void * connRefCon)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence.cpp"
-            timestampString = "536731570.045198"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "MyMIDIReadProc(const MIDIPacketList * pktlist, void * refCon, void * connRefCon)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app-veriwell/appseed/multimedia/music/midi/music_midi_file_buffer.cpp"
-            timestampString = "536125810.880651"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2074"
-            endingLineNumber = "2074"
-            landmarkName = "buffer::CreateTempoMap()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/user/user/user_menu.cpp"
-            timestampString = "538264600.387995"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "menu::destroy_menu()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/user/user/user_menu_item.cpp"
-            timestampString = "536777150.975619"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "menu_item::load_menu(::xml::node * pnode, int32_t iLevel)"
+            startingLineNumber = "2203"
+            endingLineNumber = "2203"
+            landmarkName = "tracks::WorkGetNextEvent( event *&amp; pevent, imedia_position tkMax, bool bTkMaxInclusive, bool bOnlyMTrk)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
