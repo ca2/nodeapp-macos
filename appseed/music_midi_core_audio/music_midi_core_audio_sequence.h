@@ -113,9 +113,6 @@ namespace music
          virtual ~sequence();
 
          
-         inline uint32_t GetState();
-         inline uint32_t GetPreviousState();
-         uint32_t SetState(uint32_t uiState);
          
          void SetSpecialModeV001Flag(bool bSet = true);
          
@@ -162,10 +159,8 @@ namespace music
          virtual bool IsChangingTempo();
          
          virtual double GetTempoShift();
-         virtual void GetMidiDoneData(::music::midi::LPMIDIDONEDATA lpmdd);
          virtual bool IsInSpecialModeV001();
          virtual bool WasInSpecialModeV001();
-         virtual void SetSpecialModeV001Operation(uint32_t uiOperation);
          
          virtual void OnEvent(::music::midi::sequence::event * pevent);
          

@@ -101,79 +101,109 @@ namespace music
          
          switch(pevent->m_eevent)
          {
-            case ::music::midi::sequence::EventStopped:
+            case ::music::midi::sequence::EventMidiPlaybackEnd:
             {
+               
                ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
-               if(link.TestFlag(::music::midi::sequence::FlagStop))
+               
+               if(link() & ::music::midi::sequence::FlagTempoChange)
                {
-                  link.ModifyFlag(::music::midi::sequence::FlagNull, ::music::midi::sequence::FlagStop);
-                  link.OnFinishCommand(::music::midi::player::command_stop);
-                  PostNotifyEvent(::music::midi::player::notify_event_playback_stop);
                   
-               }
-               else if(link.TestFlag(::music::midi::sequence::FlagTempoChange))
-               {
                   PrerollAndWait(link.m_tkRestart);
                   get_sequence()->SetTempoChangeFlag(false);
                   get_sequence()->Start();
-                  link.ModifyFlag(::music::midi::sequence::FlagNull, ::music::midi::sequence::FlagTempoChange);
-               }
-               else if(link.TestFlag(::music::midi::sequence::FlagSettingPos))
-               {
-                  link.ModifyFlag(::music::midi::sequence::FlagNull, ::music::midi::sequence::FlagSettingPos);
-                  try
-                  {
-                     PrerollAndWait(link.m_tkRestart);
-                  }
-                  catch(exception *pe)
-                  {
-                     //               SendMmsgDone(pseq, NULL);
-                     pe->Delete();
-                     return;
-                  }
-                  get_sequence()->Start();
-                  PostNotifyEvent(::music::midi::player::notify_event_position_set);
-               }
-               else if(link.TestFlag(
-                                     ::music::midi::sequence::FlagMidiOutDeviceChange))
-               {
-                  link.ModifyFlag(::music::midi::sequence::FlagNull, ::music::midi::sequence::FlagMidiOutDeviceChange);
-                  try
-                  {
-                     PrerollAndWait(link.m_tkRestart);
-                  }
-                  catch(exception *pe)
-                  {
-                     //               SendMmsgDone(pseq, NULL);
-                     pe->Delete();
-                     return;
-                  }
-                  get_sequence()->Start();
-                  /*CNotifyEventData data;
-                   data.m_pplayer = this;
-                   data.m_enotifyevent = player::notify_event_position_set;
-                   SendMessage(
-                   m_oswindow_,
-                   MIDIPLAYERMESSAGE_NOTIFYEVENT,
-                   (WPARAM) &data,
-                   0);      */
+                  link() -= ::music::midi::sequence::FlagTempoChange;
                   
                }
-               else if(link.TestFlag(::music::midi::sequence::FlagStopAndRestart))
+               else if(link() & ::music::midi::sequence::FlagSettingPos)
                {
-                  link.ModifyFlag(::music::midi::sequence::FlagNull, ::music::midi::sequence::FlagStopAndRestart);
+                  
+                  link() -= ::music::midi::sequence::FlagSettingPos;
+                  
                   try
                   {
+                     
                      PrerollAndWait(link.m_tkRestart);
+                     
                   }
                   catch(exception *pe)
                   {
+                     
                      //               SendMmsgDone(pseq, NULL);
+                     
                      pe->Delete();
+                     
                      return;
+                     
                   }
+                  
                   get_sequence()->Start();
-                  //PostNotifyEvent(player::notify_event_position_set);
+                  
+                  PostNotifyEvent(::music::midi::player::notify_event_position_set);
+                  
+               }
+               else if(link() & ::music::midi::sequence::FlagMidiOutDeviceChange)
+               {
+                  
+                  link() -= ::music::midi::sequence::FlagMidiOutDeviceChange;
+                  
+                  try
+                  {
+                     
+                     PrerollAndWait(link.m_tkRestart);
+                     
+                  }
+                  catch(exception *pe)
+                  {
+                     
+                     pe->Delete();
+                     
+                     return;
+                     
+                  }
+                  
+                  get_sequence()->Start();
+                  
+               }
+               else if(link() & ::music::midi::sequence::FlagStopAndRestart)
+               {
+               
+                  link() -= ::music::midi::sequence::FlagStopAndRestart;
+                  
+                  try
+                  {
+                     
+                     PrerollAndWait(link.m_tkRestart);
+                     
+                  }
+                  catch(exception *pe)
+                  {
+                     
+                     //               SendMmsgDone(pseq, NULL);
+                     
+                     pe->Delete();
+                     
+                     return;
+                     
+                  }
+                  
+                  get_sequence()->Start();
+                  
+               }
+               else
+               {
+                  
+                  if(link() & ::music::midi::sequence::FlagStop)
+                  {
+                     
+                     link() -= ::music::midi::sequence::FlagStop;
+                     
+                     link.OnFinishCommand(::music::midi::player::command_stop);
+                     
+                  }
+
+                  PostNotifyEvent(::music::midi::player::notify_event_playback_end);
+                  
                }
                
             }
@@ -199,11 +229,6 @@ namespace music
                PostNotifyEvent(::music::midi::player::notify_event_midi_stream_out);
             }
                break;
-            case ::music::midi::sequence::EventMidiPlaybackEnd:
-            {
-               PostNotifyEvent(::music::midi::player::notify_event_playback_end);
-            }
-               break;
                
          }
          
@@ -225,16 +250,16 @@ namespace music
       void sequence_thread::Play(imedia_position tkStart)
       {
          ASSERT(get_sequence() != NULL);
-         ASSERT(get_sequence()->GetState() == ::music::midi::sequence::status_opened);
+         ASSERT(get_sequence()->get_status() == ::music::midi::sequence::status_opened);
          
          PrerollAndWait(tkStart);
          get_sequence()->Start();
       }
       
-      void sequence_thread::Play(double dRate)
+      void sequence_thread::PlayRate(double dRate)
       {
          ASSERT(get_sequence() != NULL);
-         ASSERT(get_sequence()->GetState() == ::music::midi::sequence::status_opened);
+         ASSERT(get_sequence()->get_status() == ::music::midi::sequence::status_opened);
          
          PrerollAndWait(dRate);
          get_sequence()->Start();
@@ -268,7 +293,7 @@ namespace music
       }
       
       
-      void sequence_thread::PrerollAndWait(double dRate)
+      void sequence_thread::PrerollRateAndWait(double dRate)
       {
          ::music::midi::PREROLL                 preroll;
          
@@ -346,9 +371,9 @@ namespace music
          
 //         snd_seq_event_t * pev = NULL;
          
-         ::imedia_position pos = 0;
+         imedia_position pos = 0;
          
-         pseq->GetPosition(pos);
+         pseq->get_position(pos);
          
          /*while(snd_seq_event_input_pending(pseq->m_pseq->handle, TRUE) > 0)
           {
@@ -445,7 +470,7 @@ Play(spcommand->m_dRate);
                }
                else
                {
-                  Play();
+                  PlayRate();
                }
             }
                break;
@@ -453,7 +478,7 @@ Play(spcommand->m_dRate);
             {
                if(get_sequence() != NULL)
                {
-                  get_sequence()->CloseFile();
+                  get_sequence()->close_file();
                }
             }
                break;
@@ -463,11 +488,16 @@ Play(spcommand->m_dRate);
                ::multimedia::e_result            mmrc;
                ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
                link.SetCommand(spcommand);
-               link.ModifyFlag(::music::midi::sequence::FlagStop, ::music::midi::sequence::FlagNull);
+               
+               link() |= ::music::midi::sequence::FlagStop;
+               
                if(::multimedia::result_success != (mmrc = get_sequence()->Stop()))
                {
+                  
                   throw new exception(get_app(), EMidiPlayerStop, mmrc);
+                  
                }
+               
             }
                break;
             case ::music::midi::player::command_stop_and_restart:
@@ -475,10 +505,8 @@ Play(spcommand->m_dRate);
                ::multimedia::e_result            mmrc;
                ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
                link.SetCommand(spcommand);
-               link.ModifyFlag(
-                               ::music::midi::sequence::FlagStopAndRestart,
-                               ::music::midi::sequence::FlagNull);
-               link.m_tkRestart = get_sequence()->GetPositionTicks();
+               link() |= ::music::midi::sequence::FlagStopAndRestart;
+               get_sequence()->get_position(link.m_tkRestart);
                if(::multimedia::result_success != (mmrc = get_sequence()->Stop()))
                {
                   throw new exception(get_app(), EMidiPlayerStop, mmrc);
