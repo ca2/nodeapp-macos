@@ -371,5 +371,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "542675008.59262"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "decoder::decoder(::aura::application * papp)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "video_decode_ffmpeg::decoder::decoder(aura::application*)"
+                  moduleName = "libvideo_decode_ffmpeg.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///macos/app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+                  timestampString = "542675016.858748"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "552">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "video_decode_ffmpeg::decoder::decoder(aura::application*)"
+                  moduleName = "libvideo_decode_ffmpeg.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///macos/app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+                  timestampString = "542675016.861933"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "742">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
