@@ -215,7 +215,7 @@
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../app-core/appseed/wndfrm_anthill/wndfrm_anthill.xcodeproj">
+      location = "group:../../../app/appseed/wndfrm_anthill/wndfrm_anthill.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/wndfrm_core/wndfrm_core.xcodeproj">
