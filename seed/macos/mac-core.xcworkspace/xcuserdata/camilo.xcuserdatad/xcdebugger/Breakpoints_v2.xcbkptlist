@@ -7,16 +7,16 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
-            ignoreCount = "0"
+            ignoreCount = "200"
             continueAfterRunningActions = "No"
-            filePath = "../../../app/appseed/aura/aura/os/macos/macos_process.cpp"
-            timestampString = "547015868.92653"
+            filePath = "../../../app/appseed/aura/aura/aura/aura_session.cpp"
+            timestampString = "551167664.376474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
-            landmarkName = "core_app_path(string strApp)"
-            landmarkType = "9">
+            startingLineNumber = "1356"
+            endingLineNumber = "1356"
+            landmarkName = "session::set_cursor(::visual::e_cursor ecursor)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
