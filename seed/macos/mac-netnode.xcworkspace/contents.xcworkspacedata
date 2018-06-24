@@ -89,6 +89,9 @@
       location = "container:../../../app/appseed/core/core.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app/appseed/data/data.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
    </FileRef>
    <FileRef
@@ -114,6 +117,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/tesseract/tesseract.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/time/time.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
