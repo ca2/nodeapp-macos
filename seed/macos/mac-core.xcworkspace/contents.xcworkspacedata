@@ -197,6 +197,9 @@
       location = "group:../../../app-core/appseed/resident_twitchtv/resident_twitchtv.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/resident_youtube/resident_youtube.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app/appseed/sphere/sphere.xcodeproj">
    </FileRef>
    <FileRef
