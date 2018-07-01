@@ -49,16 +49,4 @@
    <FileRef
       location = "group:../../../third/appseed/strophe/strophe.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/common/welscommon.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/dec/welsdec/welsdec.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/enc/welsenc/welsenc.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../third/appseed/openh264/codec/build/iOS/processing/welsprocessing.xcodeproj">
-   </FileRef>
 </Workspace>
