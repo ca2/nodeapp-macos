@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence_thread.cpp"
-            timestampString = "541817201.013234"
+            timestampString = "552064480.561473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "217"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_sequence_thread.cpp"
-            timestampString = "541817201.013308"
+            timestampString = "552064480.561729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "218"
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "547029839.666037"
+            timestampString = "552064480.561852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "decoder::decoder(::aura::application * papp)"
             landmarkType = "7">
             <Locations>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "547029839.666311"
+            timestampString = "552064480.5620461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
             landmarkName = "decoder::multimedia_open(var varFile)"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,11 +442,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "547029839.6665291"
+            timestampString = "552064480.562098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "433"
-            endingLineNumber = "433"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "decoder::multimedia_open(var varFile)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "552064480.562139"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "424"
+            endingLineNumber = "424"
+            landmarkName = "decoder::multimedia_open(var varFile)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "552064480.562176"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
+            landmarkName = "decoder::multimedia_open(var varFile)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
+            timestampString = "552064480.562216"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
             landmarkName = "decoder::multimedia_open(var varFile)"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg_decoder.cpp"
-            timestampString = "547029839.666712"
+            timestampString = "552064480.562253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "423"
-            endingLineNumber = "423"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
             landmarkName = "decoder::multimedia_open(var varFile)"
             landmarkType = "7">
          </BreakpointContent>

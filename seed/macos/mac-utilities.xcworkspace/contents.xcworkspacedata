@@ -14,10 +14,34 @@
       location = "group:../../../app-core/appseed/veriedit/veriedit.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/hash_hub/hashhub.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/textformat/textformat.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/drum_factory/drum_factory.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/ace/ace.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/addressbook/app_core_addressbook.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/hash_crc/app_core_hash_crc.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/macos/app-core/appseed/hash_hub/app_core_hash_hub.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/hash_md5/app_core_hash_md5.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/hash_sha1/app_core_hash_sha1.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/textformat/app_core_textformat.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/verilux/app_core_verilux.xcodeproj">
@@ -27,6 +51,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/veriedit/app_core_veriedit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/drum_factory/app_veriwell_drum_factory.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
@@ -96,6 +123,9 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/gcom/gcom.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/hash_base/hash_base.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
