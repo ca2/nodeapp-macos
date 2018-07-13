@@ -20,6 +20,9 @@
       location = "group:../../../design/appseed/textformat/textformat.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../mattigianni/appseed/drum_factory/drum_factory.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app/appseed/ace/ace.xcodeproj">
    </FileRef>
    <FileRef
@@ -122,6 +125,9 @@
       location = "group:../../../app-core/appseed/hash_base/hash_base.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../mattigianni/appseed/drum_factory/mattigianni_drum_factory.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app-core/appseed/multimedia/multimedia.xcodeproj">
    </FileRef>
    <FileRef
@@ -141,5 +147,8 @@
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../../app-core/appseed/wndfrm_core/wndfrm_core.xcodeproj">
    </FileRef>
 </Workspace>
