@@ -188,6 +188,6 @@
       location = "group:../../../app/axis/openh264/codec/build/iOS/enc/welsenc/welsenc.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app-core/appseed/wndfrm_core/wndfrm_core.xcodeproj">
+      location = "container:../../../app/appseed/wndfrm_core/wndfrm_core.xcodeproj">
    </FileRef>
 </Workspace>

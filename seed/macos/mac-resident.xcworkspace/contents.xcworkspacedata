@@ -128,7 +128,7 @@
       location = "group:../../../app-core/appseed/vericard/vericard.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app-core/appseed/wndfrm_core/wndfrm_core.xcodeproj">
+      location = "container:../../../app/appseed/wndfrm_core/wndfrm_core.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../app-core/appseed/xmpp/xmpp.xcodeproj">

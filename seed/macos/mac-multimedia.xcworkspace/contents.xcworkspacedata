@@ -134,6 +134,6 @@
       location = "group:../../../app-veriwell/appseed/video_decode_ffmpeg/video_decode_ffmpeg.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app-core/appseed/wndfrm_core/wndfrm_core.xcodeproj">
+      location = "container:../../../app/appseed/wndfrm_core/wndfrm_core.xcodeproj">
    </FileRef>
 </Workspace>
