@@ -125,6 +125,6 @@
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app-core/appseed/wndfrm_core/wndfrm_core.xcodeproj">
+      location = "container:../../../app/appseed/wndfrm_core/wndfrm_core.xcodeproj">
    </FileRef>
 </Workspace>
