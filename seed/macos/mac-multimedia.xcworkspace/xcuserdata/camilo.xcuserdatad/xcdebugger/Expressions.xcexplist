@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "::___ZN12round_window17round_window_showEv_block_invoke():round_window.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_proundwindow">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[RoundWindowFrameView mouseMoved:](NSEvent *):RoundWindowFrameView.mm">
+      </ContextState>
+      <ContextState
+         contextName = "::-[RoundWindow windowDidResignKey:](NSNotification *):RoundWindow.mm">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
