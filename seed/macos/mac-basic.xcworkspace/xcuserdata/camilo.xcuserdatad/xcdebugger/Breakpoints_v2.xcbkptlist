@@ -985,7 +985,7 @@
                   moduleName = "libaura.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app/appseed/aura/../aura/user/user/user_place_holder_container.cpp"
-                  timestampString = "553392693.915956"
+                  timestampString = "556484750.484589"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
@@ -1000,7 +1000,7 @@
                   moduleName = "libaura.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app/appseed/aura/../aura/user/user/user_place_holder_container.cpp"
-                  timestampString = "553392693.919807"
+                  timestampString = "556484750.486492"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
@@ -1033,7 +1033,7 @@
                   moduleName = "libaura.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app/appseed/aura/../aura/user/user/user_place_holder_container.cpp"
-                  timestampString = "553392693.924458"
+                  timestampString = "556484750.489212"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
@@ -1048,7 +1048,7 @@
                   moduleName = "libaura.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app/appseed/aura/../aura/user/user/user_place_holder_container.cpp"
-                  timestampString = "553392693.9287159"
+                  timestampString = "556484750.491617"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
@@ -1193,7 +1193,7 @@
                   moduleName = "libcore.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app/appseed/core/user/user/user_combo_list.cpp"
-                  timestampString = "553392693.877471"
+                  timestampString = "556484749.186831"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -1208,7 +1208,7 @@
                   moduleName = "libcore.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app/appseed/core/user/user/user_combo_list.cpp"
-                  timestampString = "553392693.881175"
+                  timestampString = "556484749.189074"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -1241,12 +1241,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/user/userex/userex_userex.cpp"
-            timestampString = "553392693.550495"
+            timestampString = "556484747.084072"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1945"
             endingLineNumber = "1945"
-            landmarkName = "session::will_use_view_hint(::userex::e_view eview)"
+            landmarkName = "session::will_use_view_hint(string strView)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1257,12 +1257,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/user/userex/userex_userex.cpp"
-            timestampString = "553392693.550929"
+            timestampString = "556484747.084487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1940"
             endingLineNumber = "1940"
-            landmarkName = "session::will_use_view_hint(::userex::e_view eview)"
+            landmarkName = "session::will_use_view_hint(string strView)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1273,12 +1273,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/user/userex/userex_userex.cpp"
-            timestampString = "553392693.551214"
+            timestampString = "556484747.084802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1918"
             endingLineNumber = "1918"
-            landmarkName = "session::will_use_view_hint(::userex::e_view eview)"
+            landmarkName = "session::will_use_view_hint(string strView)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1407,6 +1407,22 @@
             startingLineNumber = "434"
             endingLineNumber = "434"
             landmarkName = "pane_tab_view::on_create_view(::user::view_creator_data * pcreatordata)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/node/macos/macos_interaction_impl.cpp"
+            timestampString = "556485557.426182"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "4551"
+            endingLineNumber = "4551"
+            landmarkName = "interaction_impl::round_window_draw(CGContextRef cgc)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
