@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../game/appseed/game_of_life/game_of_life_game.cpp"
-            timestampString = "556500978.063385"
+            timestampString = "556546861.679152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "435"
-            endingLineNumber = "435"
+            startingLineNumber = "455"
+            endingLineNumber = "455"
             landmarkName = "game::push_cell(unsigned int x, unsigned int y)"
             landmarkType = "7">
          </BreakpointContent>
