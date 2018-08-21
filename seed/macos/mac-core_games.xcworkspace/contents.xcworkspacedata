@@ -32,16 +32,10 @@
       location = "group:../../../app-veriwell/appseed/asciimedia/app_veriwell_asciimedia.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../../../app-veriwell/appseed/mplite/app_veriwell_mplite.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app-veriwell/appseed/waven/app_veriwell_waven.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../../appseed/audio_core_audio/audio_core_audio.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app-veriwell/appseed/audio_decode_libmpg123/audio_decode_libmpg123.xcodeproj">
@@ -72,9 +66,6 @@
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/crypto/axiscrypto.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/appseed/freeimage/axisfreeimage.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/freerdp/axisfreerdp.xcodeproj">
@@ -111,9 +102,6 @@
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../../app/appseed/estamira/estamira.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../game/appseed/coincube/game_coincube.xcodeproj">
