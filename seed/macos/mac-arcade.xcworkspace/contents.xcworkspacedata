@@ -101,6 +101,9 @@
       location = "container:../../../app/appseed/draw2d_quartz2d/draw2d_quartz2d.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../game/appseed/estamira/estamira.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../game/appseed/game_of_life/game_game_of_life.xcodeproj">
    </FileRef>
    <FileRef
