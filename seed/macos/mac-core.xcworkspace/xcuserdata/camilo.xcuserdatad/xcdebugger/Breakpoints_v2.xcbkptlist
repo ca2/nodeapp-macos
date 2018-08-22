@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/user/user/user_list.cpp"
-            timestampString = "555889112.060082"
+            timestampString = "556573358.063658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/user/user/user_list.cpp"
-            timestampString = "555889112.060128"
+            timestampString = "556573358.063765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "167"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/user/user/user_list.cpp"
-            timestampString = "555889112.060173"
+            timestampString = "556573358.063858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "513"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/user/user/user_plain_edit.cpp"
-            timestampString = "555914390.135041"
+            timestampString = "556589731.970625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "956"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/user/user/user_plain_edit.cpp"
-            timestampString = "555914390.135095"
+            timestampString = "556589731.970692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1021"
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/user/user/user_plain_edit.cpp"
-            timestampString = "555914390.135161"
+            timestampString = "556589731.970742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "982"
@@ -314,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/base/user/user/user_plain_edit.cpp"
-            timestampString = "555914390.135305"
+            timestampString = "556589731.970832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1595"
@@ -586,7 +586,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/node/macos/macos_os.cpp"
-            timestampString = "556558088.8886271"
+            timestampString = "556587558.4811701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1122"
@@ -618,7 +618,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/filesystem/filemanager/filemanager_file_list.cpp"
-            timestampString = "556563881.381402"
+            timestampString = "556589731.971204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1249"
@@ -634,7 +634,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/filesystem/filemanager/filemanager_file_list.cpp"
-            timestampString = "556563881.381475"
+            timestampString = "556589731.9712631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1191"
@@ -810,7 +810,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/filesystem/filemanager/filemanager_file_list.cpp"
-            timestampString = "556563881.381945"
+            timestampString = "556589731.971465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1098"
@@ -826,7 +826,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/filesystem/filemanager/filemanager_file_list.cpp"
-            timestampString = "556563881.382099"
+            timestampString = "556589731.971514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1246"
@@ -922,7 +922,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/filesystem/filemanager/filemanager_file_list.cpp"
-            timestampString = "556563881.382374"
+            timestampString = "556589731.971637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1180"
@@ -1109,7 +1109,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/filesystem/filemanager/filemanager_file_list.cpp"
-            timestampString = "556563881.382594"
+            timestampString = "556589731.971732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1179"
@@ -1125,7 +1125,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/core/filesystem/filemanager/filemanager_file_list.cpp"
-            timestampString = "556563881.382633"
+            timestampString = "556589731.971764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1252"
@@ -1195,6 +1195,246 @@
             startingLineNumber = "515"
             endingLineNumber = "515"
             landmarkName = "library::get_app_list(stringa &amp; stra)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/resident_youtube/resident_youtube_comm.cpp"
+            timestampString = "556589731.971892"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "comm::initialize_comm(string strServerParam, string strObjectParam)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/resident_youtube/resident_youtube_comm.cpp"
+            timestampString = "556589731.971925"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "comm::initialize_comm(string strServerParam, string strObjectParam)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/desk/desk_application.cpp"
+            timestampString = "556589731.9719861"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
+            landmarkName = "application::_001OpenFolder(string strFolder)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/desk/desk_list_view.cpp"
+            timestampString = "556574775.204053"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "837"
+            endingLineNumber = "837"
+            landmarkName = "list_view::_001OnOpenFileLocation(::message::message * pobj)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/desk/desk_list_view.cpp"
+            timestampString = "556574775.204142"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "list_view::_001OnItemClick(index iItem)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/os/macos/macos_mm.mm"
+            timestampString = "556574775.204239"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "ns_launch_app(const char * psz, const char ** argv)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/desk/desk_list_view.cpp"
+            timestampString = "556574775.2042789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "list_view::_001OnItemClick(index iItem)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "desk::list_view::_001OnItemClick(long long)"
+                  moduleName = "libapp_core_desk.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///xcore/app-core/appseed/desk/desk_list_view.cpp"
+                  timestampString = "556573309.274511"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "317"
+                  endingLineNumber = "317"
+                  offsetFromSymbolStart = "1064">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "desk::list_view::_001OnItemClick(long long)::$_0::operator()() const"
+                  moduleName = "libapp_core_desk.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///xcore/app-core/appseed/desk/desk_list_view.cpp"
+                  timestampString = "556573309.277312"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "317"
+                  endingLineNumber = "317"
+                  offsetFromSymbolStart = "447">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/desk/desk_list_view.cpp"
+            timestampString = "556574775.204319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
+            landmarkName = "list_view::_001OnItemClick(index iItem)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/desk/desk_list_view.cpp"
+            timestampString = "556574775.204358"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "list_view::_001OnItemClick(index iItem)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/desk/desk_list_view.cpp"
+            timestampString = "556574775.204396"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "list_view::_001OnItemClick(index iItem)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/desk/desk_list_view.cpp"
+            timestampString = "556574775.204435"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "list_view::_001OnItemClick(index iItem)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/aura/aura/node/macos/macos_os.cpp"
+            timestampString = "556587558.482342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1124"
+            endingLineNumber = "1124"
+            landmarkName = "os::file_open(::aura::application * papp, ::file::path path, string strParams, string strFolder)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/desk/desk_application.cpp"
+            timestampString = "556589731.972156"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
+            landmarkName = "application::_001OpenFolder(string strFolder)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
