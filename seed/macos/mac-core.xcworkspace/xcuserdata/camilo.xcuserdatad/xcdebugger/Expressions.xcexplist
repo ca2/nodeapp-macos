@@ -10,5 +10,22 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "vericard::pack::on_message(vericard::chat_comm*, string const&amp;, string const&amp;):vericard_pack.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "multimedia::ipi::on_media_playback_start(file::path, string, string_array&lt;string, string&gt;, string, memory&amp;, string):multimedia_ipi.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_straCallbackApp.m_pData[2]">
+            </PersistentString>
+            <PersistentString
+               value = "m_straCallbackApp.m_pData[1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "resident::ipi::on_call(string const&amp;, string const&amp;, var_array&amp;):resident_ipi.cpp">
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
