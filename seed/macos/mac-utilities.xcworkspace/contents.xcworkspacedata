@@ -142,4 +142,7 @@
    <FileRef
       location = "container:../../../app-veriwell/appseed/multimedia/veriwell_multimedia.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../../../app/appseed/wndfrm_core/wndfrm_core.xcodeproj">
+   </FileRef>
 </Workspace>
