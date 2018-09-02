@@ -179,9 +179,6 @@
       location = "group:../../../app/appseed/programming/programming.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../../third/appseed/protobuf/protobuf-c.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../../../app-core/appseed/resident_liveedutv/resident_liveedutv.xcodeproj">
    </FileRef>
    <FileRef
