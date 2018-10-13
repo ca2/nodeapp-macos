@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../app-core/appseed/rdpclient/Rdpclient.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/waven/Waven.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-veriwell/appseed/verisimplevideo/verisimplevideo.xcodeproj">
    </FileRef>
    <FileRef
@@ -44,6 +50,9 @@
       location = "container:../../../app-core/appseed/rdpclient/app_core_rdpclient.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-veriwell/appseed/asciimedia/app_veriwell_asciimedia.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../../app-veriwell/appseed/verisimplevideo/app_veriwell_verisimplevideo.xcodeproj">
    </FileRef>
    <FileRef
@@ -51,6 +60,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../app-veriwell/appseed/musical_player_lite/app_veriwell_musical_player_lite.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-veriwell/appseed/waven/app_veriwell_waven.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../../../third/appseed/iconv/atomiconv.xcodeproj">
@@ -120,6 +132,9 @@
    </FileRef>
    <FileRef
       location = "group:../../../app/appseed/music_midi_core_audio/music_midi_core_audio.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../app-core/appseed/rdpsnd-client-audio_decode/rdpsnd-client-audio_decode.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:../../../app/appseed/sphere/sphere.xcodeproj">
