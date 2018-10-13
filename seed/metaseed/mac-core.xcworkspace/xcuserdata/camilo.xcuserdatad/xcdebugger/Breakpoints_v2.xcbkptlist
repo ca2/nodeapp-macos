@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/aura/aura_system.cpp"
-            timestampString = "561085756.460322"
+            timestampString = "561097088.187883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2171"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-core/appseed/multimedia/audio_plugin/audio_plugin_resampler.cpp"
-            timestampString = "561085756.460687"
+            timestampString = "561097088.1882401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1790"
@@ -106,12 +106,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/aura/aura_system.cpp"
-            timestampString = "561085756.461551"
+            timestampString = "561097088.1885149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2214"
             endingLineNumber = "2214"
             landmarkName = "system::get_matter_cache_path(string strMatter)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/core/user/user/user_notify_icon.cpp"
+            timestampString = "561097088.188858"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "notify_icon::create_notify_icon(UINT uiId, notify_icon_listener * plistener, ::visual::icon * pvisualicon)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
