@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-veriwell/appseed/musical_player/musical_player_xfplayer_view.cpp"
-            timestampString = "557634908.999799"
+            timestampString = "561177545.893869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1214"
@@ -308,7 +308,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-veriwell/appseed/musical_player/musical_player_xfplayer_view.cpp"
-            timestampString = "557634909.000363"
+            timestampString = "561177545.894312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2564"
@@ -356,7 +356,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-veriwell/appseed/musical_player/musical_player_xfplayer_view.cpp"
-            timestampString = "557634909.000702"
+            timestampString = "561177545.8943909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3759"
@@ -372,11 +372,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app-veriwell/appseed/musical_player/musical_player_xfplayer_view.cpp"
-            timestampString = "557634909.0010279"
+            timestampString = "561177545.894431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3886"
-            endingLineNumber = "3886"
+            startingLineNumber = "3895"
+            endingLineNumber = "3895"
             landmarkName = "xfplayer_view::tabfy(const char * pszTitle, ::user::wndfrm::frame::WorkSetUpDownInterface * pupdown)"
             landmarkType = "7">
          </BreakpointContent>
@@ -388,7 +388,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/user/user/user_interaction.cpp"
-            timestampString = "557634654.055599"
+            timestampString = "561177545.894478"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "718"
@@ -404,7 +404,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/user/user/user_interaction.cpp"
-            timestampString = "557634654.055969"
+            timestampString = "561177545.894698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "734"
@@ -420,13 +420,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/os/macos/macos_windowing.cpp"
-            timestampString = "553339077.360448"
+            timestampString = "561177545.894761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "532"
-            endingLineNumber = "532"
-            landmarkName = "DestroyWindow(oswindow w)"
-            landmarkType = "9">
+            startingLineNumber = "552"
+            endingLineNumber = "552"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -436,13 +436,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/os/macos/macos_windowing.cpp"
-            timestampString = "553339077.360756"
+            timestampString = "561177545.894956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "526"
-            endingLineNumber = "526"
-            landmarkName = "DestroyWindow(oswindow w)"
-            landmarkType = "9">
+            startingLineNumber = "546"
+            endingLineNumber = "546"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -452,13 +452,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/os/macos/macos_windowing.cpp"
-            timestampString = "553339077.360821"
+            timestampString = "561177545.894999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
-            landmarkName = "DestroyWindow(oswindow w)"
-            landmarkType = "9">
+            startingLineNumber = "540"
+            endingLineNumber = "540"
+            landmarkName = "oswindow_data::is_null()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -484,12 +484,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/node/macos/macos_interaction_impl.cpp"
-            timestampString = "553339077.360958"
+            timestampString = "561177545.8950649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1987"
             endingLineNumber = "1987"
-            landmarkName = "interaction_impl::_001OnCreate(::message::message * pobj)"
+            landmarkName = "interaction_impl::prodevian_task()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -516,12 +516,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/node/macos/macos_interaction_impl.cpp"
-            timestampString = "553339077.361324"
+            timestampString = "561177545.895256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1973"
             endingLineNumber = "1973"
-            landmarkName = "interaction_impl::_001OnCreate(::message::message * pobj)"
+            landmarkName = "interaction_impl::prodevian_task()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -569,7 +569,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1256"
             endingLineNumber = "1256"
-            landmarkName = "thread::post_quit()"
+            landmarkName = "thread::on_before_shutdown()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -580,12 +580,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/node/macos/macos_interaction_impl.cpp"
-            timestampString = "553339077.361827"
+            timestampString = "561177545.895342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1897"
             endingLineNumber = "1897"
-            landmarkName = "interaction_impl::_001OnCreate(::message::message * pobj)"
+            landmarkName = "interaction_impl::OnDragList(WPARAM, LPARAM lparam)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -596,12 +596,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/aura/node/macos/macos_interaction_impl.cpp"
-            timestampString = "553339077.3618931"
+            timestampString = "561177545.895378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1899"
             endingLineNumber = "1899"
-            landmarkName = "interaction_impl::_001OnCreate(::message::message * pobj)"
+            landmarkName = "interaction_impl::OnDragList(WPARAM, LPARAM lparam)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -617,7 +617,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "478"
             endingLineNumber = "478"
-            landmarkName = "thread::on_pos_run_thread()"
+            landmarkName = "thread::on_keep_alive()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -804,12 +804,140 @@
             ignoreCount = "1"
             continueAfterRunningActions = "No"
             filePath = "../../../app-veriwell/appseed/musical_player/musical_player_xfplayer_view.cpp"
-            timestampString = "557634909.001635"
+            timestampString = "561177545.895579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3880"
-            endingLineNumber = "3880"
+            startingLineNumber = "3889"
+            endingLineNumber = "3889"
             landmarkName = "xfplayer_view::tabfy(const char * pszTitle, ::user::wndfrm::frame::WorkSetUpDownInterface * pupdown)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/multimedia/mediaplaylist/mediaplaylist_document.cpp"
+            timestampString = "561173758.178013"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "560"
+            endingLineNumber = "560"
+            landmarkName = "document::play(info * pinfo)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-core/appseed/multimedia/mediaplaylist/mediaplaylist_document.cpp"
+            timestampString = "561173767.5883501"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
+            landmarkName = "document::play(info * pinfo)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/multimedia/mediaplay/mediaplay_data.cpp"
+            timestampString = "561173899.982658"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "data::on_open_midi_document(var varFile)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "/macos/app-veriwell/appseed/multimedia/../../../nodeapp/seed/metaseed/../../../app-veriwell/appseed/multimedia/music/midi/music_midi_data.cpp"
+            timestampString = "561173990.187394"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "data::HelperOpenFile(memory &amp; storage)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/music_midi_core_audio/music_midi_core_audio_factory_exchange.cpp"
+            timestampString = "561177545.8957"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "music_midi_core_audio_ca2_factory_exchange(::aura::application * papp)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app-veriwell/appseed/multimedia/multimedia/multimedia_application.cpp"
+            timestampString = "561177545.895927"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "application::init_instance()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/core/user/simple/simple_frame_window.cpp"
+            timestampString = "561177545.89617"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2290"
+            endingLineNumber = "2290"
+            landmarkName = "simple_frame_window::WfiOnUp()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../app/appseed/axis/database/simpledb/simpledb_str_set.cpp"
+            timestampString = "561177545.896438"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "488"
+            endingLineNumber = "488"
+            landmarkName = "db_str_set::load(const ::database::key &amp; key, string &amp; strValue)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -116,7 +116,7 @@ namespace port
 
             bool bProcessed;
 
-            bool bEqual = false;
+            //bool bEqual = false;
 
             m_evRun.wait();
 
