@@ -84,12 +84,12 @@
                   moduleName = "libbase.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app/appseed/base/user/simple_ui/simple_ui_message_box.cpp"
-                  timestampString = "557636640.031736"
+                  timestampString = "561223348.493796"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
                   endingLineNumber = "38"
-                  offsetFromSymbolStart = "372">
+                  offsetFromSymbolStart = "393">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -99,12 +99,12 @@
                   moduleName = "libbase.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app/appseed/base/user/simple_ui/simple_ui_message_box.cpp"
-                  timestampString = "557636640.03697"
+                  timestampString = "561223348.498291"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
                   endingLineNumber = "38"
-                  offsetFromSymbolStart = "607">
+                  offsetFromSymbolStart = "637">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -114,7 +114,7 @@
                   moduleName = "libbase.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///macos/app/appseed/base/user/simple_ui/simple_ui_message_box.cpp"
-                  timestampString = "557636640.0397969"
+                  timestampString = "561223348.503938"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -307,12 +307,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/user/user/user_interaction_impl.cpp"
-            timestampString = "556935998.850646"
+            timestampString = "561223347.955629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1786"
             endingLineNumber = "1786"
-            landmarkName = "interaction_impl::set_need_redraw()"
+            landmarkName = "interaction_impl::enable_window(bool bEnable)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -351,16 +351,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/user/user/user_interaction_impl.cpp"
-            timestampString = "556935998.850938"
+            timestampString = "561223347.956136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1773"
             endingLineNumber = "1773"
-            landmarkName = "interaction_impl::RedrawWindow(LPCRECT lpRectUpdate,::draw2d::region * prgnUpdate,UINT flags)"
+            landmarkName = "interaction_impl::is_window_enabled()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -371,12 +371,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../app/appseed/aura/user/user/user_interaction_impl.cpp"
-            timestampString = "556935998.850975"
+            timestampString = "561223347.956566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1783"
             endingLineNumber = "1783"
-            landmarkName = "interaction_impl::set_need_redraw()"
+            landmarkName = "interaction_impl::enable_window(bool bEnable)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
