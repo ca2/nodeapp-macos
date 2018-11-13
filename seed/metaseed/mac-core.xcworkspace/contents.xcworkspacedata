@@ -116,6 +116,9 @@
       location = "group:../../../app-core/appseed/audio_decode_wave/audio_decode_wave.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../../app-core/appseed/audio_decode_youtube_player_api_for_iframe/audio_decode_youtube_player_api_for_iframe.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:../../../app/appseed/aura/aura.xcodeproj">
    </FileRef>
    <FileRef
